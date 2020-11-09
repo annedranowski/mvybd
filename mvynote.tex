@@ -1,0 +1,94 @@
+\documentclass[11pt]{amsart}
+%
+\usepackage{basic}
+\newcommand{\ad}{\text{ad}}
+% 
+% scattegories
+\newcommand{\vect}{\text{\bf vect}}
+\newcommand{\set}{\text{\bf set}}
+\newcommand{\tpl}{\text{\bf top}}
+%
+\begin{document}
+%
+\begin{definition}
+    \new{Lusztig's stratification} of \(\g\) 
+\end{definition}
+% 
+\begin{definition}
+    \label{def:normalS}
+    \(S\subset\g\) is a \new{transverse} or \new{normal} slice to a nilpotent orbit \(\alpha \equiv \OO_e\) at the element \(e\in \g\) if 
+    \begin{enumerate}
+        \item \label{enum:normalS1} \(T_e\alpha\oplus T_e S = \g\)
+        \item \label{enum:normalS2} there is a \(\GG_m\) action on \(S\) 
+        \begin{enumerate}
+            \item contracting it to \(e\), and
+            \item preserving \new{Lusztig's stratification} of \(\g\)
+        \end{enumerate} 
+    \end{enumerate}
+\end{definition}
+% 
+\begin{lemma} Let \(L\) be a Lusztig stratum. 
+    \begin{itemize}
+        \item \(S\cap\alpha=\{e\}\)
+        \item \(S\cap L\ne\varnothing \iff \alpha \subset \overline{L}\)
+        \item \(S\) intersects \(L\) transversely, i.e.\ for each \(x\in S\cap L\), \(T_x S \oplus T_x L = \g \)
+    \end{itemize}
+\end{lemma}
+% 
+\begin{proof}
+    \begin{itemize}
+        \item The first point is a consequence of Definition~\ref{def:normalS}~(\ref{enum:normalS2})? 
+    \end{itemize}
+\end{proof}
+% 
+\begin{lemma}
+The following data specifies a normal slice \(S\) to \(\alpha\) at \(e\).
+\begin{itemize}
+    \item \(h\in\g^{ss}\) such that \(\ad(h)\) has integer eigenvalues, and \(\ad(h)(e) = 2e\)
+    \item \(C\overset{\vect}{\subset}\g\) such that \(C\cap T_e(\alpha) = C\cap [\g,e] = 0 \), \(\ad(h)(C) = C\), and if \(\ad(h)(x) = nx\) for some \(x\in C\), then \(n\le 1\)
+\end{itemize}
+\end{lemma}
+% 
+\begin{proof}
+    \acom{See Lemma 5.2.1, 5.4.2, but most importantly Lemma 4.3.1 of Riche's Kostant section and universal centralizer.}
+    \begin{equation}
+        e = \sum_\Delta e_\alpha; \quad 
+        \check\lambda_\circ := \sum{\tilde\Phi^+} \check\alpha; \quad 
+        t\cdot x := t^{-2}\check\lambda_\circ(t) \cdot x 
+    \end{equation}
+    Apparently, we can lift the action of \(h\) on \(\g\) to a map \(\GG_m\to G\) and hence an action of \(\GG_m\) on \(\g\) which fixes \(e\) and preserves \(e+C\). The element \(h\) defines a 1-parameter subgroup \(e^{sh}\) in \(G\). 
+    % x`    
+    % We can consider \(\Ad(e^{sh})(x)\). Does it fix \(e\)? 
+    % \[
+    %     \begin{aligned}
+    % (1 + sh &+ \frac{s^2 h^2}{2} + \cdots ) x (1 - sh + \frac{s^2 h^2}{2} - \cdots ) = \\
+    % &= x + s[h,x] + s^2(-hxh + \frac 1 2 h^2 x + \frac 1 2 x h^2 ) + \cdots \\ 
+    % &= e + 2se + s^2(-heh + \frac 1 2 (h^2 e + e h^2) + \cdots ) \qquad x = e
+    %     \end{aligned}
+    % \]
+    % Nope. 
+\end{proof}
+% 
+MVy construct an isomorphism \(\psi:T_x\cap\cN\to T_b\cap\Gr_N\) where 
+\begin{itemize}
+    \item \(T_x = \{x + f \big| f \in \End(D), \text{[conditions]}\}\)
+    \item \(\cN \) is the nilpotent cone in \(\End(D)\)
+    \item \(T_b := L^{<0}G(\cK) L_b \) which is the same as to use the notation that we're used to \(\Gr_\mu \) as \(L^{<0}G(\cK) = \ker(G(\CC[z^{-1}])\xrightarrow{z^{-1}\mapsto 0} G)\)
+    \item \(\Gr_N = \{L\supset L_0 \big| \dim L/L_0 = N\} \)
+\end{itemize}
+%
+% import bibliography from tex.bib file
+%
+\bibliographystyle{plain}
+\bibliography{tex}
+%
+% for bundling, bbl file contains
+%
+% \begin{thebibliography}{E-G-S}
+
+% \bibitem[A1]{Anderson00}
+% J.~E.~Anderson, \textit{On Mirkovi\'c and Vilonen's Intersection Homology cycles for the Loop Grassmannian.} PhD thesis, Princeton University, 2000.
+
+% \end{thebibliography}
+%
+\end{document}

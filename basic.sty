@@ -1,0 +1,273 @@
+% Packages
+% 
+% \usepackage[T1]{fontenc}
+\usepackage{amsmath,mathtools,amssymb,amsthm,shuffle}
+\usepackage{mathrsfs,pifont}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{soul}
+\setul{0.5ex}{0.3ex}
+\setulcolor{RoyalPurple}
+\usepackage{bbm}
+\usepackage{comment,ulem}
+% \usepackage{fullpage}
+% \usepackage[top=1.25in, bottom=1.25in, left=1.25in, right=1.25in]{geometry}
+% \usepackage[showframe]{geometry}
+\usepackage[thinlines]{easybmat}
+\usepackage[vcentermath,enableskew]{youngtab}
+\usepackage{ytableau}
+\usepackage{booktabs,longtable}
+\usepackage{array}
+% 
+\usepackage{tikz-cd}
+\usepackage{tikz}
+\tikzset{
+    % vertical align/.style={
+    %         baseline=-.5*(height("$+$")-depth("$+$"))
+    %     }
+    % every picture/.style={vertical align}
+    % every picture/.style={baseline=11pt,scale=.5}
+}
+\usetikzlibrary{calc,shapes,arrows,fit}
+% 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.7}
+% 
+\usepackage{graphicx}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+% 
+\usepackage[pagebackref=true,backref=page,citebordercolor={BrickRed},linkbordercolor={BrickRed}]{hyperref} % values rgb = values RGB/255
+% e.g. 153, 102, 204 = 0.6 0.4 0.8 Dandelion
+% 
+% \hypersetup{  
+%   pdfinfo={  
+%     Title={My Title},  
+%     Subject={My Subject},  
+%     NewKey={Foobar},
+%     hypertexnames=true,
+%     citebordercolor={1 1 1},
+%     linkbordercolor={0 0 1}
+%     % ...  
+%     % pagebackref={True},
+%   }  
+% }
+% \usepackage[backrefs,msc-links]{amsrefs}
+\usepackage{cleveref}
+\crefname{maintheorem}{Theorem}{Theorems}
+% \crefname{cnstr}{constructions}{constructions}
+% 
+\usepackage{enumitem}
+% 
+% 
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand\into{\hookrightarrow}
+\newcommand\Det{\mathrm{Det}}
+% % % % 
+% Ops %
+% % % % 
+%
+\DeclareMathOperator\codim{codim}
+\DeclareMathOperator\Ker{Ker}
+\let\Im\relax\DeclareMathOperator{\Im}{Im}
+\DeclareMathOperator{\fix}{Fix}
+\DeclareMathOperator\Conv{Conv}
+\DeclareMathOperator\vol{vol}
+\DeclareMathOperator\Sp{Span}
+\DeclareMathOperator\len{len}
+\DeclareMathOperator\ch{ch}
+\DeclareMathOperator\irr{Irr}
+\DeclareMathOperator\val{val}
+\DeclareMathOperator\kpf{kpf}
+\DeclareMathOperator\sgn{sgn}
+\DeclareMathOperator\wt{wt}
+\DeclareMathOperator\hgt{ht}
+\DeclareMathOperator\Ad{Ad}
+\DeclareMathOperator\Seq{Seq}
+\DeclareMathOperator\Hom{Hom}
+\DeclareMathOperator\Sym{Sym}
+\DeclareMathOperator\Frac{Frac}
+\DeclareMathOperator\End{End}
+\DeclareMathOperator\IH{IH}
+\DeclareMathOperator\Hbmtop{H^{BM}_{top}}
+\DeclareMathOperator\Ell{\mathcal{E}ll}
+% \DeclareMathOperator\Cohbm{H_{BM}^\bullet}
+\DeclareMathOperator\Gr{Gr}
+% \DeclareMathOperator{\val}{val}
+\DeclareMathOperator{\rk}{rank}
+\DeclareMathOperator{\depth}{depth}
+% \DeclareMathOperator{\Ad}{Ad}
+% \DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\res}{Res}
+\DeclareMathOperator{\stand}{stand}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\spec}{Spec}
+\DeclareMathOperator{\dist}{Dist}
+\DeclareMathOperator{\proj}{Proj}
+\DeclareMathOperator{\coh}{Coh}
+\DeclareMathOperator{\perv}{Perv}
+\DeclareMathOperator{\mat}{Mat}
+\DeclareMathOperator{\ic}{IC}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\row}{row}
+\DeclareMathOperator\rep{Rep}
+\DeclareMathOperator\lie{Lie}
+\DeclareMathOperator\mdeg{mdeg}
+\DeclareMathOperator\eqm{eqm}
+\DeclareMathOperator\mult{mult}
+\DeclareMathOperator\diag{diag}
+\DeclareMathOperator\stab{Stab}
+\DeclareMathOperator{\Pol}{Pol}
+\DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator\Supp{Supp}
+\DeclareMathOperator\gr{gr}
+\DeclareMathOperator\Loc{Loc}
+\DeclareMathOperator\sh{sh}
+\DeclareMathOperator\ev{ev}
+\DeclareMathOperator\inn{in}
+\DeclareMathOperator\out{out}
+%
+% % % % % % % % % %
+% More characters %
+% % % % % % % % % %
+% 
+% \UnicodeTextSymbol{"1EA3}{\texthookabove{a}}{LATIN SMALL LETTER A WITH HOOK ABOVE}
+% \DeclareUnicodeCharacter{1EA3}{ả}
+% {\fontencoding{T5}\selectfont \h}
+% 
+% % % % % % % %
+% My commands %
+% % % % % % % %
+% 
+% mathfraks:
+\newcommand\fl{\mathfrak l}
+\newcommand\n{\mathfrak n}
+\newcommand\fu{\mathfrak u}
+\renewcommand\t{\mathfrak t}
+\newcommand\treg{{\mathfrak t}^{\rm reg}}
+\newcommand{\g}{\mathfrak g}
+\newcommand{\p}{\mathfrak p}
+\newcommand{\hh}{\mathfrak h}
+\newcommand\fZ{\mathfrak Z}
+\newcommand\fM{\mathfrak M}
+\renewcommand\sl{\mathfrak{sl}}
+\newcommand\m{\mathfrak m}
+\newcommand\fb{\mathfrak b}
+\newcommand\gl{\mathfrak{gl}}
+% 
+% mathbbs:
+\renewcommand\AA{\mathbb A}
+\newcommand\ZZ{\mathbb Z}
+\newcommand\NN{\mathbb N}
+\newcommand\CC{\mathbb C}
+\newcommand\TT{\mathbb T}
+\newcommand\RR{\mathbb R}
+\newcommand\PP{\mathbb P}
+\newcommand\OO{\mathbb O}
+\newcommand\YY{\mathbb Y}
+\newcommand\SlS{\mathbb S}
+\newcommand\GG{\mathbb G}
+\newcommand\Gm{\mathbb{G}_m}
+\newcommand\QQ{\mathbb Q}
+% 
+% mathcals:
+\newcommand\cA{\mathcal A}
+\newcommand\cG{\mathcal G}
+\newcommand\cF{\mathcal F}
+\newcommand\cO{\mathcal O}
+\newcommand\cP{\mathcal P}
+\newcommand\cK{\mathcal K}
+\newcommand\cN{\mathcal N}
+\newcommand\cM{\mathcal M}
+\newcommand\cZ{\mathcal Z}
+\newcommand\cT{\mathcal T}
+\newcommand{\cE}{\mathcal E}
+\newcommand\cV{\mathcal V}
+\newcommand\cH{\mathcal H}
+\newcommand\cC{\mathcal C}
+\newcommand\cB{\mathcal B}
+\newcommand{\cD}{\mathcal D}
+\newcommand\cL{\mathcal L}
+\newcommand\cW{\mathcal W}
+\newcommand\cU{\mathcal U}
+\newcommand\cPP{\mathcal{PP}}
+% 
+% mathscrs:
+\newcommand\scO{\mathscr O} 
+\newcommand\scL{\mathscr L}
+\newcommand\scP{\mathscr P}
+\newcommand\scF{\mathscr F}
+% 
+% groups
+\newcommand\SL{{\mathbf{SL}}}
+\newcommand\SU{{\mathbf{SU}}}
+\newcommand\GL{{\mathbf{GL}}}
+\newcommand\PGL{\mathbf{PGL}}
+\newcommand\GO{\mathbf{G}(\mathcal{O})}
+\newcommand\GK{\mathbf{G}(\mathcal{K})}
+% 
+\newcommand{\Grbd}{\mathrm{Gr}_{\mathrm{BD}}}
+% 
+% pmbs:
+\newcommand\pL{\pmb L}
+\newcommand\pS{\pmb S}
+\newcommand\pM{\pmb M}
+% 
+% other:
+\newcommand{\uvi}{\underline{\mathbf{i}}}
+\newcommand{\vi}{\mathbf{i}}
+\newcommand{\vj}{\mathbf{j}}
+\newcommand{\vk}{\mathbf{k}}
+\newcommand{\dimvec}{\underrightarrow{\dim}\,}
+\newcommand{\barD}{\overline{D}}
+\newcommand\bsm{\begin{smallmatrix}}
+\newcommand\esm{\end{smallmatrix}}
+\newcommand\pt{\text{pt}}
+\newcommand\loc{\text{loc}}
+\newcommand\varep{\varepsilon}
+% \newcommand\sPol{\lvert\text{Pol}\rvert}
+% \newcommand\sPol{\widetilde{\text{Pol}}}
+% 
+% functions:
+\newcommand\xt[1][t]{[\hspace{-.12em}[ {#1} ]\hspace{-.12em}]} 
+\newcommand\xT[1][t]{(\!( {#1} )\!)} % borrowed from Haines
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+\newcommand{\qq}[1][\theta]{/\hspace{-.21em}/_{\hspace{-.12em}#1}\hspace{.1em}}
+\newcommand{\acom}[1]{{\color{airforceblue}Anne:~#1}}
+\newcommand{\rcom}[1]{{\color{green}Roger:~#1}}
+\newcommand{\jcom}[1]{{\color{red}Joel:~#1}}
+\newcommand{\new}[1]{\textbf{#1}}
+\newcommand{\flip}[1]{\reflectbox{\rotatebox[origin=c]{180}{#1}}}
+%
+%
+% % % % % % %
+% My thm environments
+% % % % % %
+% 
+\newtheorem{maintheorem}{Theorem}%[chapter] 
+\renewcommand{\themaintheorem}{\Alph{maintheorem}} 
+% 
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem*{corollary*}{Corollary}
+\newtheorem{property}{Property}
+% 
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+% \newtheorem{examples}{Examples}
+\newtheorem{definition}{Definition}
+\newtheorem*{definition*}{Definition}
+\newtheorem{fact}{Fact}
+\newtheorem{goal}{Goal}
+\newtheorem*{goal*}{Goal}
+\newtheorem{claim}{Claim}
+\newtheorem{question}{Question}
+% 
+% \numberwithin{equation}{subsection}
+% \renewcommand{\theequation}{\alph{equation}}
+% 

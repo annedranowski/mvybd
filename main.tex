@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage{basic}
+
+\title{mvybdcluster}
+% \author{Roger Bai, Anne Dranowski, Joel Kamnitzer}
+\date{October 2020}
+
+\begin{document}
+
+\maketitle
+
+\section{Background}
+
+The BD Grassmannian. The convolution Grassmannian. Distinguished orbits, slices therein.
+
+\subsection{The case $n=2$ or $1$}
+
+In this case $\Grbd = G(\CC\xT[t^{-1}]/G(\CC[t])$. 
+$\Grbd^{\lambda_1,\lambda_2}\to\AA^1$ has 
+\begin{itemize}
+    \item special fibre $\overline{\Gr^{\lambda_1 + \lambda_2}}$
+    \item general fibre $\overline{\Gr^{\lambda_1}}\times\overline{\Gr^{\lambda_2}}$
+\end{itemize}
+% 
+and $S^{\mu_1,\mu_2}_{\mathrm{BD}}\to\AA^1$ has 
+\begin{itemize}
+    \item special fibre $\overline{S^{\mu_1+\mu_2}}$
+    \item general fibre $\overline{S^{\mu_1}}\times \overline{S^{\mu_2}}$
+\end{itemize}
+
+Given $s\in \AA^1$ take $t^{\mu_1}(t-s)^{\mu_2} \in \Grbd$ and note that 
+\begin{itemize}
+    \item[$s\ne 0\Rightarrow$] $S^{\mu_1}\times S^{\mu_2} = N(\CC\xT[t^{-1}])t^{\mu_1}(t-s)^{\mu_2}$
+    \item[$s = 0\Rightarrow$] $S^{\mu_1+\mu_2} = N(\CC\xT[t^{-1}])t^{\mu_1 + \mu_2}$
+\end{itemize}
+
+\jcom{Replace $\CC\xT[t^{-1}]$ by $\CC[t,t^{-1},(t-s)^{-1}]$ everywhere though it won't matter shortly.}
+
+We're interested in
+\begin{equation}
+\label{eq:topmvy2}
+    \tilde\phi_{\mathrm{MVy}}:\Grbd^{\lambda_1,\lambda_2}\cap S^{\mu_1,\mu_2}_{\mathrm{BD}} \to \{\text{some matrices}\}
+\end{equation}
+
+\section{Main results}
+
+\begin{claim}
+$\widetilde{T_x^a}\to\pi^{-1}(\overline{\Gr^\lambda}\cap\Gr_\mu)$ (this does depend on $b$! we get something like a springer fibre where the action of [what] on either side has eigenvalues a permutation of $b$.)
+\end{claim}
+
+\begin{claim}
+Let $\cW^\mu_{\rm BD} = G_1\xT[t^{-1}]t^\mu$. Then $S^{\mu_1 + \mu_2}$ is contained in $\cW^\mu_{\rm BD}$ if $\mu$ is dominant. \jcom{And $\mu_1$, $\mu_2$ are dominant also?} \acom{Roger has a proof.}
+\end{claim}
+
+\begin{definition}
+    Say $\mu_1$ and $\mu_2$ are \new{disjoint} if $(\mu_1)_i\ne 0 \Rightarrow (\mu_2)_i = 0$ and $(\mu_2)_i\ne 0 \Rightarrow (\mu_1)_i = 0$. 
+\end{definition}
+
+\begin{claim}
+Let $a = (0,s)$ and suppose $\mu_1$ and $\mu_2$ are disjoint \sout{``transverse''} 
+% i.e.\ $(\mu_1)_i\ne 0 \Rightarrow (\mu_2)_i = 0$ and $(\mu_2)_i\ne 0 \Rightarrow (\mu_1)_i = 0$. 
+Let $\mu = \mu_1 + \mu_2$. Then $X\in\widetilde{T_x^a}$ is a $\mu\times\mu$ block matrix, with $(\mu_1)_k\times(\mu_1)_k$ diagonal block conjugate to a $(\mu_1)_k$ Jordan block and $(\mu_2)_k\times (\mu_2)_k$ diagonal block conjugate to $(\mu_2)_k$ Jordan block plus $sI$.
+\end{claim}
+
+\begin{question}
+If $\mu_i$ is not a permutation of $\lambda_i$ and $\lambda_i$ are not ``homogeneous'' how do we proceed? E.g.\ if $\mu_1 = (3,0,2)$, $\mu_2 = (0,2,0)$ and $\lambda_1 = (4,1)$, $\lambda_2 = (2,0,0)$. 
+\end{question}
+
+\begin{question}
+If $\mu_1$ and $\mu_2$ are not disjoint how do we proceed? E.g.\ if $\mu_1 = (2,2,0)$, $\mu_2 = (1,0,2)$; $\mu_1 = (2,2,1)$, $\mu_2 = (1,0,1)$.
+\end{question}
+
+\section{Examples}
+
+\begin{example}
+$\lambda_1 = (1,0,0)$, $\lambda_2 = (1,1,0)$, $\mu_1 = (0,1,0)$, $\mu_2 = (1,0,1)$. \jcom{$\mu = \mu_1 + \mu_2$ determines the blocks we have on the RHS of the BD MVy isomorphism of Equation~\ref{eq:topmvy2}.} 
+
+In the non-BD case, MVy establish
+$$
+\overline{\Gr^\lambda}\cap \cW^\mu \to 
+\left\{ X = 
+\left[\begin{BMAT}{cc|cc|c}{cc|cc|c}
+0 & 1 & 0 & 0 & 0 \\
+* & * & * & * & * \\
+0 & 0 & 0 & 1 & 0 \\
+* & * & * & * & * \\
+* & 0 & * & 0 & * 
+\end{BMAT}\right] \big| X \in \overline{\OO}_\lambda
+\right\}
+$$
+
+In the BD case the RHS will consist of the same block like matrices $X$ but now having eigenvalues $s, 0$ such that $X - s\big|_{E_s}\in \OO_{\lambda_2}$ 
+\end{example}
+
+\begin{example}
+Do Joel's exercise: It would be good to do an example where we will see some multiplicity in the fusion product.  I think that the simplest example would be the fusion product of the MV cycles for $\SL_3$ of weights $2\alpha_1$ and $2\alpha_2$.  Following the notation from the mvbasis paper, this would correspond to the following multiplication:
+$x^2 y^2 = (xy-z)^2 + 2(xy - z) z + z^2$. 
+For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (0,2,0)$, $\mu_2 = (2,0,2)$. 
+\end{example}
+
+\begin{example}
+    Let 
+    \[
+    \begin{aligned}
+        \mu_1 &= (2) & \lambda_1 &= & \mu &= (5) \\
+        \mu_2 &= (3) & \lambda_2 &= & \lambda &= 
+    \end{aligned}
+    \]
+    Consider the companion matrix $C(p)$ of 
+    $$p(t) = (t-s)^3t^2 = (t^3 - 3t^2 s + 3t s^2 - s^3)t^2 = t^5 - 3 t^4 s + 3t^3 s^2 - t^2 s^3$$ 
+    Let $X = C(p)^T$ so 
+    \[
+    X = \left[\begin{BMAT}(e){ccccc}{ccccc}
+        0 & 1 & & & \\ 
+        & 0 & 1 & & \\
+        &   & 0 & 1 & \\ 
+        &   &   & 0 & 1 \\
+       0 & 0 & s^3 & -3s^2  & 3s  
+    \end{BMAT}\right]    
+    \]
+    Ask that $X\big|_{E_0}$ has Jordan type $\lambda_1$ and $X-s\big|_{E_s}$ has Jordan type $\lambda_2$. In this rank 1 case we are forced to take $\lambda_i = \mu_i$. 
+    
+    So what are the generalized eigenspaces $E_i$ ($i = 1,2$)? Note $\dim E_0 = 2$ and $\dim E_s = 3$. 
+    
+    \acom{The basis
+    \[
+     [1], [t], [\bf 1], [\bf t], [\bf t^2]    
+    \] 
+    with $t[t] = 0$ and $t[{\bf t^2}] =   s^3 [{\bf 1}] - 3s^2 [{\bf t}] + 3s[{\bf t^2}]$ \textit{is not the correct basis to consider}.
+    Hence my confusion of yore: what we would like is $t[t] = 0$ no? what the matrix is telling us is that $t[t] = [{\bf 1}]$. Can we still speak of \textit{two} generalized eigenspaces?}  % [3st^2 - 3s^2 t + s^3]
+
+    Rather, take $B$ to be the basis $b_1 = e_1$, $b_2 = e_2$, $b_5 = e_5$, $b_4 = Xe_5$, $b_3 = X^2e_5)$. In this basis
+    \[
+    X_B = [X(b_i)] = \begin{bmatrix}
+        0 & 1 & 0 & 0 & 0 \\
+        0 & 0 & 0 & 0 & 0 \\
+        0 & 0 & s & 1 & 0 \\
+        0 & 0 & 0 & s & 1 \\
+        0 & 0 & 0 & 0 & s
+    \end{bmatrix}
+    \]
+
+    % I think this demonstrates why Roger's idea is probably the right thing to do. Namely, consider instead $T_{\mu_1,\mu_2}$ whose elements are 
+    % \[
+    %     X = \left[\begin{BMAT}(e){cc|ccc}{cc|ccc}
+    %         0 & 1 & & & \\ 
+    %         & 0 & x & y & z \\
+    %         &   & 0 & 1 & \\ 
+    %         &   &   & 0 & 1 \\
+    %        0 & 0 & s^3 & -3s^2  & 3s  
+    %     \end{BMAT}\right]    
+    % \] 
+    % such that $T_{\mu_1,\mu_2}\big|_{s = 0} = T_\mu$ whatever that means... 
+\end{example}
+
+\begin{example}
+    Let 
+    \[
+    \begin{aligned}
+        \mu_1 &= (3,1,1) & \lambda_1 &= (3,2,0) & \mu = (3,3,1) \\
+        \mu_2 &= (0,2,0) & \lambda_2 &= (2,0,0) & \lambda = (5,2,0)
+    \end{aligned}    
+    \]
+    and consider the companion matrices of 
+    $$
+    \begin{aligned}
+        p_1(t) &= t^3 & p_2(t) &= t(t-s)^2 = t^3 - 2st^2 + s^2 t & p_3(t) &= t
+    \end{aligned} % = t(t^2 - 2st + s^2) 
+    $$
+    \[
+    X = \left[
+        \begin{BMAT}(e){ccc;ccc;c}{ccc;ccc;c}
+            0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+            0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+            % a & b & c & d & e & f & g \\ 
+            0 & 0 & 0 & d & e & f & g \\ 
+            0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 0 & -s^2 & 2s & k \\
+            0 & 0 & 0 & 0 & 0 & 0 & 0
+        \end{BMAT}
+        \right]    
+    \]
+\end{example}
+\end{document}
