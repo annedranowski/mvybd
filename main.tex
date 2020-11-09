@@ -182,4 +182,66 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
         \right]    
     \]
 \end{example}
+
+\begin{example}
+    Let
+    \[
+    \begin{aligned}
+        \lambda_1 &= (3,2,0) & \mu_1 &= (3,1,1) \\
+        \lambda_2 &= (2,0,0) & \mu_2 &= (1,1,0)
+    \end{aligned}
+    \]
+    so the first MV cycle $Z_1 \cong \PP^1$ has MV polytope $\Conv\{0, \alpha_1\}$ and the second MV cycle $Z_2 \cong \PP^1$ has MV polytope $\Conv\{0, \alpha_2\}$. Their fusion product corresponds to two $\PP^2$'s intersecting along a $\PP^1$. That is, we have the fusion product
+    \[
+    Z_1 * Z_2 = Z_+ + Z_-
+    \]
+    where $Z_+ \cong Z_- \cong \PP^2$.
+    We have 
+    \[
+    X = \begin{bmatrix}
+    0 & 1 \\
+      & 0 & 1 \\
+      &   & 0 & 1 \\
+      &   &   & s & a & b & c \\
+      &   &   &   & 0 & 1 & 0 \\
+      &   &   &   & 0 & s & d \\
+      &   &   &   &   &   & 0
+    \end{bmatrix}
+    \]
+    The $0$-generalized eigenspace $E_0$ of $X$ is $5$-dimensional, containing a 3-cycle and a 2-cycle.
+    The 3-cycle is 
+    \[
+    \{X^2 e_3 , X e_3, e_3\} = \{e_1, e_2, e_3\}.
+    \]
+    To obtain another vector in $\ker X$, either $a = 0$ or $c = d = 0$, but the latter case cannot give a 2-cycle as $e_7 \notin \im X$. Then $a = 0$ and we obtain a 2-cycle
+    \[
+    \left\{X \left( e_6 -\frac{s}{d}e_7 \right), e_6 - \frac{s}{d}e_7 \right\}
+    = \left\{e_5, e_6 - \frac{s}{d}e_7 \right\}.
+    \]
+    We also obtain the equations $b \neq 0$, $d \neq 0$, and $sc - bd = 0$ from this.
+    
+    For the $s$-generalized eigenspace $E_s$, we need $a + sb \neq 0$ to obtain a 2-cycle, which can be taken as 
+    \[
+    \begin{split}
+    & \left\{ 
+    (X -sI) \left( e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6 \right), 
+    e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6 
+    \right\} \\
+    = & \left\{ 
+    e_1 + s e_2 + s^2 e_3 + s^3 e_4, 
+    e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6
+    \right\}
+    \end{split}
+    \]
+    The minimal polymonial is $X^3 (X-sI)^2$, which when equated to 0 gives again the equation $cs-bd = 0$.
+    Thus the defining equations are 
+    \[
+    \{ a = 0, cs-bd = 0\}.
+    \]
+    When we take $s = 0$, we get the equations
+    \[
+    \{a = 0, bd = 0\}
+    \]
+    which corresponds to two $\AA^2$'s intersecting along an $\AA^1$. This is indeed an open subset of $\PP^2 \cup_{\PP_1} \PP^2$, as required.
+\end{example}
 \end{document}
