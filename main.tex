@@ -11,36 +11,15 @@
 
 \section{Background}
 
-The BD Grassmannian. The convolution Grassmannian. Distinguished orbits, slices therein.
+The BD Grassmannian. The convolution Grassmannian. Distinguished orbits, slices therein. Mirkovi\'c--Vybornov.
 
-\subsection{The case $n=2$ or $1$}
+\section{Notation}
 
-In this case $\Grbd = G(\CC\xT[t^{-1}]/G(\CC[t])$. 
-$\Grbd^{\lambda_1,\lambda_2}\to\AA^1$ has 
-\begin{itemize}
-    \item special fibre $\overline{\Gr^{\lambda_1 + \lambda_2}}$
-    \item general fibre $\overline{\Gr^{\lambda_1}}\times\overline{\Gr^{\lambda_2}}$
-\end{itemize}
-% 
-and $S^{\mu_1,\mu_2}_{\mathrm{BD}}\to\AA^1$ has 
-\begin{itemize}
-    \item special fibre $\overline{S^{\mu_1+\mu_2}}$
-    \item general fibre $\overline{S^{\mu_1}}\times \overline{S^{\mu_2}}$
-\end{itemize}
+\begin{definition}
+    Say $\mu_1$ and $\mu_2$ are \new{disjoint} if $(\mu_1)_i\ne 0 \Rightarrow (\mu_2)_i = 0$ and $(\mu_2)_i\ne 0 \Rightarrow (\mu_1)_i = 0$. 
+\end{definition}
 
-Given $s\in \AA^1$ take $t^{\mu_1}(t-s)^{\mu_2} \in \Grbd$ and note that 
-\begin{itemize}
-    \item[$s\ne 0\Rightarrow$] $S^{\mu_1}\times S^{\mu_2} = N(\CC\xT[t^{-1}])t^{\mu_1}(t-s)^{\mu_2}$
-    \item[$s = 0\Rightarrow$] $S^{\mu_1+\mu_2} = N(\CC\xT[t^{-1}])t^{\mu_1 + \mu_2}$
-\end{itemize}
-
-\jcom{Replace $\CC\xT[t^{-1}]$ by $\CC[t,t^{-1},(t-s)^{-1}]$ everywhere though it won't matter shortly.}
-
-We're interested in
-\begin{equation}
-\label{eq:topmvy2}
-    \tilde\phi_{\mathrm{MVy}}:\Grbd^{\lambda_1,\lambda_2}\cap S^{\mu_1,\mu_2}_{\mathrm{BD}} \to \{\text{some matrices}\}
-\end{equation}
+\acom{I propose ``anodyne'' as another candidate for the above property after Kapranov--Shechtman.}
 
 \section{Main results}
 
@@ -51,10 +30,6 @@ $\widetilde{T_x^a}\to\pi^{-1}(\overline{\Gr^\lambda}\cap\Gr_\mu)$ (this does dep
 \begin{claim}
 Let $\cW^\mu_{\rm BD} = G_1\xT[t^{-1}]t^\mu$. Then $S^{\mu_1 + \mu_2}$ is contained in $\cW^\mu_{\rm BD}$ if $\mu$ is dominant. \jcom{And $\mu_1$, $\mu_2$ are dominant also?} \acom{Roger has a proof.}
 \end{claim}
-
-\begin{definition}
-    Say $\mu_1$ and $\mu_2$ are \new{disjoint} if $(\mu_1)_i\ne 0 \Rightarrow (\mu_2)_i = 0$ and $(\mu_2)_i\ne 0 \Rightarrow (\mu_1)_i = 0$. 
-\end{definition}
 
 \begin{claim}
 Let $a = (0,s)$ and suppose $\mu_1$ and $\mu_2$ are disjoint \sout{``transverse''} 
@@ -70,182 +45,9 @@ If $\mu_i$ is not a permutation of $\lambda_i$ and $\lambda_i$ are not ``homogen
 If $\mu_1$ and $\mu_2$ are not disjoint how do we proceed? E.g.\ if $\mu_1 = (2,2,0)$, $\mu_2 = (1,0,2)$; $\mu_1 = (2,2,1)$, $\mu_2 = (1,0,1)$.
 \end{question}
 
-\section{Examples}
-
-\begin{example}
-$\lambda_1 = (1,0,0)$, $\lambda_2 = (1,1,0)$, $\mu_1 = (0,1,0)$, $\mu_2 = (1,0,1)$. \jcom{$\mu = \mu_1 + \mu_2$ determines the blocks we have on the RHS of the BD MVy isomorphism of Equation~\ref{eq:topmvy2}.} 
-
-In the non-BD case, MVy establish
-$$
-\overline{\Gr^\lambda}\cap \cW^\mu \to 
-\left\{ X = 
-\left[\begin{BMAT}{cc|cc|c}{cc|cc|c}
-0 & 1 & 0 & 0 & 0 \\
-* & * & * & * & * \\
-0 & 0 & 0 & 1 & 0 \\
-* & * & * & * & * \\
-* & 0 & * & 0 & * 
-\end{BMAT}\right] \big| X \in \overline{\OO}_\lambda
-\right\}
-$$
-
-In the BD case the RHS will consist of the same block like matrices $X$ but now having eigenvalues $s, 0$ such that $X - s\big|_{E_s}\in \OO_{\lambda_2}$ 
-\end{example}
-
-\begin{example}
-Do Joel's exercise: It would be good to do an example where we will see some multiplicity in the fusion product.  I think that the simplest example would be the fusion product of the MV cycles for $\SL_3$ of weights $2\alpha_1$ and $2\alpha_2$.  Following the notation from the mvbasis paper, this would correspond to the following multiplication:
-$x^2 y^2 = (xy-z)^2 + 2(xy - z) z + z^2$. 
-For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (0,2,0)$, $\mu_2 = (2,0,2)$. 
-\end{example}
-
-\begin{example}
-    Let 
-    \[
-    \begin{aligned}
-        \mu_1 &= (2) & \lambda_1 &= & \mu &= (5) \\
-        \mu_2 &= (3) & \lambda_2 &= & \lambda &= 
-    \end{aligned}
-    \]
-    Consider the companion matrix $C(p)$ of 
-    $$p(t) = (t-s)^3t^2 = (t^3 - 3t^2 s + 3t s^2 - s^3)t^2 = t^5 - 3 t^4 s + 3t^3 s^2 - t^2 s^3$$ 
-    Let $X = C(p)^T$ so 
-    \[
-    X = \left[\begin{BMAT}(e){ccccc}{ccccc}
-        0 & 1 & & & \\ 
-        & 0 & 1 & & \\
-        &   & 0 & 1 & \\ 
-        &   &   & 0 & 1 \\
-       0 & 0 & s^3 & -3s^2  & 3s  
-    \end{BMAT}\right]    
-    \]
-    Ask that $X\big|_{E_0}$ has Jordan type $\lambda_1$ and $X-s\big|_{E_s}$ has Jordan type $\lambda_2$. In this rank 1 case we are forced to take $\lambda_i = \mu_i$. 
-    
-    So what are the generalized eigenspaces $E_i$ ($i = 1,2$)? Note $\dim E_0 = 2$ and $\dim E_s = 3$. 
-    
-    \acom{The basis
-    \[
-     [1], [t], [\bf 1], [\bf t], [\bf t^2]    
-    \] 
-    with $t[t] = 0$ and $t[{\bf t^2}] =   s^3 [{\bf 1}] - 3s^2 [{\bf t}] + 3s[{\bf t^2}]$ \textit{is not the correct basis to consider}.
-    Hence my confusion of yore: what we would like is $t[t] = 0$ no? what the matrix is telling us is that $t[t] = [{\bf 1}]$. Can we still speak of \textit{two} generalized eigenspaces?}  % [3st^2 - 3s^2 t + s^3]
-
-    Rather, take $B$ to be the basis $b_1 = e_1$, $b_2 = e_2$, $b_5 = e_5$, $b_4 = Xe_5$, $b_3 = X^2e_5)$. In this basis
-    \[
-    X_B = [X(b_i)] = \begin{bmatrix}
-        0 & 1 & 0 & 0 & 0 \\
-        0 & 0 & 0 & 0 & 0 \\
-        0 & 0 & s & 1 & 0 \\
-        0 & 0 & 0 & s & 1 \\
-        0 & 0 & 0 & 0 & s
-    \end{bmatrix}
-    \]
-
-    % I think this demonstrates why Roger's idea is probably the right thing to do. Namely, consider instead $T_{\mu_1,\mu_2}$ whose elements are 
-    % \[
-    %     X = \left[\begin{BMAT}(e){cc|ccc}{cc|ccc}
-    %         0 & 1 & & & \\ 
-    %         & 0 & x & y & z \\
-    %         &   & 0 & 1 & \\ 
-    %         &   &   & 0 & 1 \\
-    %        0 & 0 & s^3 & -3s^2  & 3s  
-    %     \end{BMAT}\right]    
-    % \] 
-    % such that $T_{\mu_1,\mu_2}\big|_{s = 0} = T_\mu$ whatever that means... 
-\end{example}
-
-\begin{example}
-    Let 
-    \[
-    \begin{aligned}
-        \mu_1 &= (3,1,1) & \lambda_1 &= (3,2,0) & \mu = (3,3,1) \\
-        \mu_2 &= (0,2,0) & \lambda_2 &= (2,0,0) & \lambda = (5,2,0)
-    \end{aligned}    
-    \]
-    and consider the companion matrices of 
-    $$
-    \begin{aligned}
-        p_1(t) &= t^3 & p_2(t) &= t(t-s)^2 = t^3 - 2st^2 + s^2 t & p_3(t) &= t
-    \end{aligned} % = t(t^2 - 2st + s^2) 
-    $$
-    \[
-    X = \left[
-        \begin{BMAT}(e){ccc;ccc;c}{ccc;ccc;c}
-            0 & 1 & 0 & 0 & 0 & 0 & 0 \\
-            0 & 0 & 1 & 0 & 0 & 0 & 0 \\
-            % a & b & c & d & e & f & g \\ 
-            0 & 0 & 0 & d & e & f & g \\ 
-            0 & 0 & 0 & 0 & 1 & 0 & 0 \\
-            0 & 0 & 0 & 0 & 0 & 1 & 0 \\
-            0 & 0 & 0 & 0 & -s^2 & 2s & k \\
-            0 & 0 & 0 & 0 & 0 & 0 & 0
-        \end{BMAT}
-        \right]    
-    \]
-\end{example}
-
-\begin{example}
-    Let
-    \[
-    \begin{aligned}
-        \lambda_1 &= (3,2,0) & \mu_1 &= (3,1,1) \\
-        \lambda_2 &= (2,0,0) & \mu_2 &= (1,1,0)
-    \end{aligned}
-    \]
-    so the first MV cycle $Z_1 \cong \PP^1$ has MV polytope $\Conv\{0, \alpha_1\}$ and the second MV cycle $Z_2 \cong \PP^1$ has MV polytope $\Conv\{0, \alpha_2\}$. Their fusion product corresponds to two $\PP^2$'s intersecting along a $\PP^1$. That is, we have the fusion product
-    \[
-    Z_1 * Z_2 = Z_+ + Z_-
-    \]
-    where $Z_+ \cong Z_- \cong \PP^2$.
-    We have 
-    \[
-    X = \begin{bmatrix}
-    0 & 1 \\
-      & 0 & 1 \\
-      &   & 0 & 1 \\
-      &   &   & s & a & b & c \\
-      &   &   &   & 0 & 1 & 0 \\
-      &   &   &   & 0 & s & d \\
-      &   &   &   &   &   & 0
-    \end{bmatrix}
-    \]
-    The $0$-generalized eigenspace $E_0$ of $X$ is $5$-dimensional, containing a 3-cycle and a 2-cycle.
-    The 3-cycle is 
-    \[
-    \{X^2 e_3 , X e_3, e_3\} = \{e_1, e_2, e_3\}.
-    \]
-    To obtain another vector in $\ker X$, either $a = 0$ or $c = d = 0$, but the latter case cannot give a 2-cycle as $e_7 \notin \im X$. Then $a = 0$ and we obtain a 2-cycle
-    \[
-    \left\{X \left( e_6 -\frac{s}{d}e_7 \right), e_6 - \frac{s}{d}e_7 \right\}
-    = \left\{e_5, e_6 - \frac{s}{d}e_7 \right\}.
-    \]
-    We also obtain the equations $b \neq 0$, $d \neq 0$, and $sc - bd = 0$ from this.
-    
-    For the $s$-generalized eigenspace $E_s$, we need $a + sb \neq 0$ to obtain a 2-cycle, which can be taken as 
-    \[
-    \begin{split}
-    & \left\{ 
-    (X -sI) \left( e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6 \right), 
-    e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6 
-    \right\} \\
-    = & \left\{ 
-    e_1 + s e_2 + s^2 e_3 + s^3 e_4, 
-    e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6
-    \right\}
-    \end{split}
-    \]
-    The minimal polymonial is $X^3 (X-sI)^2$, which when equated to 0 gives again the equation $cs-bd = 0$.
-    Thus the defining equations are 
-    \[
-    \{ a = 0, cs-bd = 0\}.
-    \]
-    When we take $s = 0$, we get the equations
-    \[
-    \{a = 0, bd = 0\}
-    \]
-    which corresponds to two $\AA^2$'s intersecting along an $\AA^1$. This is indeed an open subset of $\PP^2 \cup_{\PP_1} \PP^2$, as required.
-\end{example}
-
 \section{Statements and Proofs of Results}
+\acom{Maybe split for now into a Notation section and a Proofs section}
+
 Define
 \[
 S_{\mu_1, \mu_2} = N((t^{-1}))t^{\mu_1}(t-s)^{\mu_2}
@@ -255,6 +57,8 @@ and
 W_\mu = G_1 [[t^{-1}]]t^\mu.
 \]
 Let $|\lambda| = |\lambda_1 + \lambda_2|$ and $|\mu| = |\mu_1 + \mu_2|$.
+
+\acom{Why not $\lambda = \lambda_1 + \lambda_2$ and recall $\lvert \nu \rvert$ in general.}
 
 \begin{lemma}[Proof in Proposition 2.6 of KWWY]
 Suppose $\mu$ is dominant. Then 
@@ -291,11 +95,16 @@ where $B_1[[t^{-1}]] t^{\mu_1} (t-s)^{\mu_2} = B_1[[t^{-1}]] t^{\mu_1 + \mu_2}$ 
 \]
 \end{proof}
 
-Define $Gr^{\lambda_1, \lambda_2} \subset Gr_{BD}$ to be the family with generic fibre $Gr^{\lambda_1} \times Gr^{\lambda_2}$ and 0-fibre $Gr^{\lambda_1 + \lambda_2}$.
+Define $\Gr^{\lambda_1, \lambda_2} \subset \Gr_{BD}$ to be the family with generic fibre $\Gr^{\lambda_1} \times \Gr^{\lambda_2}$ and 0-fibre $\Gr^{\lambda_1 + \lambda_2}$.
 
 Define $\OO_{\lambda_1, \lambda_2}$ to be matrices $X$ of size $|\lambda| \times |\lambda|$ such that 
 \[
-X|_{E_0} \in \OO_{\lambda_1} \text{ and } (X-sI)|_{E_s} \in \OO_{\lambda_2}.
+    % \begin{cases}
+        X\big|_{E_0} \in \OO_{\lambda_1} 
+        % \\
+        \text{ and }
+        (X-sI)\big|_{E_s} \in \OO_{\lambda_2}
+    % \end{cases}
 \]
 
 Let 
@@ -307,20 +116,19 @@ Define $\TT_{\mu_1, \mu_2}$ to be $|\mu| \times |\mu|$ matrices $X$ such that $X
 \begin{theorem}
 We have an isomorphism
 \[
-\overline{Gr^{\lambda_1, \lambda_2}} \cap S_{\mu_1, \mu_2} \cong
-\overline{\OO_{\lambda_1, \lambda_2}} \cap \TT_{\mu_1, \mu_2} \cap \n.
+    \overline{\Gr^{\lambda_1, \lambda_2}} \cap S_{\mu_1, \mu_2} \cong
+    \overline{\OO_{\lambda_1, \lambda_2}} \cap \TT_{\mu_1, \mu_2} \cap \n.
 \]
 \end{theorem}
 
 \begin{proof}
-We will prove this similarly to how the usual Mirkovi\'c-Vybornov isomorphism is proven.
+We will prove this similarly to how the usual Mirkovi\'c--Vybornov isomorphism is proven.
 \begin{enumerate}[label = Step \arabic*:]
     \item Define a map $\TT_{\mu_1, \mu_2} \cap \cN \rightarrow G_1[t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
 
     \item If $A \in \TT_{\mu_1,\mu_2} \cap \n$ then $A$ is sent to $(N_-)_1[t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
 
     \item Conversely, given $L \in W_{\mu_1 + \mu_2}$, want to show surjectivity.
-    
 \end{enumerate}
 \end{proof}
 \end{document}
