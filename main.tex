@@ -1,4 +1,4 @@
-\documentclass{article}
+ \documentclass{article}
 \usepackage{basic}
 
 \title{mvybdcluster}
@@ -244,4 +244,82 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
     \]
     which corresponds to two $\AA^2$'s intersecting along an $\AA^1$. This is indeed an open subset of $\PP^2 \cup_{\PP_1} \PP^2$, as required.
 \end{example}
+
+\section{Statements and Proofs of Results}
+Define
+\[
+S_{\mu_1, \mu_2} = N((t^{-1}))t^{\mu_1}(t-s)^{\mu_2}
+\]
+and
+\[
+W_\mu = G_1 [[t^{-1}]]t^\mu.
+\]
+Let $|\lambda| = |\lambda_1 + \lambda_2|$ and $|\mu| = |\mu_1 + \mu_2|$.
+
+\begin{lemma}[Proof in Proposition 2.6 of KWWY]
+Suppose $\mu$ is dominant. Then 
+\[
+N((t^{-1})) t^\mu = N_1[[t^{-1}]] t^\mu.
+\]
+\end{lemma}
+
+\begin{lemma}
+For dominant $\mu_1,\mu_2$, we have
+\[
+S_{\mu_1, \mu_2} \subset W_{\mu_1 + \mu_2}.
+\]
+\end{lemma}
+
+\begin{proof}
+We have
+\[
+\begin{split}
+    S_{\mu_1, \mu_2} & = N((t^{-1}))t^{\mu_1}(t-s)^{\mu_2} \\
+     & \subset T_1[[t^{-1}]] N((t^{-1})) t^{\mu_1} (t-s)^{\mu_2} \\
+     & = T_1[[t^{-1}]] N_1[[t^{-1}]] t^{\mu_1} (t-s)^{\mu_2} \\
+     & = B_1[[t^{-1}]] t^{\mu_1} (t-s)^{\mu_2} \\
+     & = B_1[[t^{-1}]] t^{\mu_1 + \mu_2} \\
+     & \subset G_1[[t^{-1}]] t^{\mu_1 + \mu_2} \\
+     & = W_{\mu_1 + \mu_2}
+\end{split}
+\]
+where $B_1[[t^{-1}]] t^{\mu_1} (t-s)^{\mu_2} = B_1[[t^{-1}]] t^{\mu_1 + \mu_2}$ since 
+\[
+\frac{t}{t-s} = 
+1 + \frac{s}{t} + \frac{s^2}{t^2} + \cdots 
+\in B_1[[t^{-1}]].
+\]
+\end{proof}
+
+Define $Gr^{\lambda_1, \lambda_2} \subset Gr_{BD}$ to be the family with generic fibre $Gr^{\lambda_1} \times Gr^{\lambda_2}$ and 0-fibre $Gr^{\lambda_1 + \lambda_2}$.
+
+Define $\OO_{\lambda_1, \lambda_2}$ to be matrices $X$ of size $|\lambda| \times |\lambda|$ such that 
+\[
+X|_{E_0} \in \OO_{\lambda_1} \text{ and } (X-sI)|_{E_s} \in \OO_{\lambda_2}.
+\]
+
+Let 
+\[
+\mu = (\mu^{(1)}, \mu^{(2)}, ..., \mu^{(n)}).
+\]
+Define $\TT_{\mu_1, \mu_2}$ to be $|\mu| \times |\mu|$ matrices $X$ such that $X$ consists of block matrices where the size of the $i$-th diagonal block is $|\mu^{(i)}| \times |\mu^{(i)}|$, for $1\leq i \leq n$.
+
+\begin{theorem}
+We have an isomorphism
+\[
+\overline{Gr^{\lambda_1, \lambda_2}} \cap S_{\mu_1, \mu_2} \cong
+\overline{\OO_{\lambda_1, \lambda_2}} \cap \TT_{\mu_1, \mu_2} \cap \n.
+\]
+\end{theorem}
+
+\begin{proof}
+We will prove this similarly to how the usual Mirkovi\'c-Vybornov isomorphism is proven.
+\begin{enumerate}[label = Step \arabic*:]
+    \item Define a map $\TT_{\mu_1, \mu_2} \cap \cN \rightarrow G_1[t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
+
+    \item If $A \in \TT_{\mu_1,\mu_2} \cap \n$ then $A$ is sent to $(N_-)_1[t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
+
+    \item Conversely, given $L \in W_{\mu_1 + \mu_2}$, something happens.
+\end{enumerate}
+\end{proof}
 \end{document}
