@@ -1,7 +1,8 @@
  \documentclass{article}
 \usepackage{basic}
 
-\title{mvybdcluster}
+\title{Working title: Mirkovi\'c--Vybornov fusion in Beilinson--Drinfeld Grassmannian}
+% \title{mvybdcluster}
 % \author{Roger Bai, Anne Dranowski, Joel Kamnitzer}
 \date{October 2020}
 
@@ -44,6 +45,48 @@ If $\mu_i$ is not a permutation of $\lambda_i$ and $\lambda_i$ are not ``homogen
 \begin{question}
 If $\mu_1$ and $\mu_2$ are not disjoint how do we proceed? E.g.\ if $\mu_1 = (2,2,0)$, $\mu_2 = (1,0,2)$; $\mu_1 = (2,2,1)$, $\mu_2 = (1,0,1)$.
 \end{question}
+
+\section{Background on MVy}
+
+What they do. What they stop short of doing. 
+
+\begin{itemize}
+    \item Their slice $T_x$ or $T_\lambda$
+    \item Their embedding $T_x\to\mathfrak G_N$
+    \item $N$-dim $D$
+    \item The map $\tilde {\bf m}:\tilde{\mathfrak g}^{n}\to\End(D)$
+    \item The map ${\bf m} : \tilde{\mathcal N}^n\to\mathcal N$ sending $(x,F_\bullet)$ to $x$
+    \item The map $\pi: \tilde{\mathfrak G}^n\to \mathfrak G$ sending $\mathcal L_\bullet$ to $\mathcal L_n$
+\end{itemize}
+
+
+The special case $b = \vec 0$. In this case $0$ in the affine quiver variety goes to the point $L_\lambda$ in the affine Grassmannian, and the preimage of zero in the smooth quiver variety (the core?) is identified with the preimage of $L_\lambda$ in the BD Grassmannian. 
+
+\[
+\begin{tikzcd}
+    \mathfrak L(\vec v,\vec w) \ar[r] \ar[d] & \pi^{-1} (L_\lambda)\ar[d] \\
+     0 \ar[r] & L_\lambda
+\end{tikzcd}    
+\]
+
+MVy write: ``we believe that one should be able to generalize this to arbitrary [$b$]'' and that's where we come in!
+
+Recall the Mirkovi\'c--Vybornov immersion \cite[Theorems 1.2 and 5.3]{mirkovic2007quiver}. 
+
+% \acom{All this time it was only an immersion! So our result will be a Theorem and not simply a reformulation plus corollary. Never mind.}
+
+\begin{theorem}(\cite[Theorem 1.2 and 5.3]{mirkovic2007quiver})
+    There exists an algebraic immersion $\tilde\psi$ 
+    $$\widetilde{\bf m}^{-1}(T_\lambda)\cap\tilde\g^{n,a,E,\tilde\mu}\xrightarrow{\tilde\psi}\tilde{\mathfrak G}^{n,a}_{b}(P)$$
+\end{theorem}
+
+% Where to begin? How to tell this story? Left to right? 
+
+% Here
+% \begin{itemize}
+%     \item $T_\lambda \equiv \TT_\lambda$
+%     \item 
+% \end{itemize}
 
 \section{Statements and Proofs of Results}
 \acom{Maybe split for now into a Notation section and a Proofs section}
@@ -121,14 +164,19 @@ We have an isomorphism
 \]
 \end{theorem}
 
+\acom{Rather, corollary?}
+
 \begin{proof}
 We will prove this similarly to how the usual Mirkovi\'c--Vybornov isomorphism is proven.
 \begin{enumerate}[label = Step \arabic*:]
     \item Define a map $\TT_{\mu_1, \mu_2} \cap \cN \rightarrow G_1[t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
 
-    \item If $A \in \TT_{\mu_1,\mu_2} \cap \n$ then $A$ is sent to $(N_-)_1[t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
+    \item If $A \in \TT_{\mu_1,\mu_2} \cap \n$ then $A$ is sent to $(N_-)_1[t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. \acom{Requires MVyBD!}
 
     \item Conversely, given $L \in W_{\mu_1 + \mu_2}$, want to show surjectivity.
 \end{enumerate}
 \end{proof}
+
+\bibliographystyle{alpha}
+\bibliography{mvybd}
 \end{document}
