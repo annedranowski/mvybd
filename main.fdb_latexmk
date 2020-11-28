@@ -1,14 +1,14 @@
 # Fdb version 3
-["bibtex main"] 1606198496 "main.aux" "main.bbl" "main" 1606199236
+["bibtex main"] 1606582153 "main.aux" "main.bbl" "main" 1606582988
   "/usr/local/texlive/2020/texmf-dist/bibtex/bst/base/alpha.bst" 1292289607 23907 a5f93555796fb564b924339521f10a7c ""
-  "main.aux" 1606199236 1488 6086a25a179598d1ff9c44bc22208b07 "pdflatex"
+  "main.aux" 1606582987 1488 6086a25a179598d1ff9c44bc22208b07 "pdflatex"
   "mvybd.bib" 1606018988 214 51c36cd1f50470a77001e95352b31441 ""
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1606199234 "/Users/anne/zorkspaces/2020/mvybd/main.tex" "/Users/anne/zorkspaces/2020/mvybd/main.pdf" "main" 1606199236
-  "/Users/anne/zorkspaces/2020/mvybd/main.aux" 1606199236 1488 6086a25a179598d1ff9c44bc22208b07 ""
-  "/Users/anne/zorkspaces/2020/mvybd/main.tex" 1606199234 6532 8331e2027634757281e2254f6efb5d64 ""
+["pdflatex"] 1606582986 "/Users/anne/zorkspaces/2020/mvybd/main.tex" "/Users/anne/zorkspaces/2020/mvybd/main.pdf" "main" 1606582988
+  "/Users/anne/zorkspaces/2020/mvybd/main.aux" 1606582987 1488 6086a25a179598d1ff9c44bc22208b07 ""
+  "/Users/anne/zorkspaces/2020/mvybd/main.tex" 1606582985 7147 23ea07d47e1b8c11e72bbea0866f8668 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -63,6 +63,7 @@
   "/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1248133631 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb" 1336858727 21098 d4aee7c0aac232caac5688b586b9363c ""
   "/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
+  "/usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1248133631 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2020/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2020/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
@@ -272,16 +273,16 @@
   "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1586288259 2432462 fd0fa20e9a3cb5f8169fd0ba1c955158 ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
   "basic.sty" 1606017197 7622 11b8db91f281e8b9861182932d0054f5 ""
-  "main.aux" 1606199236 1488 6086a25a179598d1ff9c44bc22208b07 "pdflatex"
-  "main.bbl" 1606198496 256 8388975d2b873bb005a5d513bdb4d5fc "bibtex main"
-  "main.brf" 1606199236 100 e648eac5e49a3d796c9f36ab9c7ab173 "pdflatex"
-  "main.out" 1606199236 254 5a1367651b65372f49233850f8b173fc "pdflatex"
-  "main.tex" 1606199234 6532 8331e2027634757281e2254f6efb5d64 ""
+  "main.aux" 1606582987 1488 6086a25a179598d1ff9c44bc22208b07 "pdflatex"
+  "main.bbl" 1606582153 256 8388975d2b873bb005a5d513bdb4d5fc "bibtex main"
+  "main.brf" 1606582987 100 e648eac5e49a3d796c9f36ab9c7ab173 "pdflatex"
+  "main.out" 1606582987 254 5a1367651b65372f49233850f8b173fc "pdflatex"
+  "main.tex" 1606582985 7147 23ea07d47e1b8c11e72bbea0866f8668 ""
   (generated)
-  "main.brf"
   "main.pdf"
-  "/Users/anne/zorkspaces/2020/mvybd/main.pdf"
   "main.aux"
-  "main.log"
-  "main.out"
+  "main.brf"
   "/Users/anne/zorkspaces/2020/mvybd/main.log"
+  "main.out"
+  "/Users/anne/zorkspaces/2020/mvybd/main.pdf"
+  "main.log"
