@@ -1,5 +1,6 @@
- \documentclass{article}
+\documentclass{article}
 \usepackage{basic}
+\newcommand{\anne}[2]{\colorbox{pink!75!blue}{#1}\marginpar[]{\tiny\textbf{\color{pink!50!blue}#2}}}
 
 \title{Working title: Mirkovi\'c--Vybornov fusion in Beilinson--Drinfeld Grassmannian}
 % \title{mvybdcluster}
@@ -10,11 +11,13 @@
 
 \maketitle
 
-\section{Background}
+\section{Introduction}
 
 The BD Grassmannian. The convolution Grassmannian. Distinguished orbits, slices therein. Mirkovi\'c--Vybornov.
 
 \section{Notation}
+
+Let $\Gr$ denote the ordinary affine Grassmannian, $\Grbd$ the Beilinson--Drinfeld affine Grassmannian, and $\Grc$ the convolution affine Grassmannian. 
 
 \begin{definition}
     Say $\mu_1$ and $\mu_2$ are \new{disjoint} if $(\mu_1)_i\ne 0 \Rightarrow (\mu_2)_i = 0$ and $(\mu_2)_i\ne 0 \Rightarrow (\mu_1)_i = 0$. 
@@ -46,9 +49,38 @@ If $\mu_i$ is not a permutation of $\lambda_i$ and $\lambda_i$ are not ``homogen
 If $\mu_1$ and $\mu_2$ are not disjoint how do we proceed? E.g.\ if $\mu_1 = (2,2,0)$, $\mu_2 = (1,0,2)$; $\mu_1 = (2,2,1)$, $\mu_2 = (1,0,1)$.
 \end{question}
 
-\section{Background on MVy}
+\section{Convolution vs BD}
+% aka, our result vs MVy's results
+% aka, what they do, and what they stop short of doing
 
-What they do. What they stop short of doing. 
+Fix $G = \GL(U) \cong \GL_m\CC$ and $\{e_1,\dots,e_m\}$ a basis of $U$. 
+% 
+Recall $\Gr = G(\cK) / G(\cO)$ where $\cK,\cO$\dots
+
+\begin{definition}[Beilinson--Drinfeld loop Grassmannians]
+    Denoted $\Grbd_{C^{(n)}}$ with $C$ a smooth curve (or formal neighbourhood of a finite subset thereof) and $C^{(n)}$ its $n$th symmetric power. It is a reduced ind-scheme $\Grbd_{C^{(n)}}\to C^{(n)}$ with fibres of $C$-lattices $\Grbd_b = \{(b,\cL) : b \in C^{(n)}\}$ made up of vector bundles \anne{such that}{Not sure what $\cO_C$ means} $\cL \cong U\otimes\cO_C$ off $b$ (i.e.\ over $C - \underline b$). The standard \anne{lattice}{Notation} is the pair $(\varnothing,\cL_0)$ with $\cL_0 = U\otimes \cO_C$. 
+\end{definition}
+
+{\bf The case $n = 1$.} Fix $b\in C$ and $t$ a choice of formal parameter. \anne{Then}{Why is this called ``its group-theoretic realization''} $\Grbd_b\cong\Gr$.
+
+Furthermore, in this case, $C$-lattices $(b,\cL)$ are identified with $\cO$-submodules $L = \Gamma(\hat b, \cL)$ of $U_\cK = U\otimes\cK$ such that $L\otimes_\cO\cK \cong U_\cK$. 
+
+Under this identification, we associate to a given $\lambda\in\ZZ^m$ the lattice (a priori a $\cO$-submodule) $L_\lambda = \oplus_1^m t^{\lambda_i}e_i\cO$. Nb. our lattices will be contained in the standard lattice $L_0$ whereas MVy's lattices contain.
+
+Connected components of $\Gr$ are 
+
+% Distinguished orbits. 
+$G(\cO)$-orbits are indexed by coweights $\lambda = (\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_n)$ of $G$. In terms of lattices 
+\begin{equation}
+    \label{eq:grlambdalat}
+    \Gr^\lambda = \left\{L\supset L_0 \,\big|\, t\big|_{L/L_0} \in \OO_\lambda \right\}
+\end{equation} in the connected component $\Gr_N$ are indexed
+
+\cite{mirkovic2007quiver} define a map 
+\begin{equation}
+    \label{eq:grbdingrc}
+    \Grbd \to \Grc
+\end{equation}
 
 \begin{itemize}
     \item Their slice $T_x$ or $T_\lambda$
@@ -60,8 +92,8 @@ What they do. What they stop short of doing.
 \end{itemize}
 
 
-The special case $b = \vec 0$. In this case $0$ in the affine quiver variety goes to the point $L_\lambda$ in the affine Grassmannian, and the preimage of zero in the smooth quiver variety (the core?) is identified with the preimage of $L_\lambda$ in the BD Grassmannian. 
-
+The special case $b = \vec 0$. In this case $0$ in the affine quiver variety goes to the point $L_\lambda$ in the affine Grassmannian, and the preimage of zero in the smooth quiver variety ($=$ the core?) is identified with the preimage of $L_\lambda$ in the BD Grassmannian. 
+% 
 \[
 \begin{tikzcd}
     \mathfrak L(\vec v,\vec w) \ar[r] \ar[d] & \pi^{-1} (L_\lambda)\ar[d] \\
@@ -69,7 +101,7 @@ The special case $b = \vec 0$. In this case $0$ in the affine quiver variety goe
 \end{tikzcd}    
 \]
 
-MVy write: ``we believe that one should be able to generalize this to arbitrary [$b$]'' and that's where we come in!
+MVy write: ``we believe that one should be able to generalize this to arbitrary $b$'' and that's where we come in!
 
 Recall the Mirkovi\'c--Vybornov immersion \cite[Theorems 1.2 and 5.3]{mirkovic2007quiver}. 
 
@@ -184,6 +216,8 @@ We will prove this similarly to how the usual Mirkovi\'c--Vybornov isomorphism i
     \item Conversely, given $L \in W_{\mu_1 + \mu_2}$, want to show surjectivity.
 \end{enumerate}
 \end{proof}
+
+\include{examplesp}
 
 \bibliographystyle{alpha}
 \bibliography{mvybd}
