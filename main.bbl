@@ -1,8 +1,29 @@
-\begin{thebibliography}{MV07}
+\begin{thebibliography}{BGL20}
+
+\bibitem[AK05]{anderson2005algebra}
+Jared~E Anderson and Mikhail Kogan.
+\newblock The algebra of mirkovic-vilonen cycles in type a.
+\newblock {\em arXiv preprint math/0505100}, 2005.
+
+\bibitem[BGL20]{baumann2020bases}
+Pierre Baumann, St{\'e}phane Gaussent, and Peter Littelmann.
+\newblock Bases of tensor products and geometric satake correspondence.
+\newblock {\em arXiv preprint arXiv:2009.00042}, 2020.
+
+\bibitem[CK18]{cautis2018categorical}
+Sabin Cautis and Joel Kamnitzer.
+\newblock Categorical geometric symmetric howe duality.
+\newblock {\em Selecta Mathematica}, 24(2):1593--1631, 2018.
 
 \bibitem[MV07]{mirkovic2007quiver}
 Ivan Mirkovi{\'c} and Maxim Vybornov.
 \newblock Quiver varieties and beilinson-drinfeld grassmannians of type a.
 \newblock {\em arXiv preprint arXiv:0712.4160}, 2007.
+
+\bibitem[MV19]{mirkovic2019comparison}
+Ivan Mirkovic and Maxim Vybornov.
+\newblock Comparison of quiver varieties, loop grassmannians and nilpotent
+  cones in type a.
+\newblock {\em arXiv preprint arXiv:1905.01810}, 2019.
 
 \end{thebibliography}

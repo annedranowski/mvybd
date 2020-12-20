@@ -1,3 +1,10 @@
-\backcite {mirkovic2007quiver}{{2}{4}{equation.4.1}}
-\backcite {mirkovic2007quiver}{{3}{4}{equation.4.2}}
-\backcite {mirkovic2007quiver}{{3}{1}{theorem.1}}
+\backcite {mirkovic2007quiver,mirkovic2019comparison}{{1}{1}{section.1}}
+\backcite {cautis2018categorical}{{1}{1}{section.1}}
+\backcite {anderson2005algebra}{{1}{1}{section.1}}
+\backcite {mirkovic2019comparison}{{1}{1}{equation.2.1}}
+\backcite {baumann2020bases}{{1}{2}{equation.2.1}}
+\backcite {baumann2020bases}{{2}{2}{definition.2}}
+\backcite {baumann2020bases}{{2}{2}{example.2}}
+\backcite {mirkovic2007quiver}{{4}{4}{equation.4.2}}
+\backcite {mirkovic2007quiver}{{4}{4}{equation.4.3}}
+\backcite {mirkovic2007quiver}{{4}{1}{theorem.1}}

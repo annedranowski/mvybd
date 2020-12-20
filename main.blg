@@ -4,44 +4,44 @@ The top-level auxiliary file: main.aux
 A level-1 auxiliary file: examplesp.aux
 The style file: alpha.bst
 Database file #1: mvybd.bib
-You've used 1 entry,
+You've used 5 entries,
             2543 wiz_defined-function locations,
-            564 strings with 4598 characters,
-and the built_in function-call counts, 347 in all, are:
-= -- 32
-> -- 19
+            587 strings with 5219 characters,
+and the built_in function-call counts, 1786 in all, are:
+= -- 177
+> -- 101
 < -- 0
-+ -- 6
-- -- 6
-* -- 21
-:= -- 70
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 6
-chr.to.int$ -- 1
-cite$ -- 1
-duplicate$ -- 13
-empty$ -- 21
-format.name$ -- 7
-if$ -- 65
++ -- 34
+- -- 33
+* -- 119
+:= -- 324
+add.period$ -- 15
+call.type$ -- 5
+change.case$ -- 31
+chr.to.int$ -- 5
+cite$ -- 5
+duplicate$ -- 66
+empty$ -- 113
+format.name$ -- 38
+if$ -- 347
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 1
-newline$ -- 8
-num.names$ -- 3
-pop$ -- 5
+missing$ -- 5
+newline$ -- 28
+num.names$ -- 15
+pop$ -- 24
 preamble$ -- 1
-purify$ -- 7
+purify$ -- 36
 quote$ -- 0
-skip$ -- 14
+skip$ -- 64
 stack$ -- 0
-substring$ -- 7
-swap$ -- 1
+substring$ -- 67
+swap$ -- 5
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 40
 warning$ -- 0
-while$ -- 3
-width$ -- 2
-write$ -- 14
+while$ -- 17
+width$ -- 7
+write$ -- 63

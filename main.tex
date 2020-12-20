@@ -13,17 +13,77 @@
 
 \section{Introduction}
 
-The BD Grassmannian. The convolution Grassmannian. Distinguished orbits, slices therein. Mirkovi\'c--Vybornov.
+The BD Grassmannian. The convolution Grassmannian. Distinguished orbits, slices therein. Mirkovi\'c--Vybornov \cite{mirkovic2007quiver,mirkovic2019comparison}, Cautis--Kamnitzer \cite{cautis2018categorical}, Anderson--Kogan \cite{anderson2005algebra}.
 
 \section{Notation}
 
 Let $\Gr$ denote the ordinary affine Grassmannian, $\Grbd$ the Beilinson--Drinfeld affine Grassmannian, and $\Grc$ the convolution affine Grassmannian. 
 
 \begin{definition}
+    The \new{BD Grassmannian} is the set 
+    \begin{equation}
+        \label{eq:grbd}
+    \begin{aligned}
+        \{(V,\sigma) : V &\text{ is a rank } m \text{ vector bundle on }\PP^1 \\ &\text{and } \sigma: V \dashrightarrow \scO_{\PP^1}^m \text{ is a trivialization} \\
+        &\text{defined away from finitely many points in }\AA^1\}
+    \end{aligned}
+    \end{equation}
+    More generally, one can define a BD grassmannian over any smooth curve $C$ as the reduced ind-scheme $\Grbd_C$ fibered over a finite symmetric power of $C$ such that the fibre over the point $\vec p$ is a collection of vector bundles over $C$ which are trivial away from $\vec p$ viewed also as a subset of $C$. To \cite{mirkovic2019comparison} the rank $m$ of the trivial fibres $\scO_C^m$ is the of the group $\GL_m\CC$. 
+\end{definition}
+
+To quote \cite{baumann2020bases} the BD Grassmannian is a relative version of the affine Grassmannian where the base is the space of effective divisors on a smooth curve. The choice of $\AA^1$ amply satisfies our needs and offers three advantages: there is a natural global coordinate it, every $G$-torsor on it is trivializable, and the monodromy of any local system is trivial. Formally, $\Grbd$ is the functor on the category of commutative $\CC$-algebras that assigns to an algebra $R$ the set of isomorphism classes of triples $(\vec p,V,\sigma)$ where $\vec p\in \AA^n(R)$, $V$ is a $G^\vee$-torsor over $\AA^1_R$ and $\sigma$ is a trivialization of $V$ away from $\vec p$. They denote by $\pi$ the fibration $\Grbd\to\AA^n$ (forgetting $V$ and $\sigma$). 
+
+Their simplified description is: it's the set of pairs $(\vec p,[\sigma])$ where $\vec p\in\CC^n$ and $[\sigma]$ is an element of the homogeneous space 
+\[
+G^\vee(\CC[z,(z-p_1)^{-1},\dots,(z-p_n)^{-1}])/G^\vee(\CC[z])    
+\]
+Their example, our setting: 
+\begin{example}
+    When $G = \GL_m\CC$ the datum of $[\sigma]$ is equivalent to the datum of the $\CC[z]$-lattice $\sigma(L_0)$ in $\CC(z)^m$ with $L_0 = \CC[z]^m$ denoting the \new{standard lattice}. Set $f_{\vec p} = (z - p_1)\cdots (z-p_n)$. Then a lattice $L$ is of the form $\sigma(L_0)$ if and only if there exists a positive integer $k$ such that $f^k_{\vec p}(L_0) \subseteq L\subseteq f^{-k}_{\vec p}(L_0)$ and for each $k$ they denote by $\Grbd_k$ the subset of $\Grbd$ consisting of pairs $(\vec p,L)$ such that this sandwhich condition holds. They identify $\CC[z]/(f_{\vec p}^{2k})$ with the vector space of polynomials of degree strictly less than $2kn$, and $L_0/f_{\vec p}^{2k}L_0$ with its $N$th product. Then 
+    \[
+    \Grbd_k \overset{\text{Zariski closed}}{\subset} \CC^n\times\bigcup_{d=0}^{2knN} G_d(L_0/f_{\vec p}^{2k}L_0)  
+    \]
+    where $G_d(?)$ denotes the ordinary Grassmann manifold of $d$-planes in the argument.
+\end{example}
+
+\begin{definition}
+    The \new{deformed convolution Grassmannian} is [not needed?]
+    pairs $(\vec p,[\vec\sigma])$ where $\vec p\in\CC^n$ and $\vec\sigma$ is in 
+    \[
+    G^\vee(\CC[z,(z-p_1)^{-1}]) \times^{G^\vee(\CC[z])}\cdots\times^{G^\vee(\CC[z])} G^\vee(\CC[z,(z-p_n)^{-1}])/G^\vee(\CC[z])
+    \] with a map down to $\Grbd$ defined by $(\vec p,[\vec \sigma])\mapsto (\vec p,[\sigma_1\cdots\sigma_n])$. 
+\end{definition}
+To steal the follow-up example in \cite{baumann2020bases} where the above definition is also copied from\dots 
+\begin{example}
+    When $G = \GL_m\CC$ this deformation is described by the datum of $\vec p\in\CC^n$ and a sequence $(L_1,\dots,L_n)$ of $\CC[z]$-lattices in $\CC(z)^m$ such that for some $k\in\ZZ$ and for all $j \in \{1\dots n\}$
+    \[
+    (z-p_j)^kL_{j-1}\subset L_j\subset (z-p_j)^{-k} L_{j-1}    
+    \]
+    where again $L_0 = \CC[z]^m$ denotes the standard lattice, and now $L_j = (\sigma_1\cdots\sigma_j)(L_0)$. Very nice. Very concrete. They can partition the deformation into \new{cells} by specifying the \new{relative positions} of the pairs $(L_{j-1},L_j)$ in terms of \new{invariant factors}. 
+\end{example}
+To be continued: \cite{baumann2020bases} go on to describe the fibres of the composition deformation to $\Grbd$ to $\CC^n$ and their description maybe helpful.
+
+For $\mu\in P$ and $p\in\CC$ they define 
+\[
+    \tilde S_{\mu | p} = (z-p)^\mu N^\vee (\CC[z,(z-p)^{-1}]) = N^\vee (\CC[z,(z-p)^{-1}])(z-p)^\mu
+\]
+They note that $\CC\xT[z-p]$ is the completion of $\CC(z)$ at ``the place defined by p'' and identify $\CC\xt[z-p]$ with $\CC\xt[z]$ and $\CC\xT[z-p]$ with $\CC\xT[z]$. 
+
+They claim that 
+\[
+    N^\vee (\CC[z,(z-p)^{-1}])/N^\vee (\CC[z]) \to N^\vee(\CC\xT[z-p])/N^\vee(\CC\xt[z-p]) \cong N^\vee(\cK)/N^\vee(\cO)
+\]
+is bijective, and that mapping $\Gr$ and multiplying by $(z-p)^\mu$ one gets 
+\[
+\tilde S_{\mu | p}/N^\vee(\CC[z])\cong S_\mu
+\]
+They go on to describe the fusion product (section 5.3) a probably worthwhile read. 
+
+\begin{definition}
     Say $\mu_1$ and $\mu_2$ are \new{disjoint} if $(\mu_1)_i\ne 0 \Rightarrow (\mu_2)_i = 0$ and $(\mu_2)_i\ne 0 \Rightarrow (\mu_1)_i = 0$. 
 \end{definition}
 
-\acom{I propose ``anodyne'' as another candidate for the above property after Kapranov--Shechtman.}
+% \acom{I propose ``anodyne'' as another candidate for the above property after Kapranov--Shechtman.}
 
 \section{Main results}
 
