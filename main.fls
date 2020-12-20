@@ -334,8 +334,8 @@ INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.d
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.aux
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.aux
-INPUT /Users/anne/zorkspaces/2020/mvybd/examplesp.aux
-INPUT /Users/anne/zorkspaces/2020/mvybd/examplesp.aux
+INPUT /Users/anne/zorkspaces/2020/mvybd/examples.aux
+INPUT /Users/anne/zorkspaces/2020/mvybd/examples.aux
 OUTPUT /Users/anne/zorkspaces/2020/mvybd/main.aux
 INPUT /usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -416,7 +416,9 @@ INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
 INPUT /usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-OUTPUT /Users/anne/zorkspaces/2020/mvybd/examplesp.aux
+OUTPUT /Users/anne/zorkspaces/2020/mvybd/examples.aux
+INPUT /Users/anne/zorkspaces/2020/mvybd/examples.tex
+INPUT /Users/anne/zorkspaces/2020/mvybd/examples.tex
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.bbl
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.bbl
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.brf
@@ -425,8 +427,8 @@ INPUT /Users/anne/zorkspaces/2020/mvybd/main.brf
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.brf
 OUTPUT /Users/anne/zorkspaces/2020/mvybd/main.brf
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.aux
-INPUT /Users/anne/zorkspaces/2020/mvybd/examplesp.aux
-INPUT /Users/anne/zorkspaces/2020/mvybd/examplesp.aux
+INPUT /Users/anne/zorkspaces/2020/mvybd/examples.aux
+INPUT /Users/anne/zorkspaces/2020/mvybd/examples.aux
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.out
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.out
 INPUT /Users/anne/zorkspaces/2020/mvybd/main.brf
@@ -434,6 +436,7 @@ INPUT /Users/anne/zorkspaces/2020/mvybd/main.brf
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb
