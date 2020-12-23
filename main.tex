@@ -15,7 +15,33 @@
 
 The BD Grassmannian. The convolution Grassmannian. Distinguished orbits and slices. Connections to Mirkovi\'c--Vybornov \cite{mirkovic2007quiver,mirkovic2019comparison}, Cautis--Kamnitzer \cite{cautis2018categorical}, Anderson--Kogan \cite{anderson2005algebra}.
 
+Address limitations outside of type $A$? 
+
 \section{Notation}
+
+In ordinary $\Gr$ we have the following lattice descriptions valid only in type \(A\).  
+%   Let \(T\) be a maximal torus. 
+%   Denote \(\cO = \CC[t]\) and \(\cK =\CC(t) \).  
+  Given \(\mu\in X^\bullet(T)\), write \(t^\mu\) for its image in \(G(\cK)\) and 
+  % 
+  % E.g.\ \(t^\mu = \diag (t^{\mu_1},\dots,t^{\mu_m})\) in \(GL_m(\cK)\)  and 
+  \(L_\mu\) for its image in 
+  \[
+    \Gr = G(\cK)/G(\cO)  \overset{A}{=}  \{L\overset{\text{free}}{\underset{\text{rank } m}{\subset}} \cO^m : tL \subset L \}
+  \]   % (orbit-stabilizer).
+% 
+Example: \(L_\mu = \Sp_{\cO}(e_it^j : 0\le j <\mu_i)\).  
+  Fact: \(\Gr^T = X^\bullet(T)\)  
+  and other distinguished subsets (needed for the definition of MV cycles and later open subset thereof) are all orbits of fixed points  
+  \[
+    \begin{aligned}
+  % \Gr &= G(\cK)/G(\cO) & & = \{L\subset \CC[t]^m : tL \subset L \} \\
+  \Gr^\lambda &= G(\cO) L_\lambda & & = \{L\in\Gr : t\big|_{\cO^m/L} \text{ has Jordan type } \lambda\} \\
+      \Gr_\mu & = G_1[t^{-1}] L_\mu & & = \{L\in \Gr : L = \Sp_{\cO}(v_1,\dots,v_m) \text{ such that } \\
+        & & & \qquad\quad  v_j = t^{\mu_j} e_j + \sum p_{ij} e_i \text{ with  } \deg p_{ij} < \mu_j \} \\
+  S^\mu_- &= U_-(\cK) L_\mu & & = \{L\in \Gr_\mu : \dim (\cO^k / L\cap \cO^k) = \mu_1 + \dots + \mu_k \}
+    \end{aligned}
+  \] 
 
 Let $\Gr$ denote the ordinary \new{affine Grassmannian} $\Gch(\cK)/\Gch(\cO)$, $\Grbd$ the \new{Beilinson--Drinfeld affine Grassmannian}, and $\Grc$ the \new{convolution affine Grassmannian}. 
 
