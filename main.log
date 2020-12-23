@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  20 DEC 2020 14:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  23 DEC 2020 18:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -893,94 +893,90 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 
 LaTeX Warning: No \author given.
 
-LaTeX Font Info:    Trying to load font information for U+euf on input line 20.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/ueuf.fd
-File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [1
 
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (12.08363pt too wide) in paragraph at lines 61--63
-\OT1/cmr/m/n/10 where again $\OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 = \U/msb/m/n/10 C\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ][]$ de-notes the stan-dard lat-tice, and now $\OML/cmm/m/it/10 L[] \OT1/cmr/m/n/10 = (\OML/cmm/m/it/10 ^^[[] [] ^^[[]\OT1/cmr/m/n/10 )(\OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 )$.
+Underfull \hbox (badness 2635) in paragraph at lines 36--36
+[][]\OT1/cmr/bx/n/5 i.e. prin-ci-pal $\OML/cmm/m/it/5 G$
  []
 
+[1
 
-Overfull \hbox (6.63426pt too wide) detected at line 75
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (6.63426pt too wide) detected at line 85
 \OML/cmm/m/it/10 N[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 C\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 z; \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 z \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 p\OT1/cmr/m/n/10 )[]])\OML/cmm/m/it/10 =N[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 C\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 z\OT1/cmr/m/n/10 ]) \OMS/cmsy/m/n/10 ! \OML/cmm/m/it/10 N[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 C\OT1/cmr/m/n/10 ( ([]) ))\OML/cmm/m/it/10 =N[]\OT1/cmr/m/n/10 (\U/msb/m/n/10 C\OT1/cmr/m/n/10 [ [[]] ]) [] \OML/cmm/m/it/10 N[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 K\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 =N[]\OT1/cmr/m/n/10 (\OMS/cmsy/m/n/10 O\OT1/cmr/m/n/10 )
  []
 
-[2]
+[3]
 
-LaTeX Warning: Marginpar on page 3 moved.
+LaTeX Warning: Marginpar on page 4 moved.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
 [][]\OT1/cmr/bx/n/5 Why is this
  []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 124--124
+Underfull \hbox (badness 2460) in paragraph at lines 168--168
 \OT1/cmr/bx/n/5 called ``its group-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--124
+Underfull \hbox (badness 10000) in paragraph at lines 168--168
 \OT1/cmr/bx/n/5 theoretic re-al-iza-
  []
 
-[3] [4]
-Overfull \hbox (15.76277pt too wide) detected at line 268
+[4]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 191.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+) [5]
+Overfull \hbox (15.76277pt too wide) detected at line 312
 \OML/cmm/m/it/10 A \OMS/cmsy/m/n/10 7! \OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )[] + \OML/cmm/m/it/10 a\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t; t \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 7! \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 L[] \OMS/cmsy/m/n/10 ^^Z \OML/cmm/m/it/10 L[]\OT1/cmr/m/n/10 ) : (\OML/cmm/m/it/10 t \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )[][] = \OML/cmm/m/it/10 A[][]; t[][] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 A[][]
  []
 
-[5] [6]
+[6] [7]
 \openout2 = `examples.aux'.
 
  (/Users/anne/zorkspaces/2020/mvybd/examples.tex
 
-LaTeX Warning: Reference `eq:topmvy2' on page 7 undefined on input line 6.
+LaTeX Warning: Reference `eq:topmvy2' on page 8 undefined on input line 6.
 
-[7
+[8
 
-] [8]
-Overfull \hbox (93.3539pt too wide) detected at line 165
-[]
- []
-
-) [9] (/Users/anne/zorkspaces/2020/mvybd/main.bbl (/Users/anne/zorkspaces/2020/mvybd/main.brf)
+] [9] [10]) [11] (/Users/anne/zorkspaces/2020/mvybd/main.bbl (/Users/anne/zorkspaces/2020/mvybd/main.brf)
 \tf@brf=\write6
 \openout6 = `main.brf'.
 
-) [10
+) [12
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 293.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 293.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 337.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 337.
  (/Users/anne/zorkspaces/2020/mvybd/main.aux (/Users/anne/zorkspaces/2020/mvybd/examples.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 293.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 293.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 337.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 337.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 22DD1B37A05A68818BB32B5E2CCCBE74;299.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 37586978AAAE0256D6ABE3FAD71E4B18;540.
+(rerunfilecheck)             Checksum: 5B7F6F67A2610DFE1D2A11287F7E755E;532.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 293.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 337.
  ) 
 Here is how much of TeX's memory you used:
- 34144 strings out of 480608
- 829519 string characters out of 5903631
- 1199770 words of memory out of 5000000
- 49332 multiletter control sequences out of 15000+600000
+ 34155 strings out of 480608
+ 829604 string characters out of 5903631
+ 1200770 words of memory out of 5000000
+ 49335 multiletter control sequences out of 15000+600000
  543851 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,17n,102p,859b,961s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on /Users/anne/zorkspaces/2020/mvybd/main.pdf (10 pages, 259912 bytes).
+</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb>
+Output written on /Users/anne/zorkspaces/2020/mvybd/main.pdf (12 pages, 276048 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 49 named destinations out of 1000 (max. 500000)
+ 250 PDF objects out of 1000 (max. 8388607)
+ 210 compressed objects within 3 object streams
+ 57 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

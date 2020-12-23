@@ -154,8 +154,8 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
     \[
     \begin{split}
     & \left\{ 
-    (X -sI) \left( e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6 \right), 
-    e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6 
+    (X -sI) \left( e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6 \right), \right. \\ 
+    & \quad \qquad \qquad  \left. e_2 + 2s e_3 + 3s^2 e_4 + \frac{s^3}{a+sb} e_5 + \frac{s^4}{a+sb} e_6 
     \right\} \\
     = & \left\{ 
     e_1 + s e_2 + s^2 e_3 + s^3 e_4, 
@@ -173,4 +173,63 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
     \{a = 0, bd = 0\}
     \]
     which corresponds to two $\AA^2$'s intersecting along an $\AA^1$. This is indeed an open subset of $\PP^2 \cup_{\PP_1} \PP^2$, as required.
+\end{example}
+
+\begin{example}[Example 7 continued\dots]
+    The matrix $X$ from the previous example defines (under MVy) the matrix 
+    \[
+        g = \begin{bmatrix}
+            (t-s)t^3 \\
+            -bt & (t-s)t \\
+            -c & -d & t 
+        \end{bmatrix}
+    \]
+    in $G(\cO)$. 
+    Indeed the various blocks of $X$ are in a precise sense the companion matrices of the polynomial entries of $g$
+    % First let's double check the inverse map. 
+
+    In $\Gr$ the element $g$ defines the lattice 
+    \[
+        gL_0 = \CC[t]\langle
+        (t-s)t^3e_1 - bt e_2 - ce_3 , (t-s)te_2 - de_3, te_3 
+        \rangle
+    \]
+    and computing the matrix of the action of $t$ on the quotient $L_0/L$ in the basis 
+    \[
+    \{
+        [e_1],[te_1],[t^2e_1],[t^3e_1],[e_2],[te_2],[e_3]
+    \}    
+    \]
+    recovers $X$ up to a transpose of course. 
+
+    Now let's see what we get when we invert $t$ and $t-s$ respectively. First let's find $ L_s = L\otimes\CC\xt$. 
+    \[
+        L_s  = \CC[t]\langle(t-s) e_1 - be_2 - ce_3 , (t-s) e_2 , e_3 \rangle = \CC[t]\langle(t-s) e_1 - be_2, (t-s) e_2, e_3 \rangle
+    \]
+    so 
+    \[
+    \left[t\big|_{L_0/L_s}\right]_{\{[e_1],[e_2]\}} = \begin{bmatrix}
+        s \\
+        -b & s 
+    \end{bmatrix}
+    \]
+    which has block type $\mu_2$ and Jordan type $\lambda_2$ as expected. 
+    
+    Next let's find $L_0 = L\otimes\CC\xt[t-s]$. 
+    \[
+        L_0 = \CC[t]\langle
+        t^3 e_1 - bte_2 - ce_3, te_2 - de_3 , te_3 
+        \rangle 
+    \]
+    so 
+    \[
+    \left[t\big|_{L_0/L_s}\right]_{\{[e_1],[te_1],[t^2e_1],[e_2],[e_3]\}} = \begin{bmatrix}
+        0 \\
+        1 & 0 \\
+        0 & 1 & 0 \\
+          & & & 0 \\
+          & & & d & 0  
+    \end{bmatrix}
+    \]
+    which has block type $\mu_1$ and Jordan type $\lambda_1$ as expected. 
 \end{example}
