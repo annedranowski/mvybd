@@ -223,15 +223,23 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
     
     Next let's invert $t-s$ by considering $L_1 = L\otimes\CC\xt$. 
     \[
-        L_1 = \CC[t,(t-s)^{-1}]\langle
+    \begin{aligned}
+        L_1 &= \CC[t,(t-s)^{-1}]\langle
         t^3 e_1 - \frac{a+bt}{t-s}e_2 - \frac c {t-s} e_3, te_2 - \frac d {t-s} e_3 , te_3 
-        \rangle 
+        \rangle \\
+        &= \langle
+        t^3 e_1 - \frac{a}{t-s}e_2 - \frac b{t-s} te_2 - \frac c {t-s} e_3, te_2 - \frac d {t-s} e_3 , te_3 
+        \rangle
+    \end{aligned}
     \]
     so in $L_0/L_1$ we have 
     \begin{align*}
         t[e_1] &= [te_1] \\
         t[te_1] &= [t^2 e_1] \\ 
-        t[t^2e_1] & = \frac{a+bt}{t-s}[e_2] + \frac c {t-s} [e_3] \\
+        t[t^2e_1] &= \frac{a}{t-s}[e_2] + \frac{b}{t-s} t[e_2] + \frac c {t-s} [e_3] \\
+                  &= \frac b{t-s} \frac d{t-s} [e_3] + \frac c {t-s} [e_3] \\ 
+                  &= \frac {bd + (t-s) c} {(t-s)^2} [e_3] \\
+                  &= \frac{bd - sc}{(t-s)^2}[e_3] + \frac c {(t-s)^2} t[e_3] = 0 \\ 
         t[e_2] &= \frac d {t-s} [e_3] \\ 
         t[e_3] &= 0 
     \end{align*}
@@ -241,8 +249,8 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
         0 \\
         1 & 0 \\
         0 & 1 & 0 \\
-          & & \frac{a+bt}{t-s} & 0 \\
-          & & \frac c {t-s} & \frac d {t-s} & 0  
+          & & 0 & 0 \\
+          & & 0 & \frac d {t-s} & 0  
     \end{bmatrix}
     \]
     taking transpose 
@@ -250,12 +258,37 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
         \begin{bmatrix}
             0 & 1\\
               & 0 & 1\\
-              &   & 0 & \frac{a+bt}{t-s} & \frac c {t-s} \\
+              &   & 0 &  &  \\
               & & & 0 & \frac d {t-s} \\
               & & & & 0  
         \end{bmatrix}
     \]
-    which has block type $\mu_1$ and Jordan type $\lambda_1 = (3,2)$ assuming $\frac{a+bt}{t-s}=0$ and one of the entries in the last column is not zero!?
+    which has block type $\mu_1$ and Jordan type $\lambda_1 = (3,2)$ assuming $d\ne 0$.
 
-    We found $a = 0$ and $cs - bd = 0$ above. So actually $\frac{a+bt}{t^3} = \frac b{t^2} \ne 0$ and $\frac{a + bt}{t-s} = \frac{bt}{t-s}$...Roger find my mistake. 
+    I have used the relations Roger found (and I checked) $a = 0$ and $cs - bd = 0$ above. 
+    
+    To sum up the pair of matrices above should contain the same information as the matrix from the previous example 
+    \[
+    \begin{bmatrix}
+    0 & 1 \\
+      & 0 & 1 \\
+      &   & 0 & 1 \\
+      &   &   & s &  & b & c \\
+      &   &   &   & 0 & 1 & 0 \\
+      &   &   &   & 0 & s & d \\
+      &   &   &   &   &   & 0
+    \end{bmatrix} \Leftrightarrow \left( \begin{bmatrix}
+            0 & 1\\
+              & 0 & 1\\
+              &   & 0 &  &  \\
+              & & & 0 & \frac d {t-s} \\
+              & & & & 0  
+        \end{bmatrix} , \begin{bmatrix}
+        s & \frac b {t^2} \\ & s 
+        \end{bmatrix}\right) 
+    \] 
 \end{example}
+
+{\bf Wish.} Given $L$ in $\Grbd$ define a map to $T_\mu$ just like MVy by taking $[t\big|_{L_0/L}]$ and use the fact that $[t\big|_{L_0/L_i]$ for $i = 1,2$ are companion matrices of the right type/piece together two MVy isomorphisms to make a BD MVy iso. 
+
+Lin alg question: if $p(t,t-s) = p_1(t)p_2(t-s)$ how are $C(p_1),C(p_2),C(p)$ related. I think it's basically this theorem \url{https://en.wikipedia.org/wiki/Structure_theorem_for_finitely_generated_modules_over_a_principal_ideal_domain} 
