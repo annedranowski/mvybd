@@ -341,6 +341,45 @@ We will prove this similarly to how the usual Mirkovi\'c--Vybornov isomorphism i
 
     BD Gr as lattices? $(L_1,L_2)\in\Gr\times\Gr$ corresponds to $L$ such that $L\otimes\CC\xt\cong L_1\otimes\CC\xt$ and $L\otimes\CC\xt[t-s]\cong L_2\otimes\CC\xt[t-s]$ where $\otimes = \otimes_{\CC[t]}$ or $\otimes_{\CC[t-s]}$ respectively even though Roger believes $\CC[t] = \CC[t-s]$.  
 
+    Proof of Step 1: Let $\mu_1 = (\mu_{1,1}, \mu_{1,2}, ..., \mu_{1,n})$, $\mu_2 = (\mu_{2,1}, ..., \mu_{2,n})$, and $\mu = (\mu^{(1)}, \mu^{(2)}, ..., \mu^{(n)})$. Consider the matrix 
+\[
+\sbox0{$\begin{matrix}1&2&3\\0&1&1\\0&0&1\end{matrix}$}
+A = \left[
+\begin{array}{c|c|c|c|c}
+    \vphantom{\usebox{0}}\makebox[\wd0]{\large $C_1$}& \begin{matrix} \\ \\ a_{12}^1 & ... & a_{12}^{\mu^{(2)}} \end{matrix} & \makebox[\wd0]{\cdots} & \makebox[\wd0]{\cdots} &  \begin{matrix} \\ \\ a_{1n}^1 & ... & a_{1n}^{\mu^{(n)}} \end{matrix} \\ \hline
+     & \vphantom{\usebox{0}}\makebox[\wd0]{\large $C_2$} & \begin{matrix} \\ \\ a_{23}^1 & ... & a_{23}^{\mu^{(3)}}  \end{matrix} & \makebox[\wd0]{\cdots} & \makebox[\wd0]{\vdots} \\ \hline
+     & & \vphantom{\usebox{0}}\makebox[\wd0]{\ddots} & \vphantom{\usebox{0}}\makebox[\wd0]{\ddots} & \makebox[\wd0]{\vdots} \\ \hline
+     & & & C_{n-1} & \begin{matrix} \\ \\ a_{n-1,n}^1 & ... & a_{n-1,n}^{\mu^{(n)}} \end{matrix} \\ \hline
+     & & & & \vphantom{\usebox{0}}\makebox[\wd0]{$C_n$}
+\end{array}
+\right]
+\]
+where $C_i$ is the $\mu^{(i)} \times \mu^{(i)}$ companion matrix of $t^{\mu_{1,i}}(t-s)^{\mu_{2,i}}$. We send this matrix to the matrix 
+\[
+\begin{bmatrix}
+    t^{\mu_{1,1}}(t-s)^{\mu_{2,1}} \\
+    -\sum_{k=1}^{\mu^{(2)}} a_{12}^k t^{k-1} & t^{\mu_{1,2}}(t-s)^{\mu_{2,2}} \\
+    \vdots & \ddots & \ddots \\
+    -\sum_{k=1}^{\mu^{(n)}} a_{1n}^k t^{k-1} & \cdots & -\sum_{k=1}^{\mu^{(n)}} a_{n-1,n}^k t^{k-1} & t^{\mu_{1,n}} (t-s)^{\mu_{2,n}}
+\end{bmatrix}
+\]
+\[
+= \begin{bmatrix}
+    1 \\
+    p_{1,2}(t) & 1 \\
+    \vdots & \ddots & \ddots \\
+    p_{1,n}(t) & \cdots & p_{n-1,n}(t) & 1
+\end{bmatrix}
+\begin{bmatrix}
+    t^{\mu_{1,1}}(t-s)^{\mu_{2,1}} \\
+     & \ddots \\
+     & & t^{\mu_{1,n}} (t-s)^{\mu_{2,n}}
+\end{bmatrix}
+\]
+where 
+\[p_{i,j}(t) = \frac{-\sum_{k=1}^{\mu^{(j)}} a_{i,j}^k t^{k-1}} {t^{\mu_{1,i}} (t-s)^{\mu_{2,i}}}\]
+As $\mu_1$ and $\mu_2$ are dominant, we have $p_{i,j}(t) \rightarrow 0$ as $t \rightarrow \infty$ so this matrix is indeed in $G_1[t^{-1},(t-s)^{-1}]t^{\mu_1}(t-s)^{\mu_2}$.
+
     \item If $A \in \TT_{\mu_1,\mu_2} \cap \n$ then $A$ is sent to $(N_-)_1[t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. \acom{Requires MVyBD!}
 
     \item Conversely, given $L \in W_{\mu_1 + \mu_2}$, want to show surjectivity.
