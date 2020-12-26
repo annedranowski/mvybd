@@ -202,34 +202,60 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
     \]
     recovers $X$ up to a transpose of course. 
 
-    Now let's see what we get when we invert $t$ and $t-s$ respectively. First let's find $ L_s = L\otimes\CC\xt$. 
+    Now let's see what we get when we invert $t$ and $t-s$ respectively. 
+
+    First let's invert $t$ by considering $L_2 = L\otimes\CC\xt[t-s]$. 
     \[
-        L_s  = \CC[t]\langle(t-s) e_1 - be_2 - ce_3 , (t-s) e_2 , e_3 \rangle = \CC[t]\langle(t-s) e_1 - be_2, (t-s) e_2, e_3 \rangle
+        L_2  = \CC[t,t^{-1}]\langle(t-s) e_1 -\frac{a+bt}{t^3} e_2 - \frac c {t^3} e_3, (t-s) e_2 - \frac d t e_3, e_3 \rangle
     \]
-    so 
+    so in $L_0/L_2$ we have 
     \[
-    \left[t\big|_{L_0/L_s}\right]_{\{[e_1],[e_2]\}} = \begin{bmatrix}
+    t[e_1] = s[e_1] + \frac{a+bt}{t^3} [e_2] + \frac c {t^3}  [e_3] \qquad t[e_2] = s[e_2] + \frac d t[e_3]    \qquad [e_3] = 0 
+    \]
+    and
+    \[
+    \left[t\big|_{L_0/L_2}\right]_{\{[e_1],[e_2]\}} = \begin{bmatrix}
         s \\
-        -b & s 
+        \frac{a+bt}{t^3} & s 
     \end{bmatrix}
     \]
-    which has block type $\mu_2$ and Jordan type $\lambda_2$ as expected. 
+    which upon subtracting $s I$ gives a matrix having block type $\mu_2$ and Jordan type $\lambda_2 = (2)$ assuming $\frac{a+bt}{t^3}\ne 0$. 
     
-    Next let's find $L_0 = L\otimes\CC\xt[t-s]$. 
+    Next let's invert $t-s$ by considering $L_1 = L\otimes\CC\xt$. 
     \[
-        L_0 = \CC[t]\langle
-        t^3 e_1 - bte_2 - ce_3, te_2 - de_3 , te_3 
+        L_1 = \CC[t,(t-s)^{-1}]\langle
+        t^3 e_1 - \frac{a+bt}{t-s}e_2 - \frac c {t-s} e_3, te_2 - \frac d {t-s} e_3 , te_3 
         \rangle 
     \]
-    so 
+    so in $L_0/L_1$ we have 
+    \begin{align*}
+        t[e_1] &= [te_1] \\
+        t[te_1] &= [t^2 e_1] \\ 
+        t[t^2e_1] & = \frac{a+bt}{t-s}[e_2] + \frac c {t-s} [e_3] \\
+        t[e_2] &= \frac d {t-s} [e_3] \\ 
+        t[e_3] &= 0 
+    \end{align*}
+    and 
     \[
-    \left[t\big|_{L_0/L_s}\right]_{\{[e_1],[te_1],[t^2e_1],[e_2],[e_3]\}} = \begin{bmatrix}
+    \left[t\big|_{L_0/L_1}\right]_{\{[e_1],[te_1],[t^2e_1],[e_2],[e_3]\}} = \begin{bmatrix}
         0 \\
         1 & 0 \\
         0 & 1 & 0 \\
-          & & & 0 \\
-          & & & d & 0  
+          & & \frac{a+bt}{t-s} & 0 \\
+          & & \frac c {t-s} & \frac d {t-s} & 0  
     \end{bmatrix}
     \]
-    which has block type $\mu_1$ and Jordan type $\lambda_1$ as expected!
+    taking transpose 
+    \[
+        \begin{bmatrix}
+            0 & 1\\
+              & 0 & 1\\
+              &   & 0 & \frac{a+bt}{t-s} & \frac c {t-s} \\
+              & & & 0 & \frac d {t-s} \\
+              & & & & 0  
+        \end{bmatrix}
+    \]
+    which has block type $\mu_1$ and Jordan type $\lambda_1 = (3,2)$ assuming $\frac{a+bt}{t-s}=0$ and one of the entries in the last column is not zero!?
+
+    We found $a = 0$ and $cs - bd = 0$ above. So actually $\frac{a+bt}{t^3} = \frac b{t^2} \ne 0$ and $\frac{a + bt}{t-s} = \frac{bt}{t-s}$...Roger find my mistake. 
 \end{example}
