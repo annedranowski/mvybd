@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1609045039 "/Users/anne/zorkspaces/2020/mvybd/draft.tex" "/Users/anne/zorkspaces/2020/mvybd/draft.pdf" "draft" 1609045041
-  "/Users/anne/zorkspaces/2020/mvybd/draft.aux" 1609045040 1540 f005c7dc8b2edb7f4f36c0ae55359ffd ""
-  "/Users/anne/zorkspaces/2020/mvybd/draft.tex" 1609045038 8411 bf537ffcf21d06eb468f52a103c0eab0 ""
+["pdflatex"] 1609298354 "/Users/anne/zorkspaces/2020/mvybd/draft.tex" "/Users/anne/zorkspaces/2020/mvybd/draft.pdf" "draft" 1609298355
+  "/Users/anne/zorkspaces/2020/mvybd/draft.aux" 1609298355 1540 f005c7dc8b2edb7f4f36c0ae55359ffd ""
+  "/Users/anne/zorkspaces/2020/mvybd/draft.tex" 1609298353 9255 578e542f2d03f478130670f10b5fd195 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/symbol/psyr.tfm" 1136768653 1408 5937f58aa508ea2cea4901c07d10f5fe ""
   "/usr/local/texlive/2020/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -268,13 +268,13 @@
   "/usr/local/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt" 1586288259 2432462 fd0fa20e9a3cb5f8169fd0ba1c955158 ""
   "/usr/local/texlive/2020/texmf.cnf" 1586288231 577 d60164b4589a341208aff7a667fbbdcb ""
   "basic.sty" 1608524065 7851 a1e831212a41ca240ba364cbe07fc8a4 ""
-  "draft.aux" 1609045040 1540 f005c7dc8b2edb7f4f36c0ae55359ffd "pdflatex"
-  "draft.out" 1609045040 270 d4fe573a011fbe5d5c0dd248384340c7 "pdflatex"
-  "draft.tex" 1609045038 8411 bf537ffcf21d06eb468f52a103c0eab0 ""
+  "draft.aux" 1609298355 1540 f005c7dc8b2edb7f4f36c0ae55359ffd "pdflatex"
+  "draft.out" 1609298355 270 d4fe573a011fbe5d5c0dd248384340c7 "pdflatex"
+  "draft.tex" 1609298353 9255 578e542f2d03f478130670f10b5fd195 ""
   (generated)
-  "/Users/anne/zorkspaces/2020/mvybd/draft.pdf"
-  "draft.aux"
-  "draft.pdf"
   "draft.out"
   "draft.log"
+  "/Users/anne/zorkspaces/2020/mvybd/draft.pdf"
   "/Users/anne/zorkspaces/2020/mvybd/draft.log"
+  "draft.aux"
+  "draft.pdf"
