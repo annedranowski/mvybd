@@ -292,3 +292,41 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
 {\bf Wish.} Given $L$ in $\Grbd$ define a map to $T_\mu$ just like MVy by taking $[t\big|_{L_0/L}]$ and use the fact that $[t\big|_{L_0/L_i}]$ for $i = 1,2$ are companion matrices of the right type, piece together two MVy isomorphisms to make a BD MVy iso. 
 
 Equivalent lin alg question: If $p(t,t-s) = p_1(t)p_2(t-s)$ then how are $C(p_1)$, $C(p_2)$, and $C(p)$ related? I think it's basically this theorem \url{https://en.wikipedia.org/wiki/Structure_theorem_for_finitely_generated_modules_over_a_principal_ideal_domain} 
+
+\begin{example}
+    Let $G = \SL_3$ and $\uvi = 121$.
+    Take $n_\bullet^1 = (1,0,0)$, and $n_\bullet^2 = (1,0,1)$ or $(0,1,0)$. So $\mu_1, = (2,2,1)$, $\lambda_1 = (3,1,1)$ and $\mu_2 = (1,1,1)$, $\lambda_2 = (2,1,0)$. \acom{We should show that order does not matter.}
+    Then $\TT_{\mu_1,\mu_2}^+\cap\OO_{\lambda_1,\lambda_2}$ is made up of elements 
+    \[
+    \begin{bmatrix}
+        0 & 1 & 0 \\
+        0 & 0 & 1 \\
+        0 & 0 & s & 0 & a_2 & a_3 & b_1 & b_2 \\
+          &   &   & 0 & 1 & 0 \\
+          &   &   & 0 & 0 & 1 \\
+          &   &   & 0 & 0 & s & c_1 & 0 \\
+          &   &   &   &   &   & 0 & 1 \\
+          &   &   &   &   &   & 0 & s 
+    \end{bmatrix}    
+    \]
+    and zero eigenspace conforming to the shape 
+    \[
+    \lambda_1 = \yng(3,1,1)    
+    \] 
+    is made of three cycles
+    \begin{align*}
+        a_2 e_1 &\leftarrow a_2e_2 - s e_4 \leftarrow a_2 e_3 - s e_5 \\
+        e_4 & \\
+        e_7 & 
+    \end{align*}
+    while the $s$-eigenspace confirming to the shape 
+    \[
+    \lambda_2 = \yng(2,1)    
+    \]
+    is made of the two cycles 
+    \begin{align*}
+        e_1 + se_2 +s^2 e_3 & \leftarrow e_2 + 2se_3 + e_7 + se_8 \\
+        e_4 + s e_5 + s^2 e_6 & 
+    \end{align*}
+    assuming $b_2 = s$ and $a_2 + sa_3 = 0$. 
+\end{example}
