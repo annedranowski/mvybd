@@ -31,9 +31,14 @@ New (?) definitions among these are as follows.
 %    \cW_{\mu_1,\mu_2} = G_1 [t^{-1},(t-s)^{-1}]L_{\mu_1,\mu_2}
 %\end{equation}
 
+
+We define
+$$L_\mu = t^\mu, L_{\mu_1, \mu_2} = t^{\mu_1} (t-s)^{\mu_2} \in G((t^{-1}))/G[t]$$
+
 \begin{equation}
-    \cW_\mu = G_1[t^{-1}]L_\mu
+    \cW_\mu = G_1[[t^{-1}]]L_\mu \subset G((t^{-1}))/G[t]
 \end{equation}
+a subscheme of the thick affine Grassmannian
 
 Note that $ L_{\mu_1, \mu_2} = (t-s)^{\mu_2} t^{-\mu_2} L_{\mu} \in \cW_\mu$
 and that  $L_{\mu_1,\mu_2}\in\Grbd[2]$ is a $\CC[t]$-lattice in $\CC(t)^m$ that specializes to a $\CC\xt$-lattice in $\CC\xT^m$ away from $t = 0$ and away from $t = s$; i.e.\
@@ -49,9 +54,9 @@ and that  $L_{\mu_1,\mu_2}\in\Grbd[2]$ is a $\CC[t]$-lattice in $\CC(t)^m$ that 
 where $L_{\mu_i}$ denotes the point $t^{\mu_i}G(\cO)\in\Gr$. 
 % 
 
-The family of semi-infinite orbits \acom{Maybe doesn't make sense before specialization?}
+The family of semi-infinite orbits 
 \begin{equation}
-    S_{\mu_1,\mu_2} = N_-(\CC[t,t^{-1}, (t-s)^{-1}]) L_{\mu_1,\mu_2}\,. 
+    S_{\mu_1,\mu_2} = N_-(\CC((t^{-1}))) L_{\mu_1,\mu_2}\,. 
 \end{equation}
 
 The orbit of $\CC[t]$-lattices in $\CC(t)^m$ whose elements specialize again to $\CC\xt$-lattices in $\CC\xT^m$ away from $t = 0$ and away from $t = s$ as follows
@@ -60,12 +65,15 @@ The orbit of $\CC[t]$-lattices in $\CC(t)^m$ whose elements specialize again to 
     \begin{split}
         (\Grbd[2])^{\lambda_1,\lambda_2} = \{L \in\Grbd[2] : 
         %L\otimes\CC[t^{-1}] 
-        L_{\mu_1,\mu_2}\otimes \CC\xt[t-s] 
+        L \otimes_{\CC[t]} \CC\xt[t-s] 
         &\in \Gr^{\lambda_2} \text{ and } \\
         % L\otimes\CC[(s-t)^{-1}] 
-        L_{\mu_1,\mu_2}\otimes \CC\xt &\in \Gr^{\lambda_1}\}\,.
+        L\otimes_{\CC[t]} \CC\xt &\in \Gr^{\lambda_1} \text{ and } \\ 
+        L \otimes_{\C[t]} \CC\xt[t-a] = L_0 \text{ for all $ a \ne 0, s$} \}\,.
     \end{split}
 \end{equation}
+
+\jcom{It is important to add the condition that the lattices are trivial at $ a $.}
 % 
 \acom{These defining conditions are again just telling us that in the fibre over the fixed point $(0,s)\in C^{(2)}$ this set is pairs of lattices; note that we invert the indeterminates $t$ and $(t-s)$ \textit{after} specializing $(0,s)$. Could we give a more explicit characterization like $t^{N_1}(t-s)^{N_2} L_0 \subseteq L\subseteq t^{-N_1}(t-s)^{-N_2}$?}
 
@@ -178,8 +186,6 @@ Let's call this the MVyBD isomorphism.
 \end{proof}
 
 
-Let
-$\cW_\mu = G_1[t^{-1}]t^\mu $ and $\hat \cW_\mu = G_1[[t^{-1}]] t^\mu$.
 
 \begin{theorem}[Theorem 1 version 2]
     Let $\lambda_1,\lambda_2$ and $\mu$ 
@@ -191,8 +197,14 @@ $\cW_\mu = G_1[t^{-1}]t^\mu $ and $\hat \cW_\mu = G_1[[t^{-1}]] t^\mu$.
     defined by the same map as in Theorem 1.
 \end{theorem}
 
+\jcom{This is true as stated with the ``larger'' definition of $ \cW_\mu $.  In fact, for any $\lambda_1, \lambda_2$, it is true $ \overline{\Grbd[2]^{\lambda_2,\lambda_2}}\cap\cW_\mu $ is contained in a subset that we could call $ \cW_\mu^s$ which we could define as
+$$
+\cW_\mu^s = G_1[[t^{-1}]]t^\mu \cap G[t,t^{-1}, (t-s)^{-1}] / G[t]
+$$
+where we regard $G[t,t^{-1}, (t-s)^{-1}] / G[t] \subset G((t^{-1}))/G[t] $
 
-
+The way to think about this is as follows: inside the thick affine Grassmannian we can consider the $G$-bundles trivialized away from just 0, $s$, or equivalently those lattices which become the standard lattice after tensoring with $ \CC[[t-a]] $ for any $ a \ne 0, s$.
+}
 \begin{corollary}
     The MVyBD isomorphism restricts to an isomorphism of subfamilies 
     \begin{equation}
@@ -204,6 +216,8 @@ $\cW_\mu = G_1[t^{-1}]t^\mu $ and $\hat \cW_\mu = G_1[[t^{-1}]] t^\mu$.
     Let $ A \in \overline{\OO_{\lambda_1,\lambda_2}}\cap\TT_{\mu_1,\mu_2}^+$ and let $ g $ be the polynomial matrix formed by the Mirkovic-Vybornov isomorphism.  Then the diagonal entries of $ g $ are $ t^{\mu_{1,k}} (t-s)^{\mu_{2,k}}$ and we can factor
     $$ g = (g t^{-\mu_1}(t-s)^{-\mu_2}) t^{\mu_1}(t-s)^{\mu_2} \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$$
     So we get containment in one direction.
+    
+    For the reverse containment, we choose $ [g] \in G\overline{(\Grbd[2])^{\lambda_1,\lambda_2}}\cap S_{\mu_1,\mu_2}$.  By the lemma below, $[g] \in \cW_\mu$ and thus it lies in the image of our map and we are done.
 \end{proof}
 
 % Define $S_{\mu_1,\mu_2}^s = N_-\xT[t^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. 
@@ -224,7 +238,7 @@ We could also make the following claim.
 \begin{lemma}%[Roger's lemma]
     Let $\mu_1,\mu_2$ be dominant and let $s\in \AA^1 - \{0\}$. Then 
     \begin{equation}
-        S_{\mu_1,\mu_2}^s \subset \hat \cW_\mu 
+        S_{\mu_1,\mu_2}^s \subset \cW_\mu 
     \end{equation}
     where $\mu = \mu_1 + \mu_2$.
 \end{lemma}
