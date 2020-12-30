@@ -26,16 +26,24 @@ $G = \GL_m$.
 New (?) definitions among these are as follows.
 % 
 
-The [family of] slices [with $s$-fibre?]
+%The [family of] slices [with $s$-fibre?]
+%\begin{equation}
+%    \cW_{\mu_1,\mu_2} = G_1 [t^{-1},(t-s)^{-1}]L_{\mu_1,\mu_2}
+%\end{equation}
+
 \begin{equation}
-    \cW_{\mu_1,\mu_2} = G_1 [t^{-1},(t-s)^{-1}]L_{\mu_1,\mu_2}
+    \cW_\mu = G_1[t^{-1}]L_\mu
 \end{equation}
-where $L_{\mu_1,\mu_2}\in\Grbd[2]$ is a $\CC[t]$-lattice in $\CC(t)^m$ that specializes to a $\CC\xt$-lattice in $\CC\xT^m$ away from $t = 0$ and away from $t = s$; i.e.\
+
+Note that $ L_{\mu_1, \mu_2} = (t-s)^{\mu_2} t^{-\mu_2} L_{\mu} \in \cW_\mu$
+and that  $L_{\mu_1,\mu_2}\in\Grbd[2]$ is a $\CC[t]$-lattice in $\CC(t)^m$ that specializes to a $\CC\xt$-lattice in $\CC\xT^m$ away from $t = 0$ and away from $t = s$; i.e.\
 \begin{equation}
     \label{eq:defWBD}
     \begin{split}
-        L_{\mu_1,\mu_2}\otimes \CC[(t-s)^{-1}] = L_{\mu_1,\mu_2}\otimes \CC\xt &= L_{\mu_2} \text{ and } \\
-        L_{\mu_1,\mu_2}\otimes\CC[t^{-1}] = L_{\mu_1,\mu_2}\otimes \CC\xt[t-s] &= L_{\mu_1}
+        %L_{\mu_1,\mu_2}\otimes \CC[(t-s)^{-1}] =
+        L_{\mu_1,\mu_2}\otimes \CC\xt &= L_{\mu_2} \otimes \CC\xt \text{ and } \\
+        %L_{\mu_1,\mu_2}\otimes\CC[t^{-1}] =
+        L_{\mu_1,\mu_2}\otimes \CC\xt[t-s] &= L_{\mu_1} \otimes \CC\xt[t-s]
     \end{split}
 \end{equation}
 where $L_{\mu_i}$ denotes the point $t^{\mu_i}G(\cO)\in\Gr$. 
@@ -43,15 +51,19 @@ where $L_{\mu_i}$ denotes the point $t^{\mu_i}G(\cO)\in\Gr$.
 
 The family of semi-infinite orbits \acom{Maybe doesn't make sense before specialization?}
 \begin{equation}
-    S_{\mu_1,\mu_2} = N_-(\cK) L_{\mu_1,\mu_2}\,. 
+    S_{\mu_1,\mu_2} = N_-(\CC[t,t^{-1}, (t-s)^{-1}]) L_{\mu_1,\mu_2}\,. 
 \end{equation}
 
 The orbit of $\CC[t]$-lattices in $\CC(t)^m$ whose elements specialize again to $\CC\xt$-lattices in $\CC\xT^m$ away from $t = 0$ and away from $t = s$ as follows
 \begin{equation}
     \label{eq:defGrBDlambda}
     \begin{split}
-        (\Grbd[2])^{\lambda_1,\lambda_2} = \{L \in\Grbd[2] : L\otimes\CC[t^{-1}] &\in \Gr^{\lambda_2} \text{ and } \\
-        L\otimes\CC[(s-t)^{-1}] &\in \Gr^{\lambda_1}\}\,.
+        (\Grbd[2])^{\lambda_1,\lambda_2} = \{L \in\Grbd[2] : 
+        %L\otimes\CC[t^{-1}] 
+        L_{\mu_1,\mu_2}\otimes \CC\xt[t-s] 
+        &\in \Gr^{\lambda_2} \text{ and } \\
+        % L\otimes\CC[(s-t)^{-1}] 
+        L_{\mu_1,\mu_2}\otimes \CC\xt &\in \Gr^{\lambda_1}\}\,.
     \end{split}
 \end{equation}
 % 
@@ -126,31 +138,60 @@ Let's call this the MVyBD isomorphism.
     The proof is fibre by fibre, so fix $s\ne 0$. \acom{Emphasize in the intro later (because this always confuses me) that by the $s$-fibre we really mean the $(0,s)$-fibre; i.e.\ its the BD Grassmannian over the second symmetric power of $C = \AA^1$; better just replace $s$-fibre by $(0,s)$-fibre everywhere it occurs.}
     \begin{enumerate}
         \item The map is well defined. In particular, it defines $\CC[t]$-lattices in $\CC(t)^m$. Moreover, these lattices break down to give pairs of lattices upon inverting $t$ or $t-s$ that have the right properties. [Copy Roger's proof]
-        \item The inverse map is got by taking the matrix of multiplication by $t$ on the quotient $\CC[t]^m/L$ just as in the ordinary MVy isomorphism---the only difference being $\CC\xt$ is replaced by $\CC[t]$.
+        \item The inverse map is got by taking the matrix of multiplication by $t$.  More precisely, let $ L \in Gr^{BD} \cap \cW_\mu$.  We work with the quotient $\CC[t]^m/L$ just as in the ordinary MVy isomorphism---the only difference being $\CC\xt$ is replaced by $\CC[t]$.
 \begin{enumerate}
-    \item The matrix of $t$ will have the right block type with respect to the basis 
+    \item 
+    We claim that 
     \begin{equation}
         \{[e_i],[te_i],\dots,[t^{\mu_{i}-1}e_i] : 1\le i \le m\}
     \end{equation}
-    of $\CC[t]^m/t^{\mu_1}(t-s)^{\mu_2}\CC[t]^m$. 
-    We can show this if we can show that $\CC[t]$-lattices satisfying Equation~\ref{eq:defWBD} have a basis of the form 
+    is a $\CC$-basis of $\CC[t]^m/L$.
+    
+    To see this, we use that $ L $ 
+ has a $\CC[t]$-basis of the form 
     \begin{equation}
-        v_i = t^{\mu_{1,i}}(t-s)^{\mu_{2,i}} + \sum_{j>i} p_{ij}(t) e_j 
+        v_i = t^{\mu_i} + \sum_{j>i} p_{ij}(t) e_j 
     \end{equation}
     with $\deg p_{ij}(t) < \mu_i = \mu_{1,i} + \mu_{2,i}$ ($1\le i\le m$).
     \acom{I don't know why this should be true. We might have to just define fibres of $\cW_{\mu_1,\mu_2}$ in this way?}
     \item $t\big|_{\CC[t]^m/L}$ will have two eigenvalues, 0 and $s$, and its generalized 0-eigenspace will have block type $\le \lambda_1$ while its generalized $s$-eigenspace will have block type $\le \lambda_2$. 
-    This should follow from the defining fact that lattices satisfying Equation~\ref{eq:defGrBDlambda} equivalently satisfy 
+    To see this, note that there is a natural isomorphism
+    $$\CC[[t]]^m/(L \otimes_{\CC[t]} \CC[[t]]) = \text{generalized $0$ eigenspace of $t$ on } \CC[t]^m/L$$
+    carrying the action of $t $ to the action of $t$.
+    
+    The left hand side is the same thing as
+    $$ \CC[[t]]^m / (L \otimes_{\CC[t]} \CC[[t]]) = (\CC[t]^m/L) \otimes_{\CC[t]} \CC[[t]] $$
+    
+    the defining fact that lattices satisfying Equation~\ref{eq:defGrBDlambda} equivalently satisfy 
     \begin{equation}
         \begin{split}
             t\big|_{\CC\xt^m/L_1}\text{ has Jordan type} \le \lambda_1 \\
             t\big|_{\CC\xt^m/L_2}\text{ has Jordan type} \le \lambda_2 
         \end{split}
     \end{equation}
-    where recall $L_i = L\otimes \CC[(t-p_i)^{-1}]$ and $p_1 = s$ while $p_2 = 0$. \acom{Somehow, restricting to an eigenspace is like inverting/forgetting the action of $t$ by any other generalized eigenvalue? Basic linear algebra? Joel?}
+    where recall 
+    $L_i = L\otimes \CC\xt$ ??? 
+    % $L_i = L\otimes \CC[(t-p_i)^{-1}]$ 
+    and $p_1 = s$ while $p_2 = 0$. \acom{Somehow, restricting to an eigenspace is like inverting/forgetting the action of $t$ by any other generalized eigenvalue? Basic linear algebra? Joel?}
 \end{enumerate}
     \end{enumerate}
 \end{proof}
+
+
+Let
+$\cW_\mu = G_1[t^{-1}]t^\mu $ and $\hat \cW_\mu = G_1[[t^{-1}]] t^\mu$.
+
+\begin{theorem}[Theorem 1 version 2]
+    Let $\lambda_1,\lambda_2$ and $\mu$ 
+    %be dominant
+    be arbitrary, such that $\lambda = \lambda_1 + \lambda_2 \ge \mu$. Then there is an isomorphism 
+    \begin{equation}
+        \overline{\OO_{\lambda_1,\lambda_2}} \cap \TT_\mu \to \overline{\Grbd[2]^{\lambda_2,\lambda_2}}\cap\cW_\mu 
+    \end{equation}
+    defined by the same map as in Theorem 1.
+\end{theorem}
+
+
 
 \begin{corollary}
     The MVyBD isomorphism restricts to an isomorphism of subfamilies 
@@ -159,19 +200,18 @@ Let's call this the MVyBD isomorphism.
     \end{equation}
 \end{corollary}
 
-Define $S_{\mu_1,\mu_2}^s = N_-\xT[t^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. 
+\begin{proof}
+    Let $ A \in \overline{\OO_{\lambda_1,\lambda_2}}\cap\TT_{\mu_1,\mu_2}^+$ and let $ g $ be the polynomial matrix formed by the Mirkovic-Vybornov isomorphism.  Then the diagonal entries of $ g $ are $ t^{\mu_{1,k}} (t-s)^{\mu_{2,k}}$ and we can factor
+    $$ g = (g t^{-\mu_1}(t-s)^{-\mu_2}) t^{\mu_1}(t-s)^{\mu_2} \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$$
+    So we get containment in one direction.
+\end{proof}
+
+% Define $S_{\mu_1,\mu_2}^s = N_-\xT[t^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. 
 
 \acom{is it a fibre of $S_{\mu_1,\mu_2}$ defined above?}
 
 We could also make the following claim. 
-\begin{theorem}[Theorem 1 version 2]
-    Let $\lambda_1,\lambda_2$ and $\mu$ be dominant, such that $\lambda = \lambda_1 + \lambda_2 \ge \mu$. Then there is an isomorphism 
-    \begin{equation}
-        \overline{\OO_{\lambda_1,\lambda_2}} \cap \TT_\mu \to \overline{\Grbd[2]^{\lambda_2,\lambda_2}}\cap\cW_\mu 
-    \end{equation}
-    defined by the same map as in Theorem 1. 
-    Note $\cW_\mu = \Gr_\mu$. 
-\end{theorem}
+
 
 \begin{lemma}[KWWY14]
     Let $\mu$ be dominant. Then 
@@ -184,13 +224,31 @@ We could also make the following claim.
 \begin{lemma}%[Roger's lemma]
     Let $\mu_1,\mu_2$ be dominant and let $s\in \AA^1 - \{0\}$. Then 
     \begin{equation}
-        S_{\mu_1,\mu_2}^s \subset \Gr_\mu 
+        S_{\mu_1,\mu_2}^s \subset \hat \cW_\mu 
     \end{equation}
     where $\mu = \mu_1 + \mu_2$.
 \end{lemma}
 
 \begin{proof}
-    Copy Roger's proof.
+    % Copy Roger's proof.
+    We have
+\[
+\begin{split}
+    S_{\mu_1, \mu_2} & = N((t^{-1}))t^{\mu_1}(t-s)^{\mu_2} \\
+     & \subset T_1[[t^{-1}]] N((t^{-1})) t^{\mu_1} (t-s)^{\mu_2} \\
+     & = T_1[[t^{-1}]] N_1[[t^{-1}]] t^{\mu_1} (t-s)^{\mu_2} \\
+     & = B_1[[t^{-1}]] t^{\mu_1} (t-s)^{\mu_2} \\
+     & = B_1[[t^{-1}]] t^{\mu_1 + \mu_2} \\
+     & \subset G_1[[t^{-1}]] t^{\mu_1 + \mu_2} \\
+     & = W_{\mu_1 + \mu_2}
+\end{split}
+\]
+where $B_1[[t^{-1}]] t^{\mu_1} (t-s)^{\mu_2} = B_1[[t^{-1}]] t^{\mu_1 + \mu_2}$ since 
+\[
+\frac{t}{t-s} = 
+1 + \frac{s}{t} + \frac{s^2}{t^2} + \cdots 
+\in B_1[[t^{-1}]].
+\]
 \end{proof}
 
 \section{Denouement}
