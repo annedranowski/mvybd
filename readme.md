@@ -40,6 +40,10 @@ My thesis?
 MVy08, MVyKr19
 KWWY14
 
+$$
+e = d+c
+$$
+
 ## meetings
 
 thursdays!
