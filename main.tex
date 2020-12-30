@@ -59,7 +59,10 @@ Let $\Gr$ denote the ordinary \new{affine Grassmannian} $\Gch(\cK)/\Gch(\cO)$, $
     More generally, one can define a BD grassmannian of $\GL_m$ over any smooth curve $C$ as the reduced ind-scheme $\Grbd[n,C]$ fibered over a finite symmetric power of $C$ --- $C^{(n)}$ --- such that the fibre over the point $\vec p = (p_1,\dots,p_n)\in C^n$ is a collection of rank $m$ vector bundles $V$ over $C$ which are trivial away from $\vec p$ viewed also as a subset --- $\{p_1,\dots,p_n\}$ --- of $C$. Trivial means $\scO_C^m\cong V$. 
 \end{definition}
 
-To quote \cite{baumann2020bases} the BD Grassmannian is a relative version of the affine Grassmannian where the base is the space of effective divisors on a smooth curve $C$. The choice $C = \AA^1$ ``amply satisfies our needs and offers three advantages: there is a natural global coordinate it, every \anne{$G$-torsor}{i.e. principal $G$ bundle?} on it is trivializable, and the monodromy of any local system is trivial. Formally, $\Grbd$ is the functor on the category of commutative $\CC$-algebras that assigns to an algebra $R$ the set of isomorphism classes of triples $(\vec p,V,\sigma)$ where $\vec p\in \AA^n(R)$, $V$ is a $G^\vee$-torsor over $\AA^1_R$ and $\sigma$ is a trivialization of $V$ away from $\vec p$.''  
+\jcom{Careful: you can define it over $C^n$ or $C^{(n)}$, these are two different things.}
+
+To quote \cite{baumann2020bases} the BD Grassmannian is a relative version of the affine Grassmannian where the base is the space of effective divisors on a smooth curve $C$. The choice $C = \AA^1$ ``amply satisfies our needs and offers three advantages: there is a natural global coordinate it, every \anne{$G$-torsor}{i.e. principal $G$ bundle?} on it is trivializable, and the monodromy of any local system is trivial. Formally, $\Grbd$ is the functor on the category of commutative $\CC$-algebras that assigns to an algebra $R$ the set of isomorphism classes of triples $(\vec p,V,\sigma)$ where $\vec p\in \AA^n(R)$, $V$ is a $G^\vee$-torsor over $\AA^1_R$ and $\sigma$ is a trivialization of $V$ away from $\vec p$.''
+\jcom{Yes, $G$-torsor is the same thing as a principal $G$-bundle.}
 
 They denote by $\pi$ the fibration $\Grbd\to\AA^n$ (forgetting $V$ and $\sigma$).
 % 
@@ -149,6 +152,8 @@ Correspondingly we have
     and $\lim_{s\to 0} \rho^\vee (s)\cdot L = L_\mu$
 \end{question}
 
+\jcom{This is not correct since, you don't use all information in $ \lambda_1, \lambda_2$.  You need to describe the Jordan type of the quotients, or something equivalent.}
+
 \begin{definition}
     Say $\mu_1$ and $\mu_2$ are \new{disjoint} if $(\mu_1)_i\ne 0 \Rightarrow (\mu_2)_i = 0$ and $(\mu_2)_i\ne 0 \Rightarrow (\mu_1)_i = 0$. 
 \end{definition}
@@ -179,6 +184,7 @@ If $\mu_i$ is not a permutation of $\lambda_i$ and $\lambda_i$ are not ``homogen
 If $\mu_1$ and $\mu_2$ are not disjoint how do we proceed? E.g.\ if $\mu_1 = (2,2,0)$, $\mu_2 = (1,0,2)$; $\mu_1 = (2,2,1)$, $\mu_2 = (1,0,1)$.
 \end{question}
 
+\jcom{I think that we figured this out.  We just need to take the matrix corresponding to $ z^{\mu_1}(z-s)^{\mu_2} $ under the MVy isomorphism.}
 \section{Convolution vs BD}
 % aka, our result vs MVy's results
 % aka, what they do, and what they stop short of doing
