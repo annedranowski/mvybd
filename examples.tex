@@ -421,4 +421,96 @@ Equivalent lin alg question: If $p(t,t-s) = p_1(t)p_2(t-s)$ then how are $C(p_1)
     \end{align*}
     assuming $b_2 = s$ and $a_2 + sa_3 = 0$.
 \end{example}
+
+\begin{example}
+Let
+    \[
+    \begin{aligned}
+        \lambda_1 &= (2,0,0,0) & \mu_1 &= (1,1,0,0) \\
+        \lambda_2 &= (2,2,1,0) & \mu_2 &= (3,2,1,1)
+    \end{aligned}
+    \]
+so $\lambda_1 - \mu_1 = \alpha_1$ and $\lambda_2 - \mu_2 = \alpha_2 + \alpha_3$. We have the following young tableaux:
+\[
+\tau_1 = \young(12) \hspace{5mm}
+\tau_2 = \young(11,23,4) \hspace{5mm}
+\tau_2' = \young(11,24,3)
+\]
+where $\tau_1$ corresponds to the module $S_1$, $\tau_2$ corresponds to the module $2\rightarrow 3$, and $\tau'_2$ corresponds to the module $2 \leftarrow 3$.
+
+The matrix we are considering is 
+\[
+X = \begin{bmatrix}
+    0 & 1 \\
+     & 0 & 1 \\
+     & -s^2 & 2s & a & b & c & d \\
+     & & & 0 & 1 \\
+     & & & & s & e & f \\
+     & & & & & s & g \\
+     & & & & & & s
+\end{bmatrix}
+\]
+such that $\dim E_0 = 2$, $\dim \ker X = 1$, $\dim E_s = 5$, and $\dim \ker (X-sI) = 3$ where $E_0$ and $E_s$ are the $0$- and $s$-generalized eigenspaces.
+
+We see that the two-cycle in $E_0$ is 
+\[
+\left\{ X\left(e_2 + \frac{s^2}{a}e_4\right), e_2 + \frac{s^2}{a}e_4 \right\}
+= \left\{e_1, e_2 + \frac{s^2}{a}e_4 \right\}.
+\]
+
+As $\tau_2$ and $\tau'_2$ both share $\young(11,2)$, we can find a 2-cycle from just the upper-left $3\times3$ block, and an additional vector in $\ker(X-sI)$ from the upper-left $5\times5$-submatrix. The 2-cycle from the $3 \times 3$ block is
+\[
+\left\{e_1 + se_2 + s^2e_3, -\frac{2}{s}e_1 - e_2 \right\}.
+\]
+The additional vector in $\ker(X-sI)$ is $e_4 + se_5$ and this requires $a+sb=0$.
+
+Now consider the case that the young diagram we are working with is $\tau_2$. Then we have $e_4 + se_5$ part of a 2-cycle that can be found by looking at the upper-left $6 \times 6$-submatrix. We find that the 2-cycle is
+\[
+\left\{e_4 + se_5, -\frac{1}{s}e_4 + \frac{s}{e}e_6 \right\}
+\]
+and this requires that $ae - s^2c = 0$.
+
+The last vector in $\ker(X-sI)$ comes from the entire $X-sI$ and we see it is $-fe_6 + ee_7$, which requires $g=0$ and $ed-cf=0$.
+
+For the case $\tau'_2$, we start with find the third vector in $\ker(X-sI)$ from the upper-left $6 \times 6$-submatrix. We see that it is $e_6$, which requires $c = 0$ and $e = 0$. 
+
+For the remaining 2-cycle, we note that $e_4 + se_5 \notin \col(X-sI)$ but $e_6 \in \col(X-sI)$ so our 2-cycle is
+\[
+\left\{ e_6, \frac{1}{g} e_7 \right\}
+\]
+which requires $d = 0$ and $f = 0$.
+
+From the minimal polynomial, we have $X^2 (X-sI)^2 = 0$ which gives us the equations
+\[
+a+sb = cs+eb = bf+cg+ds = esg = 0.
+\]
+Taking $s\rightarrow 0$, we have the following equations for our two cases of $\tau_2$ and $\tau'_2$:
+\[
+\begin{array}{c|c}
+    \tau_2 & \tau'_2 \\ \hline
+    a = 0 & a = 0 \\
+    g = 0 & c = 0 \\
+    eb = 0 & d = 0 \\
+    bf = 0 & e = 0 \\
+    ed-cf = 0 & f = 0
+\end{array}
+\]
+
+For the $\tau_2$ case, the coordinate ring is 
+\[
+\frac{\CC[a,b,c,d,e,f,g]}{\langle a,g,eb,bf,ed-cf \rangle}
+\cong \frac{\CC[b,c,d,e,f]}{\langle eb,bf,ed-cf \rangle}
+= \frac{\CC[b,c,d,e,f]}{\langle e,f \rangle \cap \langle b,ed-cf \rangle}
+\]
+Hence the associated algebraic set is reducible with two irreducible components. The component corresponding to the ideal $\langle e,f \rangle$ is $\AA^3$, which corresponds to $\PP^3$, while the ideal $\langle b,ed-cf \rangle$ corresponds to the toric variety whose toric polytope is a square-based pyramid. 
+
+As $\tau_2$ corresponds to the module $2 \rightarrow 3$, the irreducible components should correspond to the modules $P_1 = 1 \rightarrow 2 \rightarrow 3$ and $1 \leftarrow 2 \rightarrow 3$. Indeed, the MV cycle corresponding to $P_1$ is the Grassmannian $Gr(1,4) \cong \PP^3$ and for $1 \leftarrow 2 \rightarrow 3$, we do get a toric variety with polytope the square-based pyramid.
+
+However for the $\tau'_2$ case, the coordinate ring is 
+\[
+\frac {\CC[a,b,c,d,e,f,g]}{\langle a,c,d,e,f \rangle}
+\cong \CC[b,g]
+\]
+which corresponds to $\AA^2$. Since $\tau'_2$ corresponds to the module $2\leftarrow 3$, we expect two irreducible components corresponding to the modules $P_3 = 1 \leftarrow 2 \leftarrow 3$ and $1 \rightarrow 2 \leftarrow 3$. $P_3$ corresponds to the variety $Gr(3,4) \cong \PP^3$ and $1 \rightarrow 2 \leftarrow 3$ also corresponds to a toric variety whose polytope is a square-based pyramid (?).
+\end{example}
 \end{document}
