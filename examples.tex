@@ -15,32 +15,49 @@
 \section*{Disjoint, non-dominant $\mu$}
 
 \begin{example}
-$\lambda_1 = (1,0,0)$, $\lambda_2 = (1,1,0)$, $\mu_1 = (0,1,0)$, $\mu_2 = (1,0,1)$. \jcom{$\mu = \mu_1 + \mu_2$ determines the blocks we have on the RHS of the BD MVy isomorphism of Equation~\ref{eq:topmvy2}.} 
+$\lambda_1 = (1,0,0)$, $\lambda_2 = (1,1,0)$, $\mu_1 = (0,1,0)$, $\mu_2 = (1,0,1)$. \jcom{$\mu = \mu_1 + \mu_2$ determines the blocks we have on the RHS of the BD MVy isomorphism.} 
+\[
+\left[\begin{BMAT}(e){c;c;c}{c;c;c} 
+    s & A_0 & A_1\\
+    0 & 0 & A_2\\
+    0 & 0 & s
+\end{BMAT}\right]    
+\]
+% 
+% In the non-BD case, MVy establish
+% $$
+% \overline{\Gr^\lambda}\cap \cW^\mu \to 
+% \left\{ X = 
+% \left[\begin{BMAT}{cc|cc|c}{cc|cc|c}
+% 0 & 1 & 0 & 0 & 0 \\
+% * & * & * & * & * \\
+% 0 & 0 & 0 & 1 & 0 \\
+% * & * & * & * & * \\
+% * & 0 & * & 0 & * 
+% \end{BMAT}\right] \big| X \in \overline{\OO}_\lambda
+% \right\}
+% $$
 
-In the non-BD case, MVy establish
-$$
-\overline{\Gr^\lambda}\cap \cW^\mu \to 
-\left\{ X = 
-\left[\begin{BMAT}{cc|cc|c}{cc|cc|c}
-0 & 1 & 0 & 0 & 0 \\
-* & * & * & * & * \\
-0 & 0 & 0 & 1 & 0 \\
-* & * & * & * & * \\
-* & 0 & * & 0 & * 
-\end{BMAT}\right] \big| X \in \overline{\OO}_\lambda
-\right\}
-$$
-
-In the BD case the RHS will consist of the same block like matrices $X$ but now having eigenvalues $s, 0$ such that $X - s\big|_{E_s}\in \OO_{\lambda_2}$ 
+% In the BD case the RHS will consist of the same block like matrices $X$ but now having eigenvalues $s, 0$ such that $X - s\big|_{E_s}\in \OO_{\lambda_2}$ 
 \end{example}
 
 \section*{Some multiplicity}
 
 \begin{example}[Joel's exercise] 
-    It would be good to do an example where we will see some multiplicity in the fusion product.  I think that the simplest example would be the fusion product of the MV cycles for $\SL_3$ of weights $2\alpha_1$ and $2\alpha_2$.  Following the notation from the mvbasis paper, this would correspond to the following multiplication:
-$$x^2 y^2 = (xy-z)^2 + 2(xy - z) z + z^2\,.$$
+    It would be good to do an example where we will see some multiplicity in the fusion product. I think that the simplest example would be the fusion product of the MV cycles for $\SL_3$ of weights $2\alpha_1$ and $2\alpha_2$.  
+    Following the notation from the mvbasis paper, this would correspond to the following multiplication: $$x^2 y^2 = (xy-z)^2 + 2(xy - z) z + z^2\,.$$
 
-For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (0,2,0)$, $\mu_2 = (2,0,2)$. 
+For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (0,2,0)$, $\mu_2 = (2,0,2)$. Then 
+\[
+\left[\begin{BMAT}(e){cc;cc;cc}{cc;cc;cc} 
+    0 & 1 & 0 & 0 & 0 & 0\\
+    -s^2 & 2s & A_0 & A_1 & A_2 & A_3\\
+    0 & 0 & 0 & 1 & 0 & 0\\
+    0 & 0 & 0 & 0 & A_4 & A_5\\
+    0 & 0 & 0 & 0 & 0 & 1\\
+    0 & 0 & 0 & 0 & -s^2 & 2s
+    \end{BMAT}\right]
+\]
 
 % Adding 2020-12-30 14:03:05: 
 Let's also try  
@@ -49,6 +66,23 @@ Let's also try
     \lambda_2 &= (4,0,0) & \lambda_1 &= (4,4,0) & \lambda &= (8,4,0)\\
     \mu_2 &= (2,2,0)     & \mu_1 &= (4,2,2)     & \mu &= (6,4,2)
 \end{aligned}    
+\]
+Then 
+\[
+\left[\begin{BMAT}(e){cccccc;cccc;cc}{cccccc;cccc;cc} 
+    0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & -s^2 & 2s & A_0 & A_1 & A_2 & A_3 & A_4 & A_5\\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & -s^2 & 2s & A_6 & A_7\\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+    0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+    \end{BMAT}\right]    
 \]
 Note that there is only one SSYT of shape $\lambda_i$ and weight $\mu_i$
 \[
@@ -211,6 +245,17 @@ A-s = \left[\begin{BMAT}(e){cccccc:cccc:cc}{cccccc:cccc:cc}
         \end{BMAT}
         \right]    
     \]
+    % \[
+    %     \begin{BMAT}(e){ccc;ccc;c}{ccc;ccc;c} 
+    %         0 & 1 & 0 & 0 & 0 & 0 & 0\\
+    %         0 & 0 & 1 & 0 & 0 & 0 & 0\\
+    %         0 & 0 & 0 & A_0 & A_1 & A_2 & A_3\\
+    %         0 & 0 & 0 & 0 & 1 & 0 & 0\\
+    %         0 & 0 & 0 & 0 & 0 & 1 & 0\\
+    %         0 & 0 & 0 & 0 & -s^2 & 2*s & A_4\\
+    %         0 & 0 & 0 & 0 & 0 & 0 & 0
+    %     \end{BMAT}    
+    % \]
 \end{example}
 
 \begin{example}
@@ -397,40 +442,68 @@ Equivalent linear algebra question(?): If $p(t,t-s) = p_1(t)p_2(t-s)$ then how a
 \section*{Non simple root weights}
 \begin{example}[Anne]
     Let $G = \SL_3$ and $\uvi = 121$.
-    Take $n_\bullet^1 = (1,0,0)$, and $n_\bullet^2 = (1,0,1)$ or $(0,1,0)$. So $\mu_1, = (2,2,1)$, $\lambda_1 = (3,1,1)$ and $\mu_2 = (1,1,1)$, $\lambda_2 = (2,1,0)$. \acom{We should show that order does not matter.}
-    Then $\TT_{\mu_1,\mu_2}^+\cap\OO_{\lambda_1,\lambda_2}$ is made up of elements 
+    
+    Take $n_\bullet^1 = (1,0,0)$, and $n_\bullet^2 = (1,0,1)$ or $(0,1,0)$. So 
     \[
-    \begin{bmatrix}
-        0 & 1 & 0 \\
-        0 & 0 & 1 \\
-        0 & 0 & s & 0 & a_2 & a_3 & b_1 & b_2 \\
-          &   &   & 0 & 1 & 0 \\
-          &   &   & 0 & 0 & 1 \\
-          &   &   & 0 & 0 & s & c_1 & 0 \\
-          &   &   &   &   &   & 0 & 1 \\
-          &   &   &   &   &   & 0 & s 
-    \end{bmatrix}    
+        \begin{aligned}
+            \mu_1 &= (2,2,1) & \mu_2 &= (1,1,1) & \mu &= (3,3,2)\\
+            \lambda_1 &= (3,1,1) & \lambda_2 &= (2,1,0) & \lambda &= (5,2,1)
+        \end{aligned}
     \]
-    and zero eigenspace conforming to the shape 
+    Note
     \[
-    \lambda_1 = \yng(3,1,1)    
-    \] 
-    is made of three cycles
-    \begin{align*}
-        a_2 e_1 &\leftarrow a_2e_2 - s e_4 \leftarrow a_2 e_3 - s e_5 \\
-        e_4 & \\
-        e_7 & 
-    \end{align*}
-    while the $s$-eigenspace confirming to the shape 
-    \[
-    \lambda_2 = \yng(2,1)    
+    \tau(1,0,0) = \young(112,2,3) \qquad \tau(1,0,1) = \young(12,3) \qquad \tau(0,1,0) = \young(13,2)    
     \]
-    is made of the two cycles 
-    \begin{align*}
-        e_1 + se_2 +s^2 e_3 & \leftarrow e_2 + 2se_3 + e_7 + se_8 \\
-        e_4 + s e_5 + s^2 e_6 & 
-    \end{align*}
-    assuming $b_2 = s$ and $a_2 + sa_3 = 0$.
+    
+    \acom{We should show that order does not matter; i.e.\ swapping indices on $\lambda$'s and $\mu$'s produces the same result.}
+
+    $\TT_{\mu_1,\mu_2}^+\cap\OO_{\lambda_1,\lambda_2}$ is made up of elements of the form
+    \[
+        A = \left[\begin{BMAT}(e){ccc;ccc;cc}{ccc;ccc;cc} 
+            0 & 1 & 0 & 0 & 0 & 0 & 0 & 0\\
+            0 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\
+            0 & 0 & s & A_0 & A_1 & A_2 & A_3 & A_4\\
+            0 & 0 & 0 & 0 & 1 & 0 & 0 & 0\\
+            0 & 0 & 0 & 0 & 0 & 1 & 0 & 0\\
+            0 & 0 & 0 & 0 & 0 & s & A_5 & A_6\\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & 1\\
+            0 & 0 & 0 & 0 & 0 & 0 & 0 & s
+            \end{BMAT}\right]
+    % \begin{bmatrix}
+    %     0 & 1 & 0 \\
+    %     0 & 0 & 1 \\
+    %     0 & 0 & s & 0 & a_2 & a_3 & b_1 & b_2 \\
+    %       &   &   & 0 & 1 & 0 \\
+    %       &   &   & 0 & 0 & 1 \\
+    %       &   &   & 0 & 0 & s & c_1 & 0 \\
+    %       &   &   &   &   &   & 0 & 1 \\
+    %       &   &   &   &   &   & 0 & s 
+    % \end{bmatrix}    
+    \]
+As usual, denote by $E_e$ the generalized $e$-eigenspace of $A$. $A\big|_{\CC^3\cap E_0}$ should have Jordan type $(2)$. The obvious 2-cycle is generated by $e_2$: $\{e_2, A e_2\}$. $A\big|_{\CC^3\cap E_s}$ should have Jordan type $(1)$. We take $e_1 + se_2 + s^2 e_3 \in\Ker(A-s)$. Next $A\big|_{\CC^6\cap E_0}$ should have Jordan type $(3,1)$ while $A\big|_{\CC^6\cap E_s}$ will have Jordan type $(2)$ or $(1,1)$. 
+% This means we'll be extending the 2-cycle $\{e_2, e_1\}$ to a 3-cycle, and adding a 1-cycle to $E_0\cap\CC^3$. The new 1-cycle must be $\{e_4\}$. \acom{Why?} Hence our first equation: $A_0 = 0$. As to the 3-cycle, it can only be generated by $e_5$, i.e.\ the original 2-cycle is modified: $\{e_5 \mapsto A_1 e_3 + e_4 \mapsto \}$ 
+% TODO: Make a table 
+% 
+% The zero eigenspace of $A$ conforms to the shape 
+%     \[
+%     \lambda_1 = \yng(3,1,1)    
+%     \] 
+%     is made of three cycles
+%     \begin{align*}
+%         a_2 e_1 &\leftarrow a_2e_2 - s e_4 \leftarrow a_2 e_3 - s e_5 \\
+%         e_4 & \\
+%         e_7 & 
+%     \end{align*}
+%     while the $s$-eigenspace confirming to the shape 
+%     \[
+%     \lambda_2 = \yng(2,1)    
+%     \]
+%     is made of the two cycles 
+%     \begin{align*}
+%         e_1 + se_2 +s^2 e_3 & \leftarrow e_2 + 2se_3 + e_7 + se_8 \\
+%         e_4 + s e_5 + s^2 e_6 & 
+%     \end{align*}
+%     assuming $b_2 = s$ and $a_2 + sa_3 = 0$.
 \end{example}
 
 \begin{example}[Roger]

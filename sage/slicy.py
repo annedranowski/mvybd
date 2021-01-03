@@ -87,8 +87,31 @@ def sagefy(rows):
 
 def ezbmatify(rows,blocktype):
     N = len(rows)
-    bmat = ""
-
+    m = len(blocktype)
+    bmat = "\\left[\\begin{BMAT}(e){"
+    for i in range(m):
+        for j in range(blocktype[i]):
+            bmat += "c"
+        if i != m - 1:
+            bmat += ";"
+    bmat += "}{"
+    for i in range(m):
+        for j in range(blocktype[i]):
+            bmat += "c"
+        if i != m - 1:
+            bmat += ";"
+    bmat += "} \n"
+    for i in range(N):
+        # m2 += "{"
+        for j in range(N):
+            bmat += str(rows[i][j]) 
+            if j != N-1:
+                bmat += " & "
+        # bmat += "\\\\ \n"
+        if i != N - 1:
+            bmat += "\\\\\n"
+    bmat += "\n\\end{BMAT}\\right]"
+    return print(bmat)
 # Generates output like: 
 # \begin{BMAT}(e){ccc;ccc;c}{ccc;ccc;c}
 #             0 & 1 & 0 & 0 & 0 & 0 & 0 \\
