@@ -25,8 +25,6 @@ def mvy(blocktype):
                 counter+=1
     return T
 
-# TODO: add support for B = companion_matrix(poly, format='bottom');
-
 def bdmvy(blocktypes):
     numblocks = len(blocktypes[0])
     # check that len(blocktypes[0]) == len(blocktypes[1]) 
@@ -87,6 +85,22 @@ def sagefy(rows):
     s2 += "]"
     return s2
 
+def ezbmatify(rows,blocktype):
+    N = len(rows)
+    bmat = ""
+
+# Generates output like: 
+# \begin{BMAT}(e){ccc;ccc;c}{ccc;ccc;c}
+#             0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+#             0 & 0 & 1 & 0 & 0 & 0 & 0 \\
+#             % a & b & c & d & e & f & g \\ 
+#             0 & 0 & 0 & d & e & f & g \\ 
+#             0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+#             0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+#             0 & 0 & 0 & 0 & -s^2 & 2s & k \\
+#             0 & 0 & 0 & 0 & 0 & 0 & 0
+#         \end{BMAT}
+
 # return image of mvy in Gr
 def phi(blocktype):
     m = len(blocktype)
@@ -102,4 +116,24 @@ def phi(blocktype):
                 g[a,b] -= stars[counter]*t**k
                 counter+=1
     g += diagonal_matrix(t**blocktype[i] for i in range(m))
+    return g.transpose()
+
+# return image of mvy in Gr
+def bdphi(blocktypes):
+    m = len(blocktypes[0])
+    # check that len(blocktypes[0]) == len(blocktypes[1]) 
+    aggregate = [sum(blocktypes[i][j] for i in range(2)) for j in range(numblocks)]
+    indices = [(a,b,k) for a in range(m-1) for b in range(a+1,m) for k in range(aggregate[b])]
+    stars = list(var('A_%d' % (i)) for i in range(len(indices)))    
+    stars.append(var('t'))
+    stars.append(var('s'))
+    P = PolynomialRing(QQ,stars)
+    g = matrix(P,m)
+    counter=0
+    for a in range(m-1):
+        for b in range(a+1,m):
+            for k in range(aggregate[b]):
+                g[a,b] -= stars[counter]*t**k
+                counter+=1
+    g += diagonal_matrix(t**blocktypes[0][i]*(t-s)**blocktypes[1][i] for i in range(m))
     return g.transpose()
