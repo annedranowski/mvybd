@@ -1,16 +1,18 @@
 \documentclass{article}
 \usepackage{basic}
 
-\title{Examples}
-\author{Roger Bai, Anne Dranowski, Joel Kamnitzer}
+\title{Examples Compendium}
+\author{Roger Bai, Anne Dranowski}
 % \date{October 2020}
-\date{Last edit: \today}
+% , Joel Kamnitzer
+\date{Last edit: approx.\ \today}
 
 \begin{document}
 
 \maketitle
 
-\section{Examples}
+% \section{Examples}
+\section*{Disjoint, non-dominant $\mu$}
 
 \begin{example}
 $\lambda_1 = (1,0,0)$, $\lambda_2 = (1,1,0)$, $\mu_1 = (0,1,0)$, $\mu_2 = (1,0,1)$. \jcom{$\mu = \mu_1 + \mu_2$ determines the blocks we have on the RHS of the BD MVy isomorphism of Equation~\ref{eq:topmvy2}.} 
@@ -32,13 +34,16 @@ $$
 In the BD case the RHS will consist of the same block like matrices $X$ but now having eigenvalues $s, 0$ such that $X - s\big|_{E_s}\in \OO_{\lambda_2}$ 
 \end{example}
 
-\begin{example}
-Do Joel's exercise: It would be good to do an example where we will see some multiplicity in the fusion product.  I think that the simplest example would be the fusion product of the MV cycles for $\SL_3$ of weights $2\alpha_1$ and $2\alpha_2$.  Following the notation from the mvbasis paper, this would correspond to the following multiplication:
-$x^2 y^2 = (xy-z)^2 + 2(xy - z) z + z^2$. 
+\section*{Some multiplicity}
+
+\begin{example}[Joel's exercise] 
+    It would be good to do an example where we will see some multiplicity in the fusion product.  I think that the simplest example would be the fusion product of the MV cycles for $\SL_3$ of weights $2\alpha_1$ and $2\alpha_2$.  Following the notation from the mvbasis paper, this would correspond to the following multiplication:
+$$x^2 y^2 = (xy-z)^2 + 2(xy - z) z + z^2\,.$$
 
 For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (0,2,0)$, $\mu_2 = (2,0,2)$. 
 
-Adding 2020-12-30 14:03:05: Let's take 
+% Adding 2020-12-30 14:03:05: 
+Let's also try  
 \[
 \begin{aligned}
     \lambda_2 &= (4,0,0) & \lambda_1 &= (4,4,0) & \lambda &= (8,4,0)\\
@@ -119,6 +124,8 @@ A-s = \left[\begin{BMAT}(e){cccccc:cccc:cc}{cccccc:cccc:cc}
 \]
 \end{example}
 
+\begin{comment}
+\section*{Getting a feel for things}
 \begin{example}
     Let 
     \[
@@ -173,7 +180,9 @@ A-s = \left[\begin{BMAT}(e){cccccc:cccc:cc}{cccccc:cccc:cc}
     % \] 
     % such that $T_{\mu_1,\mu_2}\big|_{s = 0} = T_\mu$ whatever that means... 
 \end{example}
+\end{comment}
 
+\section*{Simple root weights, things working}
 \begin{example}
     Let 
     \[
@@ -266,7 +275,7 @@ A-s = \left[\begin{BMAT}(e){cccccc:cccc:cc}{cccccc:cccc:cc}
     which corresponds to two $\AA^2$'s intersecting along an $\AA^1$. This is indeed an open subset of $\PP^2 \cup_{\PP_1} \PP^2$, as required.
 \end{example}
 
-\begin{example}[Example 7 continued\dots]
+\begin{example}[Continued\dots]
     The matrix $X$ from the previous example defines (under MVy) the matrix 
     \[
         g = \begin{bmatrix}
@@ -382,9 +391,11 @@ A-s = \left[\begin{BMAT}(e){cccccc:cccc:cc}{cccccc:cccc:cc}
 
 {\bf Wish.} Given $L$ in $\Grbd$ define a map to $T_\mu$ just like MVy by taking $[t\big|_{L_0/L}]$ and use the fact that $[t\big|_{L_0/L_i}]$ for $i = 1,2$ are companion matrices of the right type, piece together two MVy isomorphisms to make a BD MVy iso. 
 
-Equivalent lin alg question: If $p(t,t-s) = p_1(t)p_2(t-s)$ then how are $C(p_1)$, $C(p_2)$, and $C(p)$ related? I think it's basically this theorem \url{https://en.wikipedia.org/wiki/Structure_theorem_for_finitely_generated_modules_over_a_principal_ideal_domain} 
+Equivalent linear algebra question(?): If $p(t,t-s) = p_1(t)p_2(t-s)$ then how are $C(p_1)$, $C(p_2)$, and $C(p)$ related? 
+% I think the answer is basically this theorem \url{https://en.wikipedia.org/wiki/Structure_theorem_for_finitely_generated_modules_over_a_principal_ideal_domain} 
 
-\begin{example}
+\section*{Non simple root weights}
+\begin{example}[Anne]
     Let $G = \SL_3$ and $\uvi = 121$.
     Take $n_\bullet^1 = (1,0,0)$, and $n_\bullet^2 = (1,0,1)$ or $(0,1,0)$. So $\mu_1, = (2,2,1)$, $\lambda_1 = (3,1,1)$ and $\mu_2 = (1,1,1)$, $\lambda_2 = (2,1,0)$. \acom{We should show that order does not matter.}
     Then $\TT_{\mu_1,\mu_2}^+\cap\OO_{\lambda_1,\lambda_2}$ is made up of elements 
@@ -422,7 +433,7 @@ Equivalent lin alg question: If $p(t,t-s) = p_1(t)p_2(t-s)$ then how are $C(p_1)
     assuming $b_2 = s$ and $a_2 + sa_3 = 0$.
 \end{example}
 
-\begin{example}
+\begin{example}[Roger]
 Let
     \[
     \begin{aligned}
