@@ -10,9 +10,90 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
 
 % \section{Examples}
-\section*{Disjoint, non-dominant $\mu$}
+\section{\today}
+Let $Z$ be the MV cycle of weight $\alpha_3$ with Lusztig datum $(000,00,1)$ and $Z'$ the MV cycle of weight $\alpha_{1,2}$ with Lusztig datum $(010,00,0)$. 
+
+In terms of tableax the fusion $Z\ast Z'$ can be encoded as 
+\begin{align}
+    \young(1,2,4) \ast \young(3) &= \young(13,2,4) + \young(14,2,3) \\
+    S_3 \ast (1\leftarrow 2) &= (1\leftarrow 2 \to 3) + P_3 \\ 
+    (000,00,1)\ast (010,00,0) &= (010,00,1) + (001,00,0) \\
+    &= (A_0 , A_5, A_1A_4 - A_2A_3) \sqcup (A_0 , A_1, A_3) 
+\end{align}
+where the ideals in line 3 are given in coordinates on matrices of the form
+\[
+    \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c} 
+        0 & A_0 & A_1 & A_2\\
+        0 & 0 & A_3 & A_4\\
+        0 & 0 & s & A_5\\
+        0 & 0 & 0 & 0
+        \end{BMAT}\right]
+\]
+
+Next let $Z$ be the MV cycle of weight $\alpha_{1,3}$ having Lusztig datum $(100,01,0)$ and $Z'$ the MV cycle of weight $\alpha_2$ having Lusztig datum $(000,10,0)$. 
+
+Again, in terms of tableaux, $Z\ast Z'$ is given by 
+\begin{align}
+    \young(2,4) \ast \young(1,3) &= \young(13,24) + \young(12,34) \\
+    (1\to 2\leftarrow 3) \ast S_2 &= P_2 + (2\leftarrow 3) \oplus (1 \to 2) \\
+    (100,01,0) \ast (000,10,0) &= (010,01,0) + (100,11,0) 
+\end{align} 
+
+TODO: fill in the ideals. 
+
+Now take $Z$ to be the MV cycle of weight $\alpha_{1,3}$ with Lusztig datum $(010,00,1)$ and leave $Z'$ as above. Then 
+\begin{align}
+    \young(13,2,4) \ast \young(11,23) &= \young(1113,223,4) + \young(1113,224,3) \\
+    (1 \leftarrow 2 \to 3) \ast S_2 &= (2\to 3) \oplus (1\leftarrow 2) + P_2 \\
+    (010,00,1) \ast (000,10,0) &= (010,10,1) + (010,01,0)
+\end{align}
+TODO: fill in the ideals. 
+
+Also computed: 
+\begin{align}
+    \young(1,2,4) \ast \young(12,3) &= \young(112,24,3) + \young(112,23,4) \\
+    (000,00,1) \ast (100,10,0) &= (100,01,0) + (100,10,1) \\
+    S_3 \ast (1\to 2) &= (1 \to 2 \leftarrow 3) + (1 \to 2 \to 3) \\
+    &= (A_0,A_5,A_4,A_2) \sqcup (A_0,A_5,A_4,A_6) 
+\end{align}
+in 
+\[
+    \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c} 
+        0 & 1 & 0 & 0 & 0 & 0\\
+        0 & s & A_0 & A_1 & A_2 & A_3\\
+        0 & 0 & 0 & 1 & 0 & 0\\
+        0 & 0 & 0 & s & A_4 & A_5\\
+        0 & 0 & 0 & 0 & s & A_6\\
+        0 & 0 & 0 & 0 & 0 & 0
+        \end{BMAT}\right]    
+\]
+TODO: add explanation, double check the ideals. 
+
+Finally, we guess that the fusion $2\alpha_1 \ast 2\alpha_2$ is encoded by the tableau equation 
+\[
+\young(22) \ast \young(11,33) = \young(1122,33) + \young(1123,23) + \young(1133,22)     
+\]
+Remains to check this and make sense of the middle term. 
+
+% 1
+% 2 0 
+% 2 1 0 
+% 2 1 0 0 
+
+% 2
+% 3 1 
+% 3 1 1 
+% 3 2 1 0 
+
+% 2 
+% 3 1 
+% 3 2 0 
+% 3 2 1 0 
+
+\section{Disjoint, non-dominant weight}
 
 \begin{example}
 $\lambda_1 = (1,0,0)$, $\lambda_2 = (1,1,0)$, $\mu_1 = (0,1,0)$, $\mu_2 = (1,0,1)$. \jcom{$\mu = \mu_1 + \mu_2$ determines the blocks we have on the RHS of the BD MVy isomorphism.} 
@@ -41,15 +122,19 @@ $\lambda_1 = (1,0,0)$, $\lambda_2 = (1,1,0)$, $\mu_1 = (0,1,0)$, $\mu_2 = (1,0,1
 % In the BD case the RHS will consist of the same block like matrices $X$ but now having eigenvalues $s, 0$ such that $X - s\big|_{E_s}\in \OO_{\lambda_2}$ 
 \end{example}
 
-\section*{Some multiplicity}
+\section{Some multiplicity}
 
 \begin{example}[Joel's exercise] 
     It would be good to do an example where we will see some multiplicity in the fusion product. I think that the simplest example would be the fusion product of the MV cycles for $\SL_3$ of weights $2\alpha_1$ and $2\alpha_2$.  
     Following the notation from the mvbasis paper, this would correspond to the following multiplication: $$x^2 y^2 = (xy-z)^2 + 2(xy - z) z + z^2\,.$$
 
-For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (0,2,0)$, $\mu_2 = (2,0,2)$. Then 
+For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (0,2,0)$, $\mu_2 = (2,0,2)$. 
 \[
-\left[\begin{BMAT}(e){cc;cc;cc}{cc;cc;cc} 
+\yng(2) = \{\young(22)\} \qquad \yng(2,2) = \{\young(11,33)\} 
+\]
+Then 
+\[
+A = \left[\begin{BMAT}(e){cc;cc;cc}{cc;cc;cc} 
     0 & 1 & 0 & 0 & 0 & 0\\
     -s^2 & 2s & A_0 & A_1 & A_2 & A_3\\
     0 & 0 & 0 & 1 & 0 & 0\\
@@ -58,6 +143,23 @@ For this example, I think we need $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, 
     0 & 0 & 0 & 0 & -s^2 & 2s
     \end{BMAT}\right]
 \]
+needs $A-s\big|_{\CC^2\cap E_s}$ has Jordan type $(2)$, $A\big|_{\CC^4\cap E_0}$ has Jordan type $(2)$, and $A-s\big|_{E_s}$ has Jordan type $(2,2)$. 
+So 
+\[
+E_0 = \{A_0 \e_1 + s^2\e_3\leftarrow A_0 \e_2 + s^2 \e_4 + (A_0 + A_1 + \frac {2A_0}  s  ) \e_1 + s^2 \e_3 \}   
+\]
+while 
+\begin{gather}
+E_s^1 = \{\e_1 + s \e_2\leftarrow \e_1 + (1 + s) \e_2 \}  \\
+E_s^2 = \{ -\frac{A_2 + sA_3}{A_0 + sA_1}\e_3 - \frac{sA_2 + s^2 A_3}{A_0 + sA_1} \e_4 + \e_5 + s \e_6  \leftarrow\}
+\end{gather}
+if 
+\begin{gather}
+    0 = A_4 + sA_5 \\
+    \to A_0 A_4 \text{ as } s \to 0 
+\end{gather}
+and 
+
 
 % Adding 2020-12-30 14:03:05: 
 Let's also try  
@@ -159,7 +261,7 @@ A-s = \left[\begin{BMAT}(e){cccccc:cccc:cc}{cccccc:cccc:cc}
 \end{example}
 
 \begin{comment}
-\section*{Getting a feel for things}
+\section{Getting a feel for things}
 \begin{example}
     Let 
     \[
@@ -216,7 +318,7 @@ A-s = \left[\begin{BMAT}(e){cccccc:cccc:cc}{cccccc:cccc:cc}
 \end{example}
 \end{comment}
 
-\section*{Simple root weights, things working}
+\section{Simple root weights, things working}
 \begin{example}
     Let 
     \[
@@ -439,7 +541,7 @@ A-s = \left[\begin{BMAT}(e){cccccc:cccc:cc}{cccccc:cccc:cc}
 Equivalent linear algebra question(?): If $p(t,t-s) = p_1(t)p_2(t-s)$ then how are $C(p_1)$, $C(p_2)$, and $C(p)$ related? 
 % I think the answer is basically this theorem \url{https://en.wikipedia.org/wiki/Structure_theorem_for_finitely_generated_modules_over_a_principal_ideal_domain} 
 \newpage
-\section*{Non simple root weights}
+\section{Non simple root weights}
 \begin{example}[Anne]
     Let $G = \SL_3$ and $\uvi = 121$.
     
