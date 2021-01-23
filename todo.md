@@ -4,3 +4,5 @@
 
 - exactness of $-\otimes\mathbb C[[t]]$
 - lifting dominance assumption on $\mu_i$
+- write the paper
+- fill in the details of Theorem 2
