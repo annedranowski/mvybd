@@ -920,4 +920,27 @@ which corresponds to $\AA^3 \cup \AA^3$. Since $\tau'_2$ corresponds to the modu
         \end{aligned}
     \]
 \end{example}
+\begin{example}
+% weight a_1 + a_2 + a_3 = 1 0 0 -1
+% can translate 
+% 1->2<-3 * 1<-2->3 = S_1 \oplus P_2 \oplus S_3 + P_1 \oplus P_3
+% 100,01,0 * 010,00,1 = 110,01,1 will correspond to S_1 \oplus P_2 \oplus S_3 module?
+% 
+% M_1 * M_2 = \sum M_\alpha 
+% Pol(M_1) + Pol(M_2) = \cup Pol(M_\alpha) and all \alpha's are needed.. in all the A_3 exchange relations, not in this example
+
+Try the following tableaux:
+\[
+1\to 2 \leftarrow 3 = \young(2,4) \qquad 1\leftarrow 2 \to 3 = \young(13,2,4)
+\]
+which won't work because $\mu_1 + \mu_2$ is not dominant. Can try anyway to see what fails.
+
+Next best guess:
+\[
+1\to 2\leftarrow 3 = \young(12,24,3) 
+\]
+
+Question: can we do better? 
+\end{example}
+
 \end{document}
