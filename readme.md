@@ -1,6 +1,7 @@
 # readme
 
-branch master is in sync with overleaf, local - branch main is ... wandering? 
+<!--branch master is in sync with overleaf, local - branch main is ... wandering? -->
+overlaps with todo file: contains old todo notes; also contains some questions, project goal, some refs
 
 ## goal
 
@@ -43,7 +44,3 @@ KWWY14
 $$
 e = d+c
 $$
-
-## meetings
-
-thursdays!
