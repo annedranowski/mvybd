@@ -25,3 +25,8 @@
 - how we recognize the components in the decomposition (which kinnna up to now uses cluster exchange relations)
 - address AK conjecture: sum of polytopes/ld always occurs in decomposition with multiplicity 1
 - move good stuff from main.tex to examples, or? 
+
+## 2021-01-31 22:17:16
+
+- double check Roger's computation which seems to depend on the representative of tableau that we choose
+- speculate about a combinatorial rule governing the multiplication
