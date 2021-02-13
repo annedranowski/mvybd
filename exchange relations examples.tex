@@ -1,0 +1,481 @@
+\documentclass{article}
+\usepackage{basic}
+
+\title{Exchange Relations Examples}
+\author{Roger Bai, Anne Dranowski}
+% \date{October 2020}
+% , Joel Kamnitzer
+\date{Last edit: approx.\ \today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Preliminaries}
+Let $G = SL_4$. Each example will have a fusion product of MV cycles where each cycle is represented by its corresponding generic module. Two tableau are equivalent if we can pad one to get the other. In determining how many restrictions we have at each step, we have the formula:
+$$ \#\text{ of free variables in the column} = \#\text{ of box} - \#\text{ of boxes in the column}.$$
+We first list out the tableau of each MV cycle:
+
+\[\begin{array}{cccccc} \vspace{1mm}
+    S_1 &\leadsto \young(12) & S_2 &\leadsto \young(11,23) & S_3 &\leadsto \young(11,22,34) \\ \vspace{1mm}
+    1 \rightarrow 2 &\leadsto \young(12,3) & 1 \leftarrow 2 &\leadsto \young(13,2) & 1 \rightarrow 2 \leftarrow 3 &\leadsto \young(112,24,3) \\ \vspace{1mm}
+    2 \rightarrow 3 &\leadsto \young(11,23,4) & 2 \leftarrow 3 &\leadsto \young(11,24,3) & 1 \leftarrow 2 \rightarrow 3 &\leadsto \young(13,2,4) \\
+    P_1 &\leadsto \young(12,3,4) & P_2 &\leadsto \young(113,24) & P_3 &\leadsto \young(114,22,3)
+\end{array}\]
+
+\section{Example 1: $S_1 * S_2 = 1 \leftarrow 2 + 1 \rightarrow 2$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,0,0,0) & \mu_1 &= (1,1,0,0) \\
+    \lambda_2 &= (2,2,0,0) & \mu_2 &= (2,1,1,0) \\
+    \lambda &= (4,2,0,0) & \mu &= (3,2,1,0)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(12) \text{ and } \young(11,23).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){ccc;cc;c}{ccc;cc;c}
+    0 & 1 & & & & \\
+     & 0 & 1 & & & \\
+     & -s^2 & 2s & a_1 & a_2 & b_1 \\
+     & & & 0 & 1 & \\
+     & & & & s & b_2 \\
+     & & & & & s
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we do have $e_1 \in \ker X$ and $e_1 +se_2 + s^2 e_3 \in \ker(X-s)$.
+    \item There are no restrictions from $X$, but we do expect 1 restriction from $X-s$. Indeed, we require ${\color{red} a_1+sa_2 = 0}$ so that $e_4 + se_5 \in \ker(X-s)$.
+    \item We expect 1 restriction from $X-s$. Indeed, we have ${\color{red} a_2b_2 + sb_1 = 0}$ so that $\ker(X-s) \subset \col(X-s)$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^2$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,b_1,b_2]}{\langle a_1, a_2b_2 \rangle} \cong \frac{\CC[a_2,b_1,b_2]}{\langle a_2 \rangle \cap \langle b_2 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle a_2 \rangle &\leadsto \young(1113,22) &\leadsto 1 \leftarrow 2 \\ 
+    \langle b_2 \rangle &\leadsto \young(1112,23) &\leadsto 1 \rightarrow 2
+\end{array}
+\]
+
+\section{Example 2: $S_3 * S_2 = 2 \rightarrow 3 + 2 \leftarrow 3$}
+$S_2 * S_3 = 2 \rightarrow 3 + 2 \leftarrow 3$
+
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,2,2,0) & \mu_1 &= (2,2,1,1) \\
+    \lambda_2 &= (2,2,0,0) & \mu_2 &= (2,1,1,0) \\
+    \lambda &= (4,4,2,0) & \mu &= (4,3,2,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(11,22,34) \text{ and } \young(11,23).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){cccc;ccc;cc;c}{cccc;ccc;cc;c}
+    0 & 1 & & & & & & & & \\
+     & 0 & 1 & & & & & & & \\
+     & & 0 & 1 & & & & & & \\
+     & & -s^2 & 2s & a_1 & a_2 & a_3 & b_1 & b_2 & c_1 \\
+     & & & & 0 & 1 & & & & \\
+     & & & & & 0 & 1 & & & \\
+     & & & & & & s & b_3 & b_4 & c_2 \\
+     & & & & & & & 0 & 1 & \\
+     & & & & & & & & s & c_3 \\
+     & & & & & & & & & 0
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we do have $e_1 \in \ker X$ and $e_1 +se_2 + s^2 e_3 + s^3 e_4 \in \ker(X-s)$.
+    \item We expect 2 restrictions from $X$ and 1 restriction from $X-s$. Indeed, we require ${\color{red} a_1 = 0}$ so that $e_5 \in \ker X$ and ${\color{red} a_2 = 0}$ for $\Sp\{e_1, e_5\} \subset \col X$. Furthermore, we need $\color{red} a_3 = 0$ for $e_5 + se_6 + s^2 e_7 \in \ker(X-s)$.
+    \item We expect 2 restrictions from $X$ and 1 restriction from $X-s$. Indeed, we have ${\color{red} b_1 = b_3 = 0}$ so that $e_8 \in \ker X$ and ${\color{red} b_2 = 0}$ for $\ker(X-s) \subset \col (X-s)$.
+    \item We expect 2 restrictions from $X$. We require ${\color{red} c_1 = 0}$ and ${\color{red} b_4c_3 -sc_2 = 0}$ so that $\ker X \subset \col X$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^2$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,a_3,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,a_2,a_3,b_1,b_2,b_3,c_1,b_4c_3 \rangle} \cong \frac{\CC[b_4,c_2,c_3]}{\langle b_4 \rangle \cap \langle c_3 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle b_4 \rangle &\leadsto \young(1111,2224,33) &\leadsto 2 \leftarrow 3 \\ 
+    \langle c_3 \rangle &\leadsto \young(1111,2223,34) &\leadsto 2 \rightarrow 3
+\end{array}
+\]
+
+\section{Example 3: $S_1 * 2 \rightarrow 3 = P_1 + 1\leftarrow 2 \rightarrow 3$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,0,0,0) & \mu_1 &= (1,1,0,0) \\
+    \lambda_2 &= (2,2,1,0) & \mu_2 &= (2,1,1,1) \\
+    \lambda &= (4,2,1,0) & \mu &= (3,2,1,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(12) \text{ and } \young(11,23,4).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){ccc;cc;c;c}{ccc;cc;c;c}
+    0 & 1 & & & & & \\
+     & 0 & 1 & & & & \\
+     & -s^2 & 2s & a_1 & a_2 & b_1 & c_1 \\
+     & & & 0 & 1 & & \\
+     & & & & s & b_2 & c_2 \\
+     & & & & & s & c_3 \\
+     & & & & & & s
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 + s^2 e_3 \in \ker (X-s)$.
+    \item There are no restrictions coming from $X$, but we expect 1 coming from $X-s$. Indeed, we require ${\color{red} a_1 + sa_2}$ for $e_4 + se_5 \in \ker(X-s)$.
+    \item There is 1 restriction from $X-s$. We need ${\color{red} a_1b_2 - s^2b_1 = a_2b_2 + sb_1 = 0}$ so that $\Sp\{e_1 + se_2 + s^2e_3, e_4 + se_5\} \subset \col(X-s)$.
+    \item There are 2 restrictions from $X-s$. We need ${\color{red} c_3 = b_1c_2 - b_2c_1 = 0}$ for $\dim \ker (X-s) = 3$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^2$ gives an additional equation of ${\color{red} a_2c_2 + b_1c_3 = 0}$ so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,b_1,b_2,c_1,c_2,c_3]}{\langle a_1,c_3,a_2b_2,a_2c_2,b_1c_2-b_2c_1 \rangle} \cong \frac{\CC[a_2,b_1,b_2,c_1,c_2]}{\langle b_2,c_2 \rangle \cap \langle a_2,b_1c_2-b_2c_1 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle b_2,c_2 \rangle &\leadsto \young(1112,23,4) &\leadsto P_1 \\ 
+    \langle a_2,b_1c_2-b_2c_1 \rangle &\leadsto \young(1113,22,4) &\leadsto 1 \leftarrow 2 \rightarrow 3
+\end{array}
+\]
+
+\section{Example 4: $S_1 * 2 \leftarrow 3 = P_3 + 1 \rightarrow 2 \leftarrow 3$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,0,0,0) & \mu_1 &= (1,1,0,0) \\
+    \lambda_2 &= (2,2,1,0) & \mu_2 &= (2,1,1,1) \\
+    \lambda &= (4,2,1,0) & \mu &= (3,2,1,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(12) \text{ and } \young(11,24,3).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){ccc;cc;c;c}{ccc;cc;c;c}
+    0 & 1 & & & & & \\
+     & 0 & 1 & & & & \\
+     & -s^2 & 2s & a_1 & a_2 & b_1 & c_1 \\
+     & & & 0 & 1 & & \\
+     & & & & s & b_2 & c_2 \\
+     & & & & & s & c_3 \\
+     & & & & & & s
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 + s^2 e_3 \in \ker (X-s)$.
+    \item There are no restrictions coming from $X$, but we expect 1 coming from $X-s$. Indeed, we require ${\color{red} a_1 + sa_2}$ for $e_4 + se_5 \in \ker(X-s)$.
+    \item There are 2 restrictionsfrom $X-s$. We need ${\color{red} b_1 = b_2 = 0}$ so that $e_6 \in \ker(X-s)$.
+    \item There is 1 restriction from $X-s$. We need ${\color{red} a_2c_2 + sc_1 = 0}$ so that $\ker(X-s) \subset \col(X-s)$.
+\end{enumerate}
+The equations from the minimal polynomial $X^2(X-s)^2$ all go away so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,b_1,b_2,c_1,c_2,c_3]}{\langle a_1,b_1, b_2,a_2c_2 \rangle} \cong \frac{\CC[a_2,c_1,c_2,c_3]}{\langle a_2 \rangle \cap \langle c_2 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle a_2 \rangle &\leadsto \young(1114,22,3) &\leadsto P_3 \\ 
+    \langle c_2 \rangle &\leadsto \young(1112,24,3) &\leadsto 1 \rightarrow 2 \leftarrow 3
+\end{array}
+\]
+
+\section{Example 5: $S_3 * 1 \rightarrow 2 = 1 \rightarrow 2 \leftarrow 3 + P_1$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,2,2,0) & \mu_1 &= (2,2,1,1) \\
+    \lambda_2 &= (2,1,0,0) & \mu_2 &= (1,1,1,0) \\
+    \lambda &= (4,3,2,0) & \mu &= (3,3,2,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(11,22,34) \text{ and } \young(12,3).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){ccc;ccc;cc;c}{ccc;ccc;cc;c}
+    0 & 1 & & & & & & & \\
+     & 0 & 1 & & & & & & \\
+     & & s & a_1 & a_2 & a_3 & b_1 & b_2 & c_1 \\
+     & & & 0 & 1 & & & & \\
+     & & & & 0 & 1 & & & \\
+     & & & & & s & b_3 & b_4 & c_2 \\
+     & & & & & & 0 & 1 & \\
+     & & & & & & & s & c_3 \\
+     & & & & & & & & 0
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 + s^2 e_3 \in \ker (X-s)$.
+    \item There are 2 restrictions coming from $X$ and no restrictions from $X-s$. Indeed, we require ${\color{red} a_1 = 0}$ for $e_4 \in \ker X$ and ${\color{red} a_2 = 0}$ for $\Sp\{e_1,e_4\} \subset \col X$.
+    \item There are 2 restrictions from $X$ and 1 restriction from $X-s$. We need ${\color{red} b_1 = b_3 = 0}$ so that $e_7 \in \ker X$. Furthermore, we need ${\color{red}b_4 = 0}$ so that $\dim \ker (X-s) = 2$.
+    \item There are 2 restrictions from $X$. We need ${\color{red} c_2 = b_2c_3 - sc_1 = 0}$ for $\ker X \subset \col X$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^2$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,a_3,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,a_2,b_1,b_3,b_4,c_2,b_2c_3 \rangle} \cong \frac{\CC[a_3,b_2,c_1,c_3]}{\langle b_2 \rangle \cap \langle c_3 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle b_2 \rangle &\leadsto \young(1112,224,33) &\leadsto 1 \rightarrow 2 \leftarrow 3 \\ 
+    \langle c_3 \rangle &\leadsto \young(1112,223,34) &\leadsto P_1
+\end{array}
+\]
+
+\section{Example 6: $S_3 * 1 \leftarrow 2 = P_3 + 1 \leftarrow 2 \rightarrow 3$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,2,2,0) & \mu_1 &= (2,2,1,1) \\
+    \lambda_2 &= (2,1,0,0) & \mu_2 &= (1,1,1,0) \\
+    \lambda &= (4,3,2,0) & \mu &= (3,3,2,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(11,22,34) \text{ and } \young(13,2).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){ccc;ccc;cc;c}{ccc;ccc;cc;c}
+    0 & 1 & & & & & & & \\
+     & 0 & 1 & & & & & & \\
+     & & s & a_1 & a_2 & a_3 & b_1 & b_2 & c_1 \\
+     & & & 0 & 1 & & & & \\
+     & & & & 0 & 1 & & & \\
+     & & & & & s & b_3 & b_4 & c_2 \\
+     & & & & & & 0 & 1 & \\
+     & & & & & & & s & c_3 \\
+     & & & & & & & & 0
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 + s^2 e_3 \in \ker (X-s)$.
+    \item There are 2 restrictions coming from $X$ and 1 restriction from $X-s$. Indeed, we require ${\color{red} a_1 = 0}$ for $e_4 \in \ker X$ and ${\color{red} a_2 = 0}$ for $\Sp\{e_1,e_4\} \subset \col X$. Furthermore, we require ${\color{red} a_3 = 0}$ for $e_4 + se_5 + s^2e_6 \in \ker(X-s)$.
+    \item There are 2 restrictions from $X$ but no restrictions from $X-s$. We need ${\color{red} b_1 = b_3 = 0}$ so that $e_7 \in \ker X$.
+    \item There are 2 restrictions from $X$. We need ${\color{red} b_4c_3 - sc_2 = b_2c_3 - sc_1 = 0}$ for $\ker X \subset \col X$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^2$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,a_3,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,a_2,a_3,b_1,b_3,b_2c_3,b_4c_3 \rangle} \cong \frac{\CC[b_2,b_4,c_1,c_2,c_3]}{\langle b_2,b_4 \rangle \cap \langle c_3 \rangle}$$
+However, for the ideal $\langle c_3 \rangle$, we require $\dim \ker (X|_{s = 0}) = 3$ so we also need to include the equation ${\color{red} b_2c_2 - b_4c_1 = 0}$. Then the coordinate ring is really
+$$\frac{\CC[b_2,b_4,c_1,c_2,c_3]}{\langle b_2,b_4 \rangle \cap \langle c_3,b_2c_2-b_4c_1 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle b_2,b_4 \rangle &\leadsto \young(1114,222,33) &\leadsto P_3 \\ 
+    \langle c_3,b_2c_2-b_4c_1 \rangle &\leadsto \young(1113,222,34) &\leadsto 1 \leftarrow 2 \rightarrow 3
+\end{array}
+\]
+
+\section{Example 7: $1 \leftarrow 2 * 2 \leftarrow 3 = P_2 + S_2 \oplus P_3$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,1,0,0) & \mu_1 &= (1,1,1,0) \\
+    \lambda_2 &= (2,2,1,0) & \mu_2 &= (2,1,1,1) \\
+    \lambda &= (4,3,1,0) & \mu &= (3,2,2,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(13,2) \text{ and } \young(11,24,3).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
+    0 & 1 & & & & & & \\
+     & 0 & 1 & & & & & \\
+     & -s^2 & 2s & a_1 & a_2 & b_1 & b_2 & c_1 \\
+     & & & 0 & 1 & & & \\
+     & & & & s & b_3 & b_4 & c_2 \\
+     & & & & & 0 & 1 & \\
+     & & & & & & s & c_3 \\
+     & & & & & & & s
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 + s^2 e_3 \in \ker (X-s)$.
+    \item There is 1 restriction coming from $X$ and 1 restriction from $X-s$. We require ${\color{red} a_1 = 0}$ for $e_4 \in \ker X$ and ${\color{red} a_2 = 0}$ for $e_4 + se_5 \in \ker (X-s)$.
+    \item There are no restrictions from $X$ but 2 restrictions from $X-s$. We need ${\color{red} b_1 + sb_2 = b_3 + sb_4 = 0}$ so that $e_6 + se_7 \in \ker (X-s)$.
+    \item There is 1 restriction from $X-s$. We need ${\color{red} b_2c_3 - sc_1 = 0}$ for $\ker (X-s) \subset \col (X-s)$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^2$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,a_2,b_1,b_3,b_2c_3 \rangle} \cong \frac{\CC[b_2,b_4,c_1,c_2,c_3]}{\langle b_2 \rangle \cap \langle c_3 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle b_2 \rangle &\leadsto \young(1114,223,3) &\leadsto S_2 \oplus P_3 \\ 
+    \langle c_3 \rangle &\leadsto \young(1113,224,3) &\leadsto P_2
+\end{array}
+\]
+
+\section{Example 8: $1 \rightarrow 2 * 2 \rightarrow 3 = P_2 + S_2 \oplus P_1$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,1,0,0) & \mu_1 &= (1,1,1,0) \\
+    \lambda_2 &= (2,2,1,0) & \mu_2 &= (2,1,1,1) \\
+    \lambda &= (4,3,1,0) & \mu &= (3,2,2,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(12,3) \text{ and } \young(11,23,4).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
+    0 & 1 & & & & & & \\
+     & 0 & 1 & & & & & \\
+     & -s^2 & 2s & a_1 & a_2 & b_1 & b_2 & c_1 \\
+     & & & 0 & 1 & & & \\
+     & & & & s & b_3 & b_4 & c_2 \\
+     & & & & & 0 & 1 & \\
+     & & & & & & s & c_3 \\
+     & & & & & & & s
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 + s^2 e_3 \in \ker (X-s)$.
+    \item There is no restriction coming from $X$ and 1 restriction from $X-s$. We require ${\color{red} a_1 + sa_2 = 0}$ for $e_4 + se_5 \in \ker (X-s)$.
+    \item There is 1 restriction from $X$ and 1 restriction from $X-s$. We need ${\color{red} b_3 = 0}$ so that $\dim \ker X = 2$. Furthermore, we have ${\color{red} b_1 + a_2b_4 +sb_2 = 0}$ so that $\Sp\{e_1 + se_2 + s^2e_3, e_4 + se_5\} \subset \col (X-s)$.
+    \item There are 2 restrictions from $X-s$. We need ${\color{red} c_3 = b_1c_2 + s(b_2c_2 - b_4c_1) = 0}$ for $\dim \ker (X-s) = 3$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^2$ gives the additional equation ${\color{red} a_2c_2 + sc_1 = 0}$ so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,b_3,c_3,b_1 + a_2b_4,b_1c_2,a_2c_2 \rangle} \cong \frac{\CC[a_2,b_1,b_2,b_4,c_1,c_2]}{\langle a_2,b_1 \rangle \cap \langle b_1+a_2b_4,c_2 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle a_2,b_1 \rangle &\leadsto \young(1113,224,3) &\leadsto P_2 \\ 
+    \langle b_1+a_2b_4,c_2 \rangle &\leadsto \young(1112,233,4) &\leadsto S_2 \oplus P_1
+\end{array}
+\]
+
+\section{Example 9: $S_2 * 1 \leftarrow 2 \rightarrow 3 = P_2 + 1 \leftarrow 2 \oplus 2 \rightarrow 3$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,2,0,0) & \mu_1 &= (2,1,1,0) \\
+    \lambda_2 &= (2,1,1,0) & \mu_2 &= (1,1,1,1) \\
+    \lambda &= (4,3,1,0) & \mu &= (3,2,2,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(11,23) \text{ and } \young(13,2,4).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
+    0 & 1 & & & & & & \\
+     & 0 & 1 & & & & & \\
+     & & s & a_1 & a_2 & b_1 & b_2 & c_1 \\
+     & & & 0 & 1 & & & \\
+     & & & & s & b_3 & b_4 & c_2 \\
+     & & & & & 0 & 1 & \\
+     & & & & & & s & c_3 \\
+     & & & & & & & s
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 + s^2 e_3 \in \ker (X-s)$.
+    \item There is 1 restriction coming from $X$ and 1 restriction from $X-s$. We require ${\color{red} a_1 = 0}$ for $e_4 \in \ker X$ and ${\color{red} a_2 = 0}$ for $e_4 + se_5 \in \ker (X-s)$.
+    \item There is 1 restriction from $X$ but no restrictions from $X-s$. We need ${\color{red} b_1 = 0}$ so that $\ker X \subset \col X$.
+    \item There are 2 restrictions from $X-s$. We need ${\color{red} c_3 = b_3c_1 + s(b_2c_2 - b_4c_1) = 0}$ for $\dim \ker (X-s) = 3$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^2$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,a_2,b_1,c_3, b_3c_1 \rangle} \cong \frac{\CC[b_2,b_3,b_4,c_1,c_2]}{\langle b_3 \rangle \cap \langle c_1 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle b_3 \rangle &\leadsto \young(1113,224,3) &\leadsto P_2 \\ 
+    \langle c_1 \rangle &\leadsto \young(1113,223,4) &\leadsto 1 \leftarrow 2 \oplus 2 \rightarrow 3 
+\end{array}
+\]
+
+\section{Example 10: $S_2 * 1 \rightarrow 2 \leftarrow 3 = P_2 + 1 \rightarrow 2 \oplus 2 \leftarrow 3$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,2,0,0) & \mu_1 &= (2,1,1,0) \\
+    \lambda_2 &= (3,2,1,0) & \mu_2 &= (2,2,1,1) \\
+    \lambda &= (5,4,1,0) & \mu &= (4,3,2,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(11,23) \text{ and } \young(112,24,3).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){cccc;ccc;cc;c}{cccc;ccc;cc;c}
+    0 & 1 & & & & & & & & \\
+     & 0 & 1 & & & & & & & \\
+     & & 0 & 1 & & & & & & \\
+     & & -s^2 & 2s & a_1 & a_2 & a_3 & b_1 & b_2 & c_1 \\
+     & & & & 0 & 1 & & & & \\
+     & & & & & 0 & 1 & & & \\
+     & & & & & s^2 & 2s & b_3 & b_4 & c_2 \\
+     & & & & & & & 0 & 1 & \\
+     & & & & & & & & s & c_3 \\
+     & & & & & & & & & s
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 + s^2 e_3 \in \ker (X-s)$.
+    \item There is 1 restriction coming from $X$ and 1 restriction from $X-s$. We require ${\color{red} a_1 = 0}$ for $e_5 \in \ker X$ and ${\color{red} a_2 + sa_3 = 0}$ for $e_5 + se_6 + s^2 e_7 \in \ker (X-s)$.
+    \item There is 1 restriction from $X$ and 2 restrictions from $X-s$. We need ${\color{red} a_2b_3 + s^2b_1 = a_3b_3 - sb_1 = 0}$ so that $\ker X \subset \col X$. Furthermore, we require ${\color{red} b_1 + sb_2 = b_3 + sb_4 = 0}$ so that $e_8 + se_9 \in \ker (X-s)$.
+    \item There is 1 restriction from $X-s$. We need ${\color{red} b_3c_3 - s^2c_2 = b_4c_3 + sc_2 = 0}$ for $\ker (X-s) \subset \col (X-s)$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^3$ gives the additional equations ${\color{red} a_3b_4 + b_1 = a_3c_2 + b_2c_3 = 0}$ so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,a_3,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,a_2,b_1,b_3,a_3b_4,b_4c_3,a_3c_2+b_2c_3 \rangle} \cong \frac{\CC[a_3,b_2,b_4,c_1,c_2,c_3]}{\langle b_4,a_3c_2+b_2c_3 \rangle \cap \langle a_3,c_3 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle b_4,a_3c_2+b_2c_3 \rangle &\leadsto \young(11112,2234,3) &\leadsto 1 \rightarrow 2 \oplus 2 \leftarrow 3 \\ 
+    \langle a_3,c_3 \rangle &\leadsto \young(11113,2224,3) &\leadsto P_2
+\end{array}
+\]
+
+\section{Example 11: $1 \leftarrow 2 \rightarrow 3 * 1 \rightarrow 2 = 1 \leftarrow 2 \oplus P_1  + S_1 \oplus P_2$}
+Take 
+\[\begin{aligned}
+    \lambda_1 &= (2,1,1,0) & \mu_1 &= (1,1,1,1) \\
+    \lambda_2 &= (2,1,0,0) & \mu_2 &= (1,1,1,0) \\
+    \lambda &= (4,2,1,0) & \mu &= (2,2,2,1)
+\end{aligned}
+\]
+and the tableaux are
+\[
+\young(13,2,4) \text{ and } \young(12,3).
+\]
+The matrix in consideration is:
+\[
+X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+    0 & 1 & & & & & \\
+     & s & a_1 & a_2 & b_1 & b_2 & c_1 \\
+     & & 0 & 1 & & & \\
+     & & & s & b_3 & b_4 & c_2 \\
+     & & & & 0 & 1 & \\
+     & & & & & s & c_3 \\
+     & & & & & & 0
+\end{BMAT}
+\right]
+\]
+\begin{enumerate}[label=\boxed{\arabic*}:]
+    \item There are no restrictions here, but we have $e_1 \in \ker X$ and $e_1 + se_2 \in \ker (X-s)$.
+    \item There is 1 restriction coming from $X$ but no restrictions from $X-s$. We require ${\color{red} a_1 = 0}$ for $e_3 \in \ker X$.
+    \item There are no restrictions from $X$ and 1 restriction from $X-s$. We need ${\color{red} b_3 + sb_4 = 0}$ so that $e_5 + se_6 \in \ker (X-s)$.
+    \item There are 2 restrictions from $X-s$. We need ${\color{red} c_3 = b_1c_2-b_3c_1 = 0}$ for $\ker (X-s) \subset \col (X-s)$.
+\end{enumerate}
+The minimal polynomial $X^2(X-s)^3$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
+$$\frac{\CC[a_1,a_2,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,b_3,c_3,b_1c_2 \rangle} \cong \frac{\CC[a_2,b_1,b_2,b_4,c_1,c_2]}{\langle b_1 \rangle \cap \langle c_2 \rangle}$$
+The corresponding tableau for each ideal is:
+\[\begin{array}{ccc}\vspace{1mm}
+    \langle b_1 \rangle &\leadsto \young(1123,24,3) &\leadsto S_1 \oplus P_2 \\ 
+    \langle c_2 \rangle &\leadsto \young(1123,23,4) &\leadsto 1 \leftarrow 2 \oplus P_1 
+\end{array}
+\]
+\end{document}
