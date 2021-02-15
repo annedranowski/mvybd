@@ -129,7 +129,11 @@ Computing fusion still hard but at least boiled down to linear algebra. Cf.\ fus
 However, we make crucial use of an idea of Drinfeld, going back to around 1990. He discovered an elegant way of obtaining the commutativity constraint by interpreting the convolution product of sheaves as a ``fusion'' product.
 \end{quotation}
 
-Exchange relations only work on cluster modules where one is a mutation of the other (i.e.\ those corresponding to cluster monomials which are related by mutation). Of course this gives me everything. Up to $A_4$ as in type $A_5$ there exist indecomposable modules which are not cluster, so exchange relations do not apply. The hope (conjecture) is that this paper gives a way to compute on such modules. Cf.\ counterexample satisfying $\barD(c_Y) = \barD(b_Z) + 2\barD(b)$, where $b$ is (possibly) cluster, and suggesting that $c_Y = b_Z + 2b$. 
+Exchange relations only work on cluster modules where one is a mutation of the other (i.e.\ those corresponding to cluster monomials which are related by mutation). Of course this gives me everything. Up to $A_4$ as in type $A_5$ there exist indecomposable modules which are not cluster, so exchange relations do not apply. The hope (conjecture) is that this paper gives a way to compute on such modules. Cf.\ counterexample satisfying $\barD(c_Y) = \barD(b_Z) + 2\barD(b)$, where $b$ is (possibly) cluster, and suggesting that $c_Y = b_Z + 2b$. Can still consider $ext(M_Z)$. Say $b_Z^2 = b_{Z_1} + b_{Z_2}$. 
+
+$x*y=\sum z\Rightarrow y = \frac 1 x \sum z$. 
+
+Representation theory? 
 
 \section{Rising Action} % Problem
 
@@ -231,7 +235,7 @@ The way to think about this is as follows: inside the thick affine Grassmannian 
     $$ g = (g t^{-\mu_1}(t-s)^{-\mu_2}) t^{\mu_1}(t-s)^{\mu_2} \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$$
     So we get containment in one direction.
     
-    For the reverse containment, we choose $ [g] \in G\overline{(\Grbd[2])^{\lambda_1,\lambda_2}}\cap S_{\mu_1,\mu_2}$.  By the lemma below, $[g] \in \cW_\mu$ and thus it lies in the image of our map and we are done.
+    For the reverse containment, we choose $ [g] \in \overline{(\Grbd[2])^{\lambda_1,\lambda_2}}\cap S_{\mu_1,\mu_2}$.  By the lemma below, $[g] \in \cW_\mu$ and thus it lies in the image of our map and we are done.
 \end{proof}
 
 % Define $S_{\mu_1,\mu_2}^s = N_-\xT[t^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. 
@@ -284,15 +288,41 @@ where $B_1[[t^{-1}]] t^{\mu_1} (t-s)^{\mu_2} = B_1[[t^{-1}]] t^{\mu_1 + \mu_2}$ 
 As an application we can compute fusion of stable MV cycles of type $\alpha_i$ for any $i \in I$. What about more general weights? Having $\kpf > 1$.
 
 \begin{proposition}
-    Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
+    % Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
+    Let $Z_{i} = Z_{\tau_i}$  be an MV cycle of type $\lambda_i\in P_+$ and weight $\mu_i\in P$ ($i = 1,2$). Then 
     \begin{equation}
-        Z_\tau\ast Z_\sigma 
+        % Z_\tau\ast Z_\sigma 
+        m_{\lambda_1\lambda_2} ([Z_1]\otimes[Z_2]) = \sum_{Z\in\cZ(\lambda)_\mu} i\left(
+            Z,\pi^{-1}(0)\cdot\overline{Z_1\times Z_2\times U}
+        \right) [Z]
     \end{equation}
-    is found by??? 
+    is found by\dots 
+    In particular, the multiplicity of $Z_\tau$ in the product of the zero fiber 
+    % (divisor class) 
+    and the 
+    % (Zariski) 
+    closure of the family $Z_1 \times Z_2 \times U$ is equal to the multiplicity of $X_\tau$ among 
+    \begin{equation}\label{eq:tabmult}
+        \irr \lim_{s\to 0} \overline\OO^s_{\lambda_1,\lambda_2} \cap \TT_{\mu_1,\mu_2}^{+,s}
+    \end{equation}
+    and since stable MV cycles can be represented by ordinary ones the multiplicities in 
+    $$
+    b_{Z_1}b_{Z_2} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} i \left(
+        Z, \pi^{-1}(0) \cdot \overline{Z_1 \times Z_2 \times U}
+    \right) b_Z 
+    $$
+    can also be deduced from \cref{eq:tabmult} for appropriate choices of $\lambda_i$ and $\mu_i$ ($i = 1,2$).
 \end{proposition}
+\acom{or Corollary?}
 
 \begin{conjecture}
-    Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu_2$. 
+    % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu_2$. 
+    Let $\tau$ be the tableau of shape $\lambda$ and weight $\mu$ whose Lusztig datum is equal to the sum of the Lusztig data of $\tau_1$ and $\tau_2$. 
+    % Then $i(\tau, \pi^{-1}(0) \cdot \overline{\tau_1 \times \tau_2 \times U})$ is equal to 1. 
+    Then 
+    \begin{equation}
+        i(\tau, \pi^{-1}(0) \cdot \overline{\tau_1 \times \tau_2 \times U}) = 1 \,. 
+    \end{equation}
 \end{conjecture}
 
 \bibliographystyle{alpha}
