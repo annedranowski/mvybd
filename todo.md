@@ -1,5 +1,11 @@
 # todo
 
+## 2021-02-15 15:09:23
+
+Further questions for Joel:
+- what about the coproduct, the rest of the Hopf algebra structure
+- why should we (the people) care? 
+
 ## 2021-02-13 14:22:55
 
 - what are we doing?
