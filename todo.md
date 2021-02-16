@@ -5,6 +5,11 @@
 Further questions for Joel:
 - what about the coproduct, the rest of the Hopf algebra structure
 - why should we (the people) care? 
+- contravariance vs covariance of IH
+- positivity 
+- ansatz making aka roger's explanation of how this helps to see if a cluster monomial is in the mv basis (a byproduct/application that will soon be rendered obsolete by Joel's ideas)
+- the denouement 
+- fake mv cycles 
 
 ## 2021-02-13 14:22:55
 
