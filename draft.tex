@@ -9,13 +9,32 @@
 
 \maketitle
 
+\section{Introduction}
+% 
+The Mirkovic--Vybornov isomorphism \cite{mirkovic2007quiver} relates slices in the affine Grassmannian to slices in conjugacy classes of nilpotent matrices and Nakajima quiver varieties. As an application it provides a geometric version of symmetric and skew Howe $(\GL_m,\GL_n)$ dualities. 
+% 
+
+The Beilinson--Drinfeld Grassmannian, essential to \cite{mirkovic2007geometric}, is a space which is used to define a fusion (aka convolution) product on sheaves (representations) and MV cycles (bases). 
+% 
+This product structure makes the vector space spanned by the MV cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2020bases}). % conjectured by JEA and proved by BKK
+% 
+
+The purpose of this paper is to give an elementary way to compute this product in type $A$. We do not know how fruitful this work might be in the large landscape of geometric representation theory as it is plagued by two major limitations: it does not readily generalize outside of type $A$, and it is as yet computationally expensive. 
+
 \section{Players}
 
-$G = \GL_m$. 
+Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
+% are there other possibilities?? :S 
+Write $P$ for the character lattice of $T$. Identify $P\cong \ZZ^m$ so that the set of dominant weights $P_+$ is described/given by the set of partitions having at most $m$ nonzero parts. Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_x$ for the completion of the local ring $\CC[t]$ at $x\in\spec\CC[t]$ and $\cK_x$ for its fraction field $\CC\xT[t-x]$. 
+% 
+Note that (by choosing the local coordinate $t-x$ on $\spec\CC[t]$) we can identify $\cO_x \cong \cO$ and $\cK_x\cong\cK$. 
+
+% Set $\AA = \AA^1_x$ (the subscript denoting the chosen local coordinate) and fix $s\in \AA - \{0\}$. 
 
 \begin{itemize}
-    \item The ordinary affine Grassmannian $\Gr$
-    \item The Beilinson--Drinfeld Grassmannian $\Grbd\to C$
+    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$ % switched out ordinary Gr notation for curly Gr 
+    \item The Beauville--Laszlo Grassmannian $\Grbd[x] = G(\cK_x)/G(\cO_x)$ % TODO: in terms of bundles it is $\{(P,\sigma) : P is a PGB over A and \sigma is a trivialization of P on A - x\}$
+    \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0) % switched out general curve $C$ for affine line $\AA$; TODO: in terms of bundles it is $\{(P,\sigma,x):agaiin P is a PGB on A, x \in A, and now \sigma is a trivialization away from 0 _and_ x \}
     \item Partitions $\mu_i\le\lambda_i$ of $N_i$ ($i=1,2$) and $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of $N = \sum N_i$
     \item The slices $\Gr_\mu$ and $\cW_{\mu_1,\mu_2}$ to the orbits $\Gr^\lambda$ and $(\Grbd[2])^{\lambda_1,\lambda_2}$
     \item The nilpotent and semi-nilpotent cones $\cN$ and $\cN_s$ (of matrices with eigenvalues 0 and 0 or $s\ne 0$)
