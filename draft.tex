@@ -1,5 +1,9 @@
+%!TEX program = lualatex
+
 \documentclass{article}
 \usepackage{basic}
+\usepackage{emoji}
+% \setemojifont{Apple Color Emoji}
 % Working title: 
 \title{How to compute the fusion product of MV cycles in type A}
 \author{Roger Bai, Anne Dranowski, Joel Kamnitzer} 
@@ -11,81 +15,125 @@
 
 \section{Introduction}
 % 
-The Mirkovic--Vybornov isomorphism \cite{mirkovic2007quiver} relates slices in the affine Grassmannian to slices in conjugacy classes of nilpotent matrices and Nakajima quiver varieties. As an application it provides a geometric version of symmetric and skew Howe $(\GL_m,\GL_n)$ dualities. 
+The Mirkovic--Vybornov isomorphism (\cite{mirkovic2007quiver,mirkovic2019comparison}) relates slices in the affine Grassmannian to slices in conjugacy classes of nilpotent matrices and Nakajima quiver varieties. In so doing it provides a geometric version of symmetric and skew Howe $(\GL_m,\GL_n)$ dualities. 
 % 
 
-The Beilinson--Drinfeld Grassmannian, essential to \cite{mirkovic2007geometric}, is a space which is used to define a fusion (aka convolution) product on sheaves (representations) and MV cycles (bases). 
+[Liaison]
+
+The Beilinson--Drinfeld Grassmannian, essential to \cite{mirkovic2007geometric}, is a space which is used to define a fusion (aka convolution) product on sheaves (representations) as well as MV cycles (bases). 
 % 
-This product structure makes the vector space spanned by the MV cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2020bases}). % conjectured by JEA and proved by BKK
+This product structure makes the vector space spanned by the MV cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2019mirkovic}). % conjectured by JEA and proved by BKK
 % 
+To quote from Mirkovic and Vilonen:
 \begin{quotation}
     However, we make crucial use of an idea of Drinfeld, going back to around 1990. He discovered an elegant way of obtaining the commutativity constraint by interpreting the convolution product of sheaves as a ``fusion'' product.
 \end{quotation}
+% 
+[Liaison]
 
-The purpose of this paper is to give an elementary way to compute this product in type $A$. We do not know how fruitful this work might be in the large landscape of geometric representation theory as it is plagued by two major limitations: it does not readily generalize outside of type $A$, and it is as yet computationally expensive. 
+The purpose of this paper is to give an elementary way to compute this product in type $A$. We do not know how fruitful this work might be in the larger landscape of geometric representation theory as it is plagued by two major limitations: it does not readily generalize outside of type $A$, and it is as yet computationally expensive. 
+% 
+Moreover, it is not clear why one should care about the fusion product on bases. \emoji{smile} \emoji{grin} \emoji{worried} \emoji{monocle-face} \emoji{skull}
 
 \section{Players}
 
 Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
 % are there other possibilities?? :S 
-Write $P$ for the character lattice of $T$. Identify $P\cong \ZZ^m$ so that the set of dominant weights $P_+$ is described/given by the set of partitions having at most $m$ nonzero parts. Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_s$ for the completion of the local ring $\CC[t]$ at $s\in\spec\CC$ and $\cK_s$ for its fraction field $\CC\xT[t-s]$. 
+Write $P$ for the character lattice of $T$. Identify $P\cong \ZZ^m$ so that the set of dominant weights $P_+$ is given by the set of partitions having at most $m$ nonzero parts. Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_s$ for the completion of the local ring $\CC[t]$ at $s\in\spec\CC$ and $\cK_s$ for its fraction field $\CC\xT[t-s]$. 
+% TODO: given by or described by?
 % 
-Note that (by choosing the local coordinate $t-s$ on $\spec\CC[t]$) we can identify $\cO_s \cong \cO$ and $\cK_s\cong\cK$. 
+Note that (by changing the local coordinate on $\spec\CC[t]$ to $t-s$) we can identify $\cO_s \cong \cO$ and $\cK_s\cong\cK$. 
 
 % Set $\AA = \AA^1_x$ (the subscript denoting the chosen local coordinate) and fix $s\in \AA - \{0\}$. 
 
 \subsection{Lattices}
-We will use the lattice model, so it is useful to recall the following definition.  Let $ R \subset K$ be two rings (usually, but not always, $K $ will be a field).  Let $ n \in \mathbb N$ and consider $ K^n $ as a $K$-module.   By restriction $ K^n$ can be viewed as an $R$-module.  An $R$-lattice in $ M$ is an $R$-submodule $ L \subset K^n$ such that $ L $ is a free rank $ n $ $R$-module and $ L \otimes_R K = K^n $.  Equivalently $ L = span_R(v_1, \dots, v_n)$ where $ v_1, \dots, v_n$ are free generators of $K^n$.  
+\label{ss:lat}
+We will use the lattice model, so it is useful to recall the following definition.  Let $ R \subset K$ be two rings (usually, but not always, $K $ will be a field).  Let $ n \in \mathbb N$ and consider $ K^n $ as a $K$-module.   By restriction $ K^n$ can be viewed as an $R$-module.  An $R$-lattice in $ M$ is an $R$-submodule $ L \subset K^n$ such that $ L $ is a free rank $ n $ $R$-module and $ L \otimes_R K = K^n $.  Equivalently $ L = \Sp_R(v_1, \dots, v_n)$ where $ v_1, \dots, v_n$ are free generators of $K^n$.  
 
-The trivial lattice is $L_0 = R^n \subset K^n $.  The group $GL_n(K) $ as simply transitively on the set of $ R$-lattices in $K^n$ and we obtain a bijection between the set of such lattices and $ GL_n(K)/GL_n(R)$.
+The trivial lattice is $L_0 = R^n \subset K^n $.  The group $\GL_n(K) $ acts simply transitively on the set of $ R$-lattices in $K^n$ and we obtain a bijection between the set of such lattices and $\GL_n(K)/\GL_n(R)$.
 
-We will be particularly interested in $\CC[t]$-lattices in $ \CC[t,t^{-1}]^n$.  Given such a lattice $ L $ and a point $ a \in \C$, the specialization of $ L $ at $ a $ is defined as
+We will be particularly interested in $\CC[t]$-lattices in $ \CC[t,t^{-1}]^n$.  Given such a lattice $ L $ and a point $ a \in \CC$, the specialization of $ L $ at $ a $ is defined as
 $$
-L(a) := L \otimes_{\CC[t]} \CC[[t-a]] \subset \CC((t-a))
+L(a) := L \otimes_{\CC[t]} \CC[[t-a]] \subset \CC((t-a))\,.
 $$
 In particular we say that $ L $ is trivial at $ a $ if $ L(a) = \CC[[t-a]]^n.$
 
 \jcom{I wasn't sure of the notation to use here, but I wanted something which didn't conflict with $ L_0$.}
 
-\subsection{Affine Grassmannian actors}
+\acom{I think that MVy use this notation also: 
+
+\includegraphics[width=\textwidth]{img/Capture d’écran, le 2021-02-17 à 13.03.10.png}}
+
+\subsection{Affine Grassmannians} %  actors
+
+Set $\AA = \AA^1$ and $\PP = \PP^1$. 
 
 \begin{itemize}
-    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by
-    $$\Gr = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{0\} $} \} $$
-    We also have a lattice description 
-    $$ \Gr = \{ L \subset \CC^n \otimes \cK : \text{ $L$ is a $\cO$-lattice} \}
-$$
-    \item For any $ s \in \CC $ , the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by
-    $$\Gr_s = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{s\} $} \} $$
-    We also have a lattice description 
-    $$ \Gr_s = \{ L \subset \CC^n \otimes \cK_s : \text{ $L$ is a $\cO_s$-lattice} \}
-$$   
-    \item The thick affine Grassmannian $\Gr^{th} = G(\CC((t^{-1})))/G(\CC[t])$. It is described in modular terms by
-    $$\Gr = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ D_\infty $ (a disk centered at $ \infty$)} \} $$
-    We also have a lattice description 
-    $$ \Gr^{th} = \{ L \subset \C^n \otimes \CC((t^{-1})) : \text{ $L$ is a $\CC[t]$-lattice} \}
-$$   
-\jcom{Maybe write $\cK_\infty$ for $ \CC((t^{-1})) $?  Also maybe change the ``thick'' notation''.}
-
-    \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0; and the second point $s$ varying away from $s = 0$)
-     It is described in modular terms by
-    $$\Grbd = \{ (P, s, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{0, s\} $} \} $$
-    We also have a lattice description 
-    $$ \Grbd = \{ L \subset \CC^n \otimes \CC[t,t^{-1}], s \in \CC : \text{ $L$ is a $\CC[t]$-lattice, $L$ is trivial for any $ a \ne 0, s$} \}
+    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by \acom{Where $V_0$ is the trivial rank $n$ vector bundle on $\PP$?}
     $$
+    \Gr = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{0\} $} \} 
+    $$
+    We also have a lattice description 
+    $$ 
+    \Gr = \{ L \subset \CC^n \otimes_\cO \cK : \text{ $L$ is a $\cO$-lattice} \}
+    $$
+    % 
+    \item For any $ s \in \CC $, the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by
+    $$
+    \Gr_s = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{s\} $} \} 
+    $$
+    We also have a lattice description 
+    $$ \Gr_s = \{ L \subset \CC^n \otimes_{\cO_s} \cK_s : \text{ $L$ is a $\cO_s$-lattice} \}
+$$   
+    \item The thick affine Grassmannian $\Gr^{\sf th} = G(\CC\xT[t^{-1}])/G(\CC[t])$. It is described in modular terms by
+    $$
+        \Gr^{\sf th} = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ D_\infty $ } \} % (a disk centered at $ \infty$)
+    $$
+    where $D_\infty$ denotes a disk centered at $ \infty$.
+    We also have a lattice description 
+$$ 
+\Gr^{\sf th} = \{ L \subset \CC^n \otimes_{\CC[t]} \CC((t^{-1})) : \text{ $L$ is a $\CC[t]$-lattice} \}
+$$   
+\jcom{Maybe write $\cK_\infty$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.}
 
+    \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0, and the second point $s$ varying away from $s = 0$).
+    It is described in modular terms by
+    {\small
+    $$
+    \Grbd = 
+    % \begin{aligned}
+        \left\{ 
+            (P,\varphi,s) : V\text{ is a rank $n$ vector bundle on }\PP, \varphi : V \rightarrow V_0 \text{ on } \PP \setminus \{0, s\}  
+        \right\} 
+    % \end{aligned}
+    $$}
+    We also have a lattice description 
+    {\small
+    $$ 
+    \Grbd = 
+    \{ L \subset \CC^n \otimes_{\CC[t]} \CC[t,t^{-1}], s \in \CC : \text{ $L$ is a $\CC[t]$-lattice 
+    % , $L$ is 
+    trivial at any $ a \ne 0, s$} \}
+    $$}
+    % 
 \end{itemize}
 
+Now fix $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) in $P$ and their sums $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of size $N = \sum N_i$. 
+% 
 \begin{itemize}
-    \item Weights $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) 
-    \item Their sums $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of size $N = \sum N_i$
+    % \item Weights $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) 
+    % \item Their sums $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of size $N = \sum N_i$
+    \item The point $L_\lambda = t^\lambda G(\cO)$ in $\Gr$ and the point ?? $t^\lambda G(\CC[t])$ in $\Gr^{\sf th}$ \acom{abandon lattice of coweight notation?}
     \item The orbit $\Gr^\lambda = G(\cO) L_\lambda$ \acom{and its closure?}
-    \item The orbit $\Gr_\AA^{\lambda_1,\lambda_2}\to\AA$ whose generic fibre is $\Gr^{\lambda_1} \times \Gr^{\lambda_2}$ and whose zero fibre is $\Gr^{\lambda}$ \acom{and closures?}
+    \item The family $\Gr_\AA^{\lambda_1,\lambda_2}\to\AA$ whose generic fibre is $\Gr^{\lambda_1} \times \Gr^{\lambda_2}$ and whose zero fibre is $\Gr^{\lambda}$ \acom{1. and closures? 2. can probably be described as an orbit of some group scheme} 
     \item The slice $\Gr_\mu = G_1[t^{-1}]L_\mu$ to the orbit $\Gr^\lambda$
-    \item The slice $\cW_\mu = G_1\xT[t^{-1}] L_\mu$ to the orbit $\Gr_\AA^{\lambda_1,\lambda_2}$ \acom{is not presented as a family; why need define it in thick Gr?}% $(\Grbd[2])^{\lambda_1,\lambda_2}$; replaced \cW_{\mu_1,\mu_2} = by Joel's not'n & def, seemingly independent of the decomposition of \mu; modified Joel's double bracket --- still confused over where W_\mu ought to live 
+    \item The ``slice'' $\cW_\mu = G_1\xT[t^{-1}] t^\mu G(\CC[t])$ to the ``orbit'' $\Gr_\AA^{\lambda_1,\lambda_2}$ \acom{is not presented as a family}% $(\Grbd[2])^{\lambda_1,\lambda_2}$; replaced \cW_{\mu_1,\mu_2} = by Joel's not'n & def, seemingly independent of the decomposition of \mu; modified Joel's double bracket --- still confused over where W_\mu ought to live 
+\end{itemize}
+The following notation leaves the realm of affine Grassmannians and probably deserves its own subsection. E.g.\ ``nilpotent cones?''
+\begin{itemize}
     \item The nilpotent and semi-nilpotent cones $\cN$ and $\cN_\AA$ (of matrices with eigenvalues in $\{0\}$ and $\{0,s\} \in \AA\times\AA$ resp.) 
-    \item The slice $\TT_\mu$ to the orbits $\OO_\lambda$ 
-    \item The family of slices $\TT_{\mu_1,\mu_2}^{\AA}$ to the family of orbits $\OO^{\AA}_{\lambda_1,\lambda_2}$ 
+    \item The slice $\TT_\mu$ to the orbit $\OO_\lambda$ 
+    \item The ``family of slices'' $\TT_{\mu_1,\mu_2}^{\AA}$ to the ``family of orbits'' $\OO^{\AA}_{\lambda_1,\lambda_2}$ \acom{ok to describe as such?}
 \end{itemize}
 
 % New (?) definitions among these are as follows.
@@ -95,19 +143,27 @@ $$
 %    \cW_{\mu_1,\mu_2} = G_1 [t^{-1},(t-s)^{-1}]L_{\mu_1,\mu_2}
 %\end{equation}
 
-Recall (from \cite{kamnitzer2014yangians}) that there is an embedding of the usual ``thin'' affine Grassmannian $\Gr $ as we have defined it into the ``thick'' affine Grassmannian. \acom{In \cite{kamnitzer2014yangians} the thick Gr is said to be necessary for the noncommutative algebras considered. What is our reason for preferring it to the thin Gr? Can we replace thick by thin?}
-\[
-\Gr \cong G[t,t^{-1}]/G[t]\hookrightarrow G\xT[t^{-1}]/G[t]\,.
-\]
-Let $L_\mu = t^\mu G(\cO)$ and $L_{\mu_1, \mu_2} = t^{\mu_1} (t-s)^{\mu_2} G(\cO)$. \acom{or $ t^{\mu_1} (t-s)^{\mu_2} G[t]$ in thick?} % \in G((t^{-1}))/G[t]
+Recall (citation?) that there is an embedding of the usual (``thin'') affine Grassmannian $\Gr $ as we have defined it into the ``thick'' affine Grassmannian. 
+% 
 
+\acom{In \cite{kamnitzer2014yangians} the thick Gr is said to be necessary for the noncommutative algebras considered. What is our reason for preferring it to the thin Gr? Can we replace thick by thin? Joel said that rather it is needed/used because unlike the thin $\Gr$ which is an ind-scheme, the thick $\Gr^{\sf th}$ is a scheme, so taking Spec of global functions (on $\cW_\mu$?) will recover $\cW_\mu$?}
+\[
+\Gr \cong G(\CC[t,t^{-1}])/G(\CC[t])\hookrightarrow \Gr^{\sf th} := G(\CC\xT[t^{-1}])/G(\CC[t]) \quad g\cO \mapsto gG(\CC[t])  \,.
+\]
+Let 
+% $L_\mu = t^\mu G(\cO)$ and 
+$L_{\mu_1, \mu_2} = t^{\mu_1} (t-s)^{\mu_2} G(\CC[t])$. 
+% \acom{or $ t^{\mu_1} (t-s)^{\mu_2} G[t]$ in thick?} % \in G((t^{-1}))/G[t]
+% 
 % \begin{equation}
 %     \cW_\mu = G_1[[t^{-1}]]L_\mu \subset G((t^{-1}))/G[t]
 % \end{equation}
 % a subscheme of the thick affine Grassmannian
-
-Note that $ L_{\mu_1, \mu_2} = (t-s)^{\mu_2} t^{-\mu_2} L_{\mu} \in \cW_\mu$ \acom{thick or thin}
-and that  $L_{\mu_1,\mu_2}\in\Grbd$ \acom{should say $\Grbd[s]$ as it's really a lattice in a given fibre being characterized?} is a $\CC[t]$-lattice in $\CC(t)^m$ that specializes to a $\CC\xt$-lattice in $\CC\xT^m$ away from $t = 0$ and away from $t = s$ \acom{thick only} i.e.\
+% 
+Note that $ L_{\mu_1, \mu_2} = (t-s)^{\mu_2} t^{-\mu_2} L_{\mu} \in \cW_\mu$ 
+% \acom{thick or thin}
+and that  $L_{\mu_1,\mu_2}\in\Grbd$ \acom{should say $\Grbd[s]$ as it's really a lattice in a given fibre being characterized?} is a $\CC[t]$-lattice in $\CC(t)^m$ that specializes to a $\CC\xt$-lattice in $\CC\xT^m$ away from $t = 0$ and away from $t = s$, i.e.\
+% \acom{thick only} 
 \begin{equation}
     \label{eq:defWBD}
     % \begin{split}
@@ -127,7 +183,7 @@ The family of semi-infinite orbits
 \end{equation}
 \acom{1. Introduce $N_\pm$. 2. In \cite{kamnitzer2014yangians} the global version of $S^\mu_-$ is the subvariety $S^\mu_{-,\AA}\subset\Grbd$ whose generic fibre is $\bigcup_{\mu_1 + \mu_2 = \mu} S^{\mu_1}_-\times S^{\mu_2}_-$ and whose zero fibre is $S^\mu_-$ which don't look to be the same thing.}
 
-The family \acom{orbit? orbits? family of orbits?} of $\CC[t]$-lattices in $\CC(t)^m$ whose elements specialize again to $\CC\xt$-lattices in $\CC\xT^m$ away from $t = 0$ and away from $t = s$ as described more explicitly as follows
+The family \acom{orbit? orbits? family of orbits?} of $\CC[t]$-lattices in $\CC(t)^m$ whose elements specialize again to $\CC\xt$-lattices in $\CC\xT^m$ away from $t = 0$ and away from $t = s$ (i.e.\ which are trivial at $a \ne 0$ or $s$, to use the terminology introduced in the \cref{ss:lat}) is described more explicitly as follows
 \begin{equation}
     \label{eq:defGrBDlambda}
     \begin{split}
@@ -143,7 +199,7 @@ The family \acom{orbit? orbits? family of orbits?} of $\CC[t]$-lattices in $\CC(
     \end{split}
 \end{equation}
 
-\jcom{It is important to add the condition that the lattices are trivial at $ a $.} \acom{$a\ne 0,s$}
+% \jcom{It is important to add the condition that the lattices are trivial at $ a $.} \acom{$a\ne 0,s$}
 % 
 % \acom{These defining conditions are again just telling us that in the fibre over the fixed point $(0,s)\in C^{(2)}$ this set is pairs of lattices; note that we invert the indeterminates $t$ and $(t-s)$ \textit{after} specializing $(0,s)$. Could we give a more explicit characterization like $t^{N_1}(t-s)^{N_2} L_0 \subseteq L\subseteq t^{-N_1}(t-s)^{-N_2}$?}
 
@@ -152,7 +208,8 @@ The [family ``$\cN\otimes\CC[s]$? $\cN\times\CC$?'' of] semi-nilpotent cone[s fi
     \cN_s = \{A \in \mat(N) : \text{eigenvalues of } A \text{ are } 0 \text{ or }s\}\,.
 \end{equation}
 
-The [family of] slice[s $\TT_{\mu_1,\mu_2}$ fibred over $C=\AA^1$ with $s$-fibre]
+\begin{comment}
+    The [family of] slice[s $\TT_{\mu_1,\mu_2}$ fibred over $C=\AA^1$ with $s$-fibre]
 \begin{equation}
     \begin{split}
         \TT_{\mu_1,\mu_2}^s = \{ B + C_s: B &\text{ is a }\mu\times\mu \text{ block matrix of zeros} \\
@@ -167,19 +224,22 @@ The uppertriangular subfamily $\TT_{\mu_1,\mu_2}^{+}$ with $s$-fibre
 \begin{equation}
     \TT_{\mu_1,\mu_2}^{+,s} = \{B + C_s \in \TT_{\mu_1,\mu_2} : B \in\n\}
 \end{equation}
-where $\n\subset\mat(N)$ is the unipotent subalgebra of uppertriangular matrices. 
+where $\n\subset\mat(N)$ is the unipotent subalgebra of uppertriangular matrices.
+\end{comment}
 
-\acom{or---as Joel pointed out, may be ok with:
-The slice $\TT_\mu$ as defined in MVy, no change, \text{and} the family of slices $$\TT_{\mu_1,\mu_2}^{+,s} = \TT_\mu \cap \n + C_{\mu_1,\mu_2}^s$$ where 
+\acom{
+    % or---as Joel pointed out, may be ok with:
+The slice $\TT_\mu$ as defined in \cite{mirkovic2007quiver}, no change, \text{and} the family of slices $$\TT_{\mu_1,\mu_2}^{+,s} = \TT_\mu \cap \n + C_{\mu_1,\mu_2}^s$$ where $C_{\mu_1,\mu_2}^s$ is the block diagonal matrix of companion matrices of 
 % 
 \begin{equation}
-    C_s \text{ is the block diagonal matrix of companion matrices of } t^{\mu_{1,k}}(t-s)^{\mu_{2,k}}
+    % C_s \text{ is the block diagonal matrix of companion matrices of } 
+    t^{\mu_{1,k}}(t-s)^{\mu_{2,k}} \quad (1\le k\le m).
 \end{equation}
 % not sure about notation
-
+Watch out for mixing up of $m$ and $n$.
 }
 
-The [family of] orbit[s $\OO_{\lambda_1,\lambda_2}$ fibred over $C = \AA^1$ with $s$-fibre]  
+The [family of] orbit[s $\OO_{\lambda_1,\lambda_2}$ fibred over $C = \AA$ with $s$-fibre]  
 \begin{equation}
     \OO_{\lambda_1,\lambda_2}^s = \{A \in \cN_s : A \text{ is conjugate to } J_{\lambda_1}\oplus (sI_{N_2} + J_{\lambda_2})\}
 \end{equation}
@@ -187,7 +247,7 @@ where $J_{\lambda_i}$ is the Jordan normal form of block type $\lambda_i$ and $I
 % 
 \section{Exposition}
 
-In Anderson and Kogan conjectured in \cite{anderson2006algebra} \acom{or earlier?} that those MV polynomials which are cluster monomials for a Fomin--Zelevinsky cluster algebra structure on $\CC[N]$ are naturally expressible as determinants\dots
+Anderson and Kogan conjectured in \cite{anderson2006algebra} \acom{or earlier?} that those MV polynomials which are cluster monomials for a Fomin--Zelevinsky cluster algebra structure on $\CC[N]$ are naturally expressible as determinants\dots
 % and they conjectured a formula for many of them.
 
 It's not clear how this work helps with/relates to AK/their conjectures.
