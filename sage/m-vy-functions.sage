@@ -18,11 +18,10 @@ def get_mu(n,t1,t2):
 	for i in t2:
 		for j in i:
 			mu_2[j-1] += 1
-	return mu_1, mu_2
-
-def create_ring(n,t1,t2):
-	get_mu(n,t1,t2)
 	mu = [a+b for a,b in zip(mu_1,mu_2)]
+	return mu_1, mu_2, mu
+
+def create_ring(n,t1,t2,mu):
 	vari = []
 	for k in range(1, len(mu)):
 		for i in range(k+1, len(mu)+1):
@@ -36,7 +35,7 @@ def create_ring(n,t1,t2):
 def insert_r(M,k,row):
 	return matrix(M.rows()[:k]+[row]+M.rows()[k:])
 
-def create_upper_row_matrix(mu, row):
+def create_upper_row_matrix(mu, row,R,vari):
 	mat = []
 	for j in range(row, len(mu)):
 		m = matrix(R,mu[row-1]-1,mu[j])
@@ -45,16 +44,29 @@ def create_upper_row_matrix(mu, row):
 		mat.append(d)
 	return mat
 
-def create_matrix(mu_1,mu_2):
-	mu = [a+b for a,b in zip(mu_1,mu_2)]
+def create_matrix(mu_1,mu_2,mu,R,vari):
 	mat = []
 	for i in range(0, len(mu)):
 		row = [] + [0]*i
 		p = x^(mu_1[i])*(x-s)^(mu_2[i])
 		row.append(companion_matrix(p.coefficients(x, sparse=False), format='bottom'))
-		row += create_upper_row_matrix(mu,i+1)
+		row += create_upper_row_matrix(mu,i+1,R,vari)
 		mat.append(row)
 	return block_matrix(R, mat)
+
+def minor_w_last_cols(M,c,k):
+	all_rows = range(M.nrows())
+	first_cols = range(M.ncols()-c)
+	last_cols = range(M.ncols()-c, M.ncols())
+	m = []
+	for rows in Combinations(all_rows,k):
+		for i in range(1,c+1):
+			for lcols in Combinations(last_cols,i):
+				for fcols in Combinations(first_cols,k-i):
+					n = M.matrix_from_rows_and_columns(rows,lcols+fcols).determinant()
+					if n != 0:
+						m.append(n)
+	return m
 
 def minor_w_last_col(M,k):
 	all_rows = range(M.nrows())
@@ -68,10 +80,9 @@ def minor_w_last_col(M,k):
 	return m
 
 def create_ideal(n,t1,t2):
-	R, vari = create_ring(n,t1,t2)
-	mu_1, mu_2 = get_mu(n,t1,t2)
-	mu = [a+b for a,b in zip(mu_1,mu_2)]
-	X = create_matrix(mu_1,mu_2)
+	mu_1, mu_2, mu = get_mu(n,t1,t2)
+	R, vari = create_ring(n,t1,t2,mu)
+	X = create_matrix(mu_1,mu_2,mu,R,vari)
 	size = mu[0]
 	rel = []
 	for i in range(1,len(mu)):
@@ -83,12 +94,12 @@ def create_ideal(n,t1,t2):
 		kerXs = len([l for l in t2_sub if l != []])
 		for j in range(1,len(t1_sub[0])+1):
 			rk = size - kerX
-			rel += minor_w_last_col(X_sub^j, rk+1)
+			rel += minor_w_last_cols(X_sub^j, mu[i], rk+1)
 			t1_sub = [l[1:] for l in t1_sub if l != []]
 			kerX += len([l for l in t1_sub if l != []])
 		for j in range(1,len(t2_sub[0])+1):
 			rk = size - kerXs
-			rel += minor_w_last_col((X_sub - s)^j, rk+1)
+			rel += minor_w_last_cols((X_sub - s)^j, mu[i], rk+1)
 			t2_sub = [l[1:] for l in t2_sub if l != []]
 			kerXs += len([l for l in t2_sub if l != []])
 	I = R.ideal(rel)

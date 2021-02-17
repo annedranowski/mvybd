@@ -28,16 +28,55 @@ The purpose of this paper is to give an elementary way to compute this product i
 
 Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
 % are there other possibilities?? :S 
-Write $P$ for the character lattice of $T$. Identify $P\cong \ZZ^m$ so that the set of dominant weights $P_+$ is described/given by the set of partitions having at most $m$ nonzero parts. Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_s$ for the completion of the local ring $\CC[t]$ at $s\in\spec\CC[t]$ and $\cK_s$ for its fraction field $\CC\xT[t-s]$. 
+Write $P$ for the character lattice of $T$. Identify $P\cong \ZZ^m$ so that the set of dominant weights $P_+$ is described/given by the set of partitions having at most $m$ nonzero parts. Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_s$ for the completion of the local ring $\CC[t]$ at $s\in\spec\CC$ and $\cK_s$ for its fraction field $\CC\xT[t-s]$. 
 % 
 Note that (by choosing the local coordinate $t-s$ on $\spec\CC[t]$) we can identify $\cO_s \cong \cO$ and $\cK_s\cong\cK$. 
 
 % Set $\AA = \AA^1_x$ (the subscript denoting the chosen local coordinate) and fix $s\in \AA - \{0\}$. 
 
+\subsection{Lattices}
+We will use the lattice model, so it is useful to recall the following definition.  Let $ R \subset K$ be two rings (usually, but not always, $K $ will be a field).  Let $ n \in \mathbb N$ and consider $ K^n $ as a $K$-module.   By restriction $ K^n$ can be viewed as an $R$-module.  An $R$-lattice in $ M$ is an $R$-submodule $ L \subset K^n$ such that $ L $ is a free rank $ n $ $R$-module and $ L \otimes_R K = K^n $.  Equivalently $ L = span_R(v_1, \dots, v_n)$ where $ v_1, \dots, v_n$ are free generators of $K^n$.  
+
+The trivial lattice is $L_0 = R^n \subset K^n $.  The group $GL_n(K) $ as simply transitively on the set of $ R$-lattices in $K^n$ and we obtain a bijection between the set of such lattices and $ GL_n(K)/GL_n(R)$.
+
+We will be particularly interested in $\CC[t]$-lattices in $ \CC[t,t^{-1}]^n$.  Given such a lattice $ L $ and a point $ a \in \C$, the specialization of $ L $ at $ a $ is defined as
+$$
+L(a) := L \otimes_{\CC[t]} \CC[[t-a]] \subset \CC((t-a))
+$$
+In particular we say that $ L $ is trivial at $ a $ if $ L(a) = \CC[[t-a]]^n.$
+
+\jcom{I wasn't sure of the notation to use here, but I wanted something which didn't conflict with $ L_0$.}
+
+\subsection{Affine Grassmannian actors}
+
 \begin{itemize}
-    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$ % switched out ordinary Gr notation for curly Gr 
-    \item The Beauville--Laszlo Grassmannian $\Grbd[s] = G(\cK_s)/G(\cO_s)$ % TODO: in terms of bundles it is $\{(P,\sigma) : P is a PGB over A and \sigma is a trivialization of P on A - x\}$
-    \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0; and the second point $s$ varying away from $s = 0$) % switched out general curve $C$ for affine line $\AA$; TODO: in terms of bundles it is $\{(P,\sigma,x):agaiin P is a PGB on A, x \in A, and now \sigma is a trivialization away from 0 _and_ x \}
+    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by
+    $$\Gr = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{0\} $} \} $$
+    We also have a lattice description 
+    $$ \Gr = \{ L \subset \CC^n \otimes \cK : \text{ $L$ is a $\cO$-lattice} \}
+$$
+    \item For any $ s \in \CC $ , the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by
+    $$\Gr_s = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{s\} $} \} $$
+    We also have a lattice description 
+    $$ \Gr_s = \{ L \subset \CC^n \otimes \cK_s : \text{ $L$ is a $\cO_s$-lattice} \}
+$$   
+    \item The thick affine Grassmannian $\Gr^{th} = G(\CC((t^{-1})))/G(\CC[t])$. It is described in modular terms by
+    $$\Gr = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ D_\infty $ (a disk centered at $ \infty$)} \} $$
+    We also have a lattice description 
+    $$ \Gr^{th} = \{ L \subset \C^n \otimes \CC((t^{-1})) : \text{ $L$ is a $\CC[t]$-lattice} \}
+$$   
+\jcom{Maybe write $\cK_\infty$ for $ \CC((t^{-1})) $?  Also maybe change the ``thick'' notation''.}
+
+    \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0; and the second point $s$ varying away from $s = 0$)
+     It is described in modular terms by
+    $$\Grbd = \{ (P, s, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{0, s\} $} \} $$
+    We also have a lattice description 
+    $$ \Grbd = \{ L \subset \CC^n \otimes \CC[t,t^{-1}], s \in \CC : \text{ $L$ is a $\CC[t]$-lattice, $L$ is trivial for any $ a \ne 0, s$} \}
+    $$
+
+\end{itemize}
+
+\begin{itemize}
     \item Weights $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) 
     \item Their sums $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of size $N = \sum N_i$
     \item The orbit $\Gr^\lambda = G(\cO) L_\lambda$ \acom{and its closure?}
