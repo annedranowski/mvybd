@@ -1,6 +1,6 @@
 %!TEX program = lualatex
 
-\documentclass{article}
+\documentclass[draft]{article}
 \usepackage{basic}
 \usepackage{emoji}
 
@@ -34,38 +34,77 @@ To quote from Mirkovic and Vilonen:
 
 The purpose of this paper is to give an elementary way to compute this product in type $A$. We do not know how fruitful this work might be in the larger landscape of geometric representation theory as it is plagued by two major limitations: it does not readily generalize outside of type $A$, and it is as yet computationally expensive. 
 % 
-Moreover, it is not clear why one should care about the fusion product on bases. \emoji{smile} \emoji{grin} \emoji{worried} \emoji{monocle-face} \emoji{skull}
+Moreover, it is not clear why one should care about the fusion product on bases. \emoji{imp} \emoji{grin} \emoji{worried} \emoji{monocle-face} \emoji{skull}
 
 \section{Players}
 
 Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
 % are there other possibilities?? :S 
-Write $P$ for the coweight lattice of $T$, so we have $P\cong \ZZ^m$.  The dominant weights of $ G $ is the set of $ \lambda = (\lambda_1, \dots, \lambda_m) $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$.  We also need the notion of effective dominant coweight, which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  So an effective dominant coweight $ \lambda $ is a partition of $ \lambda_1 + \cdots + \lambda_m$, which we call the size of $ \lambda$.
+Write $P$ for the coweight lattice of $T$, so we have $P\cong \ZZ^m$.  The dominant \ul{weights} of $ G $ is the set of $ \lambda = (\lambda_1, \dots, \lambda_m) $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$.  We also need the notion of effective dominant \ul{coweight}, 
+\acom{can we conflate or should we be precise and say coweight?}
+which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  So an effective dominant coweight $ \lambda $ is a partition of $ \lambda_1 + \cdots + \lambda_m$, which we call the size of $ \lambda$. Write $P_+$ for dominant and $P_{++}$ for effective dominant. 
 
 Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_s = \CC[[t-s]]$ for the completion of the local ring $\CC[t]$ at $s\in\spec\CC$ and $\cK_s$ for its fraction field $\CC\xT[t-s]$. 
 % TODO: given by or described by?
 % 
 Note that (by changing the local coordinate on $\spec\CC[t]$ to $t-s$) we can identify $\cO_s \cong \cO$ and $\cK_s\cong\cK$. 
 
-Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the diagonal matrix with entries $ (t-s)^{\mu_1}, \dots, (t-s)^{\mu_m}$
+Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the diagonal matrix 
+% with entries $ (t-s)^{\mu_1}, \dots, (t-s)^{\mu_m}$
+% \[
+%     \begin{pNiceMatrix}[nullify-dots,xdots/line-style=loosely dotted]
+%         (t-s)^{\mu_1} & 0             & \Cdots & 0 \\
+%         0             & (t-s)^{\mu_2} & \Ddots & \Vdots \\
+%         % 0 & b & a & \Ddots & & \\
+%         \Vdots              & \Ddots        & \Ddots & 0 \\
+%         % \Vdots & & & & \\
+%         0             & \Cdots        &   0    & (t-s)^{\mu_m}
+%     \end{pNiceMatrix}
+% \]
+\[
+\begin{bmatrix}
+    (t-s)^{\mu_1} \\
+    & (t-s)^{\mu_2} \\ 
+    & & \ddots \\
+    & & & (t-s)^{\mu_m}
+\end{bmatrix} \in \GL_m(\cK).
+\]
+% nicematrix test
+% $\begin{bNiceArray}{ccc|c}[margin]
+%     \Block{3-3}<\Large>{A} & & & 0 \\
+%     & \hspace*{1cm} & & \Vdots \\
+%     & & & 0 \\
+%     \hline
+%     0 & \Cdots& 0 & 0
+%     \end{bNiceArray}$
+% 
+% $\begin{pNiceMatrix}
+%     \frac12 & -\frac12 \\
+%     \frac13 & \frac14 \\
+%     \end{pNiceMatrix}$
 
 % Set $\AA = \AA^1_x$ (the subscript denoting the chosen local coordinate) and fix $s\in \AA - \{0\}$. 
 
 \subsection{Lattices}
 \label{ss:lat}
-We will use the lattice model, so it is useful to recall the following definition.  Let $ R \subset K$ be two rings (usually, but not always, $K $ will be a field).  Let $ m \in \mathbb N$ and consider $ K^n $ as a $K$-module.   By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $ M$ is an $R$-submodule $ L \subset K^m$ such that $ L $ is a free rank $ m $ $R$-module and $ L \otimes_R K = K^m $.  Equivalently $ L = \Sp_R(v_1, \dots, v_m)$ where $ v_1, \dots, v_n$ are free generators of $K^m$.  
+We will use the lattice model, so it is useful to recall the following definition.  Let $ R \subset K$ be two rings (usually, but not always, $K$ will be a field).  Let $ m \in \mathbb N$ and consider $ K^m $ as a $K$-module.   By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $M$ is an $R$-submodule $ L \subset K^m$ such that $ L $ is a free rank $ m $ $R$-module and $ L \otimes_R K = K^m $.  Equivalently, $ L = \Sp_R(v_1, \dots, v_m)$ where $v_1, \dots, v_m$ are free generators of $K^m$. 
 
-The trivial lattice is $L_0 = R^m \subset K^m $.  The group $\GL_m(K) $ acts transitively on the set of $ R$-lattices in $K^m$, thus giving a bijection between the set of such lattices and $\GL_m(K)/\GL_m(R)$.
+% The trivial lattice is 
+$L_0(R) = R^m \subset K^m $ is called the trivial lattice. The group $\GL_m(K) $ acts transitively on the set of $R$-lattices in $K^m$, thus giving a bijection between 
+% the set of such lattices 
+this set and $\GL_m(K)/\GL_m(R)$.
 
 We will be particularly interested in $\CC[t]$-lattices in $ \CC(t)^m$.  Given such a lattice $ L $ and a point $ a \in \CC$, the specialization of $ L $ at $ a $ is defined as
 $$
-L(a) := L \otimes_{\CC[t]} \CC[[t-a]] \subset \CC((t-a))\,.
+L(a) := L \otimes_{\CC[t]} \CC\xt[t-a] \subset \CC\xT[t-a]\,.
 $$
-We say that $ L $ is trivial at $ a $ if $ L(a) = \CC[[t-a]]^m.$
+We say that $ L $ is trivial at $ a $ if $ L(a) = \CC\xt[t-a]^m$. For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$. 
 
-\jcom{I wasn't sure of the notation to use here, but I wanted something which didn't conflict with $ L_0$.}
+\acom{Should we also mention our interest in $\cO$-lattices in $\cK^m$?}
 
-\acom{I think that MVy use this notation also: }
+% \jcom{I wasn't sure of the notation to use here, but I wanted something which didn't conflict with $ L_0$.}
+
+% \acom{I think that MVy use this notation also: }
 
 %\includegraphics[width=\textwidth]{img/Capture d’écran, le 2021-02-17 à 13.03.10.png}}
 
@@ -82,30 +121,33 @@ Set $\AA = \AA^1$ and $\PP = \PP^1$.
     
     We also have a lattice description 
     $$ 
-    \Gr = \{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \}
+    \Gr = \{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \}\,.
     $$
     % 
-    \item For any $ s \in \CC $, the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by
+    \item For any $ s \in \CC $, \acom{should it be $\AA$ instead of $\CC$} the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by
     $$
     \Gr_s = \{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \rightarrow V_0 $ on $ D_s \setminus \{s\} $} \} 
     $$
+    where $D_s$ is the formal disk centered at $s\in\PP$.
+
     We also have a lattice description 
-    $$ \Gr_s = \{ L \subset \cK_s^m : \text{ $L$ is a $\cO_s$-lattice} \}
-$$   
+$$ \Gr_s = \{ L \subset \cK_s^m : \text{ $L$ is a $\cO_s$-lattice} \} $$   
     \item The thick affine Grassmannian $\Gr^{\sf th} = G(\CC\xT[t^{-1}])/G(\CC[t])$. It is described in modular terms by
     $$
         \Grth = \{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ D_\infty $ } \} % (a disk centered at $ \infty$)
     $$
-    where $D_\infty$ denotes a disk centered at $ \infty$.
+    where $D_\infty$ denotes a disk centered at $ \infty$. \acom{What is the difference between ``a disk'' and ``the formal disk''}
+    
     We also have a lattice description 
-$$ 
-\Gr^{\sf th} = \{ L \subset  \CC((t^{-1}))^m : \text{ $L$ is a $\CC[t]$-lattice} \}
-$$   
-\jcom{Maybe write $\cK_\infty$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.}
+    $$ 
+    \Gr^{\sf th} = \{ L \subset  \CC((t^{-1}))^m : \text{ $L$ is a $\CC[t]$-lattice} \}
+    $$   
+    
+    \jcom{Maybe write $\Kinf$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.} \acom{Since $\sf th$ is also the first two letters of ``thin''?}
 
-    \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0, and the second point $s$).
+    \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0, and the second point $s\in\AA$ varying).
     It is described in modular terms by
-    {\small
+    % {\small
     $$
     \Grbd = 
     % \begin{aligned}
@@ -113,12 +155,17 @@ $$
             (V,\varphi,s) : V\text{ is a rank $m$ vector bundle on }\PP, \varphi : V \rightarrow V_0 \text{ on } \PP \setminus \{0, s\}  
         \right\} 
     % \end{aligned}
-    $$}
+    $$%}
+
     The fibre of $\Grbd \to \AA$ over $ s \in \AA $, for $ s \ne 0$, will be denoted $ \Gr_{0,s} $ and is given by
-    $$ \Gr_{0,s} := \pi^{-1}(s) = G(\CC[t, t^{-1}, (t-s)^{-1}]/G(\CC[t])$$
+    % 
+    $$ 
+    \Gr_{0,s} := \pi^{-1}(s) = G(\CC[t, t^{-1}, (t-s)^{-1}]/G(\CC[t])\,.
+    $$
+    \acom{0 in notation is kinda redundant? But we can't take it away because we already have a $\Gr_s$ and it is something else?}
     
     We also have a lattice descriptions 
-    {\small
+    % {\small
     \begin{gather*}
     \Grbd = 
     \{ L \subset  \CC(t)^m, s \in \CC : \text{ $L$ is a $\CC[t]$-lattice 
@@ -126,52 +173,74 @@ $$
     trivial at any $ a \ne 0, s$} \} \\
      \Gr_{0,s} = 
     \{ L \subset  \CC[t,t^{-1},(t-s)^{-1}]^m : \text{ $L$ is a $\CC[t]$-lattice} \}
-    \end{gather*} }
+    \end{gather*}%}
+    \acom{$s\in\CC$ should be $s\in\AA$?}
     % 
-    \item The positive part $ \Gr^+$ of the affine Grassmannian and of the thick affine Grassmannian ${\Grth}^+$ is defined as
+    \item The positive parts $ \Gr^+$ and ${\Grth}^+$ of the affine Grassmannian and of the thick affine Grassmannian resp. are defined as 
+    % and of the thick affine Grassmannian ${\Grth}^+$ is defined as
     $$
-    \Gr^+ = (M_m(\cO) \cap G(\cK)) / G(\cO) \quad {\Grth}^+ = (M_m(\CC[t]) \cap G(\CC((t^{-1}))) / G(\CC[t]) $$
-    In modular terms, $\Gr^+$ (resp. ${\Grth}^+$) is the set of those $ (V, \varphi)$, where $ \varphi : V \rightarrow V_0 $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp. over $ \PP$).  In lattice terms, $ \Gr^+$ (resp. ${\Grth}^+$) contains those lattices $L$ which are contained in the standard lattice $ L_0$, i.e. $ L \subseteq L_0$.
+    \Gr^+ = (M_m(\cO) \cap G(\cK)) / G(\cO) \quad {\Grth}^+ = (M_m(\CC[t]) \cap G(\CC\xT[t^{-1}]) / G(\CC[t]) 
+    $$
+    \acom{What is $M_m$?}
+
+    In modular terms, $\Gr^+$ (resp. ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow V_0 $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp. over $ \PP$).  
+    
+    In lattice terms, $ \Gr^+$ (resp. ${\Grth}^+$) contains those lattices $L$ which are contained in the standard \acom{previously called ``trivial''} lattice $ L_0(\cO)$ (resp. $L_0(\CC[t])$. % , i.e. $ L \subseteq L_0$.
 \end{itemize}
 
-These different versions of the affine Grassmannian are related as follows.  
+These \acom{which?} different versions of the affine Grassmannian are related as follows.  
 
-First there is an isomorphism $ \Gr \cong \Gr_s $ coming from the isomorphism $ \cK \cong \Ks$.
+First there is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \cK \cong \Ks$.
 
 Second, we have a map $$ \Grbd \rightarrow \Grth $$ which is given in modular terms by restricting the trivialization to $ D_\infty$.  It is given in group-theoretic terms on the fibre over $ s $ by
 $$
-G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\CC((t^{-1}))/G(\CC[t])
+G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\CC\xT[t^{-1}])/G(\CC[t])
 $$
-Finally, it is given in lattice terms as the identity on the lattice and using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^m \rightarrow \CC((t^{-1}))^m$ on the ambient spaces.
+\acom{Permission to update notation and replace $\CC\xT[t^{-1}]$ by $\Kinf$ as per your suggestion Joel?}
 
-The fibres $ Gr_{0,s}$ of $ \Grbd \rightarrow \AA$ are given as follows
+Finally, it is given in lattice terms as the identity on the lattice and using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^m \rightarrow \CC\xT[t^{-1}]^m$ on the ambient spaces.
+
+The fibres $ \Gr_{0,s}$ of $ \Grbd \rightarrow \AA$ can be described as % are given as follows
 $$
-\Gr_{0,s} \cong \begin{cases} \Gr \times \Gr_s, \  s \ne 0 \\
-\Gr, \ s = 0.
+\Gr_{0,s} \cong 
+\begin{cases} 
+    \Gr \times \Gr_s & s \ne 0 \\
+    \Gr              & s = 0\,.
 \end{cases}
 $$
-This isomorphism is given in the lattice realization as
+In the $s\ne 0$ case this isomorphism is given in the lattice realization \acom{vs ``model''?} by taking trivializations; 
 $$
-L \mapsto (L(0), L(s))
+L \mapsto (L(0), L(s))\,.
 $$
-in the $ s \ne 0 $ case.
+% in the $ s \ne 0 $ case.
 \jcom{Maybe we should introduce some notation for this isomorphism.}
+\acom{Ok. Question: how is the isomorphism given at $s=0$?}
 
+\subsubsection{Maybe subsection? ``The convolution construction?''}
+The following construction will be very important in this paper.  Let $ X_1, X_2 \subset \Gr$ be two subschemes. Then using the isomorphism $ \Gr \cong \Gr_s $ for each $ s $, we obtain a subscheme $ X_1 \times X_2 \subset \Gr \times \Gr_s $.  
+Via \ul{this} \acom{rather, the above?} isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
 
-The following construction will be very important in this paper.  Let $ X_1, X_2 \subset \Gr$ be two subschemes.  Then using the isomorphism $ \Gr \cong \Gr_s $ for each $ s$, we obtain a subscheme $ X_1 \times X_2 \subset \Gr \times \Gr_s $.  Via this isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  We define $ X_1 * X_2 $ to be the scheme theoretic closure of $ X_1 \times X_2 \times \AA^\times $ inside of $ \Grbd $.  We have the projection $ \pi: \Grbd \rightarrow \AA $ and we form $ X_1 \cdot X_2 = X_1 * X_2 \cap \pi^{-1}(0) = \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  We regard $ X_1 \cdot X_2$ as a subscheme of $ \Gr $ using the isomorphism $\Gr_{0,0} \cong \Gr $.
+We define $ X_1 * X_2 $ to be the scheme-theoretic closure of $ X_1 \times X_2 \times \AA^\times $ inside of $ \Grbd $.  We have the projection $ \pi: \Grbd \rightarrow \AA $ and we form $ X_1 \cdot X_2 = X_1 * X_2 \cap \pi^{-1}(0) = \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  We regard $ X_1 \cdot X_2$ as a subscheme of $ \Gr $ using \ul{the isomorphism} $\Gr_{0,0} \cong \Gr $. \acom{Repeat question: what is this iso? Roger says maybe it's in MV?}
 
-\jcom{I thought that it would be good to introduce this operation now, since we will use it often in the paper and it is the most convenient way to define $Gr^{\lambda_1, \lambda_2}$. I don't know what notation we should use.}
+\jcom{I thought that it would be good to introduce this operation now, since we will use it often in the paper and it is the most convenient way to define $\Gr^{\lambda_1, \lambda_2}$. I don't know what notation we should use.}
 
-Now fix effective dominant weights $ \lambda_i, \mu_i \in P_{++}$ of size $N_i$ ($i=1,2$) and their sum $ \lambda = \lambda_1 + \lambda_2 = \mu_1 + \mu_2$ of size $ N = N_1 + N_2$.
+\acom{Roger and I have been using $\ast$ to denote fusion. Do we need a notation for the scheme-theoretic closure of $X_1\times X_2\times\AA^\times$? If not then I like $X_1\ast X_2 = \overline{X_1 \times X_2 \times \AA^\times}\cap \pi^{-1}(0)$.}
+
+Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ ($i=1,2$) and their sums $ \lambda = \lambda_1 + \lambda_2, \mu = \mu_1 + \mu_2$ of size $ N = N_1 + N_2$.
 
 % 
 \begin{itemize}
     % \item Weights $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) 
     % \item Their sums $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of size $N = \sum N_i$
-    \item The point $L_\lambda = t^\lambda G(\cO)$ in $\Gr$.  In the lattice model, we have
-    $$ L_\lambda = span_\cO(t^{\lambda_1}e_1, \dots, t^{\lambda_m}e_m) $$.
-    \item The orbit $\Gr^\lambda = G(\cO) L_\lambda$ and its closure $ \overline{\Gr}^\lambda = \cup_{\lambda' \le \lambda} \Gr^{\lambda'}$.  This orbit lies inside the positive part $ \Gr^+$ of the affine Grassmannian.
-    \item The family $ \overline{\Gr}^{\lambda_1, \lambda_2} \rightarrow \AA$, defined by $ \overline{\Gr}^{\lambda_1, \lambda_2} = \overline{Gr}^{\lambda_1} * \overline{Gr}^{\lambda_2}$.  By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda_1, \lambda_2} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$.  By Zhu's theorem (\jcom{need ref}), the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
+    \item The point $L_\lambda = t^\lambda G(\cO)$ in $\Gr$. In the lattice model, we have
+    $$ 
+    L_\lambda = \Sp_\cO(t^{\lambda_1}e_1, \dots, t^{\lambda_m}e_m)\,. 
+    $$
+    \item The orbit $\Gr^\lambda = G(\cO) L_\lambda$ and its closure 
+    $ \overline{\Gr^\lambda} = \bigcup_{\lambda' \le \lambda} \Gr^{\lambda'} $.  
+    \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??}
+    This orbit lies inside the positive part $ \Gr^+$ of the affine Grassmannian.
+    \item The family $ \overline{\Gr}^{\lambda_1, \lambda_2} \rightarrow \AA$, defined by $ \overline{\Gr}^{\lambda_1, \lambda_2} = \overline{Gr}^{\lambda_1} * \overline{Gr}^{\lambda_2}$.  By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda_1, \lambda_2} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$.  By Zhu's theorem (\jcom{need ref} \acom{\cite[Proposition 3.1.14]{zhu2016introduction}}), the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
     
     Suppose that $ s \ne 0$.  In the fibre $\overline{\Gr}_{0,s}^{\lambda_1, \lambda_2}$ we have the open locus $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ coming from transporting $ \Gr^{\lambda_1} \times \Gr^{\lambda_2} $ via the isomorphism $ \Grbd_{0,s} \cong \Gr \times \Gr_s $.  This open locus is a $ G(\CC[t])$ orbit.  The lattice description of $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ is given in Lemma \ref{le:Grl1l2} below.
     
