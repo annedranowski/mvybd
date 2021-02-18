@@ -4,8 +4,6 @@
 \usepackage{basic}
 \usepackage{emoji}
 
-\newcommand{\Grth}{\Gr^{\sf th}}
-
 % \setemojifont{Apple Color Emoji}
 % Working title: 
 \title{How to compute the fusion product of MV cycles in type A}
@@ -126,11 +124,11 @@ $$
     % 
 \end{itemize}
 
-These different versions of the affine Grassmannian are related as follows.  First there is an isomorphism $ \Gr \cong \Gr_s $ coming from the isomorphism $ \Ks \cong \K$.
+These different versions of the affine Grassmannian are related as follows.  First there is an isomorphism $ \Gr \cong \Gr_s $ coming from the isomorphism $ \Ks \cong \cK$.
 
 Second, we have a map $$ \Grbd \rightarrow \Grth $$ which is given in modular terms by restricting the trivialization to $ D_\infty$.  It is given in group-theoretic terms on the fibre over $ s $ by
 $$
-G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\CC((t^{-1}))/G(\C[t])
+G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\CC((t^{-1}))/G(\CC[t])
 $$
 Finally, it is given in lattice terms as the identity on the lattice and using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^n \rightarrow \CC((t^{-1}))^n$ on the ambient spaces.
 
@@ -146,7 +144,7 @@ L \mapsto (L(0), L(s))
 $$
 in the $ s \ne 0 $ case.
 
-The following construction will be very important in this paper.  Let $ X_1, X_2 \subset \Gr$ be two subschemes.  Then using the isomorphism $ \Gr \cong \Gr_s $ for each $ s$, we obtain a subscheme $ X_1 \times X_2 \subset \Gr \times \Gr_s $.  Via this isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  We define $ X_1 * X_2 $ to be the scheme theoretic closure of $ X_1 \times X_2 \times \AA^\times $ inside of $ \Grbd $.  We have the projection $ \pi: \Grbd \rightarrow \A $ and we form $ X_1 \cdot X_2 = X_1 * X_2 \cap \pi^{-1}(0) = \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  We regard $ X_1 \cdot X_2$ as a subscheme of $ \Gr $ using the isomorphism $\Gr_{0,0} \cong \Gr $.
+The following construction will be very important in this paper.  Let $ X_1, X_2 \subset \Gr$ be two subschemes.  Then using the isomorphism $ \Gr \cong \Gr_s $ for each $ s$, we obtain a subscheme $ X_1 \times X_2 \subset \Gr \times \Gr_s $.  Via this isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  We define $ X_1 * X_2 $ to be the scheme theoretic closure of $ X_1 \times X_2 \times \AA^\times $ inside of $ \Grbd $.  We have the projection $ \pi: \Grbd \rightarrow \AA $ and we form $ X_1 \cdot X_2 = X_1 * X_2 \cap \pi^{-1}(0) = \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  We regard $ X_1 \cdot X_2$ as a subscheme of $ \Gr $ using the isomorphism $\Gr_{0,0} \cong \Gr $.
 
 \jcom{I thought that it would be good to introduce this operation now, since we will use it often in the paper. I don't know what notation we should use.}
 
@@ -158,7 +156,7 @@ Now fix dominant weights $ \lambda_i \in P_+$ of size $N_i$ ($i=1,2$) and their 
     % \item Their sums $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of size $N = \sum N_i$
     \item The point $L_\lambda = t^\lambda G(\cO)$ in $\Gr$ 
     \item The orbit $\Gr^\lambda = G(\cO) L_\lambda$ and its closure $ \overline{\Gr}^\lambda = \cup_{\lambda' \le \lambda} \Gr^{\lambda'}$.
-    \item The family $ \overline{\Gr}^{\lambda_1, \lambda_2} \rightarrow \A$, defined by $ \overline{\Gr}^{\lambda_1, \lambda_2} = \overline{Gr}^{\lambda_1} * \overline{Gr}^{\lambda_2}$.  By construction the fibre of $ \overline{\Gr}^{\lambda_1, \lambda_2} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$.  By Zhu's theorem (\jcom{need ref}), the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
+    \item The family $ \overline{\Gr}^{\lambda_1, \lambda_2} \rightarrow \AA$, defined by $ \overline{\Gr}^{\lambda_1, \lambda_2} = \overline{Gr}^{\lambda_1} * \overline{Gr}^{\lambda_2}$.  By construction the fibre of $ \overline{\Gr}^{\lambda_1, \lambda_2} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$.  By Zhu's theorem (\jcom{need ref}), the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
 \end{itemize}
 \begin{itemize}
     %The family $\overline{\Gr}_\AA^{\lambda_1,\lambda_2}\to\AA$ whose generic fibre is $\overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$ and whose zero fibre is $\Gr^{\lambda}$ \acom{1. and closures? 2. can probably be described as an orbit of some group scheme} 
