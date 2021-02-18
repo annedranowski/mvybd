@@ -3,6 +3,9 @@
 \documentclass{article}
 \usepackage{basic}
 \usepackage{emoji}
+
+\newcommand{\Grth}{\Gr^{\sf th}}
+
 % \setemojifont{Apple Color Emoji}
 % Working title: 
 \title{How to compute the fusion product of MV cycles in type A}
@@ -69,10 +72,12 @@ In particular we say that $ L $ is trivial at $ a $ if $ L(a) = \CC[[t-a]]^n.$
 Set $\AA = \AA^1$ and $\PP = \PP^1$. 
 
 \begin{itemize}
-    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by \acom{Where $V_0$ is the trivial rank $n$ vector bundle on $\PP$?}
+    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by 
     $$
     \Gr = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ \PP \setminus \{0\} $} \} 
     $$
+    where $V_0$ is the trivial rank $n$ vector bundle on $\PP$.
+    
     We also have a lattice description 
     $$ 
     \Gr = \{ L \subset \CC^n \otimes_\cO \cK : \text{ $L$ is a $\cO$-lattice} \}
@@ -87,14 +92,14 @@ Set $\AA = \AA^1$ and $\PP = \PP^1$.
 $$   
     \item The thick affine Grassmannian $\Gr^{\sf th} = G(\CC\xT[t^{-1}])/G(\CC[t])$. It is described in modular terms by
     $$
-        \Gr^{\sf th} = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ D_\infty $ } \} % (a disk centered at $ \infty$)
+        \Grth = \{ (P, \varphi) : \text{$V$ is a rank $n$ vector bundle on $ \PP $, $\varphi : V \rightarrow V_0 $ on $ D_\infty $ } \} % (a disk centered at $ \infty$)
     $$
     where $D_\infty$ denotes a disk centered at $ \infty$.
     We also have a lattice description 
 $$ 
 \Gr^{\sf th} = \{ L \subset \CC^n \otimes_{\CC[t]} \CC((t^{-1})) : \text{ $L$ is a $\CC[t]$-lattice} \}
 $$   
-\jcom{Maybe write $\cK_\infty$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.}
+\jcom{Maybe write $\cK_\infty$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''. I made a $\Grth$ macro, but I had no idea where to put it.}
 
     \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0, and the second point $s$ varying away from $s = 0$).
     It is described in modular terms by
@@ -107,6 +112,9 @@ $$
         \right\} 
     % \end{aligned}
     $$}
+    The fibre of $\Grbd \to \AA$ over $ s \in \AA $, for $ s \ne 0$, will be denoted $ \Gr_{0,s} $ and is given by
+    $$ \Gr_{0,s} := \pi^{-1}(s) = G(\CC[t, t^{-1}, (t-s)^{-1})/G(\CC[t])$$
+    
     We also have a lattice description 
     {\small
     $$ 
@@ -118,14 +126,42 @@ $$
     % 
 \end{itemize}
 
-Now fix $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) in $P$ and their sums $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of size $N = \sum N_i$. 
+These different versions of the affine Grassmannian are related as follows.  First there is an isomorphism $ \Gr \cong \Gr_s $ coming from the isomorphism $ \Ks \cong \K$.
+
+Second, we have a map $$ \Grbd \rightarrow \Grth $$ which is given in modular terms by restricting the trivialization to $ D_\infty$.  It is given in group-theoretic terms on the fibre over $ s $ by
+$$
+G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\CC((t^{-1}))/G(\C[t])
+$$
+Finally, it is given in lattice terms as the identity on the lattice and using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^n \rightarrow \CC((t^{-1}))^n$ on the ambient spaces.
+
+The fibres $ Gr_{0,s}$ of $ \Grbd \rightarrow \AA$ are given as follows
+$$
+\Gr_{0,s} \cong \begin{cases} \Gr \times \Gr_s, \  s \ne 0 \\
+\Gr, \ s = 0.
+\end{cases}
+$$
+This isomorphism is given in the lattice realization as
+$$
+L \mapsto (L(0), L(s))
+$$
+in the $ s \ne 0 $ case.
+
+The following construction will be very important in this paper.  Let $ X_1, X_2 \subset \Gr$ be two subschemes.  Then using the isomorphism $ \Gr \cong \Gr_s $ for each $ s$, we obtain a subscheme $ X_1 \times X_2 \subset \Gr \times \Gr_s $.  Via this isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  We define $ X_1 * X_2 $ to be the scheme theoretic closure of $ X_1 \times X_2 \times \AA^\times $ inside of $ \Grbd $.  We have the projection $ \pi: \Grbd \rightarrow \A $ and we form $ X_1 \cdot X_2 = X_1 * X_2 \cap \pi^{-1}(0) = \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  We regard $ X_1 \cdot X_2$ as a subscheme of $ \Gr $ using the isomorphism $\Gr_{0,0} \cong \Gr $.
+
+\jcom{I thought that it would be good to introduce this operation now, since we will use it often in the paper. I don't know what notation we should use.}
+
+Now fix dominant weights $ \lambda_i \in P_+$ of size $N_i$ ($i=1,2$) and their sum $ \lambda = \lambda_1 + \lambda_2$ of size $ N = N_1 + N_2$.
+
 % 
 \begin{itemize}
     % \item Weights $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) 
     % \item Their sums $\mu = \sum \mu_i \le \lambda = \sum\lambda_i$ of size $N = \sum N_i$
-    \item The point $L_\lambda = t^\lambda G(\cO)$ in $\Gr$ and the point ?? $t^\lambda G(\CC[t])$ in $\Gr^{\sf th}$ \acom{abandon lattice of coweight notation?}
-    \item The orbit $\Gr^\lambda = G(\cO) L_\lambda$ \acom{and its closure?}
-    \item The family $\Gr_\AA^{\lambda_1,\lambda_2}\to\AA$ whose generic fibre is $\Gr^{\lambda_1} \times \Gr^{\lambda_2}$ and whose zero fibre is $\Gr^{\lambda}$ \acom{1. and closures? 2. can probably be described as an orbit of some group scheme} 
+    \item The point $L_\lambda = t^\lambda G(\cO)$ in $\Gr$ 
+    \item The orbit $\Gr^\lambda = G(\cO) L_\lambda$ and its closure $ \overline{\Gr}^\lambda = \cup_{\lambda' \le \lambda} \Gr^{\lambda'}$.
+    \item The family $ \overline{\Gr}^{\lambda_1, \lambda_2} \rightarrow \A$, defined by $ \overline{\Gr}^{\lambda_1, \lambda_2} = \overline{Gr}^{\lambda_1} * \overline{Gr}^{\lambda_2}$.  By construction the fibre of $ \overline{\Gr}^{\lambda_1, \lambda_2} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$.  By Zhu's theorem (\jcom{need ref}), the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
+\end{itemize}
+\begin{itemize}
+    %The family $\overline{\Gr}_\AA^{\lambda_1,\lambda_2}\to\AA$ whose generic fibre is $\overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$ and whose zero fibre is $\Gr^{\lambda}$ \acom{1. and closures? 2. can probably be described as an orbit of some group scheme} 
     \item The slice $\Gr_\mu = G_1[t^{-1}]L_\mu$ to the orbit $\Gr^\lambda$
     \item The ``slice'' $\cW_\mu = G_1\xT[t^{-1}] t^\mu G(\CC[t])$ to the ``orbit'' $\Gr_\AA^{\lambda_1,\lambda_2}$ \acom{is not presented as a family}% $(\Grbd[2])^{\lambda_1,\lambda_2}$; replaced \cW_{\mu_1,\mu_2} = by Joel's not'n & def, seemingly independent of the decomposition of \mu; modified Joel's double bracket --- still confused over where W_\mu ought to live 
 \end{itemize}
