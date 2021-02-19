@@ -2,6 +2,7 @@
 % 
 % \usepackage[T1]{fontenc}
 \usepackage{amsmath,mathtools,amssymb,amsthm,shuffle,amsfonts}
+\DeclareMathAlphabet{\mathbcal}{OMS}{cmsy}{b}{n}
 \usepackage{mathrsfs,pifont}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{soul}
@@ -165,6 +166,7 @@
 \newcommand\PP{\mathbb P}
 \newcommand\OO{\mathbb O}
 \newcommand\YY{\mathbb Y}
+\newcommand\UU{\mathbb U}
 \newcommand\SlS{\mathbb S}
 \newcommand\GG{\mathbb G}
 \newcommand\Gm{\mathbb{G}_m}
@@ -212,7 +214,7 @@
 \newcommand\Gch{G^\vee}
 % \newcommand{\Grbd}{\mathrm{Gr}_{\mathrm{BD}}}
 % \newcommand{\Grbd}[1][n]{{\mathcal G\!r^{\text{BD}}_{#1}}} % the default n-point Beilinson--Drinfeld Grassmannian
-\newcommand{\Grbd}[1][\mathbb A]{{\mathcal{G}\!r_{#1}}} % the default n-point Beilinson--Drinfeld Grassmannian
+\newcommand{\Grbd}[1][0,\mathbb A]{{\mathcal{G}\!r_{#1}}} % the default n-point Beilinson--Drinfeld Grassmannian; currently no reason to have the parameter option there.. 
 \newcommand{\Grc}[1][n]{{\text{Gr}_{#1}}} % default n-fold convolution variety 
 \newcommand{\Gr}{\mathcal{G}\!r}
 % 
@@ -222,7 +224,8 @@
 \newcommand\pM{\pmb M}
 % 
 % other:
-\newcommand{\Grth}{{\Gr^{\sf th}}}
+% \newcommand{\Grth}{{\Gr^{\sf th}}}
+\newcommand{\Grth}{{\mathbcal{G}\!{{\pmb{r}}}}}
 \newcommand\e{\vec{\mathbf{e}}}
 \newcommand{\uvi}{\underline{\mathbf{i}}}
 \newcommand{\vi}{\mathbf{i}}
