@@ -218,7 +218,7 @@ $$
 
 \subsubsection{Maybe subsection? ``The convolution construction?''}
 The following construction will be very important in this paper.  Let $ X_1, X_2 \subset \Gr$ be two subschemes. Then using the isomorphism $ \Gr \cong \Gr_s $ for each $ s $, we obtain a subscheme $ X_1 \times X_2 \subset \Gr \times \Gr_s $.  
-Via \ul{this} \acom{rather, the above?} isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
+Via \ul{this} \acom{rather, the above? $L\mapsto (L(0),L(s))$} isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
 
 We define $ X_1 * X_2 $ to be the scheme-theoretic closure of $ X_1 \times X_2 \times \AA^\times $ inside of $ \Grbd $.  We have the projection $ \pi: \Grbd \rightarrow \AA $ and we form $ X_1 \cdot X_2 = X_1 * X_2 \cap \pi^{-1}(0) = \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  We regard $ X_1 \cdot X_2$ as a subscheme of $ \Gr $ using \ul{the isomorphism} $\Gr_{0,0} \cong \Gr $. \acom{Repeat question: what is this iso? Roger says maybe it's in MV?}
 
@@ -240,40 +240,63 @@ Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ (
     $ \overline{\Gr^\lambda} = \bigcup_{\lambda' \le \lambda} \Gr^{\lambda'} $.  
     \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??}
     This orbit lies inside the positive part $ \Gr^+$ of the affine Grassmannian.
-    \item The family $ \overline{\Gr}^{\lambda_1, \lambda_2} \rightarrow \AA$, defined by $ \overline{\Gr}^{\lambda_1, \lambda_2} = \overline{Gr}^{\lambda_1} * \overline{Gr}^{\lambda_2}$.  By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda_1, \lambda_2} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$.  By Zhu's theorem (\jcom{need ref} \acom{\cite[Proposition 3.1.14]{zhu2016introduction}}), the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
+    \item The family $ \overline{\Gr}^{\lambda_1, \lambda_2} \rightarrow \AA$, defined by $ \overline{\Gr}^{\lambda_1, \lambda_2} = \overline{\Gr}^{\lambda_1} * \overline{\Gr}^{\lambda_2}$. \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda_1}\times\overline\Gr^{\lambda_2}\times\AA^\times}$..}
     
-    Suppose that $ s \ne 0$.  In the fibre $\overline{\Gr}_{0,s}^{\lambda_1, \lambda_2}$ we have the open locus $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ coming from transporting $ \Gr^{\lambda_1} \times \Gr^{\lambda_2} $ via the isomorphism $ \Grbd_{0,s} \cong \Gr \times \Gr_s $.  This open locus is a $ G(\CC[t])$ orbit.  The lattice description of $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ is given in Lemma \ref{le:Grl1l2} below.
+    By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda_1, \lambda_2} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$.  By Zhu's theorem (\jcom{need ref} \acom{\cite[Proposition 3.1.14]{zhu2016introduction}}), the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
     
-    \item The locus $\cW_\mu = G_1[[t^{-1}]]L_\mu \subset \Grth $.  In modular terms, this corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the Harder-Narasimhan filtration at $ \infty$.  The lattice description of $ \cW_\mu \cap \Grth^+$ is given in Lemma \ref{le:Wmu} below.
+    Suppose that $ s \ne 0$.  In the fibre $\overline{\Gr}_{0,s}^{\lambda_1, \lambda_2}$ we have the open locus $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ coming from transporting $ \Gr^{\lambda_1} \times \Gr^{\lambda_2} $ via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $.  This open locus is a $ G(\CC[t])$-orbit
+    % .  The lattice description of $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ 
+    whose lattice description is given in \Cref{le:Grl1l2} below.
     
-    \item The semiinfinite orbit $ S^\mu = N(\cK)L_\mu \subset \Gr $.  
-    \item The family of semiinfinite orbits $ S^{\mu_1, \mu_2}_\AA := S^{\mu_1} * S^{\mu_2}$.  If $ s \ne 0 $, then the fibre $S^{\mu_1, \mu_2}_{0,s} $ is given by
+    \item The locus $\cW_\mu = G_1\xt[t^{-1}]L_\mu \subset \Grth $.  
+    \acom{want $t^\mu\CC[t]$ as opposed to $L_\mu$ here?}
+    In modular terms, this corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the \ul{Harder--Narasimhan filtration of $V$ at $ \infty$}.  The lattice description of $ \cW_\mu \cap \Grth^+$ is given in Lemma \ref{le:Wmu} below. \acom{que est-ce?}
+    
+    \item The semi-infinite orbit $ S^\mu = N(\cK)L_\mu \subset \Gr $.  
+    \item The family of semi-infinite orbits $ S^{\mu_1, \mu_2}_\AA := S^{\mu_1} * S^{\mu_2}$.  If $ s \ne 0 $, then the fibre $S^{\mu_1, \mu_2}_{0,s} $ is given by
     $$
-    S^{\mu_1, \mu_2}_{0,s} = N(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu_1} (t-s)^{\mu_2}
+    S^{\mu_1, \mu_2}_{0,s} = N(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu_1} (t-s)^{\mu_2} \,. % \G(\CC[t])
     $$
+    \acom{should be $G(\cO)$-coset or $G(\CC[t])$-coset?}
     On the other hand, if $ s = 0$, then the fibre $S^{\mu_1, \mu_2}_{0,0} $ equals $ S^\mu$.
     
     \jcom{These two statements here require some proof, so perhaps they should be split off as a lemma in ``Rising action''.}
+    % TODO!
     
 \end{itemize}
 
 \subsection{Matrices}
-We now consider some subvarieties of the space of $ N$x$N$ matrices.  
+We now consider some subvarieties of the space of $ N\times N$ matrices. 
 
 %Recall that $ \lambda$ is a partition of $N$ and $ \lambda_1, \lambda_2 $ are partitions of $ N_1, N_2$ with $N_1 + N_2 = N$. 
 
 
 \begin{itemize}
-    \item For $ s \in \CC$, we have a Jordan form matrix $ J_{s,\lambda}$ with eigenvalue $ s$ and Jordan blocks of sizes $ \lambda_1, \dots, \lambda_m$.
-    \item The adjoint orbit $ \OO^\lambda \subset M_N(\CC)$ of matrices conjugate to $ J_{0,\lambda}$.  Its closure is $ \overline{\OO}^\lambda = \cup_{\lambda' \le \lambda} \OO^{\lambda'}$
-    \item For $ s \in \CC, s \ne 0$, the adjoint orbit $ \OO^{\lambda_1, \lambda_2}_{0,s}$ of matrices conjugate to $ J_{0,\lambda_1} \oplus J_{s,\lambda_2}$.  Its closure is $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,s} = \cup_{\lambda_1' \le \lambda_1, \lambda'_2 \le \lambda_2} \OO^{\lambda_1', \lambda'_2}_{0,s}$
-    
-    \item A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space is said to have Jordan type $(0,\lambda_1), (s,\lambda_2)$ if its matrix representatives lies in $ \OO^{\lambda_1, \lambda_2}_{0,s}$
+    \item For $ s \in \CC$, we have a Jordan form matrix $ J_{s,\lambda}$ with eigenvalue $ s$ and Jordan blocks of sizes $ \lambda_1, \dots, \lambda_m$. \acom{$s\in\AA$?}
+    % 
+    \item The adjoint orbit $ \OO^\lambda \subset M_N(\CC)$ of matrices conjugate to $ J_{0,\lambda}$.  Its closure is $ \overline{\OO}^\lambda = \bigcup_{\lambda' \le \lambda} \OO^{\lambda'}$.
+    % 
+    \item For $ s \in \CC, s \ne 0$, the adjoint orbit $ \OO^{\lambda_1, \lambda_2}_{0,s}$ of matrices conjugate to $ J_{0,\lambda_1} \oplus J_{s,\lambda_2}$.  Its closure is $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,s} = \bigcup_{\lambda_1' \le \lambda_1, \lambda'_2 \le \lambda_2} \OO^{\lambda_1', \lambda'_2}_{0,s}$. \acom{$s\in\AA$?}
+    % 
+    \item A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$ is said to have Jordan type $((0,\lambda_1), (s,\lambda_2))$ if its matrix representatives lie in $ \OO^{\lambda_1, \lambda_2}_{0,s}$.
+    % 
     \item The family of adjoint orbits $ \overline{\OO}^{\lambda_1, \lambda_2} \rightarrow \AA$ whose fibre over $ s \ne 0 $ is $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,s}$ and whose fibre over 0 is $\overline{\OO}^\lambda$.  \jcom{We should justify why the 0 fibre is correct scheme-theoretically.}
     
-    \item The Mirkovic-Vybnornov slice $\TT_\mu$.  \jcom{Anne, can you add this definition?}
+    \item Fix the ``\mu-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. The Mirkovic--Vybnornov slice $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
+    \[
+        \begin{aligned}
+            &\text{for all } 1 \le a,s\le m\,,
+            \text{for all } 1\le b\le \mu_a\,, 1\le t\le \mu_s\,, \\
+            &\text{if } 1\le t < \mu_s \text{ or } t = \mu_s < b \le \mu_a \\
+            &\text{then } (e^t_s)' (A-J_\mu) e^b_a = 0 \,.
+        \end{aligned}    
+    \]
+    In words, $A$ is a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
+    Mirkovic and Vybornov describe $\TT_\mu$ as the slice in which $f$ acts as close to regular nilpotent as possible.
+    % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
+    \acom{this ok?} % \jcom{Anne, can you add this definition?}
     
-    To each $ A \in \TT_\mu$, we will associate an $m$\times$m$ matrix of polynomials $ g(A) = \left( g(A)_{ij} \right) \in M_m(\CC[t]) $ as follows.
+    \item To each $ A \in \TT_\mu$, we will associate an $m$\times$m$ matrix of polynomials $ g(A) = \left( g(A)_{ij} \right) \in M_m(\CC[t]) $ as follows.
        \begin{equation}
             g(A)_{ij} = \begin{cases} t^{\mu_i} - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} \text{ if $ i = j$} \\
              - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} \text{ if $ i \ne j$ }
