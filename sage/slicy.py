@@ -160,3 +160,23 @@ def bdphi(blocktypes):
                 counter+=1
     g += diagonal_matrix(t**blocktypes[0][i]*(t-s)**blocktypes[1][i] for i in range(m))
     return g.transpose()
+
+def lusztig_datum(tableau):
+    wt = tableau.weight()
+    n = len(wt)
+    gt = tableau.to_Gelfand_Tsetlin_pattern() 
+    ld = []
+    for c in range(n):
+        for r in range(c+1,n):
+            ld.append(gt[n-r-1][c] - gt[n-r][c])
+    return ld
+
+# Unfinished because building up a gt pattern from a LD and shape is lame; doing it to make a double tableau is probably overkill - there is probably an easier way to "double"
+# but having the function (for more general applications) is good, so TODO! 
+# def double(tableau):
+#     wt = tableau.weight()
+#     sh = tableau.shape()
+#     dwt = [2*wt[i] for i in range(len(wt))]
+#     dsh = [2*sh[i] for i in range(len(sh))]
+#     ld = lusztig_datum(tableau)
+    # dgt = GelfandTsetlinPattern(dshs)???

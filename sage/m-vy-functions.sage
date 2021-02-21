@@ -32,6 +32,17 @@ def create_ring(n,t1,t2,mu):
 	R.inject_variables()
 	return R, vari
 
+def create_m2_ring(n,t1,t2,mu):
+	vari = []
+	for k in range(1, len(mu)):
+		for i in range(k+1, len(mu)+1):
+			for j in range(0, mu[i-1]):
+				vari.append('x_({},{},{})'.format(k,i,j+1))
+	vari.append('s')
+	R = PolynomialRing(QQ, vari)
+	R.inject_variables()
+	return R, vari
+
 def insert_r(M,k,row):
 	return matrix(M.rows()[:k]+[row]+M.rows()[k:])
 
