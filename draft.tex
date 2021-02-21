@@ -91,7 +91,7 @@ We will also study the affine space of $m\times m$ matrices which we denote $ M_
 
 \subsection{Lattices}
 \label{ss:lat}
-We will use the lattice model, so it is useful to recall the following definition.  Let $ R \subset K$ be two rings (usually, but not always, $K$ will be a field).  Let $ m \in \mathbb N$ and consider $ K^m $ as a $K$-module.   By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $M$ is an $R$-submodule $ L \subset K^m$ such that $ L $ is a free rank $ m $ $R$-module and $ L \otimes_R K = K^m $.  Equivalently, $ L = \Sp_R(v_1, \dots, v_m)$ where $v_1, \dots, v_m$ are free generators of $K^m$. 
+We will use the lattice model, so it is useful to recall the following definition.  Let $ R \subset K$ be two rings (usually, but not always, $K$ will be a field \acom{When is $K$ not a field?}).  Let $ m \in \mathbb N$ \acom{we have already fixed $m$?} and consider $ K^m $ as a $K$-module.   By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $M$ \acom{what is $M$? should be $K^m$?} is an $R$-submodule $ L \subset K^m$ such that $ L $ is a free rank $ m $ $R$-module and $ L \otimes_R K = K^m $.  Equivalently, $ L = \Sp_R(v_1, \dots, v_m)$ where $v_1, \dots, v_m$ are free generators of $K^m$. 
 
 % The trivial lattice is 
 $L_0(R) = R^m \subset K^m $ is called the standard lattice. The group $\GL_m(K) $ acts transitively on the set of $R$-lattices in $K^m$, thus giving a bijection between 
@@ -100,9 +100,11 @@ this set and $\GL_m(K)/\GL_m(R)$.
 
 We will be particularly interested in $\CC[t]$-lattices in $ \CC(t)^m$.  Given such a lattice $ L $ and a point $ a \in \CC$, the specialization of $ L $ at $ a $ is defined as
 $$
-L(a) := L \otimes_{\CC[t]} \CC\xt[t-a] \subset \CC\xT[t-a]\,.
+L(a) := L \otimes_{\CC[t]} \CC\xt[t-a] \subset \CC\xT[t-a]^m\,.
 $$
-We say that $ L $ is trivial at $ a $ if $ L(a) = \CC\xt[t-a]^m$. For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$. 
+We say that $ L $ is trivial at $ a $ if $ L(a) = \CC\xt[t-a]^m$. \acom{Do we want to employ the notation $\cO_a$ and $\cK_a$ here?}
+For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$. 
+
 
 % \acom{Should we also mention our interest in $\cO$-lattices in $\cK^m$?}
 % \jcom{I don't think that it is necessary.  I just put the part about $ \CC(t)$ to set up the notation for this specialization.}
@@ -365,7 +367,7 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
     \jcom{When you wrote ``In words,'', it is not quite correct because of the diagonal blocks have those 1s.  Also it would be good to have an example.  And what is $f$ in the last sentence? }
     \acom{fixed? As for $f$ I think it is an $\sl_2$ triplet. Hopeful you could explain what MVy meant bc I never quite understood!} 
     
-    \item To each $ A \in \TT_\mu$, we will associate an $m$\times$m$ matrix of polynomials $ g(A) = \left( g(A)_{ij} \right) \in M_m(\CC[t]) $ as follows.
+    \item To each $ A \in \TT_\mu$, we will associate an $m\times m$ matrix of polynomials $ g(A) = \left( g(A)_{ij} \right) \in M_m(\CC[t]) $ as follows.
        \begin{equation}
             g(A)_{ij} = \begin{cases} t^{\mu_i} - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} \text{ if $ i = j$} \\
              - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} \text{ if $ i \ne j$ }
