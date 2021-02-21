@@ -45,7 +45,7 @@ Write $P$ for the coweight lattice of $T$, so we have $P\cong \ZZ^m$.  The domin
 which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  So an effective dominant coweight $ \lambda $ is a partition of $ \lambda_1 + \cdots + \lambda_m$, which we call the size of $ \lambda$. Write $P_+$ for dominant and $P_{++}$ for effective dominant. 
 
 
-Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_s = \CC\xt[t-s]$ for the completion of the local ring $\CC[t]$ at $s\in\spec\CC$ and $\cK_s$ for its fraction field $\CC\xT[t-s]$, as well as $\Kinf = \CC\xT[t^{-1}]$ \acom{for the fraction field of the completion of $\CC[t]$ at $\infty$?} 
+Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_s = \CC\xt[t-s]$ for the completion of the local ring $\CC[t]$ at $s\in\spec\CC$ and $\cK_s$ for its fraction field $\CC\xT[t-s]$, as well as $\Kinf = \CC\xT[t^{-1}]$ \acom{for the fraction field of the completion of $\CC[t]$ at $\infty$?} \jcom{That wouldn't quite make sense.  Maybe this would be the place to define these disks $D_\infty$ and then we could say the function field of the disk.} 
 % TODO: given by or described by?
 % 
 Note that (by changing the local coordinate on $\spec\CC[t]$ to $t-s$) we can identify $\cO_s \cong \cO$ and $\cK_s\cong\cK$. 
@@ -187,6 +187,7 @@ Set $\AA = \AA^1$ and $\PP = \PP^1$.
     \{ L \subset  \CC[t,t^{-1},(t-s)^{-1}]^m : \text{ $L$ is a $\CC[t]$-lattice} \}
     \end{gather*}%}
     \acom{$s\in\CC$ should be $s\in\AA$?}
+    \jcom{Sorry I was very consistent about $ \CC$ vs $\AA$.  Which do you prefer?}
     % 
     \item The positive parts $ \Gr^+$ and ${\Grth}^+$ of the affine Grassmannian and of the thick affine Grassmannian resp.\ are defined as 
     % and of the thick affine Grassmannian ${\Grth}^+$ is defined as
@@ -261,6 +262,7 @@ We regard $ X_1 \circ X_2$ as a subscheme of $ \Gr $ using {the isomorphism} $\G
 
 \acom{Roger and I have been using $\ast$ to denote fusion. Do we need a notation for the scheme-theoretic closure of $X_1\times X_2\times\AA^\times$? If not then I like $X_1\ast X_2 = \overline{X_1 \times X_2 \times \AA^\times}\cap \pi^{-1}(0)$.}
 \jcom{I think that we will need notations for both things, but I'm happy to use $ \ast$ for the central fibre and use something else for the whole family.} \acom{Ok, I have changed it to notation from Roger's thesis/AK. Only now I am confused as to what is being called fusion---why do we not take the top dimensional subscheme?}
+\jcom{I guess that there are two things that one could mean by fusion of MV cycles.  This scheme $ X_1 \circ X_2$ or the expression which appear in Theorem 7.11 of mvbasis, which is a linear combination of the top-dimensional components of this scheme with multiplicites.  In the general context of this section ($X_1, X_2$ are not necessarily MV cycles), then I guess it is best to talk about the subscheme.  Maybe we can call the expression appearing Theorem 7.11 the ``numerical fusion'' of MV cycles.  By the way, somewhere in this paper we should explain Theorem 7.11 and say that this gives us motivation to study fusion of MV cycles.}
 
 \subsection{Some subvarieties of affine Grassmannians}
 Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ ($i=1,2$) and their sums $ \lambda = \lambda_1 + \lambda_2, \mu = \mu_1 + \mu_2$ of size $ N = N_1 + N_2$.
@@ -278,9 +280,11 @@ Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ (
     \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??} \jcom{I'm not sure which is better.  I was ``testing'' it out.}
     This orbit lies inside the positive part $ \Gr^+$ of the affine Grassmannian.
     % 
-    \item The family $ \overline{\Gr}^{\lambda_1, \lambda_2} \rightarrow \AA$ defined by $ \overline{\Gr}^{\lambda_1, \lambda_2} = \overline{\Gr}^{\lambda_1} \ast_\AA \overline{\Gr}^{\lambda_2}$. 
+    \item The family $ \overline{\Gr}_{0,\AA}^{\lambda_1, \lambda_2} \rightarrow \AA$ defined by $ \overline{\Gr}^{\lambda_1, \lambda_2}_{0, \AA} = \overline{\Gr}^{\lambda_1} \ast \overline{\Gr}^{\lambda_2}$. 
     % \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda_1}\times\overline\Gr^{\lambda_2}\times\AA^\times}$..}
-    \acom{should we also subsript this family with $0,\AA$?}
+    %\acom{should we also subsript this family with $0,\AA$?}
+    
+    
     
     By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda_1, \lambda_2} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda_1} \times \overline{\Gr}^{\lambda_2}$.  By Zhu's theorem (\jcom{need ref} \acom{pretty sure it's \cite[Proposition 3.1.14]{zhu2016introduction}}), the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
     
@@ -295,9 +299,10 @@ Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ (
     \item The semi-infinite orbit $ S^\mu = N(\cK)L_\mu \subset \Gr $.  
     \item The family of semi-infinite orbits $ S^{\mu_1, \mu_2}_{0,\AA} := S^{\mu_1} \ast_\AA S^{\mu_2}$.  If $ s \ne 0 $, then the fibre $S^{\mu_1, \mu_2}_{0,s} $ is given by
     $$
-    S^{\mu_1, \mu_2}_{0,s} = N(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu_1} (t-s)^{\mu_2} \,. % \G(\CC[t])
+    S^{\mu_1, \mu_2}_{0,s} = N(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu_1} (t-s)^{\mu_2} \subset G(\CC[t,t^{-1}, (t-s)^{-1}]) / G(\CC[t]) \,. % \G(\CC[t])
     $$
-    \acom{should be $G(\cO)$-coset or $G(\CC[t])$-coset?}
+%    \acom{should be $G(\cO)$-coset or $G(\CC[t])$-coset?}
+\jcom{Maybe we should introduce the $ L_{\mu_1, \mu_2} $ notation, but I'm not sure it is necessary.}
     On the other hand, if $ s = 0$, then the fibre $S^{\mu_1, \mu_2}_{0,0} $ equals $ S^\mu$.
     
     \jcom{These two statements here require some proof, so perhaps they should be split off as a lemma in ``Rising action''.}
@@ -326,6 +331,7 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
     so the set of $A$ which are conjugate to
     $J_{0,\lambda_1} \oplus J_{s,\lambda_2}$
     by a matrix whose determinant is divisible by $s$ is also closed?}
+    \jcom{I didn't follow your argument. One approach would be to write down the generators for the ideal of $overline{\OO}^{\lambda_1, \lambda_2}_{0,s} $ and then set $ s =0$.  For example, take $ \lambda_1 = (1) = \lambda_2 $ (I know it is a small example!), then the ideal is generated by $ tr(A) = s$, $det(A) = 0$, so when we take $ s =0$, we get just $ tr(A) = 0, det(A) = 0$.  I am hoping that we can find a reference for this result somewhere.}
     
     \item Fix the ``\mu-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. The Mirkovic--Vybnornov slice $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
     \[
@@ -340,6 +346,7 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
     Mirkovic and Vybornov describe $\TT_\mu$ as the slice in which $f$ acts as close to regular nilpotent as possible.
     % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
     \acom{this ok?} % \jcom{Anne, can you add this definition?}
+    \jcom{When you wrote ``In words,'', it is not quite correct because of the diagonal blocks have those 1s.  Also it would be good to have an example.  And what is $f$ in the last sentence? }
     
     \item To each $ A \in \TT_\mu$, we will associate an $m$\times$m$ matrix of polynomials $ g(A) = \left( g(A)_{ij} \right) \in M_m(\CC[t]) $ as follows.
        \begin{equation}
@@ -361,120 +368,9 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
     \jcom{Instead of $\TT^+$ maybe a different letter would be best? I'm moved all $\lambda, \mu$ to upper indices for consistency (except for $ \cW_\mu, \TT_\mu$) and also to let us put $ s $ or $ \AA$ in the lower index.  I haven't been very consistent about $ \AA $ vs $ \CC$.  Which do you prefer?}
 
     \acom{Maybe $\UU$ for a different letter? And, I guess we do not need $\AA$ but it is a nice letter to have around. It also serves to distinguish the $\CC$ over which $R,K$ are defined from the $\AA$ over which $\Grbd$ is defined?}
+    \jcom{Sure $\UU$ is good.}
 \end{itemize}
 
-\subsection{Old stuff}
-\jcom{I'm going to delete everything below here in this section, if that is ok with you.}
-\acom{Yup!}
-% New (?) definitions among these are as follows.
-% 
-%The [family of] slices [with $s$-fibre?]
-%\begin{equation}
-%    \cW_{\mu_1,\mu_2} = G_1 [t^{-1},(t-s)^{-1}]L_{\mu_1,\mu_2}
-%\end{equation}
-
-Recall (citation?) that there is an embedding of the usual (``thin'') affine Grassmannian $\Gr $ as we have defined it into the ``thick'' affine Grassmannian. 
-% 
-
-\acom{In \cite{kamnitzer2014yangians} the thick Gr is said to be necessary for the noncommutative algebras considered. What is our reason for preferring it to the thin Gr? Can we replace thick by thin? Joel said that rather it is needed/used because unlike the thin $\Gr$ which is an ind-scheme, the thick $\Gr^{\sf th}$ is a scheme, so taking Spec of global functions (on $\cW_\mu$?) will recover $\cW_\mu$?}
-\[
-\Gr \cong G(\CC[t,t^{-1}])/G(\CC[t])\hookrightarrow \Gr^{\sf th} := G(\CC\xT[t^{-1}])/G(\CC[t]) \quad g\cO \mapsto gG(\CC[t])  \,.
-\]
-Let 
-% $L_\mu = t^\mu G(\cO)$ and 
-$L_{\mu_1, \mu_2} = t^{\mu_1} (t-s)^{\mu_2} G(\CC[t])$. 
-% \acom{or $ t^{\mu_1} (t-s)^{\mu_2} G[t]$ in thick?} % \in G((t^{-1}))/G[t]
-% 
-% \begin{equation}
-%     \cW_\mu = G_1[[t^{-1}]]L_\mu \subset G((t^{-1}))/G[t]
-% \end{equation}
-% a subscheme of the thick affine Grassmannian
-% 
-Note that $ L_{\mu_1, \mu_2} = (t-s)^{\mu_2} t^{-\mu_2} L_{\mu} \in \cW_\mu$ 
-% \acom{thick or thin}
-and that  $L_{\mu_1,\mu_2}\in\Grbd$ \acom{should say $\Grbd[s]$ as it's really a lattice in a given fibre being characterized?} is a $\CC[t]$-lattice in $\CC(t)^m$ that specializes to a $\CC\xt$-lattice in $\CC\xT^m$ away from $t = 0$ and away from $t = s$, i.e.\
-% \acom{thick only} 
-\begin{equation}
-    \label{eq:defWBD}
-    % \begin{split}
-        %L_{\mu_1,\mu_2}\otimes \CC[(t-s)^{-1}] =
-        L_{\mu_1,\mu_2}\otimes \CC\xt = L_{\mu_2} \otimes \CC\xt \qquad
-        L_{\mu_1,\mu_2}\otimes \CC\xt[t-s] = L_{\mu_1} \otimes \CC\xt[t-s]
-    % \end{split}
-\end{equation}
-where 
-% $L_{\mu_i}$ denotes the point $t^{\mu_i}G(\cO)\in\Gr$ and 
-the tensor product is taken over $\CC[t]$. 
-% 
-
-The family of semi-infinite orbits 
-\begin{equation}
-    S_{\mu_1,\mu_2} = N_-(\CC\xT[t^{-1}]) L_{\mu_1,\mu_2}\,. 
-\end{equation}
-\acom{1. Introduce $N_\pm$. 2. In \cite{kamnitzer2014yangians} the global version of $S^\mu_-$ is the subvariety $S^\mu_{-,\AA}\subset\Grbd$ whose generic fibre is $\bigcup_{\mu_1 + \mu_2 = \mu} S^{\mu_1}_-\times S^{\mu_2}_-$ and whose zero fibre is $S^\mu_-$ which don't look to be the same thing.}
-
-The family \acom{orbit? orbits? family of orbits?} of $\CC[t]$-lattices in $\CC(t)^m$ whose elements specialize again to $\CC\xt$-lattices in $\CC\xT^m$ away from $t = 0$ and away from $t = s$ (i.e.\ which are trivial at $a \ne 0$ or $s$, to use the terminology introduced in the \cref{ss:lat}) is described more explicitly as follows
-\begin{equation}
-    \label{eq:defGrBDlambda}
-    \begin{split}
-        % (\Grbd[2])^{\lambda_1,\lambda_2} = 
-        \Gr_{\AA}^{\lambda_1,\lambda_2} = 
-        \{L \in\Grbd : 
-        %L\otimes\CC[t^{-1}] 
-        L \otimes_{\CC[t]} \CC\xt[t-s] 
-        &\in \Gr^{\lambda_2} \text{ and } \\
-        % L\otimes\CC[(s-t)^{-1}] 
-        L\otimes_{\CC[t]} \CC\xt &\in \Gr^{\lambda_1} \text{ and } \\ 
-        L \otimes_{\CC[t]} \CC\xt[t-a] &= L_0 \text{ for all $ a \ne 0, s$} \}\,.
-    \end{split}
-\end{equation}
-
-% \jcom{It is important to add the condition that the lattices are trivial at $ a $.} \acom{$a\ne 0,s$}
-% 
-% \acom{These defining conditions are again just telling us that in the fibre over the fixed point $(0,s)\in C^{(2)}$ this set is pairs of lattices; note that we invert the indeterminates $t$ and $(t-s)$ \textit{after} specializing $(0,s)$. Could we give a more explicit characterization like $t^{N_1}(t-s)^{N_2} L_0 \subseteq L\subseteq t^{-N_1}(t-s)^{-N_2}$?}
-
-The [family ``$\cN\otimes\CC[s]$? $\cN\times\CC$?'' of] semi-nilpotent cone[s fibred over $C = \AA^1$ with $s$-fibre] 
-\begin{equation}
-    \cN_s = \{A \in \mat(N) : \text{eigenvalues of } A \text{ are } 0 \text{ or }s\}\,.
-\end{equation}
-
-\begin{comment}
-    The [family of] slice[s $\TT_{\mu_1,\mu_2}$ fibred over $C=\AA^1$ with $s$-fibre]
-\begin{equation}
-    \begin{split}
-        \TT_{\mu_1,\mu_2}^s = \{ B + C_s: B &\text{ is a }\mu\times\mu \text{ block matrix of zeros} \\
-        &\text{except possibly in the last }\min(\mu_i,\mu_j) \\ 
-        &\text{columns of the last row of each }\mu_i\times\mu_j \text{ block} \\
-        &\text{and } C_s \text{ is the block diagonal matrix of}\\
-        &\text{companion matrices of } t^{\mu_{1,k}}(t-s)^{\mu_{2,k}}\}\,.
-    \end{split}
-\end{equation}
-
-The uppertriangular subfamily $\TT_{\mu_1,\mu_2}^{+}$ with $s$-fibre
-\begin{equation}
-    \TT_{\mu_1,\mu_2}^{+,s} = \{B + C_s \in \TT_{\mu_1,\mu_2} : B \in\n\}
-\end{equation}
-where $\n\subset\mat(N)$ is the unipotent subalgebra of uppertriangular matrices.
-\end{comment}
-
-\acom{
-    % or---as Joel pointed out, may be ok with:
-The slice $\TT_\mu$ as defined in \cite{mirkovic2007quiver}, no change, \text{and} the family of slices $$\TT_{\mu_1,\mu_2}^{+,s} = \TT_\mu \cap \n + C_{\mu_1,\mu_2}^s$$ where $C_{\mu_1,\mu_2}^s$ is the block diagonal matrix of companion matrices of 
-% 
-\begin{equation}
-    % C_s \text{ is the block diagonal matrix of companion matrices of } 
-    t^{\mu_{1,k}}(t-s)^{\mu_{2,k}} \quad (1\le k\le m).
-\end{equation}
-% not sure about notation
-Watch out for mixing up of $m$ and $n$.
-}
-
-The [family of] orbit[s $\OO_{\lambda_1,\lambda_2}$ fibred over $C = \AA$ with $s$-fibre]  
-\begin{equation}
-    \OO_{\lambda_1,\lambda_2}^s = \{A \in \cN_s : A \text{ is conjugate to } J_{\lambda_1}\oplus (sI_{N_2} + J_{\lambda_2})\}
-\end{equation}
-where $J_{\lambda_i}$ is the Jordan normal form of block type $\lambda_i$ and $I_{N_2}$ is the identity matrix in $\mat(N_2)$.
-% 
 \section{Exposition}
 
 Anderson and Kogan conjectured in \cite{anderson2006algebra} \acom{or earlier?} that those MV polynomials which are cluster monomials for a Fomin--Zelevinsky cluster algebra structure on $\CC[N]$ are naturally expressible as determinants\dots
@@ -544,6 +440,7 @@ In a similar way, we will write $ \overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap
     $$ \overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap T^{\mu_1, \mu_2, +}_\AA \cong \overline{Gr}^{\lambda_1, \lambda_2}_\AA \cap S^{\mu_1, \mu_2}_\AA$$
 \end{theorem}
 
+\jcom{I was thinking about the proof of this result.  It is enough to prove that for $ A \in \OO^{\lambda_1, \lambda_2}_s \cap \TT_\mu $, $g(A) \in S^{\mu_1, \mu_2}_s $ if and only if $ A \in T^+$.  It is easy to show that if $ A \in T^+$, then $ g(A) \in S^{\mu_1, \mu_2}_s $.  But the converse is not so obvious.  (I think Anne's paper/thesis might be incomplete on this point.)  I thought of two approaches: first to write down the lattice interpretation of $S^{\mu_1, \mu_2}$ (similar to what is in my thesis in the Anderson-Kogan comparison section) or think about both $S^{\mu_1, \mu_2}$ and $ T^+ $ as attracting sets for a $\CC^\times$ action.  Which do you prefer?}
 
 \section{Falling Action} % Resolution
 
