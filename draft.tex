@@ -294,6 +294,7 @@ Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ (
     Suppose that $ s \ne 0$.  In the fibre $\overline{\Gr}_{0,s}^{\lambda_1, \lambda_2}$ we have the open locus $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ coming from transporting $ \Gr^{\lambda_1} \times \Gr^{\lambda_2} $ via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $.  This open locus is a $ G(\CC[t])$-orbit
     % .  The lattice description of $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ 
     whose lattice description is given in \Cref{le:Grl1l2} below.
+    \acom{Why $G(\CC[t])$}
     
     \item The locus $\cW_\mu = G_1\xt[t^{-1}]L_\mu \subset \Grth $.  
     \acom{want $t^\mu\CC[t]$ as opposed to $L_\mu$ here?}
@@ -306,7 +307,7 @@ Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ (
     $$
 %    \acom{should be $G(\cO)$-coset or $G(\CC[t])$-coset?}
 \jcom{Maybe we should introduce the $ L_{\mu_1, \mu_2} $ notation, but I'm not sure it is necessary.}
-    On the other hand, if $ s = 0$, then the fibre $S^{\mu_1, \mu_2}_{0,0} $ equals $ S^\mu$.
+    On the other hand, if $ s = 0$, then the fibre $S^{\mu_1, \mu_2}_{0,0} $ equals $ S^{\mu_1 + \mu_2}$. \acom{changed $\mu$ to $\mu_1 + \mu_2$ since we wrote it out for $\overline{\Gr}_{0,\AA}^{\lambda_1, \lambda_2} $}
     
     \jcom{These two statements here require some proof, so perhaps they should be split off as a lemma in ``Rising action''.}
     % TODO!
@@ -416,7 +417,7 @@ Representation theory?
     Let $ L \in \Grth^+ $.  Let $ s \in \AA, s \ne 0 $.  The following are equivalent:
     \begin{enumerate}
         \item $ L $ is in the image of the map $ \Gr^{\lambda_1, \lambda_2}_s \rightarrow \Grth^+$
-        \item $ L \in G(\CC[t]) t^{\lambda_1} (t-s)^{\lambda_2}$
+        \item $ L \in G(\CC[t]) t^{\lambda_1} (t-s)^{\lambda_2}$ \acom{why no $G(\CC[t])$-coset?}
         \item The linear operator $ t $ on $ L_0/L$ has Jordan type $(0,\lambda_1), (s,\lambda_2)$.
     \end{enumerate}
 \end{lemma}
