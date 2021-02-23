@@ -11,6 +11,7 @@ def mvy(blocktype):
     # N = sum(blocktype[i] for i in range(numblocks))
     indices = [(a,b,k) for a in range(numblocks-1) for b in range(a+1,numblocks) for k in range(blocktype[b])]
     stars = list(var('A_%d' % (i)) for i in range(len(indices)))
+    # stars = list(var('A_%s' % (str(indices[i]))) for i in range(len(indices)))
     D = [jordan_block(0,blocktype[i]) for i in range(numblocks)]
     # T = block_diagonal_matrix(D)
     P = PolynomialRing(QQ,stars)

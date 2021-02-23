@@ -350,7 +350,7 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
     In words, $A$ is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
     Mirkovic and Vybornov describe $\TT_\mu$ as the slice in which $f$ acts as close to regular nilpotent as possible.
     % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
-    In pictures, the elements $A$ look like 
+    In pictures, aka by example, the elements $A$ for $\mu=(3,2,2,1)$ look like 
     \[
         \left[\begin{BMAT}(e){ccc;cc;c;c}{ccc;cc;c;c}
              & 1 & & & & & \\
@@ -363,6 +363,21 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
         \end{BMAT}
         \right]
     \]
+    Smaller: 
+    \[
+        \left[\begin{BMAT}(e){ccc;cc}{ccc;cc} 
+            0 & 1 & 0 & 0 & 0\\
+            0 & 0 & 1 & 0 & 0\\
+            A_{11}^1 & A_{11}^2 & A_{11}^3 & A_{12}^1 & A_{12}^2\\
+            0 & 0 & 0 & 0 & 1\\
+            A_{21}^1 & A_{21}^2 & 0 & A_{22}^1 & A_{22}^2
+            \end{BMAT}\right]    
+            \mapsto 
+            \left[\begin{array}{rr}
+                t^{3} - A_{11}^3 t^2 - A_{11}^2 t - A_{11}^1 & -A_{21}^2 - A_{21}^1  \\
+                -A_{12}^2 t - A_{12}^1 & t^{2} - A_{22}^2 t - A_{22}^1
+            \end{array}\right]
+    \]
     % 
     \acom{this ok?} % \jcom{Anne, can you add this definition?}
     \jcom{When you wrote ``In words,'', it is not quite correct because of the diagonal blocks have those 1s.  Also it would be good to have an example.  And what is $f$ in the last sentence? }
@@ -370,11 +385,24 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
     
     \item To each $ A \in \TT_\mu$, we will associate an $m\times m$ matrix of polynomials $ g(A) = \left( g(A)_{ij} \right) \in M_m(\CC[t]) $ as follows.
        \begin{equation}
-            g(A)_{ij} = \begin{cases} t^{\mu_i} - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} \text{ if $ i = j$} \\
-             - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} \text{ if $ i \ne j$ }
+            g(A)_{ij} = 
+            \begin{cases} t^{\mu_i} - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} & i = j \\
+                % \text{ if $ i = j$} \\
+             - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} & i \ne j
+            %  \text{ if $ i \ne j$ }
         \end{cases}
     \end{equation}
     where $A^k_{ji}$ is the $k$th entry from the left of the last row of the $\mu_j\times\mu_i$ block of $A$. 
+    For example, the $A$ above will define 
+    % \acom{the transpose of! TODO. Had script?}
+    % \[
+    % \begin{bmatrix}
+    %     t^3 - A_{11}^1 - A_{11}^2 t - A_{11}^3 t^2 & - A_{12}^1 - A_{12}^2 t & -A_{13}^1 & -A_{14}^1 \\
+    %     & t^2 \\
+    %     & & t \\
+    %     & & & t 
+    % \end{bmatrix}    
+    % \]
 \jcom{I moved the definition here since it will be useful for defining the upper triangular stuff.}
     
     \item The ``upper-triangular'' MVy slice $\TT^{\mu_1, \mu_2,+}_\AA \rightarrow \AA $, defined by
@@ -384,6 +412,32 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
     So a matrix in $\TT^{\mu_1, \mu_2,+}_\AA  $ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu_{1,i}} (t-s)^{\mu_{2,i}}$.
     
     Note that the fibre $  \TT^{\mu_1, \mu_2,+}_{0,0}$ is the same as the intersection of $ T^\mu $ with the strictly upper triangular matrices.
+
+    $\UU_{0,0}$ entries look like 
+    \[
+        \left[\begin{BMAT}(e){ccc;cc}{ccc;cc} 
+            0 & 1 & 0 & 0 & 0\\
+            0 & 0 & 1 & 0 & 0\\
+            0 & 0 & 0 & A_{12}^1 & A_{12}^2\\
+            0 & 0 & 0 & 0 & 1\\
+            0 & 0 & 0 & 0 & 0
+            \end{BMAT}\right]    \mapsto 
+            \left[\begin{array}{rr}
+                t^{3} & 0 \\
+                -A_{12}^2 t - A_{12}^1 & t^{2}
+            \end{array}\right]
+    \]
+    $\UU$ entries look like 
+    \[
+        \left[\begin{BMAT}(e){ccc;cc;c}{ccc;cc;c} 
+            0 & 1 & 0 & 0 & 0 & 0\\
+            0 & 0 & 1 & 0 & 0 & 0\\
+            0 & -s^2 & 2s & A_{12}^1 & A_{12}^2 & A_{13}^1 \\
+            0 & 0 & 0 & 0 & 1 & 0\\
+            0 & 0 & 0 & 0 & s & A_{23}^1\\
+            0 & 0 & 0 & 0 & 0 & s
+            \end{BMAT}\right]    \in \UU_{0,s}^{(1,1,0),(2,1,1)}
+    \]
     
     \jcom{Instead of $\TT^+$ maybe a different letter would be best? I'm moved all $\lambda, \mu$ to upper indices for consistency (except for $ \cW_\mu, \TT_\mu$) and also to let us put $ s $ or $ \AA$ in the lower index.  I haven't been very consistent about $ \AA $ vs $ \CC$.  Which do you prefer?}
 
