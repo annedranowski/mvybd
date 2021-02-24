@@ -1,5 +1,15 @@
 # todo
 
+## 2021-02-24 08:53:27
+
+Dimensions of fake MV cycles: 
+
+Choose $w$ so that $w \mu$ is dominant.  Then the action of $w$ gives an isomorphism
+$$Gr^\lambda \cap Gr_\mu \cap S^\mu \cong Gr^\lambda \cap Gr_{w\mu} \cap S^{w\mu}$$
+This gives us the dimension of $Gr^\lambda \cap Gr_\mu \cap S^\mu$.
+This also proves my "conjecture 1" from our conversation.  The number
+of components of 
+$$Gr^\lambda \cap Gr_\mu \cap S^\mu = dim V(\lambda)_{w\mu} = dim V(\lambda)_\mu$$
 ## 2021-02-15 15:09:23
 
 Further questions for Joel:
