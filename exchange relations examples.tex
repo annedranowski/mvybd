@@ -264,7 +264,7 @@ X = \left[\begin{BMAT}(e){ccc;ccc;cc;c}{ccc;ccc;cc;c}
 \end{enumerate}
 The minimal polynomial $X^2(X-s)^2$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
 $$\frac{\CC[a_1,a_2,a_3,b_1,b_2,b_3,b_4,c_1,c_2,c_3]}{\langle a_1,a_2,a_3,b_1,b_3,b_2c_3,b_4c_3 \rangle} \cong \frac{\CC[b_2,b_4,c_1,c_2,c_3]}{\langle b_2,b_4 \rangle \cap \langle c_3 \rangle}$$
-However, for the ideal $\langle c_3 \rangle$, we require $\dim \ker (X|_{s = 0}) = 3$ so we also need to include the equation ${\color{red} b_2c_2 - b_4c_1 = 0}$. Then the coordinate ring is really
+However, for the ideal $\langle c_3 \rangle$, we require $\dim \ker (X|_{s = 0}) = 3$ so we also need to include the equation ${\color{red} b_2c_2 - b_4c_1 = 0}$ \rcom{this equation shows up in the script, so it's one of the minors}. Then the coordinate ring is really
 $$\frac{\CC[b_2,b_4,c_1,c_2,c_3]}{\langle b_2,b_4 \rangle \cap \langle c_3,b_2c_2-b_4c_1 \rangle}$$
 The corresponding tableau for each ideal is:
 \[\begin{array}{ccc}\vspace{1mm}
@@ -601,6 +601,7 @@ X = \left[\begin{BMAT}(e){cccc;ccc;cc;cc}{cccc;ccc;cc;cc}
 The minimal polynomial $X^3(X-s)^2$ gives the additional equations ${\color{red} a_3c_3 = 0}$ and ${\color{red} c_1 + a_3c_4 + b_2c_6 = 0}$ so our coordinate ring after taking $s \rightarrow 0$ is
 $$\frac{\CC[a_1,a_2,b_1,b_2,b_3,b_4,c_1,c_2,c_3,c_4,c_5,c_6]}{\langle a_1,a_2,b_1,b_3,c_5,a_3b_4,a_3c_3,b_2c_3-b_4c_1,c_1+a_3c_4+b_2c_6 \rangle}$$
 $$ \cong \frac{\CC[a_3,b_2,b_4,c_1,c_2,c_3,c_4,c_6]}{\langle a_3,b_2c_3-b_4c_1,c_1+b_2c_6 \rangle \cap \langle b_4,c_3,c_1+a_3c_4+b_2c_6 \rangle}$$
+\rcom{The script also has the equations $b_4c_6 + c_3$ and $b_2c_3c_6 + c_1c_3$ in the ideal. With this, the decomposition is the same except the first ideal also has $b_4c_6 + c_3$. The tableaux we get remain the same.}
 The corresponding tableau for each ideal is:
 \[\begin{array}{ccc}\vspace{1mm}
     \langle a_3,b_2c_3-b_4c_1,c_1+b_2c_6 \rangle &\leadsto \young(11113,2224,34) &\leadsto S_3 \oplus P_2 \\ 
@@ -645,6 +646,7 @@ X = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
 The minimal polynomial $X^3(X-s)^2$ does not give any new equations so our coordinate ring after taking $s \rightarrow 0$ is
 $$\frac{\CC[a_1,a_2,a_3,b_1,b_2,b_3,b_4,c_1,c_2,c_3,c_4,c_5,c_6]}{\langle a_1,a_2,b_1,b_3,c_5,c_3+b_4c_6,b_2c_3-b_4c_1 \rangle}$$
 $$ \cong \frac{\CC[a_3,b_2,b_4,c_1,c_2,c_3,c_4,c_6]}{\langle b_4,c_3 \rangle \cap \langle b_2c_6-c_1,c_3+b_4c_6 \rangle}$$
+\rcom{The script also has the equation $b_2c_3c_6 + c_1c_3$ in the ideal. In the decomposition, the second ideal also has $b_2c_3 - c_1b_4$. The corresponding tableaux are unchanged.}
 The corresponding tableau for each ideal is:
 \[\begin{array}{ccc}\vspace{1mm}
     \langle b_4,c_3 \rangle &\leadsto \young(11124,223,34) &\leadsto P_1 \oplus P_3 \\
