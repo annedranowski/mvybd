@@ -104,7 +104,7 @@ Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the d
 \end{bmatrix} 
 \]
 which we will view in $\GL_m(K) $ for any ring $ K $ containing $\CC[t]$ in which $t-s$ is invertible (for example $ K = \Ks, \CC(t)$). % A: Think R sb K; changed it 
-
+\acom{Add: Warning: We will also view $(t-s)^\mu$ in $\GL_m(K)/\GL_m(R)$. We hope it will be expedient and evident.}
 
 \subsection{Lattices}
 \label{ss:lat}
@@ -152,48 +152,48 @@ For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\
 \subsection{Affine Grassmannians} %  actors
 % To map thick Gr to C is to map a lattice to the points where it isn't trivialzable; doesn't make sense to ask for poles 
 % G(C(t))/G(C[t]) for example lives over the Ran space, finitely many eigenvalues; positive part of thick contains this guy as image 
-Set $\AA = \AA^1$. 
+Set $\AA = \AA^1$ \acom{and let $V_0$ denote the trivial vector bundle}. 
 
 \jcom{I don't think that we need all this about ``formal disc centered at $s$'' below since we now define this in the rings and discs section.}
-\acom{Ok.}
+\acom{Ok. We could omit the repetitive $X=$ bits from the display styled alternate descriptions. That way they will fit within the margins.}
 
 \begin{itemize}
     \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by 
     $$
-    \Gr = \{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_0 $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_0 \setminus \{0\} $} \} 
+    \Gr = \left\{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_0 $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_0 \setminus \{0\} $} \right\} \,. 
     $$
-    where $V_0$ is the trivial rank $m$ vector bundle.
+    % where $V_0$ is the trivial rank $m$ vector bundle.
     % and $ D_0$ is the formal disc centered at $ 0 \in \PP$.
     
     We also have a lattice description 
     $$ 
-    \Gr = \{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \}\,.
+    \Gr = \left\{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \right\}\,.
     $$
     % 
     \item For any $ s \in \CC $, 
     % \acom{should it be $\AA$ instead of $\CC$} 
     the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by
     $$
-    \Gr_s = \{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_s \setminus \{s\} $} \}\,.
+    \Gr_s = \left\{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_s \setminus \{s\} $} \right\}\,.
     $$
     % where $D_s$ is the formal disc centered at $s$ viewed as an element of $\PP$.
-    \acom{What about fixing the notation $V_0$ somewhere?}
+    % \acom{What about fixing the notation $V_0$ somewhere?}
 
     We also have a lattice description 
     $$ 
-    \Gr_s = \{ L \subset \cK_s^m : \text{ $L$ is a $\cO_s$-lattice} \} \,. 
+    \Gr_s = \left\{ L \subset \cK_s^m : \text{ $L$ is a $\cO_s$-lattice} \right\} \,. 
     $$   
     \item The thick affine Grassmannian $\Grth = G(\Kinf)/G(\CC[t])$. % \CC\xT[t^{-1}]
     It is described in modular terms by
     $$
-        \Grth = \{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ \PP $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_\infty $ } \} % (a disc centered at $ \infty$)
+        \Grth = \left\{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ \PP $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_\infty $ } \right\}\,. % (a disc centered at $ \infty$)
     $$
-    where $D_\infty$ denotes a disc centered at $ \infty$. 
+    % where $D_\infty$ denotes a disc centered at $ \infty$. 
     % \acom{What is the difference between ``a disc'' and ``the formal disc''} \jcom{No difference.}
     
     We also have a lattice description 
     $$ 
-    \Grth = \{ L \subset  \Kinf^m : \text{ $L$ is a $\CC[t]$-lattice} \}\,.
+    \Grth = \left\{ L \subset  \Kinf^m : \text{ $L$ is a $\CC[t]$-lattice} \right\}\,.
     $$ % \CC\xT[t^{-1}]^m 
     
     % \jcom{Maybe write $\Kinf$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.} \acom{Since $\sf th$ is also the first two letters of ``thin''?} \jcom{That's a good point!  Maybe we could use some kind of bold  Gr (``thick'' letters) or maybe that would be too confusing.} \acom{Ok, it's tentative.}
@@ -209,7 +209,7 @@ Set $\AA = \AA^1$.
         \right\} 
     % \end{aligned}
     $$%}
-
+    % 
     The fibre of $\Grbd \to \AA$ over $ s \in \AA $, for $ s \ne 0$, will be denoted $ \Gr_{0,s} $ and is given by \rcom{why do we have the $s\ne 0$ restriction here}
     % 
     $$ 
@@ -235,16 +235,16 @@ Set $\AA = \AA^1$.
     % \acom{$s\in\CC$ should be $s\in\AA$?}
     % \jcom{Sorry I was very consistent about $ \CC$ vs $\AA$.  Which do you prefer?}
     % 
-    \item The positive parts $ \Gr^+$ and ${\Grth}^+$ of the affine Grassmannian and of the thick affine Grassmannian resp.\ are defined as 
+    \item The positive parts, $ \Gr^+$ and ${\Grth}^+$, of the affine Grassmannian and the thick affine Grassmannian, respectively, are defined as 
     % and of the thick affine Grassmannian ${\Grth}^+$ is defined as
     $$
-    \Gr^+ = (M_m(\cO) \cap G(\cK)) / G(\cO) \quad {\Grth}^+ = (M_m(\CC[t]) \cap G(\Kinf) / G(\CC[t]) % \CC\xT[t^{-1}] missed a spot  
+    \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO) \text{ and } {\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t])\,. % \CC\xT[t^{-1}] missed a spot  
     $$
     % \acom{What is $M_m$?} \jcom{The space of matrices.  I added it to the beginning of section 2.}
-
+    % 
     In modular terms, $\Gr^+$ (resp. ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow V_0 $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp. over $ \PP$).  
     
-    In lattice terms, $ \Gr^+$ (resp. ${\Grth}^+$) contains those lattices $L$ which are contained in the (relevant?) standard lattice. 
+    In lattice terms, $ \Gr^+$ (resp. ${\Grth}^+$) contains those lattices $L$ which are contained in the \acom{add (relevant)?} standard lattice. 
     % \acom{previously called ``trivial''} \jcom{I changed it so that $ R^m $ is called the standard lattice.  But I would like to leave the terminology ``trivial at $ a$'' is that ok, or should we write ``standard at $a$''.} 
     % \acom{Oh, I don't know.. is trivialized at $a$? is standardized at $a$? Maybe standard at $a$ is better.. Man I never thought about this interchangeable lingo.} 
     % lattice $ L_0(\cO)$ (resp. $L_0(\CC[t])$). % , i.e. $ L \subseteq L_0$.
@@ -256,9 +256,9 @@ These different versions of the affine Grassmannian are related as follows.
     \item First there is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \cK \cong \Ks$.
     \item Second, we have a map from the two point BD affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $
     % $$ \Grbd \rightarrow \Grth $$ 
-    which is given in modular terms by restricting the trivialization to $ D_\infty$.  It is given in group-theoretic terms on the fibre over $ s $ by
+    which is given in modular terms by restricting the trivialization to $ D_\infty$.  It is given in group-theoretic terms on the fibre over $ s $ by \acom{...inclusion?}
     $$
-    G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\Kinf)/G(\CC[t])
+    G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\Kinf)/G(\CC[t])\,. 
     $$
     % \acom{Permission to update notation and replace $\CC\xT[t^{-1}]$ by $\Kinf$ as per your suggestion Joel?}
     % \jcom{Permission granted!}
@@ -314,10 +314,11 @@ We regard $ X_1 \circ X_2$ as a subscheme of $ \Gr $ using {the isomorphism} $\G
 \acom{Sure! It is quoted at the end, in \Cref{s:denouement} as an application. Addendum: for the numerical fusion I suggest simply $[Z_1][Z_2]$. This is what I will use in my talk. }
 
 \subsection{Some subvarieties of affine Grassmannians}
-Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ ($i=1,2$) and their sums $ \lambda = \lambda_1 + \lambda_2, \mu = \mu_1 + \mu_2$ of size $ N = N_1 + N_2$. \acom{At some point at least mention that we expect this to go through for permutations of $\mu_i\in P_{++}$ i.e.\ skew partitions? or non-dominant, but also non-negative weights, so long as $\mu_1 + \mu_2$ is in $P_{++}$}
+Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ ($i=1,2$) and their sums $ \lambda = \lambda_1 + \lambda_2, \mu = \mu_1 + \mu_2$ of size $ N = N_1 + N_2$. 
+% Coweights define elements in the various affine Grassmannians which we consider. Warning: We will write only coset representatives for elements of the various Grassmannians; we hope that it is evident which right cosets they represent. 
+% the right cosets which they represent are clear from the context.
 
-\acom{We will write only coset representatives for (orbits of) elements of the various Grassmannians; right cosets will be clear from context.}
-
+\acom{At some point at least mention that we expect this to go through for permutations of $\mu_i\in P_{++}$ i.e.\ skew partitions? or non-dominant, but also non-negative weights, so long as $\mu_1 + \mu_2$ is in $P_{++}$}
 % 
 \begin{itemize}
     % \item Weights $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) 
@@ -329,7 +330,7 @@ Now fix effective dominant weights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ (
     $$ 
     \item The orbit $\Gr^\lambda = G(\cO) L_\lambda$ and its closure 
     $ \overline\Gr^\lambda = \bigcup_{\lambda' \le \lambda} \Gr^{\lambda'} $.  
-    \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??} \jcom{I'm not sure which is better.  I was ``testing'' it out.}
+    % \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??} \jcom{I'm not sure which is better.  I was ``testing'' it out.}
     This orbit lies inside the positive part $ \Gr^+$ of the affine Grassmannian.
     % 
     \item The family $ \overline{\Gr}_{0,\AA}^{\lambda_1, \lambda_2} \rightarrow \AA$ defined by $ \overline{\Gr}^{\lambda_1, \lambda_2}_{0, \AA} = \overline{\Gr}^{\lambda_1} \ast_\AA \overline{\Gr}^{\lambda_2}$. 
@@ -402,6 +403,7 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
 % L_4 & a_{41} & a_{42} & a_{43} & a_{44} & L_4 \\
 % & C_1 & \Cdots & & C_4 &
 % \end{pNiceArray}$
+\begin{comment}
 \[
         A = \begin{bNiceArray}{ccc|ccc}[columns-width = auto,first-row,last-col,code-for-first-row = \color{blue}\scriptstyle\rotate,code-for-last-col = \color{blue}\scriptstyle,nullify-dots,xdots/line-style=loosely dotted]
         1 & \Cdots & \lambda_1 & \lambda_1 + 1 & \Cdots & \lambda_1 + \lambda_2 \\
@@ -414,6 +416,7 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
          & & & 0 & 0 & s & \lambda_1 + \lambda_2 
         \end{bNiceArray} 
 \]
+\end{comment}
 % Denote by $R_i$ the $i$th row of $J$ 
 Let $g = E_{\lambda_2}\cdots E_1$ be the product of elementary matrices $E_i$ which correspond to the elementary row operations 
 $$R_{\lambda_1 + i - 1} \leftarrow R_{\lambda_1 + i-1} + \frac 1s R_{\lambda_1 + i}$$ 
