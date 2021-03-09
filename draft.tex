@@ -41,14 +41,47 @@ Moreover, it is not clear why one should care about the fusion product on bases.
 
 \subsection{Rings and discs}
 
-Set $\cO = \CC\xt$ and $\cK = \CC\xT$. We will also need the notation $\cO_s = \CC\xt[t-s]$ for the completion of the local ring $\CC[t]$ at $s\in\spec\CC$ and $\cK_s$ for its fraction field $\CC\xT[t-s]$, as well as $\Kinf = \CC\xT[t^{-1}]$. 
+Set $\cO = \cO_0 = \CC\xt$ and $\cK = \cK_0 = \CC\xT$.
+% TODO: I rearranged this sentence, because starting it with 'for any other' presupposes we have introduced s 
+%  For any other 
+We will also consider $\cO_s = \CC\xt[t-s]$ and its fraction field $\cK_s=\CC\xT[t-s]$, for any 
+$ s \in \CC\setminus\{0\} $, as well as $ \Oinf = \CC\xt[t^{-1}] $ and $\Kinf = \CC\xT[t^{-1}]$. For any $ s \in \PP = \PP^1$, 
+% TODO: Identifying $s\in\CC$ and the line $s\in\PP$ containing it right?
+$ \cO_s$ is the completion of the local ring $ \mathcal O_{\PP, s} $ and thus the formal spectrum of $ \cO_s$ is the formal neighbourhood $ D_s$ of $ s $ (also called the formal disc centered at $ s$).  Similarly the formal spectrum of the field $\cK_s$ is the deleted formal neighbourhood (or punctured disc), denoted $ D_s \setminus \{s\} $.
 
-% \acom{for the fraction field of the completion of $\CC[t]$ at $\infty$?} 
-\jcom{That wouldn't quite make sense.  Maybe this would be the place to define these discs $D_\infty$ and then we could say the function field of the disc.} 
-% TODO: given by or described by?
+Note that for $ s \in \CC $, we have an obvious isomorphisms  $\cO_s \cong \cO$ and $\cK_s\cong\cK$ taking $ t-s $ to $ t$. 
+
+\subsection{Groups}
+
+We will also study the affine space of $m\times m$ matrices which we denote $ M_m$.
+
+Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
+% are there other possibilities?? :S 
+Write $P$ for the coweight lattice of $T$, so we have $P\cong \ZZ^m$.  
+\acom{This identification assumes we are taking $\CC$ points of $G$ right? i.e.\ it's really $P(T(\CC)) = \Hom(\CC^\times,T(\CC))$ that's $\cong \ZZ^m$ and for instance $P(T(\CC[x]/(x^2))$ will give sth else?} 
+Under this isomorphism the dominant coweights of $ G $ 
+% is
+are identified with the set of $ \lambda = (\lambda_1, \dots, \lambda_m) $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
+We also need the notion of effective dominant coweight, 
+% \acom{can we conflate or should we be precise and say coweight?} \jcom{Corrected, let's stick to coweights.}
+which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  So an effective dominant coweight $ \lambda $ is a partition of $|\lambda| = \lambda_1 + \cdots + \lambda_m$, which we call the size of $ \lambda$. We write $P_+$ for the set of dominant coweights, and $P_{++}$ for the set of effective dominant coweights. 
+
+% nicematrix test
+% $\begin{bNiceArray}{ccc|c}[margin]
+%     \Block{3-3}<\Large>{A} & & & 0 \\
+%     & \hspace*{1cm} & & \Vdots \\
+%     & & & 0 \\
+%     \hline
+%     0 & \Cdots& 0 & 0
+%     \end{bNiceArray}$
 % 
+% $\begin{pNiceMatrix}
+%     \frac12 & -\frac12 \\
+%     \frac13 & \frac14 \\
+%     \end{pNiceMatrix}$
 
-Note that (by changing the local coordinate on $\spec\CC[t]$ to $t-s$) we can identify $\cO_s \cong \cO$ and $\cK_s\cong\cK$. 
+% Set $\AA = \AA^1_x$ (the subscript denoting the chosen local coordinate) and fix $s\in \AA - \{0\}$. 
+
 
 Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the diagonal matrix 
 % with entries $ (t-s)^{\mu_1}, \dots, (t-s)^{\mu_m}$
@@ -72,39 +105,6 @@ Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the d
 \]
 which we will view in $\GL_m(K) $ for any ring $ K $ containing $\CC[t]$ in which $t-s$ is invertible (for example $ K = \Ks, \CC(t)$). % A: Think R sb K; changed it 
 
-\acom{Set $\PP = \PP^1$. We will study formal spectra of $R$ and $K$ as formal discs in $\PP$.}
-% \acom{TODO: talk about discs.}
-
-\subsection{Groups}
-
-We will also study the affine space of $m\times m$ matrices which we denote $ M_m$.
-
-Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
-% are there other possibilities?? :S 
-Write $P$ for the coweight lattice of $T$, so we have $P\cong \ZZ^m$.  
-\acom{This assumes $G$ is defined over $\CC$ right?} 
-Under this isomorphism the dominant coweights of $ G $ 
-% is
-are identified with the set of $ \lambda = (\lambda_1, \dots, \lambda_m) $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
-We also need the notion of effective dominant coweight, 
-% \acom{can we conflate or should we be precise and say coweight?} \jcom{Corrected, let's stick to coweights.}
-which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  So an effective dominant coweight $ \lambda $ is a partition of $|\lambda| = \lambda_1 + \cdots + \lambda_m$, which we call the size of $ \lambda$. Write $P_+$ for dominant and $P_{++}$ for effective dominant. 
-
-% nicematrix test
-% $\begin{bNiceArray}{ccc|c}[margin]
-%     \Block{3-3}<\Large>{A} & & & 0 \\
-%     & \hspace*{1cm} & & \Vdots \\
-%     & & & 0 \\
-%     \hline
-%     0 & \Cdots& 0 & 0
-%     \end{bNiceArray}$
-% 
-% $\begin{pNiceMatrix}
-%     \frac12 & -\frac12 \\
-%     \frac13 & \frac14 \\
-%     \end{pNiceMatrix}$
-
-% Set $\AA = \AA^1_x$ (the subscript denoting the chosen local coordinate) and fix $s\in \AA - \{0\}$. 
 
 \subsection{Lattices}
 \label{ss:lat}
@@ -117,11 +117,12 @@ is an $R$-submodule $ L \subset K^m$ such that $ L $ is a free rank $ m $ $R$-mo
 \jcom{Maybe need that both $K$ and $R$ are integral domains and have the same field of fractions?} 
 \acom{Roger has proved that what is written is ok.}
 \rcom{Here's my argument: If $L \subset K^m$ is a free rank $m$ $R$-module and $L \otimes K = K^m$, then it's clear we that $L$ is generated by $m$ generators $v_1,\dots,v_m$ over $R$. Since $L\otimes K = K^m$, these also generate $K^m$ over $K$. Then we have a surjective map $K^m \twoheadrightarrow K^m$ given by sending a basis of $K^m$ to the generators $v_1,\dots,v_m$. Since any surjective endomorphism of finite $K$-modules is injective, the $v_1,\dots,v_m$ form a basis. I think the only thing that is needed is that the rings are commutative.}
+\jcom{Great.}
 % is this true? 
 
 % The trivial lattice is 
 $ L_0(R) = R^m \subset K^m $ is called the standard lattice. 
-We will abuse notation and dentoe $L(R)$ simply $L_0$ in the hope that the ring $R$ will be understood from the context. 
+We will abuse notation and denote $L(R)$ simply $L_0$ in the hope that the ring $R$ will be understood from the context. 
 The group $\GL_m(K) $ acts transitively on the set of $R$-lattices in $K^m$, thus giving a bijection between 
 % the set of such lattices 
 this set and $\GL_m(K)/\GL_m(R)$. 
@@ -153,12 +154,16 @@ For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\
 % G(C(t))/G(C[t]) for example lives over the Ran space, finitely many eigenvalues; positive part of thick contains this guy as image 
 Set $\AA = \AA^1$. 
 
+\jcom{I don't think that we need all this about ``formal disc centered at $s$'' below since we now define this in the rings and discs section.}
+\acom{Ok.}
+
 \begin{itemize}
     \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by 
     $$
     \Gr = \{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_0 $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_0 \setminus \{0\} $} \} 
     $$
-    where $V_0$ is the trivial rank $m$ vector bundle, and $ D_0$ is the formal disc centered at $ 0 \in \PP$.
+    where $V_0$ is the trivial rank $m$ vector bundle.
+    % and $ D_0$ is the formal disc centered at $ 0 \in \PP$.
     
     We also have a lattice description 
     $$ 
@@ -169,9 +174,10 @@ Set $\AA = \AA^1$.
     % \acom{should it be $\AA$ instead of $\CC$} 
     the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by
     $$
-    \Gr_s = \{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_s \setminus \{s\} $} \} 
+    \Gr_s = \{ (P, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_s \setminus \{s\} $} \}\,.
     $$
-    where $D_s$ is the formal disc centered at $s$ viewed as an element of $\PP$.
+    % where $D_s$ is the formal disc centered at $s$ viewed as an element of $\PP$.
+    \acom{What about fixing the notation $V_0$ somewhere?}
 
     We also have a lattice description 
     $$ 
@@ -384,6 +390,46 @@ We now consider some subvarieties of the space of $ N\times N$ matrices.
     \jcom{I didn't follow your argument. One approach would be to write down the generators for the ideal of $\overline{\OO}^{\lambda_1, \lambda_2}_{0,s} $ and then set $ s =0$.  For example, take $ \lambda_1 = (1) = \lambda_2 $ (I know it is a small example!), then the ideal is generated by $ tr(A) = s$, $det(A) = 0$, so when we take $ s =0$, we get just $ tr(A) = 0, det(A) = 0$.  I am hoping that we can find a reference for this result somewhere.}
     \acom{I thought that the point would be to show that a dense subset of matrices which are conjugate to $J_{0,\lambda_1}\oplus J_{s,\lambda_2}$ limit to matrices which are conjugate to $J_\lambda$. In particular, that the conjugating matrix remains invertible in the $s\to0$ limit.}
     
+    \begin{remark}
+        Base case $m = 1$: by a slight abuse of notation let $\lambda_1, \lambda_2 \in \NN$. Claim: $J=J_{0,\lambda_1} \oplus J_{s,\lambda_2}$ is conjugate to 
+        
+% $\begin{pNiceArray}{CC|CC}[first-row,last-row=5,first-col,last-col,nullify-dots]
+% & C_1 & \Cdots & & C_4 & \\
+% L_1 & a_{11} & a_{12} & a_{13} & a_{14} & L_1 \\
+% \Vdots & a_{21} & a_{22} & a_{23} & a_{24} & \Vdots \\
+% \hline
+% & a_{31} & a_{32} & a_{33} & a_{34} & \\
+% L_4 & a_{41} & a_{42} & a_{43} & a_{44} & L_4 \\
+% & C_1 & \Cdots & & C_4 &
+% \end{pNiceArray}$
+\[
+        A = \begin{bNiceArray}{ccc|ccc}[columns-width = auto,first-row,last-col,code-for-first-row = \color{blue}\scriptstyle\rotate,code-for-last-col = \color{blue}\scriptstyle,nullify-dots,xdots/line-style=loosely dotted]
+        1 & \Cdots & \lambda_1 & \lambda_1 + 1 & \Cdots & \lambda_1 + \lambda_2 \\
+        0 & 1 & 0 & 0 & 0 & 0 & 1\\
+        0 & \Ddots & 1 & 0 & 0 & 0 & \Vdots \\
+        0 & 0 & 0 & 1 & 0 & 0 & \lambda_1 \\
+        \hline
+         & & & s & 1 & 0 & \lambda_1 + 1 \\
+         & & & 0 & \Ddots & 1 & \Vdots \\
+         & & & 0 & 0 & s & \lambda_1 + \lambda_2 
+        \end{bNiceArray} 
+\]
+% Denote by $R_i$ the $i$th row of $J$ 
+Let $g = E_{\lambda_2}\cdots E_1$ be the product of elementary matrices $E_i$ which correspond to the elementary row operations 
+$$R_{\lambda_1 + i - 1} \leftarrow R_{\lambda_1 + i-1} + \frac 1s R_{\lambda_1 + i}$$ 
+for $i = 1,\dots,\lambda_2$. Then $gJg^{-1} = A$. For the next part we introduce the notation $A_{\lambda_1+\lambda_2}$ for this matrix $A$. 
+
+Now let $\lambda_1,\lambda_2$ be arbitrary. Clearly $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to 
+$$\bigoplus_{i=1}^m (J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}})\,.$$ 
+Moreover each block $J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}}$ is conjugate to $A_{\lambda_{1,i}+\lambda_{2,i}}$. Altogether $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to $\bigoplus_{i = 1}^m A_{\lambda_{1,i}+\lambda_{2,i}}$ and this latter matrix specializes to the Jordan normal form $J_{0,\lambda_1 + \lambda_2}$ at $s=0$. 
+
+% By Tanisaki $A\in \OO^\lambda$ iff the coefficients of $z^m$ in $k\times k$ minors of $zI - A$ for any $m\le p_\lambda(k) - 1$ and for any $k = 1\dots |\lambda|$ vanish. Here $p_\lambda(k) = \lambda_{n-k+1} + \cdots + b_n$ and $k = 1,\dots,n$. So $p_\lambda(k) = \#$ boxes in the last $k$ rows of $\lambda$.
+
+% In particular this result describes the ideal $I_i$ of $N_i\times N_i$ matrices $A_i$ such that $A_i - \delta_{i,2}s$ is conjugate to $J_{\delta_{i,2} s, \lambda_i}$ for $i = 1,2$. Let $A_1,A_2$ be such a pair of matrices. Clearly $A_1 \oplus A_2$ is conjugate to $J_{0,\lambda_1} \oplus J_{s,\lambda_2}$. Let $g$ be such that $g(J_{0,\lambda_1} \oplus J_{s,\lambda_2})g^{-1} = \bigoplus_{i = 1}^m A_{\lambda_{1,i}+\lambda_{2,i}}$. 
+
+% If we apply the change of basis $g$ to the ideal $I=I_1 + I_2$ and set $s = 0$ (if possible) do we recover the ideal of $\OO^{\lambda_1 + \lambda_2}$? Let $A^g = g(A_1 \oplus A_2) g^{-1}$...
+    \end{remark}
+    
     \item Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. The Mirkovic--Vybnornov slice $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
     \[
         \begin{aligned}
@@ -536,9 +582,10 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     \begin{enumerate}
         \item $ L \in \cW_\mu$.
                 \item $ L = \Sp_\cO(v_1, \dots, v_m)$ for some $ v_i $ of the form $ v_i = t^{\mu_i} e_i + \sum_{j=1} p_{ij} e_j $ where $ p_{ij} \in \CC[t] $ has degree less than $ \min(\mu_i, \mu_j)$.
-        \item $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i \le m\}$ forms a basis for $ L_0/L$ and for all $ i $, 
-        $$ t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \min(\mu_i, \mu_j), 1 \le j \le m \}) + L $$.
+        \item  For all $ i $, 
+        $$ t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \min(\mu_i, \mu_j), 1 \le j \le m \}) + L. $$
     \end{enumerate}
+    Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i \le m\}$ forms a basis for $ L_0/L$
 \end{lemma}
 
 \jcom{I realized the meaning of the ``extra'' condition from the paper with Sabin and I added it into point 3.}
@@ -550,9 +597,12 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     
     Suppose that $ L = \Sp_\cO(v_1, \dots, v_m)$ as in (ii).  Then $[t^{\mu_i} e_i] \in \Sp_\CC(\beta_\mu) $
 in $ L_0/L$ and we see that 
-$$t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \mu_i \}) + L $$.
-From this, we can deduce that $ \beta_\mu$ forms a basis for $ L_0/L$.  Hence (ii) implies (iii).  
+$$t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \mu_i \}) + L $$
+ Hence (ii) implies (iii).  
     Finally, given (iii), then we can see $ v_i := t^{\mu_i} e_i - \sum_{j=1} p_{ij} e_j \in L $ for some $ p_{ij} \in \CC[t]$ of degree less than $ \min(\mu_i,\mu_j) $.  It is easy to see that $ L = \Sp_\cO(v_1, \dots, v_m) $ and so $ L \in \cW_\mu$.  
+    
+    Finally to show that $ \beta_\mu$ forms a basis for $ L_0/L$, it suffices to show that for each $ i$, $ t^\mu_i e_i  \in \Sp_\CC(\beta_\mu) + L$.  This follows immediately from (iii).
+    
     \end{proof}
 
 
@@ -590,7 +640,7 @@ In a similar way, we will write $ \overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap
 \end{theorem}
 
 \begin{proof}
-Since we already have the isomorphism from Theorem \ref{th:TmuWmu}, it suffices to show that for any $ A \in \TT_\mu$, $$ (A,s) \in \overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap T_\mu \text{ if and only if } (g(A), s) \in \Gr^{\lambda_1, \lambda_2}_\AA \cap \cW_\mu $$
+Since we already have the isomorphism from Theorem \ref{th:TmuWmu}, it suffices to show that for any $ A \in \TT_\mu$, $$ (A,s) \in \overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap \TT_\mu \text{ if and only if } (g(A), s) \in \Gr^{\lambda_1, \lambda_2}_\AA \cap \cW_\mu $$
 This follows immediately from Lemma \ref{le:Grl1l2}.
 \end{proof}
 
@@ -603,6 +653,27 @@ This follows immediately from Lemma \ref{le:Grl1l2}.
 % 
 \acom{Assuming Theorem 2 we think this follows by application of Roger's lemma. Also, I think my thesis is complete on this point.}
 % 
+\jcom{I thought about this and I agree with you now.  I will write this up soon.}
+
+\begin{proof}
+ Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu_1, \mu_2}_\AA $ if and only if $ (g(A),s) \in S^{\mu_1, \mu_2}_\AA $.
+ 
+ On the one hand, if $ (A,s) \UU^{\mu_1, \mu_2}_\AA $, then $ g(A)$ is upper triangular with diagonal $ t^{\mu_1} (t-s)^{\mu_2}$, and so $ g(A) \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
+ 
+ On the other hand, if $ (g(A), s) \in S^{\mu_1, \mu_2}_\AA$, then we can write 
+ $$
+ g t^\mu r= n t^{\mu_1} (t-s)^{\mu_2}
+$$
+for some $ r \in G(\CC[t]), n \in N[t, t^{-1}, (t-s)^{-1}] $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu_2} t^{-\mu_2}$ which lies in $ T_1 \CC[[t]]$.  Note that $ h^{-1}n h \in N((t^{-1}))$, so we can factor it as $ n = n_1 n_2 $, where $ n_1 \in N_1(\CC[[t^{-1}]]), n_2 \in N(\CC[t])$.  So then after doing a bit of algebra, we reach
+$$
+t^\mu r (t^{-\mu} n_2 t^\mu) t^{-\mu} = g^{-1} h n_1
+$$
+The right hand side $ g^{-1} g n_1 $ lies in$ G_1(\CC[[t^{-1}]]) $.  Now on the left hand side, we know that since $ \mu $ is dominant $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$.  Moreover since $ \mu $ is dominant, we know that $$t^\mu G(\CC[[t]]) t^{-\mu} \cap G_1(\CC[[t^{-1}]]) = N_1(\CC[[t^{-1}]])$$
+ Thus, we deduce that $ g^{-1} h n_1 \in N_1(\CC[[t^{-1}]])$ and hence $ g(A) \in N_1(\CC[[t^{-1}]]) t^{\mu_1} (t-s)^{\mu_2} $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \UU^{\mu_1, \mu_2}_\AA$ as desired.
+\end{proof}
+
+\jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
+
 \section{Falling Action} % Resolution
 
 \begin{theorem}
@@ -789,6 +860,50 @@ As an application we can compute fusion of stable MV cycles of type $\alpha_i$ f
         i(\tau, \pi^{-1}(0) \cdot \overline{\tau_1 \times \tau_2 \times U}) = 1 \,. 
     \end{equation}
 \end{conjecture}
+
+\appendix
+\section{Examples}
+\rcom{I have 3 examples in mind right now: fusion product producing 1 term (maybe $1 \leftarrow 2 * 1 \rightarrow 2$), fusion product producing more than 1 term $(S_1 * S_2)$, and fusion product with multiplicities $((S_1 * S_2)^2)$}
+
+We view MV cycles as semi-standard young tableaux. Suppose we have two tableaux $\tau_1$ and $\tau_2$ with respective weights $\lambda_i$ and $\mu_i$ and we wished to taked their fusion product. We consider a generic matrix $X \in \UU^{\lambda_1,\lambda_2}_{0,s}$. 
+
+The subtableaux of $\tau_1$ and $\tau_2$ where we take the first $j$ entries of each $\mu_i$ correspond to the submatrix $X_j$ of $X$ that consists of the first $j$ blocks. These subtableaux impose rank conditions, equivalently vanishing minors, on $X_j$ which allows us to deduce relations on the variables in $X$. The relations must also include the new variables in the latest block and cannot have $s$ as a factor.
+
+To find the MV cycles, equivalently tableaux, in the $0$-fibre of the fusion, we consider the ring generated by all the variables of $X$ and quotient out the ideal generated by the relations from the vanishing minors as well as the minimal polynomial of $X$. We then add $s$ into the ideal. Each piece in the primary decomposition of this ideal will correspond to a tableaux, and subsequently a MV cycle.
+
+\begin{example}
+Let $G = SL_3$ and consider the tableaux
+$$\tau_1 = \young(12,3) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2=\young(13,2).$$
+The weights are $\lambda_1 = \lambda_2 = (2,1,0)$ and $\mu_1 = \mu_2 = (1,1,1)$. Hence the matrix in consideration is 
+\[
+X = \left[\begin{BMAT}(e){cc;cc;cc}{cc;cc;cc}
+    0 & 1 & & & & \\
+     & s & a_1 & a_2 & b_1 & b_2 \\
+     & & 0 & 1 & & \\
+     & & & s & b_3 & b_4 \\
+     & & & & 0 & 1 \\
+     & & & & & s
+\end{BMAT}
+\right].
+\]
+
+For the first entry of each $\mu_i$, we have the following subtableaux to consider:
+$$\young(1) \hspace{.5cm} \text{ and } \hspace{.5cm} \young(1).$$
+Let $X_1$ be the top-left $2 \times 2$ submatrix of $X$. The subtableaux imposes the conditions $\dim \ker X_1 = 1$ and $\dim \ker (X_1-s) = 1$. We see that we do not obtain any relations from this.
+
+For the first two entries of each $\mu_i$, we have the following subtableaux:
+$$\young(12) \hspace{.5cm} \text{ and } \hspace{.5cm} \young(1,2).$$
+Let $X_2$ be the top-left $4 \times 4$ submatrix of $X$. The left subtableau imposes the conditions $\dim \ker X_2 = 1$ and $\dim \ker X_2^2 = 2$ while the right subtableau imposes the condition that $\dim \ker (X_2 -s) = 2$. These conditions force the relation $$a_1 + sa_2 = 0.$$
+
+The original tableaux for $X$ imposes the conditions that $\dim \ker X = 2$, $\dim \ker X^2 = 3$, $\dim \ker (X-s) = 2$, and $\dim \ker (X-s)^2 = 3$. These force the relation $$b_3 = 0.$$
+
+Hence we consider the quotient
+$$\frac{\CC[a_1,a_2,b_1,b_2,b_3,b_4,s]}{\langle a_1+sa_2,b_3,s \rangle} \cong
+\frac{\CC[a_1,a_2,b_1,b_2,b_3,b_4]}{\langle a_1,b_3 \rangle}.$$
+We see already that the $0$-fibre is irreducible. The tableau corresponding to the ideal $\langle a_1, b_3 \rangle$ is 
+$$\young(1123,23)$$
+which corresponds to the MV cycle that is the cross product of the MV cycles corresponding to $\tau_1$ and $\tau_2$.
+\end{example}
 
 \bibliographystyle{alpha}
 \bibliography{mvybd}
