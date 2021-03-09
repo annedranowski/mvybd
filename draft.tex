@@ -658,29 +658,37 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     \end{proof}
 
 \section{Climax}
-Given $ A \in \TT_\mu$, recall the definition of $ g(A)$ given in section ??.  As $ g(A) \in M_n(\CC[t]) \cap G_1(\CC\xt[t^{-1}])$, we will regard $ g(A)$ as giving an element of $ \Grth^+ \cap \cW_\mu$.
+Given $ A \in \TT_\mu$, recall the definition of $ g(A)$ given in \Cref{eq:mvyofa}.
+% section ??.  
+As $ g(A) \in M_n(\CC[t]) \cap G_1(\CC\xt[t^{-1}])$, we will regard $ g(A)$ as giving an element of $ \Grth^+ \cap \cW_\mu$.
 
-The following result in \cite[Theorem 3.2]{cautis2018categorical}.
+The following result is \cite[Theorem 3.2]{cautis2018categorical}.
 
 \begin{theorem} \label{th:TmuWmu}
 The map $ \TT_\mu \rightarrow \Grth^+ \cap \cW_\mu $ given by $ A \mapsto g(A) $ is an isomorphism with inverse given by
-$$ L \mapsto [t|_{L_0/L} ]_{\beta_\mu}$$
+$$ L \mapsto [t|_{L_0/L} ]_{\beta_\mu} \,. $$
+\acom{Up to transpose?}
 \end{theorem}
 
 
-For the next result, we will consider the ``intersection'' of $ \overline{\Gr}^{\lambda_1, \lambda_2}_\AA $ with $\cW_\mu$.  As $  \overline{\Gr}^{\lambda_1, \lambda_2}_\AA $ is not a subscheme of $ \Grth$ by this intersection, we really mean the preimage of $ \cW_\mu$ under the map $$ \overline{\Gr}^{\lambda_1, \lambda_2}_\AA  \hookrightarrow \Grbd \rightarrow \Grth$$
-This is not a very serious abuse of notation, since the map $ \Grbd \rightarrow \Grth $ is almost injective.
+For the next result, we will consider the ``intersection'' of $ \overline{\Gr}^{\lambda_1, \lambda_2}_{0,\AA} $ with $\cW_\mu$.  
+As $  \overline{\Gr}^{\lambda_1, \lambda_2}_\AA $ is not a subscheme of $ \Grth$, by this intersection, we really mean the preimage of $ \cW_\mu$ under the map 
+$$ 
+\overline{\Gr}^{\lambda_1, \lambda_2}_{0,\AA}  \hookrightarrow \Grbd \rightarrow \Grth\,.
+$$
+This is not a very serious abuse of notation, since the map $ \Grbd \rightarrow \Grth $ is almost injective. \acom{Jiuzu was asking about this.}
 
-In a similar way, we will write $ \overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap \TT_\mu$, using the non-injective map $ \overline{\OO}^{\lambda_1, \lambda_2}_\AA \rightarrow M_N(\CC)$ (for example the fibre of this map over $ 0 $ is $ \CC $).
+In a similar way, we will write $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,\AA} \cap \TT_\mu$ using the non-injective map $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,\AA} \rightarrow M_N(\CC)$ (for example the fibre of this map over $ 0 $ is $ \CC $). \acom{Grammar of `write using the map' is iffy. Also, is the fibre over 0 just a copy of the zero matrix in every $s$-fibre?}
 
 \begin{theorem} \label{th:OGrl}
     There is an isomorphism
-    $$\overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap \TT_\mu \cong \Gr^{\lambda_1, \lambda_2}_\AA \cap \cW_\mu $$
+    $$\overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap \TT_\mu \cong \overline\Gr^{\lambda_1, \lambda_2}_\AA \cap \cW_\mu $$
     given by $ (A,s) \mapsto (g(A), s)$.
 \end{theorem}
+\acom{Joel, you stopped writing $X_{0,\AA}$ in favour of $X_\AA$ --- should we do this everywhere?}
 
 \begin{proof}
-Since we already have the isomorphism from Theorem \ref{th:TmuWmu}, it suffices to show that for any $ A \in \TT_\mu$, $$ (A,s) \in \overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap \TT_\mu \text{ if and only if } (g(A), s) \in \Gr^{\lambda_1, \lambda_2}_\AA \cap \cW_\mu $$
+Since we already have the isomorphism from Theorem \ref{th:TmuWmu}, it suffices to show that for any $ A \in \TT_\mu$, $$ (A,s) \in \overline{\OO}^{\lambda_1, \lambda_2}_\AA \cap \TT_\mu \text{ if and only if } (g(A), s) \in \overline\Gr^{\lambda_1, \lambda_2}_\AA \cap \cW_\mu $$
 This follows immediately from Lemma \ref{le:Grl1l2}.
 \end{proof}
 
@@ -693,23 +701,31 @@ This follows immediately from Lemma \ref{le:Grl1l2}.
 % 
 \acom{Assuming Theorem 2 we think this follows by application of Roger's lemma. Also, I think my thesis is complete on this point.}
 % 
-\jcom{I thought about this and I agree with you now.  I will write this up soon.}
+\jcom{I thought about this and I agree with you now.  I will write this up soon.} 
+% 
+\acom{But I am also curious about the attracting set approach.}
 
 \begin{proof}
  Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu_1, \mu_2}_\AA $ if and only if $ (g(A),s) \in S^{\mu_1, \mu_2}_\AA $.
  
- On the one hand, if $ (A,s) \UU^{\mu_1, \mu_2}_\AA $, then $ g(A)$ is upper triangular with diagonal $ t^{\mu_1} (t-s)^{\mu_2}$, and so $ g(A) \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
+ On the one hand, if $ (A,s) \in \UU^{\mu_1, \mu_2}_\AA $, then $ g(A)$ is upper triangular with diagonal $ t^{\mu_1} (t-s)^{\mu_2}$, and so $ g(A) \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
  
  On the other hand, if $ (g(A), s) \in S^{\mu_1, \mu_2}_\AA$, then we can write 
  $$
  g t^\mu r= n t^{\mu_1} (t-s)^{\mu_2}
 $$
-for some $ r \in G(\CC[t]), n \in N[t, t^{-1}, (t-s)^{-1}] $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu_2} t^{-\mu_2}$ which lies in $ T_1 \CC[[t]]$.  Note that $ h^{-1}n h \in N((t^{-1}))$, so we can factor it as $ n = n_1 n_2 $, where $ n_1 \in N_1(\CC[[t^{-1}]]), n_2 \in N(\CC[t])$.  So then after doing a bit of algebra, we reach
+for some $ r \in G(\CC[t]), n \in N[t, t^{-1}, (t-s)^{-1}] $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu_2} t^{-\mu_2}$ which lies in $ T_1 \CC[[t]]$.
+\acom{sb $T_1\xt[t^{-1}]$ as above?}
+Note that $ h^{-1}n h \in N(\Kinf)$, 
+% ((t^{-1}))
+so we can factor it as $ n = n_1 n_2 $, where $ n_1 \in N_1(\CC\xt[t^{-1}]), n_2 \in N(\CC[t])$.  So then after doing a bit of algebra, we reach
 $$
-t^\mu r (t^{-\mu} n_2 t^\mu) t^{-\mu} = g^{-1} h n_1
+t^\mu r (t^{-\mu} n_2 t^\mu) t^{-\mu} = g^{-1} h n_1.
 $$
-The right hand side $ g^{-1} g n_1 $ lies in$ G_1(\CC[[t^{-1}]]) $.  Now on the left hand side, we know that since $ \mu $ is dominant $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$.  Moreover since $ \mu $ is dominant, we know that $$t^\mu G(\CC[[t]]) t^{-\mu} \cap G_1(\CC[[t^{-1}]]) = N_1(\CC[[t^{-1}]])$$
- Thus, we deduce that $ g^{-1} h n_1 \in N_1(\CC[[t^{-1}]])$ and hence $ g(A) \in N_1(\CC[[t^{-1}]]) t^{\mu_1} (t-s)^{\mu_2} $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \UU^{\mu_1, \mu_2}_\AA$ as desired.
+The right hand side $ g^{-1} g n_1 $ \acom{sb $g^{-1}hn_1$} lies in $ G_1(\CC\xt[t^{-1}]) $.  Now on the left hand side, we know that since $ \mu $ is dominant $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$.  
+Moreover since $ \mu $ is dominant, we know that 
+$$t^\mu G(\cO) t^{-\mu} \cap G_1(\CC\xt[t^{-1}]) = N_1(\CC\xt[t^{-1}]\,.$$
+Thus, we deduce that $ g^{-1} h n_1 \in N_1(\CC\xt[t^{-1}])$ and hence $ g(A) \in N_1(\CC\xt[t^{-1}]) t^{\mu_1} (t-s)^{\mu_2} $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu_1, \mu_2}_\AA$ as desired.
 \end{proof}
 
 \jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
