@@ -585,9 +585,9 @@ Representation theory?
 \begin{lemma} \label{le:Grl1l2}
     Let $ L \in \Grth^+ $.  Let $ s \in \AA, s \ne 0 $.  The following are equivalent:
     \begin{enumerate}
-        \item $ L $ is in the image of the map $ \Gr^{\lambda_1, \lambda_2}_{0,s} \rightarrow \Grth^+$
+        \item $ L $ is in the image of the map $ \Gr^{\lambda_1, \lambda_2}_{0,s} \rightarrow \Grth^+$.
         \item The linear operator $ t $ on $ L_0/L$ has Jordan type $(0,\lambda_1), (s,\lambda_2)$.
-        \item $ L \in G(\CC[t]) t^{\lambda_1} (t-s)^{\lambda_2}$ 
+        \item $ L \in G(\CC[t]) t^{\lambda_1} (t-s)^{\lambda_2}$.
         % \acom{why no $G(\CC[t])$-coset?}
     \end{enumerate}
 \end{lemma}
@@ -595,49 +595,66 @@ Representation theory?
 \begin{proof}
 First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda $ if and only if $ t |_{L_0/L} $ has Jordan type $ \lambda$.
 
-    Now assume that $ (L, s) \in \Gr^{\lambda_1, \lambda_2}_s$.  We know that $ L(0) \in \Gr^{\lambda_1}, L(s) \in \Gr^{\lambda_2} $.  This means that $t $ acting on $ \CC\xt^m / L(0)$ has Jordan type $ \lambda_1$ and $ t$ acting on $ \CC\xt[t-s]^m / L(s) $ has Jordan type $ \lambda_2$.  Now, the map $ L_0 / L \rightarrow \CC\xt^m / L(0)$ induces an isomorphism between the $0$-generalized eigenspace of $ t$ and $ \cO^m / L(0)$.   The same thing holds for the $s$-generalized eigenspace of $t $ and $ \cO_s^m/L(s)$. This shows that (i) implies (ii) and the logic can be reversed to see that (ii) implies (i).
+    Now assume that $ (L, s) \in \Gr^{\lambda_1, \lambda_2}_{0,s}$. We know that \acom{by definition?} $ L(0) \in \Gr^{\lambda_1}$ and $L(s) \in \Gr^{\lambda_2} $.  This means that $t $ acting on 
+    % $ \CC\xt^m / L(0)$ 
+    $\cO^m/L(0)$ has Jordan type $ \lambda_1$ and $ t$ acting on 
+    % $ \CC\xt[t-s]^m / L(s) $ 
+    $\cO_s^m/L(s)$ has Jordan type $ \lambda_2$.  Now, the map 
+    % $ L_0 / L \rightarrow \CC\xt^m / L(0)$ 
+    $L_0/L\to \cO^m/L(0)$ induces an isomorphism between the $0$-generalized eigenspace of $ t$ and $ \cO^m / L(0)$.   The same thing holds for the $s$-generalized eigenspace of $t $ and $ \cO_s^m/L(s)$. This shows that (i) implies (ii) and the logic can be reversed to see that (ii) implies (i).
     
-    On the other hand, if $ L = g t^{\lambda_1} (t-s)^{\lambda_2} $ for some $ g \in G(\CC[t])$, then $ L(0) = g t^{\lambda_1} $ since $ (t-s)^{\lambda_2} \in G(\CC\xt)$.  In this way, we see that (iii) implies (ii) and the logic can be reversed to get the equivalence.
+    On the other hand, if $ L = g t^{\lambda_1} (t-s)^{\lambda_2} $ for some $ g \in G(\CC[t])$, then $ L(0) = g t^{\lambda_1} $ since 
+    % $ (t-s)^{\lambda_2} \in G(\CC\xt)$. 
+    $ (t-s)^{\lambda_2} \in G(\cO)$. In this way, we see that (iii) implies (ii) and the logic can be reversed to get the equivalence.
 \end{proof}
 
 \begin{lemma} \label{le:Wmu}
     Let $ L \in \Grth^+$.  The following are equivalent:
     \begin{enumerate}
         \item $ L \in \cW_\mu$.
-                \item $ L = \Sp_\cO(v_1, \dots, v_m)$ for some $ v_i $ of the form $ v_i = t^{\mu_i} e_i + \sum_{j=1} p_{ij} e_j $ where $ p_{ij} \in \CC[t] $ has degree less than $ \min(\mu_i, \mu_j)$.
+                \item $ L = \Sp_\cO(v_1, \dots, v_m)$ for some $ v_i $ of the form $ v_i = t^{\mu_i} e_i + \sum_{j=1}^m p_{ij} e_j $ where $ p_{ij} \in \CC[t] $ has degree less than $ \min(\mu_i, \mu_j)$. \acom{Do we want to sum over $j \ne i$ here? Maybe nvm because in $\TT_\mu$ the diagonal blocks can have $*$'s in the last row. Also $\cO$ sb $\CC[t]$.}
         \item  For all $ i $, 
         $$ t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \min(\mu_i, \mu_j), 1 \le j \le m \}) + L. $$
     \end{enumerate}
-    Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i \le m\}$ forms a basis for $ L_0/L$
+    Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i \le m\}$ forms a basis for $ L_0/L$.
 \end{lemma}
 
 \jcom{I realized the meaning of the ``extra'' condition from the paper with Sabin and I added it into point 3.}
+\acom{Technically though the extra condition in that paper is weaker? $W_{\mu_i}$ being the span of $e_j,te_j,\dots,t^{\mu_i-1}e_j$ or the complement of $t^{\mu_i}\cO^m$ in $\cO^m$.}
 
 \begin{proof}
     Let $ L \in \cW_\mu$.  Then $ L = \Sp_\cO(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \CC\xt[t^{-1}]$.  Since $ L \in \Grth^+ $, we see that $ v_i \in L_0$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$.
     
     Fix $ i$ and suppose that for some $ j$, $ \mu_j < \mu_i$.  In this case, we can alter our basis to $ v'_i = v_i - r v_j$ for some polynomial $r \in \CC[t]$.  This gives us new polynomials $ p'_{ij} = p_{ij} - r (t^{\mu_j} + p_{jj}) $.  In this way, we can ensure that $ p_{ij} $ has degree less than $ \min(\mu_i, \mu_j)$.  Thus (i) implies (ii).
     
-    Suppose that $ L = \Sp_\cO(v_1, \dots, v_m)$ as in (ii).  Then $[t^{\mu_i} e_i] \in \Sp_\CC(\beta_\mu) $
-in $ L_0/L$ and we see that 
-$$t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \mu_i \}) + L $$
- Hence (ii) implies (iii).  
-    Finally, given (iii), then we can see $ v_i := t^{\mu_i} e_i - \sum_{j=1} p_{ij} e_j \in L $ for some $ p_{ij} \in \CC[t]$ of degree less than $ \min(\mu_i,\mu_j) $.  It is easy to see that $ L = \Sp_\cO(v_1, \dots, v_m) $ and so $ L \in \cW_\mu$.  
+    Suppose that $ L = \Sp_\cO(v_1, \dots, v_m)$ as in (ii).  Then $[t^{\mu_i} e_i] \in \Sp_\CC(\beta_\mu) $ in $ L_0/L$ and we see that 
+    $$t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \mu_i \}) + L\,. $$
+    Hence (ii) implies (iii).  
+
+    Finally, given (iii), then we can see $ v_i := t^{\mu_i} e_i - \sum_{j=1}^m p_{ij} e_j \in L $ for some $ p_{ij} \in \CC[t]$ of degree less than $ \min(\mu_i,\mu_j) $.  It is easy to see that $ L = \Sp_\cO(v_1, \dots, v_m) $ and so $ L \in \cW_\mu$.  
     
-    Finally to show that $ \beta_\mu$ forms a basis for $ L_0/L$, it suffices to show that for each $ i$, $ t^\mu_i e_i  \in \Sp_\CC(\beta_\mu) + L$.  This follows immediately from (iii).
-    
+    Finally to show that $ \beta_\mu$ forms a basis for $ L_0/L$, it suffices to show that for each $ i$, $ t^{\mu_i} e_i  \in \Sp_\CC(\beta_\mu) + L$.  This follows immediately from (iii).
+    % 
     \end{proof}
 
 
 
 \begin{lemma}
-    Under the map $ \Grbd \rightarrow \Grth$, the image of $ S^{\mu_1, \mu_2}_\AA$ lands in $ \cW_\mu$.
+    Let $\mu_1,\mu_2 \in P$ and $\mu = \mu_1 + \mu_2$. Under the map $ \Grbd \rightarrow \Grth$, the image of $ S^{\mu_1, \mu_2}_{0,\AA}$ lands in $ \cW_\mu$.
 \end{lemma}
 
 \begin{proof}
-    Let $ L $ lie in this image.  Then $ L = g t^{\mu_1} (t-s)^{\mu_2}$ from some $ g \in N(\CC[t, t^{-1}, (t-s)^{-1}]) $.  Let $ h =(t-s)^{\mu_2} t^{-\mu_2}  $.  Note that $ h \in T_1(\CC(\xt[t^{-1}]))$. Then,
-    $$ L = h (h^{-1} g h) t^{\mu}$$
-    Note that $ h^{-1} g h \in N(\CC\xT[t^{-1}])$ and from KWWY \jcom{Check this}, we know that $ (h^{-1} g h) t^{\mu} \in \cW_\mu$ and so the result follows.
+    Let $ L $ lie in this image.  Then $ L = g t^{\mu_1} (t-s)^{\mu_2}$ fom some $ g \in N(\CC[t, t^{-1}, (t-s)^{-1}]) $.  Let $ h =(t-s)^{\mu_2} t^{-\mu_2}  $.  Note that $ h \in T_1(\CC\xt[t^{-1}])$. 
+    Moreover,
+    $$ L = h (h^{-1} g h) t^{\mu}\,. $$
+    Note that 
+    % $ h^{-1} g h \in N(\CC\xT[t^{-1}])$ 
+    $h^{-1} g h \in N(\cK_\infty)$ and from \cite{kamnitzer2014yangians} 
+    \jcom{Check this}, we know that $ (h^{-1} g h) t^{\mu} \in \cW_\mu$ and so the result follows.
+
+    \acom{
+        % The argument from my thesis does not go through since $\cW_\mu$ is defined mod $\CC[t]$. More precisely, we still have $N(\Kinf) = N_1(\CC[t]) N(\CC\xt[t^{-1}])$ and so $h^{-1}g h=g_1g_2$ for some $g_1 \in N_1(\CC[t])$ for some $g_2\in N\xt[t^{-1}]$. But now we would like to write $g_2 t^\mu = t^\mu g_3$ for some $g_3\in\CC[t]$. Oh, but I guess we can also 
+        To check this write $N(\Kinf) = N_1(\CC\xt[t^{-1}])N(\CC[t])$. Does it hold? If $\mu$ is dominant and $g\in N(\CC[t])$ then $gt^\mu = t^\mu g'$ for some $g'\in N(\CC[t])$.} % What is a textbook reference for these factorization claims? are they obvious; they seem obvi
     \end{proof}
 
 \section{Climax}
