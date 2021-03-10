@@ -361,7 +361,7 @@ The following subsets are indexed by coweights.
     % \acom{Why $G(\CC[t])$. Because we are on the left side!}
     
     \item The locus $\cW_\mu = G_1\xt[t^{-1}] t^\mu \subset \Grth $.  
-    \acom{What goes wrong if we take $G_1[t^{-1}]t^\mu$ instead?} \jcom{Then it lives in the thin Grassmannian.  And unless $ A $ is nilpotent, then $g(A)$ won't live there.}
+    \acom{What goes wrong if we take $G_1[t^{-1}]t^\mu$ instead?} \jcom{Then it lives in the thin Grassmannian.  And unless $ A $ is nilpotent, then $g(A)$ won't live there.} \acom{Another notational thing is $G_1\xt[t^{-1}] = G_1(\CC\xt[t^{-1}])$ and in our paper this short hand is only used for these kernel subgroups.}
     In modular terms, this corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}.  The lattice description of $ \cW_\mu \cap \Grth^+$ is given in Lemma \ref{le:Wmu} below. 
     % \acom{que est-ce?} \jcom{It's not very relevant for this paper.  Here is an explanation: every vector bundle on $\PP$ (or maybe any curve) has a special filtration called the HN--filtration; it is a partial flag of subbundles of type determined by $ \mu$.  We require that $ \varphi$ takes this filtration to the standard partial flag at the fibre over $ \infty$.  Maybe ``preserves'' is not the best word above.}
     % A: Ok thanks!
@@ -442,7 +442,45 @@ for $i = 1,\dots,\lambda_2$. Then $gJg^{-1} = A$. For the next part we introduce
 
 Now let $\lambda_1,\lambda_2$ be arbitrary. Clearly $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to 
 $$\bigoplus_{i=1}^m (J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}})\,.$$ 
-Moreover each block $J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}}$ is conjugate to $A_{\lambda_{1,i}+\lambda_{2,i}}$. Altogether $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to $\bigoplus_{i = 1}^m A_{\lambda_{1,i}+\lambda_{2,i}}$ and this latter matrix specializes to the Jordan normal form $J_{0,\lambda_1 + \lambda_2}$ at $s=0$. 
+Moreover each block $J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}}$ is conjugate to $A_{\lambda_{1,i}+\lambda_{2,i}}$. Altogether $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to $\bigoplus_{i = 1}^m A_{\lambda_{1,i}+\lambda_{2,i}}$ and this latter matrix specializes to the Jordan normal form $J_{0,\lambda_1 + \lambda_2}$ at $s=0$.
+
+\acom{The following is a rough note.} 
+
+The relevant result from Eisenbud--Saltman seems to be that 
+$$X_r = X_{r,0} = \{A:\rk A^i \le r(i) \}$$ 
+is the flat limit of 
+$$X_{r,\lambda} = \{A : \rk (A-\lambda_i)^j\le r(i,j)\}$$
+with $r(i,j)$ determined by $r(i)$.  
+
+The case that we are interested in is the case of two eigenvalues. Let me change notation so that $\lambda_i$ are shapes and let me only look at the open loci where the rank conditions are strict. 
+
+Let $m_i = \lambda_{i,1}$ ($i = 1,2$), $m = m_1 + m_2$, and define
+$$r(j) = N - \#\text{~boxes in first $j$ columns of }\lambda_1 + \lambda_2 = \lambda\vdash N$$
+on $j = 1,\dots,m$. Note that $r(j-1) - r(j)$ is the length of the $j$th column of $\lambda$. As in \cite{eisenbud1989rank} we will denote this quantity $a_j$. 
+% 
+
+Next, take $p$ to be a permutation of the (lengths of) columns $a_j$ of $\lambda$ such that $a_{p(1)},\dots,a_{p(m_1)}$ are the (lengths of) columns of $\lambda_1$ and $a_{p(m_1 + 1)},\dots, a_{p(m_1 + m_2)}$ are the (lengths of) columns of $\lambda_2$. 
+Then the functions 
+$$
+r(1,j) = N - a_{p(1)} - \cdots - a_{p(j)} \text{ and } r(2,j) = N - a_{p(m_1 + 1)} - \cdots - a_{p(m_1 + j)}
+$$
+are such that 
+\begin{align*}
+    \OO^{\lambda_1,\lambda_2} = X_{r,(0,s)} = \{A:\rk A^j &= r(1,j) \text{ for } i = 1,\dots,\lambda_{1,1} \\ \text{ and } \rk (A-s)^j &= r(2,j) \text{ for } i = \lambda_{1,1} + 1 ,\dots, \lambda_{2,1} \}
+\end{align*}
+and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,\AA^m}$ is flat over $\AA^m$ with zero fibre $X_{r,0} = \OO^\lambda$ as desired.
+ 
+% On the one hand, we know that $r(i,j)$ should be equal to $N$ minus the number of boxes in the first $j$ columns of $\lambda_i$. On the other hand, ES define $r(i,j)$ to be $N$ minus the $i$th chunk of $j$ columns determined by the rank function $r(i)$. Also, we would like for $r(i)$ to determine the shape $\lambda = \lambda_1 + \lambda_2$. Take for example $\lambda_1 = \lambda_2 = (2,1)$. Then $\lambda = (4,2)$ and so $r\{0,1,2,3,4\}=\{6,4,2,1,0\}$ and 
+% $$\{a_1,a_2,a_3,a_4\} = \{6-4,4-2,2-1,1-0\}=\{2,2,1,1\}\,.$$
+
+% For another example take $\lambda_1 = (1)$ and $\lambda_2 = (1,1)$. Then $\lambda = (2,1)$ and $r\{0,1,2\} = \{3,1,0\}$ so $\{a_1,a_2\} = \{2,1\}$.
+
+% Again too small. The problem is I don't think that it is in general true that some permutation of the list $r(i-1) - r(i)$ will be the list of lengths of columns of $\lambda_1$ followed by the list of lengths of columns of $\lambda_2$ which is what we are looking for. For one thing there's in general more than one way to write a partition as a sum of two partitions. Ok, concretely, a third example. Take $\lambda_1 = (a,b)$ and $\lambda_2 = (c,d)$ then $\lambda = (a + c, b + d)$ and 
+% $$r\{0,1,\dots,a + c\} = \{N, N-2, \dots, N-2(b+d), N-2(b+d) - 1,\dots, 0\}$$
+% so 
+% $$\{a_1,a_2,\dots\} = \{2,2,\dots,2,1,1,\dots,1\}$$
+% with $b+d$ 2s and $a+c - b - d$ 1s. Wait a minute, nevermind, of course this is true. We have two partitions $\lambda_1$ and $\lambda_2$ and one way to form the partition $\lambda = \lambda_1 + \lambda_2$ is to break $\lambda_i$ down into columns, order the columns by length, and recombine. Cool. I think it's fine. 
+\acom{That's it for the note.}
 
 % By Tanisaki $A\in \OO^\lambda$ iff the coefficients of $z^m$ in $k\times k$ minors of $zI - A$ for any $m\le p_\lambda(k) - 1$ and for any $k = 1\dots |\lambda|$ vanish. Here $p_\lambda(k) = \lambda_{n-k+1} + \cdots + b_n$ and $k = 1,\dots,n$. So $p_\lambda(k) = \#$ boxes in the last $k$ rows of $\lambda$.
 
@@ -618,7 +656,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     Let $ L \in \Grth^+$.  The following are equivalent:
     \begin{enumerate}
         \item $ L \in \cW_\mu$.
-                \item $ L = \Sp_\cO(v_1, \dots, v_m)$ for some $ v_i $ of the form $ v_i = t^{\mu_i} e_i + \sum_{j=1}^m p_{ij} e_j $ where $ p_{ij} \in \CC[t] $ has degree less than $ \min(\mu_i, \mu_j)$. \acom{Do we want to sum over $j \ne i$ here? Maybe nvm because in $\TT_\mu$ the diagonal blocks can have $*$'s in the last row. Also $\cO$ sb $\CC[t]$.}
+                \item $ L = \Sp_\cO(v_1, \dots, v_m)$ for some $ v_i $ of the form $ v_i = t^{\mu_i} e_i + \sum_{j=1}^m p_{ij} e_j $ where $ p_{ij} \in \CC[t] $ has degree less than $ \min(\mu_i, \mu_j)$. \acom{Do we want to sum over $j \ne i$ here? Maybe nvm because in $\TT_\mu$ the diagonal blocks can have $*$'s in the last row. Also $\cO$ should be $\CC[t]$.}
         \item  For all $ i $, 
         $$ t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \min(\mu_i, \mu_j), 1 \le j \le m \}) + L. $$
     \end{enumerate}
@@ -629,7 +667,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 \acom{Technically though the extra condition in that paper is weaker? $W_{\mu_i}$ being the span of $e_j,te_j,\dots,t^{\mu_i-1}e_j$ or the complement of $t^{\mu_i}\cO^m$ in $\cO^m$.}
 
 \begin{proof}
-    Let $ L \in \cW_\mu$.  Then $ L = \Sp_\cO(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \CC\xt[t^{-1}]$.  Since $ L \in \Grth^+ $, we see that $ v_i \in L_0$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$.
+    Let $ L \in \cW_\mu$.  Then $ L = \Sp_\cO(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \Oinf$.  Since $ L \in \Grth^+ $, we see that $ v_i \in L_0$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$.
     
     Fix $ i$ and suppose that for some $ j$, $ \mu_j < \mu_i$.  In this case, we can alter our basis to $ v'_i = v_i - r v_j$ for some polynomial $r \in \CC[t]$.  This gives us new polynomials $ p'_{ij} = p_{ij} - r (t^{\mu_j} + p_{jj}) $.  In this way, we can ensure that $ p_{ij} $ has degree less than $ \min(\mu_i, \mu_j)$.  Thus (i) implies (ii).
     
@@ -650,7 +688,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 \end{lemma}
 
 \begin{proof}
-    Let $ L $ lie in this image.  Then $ L = g t^{\mu_1} (t-s)^{\mu_2}$ fom some $ g \in N(\CC[t, t^{-1}, (t-s)^{-1}]) $.  Let $ h =(t-s)^{\mu_2} t^{-\mu_2}  $.  Note that $ h \in T_1(\CC\xt[t^{-1}])$. 
+    Let $ L $ lie in this image.  Then $ L = g t^{\mu_1} (t-s)^{\mu_2}$ fom some $ g \in N(\CC[t, t^{-1}, (t-s)^{-1}]) $.  Let $ h =(t-s)^{\mu_2} t^{-\mu_2}  $.  Note that $ h \in T_1(\Oinf)$. 
     Moreover,
     $$ L = h (h^{-1} g h) t^{\mu}\,. $$
     Note that 
@@ -660,14 +698,14 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 
     \acom{
         % The argument from my thesis does not go through since $\cW_\mu$ is defined mod $\CC[t]$. More precisely, we still have $N(\Kinf) = N_1(\CC[t]) N(\CC\xt[t^{-1}])$ and so $h^{-1}g h=g_1g_2$ for some $g_1 \in N_1(\CC[t])$ for some $g_2\in N\xt[t^{-1}]$. But now we would like to write $g_2 t^\mu = t^\mu g_3$ for some $g_3\in\CC[t]$. Oh, but I guess we can also 
-        To check this write $N(\Kinf) = N_1(\CC\xt[t^{-1}])N(\CC[t])$. Does it hold? If $\mu$ is dominant and $g\in N(\CC[t])$ then $gt^\mu = t^\mu g'$ for some $g'\in N(\CC[t])$.} % What is a textbook reference for these factorization claims? are they obvious; they seem obvi
+        To check this write $N(\Kinf) = N_1(\Oinf)N(\CC[t])$. Does it hold? If $\mu$ is dominant and $g\in N(\CC[t])$ then $gt^\mu = t^\mu g'$ for some $g'\in N(\CC[t])$.} % What is a textbook reference for these factorization claims? are they obvious; they seem obvi
         \jcom{Yes, that is correct.  I think that I once had Alex write out a careful proof of this fact.  It holds for any unipotent group.  The proof is by induction.}
     \end{proof}
 
 \section{Climax}
 Given $ A \in \TT_\mu$, recall the definition of $ g(A)$ given in \Cref{eq:mvyofa}.
 % section ??.  
-As $ g(A) \in M_n(\CC[t]) \cap G_1(\CC\xt[t^{-1}])$, we will regard $ g(A)$ as giving an element of $ \Grth^+ \cap \cW_\mu$.
+As $ g(A) \in M_n(\CC[t]) \cap G_1(\Oinf)$, we will regard $ g(A)$ as giving an element of $ \Grth^+ \cap \cW_\mu$.
 
 The following result is \cite[Theorem 3.2]{cautis2018categorical}.
 
@@ -724,14 +762,17 @@ $$
 for some $ r \in G(\CC[t]), n \in N[t, t^{-1}, (t-s)^{-1}] $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu_2} t^{-\mu_2}$ which lies in $ T_1\xt[t^{-1}] $.
 Note that $ h^{-1}n h \in N(\Kinf)$, 
 % ((t^{-1}))
-so we can factor it as $ n = n_1 n_2 $, where $ n_1 \in N_1(\CC\xt[t^{-1}]), n_2 \in N(\CC[t])$.  So then after doing a bit of algebra, we reach
+so we can factor it as $ n = n_1 n_2 $, where $ n_1 \in N_1(\Oinf), n_2 \in N(\CC[t])$.  So then after doing a bit of algebra, we reach
 $$
 t^\mu r (t^{-\mu} n_2 t^\mu) t^{-\mu} = g^{-1} h n_1.
 $$
-The right hand side $ g^{-1} h n_1 $ lies in $ G_1(\CC\xt[t^{-1}]) $.  Now on the left hand side, we know that since $ \mu $ is dominant $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$.  
+The right hand side $ g^{-1} h n_1 $ lies in $ G_1(\Oinf) $.  Now on the left hand side, we know that since $ \mu $ is dominant $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$.  
 Moreover since $ \mu $ is dominant, we know that 
-$$t^\mu G(\cO) t^{-\mu} \cap G_1(\CC\xt[t^{-1}]) = N_1(\CC\xt[t^{-1}]\,.$$
-Thus, we deduce that $ g^{-1} h n_1 \in N_1(\CC\xt[t^{-1}])$ and hence $ g(A) \in N_1(\CC\xt[t^{-1}]) t^{\mu_1} (t-s)^{\mu_2} $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu_1, \mu_2}_\AA$ as desired.
+$$t^\mu G(\cO) t^{-\mu} \cap G_1(\Oinf) = N_1(\Oinf)\,.$$
+% $$t^\mu G(\cO) t^{-\mu} \cap G_1(\CC\xt[t^{-1}]) = N_1(\CC\xt[t^{-1}]\,.$$
+Thus, we deduce that $ g^{-1} h n_1 \in N_1(\Oinf)$ 
+% $ g^{-1} h n_1 \in N_1(\CC\xt[t^{-1}])$ 
+and hence $ g(A) \in N_1(\Oinf) t^{\mu_1} (t-s)^{\mu_2} $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu_1, \mu_2}_\AA$ as desired.
 \end{proof}
 
 \jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
@@ -927,6 +968,8 @@ As an application we can compute fusion of stable MV cycles of type $\alpha_i$ f
 \appendix
 \section{Examples}
 \rcom{I have 3 examples in mind right now: fusion product producing 1 term (maybe $1 \leftarrow 2 * 1 \rightarrow 2$), fusion product producing more than 1 term $(S_1 * S_2)$, and fusion product with multiplicities $((S_1 * S_2)^2)$}
+
+\acom{Plus fusion product of fake MV cycles for a fourth!}
 
 We view MV cycles as semi-standard young tableaux. Suppose we have two tableaux $\tau_1$ and $\tau_2$ with respective weights $\lambda_i$ and $\mu_i$ and we wished to take their fusion product. We consider a generic matrix $X \in \UU^{\lambda_1,\lambda_2}_{0,s}$. 
 
