@@ -1,10 +1,12 @@
 # todo
 
-## 2021-03-09 09:56:11
+## 2021-03-10 14:44:06
 
-Next meeting
-
-- address some of the newer comments
+- notation for image of $t^\mu$ in a Graff
+- proof of $g\mapsto ([g],[g])$
+- what is going on with non-dominant $\mu_i$
+- add to Roger's examples on 'viewiing MV cycles as tableaux'
+- $X_{r,0}$ as flat limit of $X_{r,\lambda}$
 
 ## 2021-02-24 08:53:27
 
