@@ -304,9 +304,9 @@ These different versions of the affine Grassmannian are related as follows.
     L \mapsto (L(0), L(s))\,.
     $$
     % in the $ s \ne 0 $ case.
-    \jcom{Maybe we should introduce some notation for this isomorphism.}
+    % \jcom{Maybe we should introduce some notation for this isomorphism.}
     % \acom{Ok. Question: how is the isomorphism given at $s=0$?}
-    \acom{Ok. TODO. Also write this in group theoretic terms. Probably $[g] \mapsto ([g],[g])$ is ok. Since $g\CC[t]\otimes_{\CC[t]}\cO_s \cong g\cO_s $ for some reason, where $g\in\CC[t,t^{-1},(t-s)^{-1}]$ can be viewed as $g\in\cK_s$.}
+    % \acom{Ok. TODO. Also write this in group theoretic terms. Probably $[g] \mapsto ([g],[g])$ is ok. Since $g\CC[t]\otimes_{\CC[t]}\cO_s \cong g\cO_s $ for some reason, where $g\in\CC[t,t^{-1},(t-s)^{-1}]$ can be viewed as $g\in\cK_s$.}
     
     In group-theoretic terms, this isomorphism is given using the diagonal map
     $$G(\CC[t, t^{-1}, (t-s)^{-1}])/G(\CC[t]) \rightarrow G(\cK)/G(\cO) \times G(\cK_s)/G(\cO_s)
@@ -788,17 +788,18 @@ $$
 for some $ r \in G(\CC[t]), n \in N[t, t^{-1}, (t-s)^{-1}] $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu_2} t^{-\mu_2}$ which lies in $ T_1\xt[t^{-1}] $.
 Note that $ h^{-1}n h \in N(\Kinf)$, 
 % ((t^{-1}))
-so we can factor it as $ n = n_1 n_2 $, where $ n_1 \in N_1(\Oinf), n_2 \in N(\CC[t])$.  So then after doing a bit of algebra, we reach
+so we can factor it as $ h^{-1} n h  = n_1 n_2 $, where $ n_1 \in N_1(\Oinf), n_2 \in N(\CC[t])$.  So then after doing a bit of algebra, we reach
 $$
 t^\mu r (t^{-\mu} n_2 t^\mu) t^{-\mu} = g^{-1} h n_1.
 $$
-The right hand side $ g^{-1} h n_1 $ lies in $ G_1(\Oinf) $.  Now on the left hand side, we know that since $ \mu $ is dominant $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$.  
+The right hand side $ g^{-1} h n_1 $ lies in $ G_1(\Oinf) $.  Since $ \mu $ is dominant, $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$, and so the left hand side lies in $t^\mu G(\CC[t]) t^{-\mu}$.
+
 Moreover since $ \mu $ is dominant, we know that 
-$$t^\mu G(\cO) t^{-\mu} \cap G_1(\Oinf) = N_1(\Oinf)\,.$$
+$$t^\mu G(\CC[t]) t^{-\mu} \cap G_1(\Oinf) = N_1(\Oinf)\,.$$
 % $$t^\mu G(\cO) t^{-\mu} \cap G_1(\CC\xt[t^{-1}]) = N_1(\CC\xt[t^{-1}]\,.$$
 Thus, we deduce that $ g^{-1} h n_1 \in N_1(\Oinf)$ 
 % $ g^{-1} h n_1 \in N_1(\CC\xt[t^{-1}])$ 
-and hence $ g(A) \in N_1(\Oinf) t^{\mu_1} (t-s)^{\mu_2} $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu_1, \mu_2}_{0,\AA}$ as desired.
+and hence $ g(A) \in t^{\mu_1} (t-s)^{\mu_2} N_1(\Oinf) $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu_1, \mu_2}_{0,\AA}$ as desired.
 \end{proof}
 
 \jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
@@ -1024,6 +1025,7 @@ To find the MV cycles, equivalently tableaux, in the $0$-fibre of the fusion, we
 \begin{example}
 Let $G = SL_3$ and consider the tableaux
 $$\tau_1 = \young(12,3) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2=\young(13,2).$$
+The MV cycles corresponding to $\tau_1$ and $\tau_2$ are both isomorphic to $\PP^2$.
 The weights are $\lambda_1 = \lambda_2 = (2,1,0)$ and $\mu_1 = \mu_2 = (1,1,1)$. Hence the matrix in consideration is 
 \[
 X = \left[\begin{BMAT}(e){cc;cc;cc}{cc;cc;cc}
@@ -1053,6 +1055,110 @@ $$\frac{\CC[a_1,a_2,b_1,b_2,b_3,b_4,s]}{\langle a_1+sa_2,b_3,s \rangle} \cong
 We see already that the $0$-fibre is irreducible. The tableau corresponding to the ideal $\langle a_1, b_3 \rangle$ is 
 $$\young(1123,23)$$
 which corresponds to the MV cycle that is the product of the MV cycles corresponding to $\tau_1$ and $\tau_2$.
+\end{example}
+
+\begin{example}
+Let $G = SL_3$ and consider the tableaux
+$$\tau_1 = \young(12) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2 = \young(11,23).$$
+The MV cycles corresponding to the above tableaux are each isomorphic to $\PP^1$.
+We have the weights to be $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (1,1,0)$, and $\mu_2 = (2,1,1)$. The matrix under consideration is therefore
+\[
+X = \left[\begin{BMAT}(e){ccc;cc;c}{ccc;cc;c}
+    0 & 1 & & & & \\
+     & 0 & 1 & & & \\
+     & -s^2 & 2s & a_1 & a_2 & b_1 \\
+     & & & 0 & 1 & \\
+     & & & & s & b_2 \\
+     & & & & & s
+\end{BMAT}
+\right].
+\]
+There are no relations from looking at the submatrix $X_1$. From the submatrix $X_2$, we require $$a_1 + sa_2 = 0.$$
+From $X$, we further obtain the relations $$a_2b_2 + sb_1 = 0, a_1b_2 + s^2b_1 = 0.$$
+Then the quotient ring we find is
+$$\frac{\CC[a_1,a_2,b_1,b_2,s]}{\langle a_1+sa_2, a_2b_2+sb_1, a_1b_2+s^2b_1, s\rangle} \cong \frac{\CC[a_1,a_2,b_1,b_3,s]}{\langle a_1, a_2\rangle \cap \langle a_1, b_2 \rangle}.$$
+We see that the 0-fibre is reducible with two components. The tableau corresponding to each ideal is
+$$\begin{array}{cc} \vspace{1mm}
+    \young(1113,22) & \text{for } \langle a_1, a_2 \rangle \\ 
+    \young(1112,23) & \text{for } \langle a_1, b_2 \rangle.
+\end{array}$$
+Each of these tableaux corresponds to a MV cycle isomorphic to $\PP^2$ so the generic fibre $\PP^1 \times \PP^1$ degenerates to two copies of $\PP^2$.
+\end{example}
+
+\begin{example}
+Let $G = SL_3$ and consider the following tableaux:
+$$\tau_1 = \young(1122) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2 = \young(1111,2233).$$
+The MV cycles corresponding to these tableaux are each isomorphic to $\PP^1 \times \PP^1$. 
+The weights are then $\lambda_1 = (4,0,0)$, $\lambda_2 = (4,4,0)$, $\mu_1 = (2,2,0)$, and $\mu_2 = (4,2,2)$.
+Then we are considering the following matrix:
+\[
+X = \left[\begin{BMAT}(e){cccccc;cccc;cc}{cccccc;cccc;cc}
+    0 & 1 & & & & & & & & & & \\
+     & 0 & 1 & & & & & & & & & \\
+     & & 0 & 1 & & & & & & & & \\
+     & & & 0 & 1 & & & & & & & \\
+     & & & & 0 & 1 & & & & & & \\
+     & & -s^4 & 3s^3 & -6s^2 & 4s & a_1 & a_2 & a_3 & a_4 & b_1 & b_2 \\
+     & & & & & & 0 & 1 & & & & \\
+     & & & & & & & 0 & 1 & & & \\
+     & & & & & & & & 0 & 1 & & \\
+     & & & & & & & & -s^2 & 2s & b_3 & b_4 \\
+     & & & & & & & & & & 0 & 1 \\
+     & & & & & & & & & & -s^2 & 2s
+\end{BMAT}
+\right].
+\]
+By computer, it can be checked that we obtain the following 3 ideals:
+$$
+\begin{array}{cl}
+    I_1 = & \langle a_1, a_2, a_3, a_4, s \rangle \\
+    I_2 = & \langle a_1, a_2, b_3, b_4, s \rangle \\
+    I_3 = & \langle a_1, a_2, b_3^2, a_4b_3 + a_3b_4, a_3b_3, a_3^2, s \rangle.
+\end{array}
+$$
+It can be checked that $I_3$ has multiplicity 2 \rcom{Not sure how to make this precise and how to check it.} so the 0-fibre has 4 components, two of which are the same. The tableau corresponding to each ideal is
+$$
+\begin{array}{cc}\vspace{1mm}
+    \young(11111133,2222) & \text{for } I_1 \\ \vspace{1mm}
+    \young(11111122,2233) & \text{for } I_2 \\ \vspace{1mm}
+    \young(11111123,2223) & \text{for } I_3.
+\end{array}
+$$
+The MV cycle for each ideal is isomorphic to $\PP^2 \times \PP^2$.
+\end{example}
+
+\begin{example}
+Let us redo example 3 but with non-dominant weights $\mu_i$ such that $\mu_1 + \mu_2$ is still dominant. Then consider the tableaux
+$$\tau_1 = \young(22) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2 = \young(11,33).$$
+Then the weights are $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (0,2,0)$, and $\mu_2 = (2,0,2)$. Our matrix $X$ is now
+\[
+X = \left[\begin{BMAT}(e){cc;cc;cc}{cc;cc;cc}
+    0 & 1 & & & & \\
+    -s^2 & 2s & a_1 & a_2 & b_1 & b_2 \\
+     & & 0 & 1 & & \\
+     & & & 0 & b_3 & b_4 \\
+     & & & & 0 & 1 \\
+     & & & & -s^2 & 2s
+\end{BMAT}
+\right].
+\]
+Using a computer, the ideals we now get are
+$$
+\begin{array}{cl}
+    I_1 = & \langle a_1, a_2 \rangle \\
+    I_2 = & \langle b_3, b_4 \rangle \\
+    I_3 = & \langle b_3^2, a_2b_3 + a_1b_4, a_1b_3, a_1^2 \rangle. 
+\end{array}
+$$
+The tableaux corresponding to each ideal is
+$$
+\begin{array}{cc}\vspace{1mm}
+    \young(1133,22) & \text{for } I_1 \\ \vspace{1mm}
+    \young(1122,33) & \text{for } I_2 \\ \vspace{1mm}
+    \young(1123,23) & \text{for } I_3
+\end{array}
+$$
+and the MV cycles corresponding to each are the same as before.
 \end{example}
 
 \bibliographystyle{alpha}
