@@ -1,5 +1,7 @@
 # !/opt/sage/sage -python
 
+from sage.symbolic.expression_conversions import polynomial 
+
 # test inputs
 
 t1 = Tableau([[1,1,3],[2]])
@@ -8,7 +10,7 @@ n = 3
 
 # main 
 
-def get_lambda(n,t1,t2):
+def get_lambdas(n,t1,t2):
     lambda1 = [0]*n
     lambda2 = [0]*n
     for i in range(0,len(t1)):
@@ -17,7 +19,7 @@ def get_lambda(n,t1,t2):
         lambda2[i] = len(t2[i])
     return lambda1, lambda2
 
-lambda_1,lambda_2 = get_lambda(n,t1,t2)
+lambda_1,lambda_2 = get_lambdas(n,t1,t2)
 
 def get_mus(n,t1,t2):
     mu1 = [0]*n
@@ -46,7 +48,7 @@ svs = mu_vars(t1,t2)
 R = PolynomialRing(GF(101),svs) # no s!
 R.inject_variables()
 
-var('x,s')
+
 
 def insert_row(mat,row):
     return matrix(mat.rows()[:mat.nrows()]+[row]+mat.rows()[mat.nrows():])
@@ -60,6 +62,8 @@ def upper_row_matrix(row):
         symbMat.append(d)
     return symbMat
 
+var('x,s')
+
 def mu_matrix(t1,t2):
     symbMat = []
     for i in range(0,m):
@@ -68,24 +72,43 @@ def mu_matrix(t1,t2):
         row.append(companion_matrix(p.coefficients(x,sparse=False),format='bottom'))
         row += upper_row_matrix(i+1)
         symbMat.append(row)
-    return block_matrix(symbMat)
+    return block_matrix(R['s'],symbMat)
 
-tmp = mu_matrix(t1,t2) 
-T = tmp.change_ring(PolynomialRing(GF(7),tmp.variables()))  
+# tmp = mu_matrix(t1,t2) 
+# T = tmp.change_ring(PolynomialRing(GF(7),tmp.variables()))  
 
-from sage.symbolic.expression_conversions import polynomial 
+# from sage.symbolic.expression_conversions import polynomial 
 
-Ts = T - polynomial(s,base_ring=GF(7))
+# Ts = T - polynomial(s,base_ring=GF(7))
+
+def mu_matrices_over_gf(t1,t2):
+    T = mu_matrix(t1,t2) 
+    # T = tmp.change_ring(PolynomialRing(GF(7),tmp.variables()))
+    return T,  T - polynomial(s,base_ring=GF(101))  
 
 # create submatrices 
 
-size = mu[0]
-Tsubs = [T.matrix_from_rows_and_columns(range(size), range(size))]
-Tssubs = [Ts.matrix_from_rows_and_columns(range(size), range(size))]
-for i in range(1,m):
-    size += mu[i]
-    Tsubs.append(T.matrix_from_rows_and_columns(range(size), range(size)))
-    Tssubs.append(Ts.matrix_from_rows_and_columns(range(size), range(size)))
+# size = mu[0]
+
+# Tsubs = [T.matrix_from_rows_and_columns(range(size), range(size))]
+# Tssubs = [Ts.matrix_from_rows_and_columns(range(size), range(size))]
+# for i in range(1,m):
+#     size += mu[i]
+#     Tsubs.append(T.matrix_from_rows_and_columns(range(size), range(size)))
+#     Tssubs.append(Ts.matrix_from_rows_and_columns(range(size), range(size)))
+
+# should probably take mu's or tau's as argument
+def mu_submatrices_over_gf(mat,mats): 
+    size = mu[0]
+    T = mat
+    Ts = mats
+    Tsubs = [T.matrix_from_rows_and_columns(range(size), range(size))] 
+    Tssubs = [Ts.matrix_from_rows_and_columns(range(size), range(size))]
+    for i in range(1,m):
+        size += mu[i]
+        Tsubs.append(T.matrix_from_rows_and_columns(range(size), range(size)))
+        Tssubs.append(Ts.matrix_from_rows_and_columns(range(size), range(size)))
+    return Tsubs,Tssubs
 
 # Roger's stuff
 
@@ -104,8 +127,11 @@ def minors_with_last_col(mat,col,k):
     return mnrs
 
 def create_ideal(t1,t2):
+    mat,mats = mu_matrices_over_gf(t1,t2)
+    Tsubs,Tssubs = mu_submatrices_over_gf(mat,mats)
     rel = []
-    J_0 = ideal(0)
+    # J_0 = ideal(0)
+    J_0 = R['s'].ideal([])
     size = mu[0]
     for i in range(1,m):
         size_0 = size
@@ -123,10 +149,15 @@ def create_ideal(t1,t2):
             kerT_old_start = len([l for l in t1_sub_old_start if l != []])
             rk = size - kerT
             rk_old_start = size_0 - kerT_old_start
-            rel += minors_with_last_col(Tsub^j, mu[i], rk+1)
+            rel += minors_with_last_col(Tsub**j, mu[i], rk+1)
             good_ideals = [] # not sure where best to init this 
+            print(rel)
+            print(ideal(rel).base_ring())
+            # print(ideal(rel).groebner_basis())
             if rel != []:
-                J = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+                # J = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+                # J = ideal(rel).primary_decomposition()
+                J = R['s'].ideal(rel)
                 for K in J:
                     rk_old = rk_old_start
                     t1_sub_old = t1_sub_old_start
@@ -149,7 +180,8 @@ def create_ideal(t1,t2):
             for K in good_ideals:
                 good = good.intersection(K)
             rel = good.gens()
-            J_0 = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+            # J_0 = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+            J_0 = ideal(rel).primary_decomposition()
             t1_sub = [l[1:] for l in t1_sub if l != []]
             kerT += len([l for l in t1_sub if l != []])
         for j in range(1,len(t2_sub[0])+1):
@@ -157,10 +189,12 @@ def create_ideal(t1,t2):
             kerTs_old_start = len([l for l in t2_sub_old_start if l != []])
             rk = size - kerTs
             rk_old_start = size_0 - kerTs_old_start
-            rel += minors_with_last_col((Tssub)^j, mu[i], rk+1)
+            rel += minors_with_last_col((Tssub)**j, mu[i], rk+1)
             good_ideals = [] # not sure where best to init this either 
+            print(rel) # debug
             if rel != []:
-                J = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+                # J = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+                J = ideal(rel).primary_decomposition()
                 for K in J:
                     rk_old = rk_old_start
                     t2_sub_old = t2_sub_old_start
@@ -184,12 +218,17 @@ def create_ideal(t1,t2):
                     good = good.intersection(K)
                 rel = good.gens()
                 if rel != []:
-                    J_0 = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+                    # J_0 = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+                    J_0 = ideal(rel).primary_decomposition()
             t2_sub = [l[1:] for l in t2_sub if l != []]
             kerTs += len([l for l in t2_sub if l != []])
     min_pol = T**(lambda_1[0])*(Ts)**(lambda_2[0])
+    print(min_pol) 
     for e in min_pol:
+        print(e) # debug 
         rel += e
     rel += polynomial(s,base_ring=GF(7)) 
+    print(rel) # debug
     I = ideal(rel)
-    return ideal(I.groebner_basis()).primary_decomposition()
+    # return ideal(I.groebner_basis()).primary_decomposition()
+    return I.primary_decomposition()

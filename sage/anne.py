@@ -1,7 +1,7 @@
 # !/opt/sage/sage -python
 
 # Given a sequence $\mu = (\mu_0,\ldots,\mu_m-1)\vdash N$ we wish to output an N by N matrix which takes the form that is predicted by the 
-from sage.all import *
+# from sage.all import *
 
 # returns matrix in
 # Mirkovic-Vybornov slice
@@ -21,7 +21,7 @@ def mvy(blocktype):
         for b in range(a+1,numblocks):
             for k in range(blocktype[b]):
                 # print (a,b,k)
-                # print(sum(blocktype[i] for  i in range(a+1))-1,sum(blocktype[i] for  i in range(b))+k)
+                # print(sum(blocktype[i] for  i in range(a+1))-1,sum(blocktype[i] for  i in range(b))+k
                 T[sum(blocktype[i] for  i in range(a+1))-1,sum(blocktype[i] for  i in range(b))+k] = stars[counter]
                 counter+=1
     return T
