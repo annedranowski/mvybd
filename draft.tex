@@ -108,7 +108,7 @@ Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the d
 \end{bmatrix} 
 \]
 which we will view in $\GL_m(K) $ for any ring $ K $ containing $\CC[t]$ in which $t-s$ is invertible (for example $ K = \Ks, \CC(t)$). % A: Think R sb K; changed it 
-\acom{Add warning that we will also write $(t-s)^\mu$ for its image in $\GL_m(K)/\GL_m(R)$. We hope it will be evident?}
+\acom{1. Add warning that we will also write $(t-s)^\mu$ for its image in $\GL_m(K)/\GL_m(R)$. We hope it will be evident? 2. Change notation $\mu = (\mu_1,\dots,\mu_m)$ since we also have $\mu = \mu_1 + \mu_2$. We could do $\mu = \mu' + \mu''$ or $\mu = a + b$? The notation $\mu^{(i)}$ is alreayd taken to mean sth. Ofc all can be changed. Can also do $\mu = {}_{1}\mu + {}_{2}\mu$}
 
 \subsection{Lattices}
 \label{ss:lat}
@@ -126,12 +126,15 @@ is an $R$-submodule $ L \subset K^m$ such that $ L $ is a free rank $ m $ $R$-mo
 \end{comment} 
 
 % The trivial lattice is 
-$ L_0(R) = R^m \subset K^m $ is called the standard lattice. 
-We will abuse notation and denote $L_0(R)$ simply $L_0$ in the hope that the ring $R$ will be understood from the context. 
+% No more: L_0(R) = 
+$ R^m \subset K^m $ is called the standard lattice. 
+% We will abuse notation and denote $L_0(R)$ simply $L_0$ in the hope that the ring $R$ will be understood from the context. 
 The group $\GL_m(K) $ acts transitively on the set of $R$-lattices in $K^m$, thus giving a bijection between 
 % the set of such lattices 
 this set and $\GL_m(K)/\GL_m(R)$. 
-\acom{For example, we will frequently make use of the lattice $L_\lambda$ corresponding to the point $t^\lambda\in\Gr$ given $\lambda\in P$. If $e_1,\dots,e_m$ denote the standard basis elements of $L_0(\cO)$ then 
+\acom{For example, we will frequently make use of the lattice $L_\lambda$ corresponding to the point $t^\lambda\in\Gr$ given $\lambda\in P$. If $e_1,\dots,e_m$ denote the standard basis elements of 
+% $L_0(\cO)$ then 
+$\cO^m$ then 
 $$ 
 L_\lambda = \Sp_\cO(t^{\lambda_1}e_1, \dots, t^{\lambda_m}e_m)\,. 
 $$}
@@ -143,7 +146,9 @@ $$
 % L(a) := L \otimes_{\CC[t]} \CC\xt[t-a] \subset \CC\xT[t-a]^m\,.
 L(a) := L \otimes_{\CC[t]} \cO_a, \text{ a lattice in } \cK_a.  %\,. % The containment is not part of the definition so I comment it out \subset \cK_a^m\,.
 $$
-If $ L(a) = L_0(\cO_a)$ then $L$ is said to be trivial at $a$. 
+If 
+% $ L(a) = L_0(\cO_a)$ 
+$L(a) = \cO_a^m$ then $L$ is said to be trivial at $a$. 
 % We say that $ L $ is trivial at $ a $ if $ L(a) = \cO_a^m$. 
 % \acom{Do we want to employ the notation $\cO_a$ and $\cK_a$ here?}
 For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$. 
@@ -162,14 +167,14 @@ For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\
 \subsection{Affine Grassmannians} %  actors
 % To map thick Gr to C is to map a lattice to the points where it isn't trivialzable; doesn't make sense to ask for poles 
 % G(C(t))/G(C[t]) for example lives over the Ran space, finitely many eigenvalues; positive part of thick contains this guy as image 
-Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle. 
+Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle. \acom{Change $V_0$} 
 
 % \jcom{I don't think that we need all this about ``formal disc centered at $s$'' below since we now define this in the rings and discs section.}
 % \acom{Ok. We could omit the repetitive ``$X=$'' bits from the display styled alternate descriptions. That way they will fit within the margins.}
 % TODO: Just trying it out 
 
 \begin{itemize}
-    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by 
+    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by \acom{Change $V_0$}
     $$
     % \Gr = 
     \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_0 $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_0^\times $} \right\} \,. 
@@ -181,11 +186,11 @@ Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle.
     $$ 
     \Gr = \left\{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \right\}\,.
     $$
-    We obtain the lattice from $ (V,\varphi) $ by setting $ L = \Gamma(D_0, V)$ which is embedded into $ \cK^m = \Gamma(D_0^\times, V_0)$ using $ \varphi$.  On the other hand, we obtain the lattice from the group-theoretic description $ G(\cK) / G(\cO) $ by setting $ L = g \cO^m$ for $ g \in G(\cK)$.\emoji{clap}
+    We obtain the lattice from $ (V,\varphi) $ by setting $ L = \Gamma(D_0, V)$ which is embedded into $ \cK^m = \Gamma(D_0^\times, V_0)$ using $ \varphi$.  On the other hand, we obtain the lattice from the group-theoretic description $ G(\cK) / G(\cO) $ by setting $ L = g \cO^m$ for $ g \in G(\cK)$.\emoji{clap} \acom{Change $V_0$}
     % 
     \item For any $ s \in \CC $, 
     % \acom{should it be $\AA$ instead of $\CC$} 
-    the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by
+    the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by \acom{Change $V_0$}
     $$
     % \Gr_s = 
     \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D^\times_s $} \right\}\,.
@@ -214,7 +219,7 @@ Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle.
     % \jcom{Maybe write $\Kinf$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.} \acom{Since $\sf th$ is also the first two letters of ``thin''?} \jcom{That's a good point!  Maybe we could use some kind of bold  Gr (``thick'' letters) or maybe that would be too confusing.} \acom{Ok, it's tentative.}
 
     \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0, and the second point $s\in\AA$ varying).
-    It is described in modular terms by
+    It is described in modular terms by \acom{Change $V_0$}
     % {\small
     $$
     % \Grbd = 
@@ -267,7 +272,7 @@ Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle.
     % \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO) \text{ and } {\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t])\,. % \CC\xT[t^{-1}] missed a spot  
     % $$
     % 
-    In modular terms, $\Gr^+$ (resp. ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow V_0 $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp. over $ \PP$).  
+    In modular terms, $\Gr^+$ (resp. ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow V_0 $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp. over $ \PP$). \acom{Change $V_0$}
     
     In lattice terms, $ \Gr^+$ (resp. ${\Grth}^+$) contains those lattices $L$ which are contained in the relevant standard lattice. 
     % \acom{previously called ``trivial''} \jcom{I changed it so that $ R^m $ is called the standard lattice.  But I would like to leave the terminology ``trivial at $ a$'' is that ok, or should we write ``standard at $a$''.} 
@@ -661,14 +666,14 @@ Representation theory?
     Let $ L \in \Grth^+ $.  Let $ s \in \AA, s \ne 0 $.  The following are equivalent:
     \begin{enumerate}
         \item $ L $ is in the image of the map $ \Gr^{\lambda_1, \lambda_2}_{0,s} \rightarrow \Grth^+$. \acom{Should we describe this map somewhere? Earlier?}
-        \item The linear operator $ t $ on $ L_0/L$ has Jordan type $(0,\lambda_1), (s,\lambda_2)$. \acom{vestigial $L_0$}
+        \item The linear operator $ t $ on $ L_0/L$ has Jordan type $(0,\lambda_1), (s,\lambda_2)$. \acom{vestigial $L_0$ change to $\CC[t]^m$}
         \item $ L \in G(\CC[t]) t^{\lambda_1} (t-s)^{\lambda_2}$.
         % \acom{why no $G(\CC[t])$-coset?}
     \end{enumerate}
 \end{lemma}
 
 \begin{proof}
-First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda $ if and only if $ t |_{L_0/L} $ has Jordan type $ \lambda$.
+First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda $ if and only if $ t |_{L_0/L} $ has Jordan type $ \lambda$. \acom{Change $L_0$}
 
     Now assume that $ (L, s) \in \Gr^{\lambda_1, \lambda_2}_{0,s}$. We know that \acom{Rather than we know, it is by definition?} $ L(0) \in \Gr^{\lambda_1}$ and $L(s) \in \Gr^{\lambda_2} $.  This means that $t $ acting on 
     % $ \CC\xt^m / L(0)$ 
@@ -691,14 +696,14 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
         \item  For all $ i $, 
         $$ t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \min(\mu_i, \mu_j), 1 \le j \le m \}) + L. $$
     \end{enumerate}
-    Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i \le m\}$ forms a basis for $ L_0/L$.
+    Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i \le m\}$ forms a basis for $ L_0/L$. \acom{Change $L_0$}
 \end{lemma}
 
 \jcom{I realized the meaning of the ``extra'' condition from the paper with Sabin and I added it into point 3.}
 \acom{Technically though the extra condition in that paper is weaker? $W_{\mu_i}$ being the span of $e_j,te_j,\dots,t^{\mu_i-1}e_j$ or the complement of $t^{\mu_i}\cO^m$ in $\cO^m$.}
 
 \begin{proof}
-    Let $ L \in \cW_\mu$.  Then $ L = \Sp_{\CC[t]}(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \Oinf$.  Since $ L \in \Grth^+ $, we see that $ v_i \in L_0$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$.
+    Let $ L \in \cW_\mu$.  Then $ L = \Sp_{\CC[t]}(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \Oinf$.  Since $ L \in \Grth^+ $, we see that $ v_i \in L_0$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$. \acom{Change $L_0$}
     
     Fix $ i$ and suppose that for some $ j$, $ \mu_j < \mu_i$.  In this case, we can alter our basis to $ v'_i = v_i - r v_j$ for some polynomial $r \in \CC[t]$.  This gives us new polynomials $ p'_{ij} = p_{ij} - r (t^{\mu_j} + p_{jj}) $.  In this way, we can ensure that $ p_{ij} $ has degree less than $ \min(\mu_i, \mu_j)$.  Thus (i) implies (ii).
     
@@ -716,7 +721,8 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 \begin{lemma}
     Let $\mu_1,\mu_2 \in P$ and $\mu = \mu_1 + \mu_2$. Under the map $ \Grbd \rightarrow \Grth$, the image of $ S^{\mu_1, \mu_2}_{0,\AA}$ lands in $ \cW_\mu$.
 \end{lemma}
-\acom{the map $ \Grbd \rightarrow \Grth$ caused some confusion in my talk as on the left we have a family and on the right we have the thick affine Grassmannian --- Jiuzu kept thinking aloud that we can make $\Grth$ a family too.. Anyway I think that you address this below Joel. Probably it is worth writing out the map just before this first occurence? \textit{is it $(L,s)\mapsto L$?}}
+\acom{Probably it is worth writing down the map $ \Grbd \rightarrow \Grth$ just before this first occurence? \textit{is it $(L,s)\mapsto L$?}}
+% Resolved? the map $ \Grbd \rightarrow \Grth$ caused some confusion in my talk as on the left we have a family and on the right we have the thick affine Grassmannian --- Jiuzu kept thinking aloud that we can make $\Grth$ a family too.. Anyway I think that you address this below Joel. 
 
 \begin{proof}
     Let $ L $ lie in this image.  Then $ L = g t^{\mu_1} (t-s)^{\mu_2}\CC[t]^m$ for some $ g \in N(\CC[t, t^{-1}, (t-s)^{-1}]) $.  Let $ h =(t-s)^{\mu_2} t^{-\mu_2}  $.  Note that $ h \in T_1(\Oinf)$. 
@@ -1006,11 +1012,51 @@ As an application we can compute fusion of stable MV cycles of type $\alpha_i$ f
     \end{equation}
 \end{conjecture}
 
+% TODO: un-appendicize 
 \appendix
+
 \section{Generalized orbital varieties?}
 TODO: recall $\tau\mapsto X_\tau \mapsto Z_\tau$
+
+\begin{question}
+    Smallest $\mu_1, \mu_2$ such that\dots?
+\end{question}
+
 \section{Tableaux and families}
+
 TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_2$
+
+\begin{question}
+    How do we know that our algorithm produces MV cycles? 
+\end{question}
+
+\begin{proposition}
+    Let $\tau_1,\tau_2$\dots 
+    \[
+    \{A\in\UU_{0,s}^{\mu_1,\mu_2} : A \big|_{\mu^1 + \cdots + \mu^i} \in \OO_{0,s}^{\lambda_{1}^{(i)},\lambda_2^{(i)}} \text{ all } i\} = Z_{\tau_1}\times Z_{\tau_2}
+    \]
+\end{proposition}
+
+\begin{proof}
+    Want $L(0) \in Z(\tau_1)$ and $L(s) = Z(\tau_2)$. \acom{Another notational possibility is $\mu = \mu^0 + \mu^s$ etc., or $\mu(0) + \mu(s)$ or some variant with the eigenvalues being the indices.}
+
+    Fix $i \in \{1,\dots,m\}$ and let $p = \mu^1 + \cdots + \mu^i$. 
+    % Define $\lambda^{(i)}(\tau_1 \circ \tau_2)$ so that the 
+    Jordan type of $t\big|_{\CC[t]^p/L(0)\cap\CC[t]^p}$ is $\lambda_1^{(i)}$ and Jordan type of $t\big|_{\CC[t]^p/L(s)\cap \CC[t]^p}$ is $\lambda_2^{(i)}$. 
+
+    Need that the operations of taking quotients and taking generalized eigenspaces (i.e.\ $-\otimes\CC\xt[t-a]$) commute.
+\end{proof}
+
+\begin{question}[Related question]
+    If $\mu_1,\mu_2$ are not dominant, the LHS is smaller so the map $?$ has no chance of being an isomorphism. In general the map $?$ has to do with producing a matrix from a linear operator. 
+    \[
+    \begin{tikzcd}
+        \overline\Gr^{\lambda_1,\lambda_2}_{0,s}\cap S^{\mu_1,\mu_2}_{0,s} \ar[r,equals]\ar[d] & \overline\Gr^{\lambda_1} \cap S^{\mu_1} \times \overline\Gr^{\lambda_2} \cap S^{\mu_2} \supset Z_1 \times Z_2 \ar[d]\\
+        \overline\OO^{\lambda_1,\lambda_2} \cap \UU^{\mu_1,\mu_2} \ar[r,"?"] & \overline\OO^{\lambda_1}\cap \TT_{\mu_1}\cap \n \times \overline\OO^{\lambda_2}\cap \TT_{\mu_2}\cap \n
+    \end{tikzcd}    
+    \]
+\end{question}
+
 \section{Examples}
 \rcom{I have 3 examples in mind right now: fusion product producing 1 term (maybe $1 \leftarrow 2 * 1 \rightarrow 2$), fusion product producing more than 1 term $(S_1 * S_2)$, and fusion product with multiplicities $((S_1 * S_2)^2)$}
 
