@@ -48,8 +48,6 @@ svs = mu_vars(t1,t2)
 R = PolynomialRing(GF(101),svs) # no s!
 R.inject_variables()
 
-
-
 def insert_row(mat,row):
     return matrix(mat.rows()[:mat.nrows()]+[row]+mat.rows()[mat.nrows():])
 
@@ -153,11 +151,13 @@ def create_ideal(t1,t2):
             good_ideals = [] # not sure where best to init this 
             print(rel)
             print(ideal(rel).base_ring())
+            print(type(ideal(rel)))
+            print(type(R['s'].ideal(rel)))
             # print(ideal(rel).groebner_basis())
             if rel != []:
-                # J = ideal(ideal(rel).groebner_basis()).primary_decomposition()
+                J = R['s'].ideal(R['s'].ideal(rel).groebner_basis()).primary_decomposition()
                 # J = ideal(rel).primary_decomposition()
-                J = R['s'].ideal(rel)
+                # J = R['s'].ideal(rel)
                 for K in J:
                     rk_old = rk_old_start
                     t1_sub_old = t1_sub_old_start
@@ -207,7 +207,7 @@ def create_ideal(t1,t2):
                         t2_sub_old = [l[1:] for l in t2_sub_old if l != []]
                         kerTs_old += len([l for l in t2_sub_old if l != []])
                         rk_old = size_0 - kerTs_old
-                    if res == True and K.gens() != [0] and True in (polynomial(s,base_ring=GF(7)).divides(ele) for ele in K.gens()):
+                    if res == True and K.gens() != [0] and True in (polynomial(s,base_ring=GF(101)).divides(ele) for ele in K.gens()):
                         res = False
                     if res == True and J != J_0 and not True in [True in (str(v).startswith('x_{}_{}'.format(n,i+1)) for v in K.gens().variables()) for n in range(1,i+1)]:
                         res = False
