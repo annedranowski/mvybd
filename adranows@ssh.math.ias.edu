@@ -70,16 +70,13 @@ from sage.symbolic.expression_conversions import polynomial
 # n = 4
 
 # rly bad
-# t1 = Tableau([[1,3],[2,5],[4]])
-# t2 = t1
-# n = 5
+t1 = Tableau([[1,3],[2,5],[4]])
+t2 = t1
+n = 5
 
-# main
+# main 
 
-# unglobalize all variables
-
-def get_lambdas(t1,t2):
-    n = max(len(t1.weight()),len(t2.weight()))
+def get_lambdas(n,t1,t2):
     lambda1 = [0]*n
     lambda2 = [0]*n
     for i in range(0,len(t1)):
@@ -88,10 +85,9 @@ def get_lambdas(t1,t2):
         lambda2[i] = len(t2[i])
     return lambda1, lambda2
 
-# lambda_1,lambda_2 = get_lambdas(n,t1,t2)
+lambda_1,lambda_2 = get_lambdas(n,t1,t2)
 
-def get_mus(t1,t2):
-    n = max(len(t1.weight()),len(t2.weight()))
+def get_mus(n,t1,t2):
     mu1 = [0]*n
     mu2 = [0]*n
     for i in t1:
@@ -100,61 +96,33 @@ def get_mus(t1,t2):
     for i in t2:
         for j in i:
             mu2[j-1] += 1
-    # mu = [a+b for a,b in zip(mu1,mu2)]
-    return mu1,mu2
-    # ,mu
+    mu = [a+b for a,b in zip(mu1,mu2)]
+    return mu1,mu2,mu
 
-def get_mu(t1,t2):
-    mu1,mu2 = get_mus(t1,t2)
-    return [a+b for a,b in zip(mu1,mu2)]
+mu1,mu2,mu = get_mus(n,t1,t2)
+m = len(mu)
 
-def get_lambda(t1,t2):
-    lambda1,lambda2 = get_lambdas(t1,t2)
-    return [a+b for a,b in zip(lambda1,lambda2)]
-
-# mu1,mu2,mu = get_mus(n,t1,t2)
-# m = len(mu)
-
-# only depends on mu!
-def mu_vars(mu):
-    m = len(mu)
-    svs = []
+def mu_vars(t1,t2):
+    svs = [] # symbolic? vars
     for i in range(1,m):
         for j in range(i+1,m+1):
             for k in range(0,mu[j-1]):
                 svs.append('x_{}_{}_{}'.format(i,j,k+1))
     return svs
 
-# svs = mu_vars(t1,t2)
-# R = PolynomialRing(GF(101),svs) # no s!
-# R.inject_variables()
+svs = mu_vars(t1,t2)
+R = PolynomialRing(GF(101),svs) # no s!
+R.inject_variables()
 
-def create_x_ring(t1,t2):
-    mu = get_mu(t1,t2)
-    svs = mu_vars(mu)
-    R = PolynomialRing(GF(101),svs) 
-    R.inject_variables()
-    return R
-
-# gen_str = ''
-# for g in R.gens():
-#     gen_str += str(g) + ', '
-# S = PolynomialRing(GF(101), gen_str + 's')
-
-def create_xs_ring(t1,t2):
-    R = create_x_ring(t1,t2)
-    gen_str = ''
-    for g in R.gens():
-        gen_str += str(g) + ', '
-    S = PolynomialRing(GF(101), gen_str + 's')
-    return S
+gen_str = ''
+for g in R.gens():
+    gen_str += str(g) + ', '
+S = PolynomialRing(GF(101), gen_str + 's')
 
 def insert_row(mat,row):
     return matrix(mat.rows()[:mat.nrows()]+[row]+mat.rows()[mat.nrows():])
 
-def upper_row_matrix(row,mu):
-    m = len(mu)
-    svs = mu_vars(mu)
+def upper_row_matrix(row):
     symbMat = []
     for i in range(row,m):
         mat = matrix(mu[row-1]-1,mu[i])
@@ -163,26 +131,17 @@ def upper_row_matrix(row,mu):
         symbMat.append(d)
     return symbMat
 
-# var('x,s')
+var('x,s')
 
-def mu_matrices(t1,t2):
-    var('x,s')
-    mu1,mu2=get_mus(t1,t2)
-    mu = get_mu(t1,t2)
-    m = len(mu)
-    N = t1.size() + t2.size() 
+def mu_matrix(t1,t2):
     symbMat = []
     for i in range(0,m):
         row = [] + [0]*i
         p = x**(mu1[i])*(x-s)**(mu2[i])
         row.append(companion_matrix(p.coefficients(x,sparse=False),format='bottom'))
-        row += upper_row_matrix(i+1,mu)
+        row += upper_row_matrix(i+1)
         symbMat.append(row)
-    S = create_xs_ring(t1,t2)
-    T = block_matrix(S,symbMat)
-    D = diagonal_matrix(S,[s]*N)
-    Ts = T - D
-    return T, Ts
+    return block_matrix(S,symbMat)
 
 # tmp = mu_matrix(t1,t2)
 # T = tmp.change_ring(PolynomialRing(GF(7),tmp.variables()))
@@ -191,12 +150,10 @@ def mu_matrices(t1,t2):
 
 # Ts = T - polynomial(s,base_ring=GF(7))
 
-# def mu_matrices_over_gf(t1,t2):
-    # mu1,mu2,mu = get_mus(t1,t2)
-    # m = len(mu)
-    # T = mu_matrix() 
+def mu_matrices_over_gf(t1,t2):
+    T = mu_matrix(t1,t2) 
     # T = tmp.change_ring(PolynomialRing(GF(7),tmp.variables()))
-    # return T,  T - polynomial(s,base_ring=GF(101))  
+    return T,  T - polynomial(s,base_ring=GF(101))  
 
 # create submatrices
 
@@ -210,13 +167,12 @@ def mu_matrices(t1,t2):
 #     Tssubs.append(Ts.matrix_from_rows_and_columns(range(size), range(size)))
 
 # should probably take mu's or tau's as argument
-def mu_submatrices_over_gf(t1,t2): 
-    mu = get_mu(t1,t2)
-    T,Ts = mu_matrices(t1,t2) 
+def mu_submatrices_over_gf(mat,mats): 
     size = mu[0]
+    T = mat
+    Ts = mats
     Tsubs = [T.matrix_from_rows_and_columns(range(size), range(size))] 
     Tssubs = [Ts.matrix_from_rows_and_columns(range(size), range(size))]
-    m = len(mu) 
     for i in range(1,m):
         size += mu[i]
         Tsubs.append(T.matrix_from_rows_and_columns(range(size), range(size)))
@@ -240,12 +196,8 @@ def minors_with_last_col(mat,col,k):
     return mnrs
 
 def create_ideal(t1,t2):
-    # R = create_x_ring(t1,t2) 
-    S = create_xs_ring(t1,t2)
-    Tsubs,Tssubs = mu_submatrices_over_gf(t1,t2)
-    mu = get_mu(t1,t2)
-    m = len(mu)
-    lam = get_lambda(t1,t2)
+    mat,mats = mu_matrices_over_gf(t1,t2)
+    Tsubs,Tssubs = mu_submatrices_over_gf(mat,mats)
     rel = []
     # J_0 = ideal(0)
     J_0 = S.ideal([]).primary_decomposition()
@@ -338,9 +290,7 @@ def create_ideal(t1,t2):
             J_0 = S.ideal(rel).primary_decomposition()
             t2_sub = [l[1:] for l in t2_sub if l != []]
             kerTs += len([l for l in t2_sub if l != []])
-    T,Ts = mu_matrices(t1,t2)
-    lambda1,lambda2 = get_lambdas(t1,t2)
-    min_pol = T**(lambda1[0])*(Ts)**(lambda2[0])
+    min_pol = mat**(lambda_1[0])*(mats)**(lambda_2[0])
     # print(min_pol)
     for e in min_pol:
     #     print(e) # debug
@@ -350,12 +300,6 @@ def create_ideal(t1,t2):
     # print(rel) # debug
     I = S.ideal(rel)
     # return ideal(I.groebner_basis()).primary_decomposition()
-    for J in I.primary_decomposition():
-        print('The ideal ' + str(J) + ' has dimension ' + str(dim(J)))
-        # check expected dimension
-        vnu = vector(QQ,lam) - vector(QQ,mu)
-        vrho = vector(QQ,[m - i for i in range(m)])
-        print(dim(J) == vrho*vnu)
     return I.primary_decomposition()
 
 # print("the ideals are")

@@ -1,5 +1,10 @@
 # todo
 
+## 2021-03-22 22:16:20
+compute counterexample on the moon
+
+1. the example: t = Tableau([[1,3],[2,5],[4]])
+1. how to run: scp script to adranows@math, ssh to adranows@math, then ssh to adranows@moon; zsh and anaconda activate sage
 ## 2021-03-10 14:44:06
 
 - notation for image of $t^\mu$ in a Graff
