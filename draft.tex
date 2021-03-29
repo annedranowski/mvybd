@@ -52,9 +52,9 @@ $ \cO_s$ is the completion of the local ring $ \mathcal O_{\PP, s} $ and thus th
 Note that for $ s \in \CC $, we have an obvious isomorphisms  $\cO_s \cong \cO$ and $\cK_s\cong\cK$ taking $ t-s $ to $ t$. 
 
 \subsection{Groups}
-
+Let $H $ be an algebraic group over $ \CC $.  We will be interested $ H(R)$ where $ R $ is a $\CC$-algebra, for example $R = \CC[t], \cO_s$, etc.  Note that evaluation at $ t = s$ provides a group homomorphism $ H(\cO_s) \rightarrow H$.  We denote the kernel of this map by $ H_1(\cO_s)$.  We will be particularly interested in this construction in the case $ s = \infty$, which gives us the group $ H_1(\Oinf)$ which is often called the first congruence subgroup.
 % \acom{Add $G_1$}
-\acom{TODO: Algebraic groups over rings, i.e.\ the meaning of $G(K)$. The affine space of $m\times m$ matrices which we denote $ M_m$. The first congruence subgroup $G_1$ and why we take $\Oinf$ points instead of $\CC[t]$ points as some of the lit does.}
+%\acom{TODO: Algebraic groups over rings, i.e.\ the meaning of $G(K)$. The affine space of $m\times m$ matrices which we denote $ M_m$. The first congruence subgroup $G_1$ and why we take $\Oinf$ points instead of $\CC[t]$ points as some of the lit does.}
 
 Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
 % are there other possibilities?? :S 
@@ -110,9 +110,12 @@ Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the d
 which we will view in $\GL_m(K) $ for any ring $ K $ containing $\CC[t]$ in which $t-s$ is invertible (for example $ K = \Ks, \CC(t)$). % A: Think R sb K; changed it 
 \acom{1. Add warning that we will also write $(t-s)^\mu$ for its image in $\GL_m(K)/\GL_m(R)$. We hope it will be evident? 2. Change notation $\mu = (\mu_1,\dots,\mu_m)$ since we also have $\mu = \mu_1 + \mu_2$. We could do $\mu = \mu' + \mu''$ or $\mu = a + b$? The notation $\mu^{(i)}$ is alreayd taken to mean sth. Ofc all can be changed. Can also do $\mu = {}_{1}\mu + {}_{2}\mu$}
 
+
+We will also be interested in the affine space $ M_m$ of $m$x$m$ matrices.  Note that for any $ \CC$-algebra $ R $,  $GL_m(R) $ consists of those matrices $ g \in M_m(R) $ whose determinant is invertible in $ R$.  Thus $ t^\lambda \in M_m(\CC[t])$ for all $ \lambda \in P_{++}$ but $ t^\lambda \in GL_m(\CC[t]) $ if and only if $ \lambda = 0 $.
+
 \subsection{Lattices}
 \label{ss:lat}
-We will use the lattice model, so it is useful to recall the following definition. Let $ R \subset K$ be two rings (usually, but not always, $K$ will be a field). 
+We will use the lattice model, so it is useful to recall the following definition. Let $ R \subset K$ be two $\CC$-algebras (usually, but not always, $K$ will be a field). 
 % \acom{When is $K$ not a field?}). Let $ m \in \mathbb N$ \acom{we have already fixed $m$?} and; e.g. K = C[t,t^{-1}] is not a field!!! 
 Consider $ K^m $ as a $K$-module. By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $K^m$ 
 % \acom{what is $M$? should be $K^m$?}; bc Joel was thinking about arbitrary free modules 
@@ -131,7 +134,7 @@ $ R^m \subset K^m $ is called the standard lattice.
 % We will abuse notation and denote $L_0(R)$ simply $L_0$ in the hope that the ring $R$ will be understood from the context. 
 The group $\GL_m(K) $ acts transitively on the set of $R$-lattices in $K^m$, thus giving a bijection between 
 % the set of such lattices 
-this set and $\GL_m(K)/\GL_m(R)$. 
+this set and $\GL_m(K)/\GL_m(R)$, since $ GL_m(R) $ is the stabilizer of the standard lattice. 
 \acom{For example, we will frequently make use of the lattice $L_\lambda$ corresponding to the point $t^\lambda\in\Gr$ given $\lambda\in P$. If $e_1,\dots,e_m$ denote the standard basis elements of 
 % $L_0(\cO)$ then 
 $\cO^m$ then 
@@ -167,17 +170,17 @@ For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\
 \subsection{Affine Grassmannians} %  actors
 % To map thick Gr to C is to map a lattice to the points where it isn't trivialzable; doesn't make sense to ask for poles 
 % G(C(t))/G(C[t]) for example lives over the Ran space, finitely many eigenvalues; positive part of thick contains this guy as image 
-Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle. \acom{Change $V_0$} 
+Set $\AA = \AA^1$ and let $\Vtriv$ denote the trivial rank $ m $ vector bundle. 
 
 % \jcom{I don't think that we need all this about ``formal disc centered at $s$'' below since we now define this in the rings and discs section.}
 % \acom{Ok. We could omit the repetitive ``$X=$'' bits from the display styled alternate descriptions. That way they will fit within the margins.}
 % TODO: Just trying it out 
 
 \begin{itemize}
-    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by \acom{Change $V_0$}
+    \item The ordinary affine Grassmannian $\Gr = G(\cK)/G(\cO)$. It is described in modular terms by %\acom{Change $V_0$}
     $$
     % \Gr = 
-    \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_0 $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_0^\times $} \right\} \,. 
+    \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_0 $, $\varphi : V \xrightarrow{\sim} \Vtriv $ on $ D_0^\times $} \right\} \,. 
     $$
     % where $V_0$ is the trivial rank $m$ vector bundle.
     % and $ D_0$ is the formal disc centered at $ 0 \in \PP$.
@@ -186,14 +189,13 @@ Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle. \ac
     $$ 
     \Gr = \left\{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \right\}\,.
     $$
-    We obtain the lattice from $ (V,\varphi) $ by setting $ L = \Gamma(D_0, V)$ which is embedded into $ \cK^m = \Gamma(D_0^\times, V_0)$ using $ \varphi$.  On the other hand, we obtain the lattice from the group-theoretic description $ G(\cK) / G(\cO) $ by setting $ L = g \cO^m$ for $ g \in G(\cK)$.\emoji{clap} \acom{Change $V_0$}
+    We obtain the lattice from $ (V,\varphi) $ by setting $ L = \Gamma(D_0, V)$ which is embedded into $ \cK^m = \Gamma(D_0^\times, \Vtriv)$ using $ \varphi$.  On the other hand, we obtain the lattice from the group-theoretic description $ G(\cK) / G(\cO) $ by setting $ L = g \cO^m$ for $ g \in G(\cK)$.\emoji{clap} \acom{Change $V_0$}
     % 
     \item For any $ s \in \CC $, 
     % \acom{should it be $\AA$ instead of $\CC$} 
-    the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by \acom{Change $V_0$}
-    $$
+    the ordinary affine Grassmannian $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. It is described in modular terms by     $$
     % \Gr_s = 
-    \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D^\times_s $} \right\}\,.
+    \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} \Vtriv $ on $ D^\times_s $} \right\}\,.
     $$
     % where $D_s$ is the formal disc centered at $s$ viewed as an element of $\PP$.
     % \acom{What about fixing the notation $V_0$ somewhere?}
@@ -205,8 +207,8 @@ Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle. \ac
     \item The thick affine Grassmannian $\Grth = G(\Kinf)/G(\CC[t])$. % \CC\xT[t^{-1}]
     It is described in modular terms by
     $$
-        % \Grth = 
-        % \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ \PP $, $\varphi : V \xrightarrow{\sim} V_0 $ on $ D_\infty $ } \right\}\,. % (a disc centered at $ \infty$)
+         \Grth = 
+         \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ \PP $, $\varphi : V \xrightarrow{\sim} \Vtriv $ on $ D_\infty $ } \right\}\,. % (a disc centered at $ \infty$)
     $$
     % where $D_\infty$ denotes a disc centered at $ \infty$. 
     % \acom{What is the difference between ``a disc'' and ``the formal disc''} \jcom{No difference.}
@@ -225,7 +227,7 @@ Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle. \ac
     % \Grbd = 
     % \begin{aligned}
         \left\{ 
-            (V,\varphi,s) : V\text{ is a rank $m$ vector bundle on }\PP, \varphi : V \xrightarrow{\sim} V_0 \text{ on } \PP \setminus \{0, s\}  
+            (V,\varphi,s) : V\text{ is a rank $m$ vector bundle on }\PP, \varphi : V \xrightarrow{\sim} \Vtriv \text{ on } \PP \setminus \{0, s\}  
         \right\} 
     % \end{aligned}
     $$%}
@@ -283,8 +285,8 @@ Set $\AA = \AA^1$ and let $V_0$ denote the trivial rank $ m $ vector bundle. \ac
 These different versions of the affine Grassmannian are related as follows.  
 
 \begin{enumerate}
-    \item First there is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$.
-    \item Second, we have a map from the two point BD affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $
+    \item There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$.
+    \item We have a map from the two point BD affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $
     % $$ \Grbd \rightarrow \Grth $$ 
     which is given in modular terms by restricting the trivialization to $ D_\infty$.  It is given in group-theoretic terms on the fibre over $ s $ by the inclusion
     $$
@@ -329,20 +331,30 @@ These different versions of the affine Grassmannian are related as follows.
 \end{enumerate}
 
 \subsection{The fusion construction}
-The following construction will be very important in this paper.  Let $ X_1, X_2 \subset \Gr$ be two subschemes. Then using the isomorphism $ \Gr \cong \Gr_s $, for each $ s $, we obtain a subscheme $ X_1 \times X_2 \subset \Gr \times \Gr_s $.  
-% <<<<<<< HEAD
-% Via \ul{this} \acom{rather, the above? $L\mapsto (L(0),L(s))$} 
-Next, using the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $, 
-for each $ s \ne 0$,  
-\rcom{Joel: usually written $\Gr_{0,\AA^\times} \cong \Gr \times \Gr_s \times \AA^\times$, cite MVi} 
-we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
+The following construction will be very important in this paper.
+First, we recall that we have an isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $, 
+for each $ s \ne 0$.  In turn, we have the isomorphism $ \Gr_s \cong \Gr$.  
+
+Gluing these together, we obtain
+$$
+\tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr_{\CC^\times} \rightarrow \Gr \times \Gr
+$$
+where the first morphism is an isomorphism and the second map uses $ \Gr_s \cong \Gr $ on each fibre.  (This $\tau$ matches the map $ \tau $ of \cite{mirkovicvilonen}, except that we are working over $ \{0 \} \times \CC^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
+
+Let $ X_1, X_2 \subset \Gr$ be two subschemes.
+We define the subscheme $ \tau^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $.
+
+\jcom{I changed this a bit in order to match Mirkovic-Vilonen better.}
 % =======
 % Via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
 % >>>>>>> 5a15ce15b14109bab482282aa5657c9596f7892d
 
-We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $ X_1 \times X_2 \times \AA^\times $ inside of $ \Grbd $.  
-We use the projection $ \pi: \Grbd \rightarrow \AA $ to form $ X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) \subset \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  
+We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ inside of $ \Grbd $.  
+Next, we consider the projection $ \pi: \Grbd \rightarrow \AA $ and define $ X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) \subset \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  
 We regard $ X_1 \circ X_2$ as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $. 
+
+By this construction, $X_1 \ast_{\AA} X_2 $ is a flat family over $\CC$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$.
+
 % \acom{Repeat question: what is this iso? Roger says maybe it's in MV?}
 % \jcom{Now answered above.}
 
@@ -354,13 +366,10 @@ We regard $ X_1 \circ X_2$ as a subscheme of $ \Gr $ using {the isomorphism} $\G
 %\acom{Sure! It is quoted at the end, in \Cref{s:denouement} as an application. Addendum: for the numerical fusion I suggest simply $[Z_1][Z_2]$. This is what I will use in my talk. }
 
 \subsection{Some subvarieties of affine Grassmannians}
-Now fix effective dominant coweights $ \lambda_i,\mu_i \in P_{++}$ of size $N_i$ ($i=1,2$) and their sums $ \lambda = \lambda_1 + \lambda_2, \mu = \mu_1 + \mu_2$ of size $ N = N_1 + N_2$. 
+Now fix effective dominant coweights $\lambda_1, \lambda_2 \in P_{++}$ of sizes $N_1, N_2$  and their sums $ \lambda = \lambda_1 + \lambda_2 $ of size $ N = N_1 + N_2$. 
 % Coweights define elements in the various affine Grassmannians which we consider. Warning: We will write only coset representatives for elements of the various Grassmannians; we hope that it is evident which right cosets they represent. 
 % the right cosets which they represent are clear from the context.
-
-\acom{At some point at least mention that we expect this to go through for permutations of $\mu_i\in P_{++}$ i.e.\ skew partitions? or non-dominant and non-negative coweights; so long as their sum $\mu_1 + \mu_2$ is effective dominant.}
-
-The following subsets are indexed by coweights. 
+We consider the following subschemes of the affine Grassmannians.
 % 
 \begin{itemize}
     % \item Weights $\mu_i\le\lambda_i$ of size $N_i$ ($i=1,2$) 
@@ -383,25 +392,27 @@ The following subsets are indexed by coweights.
     % By \cite[Proposition 3.1.14]{zhu2016introduction},
     % Zhu's theorem (\jcom{need ref} \acom{pretty sure it's }), 
     % the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda_1 + \lambda_2}$.
-    Over $s=0$ the fibre is shown to be $ \overline{\Gr}^{\lambda_1 + \lambda_2}$ in the proof of \cite[Proposition 3.1.14]{zhu2016introduction}. 
+    Over $s=0$ the fibre is shown to be $ \overline{\Gr}^{\lambda_1 + \lambda_2}$ by a theorem of Zhu \cite[Proposition 3.1.14]{zhu2016introduction}. 
 
     Suppose that $ s \ne 0$.  In the fibre $\overline{\Gr}_{0,s}^{\lambda_1, \lambda_2}$ we have the open locus $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ coming from transporting $ \Gr^{\lambda_1} \times \Gr^{\lambda_2} $ via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $.  This open locus is a $ G(\CC[t])$-orbit
     % .  The lattice description of $ \Gr_{0,s}^{\lambda_1, \lambda_2}$ 
     whose lattice description is given in \Cref{le:Grl1l2} below.
     % \acom{Why $G(\CC[t])$. Because we are on the left side!}
-    
-    \item The locus $\cW_\mu = G_1\xt[t^{-1}] t^\mu \subset \Grth $.  
+\end{itemize}
+Now fix two effective coweights $ \mu_1, \mu_2 \in \mathbb N^m$ such that $ \mu_i$ has size $ N_i$ and such that $ \mu_1 + \mu_2 $ is dominant.  Using $ \mu_1, \mu_2$, we define the following subschemes.
+
+\begin{itemize}
+    \item The locus $\cW_\mu = G_1(\Oinf) t^\mu \subset \Grth $.  
     % 
-    \acom{What goes wrong if we take $G_1[t^{-1}]t^\mu$ instead?} \jcom{Then it lives in the thin Grassmannian.  And unless $ A $ is nilpotent, then $g(A)$ won't live there.} \acom{But our $A$ is always nilpotent? Another notational thing is $G_1\xt[t^{-1}] = G_1(\CC\xt[t^{-1}])$ and in our paper this short hand is only used for these kernel subgroups.}
     In modular terms, this corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}.  The lattice description of $ \cW_\mu \cap \Grth^+$ is given in Lemma \ref{le:Wmu} below. 
     % \acom{que est-ce?} \jcom{It's not very relevant for this paper.  Here is an explanation: every vector bundle on $\PP$ (or maybe any curve) has a special filtration called the HN--filtration; it is a partial flag of subbundles of type determined by $ \mu$.  We require that $ \varphi$ takes this filtration to the standard partial flag at the fibre over $ \infty$.  Maybe ``preserves'' is not the best word above.}
     % A: Ok thanks!
     % 
-    \item The semi-infinite orbit $ S^\mu = N(\cK)t^\mu \subset \Gr $.  
+    \item The semi-infinite orbit $ S^\mu = N_-(\cK)t^\mu \subset \Gr $.  
     \item The family of semi-infinite orbits $ S^{\mu_1, \mu_2}_{0,\AA} := S^{\mu_1} \ast_\AA S^{\mu_2}$.  If $ s \ne 0 $, then the fibre $S^{\mu_1, \mu_2}_{0,s} $ is given by
     $$
     % S^{\mu_1, \mu_2}_{0,s} = 
-    N(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu_1} (t-s)^{\mu_2} G(\CC[t])\subset G(\CC[t,t^{-1}, (t-s)^{-1}]) / G(\CC[t]) \,. % \G(\CC[t])
+    N_-(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu_1} (t-s)^{\mu_2} G(\CC[t])\subset G(\CC[t,t^{-1}, (t-s)^{-1}]) / G(\CC[t]) \,. % \G(\CC[t])
     $$
     % TODO: resolve
     % \jcom{Maybe we should introduce the $ L_{\mu_1, \mu_2} $ notation, but I'm not sure it is necessary.}
@@ -409,7 +420,7 @@ The following subsets are indexed by coweights.
     % TODO: resolve
     % \acom{changed $\mu$ to $\mu_1 + \mu_2$ since we wrote it out for $\overline{\Gr}_{0,\AA}^{\lambda_1, \lambda_2} $}
     
-    \jcom{These two statements here require some proof, so perhaps they should be split off as a lemma in ``Rising action''.}
+    \jcom{These two statements here require some proof, so perhaps they should be split off as a lemma in ``Rising action''.  I changed $ N$ to $ N_-$.}
     % TODO!
     
 \end{itemize}
@@ -468,13 +479,13 @@ The following subsets are indexed by coweights.
 \]
 \end{comment}
 % Denote by $R_i$ the $i$th row of $J$ 
-Let $g = E_{\lambda_2}\cdots E_1$ be the product of elementary matrices $E_i$ which correspond to the elementary row operations 
-$$R_{\lambda_1 + i - 1} \leftarrow R_{\lambda_1 + i-1} + \frac 1s R_{\lambda_1 + i}$$ 
-for $i = 1,\dots,\lambda_2$. Then $gJg^{-1} = A$. For the next part we introduce the notation $A_{\lambda_1+\lambda_2}$ for this matrix $A$. 
+%Let $g = E_{\lambda_2}\cdots E_1$ be the product of elementary matrices $E_i$ which correspond to the elementary row operations 
+%$$R_{\lambda_1 + i - 1} \leftarrow R_{\lambda_1 + i-1} + \frac 1s R_{\lambda_1 + i}$$ 
+%for $i = 1,\dots,\lambda_2$. Then $gJg^{-1} = A$. For the next part we introduce the notation $A_{\lambda_1+\lambda_2}$ for this matrix $A$. 
 
-Now let $\lambda_1,\lambda_2$ be arbitrary. Clearly $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to 
-$$\bigoplus_{i=1}^m (J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}})\,.$$ 
-Moreover each block $J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}}$ is conjugate to $A_{\lambda_{1,i}+\lambda_{2,i}}$. Altogether $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to $\bigoplus_{i = 1}^m A_{\lambda_{1,i}+\lambda_{2,i}}$ and this latter matrix specializes to the Jordan normal form $J_{0,\lambda_1 + \lambda_2}$ at $s=0$.
+%Now let $\lambda_1,\lambda_2$ be arbitrary. Clearly $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to 
+%$$\bigoplus_{i=1}^m (J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}})\,.$$ 
+%Moreover each block $J_{\lambda_{1,i}}\oplus J_{\lambda_{2,i}}$ is conjugate to $A_{\lambda_{1,i}+\lambda_{2,i}}$. Altogether $J_{0,\lambda_1} \oplus J_{0,\lambda_2}$ is conjugate to $\bigoplus_{i = 1}^m A_{\lambda_{1,i}+\lambda_{2,i}}$ and this latter matrix specializes to the Jordan normal form $J_{0,\lambda_1 + \lambda_2}$ at $s=0$.
 
 \acom{The following is a rough note.} 
 
@@ -525,7 +536,7 @@ and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,\AA^
 % If we apply the change of basis $g$ to the ideal $I=I_1 + I_2$ and set $s = 0$ (if possible) do we recover the ideal of $\OO^{\lambda_1 + \lambda_2}$? Let $A^g = g(A_1 \oplus A_2) g^{-1}$...
     \end{remark}
     
-    \item Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. The Mirkovic--Vybnornov slice $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
+    \item Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. The Mirkovic--Vybornov slice $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
     \[
         \begin{aligned}
             &\text{for all } 1 \le a,s\le m\,,
@@ -535,7 +546,6 @@ and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,\AA^
         \end{aligned}    
     \]
     In words, $A$ is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
-    Mirkovic and Vybornov describe $\TT_\mu$ as the slice in which $f$ acts as close to regular nilpotent as possible.
     % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
     In pictures, aka by example, the elements $A$ for $\mu=(3,2,2,1)$ look like 
     \[
@@ -565,10 +575,7 @@ and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,\AA^
                 -A_{12}^2 t - A_{12}^1 & t^{2} - A_{22}^2 t - A_{22}^1
             \end{array}\right]
     \]
-    % 
-    %\acom{this ok?} % \jcom{Anne, can you add this definition?}
-    %\jcom{When you wrote ``In words,'', it is not quite correct because of the diagonal blocks have those 1s.  Also it would be good to have an example.  And what is $f$ in the last sentence? }
-    %\acom{fixed? As for $f$ I think it is an $\sl_2$ triplet. Hopeful you could explain what MVy meant bc I never quite understood!} 
+ 
     
     \item To each $ A \in \TT_\mu$, we will associate the $m\times m$ matrix 
     of polynomials 
@@ -666,7 +673,7 @@ Representation theory?
     Let $ L \in \Grth^+ $.  Let $ s \in \AA, s \ne 0 $.  The following are equivalent:
     \begin{enumerate}
         \item $ L $ is in the image of the map $ \Gr^{\lambda_1, \lambda_2}_{0,s} \rightarrow \Grth^+$. \acom{Should we describe this map somewhere? Earlier?}
-        \item The linear operator $ t $ on $ L_0/L$ has Jordan type $(0,\lambda_1), (s,\lambda_2)$. \acom{vestigial $L_0$ change to $\CC[t]^m$}
+        \item The linear operator $ t $ on $ \CC[t]^m/L$ has Jordan type $(0,\lambda_1), (s,\lambda_2)$.
         \item $ L \in G(\CC[t]) t^{\lambda_1} (t-s)^{\lambda_2}$.
         % \acom{why no $G(\CC[t])$-coset?}
     \end{enumerate}
@@ -692,7 +699,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     Let $ L \in \Grth^+$.  The following are equivalent:
     \begin{enumerate}
         \item $ L \in \cW_\mu$.
-                \item $ L = \Sp_{\CC[t]}(v_1, \dots, v_m)$ for some $ v_i $ of the form $ v_i = t^{\mu_i} e_i + \sum_{j=1}^m p_{ij} e_j $ where $ p_{ij} \in \CC[t] $ has degree less than $ \min(\mu_i, \mu_j)$. \acom{Do we want to sum over $j \ne i$ here? Maybe nvm because in $\TT_\mu$ the diagonal blocks can have $*$'s in the last row. Also $\cO$ should be $\CC[t]$.}
+                \item $ L = \Sp_{\CC[t]}(v_1, \dots, v_m)$ for some $ v_i $ of the form $ v_i = t^{\mu_i} e_i + \sum_{j=1}^m p_{ij} e_j $ where $ p_{ij} \in \CC[t] $ has degree less than $ \min(\mu_i, \mu_j)$.
         \item  For all $ i $, 
         $$ t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \min(\mu_i, \mu_j), 1 \le j \le m \}) + L. $$
     \end{enumerate}
@@ -703,7 +710,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 \acom{Technically though the extra condition in that paper is weaker? $W_{\mu_i}$ being the span of $e_j,te_j,\dots,t^{\mu_i-1}e_j$ or the complement of $t^{\mu_i}\cO^m$ in $\cO^m$.}
 
 \begin{proof}
-    Let $ L \in \cW_\mu$.  Then $ L = \Sp_{\CC[t]}(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \Oinf$.  Since $ L \in \Grth^+ $, we see that $ v_i \in L_0$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$. \acom{Change $L_0$}
+    Let $ L \in \cW_\mu$.  Then $ L = \Sp_{\CC[t]}(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \Oinf$.  Since $ L \in \Grth^+ $, we see that $ v_i \in \CC[t]^m$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$.
     
     Fix $ i$ and suppose that for some $ j$, $ \mu_j < \mu_i$.  In this case, we can alter our basis to $ v'_i = v_i - r v_j$ for some polynomial $r \in \CC[t]$.  This gives us new polynomials $ p'_{ij} = p_{ij} - r (t^{\mu_j} + p_{jj}) $.  In this way, we can ensure that $ p_{ij} $ has degree less than $ \min(\mu_i, \mu_j)$.  Thus (i) implies (ii).
     
@@ -774,27 +781,30 @@ This follows immediately from Lemma \ref{le:Grl1l2}.
     $$ \overline{\OO}^{\lambda_1, \lambda_2}_{0,\AA} \cap \UU^{\mu_1, \mu_2}_{0,\AA} \cong \overline{\Gr}^{\lambda_1, \lambda_2}_{0,\AA} \cap S^{\mu_1, \mu_2}_{0,\AA}$$
 \end{theorem}
 
-\jcom{I was thinking about the proof of this result.  It is enough to prove that for $ A \in \OO^{\lambda_1, \lambda_2}_s \cap \TT_\mu $, $g(A) \in S^{\mu_1, \mu_2}_s $ if and only if $ A \in T^+$.  It is easy to show that if $ A \in \UU$, then $ g(A) \in S^{\mu_1, \mu_2}_s $.  But the converse is not so obvious.  (I think Anne's paper/thesis might be incomplete on this point.)  I thought of two approaches: first to write down the lattice interpretation of $S^{\mu_1, \mu_2}$ (similar to what is in my thesis in the Anderson-Kogan comparison section) or think about both $S^{\mu_1, \mu_2}$ and $\UU$ as attracting sets for a $\CC^\times$ action.  Which do you prefer?}
+%\jcom{I was thinking about the proof of this result.  It is enough to prove that for $ A \in \OO^{\lambda_1, \lambda_2}_s \cap \TT_\mu $, $g(A) \in S^{\mu_1, \mu_2}_s $ if and only if $ A \in T^+$.  It is easy to show that if $ A \in \UU$, then $ g(A) \in S^{\mu_1, \mu_2}_s $.  But the converse is not so obvious.  (I think Anne's paper/thesis might be incomplete on this point.)  I thought of two approaches: first to write down the lattice interpretation of $S^{\mu_1, \mu_2}$ (similar to what is in my thesis in the Anderson-Kogan comparison section) or think about both $S^{\mu_1, \mu_2}$ and $\UU$ as attracting sets for a $\CC^\times$ action.  Which do you prefer?}
 % 
-\acom{Assuming Theorem 2 we think this follows by application of Roger's lemma. Also, I think my thesis is complete on this point.}
+%\acom{Assuming Theorem 2 we think this follows by application of Roger's lemma. Also, I think my thesis is complete on this point.}
 % 
-\jcom{I thought about this and I agree with you now.  I will write this up soon.} 
+%\jcom{I thought about this and I agree with you now.  I will write this up soon.} 
 % 
-\acom{But I am also curious about the attracting set approach.}
+%\acom{But I am also curious about the attracting set approach.}
 
 \begin{proof}
+We could prove this by observing the both sides are the attracting locus of an appropriate $ \CC^\times$ action. However, we will give the following more algebraic proof.
+
+
  Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu_1, \mu_2}_{0,\AA} $ if and only if $ (g(A),s) \in S^{\mu_1, \mu_2}_{0,\AA} $.
  
- On the one hand, if $ (A,s) \in \UU^{\mu_1, \mu_2}_{0,\AA} $, then $ g(A)$ is upper triangular with diagonal $ t^{\mu_1} (t-s)^{\mu_2}$, and so $ g(A) \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
+ On the one hand, if $ (A,s) \in \UU^{\mu_1, \mu_2}_{0,\AA} $, then $ g(A)$ is upper triangular with diagonal $ t^{\mu_1} (t-s)^{\mu_2}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$.
  
  On the other hand, if $ (g(A), s) \in S^{\mu_1, \mu_2}_{0,\AA}$, then we can write 
  $$
  g t^\mu r= n t^{\mu_1} (t-s)^{\mu_2}
 $$
-for some $ r \in G(\CC[t]), n \in N[t, t^{-1}, (t-s)^{-1}] $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu_2} t^{-\mu_2}$ which lies in $ T_1\xt[t^{-1}] $.
+for some $ r \in G(\CC[t]), n \in N_-[t, t^{-1}, (t-s)^{-1}] $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu_2} t^{-\mu_2}$ which lies in $ T_1\xt[t^{-1}] $.
 Note that $ h^{-1}n h \in N(\Kinf)$, 
 % ((t^{-1}))
-so we can factor it as $ h^{-1} n h  = n_1 n_2 $, where $ n_1 \in N_1(\Oinf), n_2 \in N(\CC[t])$.  So then after doing a bit of algebra, we reach
+so we can factor it as $ h^{-1} n h  = n_1 n_2 $, where $ n_1 \in N_{-,1}(\Oinf), n_2 \in N_-(\CC[t])$.  So then after doing a bit of algebra, we reach
 $$
 t^\mu r (t^{-\mu} n_2 t^\mu) t^{-\mu} = g^{-1} h n_1.
 $$
@@ -808,7 +818,7 @@ Thus, we deduce that $ g^{-1} h n_1 \in N_1(\Oinf)$
 and hence $ g(A) \in t^{\mu_1} (t-s)^{\mu_2} N_1(\Oinf) $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu_1, \mu_2}_{0,\AA}$ as desired.
 \end{proof}
 
-\jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
+%\jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
 
 \section{Falling Action} % Resolution
 \begin{comment}
