@@ -344,7 +344,7 @@ where the first morphism is an isomorphism and the second map uses $ \Gr_s \cong
 Let $ X_1, X_2 \subset \Gr$ be two subschemes.
 We define the subscheme $ \tau^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $.
 
-\jcom{I changed this a bit in order to match Mirkovic-Vilonen better.}
+\jcom{I changed this a bit in order to match Mirkovic--Vilonen better.}
 % =======
 % Via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
 % >>>>>>> 5a15ce15b14109bab482282aa5657c9596f7892d
@@ -1023,16 +1023,16 @@ As an application we can compute fusion of stable MV cycles of type $\alpha_i$ f
 \end{conjecture}
 
 % TODO: un-appendicize 
-\appendix
+% \appendix
 
-\section{Generalized orbital varieties?}
+\subsection{Generalized orbital varieties?}
 TODO: recall $\tau\mapsto X_\tau \mapsto Z_\tau$
 
 \begin{question}
     Smallest $\mu_1, \mu_2$ such that\dots?
 \end{question}
 
-\section{Tableaux and families}
+\subsection{Tableaux and families}
 
 TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_2$
 
@@ -1054,7 +1054,8 @@ TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_
     % Define $\lambda^{(i)}(\tau_1 \circ \tau_2)$ so that the 
     Jordan type of $t\big|_{\CC[t]^p/L(0)\cap\CC[t]^p}$ is $\lambda_1^{(i)}$ and Jordan type of $t\big|_{\CC[t]^p/L(s)\cap \CC[t]^p}$ is $\lambda_2^{(i)}$. 
 
-    Need that the operations of taking quotients and taking generalized eigenspaces (i.e.\ $-\otimes\CC\xt[t-a]$) commute.
+    Need: operations of taking quotients and taking generalized eigenspaces (i.e.\ $-\otimes\CC\xt[t-a]$) commute.
+    
     \acom{Does this have to do with the fact that a functor $F: \sch \to \set$ commutes with projective limit if and only if it's representable?}
 \end{proof}
 
@@ -1063,12 +1064,12 @@ TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_
     \[
     \begin{tikzcd}
         \overline\Gr^{\lambda_1,\lambda_2}_{0,s}\cap S^{\mu_1,\mu_2}_{0,s} \ar[r,equals]\ar[d] & \overline\Gr^{\lambda_1} \cap S^{\mu_1} \times \overline\Gr^{\lambda_2} \cap S^{\mu_2} \supset Z_1 \times Z_2 \ar[d]\\
-        \overline\OO^{\lambda_1,\lambda_2} \cap \UU^{\mu_1,\mu_2} \ar[r,"?"] & \overline\OO^{\lambda_1}\cap \TT_{\mu_1}\cap \n \times \overline\OO^{\lambda_2}\cap \TT_{\mu_2}\cap \n
+        \overline\OO^{\lambda_1,\lambda_2}_{0,s} \cap \UU^{\mu_1,\mu_2}_{0,s} \ar[r,"?"] & \overline\OO^{\lambda_1}\cap \TT_{\mu_1}\cap \n \times \overline\OO^{\lambda_2}\cap \TT_{\mu_2}\cap \n
     \end{tikzcd}    
     \]
 \end{question}
 
-\section{Examples}
+\subsection{Examples}
 \rcom{I have 3 examples in mind right now: fusion product producing 1 term (maybe $1 \leftarrow 2 * 1 \rightarrow 2$), fusion product producing more than 1 term $(S_1 * S_2)$, and fusion product with multiplicities $((S_1 * S_2)^2)$}
 
 \acom{Plus fusion product of fake MV cycles for a fourth!}
