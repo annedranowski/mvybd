@@ -4,13 +4,40 @@
 compute counterexample on the moon
 
 1. the example: t = Tableau([[1,3],[2,5],[4]])
-1. how to run: scp script to adranows@math, ssh to adranows@math, then ssh to adranows@moon; zsh and anaconda activate sage
+1. how to run: 
+   - scp script to adranows@ssh.math.ias.edu, 
+   - ssh to adranows@ssh.math, 
+   - then ssh to adranows@moon; adranows@callisto.sns.ias.edu
+   - zsh 
+   - check available modules (opt) with module avail 
+   - module load conda/3
+   - conda init zsh (or other available shell) 
+   - swich into zsh (or other said shell if not already in it)
+   - conda activate sage
+   - load, run; figure out %prun, %%prun, nohup for debugging and/or running in background
+
+Theresa's first set of instructions:
+
+```
+$ module load anaconda3 (or anaconda2, if your prefer)
+
+Then install Sage (https://doc.sagemath.org/html/en/installation/conda.html)
+
+$ conda config --add channels conda-forge
+
+$ conda create -n sage sage python=X, where X is version of Python, e.g. 3.8
+
+$ conda activate sage
+
+$ sage
+```
+
 ## 2021-03-10 14:44:06
 
 - notation for image of $t^\mu$ in a Graff
 - proof of $g\mapsto ([g],[g])$
 - what is going on with non-dominant $\mu_i$
-- add to Roger's examples on 'viewiing MV cycles as tableaux'
+- add to Roger's examples on 'viewing MV cycles as tableaux'
 - $X_{r,0}$ as flat limit of $X_{r,\lambda}$
 
 ## 2021-02-24 08:53:27

@@ -1,5 +1,7 @@
 # convolution pseudo code
 
+by Roger
+
 input: tableaux t1 and t2, of weight m1, m2, and shape l1, l2
 
 for each subtableau st1i, st2i = t1, t2 restricted to weight m1i, m2i
