@@ -441,7 +441,7 @@ Now fix two effective coweights $ \mu_1, \mu_2 \in \mathbb N^m$ such that $ \mu_
     % 
     \item A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$ is said to have Jordan type $((0,\lambda_1), (s,\lambda_2))$ if its matrix representatives lie in $ \OO^{\lambda_1, \lambda_2}_{0,s}$.
     % 
-    \item The family of adjoint orbits $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,\AA} \rightarrow \AA$ whose fibre over $ s \ne 0 $ is $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,s}$ and whose fibre over 0 is $\overline{\OO}^\lambda$.  
+    \item The family of adjoint orbits $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,\AA} \rightarrow \AA$ whose fibre over $ s \ne 0 $ is $ \overline{\OO}^{\lambda_1, \lambda_2}_{0,s}$ and whose fibre over 0 is $\overline{\OO}^\lambda$ a consequence of Eisenbud and Salten's description/characterization(?) of ``rank varieties'' as proved in \Cref{cor:es}.
     
    % \jcom{We should justify why the 0 fibre is correct scheme-theoretically.} 
     %\acom{does it follow because ``$s$ divides $\det g$'' is a closed condition 
@@ -608,13 +608,8 @@ Now fix two effective coweights $ \mu_1, \mu_2 \in \mathbb N^m$ such that $ \mu_
 % TODO: place this better? 
 % \acom{The following is a rough note.} 
 
-\begin{proposition}
-    The family $\OO^{\lambda_1,\lambda_2}_{0,\AA}$ defined by \Cref{above} has zero fibre $\OO^\lambda$. 
-\end{proposition}
-
-We will show that this is a corollary of the following result on ``rank varieties''. 
-
 \begin{theorem}(\cite{eisenbud1989rank})
+    \label{thm:es}
 Let $r$ be a decreasing concave non-negative integral function with $r(0) = N$ (the dimension of the ambient vector space). Such a function is called a rank function. Then, in the space of $N\times N$ matrices, 
 % The relevant result from Eisenbud--Saltman seems to be that 
 $$X_r = X_{r,0} = \{A:\rk A^i \le r(i) \}$$ 
@@ -624,7 +619,67 @@ $$X_{r,z} = \{A : \rk (A-z_i)^j\le r(i,j)\}$$
 with $r(i,j)$ determined by $r(i)$.  
 \end{theorem}
 
-The case that we are interested in is the case of two eigenvalues: $(z_1,z_2) = (0,s)$. \acom{Does order matter?} 
+\acom{Don't know how much of this setup to recall but here are the parts that will appear in the quoted theorem.}
+% 
+ES show that 
+\begin{enumerate}
+    \item $X_r$ is a normal variety
+    \item $X_r$ is Gorenstein with rational singularities
+    \item $X_r$ fits into a flat family over $\AA^m$ of normal varieties whose fibre over a point $(z_1,\dots,z_m)$ such that the $z_i$ are all distinct is 
+\end{enumerate}
+\[
+    X_{r;z_1,\dots,z_m} = \left\{
+        A \in \End(V) : \cork(A - z_i) \ge r(i-1) - r(i) , i = 1,\dots,m 
+        \right\}
+\]
+They construct a simultaneous resolution of singularities and use the resolution of $X_r$ to describe the tangent space to $X_r$ at a point corresponding to an endomorphism $A$ such that $\rk A^i = r_i$ for all $i$. As an application of the tangent space computation they show that the general fiber of this family can be written as the scheme-theoretic intersection of varieties like $X_r$. 
+
+To construct the resolution, they take $m$ to be the largest number such that $r(m) \ne r(m+1)$.
+% Fact: rank functions stabilize
+Let $(x_1,\dots, x_m)$ be coordinates on $\AA^m$ and let $W\subset \AA^m$ be a linear subvariety (translate of subvectorspace). 
+They introduce the flag variety $F = \{(V = V_0 \supset V_1 \supset \cdots \supset V_m \supset 0 ) : \dim V_i = r(i)\}$ and define $\mathcal X_{r,W}\subset\End(V) \times W \times F$ to be the subvariety of triples $(A,\vec z,\{V_i\})$ such that $(A-z_i) V_{i-1} \subset V_i$ for $z_i = x_i(\vec z)$ and $i = 1,\dots,m$. The (reduced image of) projection of $\mathcal X_{r,W}$ down to $\End(V) \times W$ is denoted $X_{r,W}$ a closed affine subvariety. 
+
+\begin{theorem}
+    (\cite[Theorem~2.1 iii)]{eisenbud1989rank})
+    $X_{r,W}$ is the restriction of $X_{r,\AA^m}$ to $W$ and it is flat over $W$. 
+\end{theorem}
+
+They apply this result to study the fibers of the family $X_{r,\AA^m}$ over points $\vec z \in \AA^m$ for $z_i$ not necessarily distinct. They partition the coordinates $z_i$ of $\vec z$ by equality with the help of a permutation $p$ of $\{1,\dots,m\}$ such that 
+\begin{align*}
+    z_{p(1)} &= \cdots = z_{p(m_1)} , \\
+    z_{p(m_1 + 1)} &= \cdots = z_{p(m_2)} , \\ 
+    \dots \\
+    z_{p(m_s + 1)} &= \cdots = z_{p(m_s + 1)}
+\end{align*}
+and $p$ preserves the order within each interval $m_i + 1,\dots,m_{i+1}$. \acom{Not sure what this means. Order of coordinates?} With this notation in place they define 
+\begin{gather*}
+    r(i,j):= \dim V - a_{p(m_i + 1)} - \cdots - a_{p(m_i + j )} \\
+    \qquad \qquad \qquad \qquad \qquad \text{ for } i = 1,\dots,s \text{ and } j = 1,\dots , m_{i + 1 } - m_i 
+\end{gather*}
+where $a_i = r(i-1) - r(i)$ which characterizes the Jordan types of the generalized eigenspaces associated to the eigenvalues $z_i$. Finally they state the following corollary. 
+\begin{corollary}
+    (\cite[Corollary~2.2]{eisenbud1989rank})
+    The scheme-theoretic fibre of $X_{r,W}$ over $\vec z\in W$ is 
+    \[
+        X_{r,\vec z} = \{A \in \End(V) : \rk (A-z_i)^j\le r(i,j) \text{ for all } i , j \}
+    \]
+\end{corollary}
+
+\begin{corollary}
+    \label{cor:es}
+    The family $\OO^{\lambda',\lambda''}_{0,\AA}$ defined by \Cref{above} has zero fibre $\OO^\lambda$. 
+\end{corollary}
+
+\begin{lemma}
+    \label{lem:es}
+    Let $\lambda = \lambda' + \lambda''$ be permutations. There exists a permutation of the columns of $\lambda$ such that the first $\lambda'_1$ columns are precisely the columns of $\lambda'$ and the next $\lambda''_1$ columns are precisely the columns of $\lambda''$. 
+\end{lemma}
+
+\begin{lemma}
+   $r(j) = N - \#\text{~boxes in first $j$ columns of }\lambda$ is a rank function. 
+\end{lemma}
+
+The case that we are interested in is the case of two generalized/repeated eigenvalues, i.e.\ $\vec z = (z_1,z_2) = (0,s)$. \acom{Does order matter?} 
 % Let me change notation so that $\lambda_i$ are shapes and 
 We begin by considering the open loci where the rank conditions are strict. 
 
@@ -647,7 +702,7 @@ are such that
 \begin{align*}
     \OO^{\lambda_1,\lambda_2}_{0,s} = X_{r,(0,s)} = \{A:\rk A^j &= r(1,j) \text{ for } i = 1,\dots, m_1 \\ \text{ and } \rk (A-s)^j &= r(2,j) \text{ for } i = m_1 + 1 ,\dots, m \}
 \end{align*}
-and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,\AA^m}$ is flat over $\AA^m$ with zero fibre $X_{r,0} = \OO^\lambda$ as desired. I guess we need to carefully choose the $W \subset \AA^m$ defining our family, which is smaller than the family $X_{r,\AA^m}$. Well, $W$ is just cut out by $0 = x_1 = x_2 = \cdots = x_{m_1}$ and $ x_{m_1 + 1} = \cdots = x_m$. Or some permutation thereof to match the permutation $p$ above.
+and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,\AA^m}$ is flat over $\AA^m$ with zero fibre $X_{r,0} = \OO^\lambda$ as desired. I guess we need to carefully choose the $W \subset \AA^m$ defining our family, which is smaller than the family $X_{r,\AA^m}$. Well, $W$ is just cut out by $0 = x_1 = x_2 = \cdots = x_{m_1}$ and $ x_{m_1 + 1} = \cdots = x_m$, or some permutation thereof to match the permutation $p$ above.
  
 % On the one hand, we know that $r(i,j)$ should be equal to $N$ minus the number of boxes in the first $j$ columns of $\lambda_i$. On the other hand, ES define $r(i,j)$ to be $N$ minus the $i$th chunk of $j$ columns determined by the rank function $r(i)$. Also, we would like for $r(i)$ to determine the shape $\lambda = \lambda_1 + \lambda_2$. Take for example $\lambda_1 = \lambda_2 = (2,1)$. Then $\lambda = (4,2)$ and so $r\{0,1,2,3,4\}=\{6,4,2,1,0\}$ and 
 % $$\{a_1,a_2,a_3,a_4\} = \{6-4,4-2,2-1,1-0\}=\{2,2,1,1\}\,.$$
@@ -1075,7 +1130,7 @@ TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_
 
     Fix $i \in \{1,\dots,m\}$ and let $p = \mu^1 + \cdots + \mu^i$. 
     % Define $\lambda^{(i)}(\tau_1 \circ \tau_2)$ so that the 
-    Jordan type of $t\big|_{\CC[t]^p/L(0)\cap\CC[t]^p}$ is $\lambda_1^{(i)}$ and Jordan type of $t\big|_{\CC[t]^p/L(s)\cap \CC[t]^p}$ is $\lambda_2^{(i)}$. 
+    Jordan type of $t\big|_{\CC[t]^p/L(0)\cap\CC[t]^p}$ is $\lambda_1^{(i)}$ and Jordan type of $t-s\big|_{\CC[t]^p/L(s)\cap \CC[t]^p}$ is $\lambda_2^{(i)}$. 
 
     Need: operations of taking quotients and taking generalized eigenspaces (i.e.\ $-\otimes\CC\xt[t-a]$) commute.
     See $(*)$ above. Also 

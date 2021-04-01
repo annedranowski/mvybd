@@ -1,6 +1,19 @@
 # todo
 
+## 2021-03-31 18:26:06
+
+Today's meeting minutes.
+
+- it remains to show that $(S^a \ast S^b)_{0,0} = S^{a + b}$ 
+   - the main thing is to show that the fibre is reduced 
+   - take attracting set of $\mathbb C^\times$ in every fibre? 
+- add $W$ aka complete statement of ES theorem to ES theorem quote
+- re-add definition of map to Lemma 1 
+- $\lambda^{(i)}_2$ describes $t-s$ eigenspaces!
+- add overline to LHS of proposition 3 
+
 ## 2021-03-22 22:16:20
+
 compute counterexample on the moon
 
 1. the example: t = Tableau([[1,3],[2,5],[4]])
