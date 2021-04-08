@@ -362,18 +362,21 @@ Now fix effective dominant coweights $\lambda', \lambda'' \in P_{++}$ of sizes $
 We consider the following subschemes of the affine Grassmannians.
 % 
 \begin{definition}
-The \textbf{spherical Schubert cell} $\Gr^\lambda = G(\cO) t^\lambda$ and its closure 
-    $ \overline\Gr^\lambda = \bigcup_{\lambda' \le \lambda} \Gr^{\lambda'} $.  
+    The \textbf{spherical Schubert cell} $\Gr^\lambda = G(\cO) t^\lambda$ and its closure 
+    $ \overline\Gr^\lambda = \bigcup_{\lambda' \le \lambda} \Gr^{\lambda'} $ a \textbf{spherical Schubert variety}.  
 \end{definition}
     % \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??} \jcom{I'm not sure which is better.  I was ``testing'' it out.}
-    Since $ \lambda $ effective, $ t^\lambda \in \Gr^+ $ and so the spherical Schubert variety $\overline{\Gr}^\lambda $ lies inside the positive part $ \Gr^+$ of the affine Grassmannian.
+    Note, since $ \lambda $ is effective, $ t^\lambda \in \Gr^+ $ and so the spherical Schubert variety $\overline{\Gr}^\lambda $ lies inside the positive part $ \Gr^+$ of the affine Grassmannian. \acom{why and so? cuz orbits are connected?}
     % 
 \begin{definition} 
-    The \textbf{fusion of two spherical Schubert varieties} $$ \overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} \rightarrow \AA $$
+    The \textbf{fusion of two spherical Schubert varieties} 
+    $$ 
+    \overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} \rightarrow \AA \,.
+    $$
 \end{definition}
     % \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda'}\times\overline\Gr^{\lambda''}\times\AA^\times}$..}
     %\acom{should we also subsript this family with $0,\AA$?}
-    By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda', \lambda''} $ over $ s \ne 0 $ is $ \overline{\Gr}^{\lambda'} \times \overline{\Gr}^{\lambda''}$.  
+    By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda', \lambda''} $ for $ s \ne 0 $ is $ \overline{\Gr}^{\lambda'} \times \overline{\Gr}^{\lambda''}$.  
     % By \cite[Proposition 3.1.14]{zhu2016introduction},
     % Zhu's theorem (\jcom{need ref} \acom{pretty sure it's }), 
     % the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda' + \lambda''}$.
@@ -388,7 +391,8 @@ The \textbf{spherical Schubert cell} $\Gr^\lambda = G(\cO) t^\lambda$ and its cl
     
 As above, since $ \lambda', \lambda'' $ are effective, the map $ \Gr_{0, \AA} \rightarrow \Grth$ restricts to a map $ \Gr^{\lambda', \lambda''}_{0, \AA} \rightarrow \Grth^+$.
 
-Now fix two effective coweights $ \mu', \mu'' \in \mathbb N^m$ such that $ \mu_i$ has size $ N_i$ and such that $ \mu = \mu' + \mu'' $ is dominant.  (We do not require $ \mu', \mu'' $ to be effective.) Using $ \mu, \mu', \mu''$, we define the following subschemes.
+Now fix two effective coweights $ \mu', \mu'' \in \mathbb N^m$ of size $N',N''$ resp. such that $ \mu = \mu' + \mu'' $ is dominant. (We do not require $ \mu', \mu'' $ to be effective.) 
+Using $ \mu, \mu', \mu''$, we define the following subschemes.
 
 \begin{definition}
     The \textbf{Kazhdan--Lusztig slice} $\cW_\mu = G_1(\Oinf) t^\mu \subset \Grth $.  
@@ -495,7 +499,7 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
             &\text{for all } 1 \le a,s\le m\,,
             \text{for all } 1\le b\le \mu_a\,, 1\le t\le \mu_s\,, \\
             &\text{if } 1\le t < \mu_s \text{ or } t = \mu_s < b \le \mu_a \\
-            &\text{then } (e^t_s)' (A-J_\mu) e^b_a = 0 \,.
+            &\text{then } e^t_s\cdot (A-J_\mu) e^b_a = 0 \,.
         \end{aligned}    
     \]
     In words, $A$ is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
@@ -559,13 +563,13 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
     
     \item The ``upper-triangular'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
     $$
-    \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu_{1,i}} (t-s)^{\mu_{2,i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}
+    \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}
     $$
-    So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu_{1,i}} (t-s)^{\mu_{2,i}}$ ($i=1,\dots,m$).
+    So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu'_{i}} (t-s)^{\mu''_{i}}$ ($i=1,\dots,m$).
     
     Note that the fibre $  \UU^{\mu', \mu''}_{0,0}$ is the same as the intersection of $ \TT_\mu $ with the set of strictly upper-triangular matrices.
 
-    $\UU_{0,0}$ entries look like 
+    $\UU_{0,0}^{(?),(?)}$ entries look like 
     \[
         \left[\begin{BMAT}(e){ccc;cc}{ccc;cc} 
             0 & 1 & 0 & 0 & 0\\
@@ -984,16 +988,16 @@ The way to think about this is as follows: inside the thick affine Grassmannian 
 \end{corollary}
 
 \begin{proof}
-    Let $ A \in \overline{\OO_{\lambda_1,\lambda_2}}\cap\TT_{\mu_1,\mu_2}^+$ and let $ g $ be the polynomial matrix formed by the Mirkovic-Vybornov isomorphism.  Then the diagonal entries of $ g $ are $ t^{\mu_{1,k}} (t-s)^{\mu_{2,k}}$ and we can factor
+    Let $ A \in \overline{\OO_{\lambda_1,\lambda_2}}\cap\TT_{\mu',\mu''}^+$ and let $ g $ be the polynomial matrix formed by the Mirkovic-Vybornov isomorphism.  Then the diagonal entries of $ g $ are $ t^{\mu_{1,k}} (t-s)^{\mu_{2,k}}$ and we can factor
     $$ g = (g t^{-\mu_1}(t-s)^{-\mu_2}) t^{\mu_1}(t-s)^{\mu_2} \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$$
     So we get containment in one direction.
     
-    For the reverse containment, we choose $ [g] \in \overline{(\Grbd[2])^{\lambda_1,\lambda_2}}\cap S_{\mu_1,\mu_2}$.  By the lemma below, $[g] \in \cW_\mu$ and thus it lies in the image of our map and we are done.
+    For the reverse containment, we choose $ [g] \in \overline{(\Grbd[2])^{\lambda_1,\lambda_2}}\cap S_{\mu',\mu''}$.  By the lemma below, $[g] \in \cW_\mu$ and thus it lies in the image of our map and we are done.
 \end{proof}
 
-% Define $S_{\mu_1,\mu_2}^s = N_-\xT[t^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. 
+% Define $S_{\mu',\mu''}^s = N_-\xT[t^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. 
 
-\acom{is it a fibre of $S_{\mu_1,\mu_2}$ defined above?}
+\acom{is it a fibre of $S_{\mu',\mu''}$ defined above?}
 
 We could also make the following claim. 
 
@@ -1007,9 +1011,9 @@ We could also make the following claim.
 \end{lemma}
 
 \begin{lemma}%[Roger's lemma]
-    Let $\mu_1,\mu_2$ be dominant and let $s\in \AA^1 - \{0\}$. Then 
+    Let $\mu',\mu''$ be dominant and let $s\in \AA^1 - \{0\}$. Then 
     \begin{equation}
-        S_{\mu_1,\mu_2}^s \subset \cW_\mu 
+        S_{\mu',\mu''}^s \subset \cW_\mu 
     \end{equation}
     where $\mu = \mu_1 + \mu_2$.
 \end{lemma}
@@ -1066,8 +1070,8 @@ As an application we can compute fusion of stable MV cycles of type $\alpha_i$ f
     % closure of the family $Z_1 \times Z_2 \times U$ 
     is equal to the multiplicity of its generalized orbital variety $X_\tau$ among the set 
     \begin{equation}\label{eq:tabmult}
-        \irr\lim_{s\to 0} \overline{\OO}^{\lambda_1,\lambda_2}_{0,s}\cap\UU^{\mu_1,\mu_2}_{0,s} \,. 
-        % \irr \lim_{s\to 0} \overline\OO^s_{\lambda_1,\lambda_2} \cap \TT_{\mu_1,\mu_2}^{+,s}
+        \irr\lim_{s\to 0} \overline{\OO}^{\lambda_1,\lambda_2}_{0,s}\cap\UU^{\mu',\mu''}_{0,s} \,. 
+        % \irr \lim_{s\to 0} \overline\OO^s_{\lambda_1,\lambda_2} \cap \TT_{\mu',\mu''}^{+,s}
     \end{equation}
     Since stable MV cycles can be represented by ordinary ones the multiplicities in 
     $$
@@ -1115,7 +1119,7 @@ TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_
 \begin{proposition}
     Let $\tau_1,\tau_2$\dots 
     \[
-    \{A\in\UU_{0,s}^{\mu_1,\mu_2} : A \big|_{\mu^1 + \cdots + \mu^i} \in \OO_{0,s}^{\lambda_{1}^{(i)},\lambda_2^{(i)}} \text{ all } i\} = Z_{\tau_1}\times Z_{\tau_2}
+    \{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\mu^1 + \cdots + \mu^i} \in \OO_{0,s}^{\lambda_{1}^{(i)},\lambda_2^{(i)}} \text{ all } i\} = Z_{\tau_1}\times Z_{\tau_2}
     \]
 \end{proposition}
 
@@ -1134,7 +1138,7 @@ TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_
     
     The left hand side is the same thing as
     $$ \CC\xt^m / (L \otimes_{\CC[t]} \CC\xt) = (\CC[t]^m/L) \otimes_{\CC[t]} \CC\xt $$
-    \acom{Restricting to an eigenspace is like inverting (forgetting) the action of $t$ by any other generalized eigenvalue. Does this have to do with the fact that a functor $F: \sch \to \set$ commutes with projective limit if and only if it's representable?}
+    \acom{Unrelated comments. 1) Restricting to an eigenspace is like inverting (forgetting) the action of $t$ by any other generalized eigenvalue. 2) Does this have to do with the fact that a functor $F: \sch \to \set$ commutes with projective limit if and only if it's representable?}
 
     Exercise 2.20 from \cite{atiyah2018introduction}: If $f : A \to B$ is a ring homomorphism and $M$ is a flat $A$-module, then $M_B = B\otimes_A M$ is a flat $B$-module. Take $A=\CC[t]$ and $B=\CC\xt$. \marginpar[]{*}
 
@@ -1147,11 +1151,11 @@ TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_
 \end{proof}
 
 \begin{question}[Related question]
-    If $\mu_1,\mu_2$ are not dominant, the LHS is smaller so the map $?$ has no chance of being an isomorphism. In general the map $?$ has to do with producing a matrix from a linear operator. 
+    If $\mu',\mu''$ are not dominant, the LHS is smaller so the map $?$ has no chance of being an isomorphism. In general the map $?$ has to do with producing a matrix from a linear operator. 
     \[
     \begin{tikzcd}
-        \overline\Gr^{\lambda_1,\lambda_2}_{0,s}\cap S^{\mu_1,\mu_2}_{0,s} \ar[r,equals]\ar[d] & \overline\Gr^{\lambda_1} \cap S^{\mu_1} \times \overline\Gr^{\lambda_2} \cap S^{\mu_2} \supset Z_1 \times Z_2 \ar[d]\\
-        \overline\OO^{\lambda_1,\lambda_2}_{0,s} \cap \UU^{\mu_1,\mu_2}_{0,s} \ar[r,"?"] & \overline\OO^{\lambda_1}\cap \TT_{\mu_1}\cap \n \times \overline\OO^{\lambda_2}\cap \TT_{\mu_2}\cap \n
+        \overline\Gr^{\lambda_1,\lambda_2}_{0,s}\cap S^{\mu',\mu''}_{0,s} \ar[r,equals]\ar[d] & \overline\Gr^{\lambda_1} \cap S^{\mu_1} \times \overline\Gr^{\lambda_2} \cap S^{\mu_2} \supset Z_1 \times Z_2 \ar[d]\\
+        \overline\OO^{\lambda_1,\lambda_2}_{0,s} \cap \UU^{\mu',\mu''}_{0,s} \ar[r,"?"] & \overline\OO^{\lambda_1}\cap \TT_{\mu_1}\cap \n \times \overline\OO^{\lambda_2}\cap \TT_{\mu_2}\cap \n
     \end{tikzcd}    
     \]
 \end{question}
@@ -1168,7 +1172,7 @@ Consider the subtableaux $\tau_{1,i}$ of $\tau_1$ and $\tau_{2,i}$ of $\tau_2$ w
 To find the MV cycles, equivalently tableaux, in the $0$-fibre of the fusion, we consider the ring generated by all the variables of $X$ and quotient out the ideal generated by the relations from the vanishing minors as well as the minimal polynomial of $X$. We then add $s$ into the ideal. Each piece in the primary decomposition of this ideal will correspond to a tableaux, and subsequently a MV cycle.
 
 \begin{example}
-Let $G = SL_3$ and consider the tableaux
+Let $G = \GL_3$ and consider the tableaux
 $$\tau_1 = \young(12,3) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2=\young(13,2).$$
 The MV cycles corresponding to $\tau_1$ and $\tau_2$ are both isomorphic to $\PP^2$.
 The weights are $\lambda_1 = \lambda_2 = (2,1,0)$ and $\mu_1 = \mu_2 = (1,1,1)$. Hence the matrix in consideration is 
