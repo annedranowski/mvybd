@@ -79,6 +79,7 @@ from sage.symbolic.expression_conversions import polynomial
 
 # rly rly bad
 t = Tableau([[1,3],[2,5],[4],[6]])
+tt = Tableau([[1,1,3,3],[2,2,5,5],[4,4],[6,6]])
 
 # main
 

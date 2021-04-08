@@ -17,12 +17,11 @@
 
 \section{Introduction}
 % 
-The Mirkovic--Vybornov isomorphism (\cite{mirkovic2007quiver,mirkovic2019comparison}) relates slices in the affine Grassmannian to slices in conjugacy classes of nilpotent matrices and Nakajima quiver varieties. In so doing it provides a geometric version of symmetric and skew Howe $(\GL_m,\GL_n)$ dualities. 
-% 
-
-[Liaison]
-
-The Beilinson--Drinfeld Grassmannian, essential to \cite{mirkovic2007geometric}, is a space which is used to define a fusion (aka convolution) product on sheaves (representations) as well as MV cycles (bases). 
+% The Mirkovi\'c--Vybornov isomorphism
+In \cite{mirkovic2007quiver} (see also the recent sequel \cite{mirkovic2019comparison}) Mirkovi\'c and Vybornov provide a geometric version of symmetric and skew Howe $(\GL_m,\GL_n)$ dualities by relating Kazhdan--Lusztig slices in the affine Grassmannian of $\GL_m$ on the one hand to slices in $n\times n$ nilpotent orbits 
+% conjugacy classes of nilpotent matrices 
+and on the other hand to Nakajima quiver varieties. 
+This article generalizes the first of these relations (an isomorphism) to families by way of the Beilinson--Drinfeld Grassmannian. Essential to \cite{mirkovic2007geometric}, this space is used to define a fusion (aka convolution) product on sheaves (representations) but can also be used to define a fusion product of MV cycles (bases). 
 % 
 This product structure makes the vector space spanned by the MV cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2019mirkovic}). % conjectured by JEA and proved by BKK
 % 
@@ -33,7 +32,7 @@ To quote from Mirkovic and Vilonen:
 % 
 [Liaison]
 
-The purpose of this paper is to give an elementary way to compute this product in type $A$. We do not know how fruitful this work might be in the larger landscape of geometric representation theory as it is plagued by two major limitations: it does not readily generalize outside of type $A$, and it is as yet computationally expensive. 
+The purpose of this paper is to give a conceptually elementary way to compute this product in type $A$. We do not know how fruitful this work might be in the larger landscape of geometric representation theory as it is plagued by two major limitations: it does not readily generalize outside of type $A$, and it is as yet computationally expensive. 
 % 
 Moreover, it is not clear why one should care about the fusion product on bases. \emoji{imp} \emoji{grin} \emoji{worried} \emoji{monocle-face} \emoji{skull}
 
@@ -52,7 +51,9 @@ $ \cO_s$ is the completion of the local ring $ \mathcal O_{\PP, s} $ and thus th
 Note that for $ s \in \CC $, we have an obvious isomorphisms  $\cO_s \cong \cO$ and $\cK_s\cong\cK$ taking $ t-s $ to $ t$. 
 
 \subsection{Groups}
-Let $H $ be an algebraic group over $ \CC $.  We will be interested $ H(R)$ where $ R $ is a $\CC$-algebra, for example $R = \CC[t], \cO_s$, etc.  Note that evaluation at $ t = s$ provides a group homomorphism $ H(\cO_s) \rightarrow H$.  We denote the kernel of this map by $ H_1(\cO_s)$.  We will be particularly interested in this construction in the case $ s = \infty$, which gives us the group $ H_1(\Oinf)$ which is often called the first congruence subgroup.
+Let $H $ be an algebraic group over $ \CC $.  We will be interested in $ H(R)$ where $ R $ is a $\CC$-algebra, for example $R = \CC[t], \cO_s$, etc.  
+\acom{random question, I know $H(R)$ is supposed to mean functor of points of the scheme $H$ but can it also be viewed as a base change from $\CC$ to $\RR$?}
+Note that evaluation at $ t = s$ provides a group homomorphism $ H(\cO_s) \rightarrow H$.  We denote the kernel of this map by $ H_1(\cO_s)$.  We will be particularly interested in this construction in the case $ s = \infty$, which gives us the group $ H_1(\Oinf)$ which is often called the first congruence subgroup.
 % \acom{Add $G_1$}
 %\acom{TODO: Algebraic groups over rings, i.e.\ the meaning of $G(K)$. The affine space of $m\times m$ matrices which we denote $ M_m$. The first congruence subgroup $G_1$ and why we take $\Oinf$ points instead of $\CC[t]$ points as some of the lit does.}
 
@@ -87,7 +88,7 @@ which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  So an effective
 % Set $\AA = \AA^1_x$ (the subscript denoting the chosen local coordinate) and fix $s\in \AA - \{0\}$. 
 
 
-Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the diagonal matrix 
+Given a coweight $\mu \in P$ and a point $ s\in \CC$, we define $ (t-s)^\mu$ to be the diagonal matrix 
 % with entries $ (t-s)^{\mu_1}, \dots, (t-s)^{\mu_m}$
 % \[
 %     \begin{pNiceMatrix}[nullify-dots,xdots/line-style=loosely dotted]
@@ -108,14 +109,14 @@ Given a coweight $\mu \in P$ and $ s\in \CC$, we define $ (t-s)^\mu$ to be the d
 \end{bmatrix} 
 \]
 which we will view in $\GL_m(K) $ for any ring $ K $ containing $\CC[t]$ in which $t-s$ is invertible (for example $ K = \Ks, \CC(t)$). % A: Think R sb K; changed it 
-\acom{1. Add warning that we will also write $(t-s)^\mu$ for its image in $\GL_m(K)/\GL_m(R)$. We hope it will be evident? 2. Change notation $\mu = (\mu_1,\dots,\mu_m)$ since we also have $\mu = \mu_1 + \mu_2$. We could do $\mu = \mu' + \mu''$ or $\mu = a + b$? The notation $\mu^{(i)}$ is alreayd taken to mean sth. Ofc all can be changed. Can also do $\mu = {}_{1}\mu + {}_{2}\mu$}
+\acom{1. Add warning that we will also write $(t-s)^\mu$ for its image in $\GL_m(K)/\GL_m(R)$. We hope it will be evident? 2. Change notation $\mu = (\mu_1,\dots,\mu_m)$ since we also have $\mu = \mu_1 + \mu_2$. We could do $\mu = \mu' + \mu''$ or $\mu = a + b$? The notation $\mu^{(i)}$ is already taken to mean sth. Ofc all can be changed. Can also do $\mu = {}_{1}\mu + {}_{2}\mu$. \emoji{sweat-smile}}
 
 
-We will also be interested in the affine space $ M_m$ of $m$x$m$ matrices.  Note that for any $ \CC$-algebra $ R $,  $GL_m(R) $ consists of those matrices $ g \in M_m(R) $ whose determinant is invertible in $ R$.  Thus $ t^\lambda \in M_m(\CC[t])$ for all $ \lambda \in P_{++}$ but $ t^\lambda \in GL_m(\CC[t]) $ if and only if $ \lambda = 0 $.
+We will also be interested in the affine space $ M_m$ of $m\times m$ matrices.  Note that for any $ \CC$-algebra $ R $, $\GL_m(R) $ consists of those matrices $ g \in M_m(R) $ whose determinant is invertible in $ R$. Thus $ t^\lambda \in M_m(\CC[t])$ for all $ \lambda \in P_{++}$ but $ t^\lambda \in \GL_m(\CC[t]) $ if and only if $ \lambda = 0 $.
 
 \subsection{Lattices}
 \label{ss:lat}
-We will use the lattice model, so it is useful to recall the following definition. Let $ R \subset K$ be two $\CC$-algebras (usually, but not always, $K$ will be a field). 
+We will use the lattice model \acom{for...?}, so it is useful to recall the following definition. Let $ R \subset K$ be two $\CC$-algebras (usually, but not always, $K$ will be a field). 
 % \acom{When is $K$ not a field?}). Let $ m \in \mathbb N$ \acom{we have already fixed $m$?} and; e.g. K = C[t,t^{-1}] is not a field!!! 
 Consider $ K^m $ as a $K$-module. By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $K^m$ 
 % \acom{what is $M$? should be $K^m$?}; bc Joel was thinking about arbitrary free modules 
@@ -134,8 +135,8 @@ $ R^m \subset K^m $ is called the standard lattice.
 % We will abuse notation and denote $L_0(R)$ simply $L_0$ in the hope that the ring $R$ will be understood from the context. 
 The group $\GL_m(K) $ acts transitively on the set of $R$-lattices in $K^m$, thus giving a bijection between 
 % the set of such lattices 
-this set and $\GL_m(K)/\GL_m(R)$, since $ GL_m(R) $ is the stabilizer of the standard lattice. 
-\acom{For example, we will frequently make use of the lattice $L_\lambda$ corresponding to the point $t^\lambda\in\Gr$ given $\lambda\in P$. If $e_1,\dots,e_m$ denote the standard basis elements of 
+this set and $\GL_m(K)/\GL_m(R)$, since $ \GL_m(R) $ is the stabilizer of the standard lattice. 
+\acom{For example, we will frequently make use of the lattice $L_\lambda$ corresponding to the point $t^\lambda\in\Gr$ --- not yet introduced --- given $\lambda\in P$. If $e_1,\dots,e_m$ denote the standard basis elements of 
 % $L_0(\cO)$ then 
 $\cO^m$ then 
 $$ 
@@ -189,7 +190,9 @@ Set $\AA = \AA^1$ and let $\Vtriv$ denote the trivial rank $ m $ vector bundle.
     $$ 
     \Gr = \left\{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \right\}\,.
     $$
-    We obtain the lattice from $ (V,\varphi) $ by setting $ L = \Gamma(D_0, V)$ which is embedded into $ \cK^m = \Gamma(D_0^\times, \Vtriv)$ using $ \varphi$.  On the other hand, we obtain the lattice from the group-theoretic description $ G(\cK) / G(\cO) $ by setting $ L = g \cO^m$ for $ g \in G(\cK)$.\emoji{clap} \acom{Change $V_0$}
+    We obtain the lattice from $ (V,\varphi) $ by setting $ L = \Gamma(D_0, V)$ which is embedded into $ \cK^m = \Gamma(D_0^\times, \Vtriv)$ using $ \varphi$.  On the other hand, we obtain the lattice from the group-theoretic description $ G(\cK) / G(\cO) $ by setting $ L = g \cO^m$ for $ g \in G(\cK)$.
+    % \emoji{clap} 
+    % \acom{Change $V_0$}
     % 
     \item For any $ s \in \CC $, 
     % \acom{should it be $\AA$ instead of $\CC$} 
@@ -221,10 +224,11 @@ Set $\AA = \AA^1$ and let $\Vtriv$ denote the trivial rank $ m $ vector bundle.
     % \jcom{Maybe write $\Kinf$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.} \acom{Since $\sf th$ is also the first two letters of ``thin''?} \jcom{That's a good point!  Maybe we could use some kind of bold  Gr (``thick'' letters) or maybe that would be too confusing.} \acom{Ok, it's tentative.}
 
     \item The (two point) Beilinson--Drinfeld Grassmannian $\pi : \Grbd\to \AA$ (with one point fixed at 0, and the second point $s\in\AA$ varying).
-    It is described in modular terms by \acom{Change $V_0$}
+    It is described in modular terms by 
+    % \acom{Change $V_0$}
     % {\small
     $$
-    % \Grbd = 
+    \Grbd = 
     % \begin{aligned}
         \left\{ 
             (V,\varphi,s) : V\text{ is a rank $m$ vector bundle on }\PP, \varphi : V \xrightarrow{\sim} \Vtriv \text{ on } \PP \setminus \{0, s\}  
@@ -242,20 +246,19 @@ Set $\AA = \AA^1$ and let $\Vtriv$ denote the trivial rank $ m $ vector bundle.
     % \acom{0 in notation is kinda redundant? But we can't take it away because we already have a $\Gr_s$ and it is something else?}
     % \jcom{Yes, that is one reason.  But also, there was a comment of yours before in the file, saying that you sometimes got confused that one point was fixed at 0, so this is a good notation to remind us (and the reader).  For the same reason, maybe we should write $ \Gr_{0, \AA}$ instead of $ \Gr_\AA$.}
     % \acom{lol}
-    
-    We also have a lattice descriptions 
+    We also have the lattice descriptions 
     % {\small
     \begin{gather*}
     \Grbd = 
     \{ (L,s) :
     % s\in\AA,\,
     % L \subset  \CC(t)^m, s \in \AA 
-    \text{$L \subset  \CC(t)^m$ is a $\CC[t]$-lattice trivial at any $ a \ne 0, s$} \} \\
+    \text{$L \subset  \CC(t)^m$ is a $\CC[t]$-lattice trivial at any $ a \ne 0, s$} \}\,, \\
     % , $L$ is 
      \Gr_{0,s} = 
-    \{ L \subset  \CC[t,t^{-1},(t-s)^{-1}]^m : \text{ $L$ is a $\CC[t]$-lattice} \}
+    \{ L \subset  \CC[t,t^{-1},(t-s)^{-1}]^m : \text{ $L$ is a $\CC[t]$-lattice} \}\,.
     \end{gather*}%}
-    \acom{We do not consistently specify where $s$ is in these definitions}
+    % \acom{We do not consistently specify where $s$ is in these definitions}
     % \acom{$s\in\CC$ should be $s\in\AA$?}
     % \jcom{Sorry I was very consistent about $ \CC$ vs $\AA$.  Which do you prefer?}
     % 
@@ -274,7 +277,8 @@ Set $\AA = \AA^1$ and let $\Vtriv$ denote the trivial rank $ m $ vector bundle.
     % \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO) \text{ and } {\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t])\,. % \CC\xT[t^{-1}] missed a spot  
     % $$
     % 
-    In modular terms, $\Gr^+$ (resp. ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow V_0 $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp. over $ \PP$). \acom{Change $V_0$}
+    In modular terms, $\Gr^+$ (resp. ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow \Vtriv $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp. over $ \PP$). 
+    % \acom{Change $V_0$}
     
     In lattice terms, $ \Gr^+$ (resp. ${\Grth}^+$) contains those lattices $L$ which are contained in the relevant standard lattice. 
     % \acom{previously called ``trivial''} \jcom{I changed it so that $ R^m $ is called the standard lattice.  But I would like to leave the terminology ``trivial at $ a$'' is that ok, or should we write ``standard at $a$''.} 
@@ -286,7 +290,7 @@ These different versions of the affine Grassmannian are related as follows.
 
 \begin{enumerate}
     \item There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$.
-    \item We have a map from the two point BD affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $
+    \item We have a map from the two point Beilinson--Drinfeld affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $
     % $$ \Grbd \rightarrow \Grth $$ 
     which is given in modular terms by restricting the trivialization to $ D_\infty$.  It is given in group-theoretic terms on the fibre over $ s $ by the inclusion
     $$
@@ -314,11 +318,13 @@ These different versions of the affine Grassmannian are related as follows.
     % \jcom{Maybe we should introduce some notation for this isomorphism.}
     % \acom{Ok. Question: how is the isomorphism given at $s=0$?}
     % \acom{Ok. TODO. Also write this in group theoretic terms. Probably $[g] \mapsto ([g],[g])$ is ok. Since $g\CC[t]\otimes_{\CC[t]}\cO_s \cong g\cO_s $ for some reason, where $g\in\CC[t,t^{-1},(t-s)^{-1}]$ can be viewed as $g\in\cK_s$.}
-    
-    In group-theoretic terms, this isomorphism is given using the diagonal map
-    $$G(\CC[t, t^{-1}, (t-s)^{-1}])/G(\CC[t]) \rightarrow G(\cK)/G(\cO) \times G(\cK_s)/G(\cO_s)
+    % 
+    Lastly, in group-theoretic terms, this isomorphism is given using the diagonal map
     $$
-    This is compatible with the lattice description since for $ g \in G(\CC[t, t^{-1}, (t-s)^{-1}])/G(\CC[t]) $, we have
+    G(\CC[t, t^{-1}, (t-s)^{-1}])/G(\CC[t]) \rightarrow G(\cK)/G(\cO) \times G(\cK_s)/G(\cO_s)\,,
+    $$
+    % This
+    which is compatible with the lattice description, since for $ g \in G(\CC[t, t^{-1}, (t-s)^{-1}])/G(\CC[t]) $, we have
     $$
     g \CC[t]^m \otimes_{\CC[t]} \cO = g \cO^m
     $$
@@ -345,15 +351,19 @@ Let $ X_1, X_2 \subset \Gr$ be two subschemes.
 We define the subscheme $ \tau^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $.
 
 \jcom{I changed this a bit in order to match Mirkovic--Vilonen better.}
-% =======
+\acom{We say ``we define the subscheme..'' but what is there to define? Should it say ``we consider'' maybe?}
 % Via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
-% >>>>>>> 5a15ce15b14109bab482282aa5657c9596f7892d
 
 We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ inside of $ \Grbd $.  
-Next, we consider the projection $ \pi: \Grbd \rightarrow \AA $ and define $ X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) \subset \Gr_{0,0} $, which we call the fusion of $ X_1 $ and $X_2$.  
-We regard $ X_1 \circ X_2$ as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $. 
+Next, we consider the projection $ \pi: \Grbd \rightarrow \AA $, and define 
+% $ X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) \subset \Gr_{0,0} $, 
+\begin{equation}
+    \label{deservesdisplay}
+    X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) 
+\end{equation}
+which we call the fusion of $ X_1 $ and $X_2$. It is contained in $\Gr_{0,0}$ but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $. 
 
-By this construction, $X_1 \ast_{\AA} X_2 $ is a flat family over $\CC$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$.
+By this construction, \acom{technically, there were two given above, so *these* constructions?} $X_1 \ast_{\AA} X_2 $ is a flat family over $\CC$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$.
 
 % \acom{Repeat question: what is this iso? Roger says maybe it's in MV?}
 % \jcom{Now answered above.}
@@ -366,7 +376,12 @@ By this construction, $X_1 \ast_{\AA} X_2 $ is a flat family over $\CC$ whose fi
 %\acom{Sure! It is quoted at the end, in \Cref{s:denouement} as an application. Addendum: for the numerical fusion I suggest simply $[Z_1][Z_2]$. This is what I will use in my talk. }
 
 \subsection{Some subvarieties of affine Grassmannians}
-Now fix effective dominant coweights $\lambda_1, \lambda_2 \in P_{++}$ of sizes $N_1, N_2$  and their sums $ \lambda = \lambda_1 + \lambda_2 $ of size $ N = N_1 + N_2$. 
+Now fix effective dominant coweights 
+% $\lambda_1, \lambda_2 \in P_{++}$ 
+$\lambda',\lambda''\in P_{++}$ of sizes 
+% $N_1, N_2$  
+$N',N''$ respectively, and let $ \lambda = \lambda' + \lambda''$ whose size $N' + N''$ is denoted $N$. \acom{This $N$ conflicts with $N\subset G$ the unipotent subgroup.}
+% $ N = N_1 + N_2$. 
 % Coweights define elements in the various affine Grassmannians which we consider. Warning: We will write only coset representatives for elements of the various Grassmannians; we hope that it is evident which right cosets they represent. 
 % the right cosets which they represent are clear from the context.
 We consider the following subschemes of the affine Grassmannians.
@@ -380,11 +395,12 @@ We consider the following subschemes of the affine Grassmannians.
     % $$ 
     % \acom{This definition makes sense for any $\lambda\in P$? Also, we don't really need it here---I have moved it up to the lattices section.}
     \item The orbit $\Gr^\lambda = G(\cO) t^\lambda$ and its closure 
-    $ \overline\Gr^\lambda = \bigcup_{\lambda' \le \lambda} \Gr^{\lambda'} $.  
+    $ \overline\Gr^\lambda = \bigcup_{\nu \le \lambda} \Gr^{\nu} $.  
     % \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??} \jcom{I'm not sure which is better.  I was ``testing'' it out.}
     This orbit lies inside the positive part $ \Gr^+$ of the affine Grassmannian. \acom{Do we need to justify this.}
     % 
-    \item The family $ \overline{\Gr}_{0,\AA}^{\lambda_1, \lambda_2} \rightarrow \AA$ defined by $ \overline{\Gr}^{\lambda_1, \lambda_2}_{0, \AA} = \overline{\Gr}^{\lambda_1} \ast_\AA \overline{\Gr}^{\lambda_2}$. 
+    \item The family $ \overline{\Gr}_{0,\AA}^{\lambda',\lambda''} \rightarrow \AA$ defined by $ \overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''}$. 
+    \item \acom{NOTE TO SELF CONTINUE HERE}
     % \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda_1}\times\overline\Gr^{\lambda_2}\times\AA^\times}$..}
     %\acom{should we also subsript this family with $0,\AA$?}
     
@@ -1310,6 +1326,9 @@ $$
 \end{array}
 $$
 and the MV cycles corresponding to each are the same as before.
+\[
+{\lambda'}^{(i)}    
+\]  
 \end{example}
 
 \bibliographystyle{alpha}

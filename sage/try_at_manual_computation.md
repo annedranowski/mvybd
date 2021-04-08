@@ -1,5 +1,7 @@
 # example 
 
+2021-04-02 11:53:24 To substitute a value for a variable matrix entry do e.g. for the variable s matrix.subs(s=value)
+
 calculating b^2 where b is the mv basis vector with (2,2,1,1) tableau [[1,3],[2,5],[4],[6]]
 
 <!-- Tableaux.options.ascii_art = "table"
