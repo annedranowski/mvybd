@@ -207,8 +207,14 @@ def mu_submatrices_over_gf(t1,t2):
 
 # Roger's stuff
 
-# return kxk minors of matrix mat using last col columns
-def minors_with_last_col(mat,col,k):
+# return kxk minors of matrix mat = mat0**pow using last col columns
+def minors_with_last_col(mat0,pow,col,k):
+    mat = mat0**pow
+    all_rows0 = []
+    for i in range(mat0.column(mat0.ncols()-1).length()):
+        if not mat0.column(mat0.ncols()-1)[i].is_constant():
+            # all_rows0.append(i)
+            all_rows0.append(mat0.column(mat0.ncols()-1)[i])
     all_rows = range(mat.nrows())
     first_cols = range(mat.ncols()-col) 
     last_cols = range(mat.ncols()-col,mat.ncols())
@@ -218,7 +224,8 @@ def minors_with_last_col(mat,col,k):
             for lcols in Combinations(last_cols,i) :
                 for fcols in Combinations(first_cols,k-i):
                     mnr = mat.matrix_from_rows_and_columns(rows,lcols+fcols).determinant()
-                    if mnr != 0:
+                    # if mnr != 0:
+                    if not Set(mnr.variables()).intersection(Set(all_rows0)).is_empty():
                         mnrs.append(mnr)
     return mnrs
 

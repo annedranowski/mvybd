@@ -1044,19 +1044,19 @@ where $B_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} = B_1\xt[t^{-1}] t^{\mu_1 + \mu_2}
 \section{Denouement}
 \label{s:denouement}
 
-As an application we can compute fusion of stable MV cycles of type $\alpha_i$ for any $i \in I$. What about more general weights? Having $\kpf > 1$.
+As an application we can compute fusion of stable MV cycles of type $\alpha_i$ for any $i \in I$. What about more general weights? Having $\kpf > 1$. Well yeah. 
 
 \begin{proposition}(\cite{baumann2019mirkovic})
     % Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
-    Let $Z_{i} = Z_{\tau_i}$  be an MV cycle of type $\lambda_i\in P_{++}$ and weight $\mu_i\in P$ ($i = 1,2$). Then 
+    Let $Z',Z''$  be MV cycles of type $\lambda',\lambda''\in P_{++}$ and weight $\mu',\mu''\in P$ resp.\ such that $\mu = \mu' + \mu'' \in P_{++}$. Then 
     \begin{equation}
         % Z_\tau\ast Z_\sigma 
-        m_{\lambda_1\lambda_2} ([Z_1]\otimes[Z_2]) 
+        m_{\lambda'\lambda''} ([Z']\otimes[Z'']) 
         = 
         % \sum_{Z\in\cZ(\lambda)_\mu} 
         \sum_{\tau\in S(\lambda)_\mu}
         i\left(
-            Z_\tau, Z_1\circ Z_2 
+            Z_\tau, Z'\circ Z''
             % \pi^{-1}(0)\cdot\overline{Z_1\times Z_2\times U}
         \right) [Z_\tau]
     \end{equation}
@@ -1070,33 +1070,67 @@ As an application we can compute fusion of stable MV cycles of type $\alpha_i$ f
     % closure of the family $Z_1 \times Z_2 \times U$ 
     is equal to the multiplicity of its generalized orbital variety $X_\tau$ among the set 
     \begin{equation}\label{eq:tabmult}
-        \irr\lim_{s\to 0} \overline{\OO}^{\lambda_1,\lambda_2}_{0,s}\cap\UU^{\mu',\mu''}_{0,s} \,. 
+        \irr\lim_{s\to 0} \overline{\OO}^{\lambda',\lambda''}_{0,s}\cap\UU^{\mu',\mu''}_{0,s} \,. 
         % \irr \lim_{s\to 0} \overline\OO^s_{\lambda_1,\lambda_2} \cap \TT_{\mu',\mu''}^{+,s}
     \end{equation}
     Since stable MV cycles can be represented by ordinary ones the multiplicities in 
     $$
-    b_{Z_1}b_{Z_2} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} i \left(
-        Z, Z_1 \circ Z_2 
+    b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} i \left(
+        Z, Z' \circ Z''
         % \pi^{-1}(0) \cdot \overline{Z_1 \times Z_2 \times U}
     \right) b_Z 
     $$
-    can also be deduced from \cref{eq:tabmult} for appropriate choices of $\lambda_i$ and $\mu_i$ ($i = 1,2$).
+    can also be deduced from \cref{eq:tabmult} for appropriate choices of $\lambda',\lambda''$ and $\mu',\mu''$.
 \end{proposition}
 \acom{or Corollary?}
 
 \begin{conjecture}
     % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu_2$. 
-    Let $\tau$ be the tableau of shape $\lambda$ and weight $\mu$ whose Lusztig datum is equal to the sum of the Lusztig data of $\tau_1$ and $\tau_2$. 
+    Let $\tau$ be the tableau of shape $\lambda$ and weight $\mu$ whose Lusztig datum is equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
     % Then $i(\tau, \pi^{-1}(0) \cdot \overline{\tau_1 \times \tau_2 \times U})$ is equal to 1. 
     Then 
     \begin{equation}
         i(\tau, 
         % \pi^{-1}(0) \cdot \overline{\tau_1 \times \tau_2 \times U}
         % Z_1 \circ Z_2 
-        \tau_1 \circ \tau_2 
+        \tau' \circ \tau''
         ) = 1 \,. 
     \end{equation}
 \end{conjecture}
+
+\begin{proposition}
+    Given Lusztig data $n_\bullet',n_\bullet''\in\NN^\ell$ the smallest choice of $\mu',\mu''\in P$ and $\lambda',\lambda''\in P_{++}$ such that $\mu = \mu' + \mu''\in P_{++}$ and $\tau'\in S(\lambda')_{\mu'}$, $\tau''\in S(\lambda'')_{\mu''}$ are SSYT with the prescribed Lusztig data, are\dots
+\end{proposition}
+\begin{proof}
+    [Sketch.]
+    The last row of the GT pattern of $\tau'$ (resp.\ $\tau''$) is $\lambda'$ (resp.\ $\lambda''$). 
+    Guess: the smallest choices will be the appropriate pieces of the smallest choices for $\lambda$, $\mu$, and $n_\bullet = n_\bullet' + n_\bullet''$. E.g.\ take $n_\bullet' = (2,0,0), n_\bullet'' = (0,0,2)$ so $n_\bullet = (2,0,2)$. Then $\lambda - \mu = 2\alpha_1 + 2\alpha_2$ %or $(\lambda_1 - \mu_1,\lambda_2 - \mu_2, \lambda_3 - \mu_3) = (2,0,2)$ 
+    \begin{gather}
+        (\lambda_1 - \mu_1,\lambda_2 - \mu_2, \lambda_3 - \mu_3) = (2,0,-2)
+        \\
+        % (\lambda_1(2) - \mu_1(2),\lambda_2(2) - \mu_2(2), \lambda_3(2) - \mu_3(2)) &= (2,0,2) \\
+        % (\lambda_1(1) - \mu_1(1),\lambda_2(1) - \mu_2(1), \lambda_3(1) - \mu_3(1)) &= (2,0,2)
+        \begin{matrix}
+            & & \lambda_1(1) \\
+            & \lambda_1 (2) = \lambda_1(1) + 2 & & \lambda_2(2) \\
+            \lambda_1 = \lambda_1(2) + 0  & & \lambda_2 = \lambda_2(2) + 2 & & \lambda_3 
+        \end{matrix}\\
+        \Rightarrow \mu_3 \ge 2, \mu_2 \ge 2, \mu_1 \ge 2 \\
+        \Rightarrow \lambda_3 \ge 0, \lambda_2 \ge 2, \lambda_1 \ge 4 \\
+        \Rightarrow \lambda_2(2) = \lambda_2 - 2 \ge 0 , \lambda_1(2) = \lambda_1 \ge 4 \\ 
+        \Rightarrow \lambda_1(1) = \lambda_1(2) - 2 \ge 2 \\ 
+        \young(1122,33)
+        % \Leftrightarrow 
+        % \begin{matrix}
+        %     & & \lambda_1(1) \\
+        %     & \lambda_1 (2) = \lambda_1(1) + 2 & & \lambda_2(2) \\
+        %     \lambda_1 = \lambda_1(2) + 0  & & \lambda_2 = \lambda_2(2) + 2 & & 0 
+        % \end{matrix}
+    \end{gather} 
+    Since the tableau formed by taking the smallest possible choices for each of the inequalities is semi-standard we're good. 
+
+    In general we have $\mu_i\ge\sum_k n_{i,k}$ where $n_{i,k} = \lambda_k(i) - \lambda_{k}(i-1)$ and then $\lambda_i \ge \nu_i + \mu_i$ where $\nu = \wt(n_\bullet)$. The rest of the lower bounds are determined recursively by the relation $\lambda_k(i-1) =  \lambda_k(i) - n_{i,k}$. Choose the minimum values satisfying the bounds until $\lambda_k(i) < \lambda_{k+1}(i)$ for some $k,i$. If this should happen go back to the start and increment all/some of the initial $\lambda_k$ by an appropriate amount.
+\end{proof}
 
 % TODO: un-appendicize 
 % \appendix
