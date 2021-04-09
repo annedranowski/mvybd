@@ -1213,9 +1213,9 @@ To find the MV cycles, equivalently tableaux, in the $0$-fibre of the fusion, we
 Let $G = \GL_3$ and consider the tableaux
 $$\tau_1 = \young(12,3) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2=\young(13,2).$$
 
-Lusztig data: $(010000)$ for $\tau_1$, $(100100)$ for $\tau_2$
+Lusztig data: $(010)$ for $\tau_1$, $(101)$ for $\tau_2$
 
-Dimensions: $\alpha_1 + \alpha_2$ for both.
+Dimensions: $(1,0,-1)$ for both.
 
 The MV cycles corresponding to $\tau_1$ and $\tau_2$ are both isomorphic to $\PP^2$.
 The weights are $\lambda_1 = \lambda_2 = (2,1,0)$ and $\mu_1 = \mu_2 = (1,1,1)$. Hence the matrix in consideration is 
@@ -1248,16 +1248,19 @@ We see already that the $0$-fibre is irreducible. The tableau corresponding to t
 $$\young(1123,23)$$
 which corresponds to the MV cycle that is the product of the MV cycles corresponding to $\tau_1$ and $\tau_2$.
 
-Lusztig datum: $(110100)$
+Lusztig datum: $(111)$
 
-Dimension: $2\alpha_1 + 2\alpha_2$
+Dimension: $(2,0,-2)$
 \end{example}
 
 \begin{example}
 Let $G = SL_3$ and consider the tableaux
 $$\tau_1 = \young(12) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2 = \young(11,23).$$
 
-Lustig data: $(100000)$ for $\tau_1$, 
+Lustig data: $(100)$ for $\tau_1$, $(001)$ for $\tau_2$.
+
+Dimensions: $(1,-1,0)$ for $\tau_1$, $(0,1,-1)$ for $\tau_2$.
+
 The MV cycles corresponding to the above tableaux are each isomorphic to $\PP^1$.
 We have the weights to be $\lambda_1 = (2,0,0)$, $\lambda_2 = (2,2,0)$, $\mu_1 = (1,1,0)$, and $\mu_2 = (2,1,1)$. The matrix under consideration is therefore
 \[
@@ -1276,9 +1279,9 @@ From $X$, we further obtain the relations $$a_2b_2 + sb_1 = 0, a_1b_2 + s^2b_1 =
 Then the quotient ring we find is
 $$\frac{\CC[a_1,a_2,b_1,b_2,s]}{\langle a_1+sa_2, a_2b_2+sb_1, a_1b_2+s^2b_1, s\rangle} \cong \frac{\CC[a_1,a_2,b_1,b_3,s]}{\langle a_1, a_2\rangle \cap \langle a_1, b_2 \rangle}.$$
 We see that the 0-fibre is reducible with two components. The tableau corresponding to each ideal is
-$$\begin{array}{cc} \vspace{1mm}
-    \young(1113,22) & \text{for } \langle a_1, a_2 \rangle \\ 
-    \young(1112,23) & \text{for } \langle a_1, b_2 \rangle.
+$$\begin{array}{cccc} \vspace{1mm}
+    \young(1113,22) & \text{for } \langle a_1, a_2 \rangle & \text{Lusztig: }(101) & \dim = (1,0,-1)\\ 
+    \young(1112,23) & \text{for } \langle a_1, b_2 \rangle & \text{Lusztig: }(010) & \dim = (1,0,-1).
 \end{array}$$
 Each of these tableaux corresponds to a MV cycle isomorphic to $\PP^2$ so the generic fibre $\PP^1 \times \PP^1$ degenerates to two copies of $\PP^2$.
 \end{example}
@@ -1286,6 +1289,11 @@ Each of these tableaux corresponds to a MV cycle isomorphic to $\PP^2$ so the ge
 \begin{example}
 Let $G = SL_3$ and consider the following tableaux:
 $$\tau_1 = \young(1122) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau_2 = \young(1111,2233).$$
+
+Lusztig data: $(200)$ for $\tau_1$, $(002)$ for $\tau_2$.
+
+Dimensions: $(2,-2,0)$ for $\tau_1$, $(0,2,-2)$ for $\tau_2$.
+
 The MV cycles corresponding to these tableaux are each isomorphic to $\PP^1 \times \PP^1$. 
 The weights are then $\lambda_1 = (4,0,0)$, $\lambda_2 = (4,4,0)$, $\mu_1 = (2,2,0)$, and $\mu_2 = (4,2,2)$.
 Then we are considering the following matrix:
@@ -1316,10 +1324,10 @@ $$
 $$
 It can be checked that $I_3$ has multiplicity 2 \rcom{Not sure how to make this precise and how to check it.} so the 0-fibre has 4 components, two of which are the same. The tableau corresponding to each ideal is
 $$
-\begin{array}{cc}\vspace{1mm}
-    \young(11111133,2222) & \text{for } I_1 \\ \vspace{1mm}
-    \young(11111122,2233) & \text{for } I_2 \\ \vspace{1mm}
-    \young(11111123,2223) & \text{for } I_3.
+\begin{array}{cccc}\vspace{1mm}
+    \young(11111133,2222) & \text{for } I_1 & \text{Lusztig: }(202) & \dim = (2,0,-2) \\ \vspace{1mm}
+    \young(11111122,2233) & \text{for } I_2 & \text{Lusztig: }(020) & \dim = (2,0,-2) \\ \vspace{1mm}
+    \young(11111123,2223) & \text{for } I_3 & \text{Lusztig: }(111) & \dim = (2,0,-2).
 \end{array}
 $$
 The MV cycle for each ideal is isomorphic to $\PP^2 \times \PP^2$.
@@ -1357,9 +1365,6 @@ $$
 \end{array}
 $$
 and the MV cycles corresponding to each are the same as before.
-\[
-{\lambda'}^{(i)}    
-\]  
 \end{example}
 
 \bibliographystyle{alpha}
