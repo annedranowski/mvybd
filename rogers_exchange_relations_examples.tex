@@ -25,6 +25,11 @@ We first list out the tableau of each MV cycle:
 \end{array}\]
 
 \section{Example 1: $S_1 * S_2 = 1 \leftarrow 2 + 1 \rightarrow 2$}
+Lusztig data: $(100000) * (000100) = (100100) + (010000)$
+
+Dimensions: $(1,-1,0,0) + (0,1,-1,0) = (1,0,-1,0)$
+
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,0,0,0) & \mu_1 &= (1,1,0,0) \\
@@ -63,7 +68,9 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 2: $S_3 * S_2 = 2 \rightarrow 3 + 2 \leftarrow 3$}
-$S_2 * S_3 = 2 \rightarrow 3 + 2 \leftarrow 3$
+Lusztig data: $(000001) * (000100) = (000010) + (000101)$
+
+Dimensions: $(0,0,1,-1) + (0,1,-1,0) = (0,1,0,-1)$
 
 Take 
 \[\begin{aligned}
@@ -108,6 +115,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 3: $S_1 * 2 \rightarrow 3 = P_1 + 1\leftarrow 2 \rightarrow 3$}
+Lusztig data: $(100000) * (000010) = (001000) + (100010)$
+
+Dimensions: $(1,-1,0,0) + (0,1,0,-1) = (1,0,0,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,0,0,0) & \mu_1 &= (1,1,0,0) \\
@@ -148,6 +159,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 4: $S_1 * 2 \leftarrow 3 = P_3 + 1 \rightarrow 2 \leftarrow 3$}
+Lusztig data: $(100000) * (000101) = (100101) + (010001)$
+
+Dimensions: $(1,-1,0,0) + (0,1,0,-1) = (1,0,0,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,0,0,0) & \mu_1 &= (1,1,0,0) \\
@@ -188,6 +203,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 5: $S_3 * 1 \rightarrow 2 = 1 \rightarrow 2 \leftarrow 3 + P_1$}
+Lusztig data: $(000001) * (010000) = (010001) + (001000)$
+
+Dimensions: $(0,0,1,-1) + (1,0,-1,0) = (1,0,0,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,2,2,0) & \mu_1 &= (2,2,1,1) \\
@@ -230,6 +249,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 6: $S_3 * 1 \leftarrow 2 = P_3 + 1 \leftarrow 2 \rightarrow 3$}
+Lusztig data: $(000001) * (100100) = (100101) + (100010)$
+
+Dimensions: $(0,0,1,-1) + (1,0,-1,0) = (1,0,0,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,2,2,0) & \mu_1 &= (2,2,1,1) \\
@@ -274,6 +297,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 7: $1 \leftarrow 2 * 2 \leftarrow 3 = P_2 + S_2 \oplus P_3$}
+Lusztig data: $(100100) * (000101) = (010010) + (100201)$
+
+Dimensions: $(1,0,-1,0) + (0,1,0,-1) = (1,1,-1,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,1,0,0) & \mu_1 &= (1,1,1,0) \\
@@ -315,6 +342,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 8: $1 \rightarrow 2 * 2 \rightarrow 3 = P_2 + S_2 \oplus P_1$}
+Lusztig data: $(010000) * (000010) = (010010) + (101000)$
+
+Dimensions: $(1,0,-1,0) + (0,1,0,-1) = (1,1,-1,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,1,0,0) & \mu_1 &= (1,1,1,0) \\
@@ -356,6 +387,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 9: $S_2 * 1 \leftarrow 2 \rightarrow 3 = P_2 + 1 \leftarrow 2 \oplus 2 \rightarrow 3$}
+Lusztig data: $(000100) * (100010) = (010010) + (100110)$
+
+Dimensions: $(0,1,-1,0) + (1,0,0,-1) = (1,1,-1,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,2,0,0) & \mu_1 &= (2,1,1,0) \\
@@ -397,6 +432,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 10: $S_2 * 1 \rightarrow 2 \leftarrow 3 = P_2 + 1 \rightarrow 2 \oplus 2 \leftarrow 3$}
+Lusztig data: $(000100) * (010001) = (010010) + (010101)$
+
+Dimensions: $(0,1,-1,0) + (1,0,0,-1) = (1,1,-1,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,2,0,0) & \mu_1 &= (2,1,1,0) \\
@@ -440,6 +479,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 11: $1 \leftarrow 2 \rightarrow 3 * 1 \rightarrow 2 = 1 \leftarrow 2 \oplus P_1  + S_1 \oplus P_2$}
+Lusztig data: $(100010) * (010000) = (101100) + (110010)$
+
+Dimensions: $(1,0,0,-1) + (1,0,-1,0) = (2,0,-1,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,1,1,0) & \mu_1 &= (1,1,1,1) \\
@@ -480,6 +523,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 12: $1 \rightarrow 2 \leftarrow 3 * 1 \leftarrow 2 = 1 \rightarrow 2 \oplus P_3  + S_1 \oplus P_2$}
+Lusztig data: $(010001) * (100100) = (110101) + (110010)$
+
+Dimensions: $(1,0,0,-1) + (1,0,-1,0) = (2,0,-1,-1)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (3,2,1,0) & \mu_1 &= (2,2,1,1) \\
@@ -522,6 +569,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 13: $1 \leftarrow 2 \rightarrow 3 * 2 \leftarrow 3 = 2 \rightarrow 3 \oplus P_3  + S_3 \oplus P_2$}
+Lusztig data: $(100010) * (000101) = (100111) + (010011)$
+
+Dimensions: $(1,0,0,-1) + (0,1,0,-1) = (1,1,0,-2)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (2,2,1,0) & \mu_1 &= (2,1,1,1) \\
@@ -564,6 +615,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 14: $1 \rightarrow 2 \leftarrow 3 * 2 \rightarrow 3 = 2 \leftarrow 3 \oplus P_1  + S_3 \oplus P_2$}
+Lusztig data: $(010001) * (000010) = (001101) + (010011)$
+
+Dimensions: $(1,0,0,-1) + (0,1,0,-1) = (1,1,0,-2)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (3,2,1,0) & \mu_1 &= (2,2,1,1) \\
@@ -610,6 +665,10 @@ The corresponding tableau for each ideal is:
 \]
 
 \section{Example 15: $1 \rightarrow 2 \leftarrow 3 * 1 \leftarrow 2 \rightarrow 3 = S_1 \oplus S_3 \oplus P_2 + P_1 \oplus P_3$}
+Lusztig data: $(010001) * (100010) = (110011) + (101101)$
+
+Dimensions: $(1,0,0,-1) + (1,0,0,-1) = (2,0,0,-2)$
+
 Take 
 \[\begin{aligned}
     \lambda_1 &= (3,2,1,0) & \mu_1 &= (2,2,1,1) \\
