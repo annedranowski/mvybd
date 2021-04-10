@@ -1,5 +1,9 @@
 # todo
 
+## 2021-04-09 18:06:30
+- How to interpret $t-\infty = t^{-1}$? As $t^{-1}:=t-\infty$ or $[a:b] - [0:1] = [b:a]$
+-
+
 ## 2021-03-31 18:26:06
 
 Today's meeting minutes.

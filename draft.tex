@@ -24,9 +24,9 @@ and to Nakajima quiver varieties on the other hand.
 This paper generalizes the first of these relations (an isomorphism) to families of slices by way of the Beilinson--Drinfeld Grassmannian. 
 Essential to \cite{mirkovic2007geometric}, this space is used to define a fusion (aka convolution) product on sheaves (representations) but can also be used to define a fusion product of MV cycles (bases). 
 % 
-This product structure makes the vector space spanned by the MV cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2019mirkovic}). % conjectured by JEA and proved by BKK
+This product structure makes the vector space spanned by the MV cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2019Mirkovi\'c}). % conjectured by JEA and proved by BKK
 % 
-To quote from Mirkovic and Vilonen:
+To quote from Mirkovi\'c and Vilonen:
 \begin{quotation}
     However, we make crucial use of an idea of Drinfeld, going back to around 1990. He discovered an elegant way of obtaining the commutativity constraint by interpreting the convolution product of sheaves as a ``fusion'' product.
 \end{quotation}
@@ -53,14 +53,16 @@ Note that for $ s \in \CC $, we have an obvious isomorphisms  $\cO_s \cong \cO$ 
 
 \subsection{Groups}
 Let $H $ be an algebraic group over $ \CC $.  We will be interested in $ H(R)$ where $ R $ is a $\CC$-algebra, for example $R = \CC[t], \cO_s$, etc.  
+% 
 \acom{random question, I know $H(R)$ is supposed to mean functor of points of the scheme $H$ but can it also be viewed as a base change from $\CC$ to $\RR$?}
+% 
 Note that evaluation at $ t = s$ provides a group homomorphism $ H(\cO_s) \rightarrow H$.  We denote the kernel of this map by $ H_1(\cO_s)$.  We will be particularly interested in this construction in the case $ s = \infty$, which gives us the group $ H_1(\Oinf)$ which is often called the first congruence subgroup.
 % \acom{Add $G_1$}
 %\acom{TODO: Algebraic groups over rings, i.e.\ the meaning of $G(K)$. The affine space of $m\times m$ matrices which we denote $ M_m$. The first congruence subgroup $G_1$ and why we take $\Oinf$ points instead of $\CC[t]$ points as some of the lit does.}
 
 Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
 % are there other possibilities?? :S 
-Write $P$ for the coweight lattice of $T$, so we have $P\cong \ZZ^m$.  
+Write $P$ for the coweight lattice $\Hom(\CC^\times,T)$ of $T$, so we have $P\cong \ZZ^m$.  
 % TODO: Thank you - resolved!
 % \acom{This identification assumes we are taking $\CC$ points of $G$ right? i.e.\ it's really $P(T(\CC)) = \Hom(\CC^\times,T(\CC))$ that's $\cong \ZZ^m$ and for instance $P(T(\CC[x]/(x^2))$ will give sth else?} 
 % \jcom{No, the coweight lattice is the set of homomorphisms of algebraic groups from $ \mathbb G_m$ to $ GL_m$.  It is independent of the ring/field of definition.}
@@ -70,7 +72,10 @@ Under this isomorphism the dominant coweights of $ G $
 are identified with the set of $ \lambda = (\lambda_1, \dots, \lambda_m) $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
 We also need the notion of effective dominant coweight, 
 % \acom{can we conflate or should we be precise and say coweight?} \jcom{Corrected, let's stick to coweights.}
-which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  So an effective dominant coweight $ \lambda $ is a partition of $|\lambda| = \lambda_1 + \cdots + \lambda_m$, which we call the size of $ \lambda$. We write $P_+$ for the set of dominant coweights, and $P_{++}$ for the set of effective dominant coweights. 
+which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  
+\acom{1. No boldface on this new term. Proceed with selective boldfacing? 2. Since we sometimes need $\Peff$ which contains $P_{++} = \Peff\cap\Pdom$, how about just using the notation $\Peff,\Pdom$ instead of $P_+, P_{++}$ for a change?}
+% 
+So an effective dominant coweight $ \lambda $ is a partition of $|\lambda| = \lambda_1 + \cdots + \lambda_m\in\NN$, which we call the size of $ \lambda$. We write $P_+$ for the set of dominant coweights, and $P_{++}$ for the set of effective dominant coweights. 
 
 % nicematrix test
 % $\begin{bNiceArray}{ccc|c}[margin]
@@ -109,19 +114,32 @@ Given a coweight $\mu \in P$ and a point $ s\in \CC$, we define $ (t-s)^\mu$ to 
     & & & (t-s)^{\mu_m}
 \end{bmatrix} 
 \]
-which we will view in $\GL_m(K) $ for any ring $ K $ containing $\CC[t]$ in which $t-s$ is invertible (for example $ K = \Ks, \CC(t)$). % A: Think R sb K; changed it 
-\acom{1. Add warning that we will also write $(t-s)^\mu$ for its image in $\GL_m(K)/\GL_m(R)$. We hope it will be evident? 2. Change notation $\mu = (\mu_1,\dots,\mu_m)$ since we also have $\mu = \mu_1 + \mu_2$. We could do $\mu = \mu' + \mu''$ or $\mu = a + b$? The notation $\mu^{(i)}$ is already taken to mean sth. Ofc all can be changed. Can also do $\mu = {}_{1}\mu + {}_{2}\mu$. \emoji{sweat-smile}}
+which we will view in 
+% $\GL_m(K) $ 
+$G(K)$ for any ring $ K $ containing $\CC[t]$ in which $t-s$ is invertible (for example $ K = \Ks, \CC(t)$). % A: Think R sb K; changed it 
+\acom{Add warning that we will also write $(t-s)^\mu$ for its image in 
+% $\GL_m(K)/\GL_m(R)$ 
+$G(K)/G(R)$ and we hope it will be clear? Only we haven't introduced this space yet.}
+% Resolved
+% 2. Change notation $\mu = (\mu_1,\dots,\mu_m)$ since we also have $\mu = \mu_1 + \mu_2$. We could do $\mu = \mu' + \mu''$ or $\mu = a + b$? The notation $\mu^{(i)}$ is already taken to mean sth. Ofc all can be changed. Can also do $\mu = {}_{1}\mu + {}_{2}\mu$. \emoji{sweat-smile}}
 
 
-We will also be interested in the affine space $ M_m$ of $m\times m$ matrices.  Note that for any $ \CC$-algebra $ R $, $\GL_m(R) $ consists of those matrices $ g \in M_m(R) $ whose determinant is invertible in $ R$. Thus $ t^\lambda \in M_m(\CC[t])$ for all $ \lambda \in P_{++}$ but $ t^\lambda \in \GL_m(\CC[t]) $ if and only if $ \lambda = 0 $.
+We will also be interested in the affine space $ M_m$ of $m\times m$ matrices.  Note that for any $ \CC$-algebra $ R $, 
+% $\GL_m(R) $ 
+$G(R)$ consists of those matrices $ g \in M_m(R) $ whose determinant is invertible in $ R$. Thus for example $ t^\lambda \in M_m(\CC[t])$ for all $ \lambda \in P_{++}$ but 
+% $ t^\lambda \in \GL_m(\CC[t]) $ 
+$t^\lambda\in G(\CC[t])$ if and only if $ \lambda = 0 $. \acom{maybe add that it's the same for $G(\cO)$.}
+
 
 \subsection{Lattices}
 \label{ss:lat}
-We will use the lattice model \acom{for...?}, so it is useful to recall the following definition. Let $ R \subset K$ be two $\CC$-algebras (usually, but not always, $K$ will be a field). 
+We will use the lattice model \acom{for each of the affine Grassmannians which we consider---again, this is putting the cart in front of the horse, as we haven't introduced any affine Grassmannians yet}, so it is useful to recall the following definition. Let $ R \subset K$ be two $\CC$-algebras (usually, but not always, $K$ will be a field). 
 % \acom{When is $K$ not a field?}). Let $ m \in \mathbb N$ \acom{we have already fixed $m$?} and; e.g. K = C[t,t^{-1}] is not a field!!! 
-Consider $ K^m $ as a $K$-module. By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $K^m$ 
+Consider $ K^m $ as a $K$-module. \acom{left or right, doesn't matter? I think we are in a situation where they are the same, but I need a reminder.} By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $K^m$ \acom{definiton, no boldface}
 % \acom{what is $M$? should be $K^m$?}; bc Joel was thinking about arbitrary free modules 
-is an $R$-submodule $ L \subset K^m$ such that $ L $ is a free rank $ m $ $R$-module and $ L \otimes_R K = K^m $.  Equivalently, $ L = \Sp_R(v_1, \dots, v_m)$ where $v_1, \dots, v_m$ are free generators of $K^m$. 
+is an $R$-submodule $ L \subset K^m$ 
+% such that $ L $ 
+which is a free $R$-module of rank $ m $ and satisfies $ L \otimes_R K = K^m $. Equivalently, $ L = \Sp_R(v_1, \dots, v_m)$ where $v_1, \dots, v_m$ are free generators of $K^m$. 
 % 
 \begin{comment}
 \jcom{Maybe need that both $K$ and $R$ are integral domains and have the same field of fractions?} 
@@ -136,7 +154,7 @@ $ R^m \subset K^m $ is called the standard lattice.
 % We will abuse notation and denote $L_0(R)$ simply $L_0$ in the hope that the ring $R$ will be understood from the context. 
 The group $\GL_m(K) $ acts transitively on the set of $R$-lattices in $K^m$, thus giving a bijection between 
 % the set of such lattices 
-this set and $\GL_m(K)/\GL_m(R)$, since $ GL_m(R) $ is the stabilizer of the standard lattice. 
+this set and $\GL_m(K)/\GL_m(R)$, since $ \GL_m(R) $ is the stabilizer of the standard lattice. 
 %\acom{For example, we will frequently make use of the lattice $L_\lambda$ corresponding to the point $t^\lambda\in\Gr$ given $\lambda\in P$. If $e_1,\dots,e_m$ denote the standard basis elements of 
 % $L_0(\cO)$ then 
 %$\cO^m$ then 
@@ -145,17 +163,22 @@ this set and $\GL_m(K)/\GL_m(R)$, since $ GL_m(R) $ is the stabilizer of the sta
 %$$}
 
 
-We will be particularly interested in $\CC[t]$-lattices in $ \CC(t)^m$.  Given such a lattice $ L $ and a point $ a \in \CC$, the specialization of $ L $ at $ a $ is defined as
+We will be particularly interested in $\CC[t]$-lattices in $ \CC(t)^m$. 
+% TODO: 
+% \acom{Wait, I thought $\CC(t)$ is used in the Ran space version of the BD Gr.}
+Given such a lattice $ L $ and a point $ a \in \CC$, the specialization \acom{definition, no boldface} of $ L $ at $ a $ is defined as
 $$
 % L(a) := L \otimes_{\CC[t]} \CC\xt[t-a] \subset \CC\xT[t-a]^m\,.
-L(a) := L \otimes_{\CC[t]} \cO_a, \text{ a lattice in } \cK_a.  %\,. % The containment is not part of the definition so I comment it out \subset \cK_a^m\,.
+L(a) := L \otimes_{\CC[t]} \cO_a, 
+% \text{ a lattice in } \cK_a^m.  
 $$
+a lattice in $\cK_a^m$. 
 If 
 % $ L(a) = L_0(\cO_a)$ 
 $L(a) = \cO_a^m$ then $L$ is said to be trivial at $a$. 
 % We say that $ L $ is trivial at $ a $ if $ L(a) = \cO_a^m$. 
 % \acom{Do we want to employ the notation $\cO_a$ and $\cK_a$ here?}
-For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$. 
+For example, since $(t-s)^{-1} = \frac 1 {a-s}\sum(\frac{t-a}{s-a})^k$ if $a\ne s$, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$. 
 % \acom{it is a little bit uneven to have notation for $\cO^m$ but not for $\cO_a^m$?}
 
 % \acom{Should we also mention our interest in $\cO$-lattices in $\cK^m$?}
@@ -171,9 +194,9 @@ For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\
 \subsection{Affine Grassmannians} %  actors
 % To map thick Gr to C is to map a lattice to the points where it isn't trivialzable; doesn't make sense to ask for poles 
 % G(C(t))/G(C[t]) for example lives over the Ran space, finitely many eigenvalues; positive part of thick contains this guy as image 
-Set $\AA = \AA^1$ and let $\Vtriv$ denote the trivial rank $ m $ vector bundle. 
-
-We now define various version of the affine Grassmannian which will play an important role in this paper.
+Set $\AA = \AA^1$ viewed as the subset $\PP\setminus \{\infty\}$ of $\PP$. Let $\Vtriv$ denote the trivial rank $ m $ vector bundle. 
+% 
+We now define various versions of ``the'' affine Grassmannian which will play an important r\^ole in this paper.
 
 \begin{definition}
      The \textbf{ordinary affine Grassmannian} $\Gr = G(\cK)/G(\cO)$.
@@ -188,114 +211,115 @@ We now define various version of the affine Grassmannian which will play an impo
     $$ 
     \Gr = \left\{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \right\}\,.
     $$
-    We obtain the lattice from $ (V,\varphi) $ by setting $ L = \Gamma(D_0, V)$ which is embedded into $ \cK^m = \Gamma(D_0^\times, \Vtriv)$ using $ \varphi$.  On the other hand, we obtain the lattice from the group-theoretic description $ G(\cK) / G(\cO) $ by setting $ L = g \cO^m$ for $ g \in G(\cK)$.
-    % \emoji{clap} 
-    % \acom{Change $V_0$}
+    We obtain a lattice from a pair $ (V,\varphi) $ by setting $ L = \Gamma(D_0, V)$ which is embedded into $ \cK^m = \Gamma(D_0^\times, \Vtriv)$ using $ \varphi$.  
+    On the other hand, to get a lattice from the group-theoretic description $ G(\cK) / G(\cO) $ we set $ L = g \cO^m$ for $ g \in G(\cK)$.
     % 
 \begin{definition}
  For any $ s \in \CC $, 
-    % \acom{should it be $\AA$ instead of $\CC$} 
-    the \textbf{ordinary affine Grassmannian} $\Gr_s = G(\cK_s)/G(\cO_s)$ at $ s $. 
+    the \textbf{ordinary affine Grassmannian} $\Gr_s = G(\cK_s)/G(\cO_s)$ \textbf{at} $ s $. 
 \end{definition}    
-As above, we have modular and lattice descriptions
+As above, we have modular and lattice descriptions:
 \begin{gather*}
     \Gr_s = 
-    \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} \Vtriv $ on $ D^\times_s $} \right\}\,. \\
+    \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_s $, $\varphi : V \xrightarrow{\sim} \Vtriv $ on $ D^\times_s $} \right\}\,, \\
     \Gr_s = \left\{ L \subset \cK_s^m : \text{ $L$ is a $\cO_s$-lattice} \right\} \,. 
 \end{gather*}
-
+% 
+% TODO:
+% consider decorating lattice, modular, group-theoretic descriptions? 
+% paper too short for it, ok. 
+% but it's a little weird how we do 
+% $$ X = A \\ X = Y $$ 
+% Hmm.. maybe it's alright
+% I was going to suggest we do $$ X = A \\ = B $$ instead 
+% 
 \begin{definition}
 The \textbf{thick affine Grassmannian} $\Grth = G(\Kinf)/G(\CC[t])$.
 \end{definition}
-    Again, we have the following modular and lattice descriptions
-    \begin{gather*}
-         \Grth = 
-         \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ \PP $, $\varphi : V \xrightarrow{\sim} \Vtriv $ on $ D_\infty $ } \right\}\,. \\
-    \Grth = \left\{ L \subset  \Kinf^m : \text{ $L$ is a $\CC[t]$-lattice} \right\}\,.
-     % \CC\xT[t^{-1}]^m 
-    \end{gather*}
-    % \jcom{Maybe write $\Kinf$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.} \acom{Since $\sf th$ is also the first two letters of ``thin''?} \jcom{That's a good point!  Maybe we could use some kind of bold  Gr (``thick'' letters) or maybe that would be too confusing.} \acom{Ok, it's tentative.}
-
-    \begin{definition} 
-        The (two point) \textbf{Beilinson--Drinfeld Grassmannian} $\pi : \Grbd\to \AA$ (with one point fixed at 0, and the second point $s\in\AA$ varying).
-    \end{definition}
-    It is described in modular terms by 
-    % {\small
-    $$
-     \Grbd = 
-    % \begin{aligned}
-        \left\{ 
-            (V,\varphi,s) : V\text{ is a rank $m$ vector bundle on }\PP, \varphi : V \xrightarrow{\sim} \Vtriv \text{ on } \PP \setminus \{0, s\}  
-        \right\} 
-    % \end{aligned}
-    $$%}
-    % 
-    The fibre of $\Grbd \to \AA$ over $ s \in \AA $ will be denoted $ \Gr_{0,s} $ and is given by
-    % \rcom{why do we have the $s\ne 0$ restriction here} \jcom{it would work when $ s = 0$, but it looks a bit strange there.}
-    % 
-    $$ 
-    % \Gr_{0,s} = 
-    G(\CC[t, t^{-1}, (t-s)^{-1}]/G(\CC[t])\,. % := \pi^{-1}(s) 
-    $$
-    % \acom{0 in notation is kinda redundant? But we can't take it away because we already have a $\Gr_s$ and it is something else?}
-    % \jcom{Yes, that is one reason.  But also, there was a comment of yours before in the file, saying that you sometimes got confused that one point was fixed at 0, so this is a good notation to remind us (and the reader).  For the same reason, maybe we should write $ \Gr_{0, \AA}$ instead of $ \Gr_\AA$.}
-    % \acom{lol}
-    We also have the lattice descriptions 
-    % {\small
-    \begin{gather*}
+Again, we have the following modular and lattice descriptions:
+\begin{gather*}
+        \Grth = 
+        \left\{ (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ \PP $, $\varphi : V \xrightarrow{\sim} \Vtriv $ on $ D_\infty $ } \right\}\,, \\
+\Grth = \left\{ L : L \subset  \Kinf^m \text{ is a $\CC[t]$-lattice} \right\}\,.
+    % \CC\xT[t^{-1}]^m 
+\end{gather*}
+% \jcom{Maybe write $\Kinf$ for $ \CC\xT[t^{-1}] $?  Also maybe change the ``thick'' notation''.} \acom{Since $\sf th$ is also the first two letters of ``thin''?} \jcom{That's a good point!  Maybe we could use some kind of bold  Gr (``thick'' letters) or maybe that would be too confusing.} \acom{Ok, it's tentative.}
+% 
+\begin{definition} 
+    The two point \textbf{Beilinson--Drinfeld Grassmannian} 
+    $$\pi : \Grbd\to \AA$$ 
+    with one point fixed at 0, and the second point $s\in\AA$ varying.
+\end{definition}
+It is described in modular terms by 
+$$
     \Grbd = 
-    \{ (L,s) :
-    % s\in\AA,\,
-    % L \subset  \CC(t)^m, s \in \AA 
-    \text{$L \subset  \CC(t)^m$ is a $\CC[t]$-lattice trivial at any $ a \ne 0, s$} \}\,, \\
-    % , $L$ is 
-     \Gr_{0,s} = 
-    \{ L \subset  \CC[t,t^{-1},(t-s)^{-1}]^m : \text{ $L$ is a $\CC[t]$-lattice} \}\,.
-    \end{gather*}%}
-    % \acom{We do not consistently specify where $s$ is in these definitions}
-    % \acom{$s\in\CC$ should be $s\in\AA$?}
-    % \jcom{Sorry I was very consistent about $ \CC$ vs $\AA$.  Which do you prefer?}
-    % 
-    \begin{definition} 
-    The \textbf{positive parts} of $\Gr $ and $\Grth$ are defined by 
-    $$
-        \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO) \quad        
-        {\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t])\,. 
-    $$
-    \end{definition}
-    In modular terms, $\Gr^+$ (resp. ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow \Vtriv $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp. over $ \PP$).
-    
-    In lattice terms, $ \Gr^+$ (resp. ${\Grth}^+$) contains those lattices $L$ which are contained in the relevant standard lattice. 
-    % \acom{previously called ``trivial''} \jcom{I changed it so that $ R^m $ is called the standard lattice.  But I would like to leave the terminology ``trivial at $ a$'' is that ok, or should we write ``standard at $a$''.} 
-    % \acom{Oh, I don't know.. is trivialized at $a$? is standardized at $a$? Maybe standard at $a$ is better.. Man I never thought about this interchangeable lingo.} 
-    % lattice $ L_0(\cO)$ (resp. $L_0(\CC[t])$). % , i.e. $ L \subseteq L_0$.
+    \left\{ 
+        (V,\varphi,s) : V\text{ is a rank $m$ vector bundle on }\PP, \varphi : V \xrightarrow{\sim} \Vtriv \text{ on } \PP \setminus \{0, s\}  
+    \right\}\,. 
+$$
+The fibre of $\Grbd \to \AA$ over $ s \in \AA $ will be denoted $ \Gr_{0,s} $ and is given by
+% \rcom{why do we have the $s\ne 0$ restriction here} \jcom{it would work when $ s = 0$, but it looks a bit strange there.}
+% 
+$$ 
+G(\CC[t, t^{-1}, (t-s)^{-1}]/G(\CC[t])\,. % := \pi^{-1}(s) 
+$$
+\acom{What is the modular description of the fibre?}
+% \acom{0 in notation is kinda redundant? But we can't take it away because we already have a $\Gr_s$ and it is something else?}
+% \jcom{Yes, that is one reason.  But also, there was a comment of yours before in the file, saying that you sometimes got confused that one point was fixed at 0, so this is a good notation to remind us (and the reader).  For the same reason, maybe we should write $ \Gr_{0, \AA}$ instead of $ \Gr_\AA$.}
+% \acom{lol}
+We also have the lattice descriptions:
+% 
+\begin{gather*}
+\Grbd = 
+\{ (L,s) :
+L \subset  \CC(t)^m\text{ is a $\CC[t]$-lattice trivial at any }a \ne 0, s \}\,, \\
+% , $L$ is 
+    \Gr_{0,s} = 
+\{ L : L \subset  \CC[t,t^{-1},(t-s)^{-1}]^m \text{ is a $\CC[t]$-lattice} \}\,.
+\end{gather*}
+% 
+\begin{definition} 
+The \textbf{positive parts} of $\Gr $ and $\Grth$, resp., are defined by 
+$$
+    \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO) \text{ and }      
+    {\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t])\,. 
+$$
+\end{definition}
+In modular terms, $\Gr^+$ (resp.\ ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow \Vtriv $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp.\ over $ \PP$).
 
-% \acom{enumerate the points for now}
+In lattice terms, $ \Gr^+$ (resp.\ ${\Grth}^+$) contains those lattices $L$ which are contained in the appropriate standard lattice. 
+% \acom{previously called ``trivial''} \jcom{I changed it so that $ R^m $ is called the standard lattice.  But I would like to leave the terminology ``trivial at $ a$'' is that ok, or should we write ``standard at $a$''.} 
+% \acom{Oh, I don't know.. is trivialized at $a$? is standardized at $a$? Maybe standard at $a$ is better.. Man I never thought about this interchangeable lingo.} 
+% lattice $ L_0(\cO)$ (resp. $L_0(\CC[t])$). % , i.e. $ L \subseteq L_0$.
+
 \subsection{Relations between different affine Grassmannians}
 These different versions of the affine Grassmannian are related as follows.  
 
 \begin{enumerate}
-    \item There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$.
-    \item We have a map from the two point Beilinson--Drinfeld affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $
+    % TODO: I think it makes more sense to put the first point at the end; it just relates (fibres of) the BD Gr to the ordinary Gr
+    % \item There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$.
+    \item We have a map from the two point Beilinson--Drinfeld affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $.
     % $$ \Grbd \rightarrow \Grth $$ 
-    which is given in modular terms by restricting the trivialization to $ D_\infty$.  It is given in group-theoretic terms on the fibre over $ s $ by the inclusion
+    It is given in modular terms by restricting the trivialization to $ D_\infty$. \acom{Does it mean $(V,\varphi,s)\mapsto (V\big|_{D_\infty},\varphi\big|_{D_\infty})$}
+    It is given in group-theoretic terms on the fibre over $ s $ by the inclusion
     $$
     G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\Kinf)/G(\CC[t])\,. 
     $$
     % \acom{Permission to update notation and replace $\CC\xT[t^{-1}]$ by $\Kinf$ as per your suggestion Joel?}
     % \jcom{Permission granted!}
     % \acom{replaced}
-    
-    Finally, it is given in lattice terms as the identity on the lattice and using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^m \rightarrow \Kinf^m$ on the ambient spaces.
+    % 
+    Finally, it is given in lattice terms on the fibre over $s$ as the identity on the lattice $(L,s)\mapsto L$ and using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^m \rightarrow \Kinf^m$ on the ambient spaces.
     \item The fibres $ \Gr_{0,s}$ of $ \Grbd \rightarrow \AA$ can be described as % are given as follows
-    $$
+    \begin{equation*}
+    % \label{eq:grbdgrs}
     \Gr_{0,s} \cong 
     \begin{cases} 
         \Gr \times \Gr_s & s \ne 0 \\
         \Gr              & s = 0\,.
     \end{cases}
-    $$
-    In the $s\ne 0$ case, the isomorphism is given in the modular realization by restricting the vector bundle and trivializing to the appropriate discs.  
+    \end{equation*}
+    In the $s\ne 0$ case, the isomorphism is given in the modular realization by restricting the vector bundle to the appropriate discs and trivializing.    
     In the lattice realization, it is given by forming tensor products 
     $$
     L \mapsto (L(0), L(s))\,.
@@ -305,46 +329,50 @@ These different versions of the affine Grassmannian are related as follows.
     % \acom{Ok. Question: how is the isomorphism given at $s=0$?}
     % \acom{Ok. TODO. Also write this in group theoretic terms. Probably $[g] \mapsto ([g],[g])$ is ok. Since $g\CC[t]\otimes_{\CC[t]}\cO_s \cong g\cO_s $ for some reason, where $g\in\CC[t,t^{-1},(t-s)^{-1}]$ can be viewed as $g\in\cK_s$.}
     % 
+    Finally, in group-theoretic terms, it is given (on representatives) by $g\mapsto (g,g)$. \acom{Reinstated the map. Choosing to supress the coset in our notation makes it potentially ambiguous. Maybe we can say inclusion $\times$ inclusion? In any case we should say something. Else, what are we referring to when we say ``This is compatible'' in the next line?}
     This is compatible with the lattice description since for $ g \in G(\CC[t, t^{-1}, (t-s)^{-1}]) $, we have
     $$
-    \left( g \CC[t]^m \right) \otimes_{\CC[t]} \cO = g \cO^m
+    \left( g \CC[t]^m \right) \otimes_{\CC[t]} \cO \cong g \cO^m
     $$
     and similarly for $ L(s)$.
     
     In the $ s = 0 $ case, the isomorphism is described in the same way, except that we just need to form $ L(0)$.
-    
-    
-%    \jcom{I tried to answer your question, but didn't explain it well.  When $ s = 0$, the map is the same except that $ L(0) = L(s) $ , so we only need $L(0)$.}
+    \item There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$. 
+    % 
+    %    \jcom{I tried to answer your question, but didn't explain it well.  When $ s = 0$, the map is the same except that $ L(0) = L(s) $ , so we only need $L(0)$.}
 \end{enumerate}
 
 \subsection{The fusion construction}
 The following construction will be very important in this paper.
 First, we recall that we have an isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $, 
-for each $ s \ne 0$.  In turn, we have the isomorphism $ \Gr_s \cong \Gr$.  
+for each $ s \ne 0$.  In turn, we have the isomorphism $ \Gr_s \cong \Gr$. \acom{We only just stated these. Too early to recall.}
 
 Gluing these together, we obtain
+\acom{Gluing together the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (items (2) and (3) above,) we obtain}
 $$
 \tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr_{\CC^\times} \rightarrow \Gr \times \Gr
 $$
+\acom{What's $\Gr_{\CC^\times}$, $\Gr_{0,\CC^\times}$?}
 where the first morphism is an isomorphism and the second map uses $ \Gr_s \cong \Gr $ on each fibre.  (This $\tau$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \CC^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
 
-Let $ X_1, X_2 \subset \Gr$ be two subschemes.
-We define the subscheme $ \tau^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $.
-
-\jcom{I changed this a bit in order to match Mirkovic--Vilonen better.}
-\acom{We say ``we define the subscheme..'' but what is there to define? Should it say ``we consider'' maybe?}
+Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $ \tau^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $.
+% 
+% \jcom{I changed this a bit in order to match Mirkovi\'c--Vilonen better.}
+% \acom{We say ``we define the subscheme..'' but what is there to define? Should it say ``we consider'' maybe?}
 % Via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
-
+% 
 We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ inside of $ \Grbd $.  
 Next, we consider the projection $ \pi: \Grbd \rightarrow \AA $, and define 
 % $ X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) \subset \Gr_{0,0} $, 
-\begin{equation}
-    \label{deservesdisplay}
+\begin{equation*}
+    % \label{deservesdisplay}
     X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) 
-\end{equation}
-which we call the fusion of $ X_1 $ and $X_2$. It is contained in $\Gr_{0,0}$ but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $. 
-
-By this construction, \acom{technically, there were two given above, so *these* constructions?} $X_1 \ast_{\AA} X_2 $ is a flat family over $\CC$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$.
+\end{equation*}
+which we call the fusion of $ X_1 $ and $X_2$. It is contained in $\Gr_{0,0}$ but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $. \acom{definition, no boldface}
+% 
+By construction, 
+% \acom{technically, there were two given above, so *these* constructions?} 
+$X_1 \ast_{\AA} X_2 $ is a flat family over $\AA$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$. \acom{Question abt general fact: why is scheme-theoretic closure of product flat?}
 
 % \acom{Repeat question: what is this iso? Roger says maybe it's in MV?}
 % \jcom{Now answered above.}
@@ -357,14 +385,14 @@ By this construction, \acom{technically, there were two given above, so *these* 
 %\acom{Sure! It is quoted at the end, in \Cref{s:denouement} as an application. Addendum: for the numerical fusion I suggest simply $[Z_1][Z_2]$. This is what I will use in my talk. }
 
 \subsection{Some subvarieties of affine Grassmannians}
-Now fix effective dominant coweights $\lambda', \lambda'' \in P_{++}$ of sizes $N',N''$  and their sums $ \lambda = \lambda' + \lambda'' $ of size $ N = N'+N''$. 
+Now fix effective dominant coweights $\lambda', \lambda'' \in P_{++}$ of sizes $N',N''$  and their sum $ \lambda = \lambda' + \lambda'' $ of size $ N = N'+N''$. 
 % Coweights define elements in the various affine Grassmannians which we consider. Warning: We will write only coset representatives for elements of the various Grassmannians; we hope that it is evident which right cosets they represent. 
 % the right cosets which they represent are clear from the context.
 We consider the following subschemes of the affine Grassmannians.
 % 
 \begin{definition}
     The \textbf{spherical Schubert cell} $\Gr^\lambda = G(\cO) t^\lambda$ and its closure 
-    $ \overline\Gr^\lambda = \bigcup_{\lambda' \le \lambda} \Gr^{\lambda'} $ a \textbf{spherical Schubert variety}.  
+    $ \overline\Gr^\lambda = \bigcup_{\gamma \le \lambda} \Gr^{\gamma} $ a \textbf{spherical Schubert variety}.  
 \end{definition}
     % \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??} \jcom{I'm not sure which is better.  I was ``testing'' it out.}
     Note, since $ \lambda $ is effective, $ t^\lambda \in \Gr^+ $ and so the spherical Schubert variety $\overline{\Gr}^\lambda $ lies inside the positive part $ \Gr^+$ of the affine Grassmannian. \acom{why ``and so''? bc orbits are connected?}
@@ -375,22 +403,23 @@ We consider the following subschemes of the affine Grassmannians.
     \overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} \rightarrow \AA \,.
     $$
 \end{definition}
-    % \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda'}\times\overline\Gr^{\lambda''}\times\AA^\times}$..}
-    %\acom{should we also subsript this family with $0,\AA$?}
-    By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda', \lambda''} $ for $ s \ne 0 $ is $ \overline{\Gr}^{\lambda'} \times \overline{\Gr}^{\lambda''}$.  
-    % By \cite[Proposition 3.1.14]{zhu2016introduction},
-    % Zhu's theorem (\jcom{need ref} \acom{pretty sure it's }), 
-    % the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda' + \lambda''}$.
-    Over $s=0$ the fibre is $ \overline{\Gr}^{\lambda' + \lambda''}$ (and reduced) by 
-    % a theorem of Zhu 
-    \cite[Proposition 3.1.14]{zhu2016introduction}. 
+% \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda'}\times\overline\Gr^{\lambda''}\times\AA^\times}$..}
+%\acom{should we also subsript this family with $0,\AA$?}
+By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda', \lambda''} $ of $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA}$ for $ s \ne 0 $ is $ \overline{\Gr}^{\lambda'} \times \overline{\Gr}^{\lambda''}$.  
+% By \cite[Proposition 3.1.14]{zhu2016introduction},
+% Zhu's theorem (\jcom{need ref} \acom{pretty sure it's }), 
+% the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda' + \lambda''}$.
+Over $s=0$ the fibre is reduced and equal to $ \overline{\Gr}^{\lambda' + \lambda''}$ by 
+% a theorem of Zhu 
+\cite[Proposition 3.1.14]{zhu2016introduction}. 
 
-    Suppose that $ s \ne 0$.  In the fibre $\overline{\Gr}_{0,s}^{\lambda', \lambda''}$ we have the open locus $ \Gr_{0,s}^{\lambda', \lambda''}$ coming from transporting $ \Gr^{\lambda'} \times \Gr^{\lambda''} $ via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $.  This open locus is a $ G(\CC[t])$-orbit
-    % .  The lattice description of $ \Gr_{0,s}^{\lambda', \lambda''}$ 
-    whose lattice description is given in \Cref{le:Grl1l2} below.
-    % \acom{Why $G(\CC[t])$. Because we are on the left side!}
-    
-As above, since $ \lambda', \lambda'' $ are effective, the map $ \Gr_{0, \AA} \rightarrow \Grth$ restricts to a map $ \Gr^{\lambda', \lambda''}_{0, \AA} \rightarrow \Grth^+$.
+% Suppose that $ s \ne 0$.  
+Moreover, if $s\ne0$, then in the fibre $\overline{\Gr}_{0,s}^{\lambda', \lambda''}$ we have the open locus $ \Gr_{0,s}^{\lambda', \lambda''}$ coming from transporting $ \Gr^{\lambda'} \times \Gr^{\lambda''} $ via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $.  This open locus is a $ G(\CC[t])$-orbit
+% .  The lattice description of $ \Gr_{0,s}^{\lambda', \lambda''}$ 
+whose lattice description is given in \Cref{le:Grl1l2} below.
+% \acom{Why $G(\CC[t])$. Because we are on the left side!}
+
+As above, since $ \lambda', \lambda'' $ are effective, the map $ \Gr_{0, \AA} \rightarrow \Grth$ restricts to a map $ \Gr^{\lambda', \lambda''}_{0, \AA} \rightarrow \Grth^+$. \acom{What is ``as above''? Also, we have only described the open loci in fibres over $s\ne0$.}
 
 Now fix two effective coweights $ \mu', \mu'' \in \mathbb N^m$ of size $N',N''$ resp. such that $ \mu = \mu' + \mu'' $ is dominant. (We do not require $ \mu', \mu'' $ to be effective.) 
 Using $ \mu, \mu', \mu''$, we define the following subschemes.
@@ -398,30 +427,31 @@ Using $ \mu, \mu', \mu''$, we define the following subschemes.
 \begin{definition}
     The \textbf{Kazhdan--Lusztig slice} $\cW_\mu = G_1(\Oinf) t^\mu \subset \Grth $.  
 \end{definition}
-Since $\mu $ is effective, we see that $ \cW_\mu $ lies inside the positive thick Grassmannian $ \Grth^+$.
-    % 
-    
-    In modular terms, this corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}.  The lattice description of $ \cW_\mu $ is given in Lemma \ref{le:Wmu} below. 
-    % \acom{que est-ce?} \jcom{It's not very relevant for this paper.  Here is an explanation: every vector bundle on $\PP$ (or maybe any curve) has a special filtration called the HN--filtration; it is a partial flag of subbundles of type determined by $ \mu$.  We require that $ \varphi$ takes this filtration to the standard partial flag at the fibre over $ \infty$.  Maybe ``preserves'' is not the best word above.}
-    % A: Ok thanks!
-    % 
+Again, since $\mu $ is effective, we see that $ \cW_\mu $ lies inside the positive thick Grassmannian $ \Grth^+$.
+% 
+
+In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}.  The lattice description of $ \cW_\mu $ is given in Lemma \ref{le:Wmu} below. 
+% \acom{que est-ce?} \jcom{It's not very relevant for this paper.  Here is an explanation: every vector bundle on $\PP$ (or maybe any curve) has a special filtration called the HN--filtration; it is a partial flag of subbundles of type determined by $ \mu$.  We require that $ \varphi$ takes this filtration to the standard partial flag at the fibre over $ \infty$.  Maybe ``preserves'' is not the best word above.}
+% A: Ok thanks!
+% 
 \begin{definition} The \textbf{semi-infinite orbit} 
 $$ S^\mu = N_-(\cK)t^\mu \subset \Gr $$ 
 and the \textbf{fusion of  semi-infinite orbits} 
-$$ S^{\mu', \mu''}_{0,\AA} := S^{\mu'} \ast_\AA S^{\mu''} \,.$$  
+$$ S^{\mu', \mu''}_{0,\AA} = S^{\mu'} \ast_\AA S^{\mu''} \to \AA \,.$$  
 \end{definition}
 If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
-    $$
-    % S^{\mu', \mu''}_{0,s} = 
-    N_-(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu'} (t-s)^{\mu''} G(\CC[t])\subset G(\CC[t,t^{-1}, (t-s)^{-1}]) / G(\CC[t]) \,. % \G(\CC[t])
-    $$
-    % TODO: resolve
-    % \jcom{Maybe we should introduce the $ L_{\mu', \mu''} $ notation, but I'm not sure it is necessary.}
-    On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $ S^{\mu' + \mu''}$. 
-    % TODO: resolve
-    % \acom{changed $\mu$ to $\mu' + \mu''$ since we wrote it out for $\overline{\Gr}_{0,\AA}^{\lambda', \lambda''} $}
-    
-    \jcom{Still need a reference for why this central fibre is reduced.}
+$$
+% S^{\mu', \mu''}_{0,s} = 
+N_-(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu'} (t-s)^{\mu''} G(\CC[t])\subset G(\CC[t,t^{-1}, (t-s)^{-1}]) / G(\CC[t]) \,. % \G(\CC[t])
+$$
+% TODO: resolve
+% \jcom{Maybe we should introduce the $ L_{\mu', \mu''} $ notation, but I'm not sure it is necessary.}
+On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $ S^{\mu' + \mu''}$. 
+% TODO: resolve
+% \acom{changed $\mu$ to $\mu' + \mu''$ since we wrote it out for $\overline{\Gr}_{0,\AA}^{\lambda', \lambda''} $}
+% 
+\jcom{Still need a reference for why this central fibre is reduced.}
+\acom{Two definitions in one. Why does fusion of spherical schubs get preferential treatment \emoji{astonished}}
     
 
 \subsection{Matrices}
@@ -440,7 +470,7 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
     % 
     \item A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$ is said to have Jordan type $((0,\lambda'), (s,\lambda''))$ if its matrix representatives lie in $ \OO^{\lambda', \lambda''}_{0,s}$.
     % 
-    \item The family of adjoint orbits $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow \AA$ whose fibre over $ s \ne 0 $ is $ \overline{\OO}^{\lambda', \lambda''}_{0,s}$ and whose fibre over 0 is $\overline{\OO}^\lambda$ a consequence of Eisenbud and Salten's description/characterization(?) of ``rank varieties'' as proved in \Cref{cor:es}.
+    \item The family of adjoint orbits $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow \AA$ whose fibre over $ s \ne 0 $ is $ \overline{\OO}^{\lambda', \lambda''}_{0,s}$ and whose \acom{Claim:} fibre over 0 is $\overline{\OO}^\lambda$ (a consequence of Eisenbud and Salten's characterization of ``rank varieties'' as proved in \Cref{cor:es}). \acom{TODO: make into definition to be x-referenced in proof of description of fibres}
     
    % \jcom{We should justify why the 0 fibre is correct scheme-theoretically.} 
     %\acom{does it follow because ``$s$ divides $\det g$'' is a closed condition 
@@ -494,7 +524,7 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
 % If we apply the change of basis $g$ to the ideal $I=I_1 + I_2$ and set $s = 0$ (if possible) do we recover the ideal of $\OO^{\lambda_1 + \lambda_2}$? Let $A^g = g(A_1 \oplus A_2) g^{-1}$...
 % \end{remark}
     
-    \item Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. The Mirkovic--Vybornov slice $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
+    \item Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. The Mirkovi\'c--Vybornov slice $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
     \[
         \begin{aligned}
             &\text{for all } 1 \le a,s\le m\,,
@@ -505,7 +535,7 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
     \]
     In words, $A$ is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
     % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
-    In pictures, aka by example, the elements $A$ for $\mu=(3,2,2,1)$ look like 
+    In pictures, and by example, the elements $A$ for $\mu=(3,2,2,1)$ look like 
     \[
         \left[\begin{BMAT}(e){ccc;cc;c;c}{ccc;cc;c;c}
              & 1 & & & & & \\
@@ -518,23 +548,7 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
         \end{BMAT}
         \right]
     \]
-    Smaller: 
-    \[
-        \left[\begin{BMAT}(e){ccc;cc}{ccc;cc} 
-            0 & 1 & 0 & 0 & 0\\
-            0 & 0 & 1 & 0 & 0\\
-            A_{11}^1 & A_{11}^2 & A_{11}^3 & A_{12}^1 & A_{12}^2\\
-            0 & 0 & 0 & 0 & 1\\
-            A_{21}^1 & A_{21}^2 & 0 & A_{22}^1 & A_{22}^2
-            \end{BMAT}\right]    
-            \mapsto 
-            \left[\begin{array}{rr}
-                t^{3} - A_{11}^3 t^2 - A_{11}^2 t - A_{11}^1 & -A_{21}^2 - A_{21}^1  \\
-                -A_{12}^2 t - A_{12}^1 & t^{2} - A_{22}^2 t - A_{22}^1
-            \end{array}\right]
-    \]
- 
-    
+    % 
     \item To each $ A \in \TT_\mu$, we will associate the $m\times m$ matrix 
     of polynomials 
     $ g(A) = \left( g(A)_{ij} \right)$ in $ M_m(\CC[t]) $ as follows.
@@ -548,6 +562,21 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
     \end{cases}
     \end{equation}
     where $A^k_{ji}$ is the $k$th entry from the left of the last row of the $\mu_j\times\mu_i$ block of $A$. 
+    For example,
+    \[
+        \left[\begin{BMAT}(e){ccc;cc}{ccc;cc} 
+            0 & 1 & 0 & 0 & 0\\
+            0 & 0 & 1 & 0 & 0\\
+            A_{11}^1 & A_{11}^2 & A_{11}^3 & A_{12}^1 & A_{12}^2\\
+            0 & 0 & 0 & 0 & 1\\
+            A_{21}^1 & A_{21}^2 & 0 & A_{22}^1 & A_{22}^2
+            \end{BMAT}\right]    
+            \mapsto 
+            \left[\begin{array}{rr}
+                t^{3} - A_{11}^3 t^2 - A_{11}^2 t - A_{11}^1 & -A_{21}^2 - A_{21}^1  \\
+                -A_{12}^2 t - A_{12}^1 & t^{2} - A_{22}^2 t - A_{22}^1
+            \end{array}\right]\,. 
+    \]
     % For example, the $A$ above will define 
     % \acom{the transpose of! TODO. Had script?}
     % \[
@@ -558,34 +587,33 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
     %     & & & t 
     % \end{bmatrix}    
     % \]
-
+    % 
     % \jcom{I moved the definition here since it will be useful for defining the upper triangular stuff.}
     % \acom{Ok.}
-    
+    % 
     \item The ``upper-triangular'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
     $$
     \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}
     $$
     So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu'_{i}} (t-s)^{\mu''_{i}}$ ($i=1,\dots,m$).
     
-    Note that the fibre $  \UU^{\mu', \mu''}_{0,0}$ is the same as the intersection of $ \TT_\mu $ with the set of strictly upper-triangular matrices.
-
-    $\UU_{0,0}^{(?),(?)}$ entries look like 
-    \[
-        \left[\begin{BMAT}(e){ccc;cc}{ccc;cc} 
-            0 & 1 & 0 & 0 & 0\\
-            0 & 0 & 1 & 0 & 0\\
-            0 & 0 & 0 & A_{12}^1 & A_{12}^2\\
-            0 & 0 & 0 & 0 & 1\\
-            0 & 0 & 0 & 0 & 0
-            \end{BMAT}\right]    
-            % \mapsto 
-            % \left[\begin{array}{rr}
-            %     t^{3} & 0 \\
-            %     -A_{12}^2 t - A_{12}^1 & t^{2}
-            % \end{array}\right]
-    \]
-    $\UU^{\mu', \mu''}_{0,\AA}$ entries look like 
+    Note that the fibre $  \UU^{\mu', \mu''}_{0,0}$ is the same as the intersection of $ \TT_\mu $ with the set of strictly upper-triangular matrices. For example, elements of $ \UU_{0,s}^{(1,1,0),(2,1,1)}$ look like 
+% 
+% $\UU_{0,0}^{(?),(?)}$ entries look like 
+% \[
+%     \left[\begin{BMAT}(e){ccc;cc}{ccc;cc} 
+%         0 & 1 & 0 & 0 & 0\\
+%         0 & 0 & 1 & 0 & 0\\
+%         0 & 0 & 0 & A_{12}^1 & A_{12}^2\\
+%         0 & 0 & 0 & 0 & 1\\
+%         0 & 0 & 0 & 0 & 0
+%         \end{BMAT}\right]    
+%         % \mapsto 
+%         % \left[\begin{array}{rr}
+%         %     t^{3} & 0 \\
+%         %     -A_{12}^2 t - A_{12}^1 & t^{2}
+%         % \end{array}\right]
+% \]
     \[
         \left[\begin{BMAT}(e){ccc;cc;c}{ccc;cc;c} 
             0 & 1 & 0 & 0 & 0 & 0\\
@@ -594,7 +622,7 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
             0 & 0 & 0 & 0 & 1 & 0\\
             0 & 0 & 0 & 0 & s & A_{23}^1\\
             0 & 0 & 0 & 0 & 0 & s
-            \end{BMAT}\right]    \in \UU_{0,s}^{(1,1,0),(2,1,1)}
+            \end{BMAT}\right] \,.    % \in \UU_{0,s}^{(1,1,0),(2,1,1)}
     \]
     
     % \jcom{Instead of $\TT^+$ maybe a different letter would be best? I'm moved all $\lambda, \mu$ to upper indices for consistency (except for $ \cW_\mu, \TT_\mu$) and also to let us put $ s $ or $ \AA$ in the lower index.  I haven't been very consistent about $ \AA $ vs $ \CC$.  Which do you prefer?}
@@ -606,21 +634,21 @@ If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
 
 % TODO: place this better? 
 % \acom{The following is a rough note.} 
-
-\begin{theorem}(\cite{eisenbud1989rank})
-    \label{thm:es}
-Let $r$ be a decreasing concave non-negative integral function with $r(0) = N$ (the dimension of the ambient vector space). Such a function is called a rank function. Then, in the space of $N\times N$ matrices, 
+\subsubsection{Detour of rank varieties}
+% \begin{theorem}(\cite{eisenbud1989rank})
+    % \label{thm:es}
+Let $r$ be a decreasing concave non-negative integral function with $r(0) = N$. Such a function is called a rank function. Eisenbud and Saltment associate to a rank function the vareity of $N\times N$ matrices 
 % The relevant result from Eisenbud--Saltman seems to be that 
 $$X_r = X_{r,0} = \{A:\rk A^i \le r(i) \}$$ 
-is the flat limit of 
+and show that it is the flat limit of a certain family 
 % $$X_{r,\lambda} = \{A : \rk (A-\lambda_i)^j\le r(i,j)\}$$
 $$X_{r,z} = \{A : \rk (A-z_i)^j\le r(i,j)\}$$
 with $r(i,j)$ determined by $r(i)$.  
-\end{theorem}
+% \end{theorem}
 
 \acom{Don't know how much of this setup to recall but here are the parts that will appear in the quoted theorem.}
 % 
-ES show that 
+More precisely, they show that 
 \begin{enumerate}
     \item $X_r$ is a normal variety
     \item $X_r$ is Gorenstein with rational singularities
@@ -629,79 +657,92 @@ ES show that
 \[
     X_{r;z_1,\dots,z_m} = \left\{
         A \in \End(V) : \cork(A - z_i) \ge r(i-1) - r(i) , i = 1,\dots,m 
-        \right\}
+        \right\}\,. 
 \]
 They construct a simultaneous resolution of singularities and use the resolution of $X_r$ to describe the tangent space to $X_r$ at a point corresponding to an endomorphism $A$ such that $\rk A^i = r_i$ for all $i$. As an application of the tangent space computation they show that the general fiber of this family can be written as the scheme-theoretic intersection of varieties like $X_r$. 
 
-To construct the resolution, they take $m$ to be the largest number such that $r(m) \ne r(m+1)$.
-% Fact: rank functions stabilize
-Let $(x_1,\dots, x_m)$ be coordinates on $\AA^m$ and let $W\subset \AA^m$ be a linear subvariety (translate of subvectorspace). 
-They introduce the flag variety $F = \{(V = V_0 \supset V_1 \supset \cdots \supset V_m \supset 0 ) : \dim V_i = r(i)\}$ and define $\mathcal X_{r,W}\subset\End(V) \times W \times F$ to be the subvariety of triples $(A,\vec z,\{V_i\})$ such that $(A-z_i) V_{i-1} \subset V_i$ for $z_i = x_i(\vec z)$ and $i = 1,\dots,m$. The (reduced image of) projection of $\mathcal X_{r,W}$ down to $\End(V) \times W$ is denoted $X_{r,W}$ a closed affine subvariety. 
-
+To construct the resolution, they take $m$ to be the largest number such that $r(m) \ne r(m+1)$
+and consider the affine space $\AA^m$ with coordinates $(x_1,\dots, x_m)$. Given $W\subset \AA^m$ a linear subvariety, 
+% TODO: clarify that linear subvariety means to them a (translate of subvectorspace)
+they introduce $\mathcal X_{r,W}\subset\End(V) \times W \times F_r$ where $F_r$ is the (paritial) flag variety $F_r = \{(V = V_0 \supset V_1 \supset \cdots \supset V_m \supset 0 ) : \dim V_i = r(i)\}$. 
+% 
+$\mathcal X_{r,W}\subset\End(V) \times W \times F$ is defined to be the subvariety of triples $(A,\vec z,\{V_i\})$ such that $(A-z_i) V_{i-1} \subset V_i$ for $z_i = x_i(\vec z)$ and $i = 1,\dots,m$. 
+The (reduced image of) projection of $\mathcal X_{r,W}$ down to $\End(V) \times W$ is denoted $X_{r,W}$ and it is a closed affine subvariety. 
+% 
 \begin{theorem}
     (\cite[Theorem~2.1 iii)]{eisenbud1989rank})
-    $X_{r,W}$ is the restriction of $X_{r,\AA^m}$ to $W$ and it is flat over $W$. 
+    $X_{r,W}$ is the restriction of $X_{r,\AA^m}$ to $W$ and as such it is flat over $W$. 
 \end{theorem}
 
-They apply this result to study the fibers of the family $X_{r,\AA^m}$ over points $\vec z \in \AA^m$ for $z_i$ not necessarily distinct. They partition the coordinates $z_i$ of $\vec z$ by equality with the help of a permutation $p$ of $\{1,\dots,m\}$ such that 
+This result is applied to study the fibers of the family $X_{r,\AA^m}$ over points $\vec z \in \AA^m$ for $z_i$ not necessarily distinct. The coordinates $z_i$ of $\vec z$ are partitioned by equality with the help of a permutation $p$ of $\{1,\dots,m\}$ such that 
 \begin{align*}
     z_{p(1)} &= \cdots = z_{p(m_1)} , \\
     z_{p(m_1 + 1)} &= \cdots = z_{p(m_2)} , \\ 
     \dots \\
     z_{p(m_s + 1)} &= \cdots = z_{p(m_s + 1)}
 \end{align*}
-and $p$ preserves the order within each interval $m_i + 1,\dots,m_{i+1}$. \acom{Not sure what this means. Order of coordinates?} With this notation in place they define 
+and $p$ preserves the order within each interval $m_i + 1,\dots,m_{i+1}$. \acom{Not sure what this means. Order of coordinates?} With this notation in place Eisenbud and Saltman define the numbers
 \begin{gather*}
     r(i,j):= \dim V - a_{p(m_i + 1)} - \cdots - a_{p(m_i + j )} \\
     \qquad \qquad \qquad \qquad \qquad \text{ for } i = 1,\dots,s \text{ and } j = 1,\dots , m_{i + 1 } - m_i 
 \end{gather*}
-where $a_i = r(i-1) - r(i)$ which characterizes the Jordan types of the generalized eigenspaces associated to the eigenvalues $z_i$. Finally they state the following corollary. 
-\begin{corollary}
+where $a_i = r(i-1) - r(i)$.
+It is through the $r(i,j)$ that the rank function $r$ determines the Jordan types of the generalized eigenspaces of the vector of (generalized) eigenvalues $\vec z$. 
+\begin{proposition}
     (\cite[Corollary~2.2]{eisenbud1989rank})
+    \label{prop:es}
     The scheme-theoretic fibre of $X_{r,W}$ over $\vec z\in W$ is 
     \[
-        X_{r,\vec z} = \{A \in \End(V) : \rk (A-z_i)^j\le r(i,j) \text{ for all } i , j \}
+        X_{r,\vec z} = \{A \in \End(V) : \rk (A-z_i)^j\le r(i,j) \text{ for all } i , j \}\,. 
     \]
-\end{corollary}
-
+\end{proposition}
+% 
 \begin{corollary}
     \label{cor:es}
-    The family $\OO^{\lambda',\lambda''}_{0,\AA}$ defined by \Cref{above} has zero fibre $\OO^\lambda$. 
+    The family $\OO^{\lambda',\lambda''}_{0,\AA}$ defined above has zero fibre $\OO^\lambda$. 
 \end{corollary}
-
+% 
+The only work we have to do to apply \Cref{prop:es} is to determine the rank function that will allow us to realize $\OO^\lambda$ as a rank variety, and the family $\OO^{\lambda',\lambda''}_{0,\AA}$ as a deformation of it. 
+%  
 \begin{lemma}
     \label{lem:es}
-    Let $\lambda = \lambda' + \lambda''$ be permutations. There exists a permutation of the columns of $\lambda$ such that the first $\lambda'_1$ columns are precisely the columns of $\lambda'$ and the next $\lambda''_1$ columns are precisely the columns of $\lambda''$. 
+    Let $\lambda = \lambda' + \lambda''$ be partitions. There exists a permutation of the columns of $\lambda$ such that the first $\lambda'_1$ columns are precisely the columns of $\lambda'$ and the last $\lambda''_1$ columns are precisely the columns of $\lambda''$. 
 \end{lemma}
-
+Recall that $\lambda' + \lambda'' = \lambda$ is a partition of $N$. 
+% Let $m_i = \lambda_{i,1}$ ($i = 1,2$), $m = m_1 + m_2$, and define
+Let $m = \lambda_1' + \lambda_2'$ and define 
+$$r(j) = N - \#\text{~boxes in first $j$ columns of }\lambda$$
+on $j = 1,\dots,m$. 
 \begin{lemma}
-   $r(j) = N - \#\text{~boxes in first $j$ columns of }\lambda$ is a rank function. 
+   The function $r$
+%    defined by $r(j) = N - \#\text{~boxes in first $j$ columns of }\lambda$ 
+is a rank function. 
 \end{lemma}
 
-The case that we are interested in is the case of two generalized/repeated eigenvalues, i.e.\ $\vec z = (z_1,z_2) = (0,s)$. \acom{Does order matter?} 
+The case that we are interested in is the case of two generalized eigenvalues, i.e.\ $\vec z = (z_1,z_2) = (0,s)$. 
+\acom{Does order matter?} 
 % Let me change notation so that $\lambda_i$ are shapes and 
 We begin by considering the open loci where the rank conditions are strict. 
 
-Recall that $\lambda' + \lambda'' = \lambda$ is a partition of $N$. 
-Let $m_i = \lambda_{i,1}$ ($i = 1,2$), $m = m_1 + m_2$, and define
-$$r(j) = N - \#\text{~boxes in first $j$ columns of }\lambda$$
-on $j = 1,\dots,m$. Note that $r(j-1) - r(j)$ is the length of the $j$th column of $\lambda$. As in \cite{eisenbud1989rank} we will denote this quantity $a_j$. 
+Note that $r(j-1) - r(j) = : a_j$ is the length of the $j$th column of $\lambda$. 
+% As in \cite{eisenbud1989rank} we will denote this quantity $a_j$. 
 % 
-
-Next, take $p$ to be a permutation of the (lengths of) columns $a_j$ of $\lambda$ such that $a_{p(1)},\dots,a_{p(m_1)}$ are the (lengths of) columns of $\lambda'$ and $a_{p(m_1 + 1)},\dots, a_{p(m_1 + m_2)}$ are the (lengths of) columns of $\lambda''$. 
+% 
+Next, take $p$ to be a permutation of the (lengths of) columns $a_j$ of $\lambda$ such that $a_{p(1)},\dots,a_{p(\lambda_1')}$ are the (lengths of) columns of $\lambda'$ and $a_{p(\lambda_1' + 1)},\dots, a_{p(m)}$ are the (lengths of) columns of $\lambda''$. 
 Then the functions 
 $$
 \begin{aligned}
 r(1,j) &= N - a_{p(1)} - \cdots - a_{p(j)} \\
 % \text{ and } 
-r(2,j) &= N - a_{p(m_1 + 1)} - \cdots - a_{p(m_1 + j)}
+r(2,j) &= N - a_{p(\lambda_1' + 1)} - \cdots - a_{p(\lambda_1' + j)}
 \end{aligned}
 $$
 are such that 
 \begin{align*}
-    \OO^{\lambda',\lambda''}_{0,s} = X_{r,(0,s)} = \{A:\rk A^j &= r(1,j) \text{ for } i = 1,\dots, m_1 \\ \text{ and } \rk (A-s)^j &= r(2,j) \text{ for } i = m_1 + 1 ,\dots, m \}
+    \OO^{\lambda',\lambda''}_{0,s} = X_{r,(0,s)} = \{A:\rk A^j &= r(1,j) \text{ for } i = 1,\dots, \lambda_1' \\ \text{ and } \rk (A-s)^j &= r(2,j) \text{ for } i = \lambda_1' + 1 ,\dots, m \}
 \end{align*}
-and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,\AA^m}$ is flat over $\AA^m$ with zero fibre $X_{r,0} = \OO^\lambda$ as desired. I guess we need to carefully choose the $W \subset \AA^m$ defining our family, which is smaller than the family $X_{r,\AA^m}$. Well, $W$ is just cut out by $0 = x_1 = x_2 = \cdots = x_{m_1}$ and $ x_{m_1 + 1} = \cdots = x_m$, or some permutation thereof to match the permutation $p$ above.
+and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,(0,s)}$ is flat over $W = \{x_1 = \cdots = x_{\lambda_1'} = 0 , x_{\lambda_1'} = \cdots = x_m\}$ (a linear subvariety of $\AA^m$) with zero fibre $X_{r,(0,0)} = \OO^\lambda$ as desired. \acom{Do you need to permute the indices defining $W$?}
+% $X_{r,\AA^m}$ is flat over $\AA^m$ with zero fibre $X_{r,0} = \OO^\lambda$ as desired. I guess we need to carefully choose the $W \subset \AA^m$ defining our family, which is smaller than the family $X_{r,\AA^m}$. Well, $W$ is just cut out by $0 = x_1 = x_2 = \cdots = x_{m_1}$ and $ x_{m_1 + 1} = \cdots = x_m$, or some permutation thereof to match the permutation $p$ above.
  
 % On the one hand, we know that $r(i,j)$ should be equal to $N$ minus the number of boxes in the first $j$ columns of $\lambda_i$. On the other hand, ES define $r(i,j)$ to be $N$ minus the $i$th chunk of $j$ columns determined by the rank function $r(i)$. Also, we would like for $r(i)$ to determine the shape $\lambda = \lambda' + \lambda''$. Take for example $\lambda' = \lambda'' = (2,1)$. Then $\lambda = (4,2)$ and so $r\{0,1,2,3,4\}=\{6,4,2,1,0\}$ and 
 % $$\{a_1,a_2,a_3,a_4\} = \{6-4,4-2,2-1,1-0\}=\{2,2,1,1\}\,.$$
@@ -724,7 +765,7 @@ It's not clear how this work helps with/relates to AK/their conjectures.
 
 The generalized \mvy is interesting in its own right. \acom{is it?}
 
-Computing fusion still hard but at least boiled down to linear algebra. Cf.\ fusion product as it appears in \cite{beilinson1991quantization,feigin2generalized,mirkovic2007geometric,anderson2006algebra,bezrukavnikov2005equivariant}.
+Computing fusion still hard but at least boiled down to linear algebra. Cf.\ fusion product as it appears in \cite{beilinson1991quantization,feigin2generalized,Mirkovi\'c2007geometric,anderson2006algebra,bezrukavnikov2005equivariant}.
 
 Interesting combinatorics? Presumably it is related to Feigin and Loktev's generalized Kostka polynomials? Though Joel says that the product on SSYT that we are witnessing is unlikely to have a combinatorial description. 
 
@@ -749,7 +790,8 @@ Representation theory?
 \end{lemma}
 
 \begin{proof}
-First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda $ if and only if $ t |_{L_0/L} $ has Jordan type $ \lambda$. \acom{Change $L_0$}
+First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda $ if and only if $ t |_{\cO^m/L} $ has Jordan type $ \lambda$. 
+% \acom{Change $L_0$}
 
     Now assume that $ (L, s) \in \Gr^{\lambda', \lambda''}_{0,s}$. We know that \acom{Rather than we know, it is by definition?} $ L(0) \in \Gr^{\lambda'}$ and $L(s) \in \Gr^{\lambda''} $.  This means that $t $ acting on 
     % $ \CC\xt^m / L(0)$ 
@@ -773,12 +815,13 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
         \item  For all $ i $, 
         $$ t^{\mu_i} e_i \in \Sp_\CC(\{t^k e_j : 0 \le k < \min(\mu_i, \mu_j), 1 \le j \le m \}) + L. $$
     \end{enumerate}
-    Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i \le m\}$ forms a basis for $ L_0/L$. \acom{Change $L_0$}
+    Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i \le m\}$ forms a basis for $ \CC[t]^m/L$. 
+    % \acom{Change $L_0$}
 \end{lemma}
-
-\jcom{I realized the meaning of the ``extra'' condition from the paper with Sabin and I added it into point 3.}
-\acom{Technically though the extra condition in that paper is weaker? $W_{\mu_i}$ being the span of $e_j,te_j,\dots,t^{\mu_i-1}e_j$ or the complement of $t^{\mu_i}\cO^m$ in $\cO^m$.}
-
+% 
+% \jcom{I realized the meaning of the ``extra'' condition from the paper with Sabin and I added it into point 3.}
+% \acom{Technically though the extra condition in that paper is weaker? $W_{\mu_i}$ being the span of $e_j,te_j,\dots,t^{\mu_i-1}e_j$ or the complement of $t^{\mu_i}\cO^m$ in $\cO^m$.}
+% 
 \begin{proof}
     Let $ L \in \cW_\mu$.  Then $ L = \Sp_{\CC[t]}(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \Oinf$.  Since $ L \in \Grth^+ $, we see that $ v_i \in \CC[t]^m$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$.
     
@@ -792,13 +835,13 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     
     Finally to show that $ \beta_\mu$ forms a basis for $ \CC[t]^m/L$, it suffices to show that for each $ i$, $ t^{\mu_i} e_i  \in \Sp_\CC(\beta_\mu) + L$. \rcom{Preimage of $\beta_\mu$}  This follows immediately from (iii).
     % 
-    \end{proof}
-\acom{note-to-self, skipped this; return to it.}
-
+\end{proof}
+% \acom{note-to-self, skipped this; return to it.}
+% 
 \begin{lemma}
     Let $\mu',\mu'' \in P$ and $\mu = \mu' + \mu''$. Under the map $ \Grbd \rightarrow \Grth$, the image of $ S^{\mu', \mu''}_{0,\AA}$ lands in $ \cW_\mu$.
 \end{lemma}
-\acom{Probably it is worth writing down the map $ \Grbd \rightarrow \Grth$ just before this first occurence? \textit{is it $(L,s)\mapsto L$?}}
+\acom{Probably it is worth writing down the map $ \Grbd \rightarrow \Grth$ just before this first occurence? \textit{is it $(L,s)\mapsto L$?} Update: added this above.}
 % Resolved? the map $ \Grbd \rightarrow \Grth$ caused some confusion in my talk as on the left we have a family and on the right we have the thick affine Grassmannian --- Jiuzu kept thinking aloud that we can make $\Grth$ a family too.. Anyway I think that you address this below Joel. 
 
 \begin{proof}
@@ -815,17 +858,17 @@ Given $ A \in \TT_\mu$, recall the definition of $ g(A)$ given in \Cref{eq:mvyof
 % section ??.  
 Since $ g(A) \in M_n(\CC[t]) \cap G_1(\Oinf)$, we will regard $ g(A)$ as giving an element of $ \Grth^+ \cap \cW_\mu$.
 
-The following result is \cite[Theorem 3.2]{cautis2018categorical}.
-
+The following result is \cite[Theorem 3.2]{cautis2018categorical} up to transpose.
+% 
 \begin{theorem} \label{th:TmuWmu}
 The map $ \TT_\mu \rightarrow \Grth^+ \cap \cW_\mu $ given by $ A \mapsto g(A)\CC[t]^m $ is an isomorphism with inverse given by
-$$ L \mapsto [t|_{\CC[t]^m/L} ]_{\beta_\mu} \,. $$
-\acom{Up to transpose?!}
+$$ L \mapsto [t|_{\CC[t]^m/L} ]_{\beta_\mu}' \,. $$
+% \acom{Up to transpose?!}
 \end{theorem}
-
+% 
 
 For the next result, we will consider the ``intersection'' of $ \overline{\Gr}^{\lambda', \lambda''}_{0,\AA} $ with $\cW_\mu$.  
-As $  \overline{\Gr}^{\lambda', \lambda''}_{0,\AA} $ is not a subscheme of $ \Grth$, by this intersection, we really mean the preimage of $ \cW_\mu$ under the map 
+As $  \overline{\Gr}^{\lambda', \lambda''}_{0,\AA} $ is not a subscheme of $ \Grth$, by this intersection, we really mean the preimage of $ \cW_\mu$ under the composition
 $$ 
 \overline{\Gr}^{\lambda', \lambda''}_{0,\AA}  \hookrightarrow \Grbd \rightarrow \Grth\,.
 $$
@@ -989,7 +1032,7 @@ The way to think about this is as follows: inside the thick affine Grassmannian 
 \end{corollary}
 
 \begin{proof}
-    Let $ A \in \overline{\OO_{\lambda_1,\lambda_2}}\cap\TT_{\mu',\mu''}^+$ and let $ g $ be the polynomial matrix formed by the Mirkovic-Vybornov isomorphism.  Then the diagonal entries of $ g $ are $ t^{\mu_{1,k}} (t-s)^{\mu_{2,k}}$ and we can factor
+    Let $ A \in \overline{\OO_{\lambda_1,\lambda_2}}\cap\TT_{\mu',\mu''}^+$ and let $ g $ be the polynomial matrix formed by the Mirkovi\'c-Vybornov isomorphism.  Then the diagonal entries of $ g $ are $ t^{\mu_{1,k}} (t-s)^{\mu_{2,k}}$ and we can factor
     $$ g = (g t^{-\mu_1}(t-s)^{-\mu_2}) t^{\mu_1}(t-s)^{\mu_2} \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$$
     So we get containment in one direction.
     
@@ -1047,7 +1090,7 @@ where $B_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} = B_1\xt[t^{-1}] t^{\mu_1 + \mu_2}
 
 As an application we can compute fusion of stable MV cycles of type $\alpha_i$ for any $i \in I$. What about more general weights? Having $\kpf > 1$. Well yeah. 
 
-\begin{proposition}(\cite{baumann2019mirkovic})
+\begin{proposition}(\cite{baumann2019Mirkovi\'c})
     % Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
     Let $Z',Z''$  be MV cycles of type $\lambda',\lambda''\in P_{++}$ and weight $\mu',\mu''\in P$ resp.\ such that $\mu = \mu' + \mu'' \in P_{++}$. Then 
     \begin{equation}
