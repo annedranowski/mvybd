@@ -592,12 +592,13 @@ For $ s \ne 0$, we see that the equalities in $ z(s) $ reproduce the permutation
 \end{equation}
 On the other hand, for $z(0)$, we get that $ r = 1$ and that 
 \begin{equation} \label{eq:rcol2}
-r_{z(0),1}(i) = r(i) = n -  N - 
+r_{z(0),1}(i) = r(i) = 
+ N - 
      \#\text{~boxes in first $i$ columns of }\lambda\,. 
 \end{equation}
 \jcom{Someone should check that I chose the notation correctly to make this work out.}
 
-\acom{What do we mean by equalities in $z(s)$ reproduce $p$? I thought $z(s)$ was defined by $p$. Also, $r_{z(s),1}(i) = N- r(p(k_1)) + r(p(k_1 + i)) = N - (N-\#\text{boxes in first }p(k_1)\text{ cols} + \cdots)\ne $~\Cref{eq:rcols}. We want to apply $p$ to $\{1,\dots,i\}$ and not just $i$. I guess we could clarify/declare that $r(p(i)) = N - \#$ boxes in columns $p(1),\dots,p(i)$.}
+\acom{What do we mean by equalities in $z(s)$ reproduce $p$? I thought $z(s)$ was defined by $p$. Also, $r_{z(s),1}(i) = N- r(p(k_1)) + r(p(k_1 + i)) = N - (N-\#\text{boxes in first }p(k_1)\text{ cols} + \cdots)\ne $~\Cref{eq:rcols}. We want to apply $p$ to $\{1,\dots,i\}$ and not just $i$. I guess we could clarify/declare that $r(p(i)) = N - \#$ boxes in columns $p(1),\dots,p(i)$. For a minute I thought it was actually fine, but what we have is: $r_{z(s),j}(i) = N - (\#\text{boxes in cols }1,\dots,p(k_j + i) - \#\text{boxes in cols }1,\dots,p(k_j))$ and what we want is $\dots (\#\text{boxes in cols }p(1),\dots,p(k_j + i) - \#\text{boxes in cols }p(1),\dots,p(k_j + i))$ right?}
 
 % 
 Let $ W = \{ z(s) : s \in \CC \}$.  Combining \Cref{eq:ranks,eq:ESfibre,eq:rcols,eq:rcol2} 
