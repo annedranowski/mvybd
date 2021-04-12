@@ -535,23 +535,25 @@ In order to prove this result, we will need to recall some results from Eisenbud
 % 
 
 Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ (called a rank function).  Let $k $ be maximal such that $ r(k) \ne 0 $.
-\jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.} \acom{And make it $N$? Was $k = m$ replaced because $m$ is already used?}
+\jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.} \acom{And make it $N$? Was $k = m$ replaced because $m$ is already used?} \jcom{Yes and yes}
 
 Let $ W$ be a subspace of $ \AA^k$. Eisenbud \& Saltman define a flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions. We will now describe these fibres.
 
-Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist unique $ 0=k_0< k_1< \dots < k_r = k $, distinct $ s_1, \dots, s_r \in \CC$ and a minimal length permutation  $ p $ of $ \{1, \dots, k\}$ such that 
-$$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)}\,. $$ 
+Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist $ 0=k_0< k_1< \dots < k_r = k $, distinct $ s_1, \dots, s_r \in \CC$ and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
+$$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)}\,. $$ We require that $ p $ is of minimal length, given the choice of $ s_1, \dots, s_r$.  The data $s_\bullet, p, k_\bullet$ is unique up to a permutation of $ \{1, \dots, k\}$.
 
 \jcom{Eisenbud--Saltman don't introduce this $ s_j$ notation, but I find it helpful.}
 
 \acom{Agreed. Maybe we mention that the point of $p$ is to group the repeated eigenvalues? It wouldn't be the most obvious thing we point out.}
+\jcom{That is what I was trying to say with ``introduce some data \dots''  Maybe it could be more clear.  I also clarified the uniqueness.}
 
 Next for $ j = 1, \dots r $ and $ i = 1, \dots, k_{j+1} - k_j$, we define
 $$
     % r_{z,j}(i):= N - r(p(m_j)) + r(p(m_j + i)) 
-    r_{z,j}(i):= N - r(p(k_j)) + r(p(k_j + i)) \, . 
+    r_{z,j}(i):= N + \sum_{a = 1}^i r(p(k_j + a)) - r(p(k_j +a) - 1)  \, . 
 $$
 \jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
+\jcom{I fixed it now.  I didn't want to use ES's $a_i$.}
 
 % 
 By \cite[Corollary 2.2]{eisenbud1989rank}, the fibre of the flat family $ X_{r,W} $ over $ z$ is given by
@@ -582,7 +584,7 @@ Since $\lambda = \lambda' + \lambda''$, there exists a permutation $ p $ of $ \{
 
 For $ s \in \CC$, we define $ z(s) \in \CC^k$, with $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1, \dots, k$.
 
-For $ s \ne 0$, we see that the equalities in $ z(s) $ reproduce the permutation $ p$, that $ r = 2 $, and that
+For $ s \ne 0$, we see that the equalities in $ z(s) $ give rise to the data of $ r = 2$, $k_1$, $s_1 = 0$, $s_2 = s$, and the permutation $p $.  We also see that
 \begin{equation} 
     \label{eq:rcols}
 \begin{split}
@@ -599,6 +601,8 @@ r_{z(0),1}(i) = r(i) =
 \jcom{Someone should check that I chose the notation correctly to make this work out.}
 
 \acom{What do we mean by equalities in $z(s)$ reproduce $p$? I thought $z(s)$ was defined by $p$. Also, $r_{z(s),1}(i) = N- r(p(k_1)) + r(p(k_1 + i)) = N - (N-\#\text{boxes in first }p(k_1)\text{ cols} + \cdots)\ne $~\Cref{eq:rcols}. We want to apply $p$ to $\{1,\dots,i\}$ and not just $i$. I guess we could clarify/declare that $r(p(i)) = N - \#$ boxes in columns $p(1),\dots,p(i)$. For a minute I thought it was actually fine, but what we have is: $r_{z(s),j}(i) = N - (\#\text{boxes in cols }1,\dots,p(k_j + i) - \#\text{boxes in cols }1,\dots,p(k_j))$ and what we want is $\dots (\#\text{boxes in cols }p(1),\dots,p(k_j + i) - \#\text{boxes in cols }p(1),\dots,p(k_j + i))$ right?}
+
+\jcom{I fixed the definition of $ r_{z,j}(i)$, so now it is correct, I believe.  I changed the wording of ``reproduce''. I'm trying to say that $ p$ is used to define $ z(s)$ and the we get $ p $ back from $ z(s)$ as the permutation coming from the equalities.}
 
 % 
 Let $ W = \{ z(s) : s \in \CC \}$.  Combining \Cref{eq:ranks,eq:ESfibre,eq:rcols,eq:rcol2} 
