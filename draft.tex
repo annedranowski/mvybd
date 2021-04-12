@@ -539,15 +539,21 @@ Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ (calle
 
 Let $ W$ be a subspace of $ \AA^k$. Eisenbud \& Saltman define a flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions. We will now describe these fibres.
 
-Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist unique $ 0=k_0< k_1< \dots < k_r = k $, distinct $ s_1, \dots, s_r \in \CC$ and a minimal length permutation  $ p $ of $ \{1, \dots, k\}$ such that $$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)} $$ 
+Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist unique $ 0=k_0< k_1< \dots < k_r = k $, distinct $ s_1, \dots, s_r \in \CC$ and a minimal length permutation  $ p $ of $ \{1, \dots, k\}$ such that 
+$$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)}\,. $$ 
 
 \jcom{Eisenbud--Saltman don't introduce this $ s_j$ notation, but I find it helpful.}
 
+\acom{Agreed. Maybe we mention that the point of $p$ is to group the repeated eigenvalues? It wouldn't be the most obvious thing we point out.}
+
 Next for $ j = 1, \dots r $ and $ i = 1, \dots, k_{j+1} - k_j$, we define
 $$
-    r_{z,j}(i):= N - r(p(m_j)) + r(p(m_j + i)) 
+    % r_{z,j}(i):= N - r(p(m_j)) + r(p(m_j + i)) 
+    r_{z,j}(i):= N - r(p(k_j)) + r(p(k_j + i)) \, . 
 $$
 \jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
+
+% 
 By \cite[Corollary 2.2]{eisenbud1989rank}, the fibre of the flat family $ X_{r,W} $ over $ z$ is given by
 \begin{equation} \label{eq:ESfibre}
 X_{r,z} = \{ A \in M_N(\CC) :\rk (A-s_j)^i\le r_{z,j}(i) \text{ for all } i , j \text{ as above}\}.
@@ -564,7 +570,7 @@ We will now apply these ideas to prove our Proposition \ref{prop:adjoint}.
 %Recall that $\lambda' + \lambda'' = \lambda$ is a partition of $N$. 
 
 Define 
-$$r(i) = N - \#\text{~boxes in first $i$ columns of }\lambda$$
+$$r(i) = N - \#\text{~boxes in first $i$ columns of }\lambda\,.$$
 It is easy to see that this is a rank function, with $ k = \lambda_1$, the number of columns of $ \lambda$.
 %\begin{lemma}
 %   The function $r$
@@ -574,22 +580,25 @@ It is easy to see that this is a rank function, with $ k = \lambda_1$, the numbe
 
 Since $\lambda = \lambda' + \lambda''$, there exists a permutation $ p $ of $ \{1, \dots, k\}$ (the columns of $ \lambda$) such that $ p(1), \dots, p(k_1) $ are the columns of $ \lambda'$ and $ p(k_1+1), \dots, p(k)$ are the columns of $ \lambda''$. Here $ k_1 = \lambda'_1$ the number of columns of $ \lambda'$.
 
-For $ s \in \CC$, we define $ z(s) \in \CC^k$, with $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1 \dots + k$.
+For $ s \in \CC$, we define $ z(s) \in \CC^k$, with $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1, \dots, k$.
 
-For $ s \ne 0$, we see that the equalities in $ z(s) $ reproduces the permutation $ p$, that $ r = 2 $, and that
+For $ s \ne 0$, we see that the equalities in $ z(s) $ reproduce the permutation $ p$, that $ r = 2 $, and that
 \begin{equation} 
     \label{eq:rcols}
 \begin{split}
         r_{z(s), 1}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda' \\
-         r_{z(s), 2}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda'' 
+        r_{z(s), 2}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda'' \,. 
 \end{split}
 \end{equation}
-On the other hand, for $z(0)$, we get $ r = 1$ and that 
+On the other hand, for $z(0)$, we get that $ r = 1$ and that 
 \begin{equation} \label{eq:rcol2}
 r_{z(0),1}(i) = r(i) = n -  N - 
-     \#\text{~boxes in first $i$ columns of }\lambda
+     \#\text{~boxes in first $i$ columns of }\lambda\,. 
 \end{equation}
 \jcom{Someone should check that I chose the notation correctly to make this work out.}
+
+\acom{What do we mean by equalities in $z(s)$ reproduce $p$? I thought $z(s)$ was defined by $p$. Also, $r_{z(s),1}(i) = N- r(p(k_1)) + r(p(k_1 + i)) = N - (N-\#\text{boxes in first }p(k_1)\text{ cols} + \cdots)\ne $~\Cref{eq:rcols}. We want to apply $p$ to $\{1,\dots,i\}$ and not just $i$. I guess we could clarify/declare that $r(p(i)) = N - \#$ boxes in columns $p(1),\dots,p(i)$.}
+
 % 
 Let $ W = \{ z(s) : s \in \CC \}$.  Combining \Cref{eq:ranks,eq:ESfibre,eq:rcols,eq:rcol2} 
 % (\ref{eq:ranks}), (\ref{eq:ESfibre}), (\ref{eq:rcols}), (\ref{eq:rcols2}) 
@@ -671,7 +680,8 @@ Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{
     \]
 \end{definition}
 \jcom{I'm not a huge fan of this description, but I don't know how to write it better.}
-\acom{Happy to just have the in words description.}
+
+\acom{Agree. Happy to just have the in-words description.}
 
     In words, $A$ is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
     % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
@@ -1110,6 +1120,7 @@ Since $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}
 \end{proof}
 
 \jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
+
 \acom{What was the answer to Roger's question why is $g^{-1}hn_1 \in G_1 (\Oinf)$}
 
 \section{Falling Action} % Resolution
