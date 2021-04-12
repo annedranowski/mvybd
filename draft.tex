@@ -748,8 +748,7 @@ Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{
     $$
     \end{definition}
     So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu'_{i}} (t-s)^{\mu''_{i}}$ ($i=1,\dots,m$).
-    
-    Note that the fibre $  \UU^{\mu', \mu''}_{0,0}$ is the same as the intersection of $ \TT_\mu $ with the set of strictly upper-triangular matrices. For example, elements of $ \UU_{0,s}^{(1,1,0),(2,1,1)}$ look like 
+    For example, elements of $ \UU_{0,s}^{(1,1,0),(2,1,1)}$ look like 
 % 
 % $\UU_{0,0}^{(?),(?)}$ entries look like 
 % \[
@@ -776,6 +775,10 @@ Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{
             0 & 0 & 0 & 0 & 0 & s
             \end{BMAT}\right] \,.    % \in \UU_{0,s}^{(1,1,0),(2,1,1)}
     \]
+    % 
+    Note that the fibre $  \UU^{\mu', \mu''}_{0,0}$ is the same as the intersection of $ \TT_\mu $ with the set of strictly upper-triangular matrices. 
+
+    \acom{Mention that any other decomposition $\nu' + \nu''$ of $\mu' + \mu''$ will give a slice $\UU^{\nu',\nu''}_{0,\AA}$ with the same zero fibre.}
     
     % \jcom{Instead of $\TT^+$ maybe a different letter would be best? I'm moved all $\lambda, \mu$ to upper indices for consistency (except for $ \cW_\mu, \TT_\mu$) and also to let us put $ s $ or $ \AA$ in the lower index.  I haven't been very consistent about $ \AA $ vs $ \CC$.  Which do you prefer?}
     % 
@@ -917,7 +920,7 @@ It's not clear how this work helps with/relates to AK/their conjectures.
 
 The generalized \mvy is interesting in its own right. \acom{is it?}
 
-Computing fusion still hard but at least boiled down to linear algebra. Cf.\ fusion product as it appears in \cite{beilinson1991quantization,feigin2generalized,Mirkovi\'c2007geometric,anderson2006algebra,bezrukavnikov2005equivariant}.
+Computing fusion still hard but at least boiled down to linear algebra. Cf.\ fusion product as it appears in \cite{beilinson1991quantization,feigin2generalized,mirkovic2007geometric,anderson2006algebra,bezrukavnikov2005equivariant}.
 
 Interesting combinatorics? Presumably it is related to Feigin and Loktev's generalized Kostka polynomials? Though Joel says that the product on SSYT that we are witnessing is unlikely to have a combinatorial description. 
 
@@ -1280,36 +1283,63 @@ where $B_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} = B_1\xt[t^{-1}] t^{\mu_1 + \mu_2}
 
 \section{Denouement}
 \label{s:denouement}
+% 
+In this section we demonstrate how to put the main results of this paper into practice.
+% 
+Given $\lambda$ dominant effective and $\mu\le\lambda$ effective, let $YT(\lambda)_\mu$ denote the set of semistandard Young tableaux of shape $\lambda$ and weight $\mu$. 
+% 
 
-As an application we can compute fusion of stable MV cycles of type $\alpha_i$ for any $i \in I$. What about more general weights? Having $\kpf > 1$. Well yeah. 
-
-\begin{proposition}(\cite{baumann2019Mirkovi\'c})
+We need the following result from \cite{dthesis}.
+\begin{proposition}
+    Generalized orbital varieties are indexed by semistandard Young tableaux. Composing with the ordinary Mirkovi\'c--Vybornov isomorphism gives bijections 
+    \[
+        YT(\lambda)_\mu \to \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n \to \irr \overline\Gr^\lambda\cap S^\mu_-\,. 
+    \]
+    % $$
+    % \begin{tikzcd}
+    %     YT(\lambda)_\mu \ar[r] \ar[d] & \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n \ar[d] \\
+    %     GT(\lambda)_\mu \ar[r] & \irr \overline\Gr^\lambda\cap S^\mu_-
+    % \end{tikzcd}
+    % $$
+\end{proposition}
+% 
+Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\tau)$ and in $\overline{\Gr}^\lambda\cap S^\mu_-$ by $Z(\tau)$. Thus $Z(\tau) = \phi(X(\tau))$. 
+% 
+\begin{proposition}(\cite{baumann2019mirkovic})
     % Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
-    Let $Z',Z''$  be MV cycles of type $\lambda',\lambda''\in P_{++}$ and weight $\mu',\mu''\in P$ resp.\ such that $\mu = \mu' + \mu'' \in P_{++}$. Then 
+    Let $Z',Z''$  be MV cycles of coweight $(\lambda',\mu'),(\lambda'',\mu'')$ resp.\ and assume that $\lambda',\lambda'',\mu = \mu' + \mu''$ are dominant. 
+    Then 
     \begin{equation}
+        \label{eq:tabmult}
         % Z_\tau\ast Z_\sigma 
         m_{\lambda'\lambda''} ([Z']\otimes[Z'']) 
         = 
         % \sum_{Z\in\cZ(\lambda)_\mu} 
         \sum_{\tau\in S(\lambda)_\mu}
         i\left(
-            Z_\tau, Z'\circ Z''
+            Z(\tau), Z'\circ Z''
             % \pi^{-1}(0)\cdot\overline{Z_1\times Z_2\times U}
-        \right) [Z_\tau]
+        \right) [Z(\tau)]
     \end{equation}
-    and the intersection multiplicities on the right are found by the algorithm described in APX.
-    In particular, 
-    the multiplicity of $Z_\tau$
+    and the intersection multiplicities on the right are found by the algorithm described in \Cref{ss:algo}. 
+    
+    \acom{Add pseudocode}
+    
+    In particular, the multiplicity of $Z(\tau)$
     % in the product of the zero fiber 
     % (divisor class) 
     % and the 
     % (Zariski) 
     % closure of the family $Z_1 \times Z_2 \times U$ 
-    is equal to the multiplicity of its generalized orbital variety $X_\tau$ among the set 
-    \begin{equation}\label{eq:tabmult}
-        \irr\lim_{s\to 0} \overline{\OO}^{\lambda',\lambda''}_{0,s}\cap\UU^{\mu',\mu''}_{0,s} \,. 
+    is equal to the multiplicity of its generalized orbital variety $X(\tau)$ 
+    in $ \overline{\OO}^{\lambda',\lambda''}_{0,0}\cap\UU^{\mu',\mu''}_{0,0} $. 
+    % among the set 
+    % \begin{equation}\label{eq:tabmult}
+        % \irr\lim_{s\to 0} 
+        % \overline{\OO}^{\lambda',\lambda''}_{0,0}\cap\UU^{\mu',\mu''}_{0,0} \,. 
         % \irr \lim_{s\to 0} \overline\OO^s_{\lambda_1,\lambda_2} \cap \TT_{\mu',\mu''}^{+,s}
-    \end{equation}
+    % \end{equation}
+
     Since stable MV cycles can be represented by ordinary ones the multiplicities in 
     $$
     b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} i \left(
@@ -1317,10 +1347,9 @@ As an application we can compute fusion of stable MV cycles of type $\alpha_i$ f
         % \pi^{-1}(0) \cdot \overline{Z_1 \times Z_2 \times U}
     \right) b_Z 
     $$
-    can also be deduced from \cref{eq:tabmult} for appropriate choices of $\lambda',\lambda''$ and $\mu',\mu''$.
+    can also be deduced from \Cref{eq:tabmult} for appropriate choices of $\lambda',\lambda''$ and $\mu',\mu''$. These are described in \Cref{lem:mintab,prop:minwts} below.
 \end{proposition}
-\acom{or Corollary?}
-
+% 
 \begin{conjecture}
     % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu_2$. 
     Let $\tau$ be the tableau of shape $\lambda$ and weight $\mu$ whose Lusztig datum is equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
@@ -1334,57 +1363,53 @@ As an application we can compute fusion of stable MV cycles of type $\alpha_i$ f
         ) = 1 \,. 
     \end{equation}
 \end{conjecture}
+% 
+
+\begin{lemma}
+    \label{lem:mintab}
+    Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
+    \[
+        \begin{gathered}
+        % 
+        \text{minimize }\mu^0\text{ such that} \\
+        % \text{the sum of the rows of }n_\bullet + \mu^0\text{ is non-increasing},
+        % \text{the sum of the columns of }n_\bullet + \mu^0\text{ is non-increasing}
+        \text{both }\lambda,\mu\text{ are non-increasing}
+        \end{gathered} 
+    \]
+    is got recursively from % setting $\mu^0_m = 0$, 
+    \[
+        \begin{gathered}
+            \mu^0_{m} = 0 \\ 
+            \mu^0_{m-1} = \max\{0 , \sum n_{m,c} - \sum n_{m-1,c}\} \\ 
+            \mu^0_i = \max\{0, \mu^0_{i+1} + \sum n_{i+1,c} - \sum n_{i,c} , \mu_{i+1}^0 + \sum n_{r,i+1} - \sum n_{r,i}\}
+        \end{gathered}
+    \]
+    for $i = 1,\dots,m-2$. 
+    In words, given a Luszig datum $n_\bullet$, if we wish to produce a minimal SSYT for it, 
+    \begin{itemize}
+        \item we can always take the number of $m$'s in row $m$ to be zero; 
+        \item we can take the number of $m-1$'s in row $m-1$ to be zero, unless $n_\bullet$ tells us that there are more $m$'s the first $m-1$ rows than there are $m-1$'s in the first $m-2$ rows, and in that case we take $\mu^0_{m-1}$ so that it exactly offsets the difference; 
+        \item we can take the number of $m-2$'s in row $m-2$ to be zero, unless $n_\bullet$ tells us there are more $m-1$'s in the first $m-1$ rows (building off the last step) than there are $m-2$'s in the first $m-3$ rows, or, that there are more boxes in row $m-1$ than there are in row $m-2$, and then we take $\mu^0_{m-2}$ to offset the minimum of the two differences; 
+        \item induct up to $\mu^0_1$. 
+    \end{itemize}
+\end{lemma}
 
 \begin{proposition}
-    Given Lusztig data $n_\bullet',n_\bullet''\in\NN^\ell$ the smallest choice of $\mu',\mu''\in P$ and $\lambda',\lambda''\in P_{++}$ such that $\mu = \mu' + \mu''\in P_{++}$ and $\tau'\in S(\lambda')_{\mu'}$, $\tau''\in S(\lambda'')_{\mu''}$ are SSYT with the prescribed Lusztig data, are\dots
+    \label{prop:minwts}
+    Given two Lusztig data $n_\bullet',n_\bullet''$ there is a smallest choice of effective coweights $\mu',\mu''$ and effective dominant coweights $\lambda',\lambda''$ such that $\mu = \mu' + \mu''$ is effective dominant and $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ are semistandard Young tableaux with the prescribed Lusztig data. They are got by choosing the minimum $\lambda,\mu$ for $n_\bullet = n_\bullet ' + n_\bullet ''$ afforded by \Cref{lem:mintab}, and then breaking off $n_{r,c}'$ boxes of weight $r$ from each row $c<r$ of $\tau$ to form a $\tau'_0$ an intermediate tableau. If $\tau'_0$ is of an acceptable shape then we keep it. If it is not, then we correct it by padding it using some boxes of weight $r$ in row $r$ of what remains of $\tau$.
+
+    \acom{To be completed.}
 \end{proposition}
-\begin{proof}
-    [Sketch.]
-    The last row of the GT pattern of $\tau'$ (resp.\ $\tau''$) is $\lambda'$ (resp.\ $\lambda''$). 
-    Guess: the smallest choices will be the appropriate pieces of the smallest choices for $\lambda$, $\mu$, and $n_\bullet = n_\bullet' + n_\bullet''$. E.g.\ take $n_\bullet' = (2,0,0), n_\bullet'' = (0,0,2)$ so $n_\bullet = (2,0,2)$. Then $\lambda - \mu = 2\alpha_1 + 2\alpha_2$ %or $(\lambda_1 - \mu_1,\lambda_2 - \mu_2, \lambda_3 - \mu_3) = (2,0,2)$ 
-    \begin{gather}
-        (\lambda_1 - \mu_1,\lambda_2 - \mu_2, \lambda_3 - \mu_3) = (2,0,-2)
-        \\
-        % (\lambda_1(2) - \mu_1(2),\lambda_2(2) - \mu_2(2), \lambda_3(2) - \mu_3(2)) &= (2,0,2) \\
-        % (\lambda_1(1) - \mu_1(1),\lambda_2(1) - \mu_2(1), \lambda_3(1) - \mu_3(1)) &= (2,0,2)
-        \begin{matrix}
-            & & \lambda_1(1) \\
-            & \lambda_1 (2) = \lambda_1(1) + 2 & & \lambda_2(2) \\
-            \lambda_1 = \lambda_1(2) + 0  & & \lambda_2 = \lambda_2(2) + 2 & & \lambda_3 
-        \end{matrix}\\
-        \Rightarrow \mu_3 \ge 2, \mu_2 \ge 2, \mu_1 \ge 2 \\
-        \Rightarrow \lambda_3 \ge 0, \lambda_2 \ge 2, \lambda_1 \ge 4 \\
-        \Rightarrow \lambda_2(2) = \lambda_2 - 2 \ge 0 , \lambda_1(2) = \lambda_1 \ge 4 \\ 
-        \Rightarrow \lambda_1(1) = \lambda_1(2) - 2 \ge 2 \\ 
-        \young(1122,33)
-        % \Leftrightarrow 
-        % \begin{matrix}
-        %     & & \lambda_1(1) \\
-        %     & \lambda_1 (2) = \lambda_1(1) + 2 & & \lambda_2(2) \\
-        %     \lambda_1 = \lambda_1(2) + 0  & & \lambda_2 = \lambda_2(2) + 2 & & 0 
-        % \end{matrix}
-    \end{gather} 
-    Since the tableau formed by taking the smallest possible choices for each of the inequalities is semi-standard we're good. 
-
-    In general we have $\mu_i\ge\sum_k n_{i,k}$ where $n_{i,k} = \lambda_k(i) - \lambda_{k}(i-1)$ and then $\lambda_i \ge \nu_i + \mu_i$ where $\nu = \wt(n_\bullet)$. The rest of the lower bounds are determined recursively by the relation $\lambda_k(i-1) =  \lambda_k(i) - n_{i,k}$. Choose the minimum values satisfying the bounds until $\lambda_k(i) < \lambda_{k+1}(i)$ for some $k,i$. If this should happen go back to the start and increment all/some of the initial $\lambda_k$ by an appropriate amount.
-\end{proof}
-
-% TODO: un-appendicize 
-% \appendix
-
-\subsection{Generalized orbital varieties?}
-TODO: recall $\tau\mapsto X_\tau \mapsto Z_\tau$
 
 \subsection{Pseudocode}
-
-
-\begin{question}
-    Smallest $\mu_1, \mu_2$ such that\dots?
-\end{question}
+% 
 
 \subsection{Tableaux and families}
+% 
+TODO: resume here 
 
-TODO: $Z_1\ast_\AA Z_2$ is described by $\tau_1\ast\tau_2$ or $\tau_1\sqcup\tau_2$
+$Z'\ast_\AA Z''$ is described by $\tau'\ast\tau''$
 
 \begin{question}
     How do we know that our algorithm produces MV cycles? 
