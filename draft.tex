@@ -482,23 +482,118 @@ On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $
 \acom{Two definitions in one. Why does fusion of spherical schubs get preferential treatment \emoji{astonished}}
     
 
-\subsection{Matrices}
+\section{Matrices}
+
+\subsection{Adjoint orbits and their deformations}
  We now consider some subvarieties of the space of $ N\times N$ matrices, again using the $ \lambda, \lambda', \lambda'', \mu, \mu', \mu''$ defined in the previous section.  Recall that $\lambda, \mu $ are partitions of $ N$.
 
-\begin{itemize}
-    \item For $ s \in \CC$ 
+ For $ s \in \CC$ 
     % and $\lambda\in P_{++}$
-    we have a Jordan form matrix $ J_{s,\lambda}$ with eigenvalue $ s$ and Jordan blocks of sizes $ \lambda_1, \dots, \lambda_m$. 
+    we write $ J_{s,\lambda}$ for the Jordan form matrix with eigenvalue $ s$ and Jordan blocks of sizes $ \lambda_1, \dots, \lambda_m$. 
     % \acom{$s\in\AA$?}
     % 
-    \item The adjoint orbit $ \OO^\lambda \subset M_N(\CC)$ of matrices conjugate to $ J_{0,\lambda}$.  Its closure is $ \overline{\OO}^\lambda = \bigcup_{\gamma \le \lambda} \OO^{\gamma}$.
+    
+\begin{definition}
+The nilpotent orbit $ \OO^\lambda \subset M_N(\CC)$ of matrices conjugate to $ J_{0,\lambda}$.
+\end{definition}  Its closure is $ \overline{\OO}^\lambda = \bigcup_{\gamma \le \lambda} \OO^{\gamma}$.
     % 
-    \item For $ s \in \CC, s \ne 0$, the adjoint orbit $ \OO^{\lambda', \lambda''}_{0,s}$ of matrices conjugate to $ J_{0,\lambda'} \oplus J_{s,\lambda''}$.  Its closure is $ \overline{\OO}^{\lambda', \lambda''}_{0,s} = \bigcup_{\gamma' \le \lambda', \gamma'' \le \lambda''} \OO^{\gamma', \gamma''}_{0,s}$. 
+\begin{definition}
+ For $ s \in \CC, s \ne 0$, the adjoint orbit $ \OO^{\lambda', \lambda''}_{0,s}$ of matrices conjugate to $ J_{0,\lambda'} \oplus J_{s,\lambda''}$.
+\end{definition}  
     % \acom{$s\in\AA$?}
     % 
-    \item A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$ is said to have Jordan type $((0,\lambda'), (s,\lambda''))$ if its matrix representatives lie in $ \OO^{\lambda', \lambda''}_{0,s}$.
+     A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$ is said to have Jordan type $((0,\lambda'), (s,\lambda''))$ if its matrix representatives lie in $ \OO^{\lambda', \lambda''}_{0,s}$.
     % 
-    \item The family of adjoint orbits $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow \AA$ whose fibre over $ s \ne 0 $ is $ \overline{\OO}^{\lambda', \lambda''}_{0,s}$ and whose \acom{Claim:} fibre over 0 is $\overline{\OO}^\lambda$ (a consequence of Eisenbud and Salten's characterization of ``rank varieties'' as proved in \Cref{cor:es}). \acom{TODO: make into definition to be x-referenced in proof of description of fibres}
+    
+     Its closure is $ \overline{\OO}^{\lambda', \lambda''}_{0,s} = \bigcup_{\gamma' \le \lambda', \gamma'' \le \lambda''} \OO^{\gamma', \gamma''}_{0,s}$.
+     
+     We recall that these adjoint orbit closures are given by rank conditions.  More precisely we have
+     $$
+     \overline{\OO}^\lambda = \{ A \in M_N(\CC) : \rk A^i \le N - \#\text{~boxes in first $i$ columns of }\lambda \}
+     $$
+     and
+     \begin{equation} \label{eq:ranks}
+     \overline{\OO}^{\lambda', \lambda''}_{0,s} = \{ A \in M_N(\CC) : \rk A^i \le N - 
+     \#\text{~boxes in first $i$ columns of }\lambda' \quad
+     \rk (A-s)^i \le N - \#\text{~boxes in first $i$ columns of }\lambda'' \}
+     \end{equation}
+     
+\begin{proposition} \label{prop:adjoint}
+    There exists a flat family  $\overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow \AA$ whose fibre over $s \in \AA$ is reduced and given by
+       $ \overline{\OO}^{\lambda', \lambda''}_{0,s}$ if $s \ne 0 $ and
+$        \overline{\OO}^\lambda $ if $ s = 0$.
+\end{proposition}
+
+In order to prove this result, we will need to recall some results from Eisenbud-Saltman \cite{eisenbud1989rank}.
+
+
+Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ (called a rank function).  Let $k $ be maximal such that $ r(k) \ne 0 $.
+\jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.}
+
+Let $ W$ be a subspace of $ \AA^k$.  Eisenbud-Saltman define a flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions.  We will now describe these fibres.
+
+Let $ z \in \AA^k$. Some of the coordinates of $z$ are equal; we introduce some data to describe these equalities.  There exist unique $ 0=k_0< k_1< \dots < k_r = k $, distinct $ s_1, \dots, s_r \in \CC$ and a minimal length permutation  $ p $ of $ \{1, \dots, k\}$ such that $$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)} $$ 
+
+\jcom{Eisenbud-Saltman don't introduce this $ s_j$ notation, but I find it helpful.}
+
+Next for $ j = 1, \dots r $ and $ i = 1, \dots, k_{j+1} - k_j$, we define
+$$
+    r_{z,j}(i):= N - r(p(m_j)) + r(p(m_j + i)) 
+$$
+\jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
+By \cite[Corollary 2.2]{eisenbud1989rank}, the fibre of the flat family $ X_{r,W} $ over $ z$ is given by
+\begin{equation} \label{eq:ESfibre}
+X_{r,z} = \{ A \in M_N(\CC) :\rk (A-s_j)^i\le r_{z,j}(i) \text{ for all } i , j \text{ as above}\}.
+\end{equation}
+
+We will now apply these ideas to prove our Proposition \ref{prop:adjoint}.
+
+\begin{proof}
+
+%\begin{lemma}
+%    \label{lem:es}
+%    Let $\lambda = \lambda' + \lambda''$ be partitions. There exists a permutation of the columns of $\lambda$ such that the first $\lambda'_1$ columns are precisely the columns of $\lambda'$ and the last $\lambda''_1$ columns are precisely the columns of $\lambda''$. 
+%\end{lemma}
+%Recall that $\lambda' + \lambda'' = \lambda$ is a partition of $N$. 
+
+Define 
+$$r(i) = N - \#\text{~boxes in first $i$ columns of }\lambda$$
+It is easy to see that this is a rank function, with $ k = \lambda_1$, the number of columns of $ \lambda$.
+%\begin{lemma}
+%   The function $r$
+%    defined by $r(j) = N - \#\text{~boxes in first $j$ columns of }\lambda$ 
+%is a rank function. 
+%\end{lemma}
+
+Since $\lambda = \lambda' + \lambda''$, there exists a permutation $ p $ of $ \{1, \dots, k\}$ (the columns of $ \lambda$) such that $ p(1), \dots, p(k_1) $ are the columns of $ \lambda'$ and $ p(k_1+1), \dots, p(k)$ are the columns of $ \lambda''$. Here $ k_1 = \lambda'_1$ the number of columns of $ \lambda'$.
+
+For $ s \in \CC$, we define $ z(s) \in \CC^k$, with $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1 \dots + k$.
+
+For $ s \ne 0$, we see that the equalities in $ z(s) $ reproduces the permutation $ p$, that $ r = 2 $, and that
+\begin{equation} \label{eq:rcols}
+r_{z(s), 1}(i) =  N - 
+     \#\text{~boxes in first $i$ columns of }\lambda'
+     \quad
+     r_{z(s), 2}(i) =  N - \#\text{~boxes in first $i$ columns of }\lambda'' 
+     \end{equation}
+On the other hand, for $z(0)$, we get $ r = 1$ and that 
+\begin{equation} \label{eq:rcol2}
+r_{z(0),1}(i) = r(i) = n -  N - 
+     \#\text{~boxes in first $i$ columns of }\lambda
+\end{equation}
+\jcom{Someone should check that I chose the notation correctly to make this work out.}
+
+Let $ W = \{ z(s) : s \in \CC \}$.  Combining (\ref{eq:ranks}), (\ref{eq:ESfibre}), (\ref{eq:rcols}), (\ref{eq:rcols2}) we see that the Eisenbud-Saltman family $ X_{r, W} \rightarrow W $ gives our family $ \overline{\OO}^{\lambda', \lambda''}_{0, \AA}$.
+\end{proof}
+
+
+
+
+
+
+
+    
+%     The family of adjoint orbits $  whose fibre over $ s \ne 0 $ is $ \overline{\OO}^{\lambda', \lambda''}_{0,s}$ and whose \acom{Claim:} fibre over 0 is $\overline{\OO}^\lambda$ (a consequence of Eisenbud and Salten's characterization of ``rank varieties'' as proved in \Cref{cor:es}). \acom{TODO: make into definition to be x-referenced in proof of description of fibres}
     
    % \jcom{We should justify why the 0 fibre is correct scheme-theoretically.} 
     %\acom{does it follow because ``$s$ divides $\det g$'' is a closed condition 
@@ -552,7 +647,8 @@ On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $
 % If we apply the change of basis $g$ to the ideal $I=I_1 + I_2$ and set $s = 0$ (if possible) do we recover the ideal of $\OO^{\lambda_1 + \lambda_2}$? Let $A^g = g(A_1 \oplus A_2) g^{-1}$...
 % \end{remark}
     
-    \item Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. The Mirkovi\'c--Vybornov slice $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
+\subsection{The Mirkovic-Vybornov slice} Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. 
+\begin{definition}The \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
     \[
         \begin{aligned}
             &\text{for all } 1 \le a,s\le m\,,
@@ -561,6 +657,9 @@ On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $
             &\text{then } e^t_s\cdot (A-J_\mu) e^b_a = 0 \,.
         \end{aligned}    
     \]
+\end{definition}
+\jcom{I'm not a huge fan of this description, but I don't know how to write it better.}
+
     In words, $A$ is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
     % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
     In pictures, and by example, the elements $A$ for $\mu=(3,2,2,1)$ look like 
@@ -577,7 +676,7 @@ On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $
         \right]
     \]
     % 
-    \item To each $ A \in \TT_\mu$, we will associate the $m\times m$ matrix 
+     To each $ A \in \TT_\mu$, we will associate the $m\times m$ matrix 
     of polynomials 
     $ g(A) = \left( g(A)_{ij} \right)$ in $ M_m(\CC[t]) $ as follows.
     \begin{equation}
@@ -619,10 +718,11 @@ On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $
     % \jcom{I moved the definition here since it will be useful for defining the upper triangular stuff.}
     % \acom{Ok.}
     % 
-    \item The ``upper-triangular'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
+    \begin{definition} The ``\textbf{upper-triangular}'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
     $$
     \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}
     $$
+    \end{definition}
     So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu'_{i}} (t-s)^{\mu''_{i}}$ ($i=1,\dots,m$).
     
     Note that the fibre $  \UU^{\mu', \mu''}_{0,0}$ is the same as the intersection of $ \TT_\mu $ with the set of strictly upper-triangular matrices. For example, elements of $ \UU_{0,s}^{(1,1,0),(2,1,1)}$ look like 
@@ -658,10 +758,11 @@ On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $
     % \acom{Maybe $\UU$ for a different letter? And, I guess we do not need $\AA$ but it is a nice letter to have around. It also serves to distinguish the $\CC$ over which $R,K$ are defined from the $\AA$ over which $\Grbd$ is defined?}
     % \jcom{Sure $\UU$ is good.}
     % \acom{And, sorry, ignore my other comment; it's the same $\CC$ (or $\AA$) nothing to distinguish.}
-\end{itemize}
+
 
 % TODO: place this better? 
 % \acom{The following is a rough note.} 
+\begin{comment}
 \subsubsection{Detour of rank varieties}
 % \begin{theorem}(\cite{eisenbud1989rank})
     % \label{thm:es}
@@ -683,9 +784,7 @@ More precisely, they show that
     \item $X_r$ fits into a flat family over $\AA^m$ of normal varieties whose fibre over a point $(z_1,\dots,z_m)$ such that the $z_i$ are all distinct is 
 \end{enumerate}
 \[
-    X_{r;z_1,\dots,z_m} = \left\{
-        A \in \End(V) : \cork(A - z_i) \ge r(i-1) - r(i) , i = 1,\dots,m 
-        \right\}\,. 
+. 
 \]
 They construct a simultaneous resolution of singularities and use the resolution of $X_r$ to describe the tangent space to $X_r$ at a point corresponding to an endomorphism $A$ such that $\rk A^i = r_i$ for all $i$. As an application of the tangent space computation they show that the general fiber of this family can be written as the scheme-theoretic intersection of varieties like $X_r$. 
 
@@ -710,7 +809,12 @@ This result is applied to study the fibers of the family $X_{r,\AA^m}$ over poin
     z_{p(m_s + 1)} &= \cdots = z_{p(m_s + 1)}
 \end{align*}
 and $p$ preserves the order within each interval $m_i + 1,\dots,m_{i+1}$. \acom{Not sure what this means. Order of coordinates?} With this notation in place Eisenbud and Saltman define the numbers
-\begin{gather*}
+
+% 
+\begin{corollary}
+    \label{cor:es}
+    The family $\OO^{\lambda',\lambda''}_{0,\AA}$ defined above has zero fibre $\OO^\lambda$. 
+\end{corollary}\begin{gather*}
     r(i,j):= \dim V - a_{p(m_i + 1)} - \cdots - a_{p(m_i + j )} \\
     \qquad \qquad \qquad \qquad \qquad \text{ for } i = 1,\dots,s \text{ and } j = 1,\dots , m_{i + 1 } - m_i 
 \end{gather*}
@@ -724,11 +828,6 @@ It is through the $r(i,j)$ that the rank function $r$ determines the Jordan type
         X_{r,\vec z} = \{A \in \End(V) : \rk (A-z_i)^j\le r(i,j) \text{ for all } i , j \}\,. 
     \]
 \end{proposition}
-% 
-\begin{corollary}
-    \label{cor:es}
-    The family $\OO^{\lambda',\lambda''}_{0,\AA}$ defined above has zero fibre $\OO^\lambda$. 
-\end{corollary}
 % 
 The only work we have to do to apply \Cref{prop:es} is to determine the rank function that will allow us to realize $\OO^\lambda$ as a rank variety, and the family $\OO^{\lambda',\lambda''}_{0,\AA}$ as a deformation of it. 
 %  
@@ -783,6 +882,7 @@ and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,(0,s
 % $$\{a_1,a_2,\dots\} = \{2,2,\dots,2,1,1,\dots,1\}$$
 % with $b+d$ 2s and $a+c - b - d$ 1s. Wait a minute, nevermind, of course this is true. We have two partitions $\lambda'$ and $\lambda''$ and one way to form the partition $\lambda = \lambda' + \lambda''$ is to break $\lambda_i$ down into columns, order the columns by length, and recombine. Cool. I think it's fine. 
 % \acom{That's it for the note.}
+\end{comment}
 
 \section{Exposition}
 
