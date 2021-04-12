@@ -511,19 +511,19 @@ A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$
 The closure $ \overline{\OO}^{\lambda', \lambda''}_{0,s}$ is $\bigcup_{\gamma' \le \lambda', \gamma'' \le \lambda''} \OO^{\gamma', \gamma''}_{0,s}$.     
      
 We recall that these adjoint orbit closures are given by rank conditions.  More precisely we have
-$$
-    \overline{\OO}^\lambda = \{ A \in M_N(\CC) : \rk A^i \le N - \#\text{~boxes in first $i$ columns of }\lambda \}
-$$
-and
-\begin{equation} 
-\label{eq:ranks}
-\begin{split}
-    % 
-    \overline{\OO}^{\lambda', \lambda''}_{0,s} = \{ A \in M_N(\CC) : &\rk A^i \le N - 
-    \#\text{~boxes in first $i$ columns of }\lambda' \\
-    &\rk (A-s)^i \le N - \#\text{~boxes in first $i$ columns of }\lambda'' \}
-\end{split}
-\end{equation}
+     $$
+     \overline{\OO}^\lambda = \{ A \in M_N(\CC) : \rk A^i \le N - \#\text{~boxes in first $i$ columns of }\lambda \}
+     $$
+     and
+     \begin{equation} 
+        \label{eq:ranks}
+        \begin{split}
+            % 
+         \overline{\OO}^{\lambda', \lambda''}_{0,s} = \{ A \in M_N(\CC) : &\rk A^i \le N - 
+         \#\text{~boxes in first $i$ columns of }\lambda' \\
+         &\rk (A-s)^i \le N - \#\text{~boxes in first $i$ columns of }\lambda'' \}
+        \end{split}
+     \end{equation}
 %  
 \begin{proposition} \label{prop:adjoint}
     There exists a flat family  $\overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow \AA$ whose fibre over $s \in \AA$ is reduced and given by
@@ -535,11 +535,11 @@ In order to prove this result, we will need to recall some results from Eisenbud
 % 
 
 Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ (called a rank function).  Let $k $ be maximal such that $ r(k) \ne 0 $.
-\jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.} \acom{And make it $N$? Was $k = m$ replaced because $m$ is already used?}
+\jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.}
 
-Let $ W$ be a subspace of $ \AA^k$. Eisenbud \& Saltman define a flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions. We will now describe these fibres.
+Let $ W$ be a subspace of $ \AA^k$. Eisenbud \& Saltman define a flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions.  We will now describe these fibres.
 
-Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist unique $ 0=k_0< k_1< \dots < k_r = k $, distinct $ s_1, \dots, s_r \in \CC$ and a minimal length permutation  $ p $ of $ \{1, \dots, k\}$ such that $$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)} $$ 
+Let $ z \in \AA^k$. Some of the coordinates of $z$ are equal; we introduce some data to describe these equalities.  There exist unique $ 0=k_0< k_1< \dots < k_r = k $, distinct $ s_1, \dots, s_r \in \CC$ and a minimal length permutation  $ p $ of $ \{1, \dots, k\}$ such that $$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)} $$ 
 
 \jcom{Eisenbud--Saltman don't introduce this $ s_j$ notation, but I find it helpful.}
 
@@ -577,23 +577,20 @@ Since $\lambda = \lambda' + \lambda''$, there exists a permutation $ p $ of $ \{
 For $ s \in \CC$, we define $ z(s) \in \CC^k$, with $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1 \dots + k$.
 
 For $ s \ne 0$, we see that the equalities in $ z(s) $ reproduces the permutation $ p$, that $ r = 2 $, and that
-\begin{equation} 
-    \label{eq:rcols}
-\begin{split}
-        r_{z(s), 1}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda' \\
-         r_{z(s), 2}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda'' 
-\end{split}
-\end{equation}
+\begin{equation} \label{eq:rcols}
+r_{z(s), 1}(i) =  N - 
+     \#\text{~boxes in first $i$ columns of }\lambda'
+     \quad
+     r_{z(s), 2}(i) =  N - \#\text{~boxes in first $i$ columns of }\lambda'' 
+     \end{equation}
 On the other hand, for $z(0)$, we get $ r = 1$ and that 
 \begin{equation} \label{eq:rcol2}
 r_{z(0),1}(i) = r(i) = n -  N - 
      \#\text{~boxes in first $i$ columns of }\lambda
 \end{equation}
 \jcom{Someone should check that I chose the notation correctly to make this work out.}
-% 
-Let $ W = \{ z(s) : s \in \CC \}$.  Combining \Cref{eq:ranks,eq:ESfibre,eq:rcols,eq:rcol2} 
-% (\ref{eq:ranks}), (\ref{eq:ESfibre}), (\ref{eq:rcols}), (\ref{eq:rcols2}) 
-we see that the Eisenbud--Saltman family $ X_{r, W} \rightarrow W $ gives our family $ \overline{\OO}^{\lambda', \lambda''}_{0, \AA}$.
+
+Let $ W = \{ z(s) : s \in \CC \}$.  Combining (\ref{eq:ranks}), (\ref{eq:ESfibre}), (\ref{eq:rcols}), (\ref{eq:rcols2}) we see that the Eisenbud-Saltman family $ X_{r, W} \rightarrow W $ gives our family $ \overline{\OO}^{\lambda', \lambda''}_{0, \AA}$.
 \end{proof}
 
 
@@ -671,7 +668,6 @@ Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{
     \]
 \end{definition}
 \jcom{I'm not a huge fan of this description, but I don't know how to write it better.}
-\acom{Happy to just have the in words description.}
 
     In words, $A$ is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
     % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
@@ -686,7 +682,7 @@ Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{
              A_{31}^1 & & & A_{32}^1 & & A_{33}^1 & A_{34}^1 \\
              A_{41}^1 & & & A_{42}^1 & & A_{43}^1 & A_{43}^1
         \end{BMAT}
-        \right]\,. 
+        \right]
     \]
     % 
      To each $ A \in \TT_\mu$, we will associate the $m\times m$ matrix 
@@ -733,7 +729,7 @@ Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{
     % 
     \begin{definition} The ``\textbf{upper-triangular}'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
     $$
-    \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}\,. 
+    \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}
     $$
     \end{definition}
     So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu'_{i}} (t-s)^{\mu''_{i}}$ ($i=1,\dots,m$).
@@ -941,8 +937,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     $\cO_s^m/L(s)$ has Jordan type $ \lambda''$.  For $ a = 0, s$,  we see that $$\CC[t]^m/L \otimes_{\CC[t]} \cO_a \cong \cO_a^m / L(a). $$
     Thus, Lemma \ref{le:linalg} shows that the map
     % $ L_0 / L \rightarrow \CC\xt^m / L(0)$ 
-    $\CC[t]^m/L\to \cO^m/L(0)$ induces an isomorphism between the $0$-generalized eigenspace of $ t$ and $ \cO^m / L(0)$.   The same thing holds for the $s$-generalized eigenspace of $t $ and $ \cO_s^m/L(s)$. This shows that (i) implies (ii) and the logic can be reversed to see that (ii) implies (i). 
-    % \acom{is this map $v + L \mapsto v + L(0)$?} \jcom{yes} \marginpar[]{*}
+    $\CC[t]^m/L\to \cO^m/L(0)$ induces an isomorphism between the $0$-generalized eigenspace of $ t$ and $ \cO^m / L(0)$.   The same thing holds for the $s$-generalized eigenspace of $t $ and $ \cO_s^m/L(s)$. This shows that (i) implies (ii) and the logic can be reversed to see that (ii) implies (i). \acom{is this map $v + L \mapsto v + L(0)$?} \jcom{yes} \marginpar[]{*}
     % todo 
     
     On the other hand, if $ L = g t^{\lambda'} (t-s)^{\lambda''} \CC[t]^m$ for some $ g \in G(\CC[t])$, then $ L(0) = g t^{\lambda'}\cO^m $ since 
@@ -989,11 +984,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 
     Finally, given (iii), then we can see $ v_i := t^{\mu_i} e_i - \sum_{j=1}^m p_{ij} e_j \in L $ for some $ p_{ij} \in \CC[t]$ of degree less than $ \min(\mu_i,\mu_j) $.  It is easy to see that $ L = \Sp_\cO(v_1, \dots, v_m) $ and so $ L \in \cW_\mu$.  
     
-    Finally to show that $ \beta_\mu$ forms a basis for $ \CC[t]^m/L$, it suffices to show that for each $ i$, $ t^{\mu_i} e_i  \in \Sp_\CC(\beta_\mu) + L$. 
-
-    \rcom{Preimage of $\beta_\mu$}  
-
-    This follows immediately from (iii).
+    Finally to show that $ \beta_\mu$ forms a basis for $ \CC[t]^m/L$, it suffices to show that for each $ i$, $ t^{\mu_i} e_i  \in \Sp_\CC(\beta_\mu) + L$. \rcom{Preimage of $\beta_\mu$}  This follows immediately from (iii).
     % 
 \end{proof}
 % \acom{note-to-self, skipped this; return to it.}
@@ -1010,13 +1001,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     $$ L = h (h^{-1} g h) t^{\mu}\CC[t]^m\,. $$
     Note that 
     % $ h^{-1} g h \in N(\CC\xT[t^{-1}])$ 
-    $h^{-1} g h \in N(\cK_\infty)$ and so we can factor $ h^{-1} g h = n_1 n_2$ for $ n_1 \in N_1(\Oinf), n_2 \in N(\CC[t]) $.  Since $ \mu $ is dominant, we see that $ t^{-\mu} n_2 t^\mu \in N(\CC[t]) $. % \CC\xt[t^{-1}]s
-
-    \rcom{I think we want $\mu$ antidominant here or should the $N$'s be $N_-$'s?} 
-    
-    \acom{Si}
-    
-    Thus, $ L = h n_1 t^\mu \CC[t]^m$.  Since $ hn_1 \in G_1(\Oinf)$, the result follows. % \CC\xt[t^{-1}]
+    $h^{-1} g h \in N(\cK_\infty)$ and so we can factor $ h^{-1} g h = n_1 n_2$ for $ n_1 \in N_1(\CC\xt[t^{-1}]), n_2 \in N(\CC[t]) $.  Since $ \mu $ is dominant, we see that $ t^{-\mu} n_2 t^\mu \in N(\CC[t]) $ \rcom{I think we want $\mu$ antidominant here or should the $N$'s be $N_-$'s?}.  Thus, $ L = h n_1 t^\mu \CC[t]^m$.  Since $ hn_1 \in G_1(\CC\xt[t^{-1}])$, the result follows.
     \end{proof}
 
 \section{Climax}
@@ -1039,10 +1024,7 @@ $$
 \overline{\Gr}^{\lambda', \lambda''}_{0,\AA}  \hookrightarrow \Grbd \rightarrow \Grth\,.
 $$
 This is not a very serious abuse of notation, since the map $ \Grbd \rightarrow \Grth $ is almost injective. 
-% Joel: The only non-injectivity comes from the fact that we forget the data
-% of s.  So the map is non-injective over the locus where s is not
-% actually an eigenvalue (in lattice terms where L(s) is the standard
-% lattice).
+
 In a similar way, we will write $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \TT_\mu$ using the non-injective map $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow M_N(\CC)$ (for example the fibre of this map over $ 0 $ is $ \CC $). 
 % \acom{Grammar of `write using the map' is iffy. Also, is the fibre over 0 just a copy of the zero matrix in every $s$-fibre?}
 
@@ -1055,18 +1037,13 @@ In a similar way, we will write $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \
 % \jcom{Oops, no I think that we should stick with $ X_{0, \AA}$.}
 % TODO: comb the doc at the end for this notation 
 \begin{proof}
-Since we already have the isomorphism from Theorem \ref{th:TmuWmu}, it suffices to show that for any $ A \in \TT_\mu$, 
-$$ 
-(A,s) \in \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \TT_\mu \text{ if and only if } (g(A)\CC[t]^m, s) \in \overline\Gr^{\lambda', \lambda''}_{0,\AA} \cap \cW_\mu \,. 
-$$
+Since we already have the isomorphism from Theorem \ref{th:TmuWmu}, it suffices to show that for any $ A \in \TT_\mu$, $$ (A,s) \in \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \TT_\mu \text{ if and only if } (g(A)\CC[t]^m, s) \in \overline\Gr^{\lambda', \lambda''}_{0,\AA} \cap \cW_\mu $$
 This follows immediately from Lemma \ref{le:Grl1l2}.
 \end{proof}
-% 
+
 \begin{theorem}
     The isomorphism from Theorem \ref{th:OGrl} restricts to an isomorphism
-    $$ 
-    \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \UU^{\mu', \mu''}_{0,\AA} \cong \overline{\Gr}^{\lambda', \lambda''}_{0,\AA} \cap S^{\mu', \mu''}_{0,\AA}\,.
-    $$
+    $$ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \UU^{\mu', \mu''}_{0,\AA} \cong \overline{\Gr}^{\lambda', \lambda''}_{0,\AA} \cap S^{\mu', \mu''}_{0,\AA}$$
 \end{theorem}
 
 %\jcom{I was thinking about the proof of this result.  It is enough to prove that for $ A \in \OO^{\lambda', \lambda''}_s \cap \TT_\mu $, $g(A) \in S^{\mu', \mu''}_s $ if and only if $ A \in T^+$.  It is easy to show that if $ A \in \UU$, then $ g(A) \in S^{\mu', \mu''}_s $.  But the converse is not so obvious.  (I think Anne's paper/thesis might be incomplete on this point.)  I thought of two approaches: first to write down the lattice interpretation of $S^{\mu', \mu''}$ (similar to what is in my thesis in the Anderson-Kogan comparison section) or think about both $S^{\mu', \mu''}$ and $\UU$ as attracting sets for a $\CC^\times$ action.  Which do you prefer?}
@@ -1080,15 +1057,14 @@ This follows immediately from Lemma \ref{le:Grl1l2}.
 \begin{proof}
 We could prove this by observing the both sides are the attracting locus of an appropriate $ \CC^\times$ action. However, we will give the following more algebraic proof.
 
-Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A),s) \in S^{\mu', \mu''}_{0,\AA} $.
 
-On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is upper triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$. 
-
-\acom{$g(A)$ is lower-triangular}
-
-On the other hand, if $ (g(A), s) \in S^{\mu', \mu''}_{0,\AA}$, then we can write 
-$$
-g t^\mu r= n t^{\mu'} (t-s)^{\mu''}
+ Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A),s) \in S^{\mu', \mu''}_{0,\AA} $.
+ 
+ On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is upper triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$.
+ 
+ On the other hand, if $ (g(A), s) \in S^{\mu', \mu''}_{0,\AA}$, then we can write 
+ $$
+ g t^\mu r= n t^{\mu'} (t-s)^{\mu''}
 $$
 for some $ r \in G(\CC[t]), n \in N_-(\CC[t, t^{-1}, (t-s)^{-1}]) $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu''} t^{-\mu''}$ which lies in $ T_1(\Oinf) $. % was CC\xt[]
 Note that $ h^{-1}n h \in N(\Kinf)$, 
@@ -1099,18 +1075,15 @@ t^\mu r (t^{-\mu} n_2^{-1} t^\mu) t^{-\mu} = g^{-1} h n_1.
 $$
 Since $ g, h, n_1 \in G_1(\Oinf)$, the right hand side $ g^{-1} h n_1 $ lies in $ G_1(\Oinf) $.  Since $ \mu $ is dominant, $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$, and so the left hand side lies in $t^\mu G(\CC[t]) t^{-\mu}$.
 
-Moreover, since $ \mu $ is dominant, we know that 
+Moreover since $ \mu $ is dominant, we know that 
 $$t^\mu G(\CC[t]) t^{-\mu} \cap G_1(\Oinf) = N_1(\Oinf)\,.$$
 % $$t^\mu G(\cO) t^{-\mu} \cap G_1(\CC\xt[t^{-1}]) = N_1(\CC\xt[t^{-1}]\,.$$
 Thus, we deduce that $ g^{-1} h n_1 \in N_1(\Oinf)$ 
 % $ g^{-1} h n_1 \in N_1(\CC\xt[t^{-1}])$ 
-and hence $ g(A) \in t^{\mu'} (t-s)^{\mu''} N_1(\Oinf) $.  
-% Given that we know that 
-Since $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}$ as desired.
+and hence $ g(A) \in t^{\mu'} (t-s)^{\mu''} N_1(\Oinf) $.  Given that we know that $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}$ as desired.
 \end{proof}
 
-\jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
-\acom{What was the answer to Roger's question why is $g^{-1}hn_1 \in G_1 (\Oinf)$}
+%\jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
 
 \section{Falling Action} % Resolution
 \begin{comment}
