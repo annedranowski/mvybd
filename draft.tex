@@ -1040,7 +1040,7 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 \section{Climax}
 Given $ A \in \TT_\mu$, recall the definition of $ g(A)$ given in \Cref{eq:mvyofa}.  Note that $g(A)t^{-\mu} \in G_1(\Oinf)$.
 % section ??.  
-Since $ g(A) \in M_n(\CC[t]) \cap G_1(\Oinf)t^\mu$, we will regard $ g(A)$ as giving an element of $ \Grth^+ \cap \cW_\mu$.  (Alternatively, we can see that $ g(A) \CC[t]^m$ satisfies the condition (ii) from Lemma \ref{le:Wmu}.)
+Since $ g(A) \in M_m(\CC[t]) \cap G_1(\Oinf)t^\mu$, we will regard $ g(A)$ as giving an element of $ \Grth^+ \cap \cW_\mu$.  (Alternatively, we can see that $ g(A) \CC[t]^m$ satisfies the condition (ii) from Lemma \ref{le:Wmu}.)
 
 The following result is \cite[Theorem 3.2]{cautis2018categorical} up to transpose.
 % 
@@ -1100,9 +1100,7 @@ We could prove this by observing the both sides are the attracting locus of an a
 
 Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A),s) \in S^{\mu', \mu''}_{0,\AA} $.
 
-On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is upper triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$. 
-
-\acom{$g(A)$ is lower-triangular}
+On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is lower-triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$. 
 
 On the other hand, if $ (g(A), s) \in S^{\mu', \mu''}_{0,\AA}$, then we can write 
 $$
@@ -1411,27 +1409,37 @@ Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\t
 
 \subsection{Tableaux and families}
 % 
-TODO: resume here 
+Recall that there is an order on repeated entries of a semistandard Young tableau. 
+% 
+In this section we explain how to determine the ideal of $Z'\ast_\AA Z''$ from the minimal pair $(\tau',\tau'')$ corresponding to $(n_\bullet(Z'),n_\bullet(Z''))$.
+% 
+In particular, we prove that ``the generalized Spaltenstein map'' produces MV cycles. 
 
-$Z'\ast_\AA Z''$ is described by $\tau'\ast\tau''$
+Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as above, and recall the $\mu$-numeration of the standard basis of $\CC^N$. Given $A \in M_N(\CC)$ we'll denote by $A\big|_{\CC^i}$ the restriction of $A$ to the subspace spanned by the first $i$ standard basis vectors. Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ the shape of $\tau'(i),\tau''(i)$ resp.\ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all but its first $i$ boxes. 
 
-\begin{question}
-    How do we know that our algorithm produces MV cycles? 
-\end{question}
+\acom{May want a more compact notation such as $A_{k}$}
 
 \begin{proposition}
-    Let $\tau_1,\tau_2$\dots 
+    Given $Z',Z''$, let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ be such that\dots If $s\ne 0$, then 
     \[
-    \{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\mu^1 + \cdots + \mu^i} \in \OO_{0,s}^{\lambda_{1}^{(i)},\lambda_2^{(i)}} \text{ all } i\} = Z_{\tau_1}\times Z_{\tau_2}
+    \overline{\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{\mu_1 + \cdots + \mu_i}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,m\}} 
+    \cong Z'\times Z'' \,. 
+    % = Z(\tau')\times Z(\tau'')\,. 
     \]
 \end{proposition}
 
 \begin{proof}
-    Want $L(0) \in Z(\tau_1)$ and $L(s) = Z(\tau_2)$. \acom{Another notational possibility is $\mu = \mu^0 + \mu^s$ etc., or $\mu(0) + \mu(s)$ or some variant with the eigenvalues being the indices.}
-
-    Fix $i \in \{1,\dots,m\}$ and let $p = \mu^1 + \cdots + \mu^i$. 
-    % Define $\lambda^{(i)}(\tau_1 \circ \tau_2)$ so that the 
-    Jordan type of $t\big|_{\CC[t]^p/L(0)\cap\CC[t]^p}$ is $\lambda_1^{(i)}$ and Jordan type of $t-s\big|_{\CC[t]^p/L(s)\cap \CC[t]^p}$ is $\lambda_2^{(i)}$. 
+    % \acom{Another notational possibility is $\mu = \mu^0 + \mu^s$ etc., or $\mu(0) + \mu(s)$ or some variant with the eigenvalues being the indices.}
+    % 
+    First, reformulate as 
+    \[
+    \begin{tikzcd}
+        & (L,s) \in \Grbd \ar[dr,mapsto]\ar[dl,mapsto]\\
+        t\big|_{\CC[t]^m/L} \in A & & (L(0),L(s)) \in B 
+    \end{tikzcd}
+    \]
+    Fix $i \in \{1,\dots,m\}$, let $p = \mu_1 + \cdots + \mu_i$ and consider $(L',L'')\in Z'\times Z''$. 
+    We need to show that the Jordan type of $t\big|_{\CC[t]^p/L(0)\cap\CC[t]^p}$ is $\lambda'{(p)}$ and Jordan type of $(t-s)\big|_{\CC[t]^p/L(s)\cap \CC[t]^p}$ is $\lambda''{(p)}$. 
 
     Need: operations of taking quotients and taking generalized eigenspaces (i.e.\ $-\otimes\CC\xt[t-a]$) commute.
     See $(*)$ above. Also 
