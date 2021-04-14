@@ -1488,6 +1488,8 @@ $$\tau' = \young(12,3) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau''=\young(13
 
 Lusztig data: $(010)$ for $\tau'$, $(101)$ for $\tau''$
 
+\acom{If we start with $n_\bullet ' = (0,1,0)$ and $n_\bullet'' = (1,0,1)$ then the smallest $\tau$ for $n_\bullet = (1,1,1)$ is $\young(1123,23)$ and hence the smallest $\mu,\lambda$ are $(2,2,2),(4,2,0)$. So far so good. However, the ``smallest'' ``fission'' of $\tau$ is $\young(112,23) , \young(3)$. We could define ``smallest'' to mean minimizing the dimension of the generalized $s$-eigenspace. What do you guys think? If we agree to do this we should amend this example. For Joel: this is an example where our $B(\infty) \to B(\lambda)$ does not match that of Claxton--Tingley (quoted in my thesis). They would get $\lambda = (3,1)$. I think that their map satisfies $\lambda$ dominant and $\mu$ such that each $\mu_i\ge 1$.}
+
 Dimensions: $(1,0,-1)$ for both.
 
 The MV cycles corresponding to $\tau'$ and $\tau''$ are both isomorphic to $\PP^2$.
@@ -1527,10 +1529,12 @@ Dimension: $(2,0,-2)$
 \end{example}
 
 \begin{example}
-Let $G = SL_3$ and consider the tableaux
+Let $G = \GL_3$ and consider the tableaux
 $$\tau' = \young(12) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau'' = \young(11,23).$$
 
 Lustig data: $(100)$ for $\tau'$, $(001)$ for $\tau''$.
+
+\acom{This time the smallest $\tau$ is actually $\young(12,3)$ and the smallest fission is $\young(1,3),\young(2)$. For Joel: this time the our $\lambda$ matches \cite{claxton2015young}'s.}
 
 Dimensions: $(1,-1,0)$ for $\tau'$, $(0,1,-1)$ for $\tau''$.
 
@@ -1559,6 +1563,7 @@ $$\begin{array}{cccc} \vspace{1mm}
 Each of these tableaux corresponds to a MV cycle isomorphic to $\PP^2$ so the generic fibre $\PP^1 \times \PP^1$ degenerates to two copies of $\PP^2$.
 \end{example}
 
+\begin{comment}
 \begin{example}
 Let $G = SL_3$ and consider the following tableaux:
 $$\tau' = \young(1122) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau'' = \young(1111,2233).$$
@@ -1605,8 +1610,12 @@ $$
 $$
 The MV cycle for each ideal is isomorphic to $\PP^2 \times \PP^2$.
 \end{example}
+\end{comment}
 
 \begin{example}
+    
+    \acom{Here the fission is the smallest if we set out to minimize the dimension of the zero eigenspace. For Joel: this $\lambda(n_\bullet)$ again matches that of \cite{mirkovic2007quiver}.}
+
 Let us redo example 3 but with non-dominant weights $\mu'$ and $\mu''$ such that $\mu' + \mu''$ is effective dominant. Consider the tableaux
 $$\tau' = \young(22) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau'' = \young(11,33).$$
 Then the weights are $\lambda' = (2,0,0)$, $\lambda'' = (2,2,0)$, $\mu' = (0,2,0)$, and $\mu'' = (2,0,2)$. Our matrix $X$ is now
