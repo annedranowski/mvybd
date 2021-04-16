@@ -142,7 +142,9 @@ $(t-s)^\mu\in G(\CC[t])$ if and only if $ \mu = 0 $.
 \label{ss:lat}
 We will use the lattice model for the affine Grassmannian, so it is useful to recall the following definition. Let $ R \subset K$ be two $\CC$-algebras (usually, but not always, $K$ will be a field). 
 % \acom{When is $K$ not a field?}). Let $ m \in \mathbb N$ \acom{we have already fixed $m$?} and; e.g. K = C[t,t^{-1}] is not a field!!! 
-Consider $ K^m $ as a $K$-module. \acom{left or right, doesn't matter? I think we are in a situation where they are the same, i.e.\ our rings are commutative.} By restriction $ K^m$ can be viewed as an $R$-module.  An $R$-lattice in $K^m$ \acom{definiton, no boldface}
+Consider $ K^m $ as a $K$-module. 
+% \acom{left or right, doesn't matter? I think we are in a situation where they are the same, i.e.\ our rings are commutative.} 
+By restriction $ K^m$ can be viewed as an $R$-module.  An \textbf{$R$-lattice} in $K^m$ 
 % \acom{what is $M$? should be $K^m$?}; bc Joel was thinking about arbitrary free modules 
 is an $R$-submodule $ L \subset K^m$ 
 % such that $ L $ 
@@ -309,7 +311,9 @@ These different versions of the affine Grassmannian are related as follows.
     \item 
     %We have a map from the two point Beilinson--Drinfeld affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $.
     % $$ \Grbd \rightarrow \Grth $$ 
-    We define a map $ \Grbd \rightarrow \Grth $ by \acom{Don't we also want to restrict $V$}
+    We define a map $ \Grbd \rightarrow \Grth $ by 
+    % \acom{Don't we also want to restrict $V$} 
+    % Joel says nope, restriction of vector bundle corresponds to specialization of lattice; here the map is inclusion  
     $$
     (V,\varphi,s)\mapsto (V, \varphi \big|_{D_\infty})\,.
     $$
@@ -345,7 +349,7 @@ These different versions of the affine Grassmannian are related as follows.
     $$
     % 
     \jcom{I restated this again.  I think that it is simpler and more clear like this.  And I think that this is the fact that we end up using later.}
-    % 
+% 
 % 
 % in the $ s \ne 0 $ case.
 % \jcom{Maybe we should introduce some notation for this isomorphism.}
@@ -358,7 +362,7 @@ These different versions of the affine Grassmannian are related as follows.
 %    \left( g \CC[t]^m \right) \otimes_{\CC[t]} \cO \cong g \cO^m
 %    $$
 %    and similarly for $ L(s)$.
-    % 
+% 
     In the $ s = 0 $ case, the isomorphism is described in the same way, except that we just need to form $ L(0)$.
     \item There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$. 
     % 
@@ -368,12 +372,13 @@ These different versions of the affine Grassmannian are related as follows.
 \subsection{The fusion construction}
 The following construction will be very important in this paper.  
 
-Let $ \Gr_{0, \CC^\times} $ denote the preimage of $ \Gr_{0, \AA} $ under the map $\Gr_{0,\AA} \rightarrow \AA $.  Gluing together the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (items (2) and (3) above) we obtain
+Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  Gluing together the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (items (2) and (3) above) we obtain
 $$
 \tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr_{\CC^\times} \rightarrow \Gr \times \Gr
 $$
 where the first morphism is an isomorphism and the second map uses $ \Gr_s \cong \Gr $ on each fibre.  (This $\tau$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \CC^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
 \jcom{I added the def of $ \Gr_{0, \CC^\times}$ but not $ \Gr_{\CC^\times}$.  We could drop it and condense the definition of $ \tau$ to one map.}
+\acom{Todo --- We resolved to rewrite $\tau$ as gluing of the composition above restricted to fibres}
 
 Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $ \tau^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $.
 % 
@@ -392,7 +397,7 @@ which we call the \textbf{fusion} of $ X_1 $ and $X_2$. It is contained in $\Gr_
 % 
 By construction, 
 % \acom{technically, there were two given above, so *these* constructions?} 
-$X_1 \ast_{\AA} X_2 $ is a flat family over $\AA$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$. \acom{Question abt general fact: why is scheme-theoretic closure of product flat?} \jcom{See Hartshorne Proposition III.9.8.  I just taught this on the last day of my algebraic geometry class!}
+$X_1 \ast_{\AA} X_2 $ is a flat family over $\AA$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$. \acom{Question abt general fact: why is scheme-theoretic closure of product flat?} \jcom{See Hartshorne Proposition III.9.8.  I just taught this on the last day of my algebraic geometry class!} \acom{Cool! That Proposition is a bit more general too..}
 
 % \acom{Repeat question: what is this iso? Roger says maybe it's in MV?}
 % \jcom{Now answered above.}
@@ -535,7 +540,7 @@ In order to prove this result, we will need to recall some results from Eisenbud
 % 
 
 Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ (called a rank function).  Let $k $ be maximal such that $ r(k) \ne 0 $.
-\jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.} \acom{And make it $N$? Was $k = m$ replaced because $m$ is already used?} \jcom{Yes and yes}
+\jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.} \acom{And make it $N$? Was $k = m$ replaced because $m$ is already used?} \jcom{Yes and yes} \acom{I like the idea of making it $N$}
 
 Let $ W$ be a subspace of $ \AA^k$. Eisenbud \& Saltman define a flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions. We will now describe these fibres.
 
@@ -546,6 +551,7 @@ $$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)}\,. $$ We require that $ p $ is o
 
 \acom{Agreed. Maybe we mention that the point of $p$ is to group the repeated eigenvalues? It wouldn't be the most obvious thing we point out.}
 \jcom{That is what I was trying to say with ``introduce some data \dots''  Maybe it could be more clear.  I also clarified the uniqueness.}
+\acom{Oh, sorry, I see it. Maybe because it was the start of a new paragraph I didn't connect `data' and `ranks' at first glance.}
 
 Next for $ j = 1, \dots r $ and $ i = 1, \dots, k_{j+1} - k_j$, we define
 $$
@@ -553,7 +559,8 @@ $$
     r_{z,j}(i):= N + \sum_{a = 1}^i r(p(k_j + a)) - r(p(k_j +a) - 1)  \, . 
 $$
 \jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
-\jcom{I fixed it now.  I didn't want to use ES's $a_i$.}
+\jcom{I fixed it now.  I didn't want to use ES's $a_i$.} 
+\acom{\emoji{+1}}
 
 % 
 By \cite[Corollary 2.2]{eisenbud1989rank}, the fibre of the flat family $ X_{r,W} $ over $ z$ is given by
@@ -603,6 +610,7 @@ r_{z(0),1}(i) = r(i) =
 \acom{What do we mean by equalities in $z(s)$ reproduce $p$? I thought $z(s)$ was defined by $p$. Also, $r_{z(s),1}(i) = N- r(p(k_1)) + r(p(k_1 + i)) = N - (N-\#\text{boxes in first }p(k_1)\text{ cols} + \cdots)\ne $~\Cref{eq:rcols}. We want to apply $p$ to $\{1,\dots,i\}$ and not just $i$. I guess we could clarify/declare that $r(p(i)) = N - \#$ boxes in columns $p(1),\dots,p(i)$. For a minute I thought it was actually fine, but what we have is: $r_{z(s),j}(i) = N - (\#\text{boxes in cols }1,\dots,p(k_j + i) - \#\text{boxes in cols }1,\dots,p(k_j))$ and what we want is $\dots (\#\text{boxes in cols }p(1),\dots,p(k_j + i) - \#\text{boxes in cols }p(1),\dots,p(k_j + i))$ right?}
 
 \jcom{I fixed the definition of $ r_{z,j}(i)$, so now it is correct, I believe.  I changed the wording of ``reproduce''. I'm trying to say that $ p$ is used to define $ z(s)$ and the we get $ p $ back from $ z(s)$ as the permutation coming from the equalities.}
+\acom{\emoji{+1}}
 
 % 
 Let $ W = \{ z(s) : s \in \CC \}$.  Combining \Cref{eq:ranks,eq:ESfibre,eq:rcols,eq:rcol2} 
@@ -673,22 +681,27 @@ we see that the Eisenbud--Saltman family $ X_{r, W} \rightarrow W $ gives our fa
     
 \subsection{The Mirkovic--Vybornov slice} 
 % 
-Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. 
-\begin{definition}The \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$ is defined as the set of $A\in M_N(\CC)$ such that 
-    \[
-        \begin{aligned}
-            &\text{for all } 1 \le a,s\le m\,,
-            \text{for all } 1\le b\le \mu_a\,, 1\le t\le \mu_s\,, \\
-            &\text{if } 1\le t < \mu_s \text{ or } t = \mu_s < b \le \mu_a \\
-            &\text{then } e^t_s\cdot (A-J_\mu) e^b_a = 0 \,.
-        \end{aligned}    
-    \]
-\end{definition}
-\jcom{I'm not a huge fan of this description, but I don't know how to write it better.}
-
-\acom{Agree. Happy to just have the in-words description.}
-
-    In words, $A$ is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
+% Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. 
+% \acom{I don't suppose we need this basis now that we're just describing $\TT_\mu$ in words.}
+% 
+% \begin{definition}
+An element of the \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$ 
+% defined as the set of $A\in M_N(\CC)$ such that 
+    % \[
+    %     \begin{aligned}
+    %         &\text{for all } 1 \le a,s\le m\,,
+    %         \text{for all } 1\le b\le \mu_a\,, 1\le t\le \mu_s\,, \\
+    %         &\text{if } 1\le t < \mu_s \text{ or } t = \mu_s < b \le \mu_a \\
+    %         &\text{then } e^t_s\cdot (A-J_\mu) e^b_a = 0 \,.
+    %     \end{aligned}    
+    % \]
+% \end{definition}
+% \jcom{I'm not a huge fan of this description, but I don't know how to write it better.}
+% 
+% \acom{Agree. Happy to just have the in-words description.}
+% 
+    % In words, $A$ 
+    is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
     % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
     In pictures, and by example, the elements $A$ for $\mu=(3,2,2,1)$ look like 
     \[
@@ -916,6 +929,7 @@ and according to \cite[Theorem 2.1(iii)]{eisenbud1989rank} the family $X_{r,(0,s
 \end{comment}
 
 \section{Exposition}
+\label{s:exposition}
 
 Anderson and Kogan conjectured in \cite{anderson2006algebra} \acom{or earlier?} that those MV polynomials which are cluster monomials for a Fomin--Zelevinsky cluster algebra structure on $\CC[N]$ are naturally expressible as determinants\dots
 % and they conjectured a formula for many of them.
@@ -942,7 +956,7 @@ Representation theory?
     Let $ L \in \Grth^+ $.  Let $ s \in \AA, s \ne 0 $.  The following are equivalent:
     \begin{enumerate}
         \item $ L $ is in the image of the map $ \Gr^{\lambda', \lambda''}_{0,s} \rightarrow \Grth^+$. %\acom{Should we describe this map somewhere? Earlier?}
-        \item The linear operator $ t $ on $ \CC[t]^m/L$ has Jordan type $(0,\lambda'), (s,\lambda'')$.
+        \item The linear operator $ t $ on $ \CC[t]^m/L$ has Jordan type $((0,\lambda'), (s,\lambda''))$.
         \item $ L \in G(\CC[t]) t^{\lambda'} (t-s)^{\lambda''}$.
         % \acom{why no $G(\CC[t])$-coset?}
     \end{enumerate}
@@ -1010,6 +1024,8 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
     Finally to show that $ \beta_\mu$ forms a basis for $ \CC[t]^m/L$, it suffices to show that for each $ i$, $ t^{\mu_i} e_i  \in \Sp_\CC(\beta_\mu) + L$. 
 
     \rcom{Preimage of $\beta_\mu$}  
+    % 
+    \acom{I guess that this is the ``$\mu$-numeration'' of the standard basis of $\CC^N$ that I commented out.}
 
     This follows immediately from (iii).
     % 
@@ -1023,17 +1039,20 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 % Resolved? the map $ \Grbd \rightarrow \Grth$ caused some confusion in my talk as on the left we have a family and on the right we have the thick affine Grassmannian --- Jiuzu kept thinking aloud that we can make $\Grth$ a family too.. Anyway I think that you address this below Joel. 
 
 \begin{proof}
-    Let $ L $ lie in this image.  Then $ L = g t^{\mu'} (t-s)^{\mu''}\CC[t]^m$ for some $ g \in N(\CC[t, t^{-1}, (t-s)^{-1}]) $.  Let $ h =(t-s)^{\mu''} t^{-\mu''}  $.  Note that $ h \in T_1(\Oinf)$. 
+    Let $ L $ 
+    % lie in this image.  
+    be a lattice in the image of $S^{\mu',\mu''}_{0,\AA}$. Then $ L = g t^{\mu'} (t-s)^{\mu''}\CC[t]^m$ for some $ g \in N_-(\CC[t, t^{-1}, (t-s)^{-1}]) $.  Let $ h =(t-s)^{\mu''} t^{-\mu''}  $.  Note that $ h \in T_1(\Oinf)$. 
     Moreover,
     $$ L = h (h^{-1} g h) t^{\mu}\CC[t]^m\,. $$
     Note that 
     % $ h^{-1} g h \in N(\CC\xT[t^{-1}])$ 
-    $h^{-1} g h \in N(\cK_\infty)$ and so we can factor $ h^{-1} g h = n_1 n_2$ for $ n_1 \in N_1(\Oinf), n_2 \in N(\CC[t]) $.  Since $ \mu $ is dominant, we see that $ t^{-\mu} n_2 t^\mu \in N(\CC[t]) $. % \CC\xt[t^{-1}]s
-
-    \rcom{I think we want $\mu$ antidominant here or should the $N$'s be $N_-$'s?} 
+    $h^{-1} g h \in N_-(\cK_\infty)$ and so we can factor $ h^{-1} g h$ as $n_1 n_2$ for some $ n_1 \in {(N_-)}_1(\Oinf), n_2 \in {N_-}(\CC[t]) $. 
     
-    \acom{Si}
-    
+    Since $ \mu $ is dominant, we see that $ t^{-\mu} n_2 t^\mu \in N_-(\CC[t]) $. % \CC\xt[t^{-1}]s
+% 
+% \rcom{I think we want $\mu$ antidominant here or should the $N$'s be $N_-$'s?} % 
+% \acom{Si.}
+% 
     Thus, $ L = h n_1 t^\mu \CC[t]^m$.  Since $ hn_1 \in G_1(\Oinf)$, the result follows. % \CC\xt[t^{-1}]
     \end{proof}
 
@@ -1132,6 +1151,8 @@ Since $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}
 \rcom{So if we look at $g = g(A)t^{-\mu}$, since $A \in \TT_\mu$, the entries of $g(A)_{ij}$ are polynomials of degree $\min(\mu_i-1,\mu_j-1)$ when $i \neq j$, otherwise of degree $\mu_i$. When we multiply by $t^{-\mu}$, we scale the $i$th column by $t^{-\mu_i}$. So the diagonal entries are $1 + p$ where $p \in t^{-1}\CC[t^{-1}]$ while the off-diagonal entries in column $i$ have highest (in $t$) degree $\min(\mu_i-1, \mu_j-1) - \mu_i < 0$. Hence $g \in G_1(\cO_\infty)$.}
 
 \section{Falling Action} % Resolution
+\acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
+
 \begin{comment}
 \begin{theorem}
     Let $\lambda_i\ge\mu_i$ be dominant ($i=1,2$), $\mu = \mu' +\mu''$, and $\lambda =\lambda'+\lambda''$. 
@@ -1282,20 +1303,29 @@ where $B_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} = B_1\xt[t^{-1}] t^{\mu_1 + \mu_2}
 \]
 \end{proof}
 \end{comment}
-
-\section{Denouement}
-\label{s:denouement}
 % 
-In this section we demonstrate how to put the main results of this paper into practice.
+% In this section we demonstrate how to put the main results of this paper into practice.
+% 
+Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
+% 
+In this part we prove that 
+% the ideal of 
+$Z'\ast_\AA Z''$ can be computed from a ``minimal'' pair $(\tau',\tau'')$ of semistandard Young tableaux for the Lusztig data  $(n_\bullet(Z'),n_\bullet(Z''))$.
 % 
 Given $\lambda$ dominant effective and $\mu\le\lambda$ effective, let $YT(\lambda)_\mu$ denote the set of semistandard Young tableaux of shape $\lambda$ and weight $\mu$. 
 % 
 
 We need the following result from \cite{dthesis}.
 \begin{proposition}
-    Generalized orbital varieties are indexed by semistandard Young tableaux. Composing with the ordinary Mirkovi\'c--Vybornov isomorphism gives bijections 
+    % Generalized orbital varieties are indexed by semistandard Young tableaux. 
+    There are bijections 
+    % Composing with the ordinary Mirkovi\'c--Vybornov isomorphism gives bijections 
     \[
         YT(\lambda)_\mu \to \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n \to \irr \overline\Gr^\lambda\cap S^\mu_-\,. 
+    \]
+    Moreover, there is a \acom{partial?} inverse 
+    \[
+    \CC[N]\to \bigcup_{\lambda~\text{dominant}\atop \mu\le\lambda} YT(\lambda)_\mu \,. 
     \]
     % $$
     % \begin{tikzcd}
@@ -1305,7 +1335,72 @@ We need the following result from \cite{dthesis}.
     % $$
 \end{proposition}
 % 
-Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\tau)$ and in $\overline{\Gr}^\lambda\cap S^\mu_-$ by $Z(\tau)$. Thus $Z(\tau) = \phi(X(\tau))$. 
+\acom{Refer to Claxton--Tingley multisegments, Hong--Lee marignally large tableaux for comparison.}
+\jcom{I don't think that you should mention this partial inverse here.  I think that you should explain here how the generalized orbital varieties are indexed by the tableaux, in other words, how $ X(\tau) $ is defined.}
+
+Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\tau)$ and in $\overline{\Gr}^\lambda\cap S^\mu_-$ by $Z(\tau)$. Thus $Z(\tau) = \phi(X(\tau))$. \acom{Out of place?} 
+
+% 
+% 
+% TODO: Not yet, that would be the algo stuff that we are holding off on 
+% In this section we explain how to determine the ideal of $Z'\ast_\AA Z''$ from the minimal pair $(\tau',\tau'')$ corresponding to $(n_\bullet(Z'),n_\bullet(Z''))$.
+% 
+% In particular, we prove that ``the generalized Spaltenstein map'' produces MV cycles. 
+% 
+% and recall the $\mu$-numeration of the standard basis of $\CC^N$. 
+% TODO: can't we do without it^^
+Given $A \in M_N(\CC)$ we'll denote by $A\big|_{\CC^i}$ the restriction of $A$ to the subspace spanned by the first $i$ standard basis vectors. Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ the shape of $\tau'(i),\tau''(i)$ resp.\ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all but its first $i$ boxes. If the tableau contains repeated entries then first means leftmost.
+
+
+\begin{proposition}
+    Given $Z',Z''$, let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ be such that\dots If $s\ne 0$, then 
+    \[
+    \overline{\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{i}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\}} 
+    \cong Z'\times Z'' \,. %\mu_1 + \cdots + \mu_i
+    % = Z(\tau')\times Z(\tau'')\,. 
+    \]
+\end{proposition}
+% 
+\jcom{Do you want the ``blocky'' or ``boxy'' description here?  I mean, do you want $ i = 1, \dots, N$ or $ i =1, \dots, m$? I'm not so sure that ``boxy'' will work, since with those $s$ in the matrix, it doesn't preserves all the $ \CC^i$.}
+
+
+\begin{proof}
+    Let $(A,s)$ be an element of the set on the left hand side, let $a\in\{0,s\}$ and denote by $E_a$ the generalized $a$-eigenspace of $A$. 
+    Let $i\in \{1,\dots,N\}$ and write $m(i)$ for the maximum weight of a box in $\tau'(i)$ or $\tau''(i)$. 
+    
+    The the Jordan type of $A-a\big|_{E_a\cap\CC^{m(i)}}$ is given by $\lambda'(i)$ if $a = 0$ and $\lambda''(i)$ if $a = s$. 
+    Moreover, the lattice $(L,s)$ defined by $g(A)$ is such that $t-a$ has the same Jordan type on 
+    % $\cO_a^{m(i)} / L(a)\cap\cO_a^{m(i)} = \CC[t]^{m(i)}/L\cap\CC[t]^{m(i)}\otimes_{\CC[t]}\cO_a $ 
+    \begin{equation}
+        \label{eq:bcflat}
+        \cO_a^{m(i)} / L(a)\cap\cO_a^{m(i)} = \CC[t]^{m(i)}/L\cap\CC[t]^{m(i)}\otimes_{\CC[t]}\cO_a 
+    \end{equation}
+    as does $(A-a\big|_{E_a\cap\CC^{m(i)}},s)$. 
+    \acom{Not sure where to use $(?,s)$ notation and when not in this proof. Here I just didn't want to end the sentence with the bulky subscript.}
+    % 
+    \Cref{eq:bcflat} follows from e.g.\ \cite[Proposition~10.14]{atiyah2018introduction}:
+    \begin{quotation}
+        If $A$ is a Noetherian ring, $\fa$ an ideal, $\hat A$ the $\fa$-adic completion of $A$, then $\hat A$ is a flat $A$-algebra.
+    \end{quotation}
+    applied to $A = \CC[t]$ and $\fa = (t)$. 
+    
+    \jcom{I think that it is actually a bit simpler.  Again from teaching algebraic geometry, I found the following.  If $ A $ is a principal ideal domain, then $M $ is flat iff it is torsion-free.}
+    
+    The second assertion is a consequence of \Cref{lem:} \acom{Cite Joel's lemma}. 
+    By \Cref{adthesis} \acom{Cite my thesis} it follows that $(L(0),L(s)) \in Z'\times Z''$. 
+    Since all maps are isomoprhisms the converse is automatic. 
+\end{proof}
+
+\begin{question}
+%[Related question] 
+    If $\mu',\mu''$ are not dominant, the LHS is smaller so the map $?$ has no chance of being an isomorphism. In general the map $?$ has to do with producing a matrix from a linear operator. 
+    \[
+    \begin{tikzcd}
+        \overline\Gr^{\lambda',\lambda'}_{0,s}\cap S^{\mu',\mu''}_{0,s} \ar[r,equals]\ar[d] & \overline\Gr^{\lambda'} \cap S^{\mu'} \times \overline\Gr^{\lambda'} \cap S^{\mu''} \supset Z' \times Z'' \ar[d]\\
+        \overline\OO^{\lambda',\lambda''}_{0,s} \cap \UU^{\mu',\mu''}_{0,s} \ar[r,"?"] & \overline\OO^{\lambda'}\cap \TT_{\mu'}\cap \n \times \overline\OO^{\lambda''}\cap \TT_{\mu''}\cap \n
+    \end{tikzcd}    
+    \]
+\end{question}
 % 
 \begin{proposition}(\cite{baumann2019mirkovic})
     % Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
@@ -1323,24 +1418,23 @@ Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\t
             % \pi^{-1}(0)\cdot\overline{Z_1\times Z_2\times U}
         \right) [Z(\tau)]
     \end{equation}
-    and the intersection multiplicities on the right are found by the algorithm described in \Cref{ss:algo}. 
+    and the intersection multiplicities on the right are found by\dots\acom{To be completed.} 
     
-    \acom{Add pseudocode}
-    
-    In particular, the multiplicity of $Z(\tau)$
+    % In particular, the multiplicity of $Z(\tau)$
     % in the product of the zero fiber 
     % (divisor class) 
     % and the 
     % (Zariski) 
     % closure of the family $Z_1 \times Z_2 \times U$ 
-    is equal to the multiplicity of its generalized orbital variety $X(\tau)$ 
-    in $ \overline{\OO}^{\lambda',\lambda''}_{0,0}\cap\UU^{\mu',\mu''}_{0,0} $. 
+    % is equal to the multiplicity of its generalized orbital variety $X(\tau)$ 
+    % in $ \overline{\OO}^{\lambda',\lambda''}_{0,0}\cap\UU^{\mu',\mu''}_{0,0} $. 
     % among the set 
     % \begin{equation}\label{eq:tabmult}
         % \irr\lim_{s\to 0} 
         % \overline{\OO}^{\lambda',\lambda''}_{0,0}\cap\UU^{\mu',\mu''}_{0,0} \,. 
         % \irr \lim_{s\to 0} \overline\OO^s_{\lambda_1,\lambda_2} \cap \TT_{\mu',\mu''}^{+,s}
     % \end{equation}
+    \acom{Some of what was written here (commented out above) was incorrect. We can reiterate for emphasis that $i(Z,Z'\circ Z'')$ is computed in terms of rank varieties.}
 
     Since stable MV cycles can be represented by ordinary ones the multiplicities in 
     $$
@@ -1401,83 +1495,23 @@ Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\t
     \label{prop:minwts}
     Given two Lusztig data $n_\bullet',n_\bullet''$ there is a smallest choice of effective coweights $\mu',\mu''$ and effective dominant coweights $\lambda',\lambda''$ such that $\mu = \mu' + \mu''$ is effective dominant and $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ are semistandard Young tableaux with the prescribed Lusztig data. They are got by choosing the minimum $\lambda,\mu$ for $n_\bullet = n_\bullet ' + n_\bullet ''$ afforded by \Cref{lem:mintab}, and then breaking off $n_{r,c}'$ boxes of weight $r$ from each row $c<r$ of $\tau$ to form a $\tau'_0$ an intermediate tableau. If $\tau'_0$ is of an acceptable shape then we keep it. If it is not, then we correct it by padding it using some boxes of weight $r$ in row $r$ of what remains of $\tau$.
 
-    \acom{To be completed.}
+    \acom{To be completed. We require a notion of ``smallest'' pair of factor tableaux associated to a given tableau --- that is if we care to include our $B(\infty)\to B(\lambda)$ map. 
+    As the examples show, there may be more than one way to break up a ``minimal'' tableau for $n_\bullet = n_\bullet ' + n_\bullet ''$ into two tableaux with data $n_\bullet' $ and $n_\bullet''$ resp.\ The practical notion of min is such that the generalized nonzero eigenspace has the smallest possible dimension.}
 \end{proposition}
 
-\subsection{Pseudocode}
+% Let's wait for Gerhard before we discuss our computations any further
+% \subsection{Pseudocode}
 % 
 
-\subsection{Tableaux and families}
-% 
-Recall that there is an order on repeated entries of a semistandard Young tableau. 
-% 
-In this section we explain how to determine the ideal of $Z'\ast_\AA Z''$ from the minimal pair $(\tau',\tau'')$ corresponding to $(n_\bullet(Z'),n_\bullet(Z''))$.
-% 
-In particular, we prove that ``the generalized Spaltenstein map'' produces MV cycles. 
-
-Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as above, and recall the $\mu$-numeration of the standard basis of $\CC^N$. Given $A \in M_N(\CC)$ we'll denote by $A\big|_{\CC^i}$ the restriction of $A$ to the subspace spanned by the first $i$ standard basis vectors. Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ the shape of $\tau'(i),\tau''(i)$ resp.\ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all but its first $i$ boxes. 
-
-\acom{May want a more compact notation such as $A_{k}$}
-
-\begin{proposition}
-    Given $Z',Z''$, let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ be such that\dots If $s\ne 0$, then 
-    \[
-    \overline{\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{\mu_1 + \cdots + \mu_i}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,m\}} 
-    \cong Z'\times Z'' \,. 
-    % = Z(\tau')\times Z(\tau'')\,. 
-    \]
-\end{proposition}
-
-\begin{proof}
-    % \acom{Another notational possibility is $\mu = \mu^0 + \mu^s$ etc., or $\mu(0) + \mu(s)$ or some variant with the eigenvalues being the indices.}
-    % 
-    First, reformulate as 
-    \[
-    \begin{tikzcd}
-        & (L,s) \in \Grbd \ar[dr,mapsto]\ar[dl,mapsto]\\
-        t\big|_{\CC[t]^m/L} \in A & & (L(0),L(s)) \in B 
-    \end{tikzcd}
-    \]
-    Fix $i \in \{1,\dots,m\}$, let $p = \mu_1 + \cdots + \mu_i$ and consider $(L',L'')\in Z'\times Z''$. 
-    We need to show that the Jordan type of $t\big|_{\CC[t]^p/L(0)\cap\CC[t]^p}$ is $\lambda'{(p)}$ and Jordan type of $(t-s)\big|_{\CC[t]^p/L(s)\cap \CC[t]^p}$ is $\lambda''{(p)}$. 
-
-    Need: operations of taking quotients and taking generalized eigenspaces (i.e.\ $-\otimes\CC\xt[t-a]$) commute.
-    See $(*)$ above. Also 
-    % 
-    $$\CC\xt^m/(L \otimes_{\CC[t]} \CC\xt) = \text{generalized $0$ eigenspace of $t$ on } \CC[t]^m/L$$
-    carrying the action of $t $ to the action of $t$.
-    
-    The left hand side is the same thing as
-    $$ \CC\xt^m / (L \otimes_{\CC[t]} \CC\xt) = (\CC[t]^m/L) \otimes_{\CC[t]} \CC\xt $$
-    \acom{Unrelated comments. 1) Restricting to an eigenspace is like inverting (forgetting) the action of $t$ by any other generalized eigenvalue. 2) Does this have to do with the fact that a functor $F: \sch \to \set$ commutes with projective limit if and only if it's representable?}
-
-    Exercise 2.20 from \cite{atiyah2018introduction}: If $f : A \to B$ is a ring homomorphism and $M$ is a flat $A$-module, then $M_B = B\otimes_A M$ is a flat $B$-module. Take $A=\CC[t]$ and $B=\CC\xt$. \marginpar[]{*}
-
-    This exercise is irrelevant. We want to say something about two different modules over the same base ring. As Roger reminded the relevant fact is \cite[Proposition~10.14]{atiyah2018introduction}: 
-    % 
-    \begin{quotation}
-        If $A$ is a Noetherian ring, $\fa$ an ideal, $\hat A$ the $\fa$-adic completion of $A$, then $\hat A$ is a flat $A$-algebra.
-    \end{quotation}
-    applied to $A = \CC[t]$ and $\fa = (t)$. 
-\end{proof}
-
-\begin{question}[Related question]
-    If $\mu',\mu''$ are not dominant, the LHS is smaller so the map $?$ has no chance of being an isomorphism. In general the map $?$ has to do with producing a matrix from a linear operator. 
-    \[
-    \begin{tikzcd}
-        \overline\Gr^{\lambda_1,\lambda_2}_{0,s}\cap S^{\mu',\mu''}_{0,s} \ar[r,equals]\ar[d] & \overline\Gr^{\lambda_1} \cap S^{\mu_1} \times \overline\Gr^{\lambda_2} \cap S^{\mu_2} \supset Z_1 \times Z_2 \ar[d]\\
-        \overline\OO^{\lambda_1,\lambda_2}_{0,s} \cap \UU^{\mu',\mu''}_{0,s} \ar[r,"?"] & \overline\OO^{\lambda_1}\cap \TT_{\mu_1}\cap \n \times \overline\OO^{\lambda_2}\cap \TT_{\mu_2}\cap \n
-    \end{tikzcd}    
-    \]
-\end{question}
-
+\section{Denouement}
+\label{s:denouement}
 \subsection{Examples}
 
 % \acom{Plus fusion product of fake MV cycles for a fourth!}
 
 We view MV cycles as semi-standard young tableaux. Suppose we have two tableaux $\tau'$ and $\tau''$, with respective weights $\lambda'$, $\mu'$ and $\lambda''$, $\mu''$, and we wished to take their fusion product. We consider a generic matrix $X \in \UU^{\mu',\mu''}_{0,s}$ and see what relations on the variables in $X$ occur when also asking for it to be in $\OO^{\lambda',\lambda''}_{0,s}$. 
 
-Consider the subtableaux $\tau'(i)$ of $\tau'$ and $\tau''(i)$ of $\tau''$ where we take the boxes of $\tau'$ and $\tau''$ containing the numbers $1,\dots,i$. Let $\lambda'(j)$ and $\lambda''(j)$ be the corresponding sizes and $\mu'(j)$ and $\mu'(j)$ be the corresponding weights of the subtableaux. For each $i$, we obtain a corresponding submatrix $X_i \in \UU^{\mu'(i), \mu''(i)}_{0,s}$ of $X$. These subtableaux impose rank conditions, equivalently vanishing minors, on each $X_i$ when asking them to be in $\OO^{\lambda'(i), \lambda''(i)}_{0,s}$, which allows us to deduce relations on the variables in $X$. The relations must also include the new variables in the latest block and cannot have $s$ as a factor.
+Consider the subtableaux $\tau'(i)$ of $\tau'$ and $\tau''(i)$ of $\tau''$ where we take the boxes of $\tau'$ and $\tau''$ containing the numbers $1,\dots,i$. Let $\lambda'(i)$ and $\lambda''(i)$ be the corresponding sizes and $\mu'(i)$ and $\mu'(i)$ be the corresponding weights of the subtableaux. For each $i$, we obtain a corresponding submatrix $X_i \in \UU^{\mu'(i), \mu''(i)}_{0,s}$ of $X$. These subtableaux impose rank conditions, equivalently vanishing minors, on each $X_i$ when asking them to be in $\OO^{\lambda'(i), \lambda''(i)}_{0,s}$, which allows us to deduce relations on the variables in $X$. The relations must also include the new variables in the latest block and cannot have $s$ as a factor.
 
 To find the MV cycles, equivalently tableaux, in the $0$-fibre of the fusion, we consider the ring generated by all the variables of $X$ and quotient out the ideal generated by the relations from the vanishing minors as well as the minimal polynomial of $X$. We then add $s$ into the ideal. Each piece in the primary decomposition of this ideal will correspond to a tableaux, and subsequently a MV cycle.
 
@@ -1615,7 +1649,7 @@ The MV cycle for each ideal is isomorphic to $\PP^2 \times \PP^2$.
     
     \acom{Here the fission is the smallest if we set out to minimize the dimension of the zero eigenspace. For Joel: this $\lambda(n_\bullet)$ again matches that of \cite{mirkovic2007quiver}.}
 
-Let us redo example 3 but with non-dominant weights $\mu'$ and $\mu''$ such that $\mu' + \mu''$ is effective dominant. Consider the tableaux
+Let $G = \GL_3$. Consider the tableaux
 $$\tau' = \young(22) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau'' = \young(11,33).$$
 Then the weights are $\lambda' = (2,0,0)$, $\lambda'' = (2,2,0)$, $\mu' = (0,2,0)$, and $\mu'' = (2,0,2)$. Our matrix $X$ is now
 \[
