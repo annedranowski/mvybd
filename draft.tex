@@ -372,13 +372,14 @@ These different versions of the affine Grassmannian are related as follows.
 \subsection{The fusion construction}
 The following construction will be very important in this paper.  
 
-Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  Gluing together the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (items (2) and (3) above) we obtain
+Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  Composing the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (items (2) and (3) above), we obtain an isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr$.
+
+These isomorphisms glue together to a projection map
 $$
-\tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr_{\CC^\times} \rightarrow \Gr \times \Gr
-$$
-where the first morphism is an isomorphism and the second map uses $ \Gr_s \cong \Gr $ on each fibre.  (This $\tau$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \CC^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
-\jcom{I added the def of $ \Gr_{0, \CC^\times}$ but not $ \Gr_{\CC^\times}$.  We could drop it and condense the definition of $ \tau$ to one map.}
-\acom{Todo --- We resolved to rewrite $\tau$ as gluing of the composition above restricted to fibres}
+\tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr \, .
+$$ 
+(This $\tau$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \CC^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
+
 
 Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $ \tau^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $.
 % 
@@ -397,7 +398,9 @@ which we call the \textbf{fusion} of $ X_1 $ and $X_2$. It is contained in $\Gr_
 % 
 By construction, 
 % \acom{technically, there were two given above, so *these* constructions?} 
-$X_1 \ast_{\AA} X_2 $ is a flat family over $\AA$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$. \acom{Question abt general fact: why is scheme-theoretic closure of product flat?} \jcom{See Hartshorne Proposition III.9.8.  I just taught this on the last day of my algebraic geometry class!} \acom{Cool! That Proposition is a bit more general too..}
+$X_1 \ast_{\AA} X_2 $ is a flat family over $\AA$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$. 
+
+%\acom{Question abt general fact: why is scheme-theoretic closure of product flat?} \jcom{See Hartshorne Proposition III.9.8.  I just taught this on the last day of my algebraic geometry class!} \acom{Cool! That Proposition is a bit more general too..}
 
 % \acom{Repeat question: what is this iso? Roger says maybe it's in MV?}
 % \jcom{Now answered above.}
@@ -605,12 +608,12 @@ r_{z(0),1}(i) = r(i) =
  N - 
      \#\text{~boxes in first $i$ columns of }\lambda\,. 
 \end{equation}
-\jcom{Someone should check that I chose the notation correctly to make this work out.}
+%\jcom{Someone should check that I chose the notation correctly to make this work out.}
 
-\acom{What do we mean by equalities in $z(s)$ reproduce $p$? I thought $z(s)$ was defined by $p$. Also, $r_{z(s),1}(i) = N- r(p(k_1)) + r(p(k_1 + i)) = N - (N-\#\text{boxes in first }p(k_1)\text{ cols} + \cdots)\ne $~\Cref{eq:rcols}. We want to apply $p$ to $\{1,\dots,i\}$ and not just $i$. I guess we could clarify/declare that $r(p(i)) = N - \#$ boxes in columns $p(1),\dots,p(i)$. For a minute I thought it was actually fine, but what we have is: $r_{z(s),j}(i) = N - (\#\text{boxes in cols }1,\dots,p(k_j + i) - \#\text{boxes in cols }1,\dots,p(k_j))$ and what we want is $\dots (\#\text{boxes in cols }p(1),\dots,p(k_j + i) - \#\text{boxes in cols }p(1),\dots,p(k_j + i))$ right?}
+%\acom{What do we mean by equalities in $z(s)$ reproduce $p$? I thought $z(s)$ was defined by $p$. Also, $r_{z(s),1}(i) = N- r(p(k_1)) + r(p(k_1 + i)) = N - (N-\#\text{boxes in first }p(k_1)\text{ cols} + \cdots)\ne $~\Cref{eq:rcols}. We want to apply $p$ to $\{1,\dots,i\}$ and not just $i$. I guess we could clarify/declare that $r(p(i)) = N - \#$ boxes in columns $p(1),\dots,p(i)$. For a minute I thought it was actually fine, but what we have is: $r_{z(s),j}(i) = N - (\#\text{boxes in cols }1,\dots,p(k_j + i) - \#\text{boxes in cols }1,\dots,p(k_j))$ and what we want is $\dots (\#\text{boxes in cols }p(1),\dots,p(k_j + i) - \#\text{boxes in cols }p(1),\dots,p(k_j + i))$ right?}
 
-\jcom{I fixed the definition of $ r_{z,j}(i)$, so now it is correct, I believe.  I changed the wording of ``reproduce''. I'm trying to say that $ p$ is used to define $ z(s)$ and the we get $ p $ back from $ z(s)$ as the permutation coming from the equalities.}
-\acom{\emoji{+1}}
+%\jcom{I fixed the definition of $ r_{z,j}(i)$, so now it is correct, I believe.  I changed the wording of ``reproduce''. I'm trying to say that $ p$ is used to define $ z(s)$ and the we get $ p $ back from $ z(s)$ as the permutation coming from the equalities.}
+%\acom{\emoji{+1}}
 
 % 
 Let $ W = \{ z(s) : s \in \CC \}$.  Combining \Cref{eq:ranks,eq:ESfibre,eq:rcols,eq:rcol2} 
@@ -1021,11 +1024,11 @@ First we recall that for $ L \in \Gr^+$, $ L \in \Gr^{\lambda} = G(\cO)t^\lambda
 
     Finally, given (iii), then we can see $ v_i := t^{\mu_i} e_i - \sum_{j=1}^m p_{ij} e_j \in L $ for some $ p_{ij} \in \CC[t]$ of degree less than $ \min(\mu_i,\mu_j) $.  It is easy to see that $ L = \Sp_\cO(v_1, \dots, v_m) $ and so $ L \in \cW_\mu$.  
     
-    Finally to show that $ \beta_\mu$ forms a basis for $ \CC[t]^m/L$, it suffices to show that for each $ i$, $ t^{\mu_i} e_i  \in \Sp_\CC(\beta_\mu) + L$. 
+    Finally to show that $ \beta_\mu$ forms a basis for $ \CC[t]^m/L$, it suffices to show that for each $ i$, $ t^{\mu_i} e_i  \in \Sp_\CC(  t^k e_i : 0 \le k < \mu_i, 1 \le i \le m) + L$. 
 
-    \rcom{Preimage of $\beta_\mu$}  
+%    \rcom{Preimage of $\beta_\mu$}  
     % 
-    \acom{I guess that this is the ``$\mu$-numeration'' of the standard basis of $\CC^N$ that I commented out.}
+ %   \acom{I guess that this is the ``$\mu$-numeration'' of the standard basis of $\CC^N$ that I commented out.}
 
     This follows immediately from (iii).
     % 
@@ -1146,9 +1149,9 @@ Since $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}
 
 \jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
 
-\acom{What was the answer to Roger's question why is $g^{-1}hn_1 \in G_1 (\Oinf)$}
+%\acom{What was the answer to Roger's question why is $g^{-1}hn_1 \in G_1 (\Oinf)$}
 
-\rcom{So if we look at $g = g(A)t^{-\mu}$, since $A \in \TT_\mu$, the entries of $g(A)_{ij}$ are polynomials of degree $\min(\mu_i-1,\mu_j-1)$ when $i \neq j$, otherwise of degree $\mu_i$. When we multiply by $t^{-\mu}$, we scale the $i$th column by $t^{-\mu_i}$. So the diagonal entries are $1 + p$ where $p \in t^{-1}\CC[t^{-1}]$ while the off-diagonal entries in column $i$ have highest (in $t$) degree $\min(\mu_i-1, \mu_j-1) - \mu_i < 0$. Hence $g \in G_1(\cO_\infty)$.}
+%\rcom{So if we look at $g = g(A)t^{-\mu}$, since $A \in \TT_\mu$, the entries of $g(A)_{ij}$ are polynomials of degree $\min(\mu_i-1,\mu_j-1)$ when $i \neq j$, otherwise of degree $\mu_i$. When we multiply by $t^{-\mu}$, we scale the $i$th column by $t^{-\mu_i}$. So the diagonal entries are $1 + p$ where $p \in t^{-1}\CC[t^{-1}]$ while the off-diagonal entries in column $i$ have highest (in $t$) degree $\min(\mu_i-1, \mu_j-1) - \mu_i < 0$. Hence $g \in G_1(\cO_\infty)$.}
 
 \section{Falling Action} % Resolution
 \acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
