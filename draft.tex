@@ -24,7 +24,7 @@ and to Nakajima quiver varieties on the other hand.
 This paper generalizes the first of these relations (an isomorphism) to families of slices by way of the Beilinson--Drinfeld Grassmannian. 
 Essential to \cite{mirkovic2007geometric}, this space is used to define a fusion (aka convolution) product on sheaves (representations) but can also be used to define a fusion product of MV cycles (bases). 
 % 
-This product structure makes the vector space spanned by the MV cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2019Mirkovi\'c}). % conjectured by JEA and proved by BKK
+This product structure makes the vector space spanned by the MV cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2019mirkovic}). % conjectured by JEA and proved by BKK
 % 
 To quote from Mirkovi\'c and Vilonen:
 \begin{quotation}
@@ -527,9 +527,9 @@ and
 \label{eq:ranks}
 \begin{split}
     % 
-    \overline{\OO}^{\lambda', \lambda''}_{0,s} = \{ A \in M_N(\CC) : &\rk A^i \le N - 
+    \overline{\OO}^{\lambda', \lambda''}_{0,s} = \{ A \in M_N(\CC) : \rk A^i &\le N - 
     \#\text{~boxes in first $i$ columns of }\lambda' \\
-    &\rk (A-s)^i \le N - \#\text{~boxes in first $i$ columns of }\lambda'' \}
+    \rk (A-s)^i &\le N - \#\text{~boxes in first $i$ columns of }\lambda'' \}
 \end{split}
 \end{equation}
 %  
@@ -720,9 +720,12 @@ An element of the \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$
         \right]\,. 
     \]
     % 
-     To each $ A \in \TT_\mu$, we will associate the $m\times m$ matrix 
+
+    To each $ A \in \TT_\mu$, we will associate the $m\times m$ matrix 
     of polynomials 
-    $ g(A) = \left( g(A)_{ij} \right)$ in $ M_m(\CC[t]) $ as follows.
+    % $ g(A) = \left( g(A)_{ij} \right)$ 
+    $g(A)$
+    in $ M_m(\CC[t]) $ whose $(i,j)$th entry is defined as follows.
     \begin{equation}
         \label{eq:mvyofa}
         g(A)_{ij} = 
@@ -762,6 +765,7 @@ An element of the \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$
     % \jcom{I moved the definition here since it will be useful for defining the upper triangular stuff.}
     % \acom{Ok.}
     % 
+    \acom{Can add sentence before making next definition? To the effect of ``In $\TT_\mu$ we will be interested in a certain family of block upper-triangular matrices.''}
     \begin{definition} The ``\textbf{upper-triangular}'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
     $$
     \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}\,. 
@@ -1379,7 +1383,7 @@ Given $A \in M_N(\CC)$ we'll denote by $A\big|_{\CC^i}$ the restriction of $A$ t
         \cO_a^{m(i)} / L(a)\cap\cO_a^{m(i)} = \CC[t]^{m(i)}/L\cap\CC[t]^{m(i)}\otimes_{\CC[t]}\cO_a 
     \end{equation}
     as does $(A-a\big|_{E_a\cap\CC^{m(i)}},s)$. 
-    \acom{Not sure where to use $(?,s)$ notation and when not in this proof. Here I just didn't want to end the sentence with the bulky subscript.}
+    \acom{Not sure when to use $(?,s)$ notation and when not in this proof. Here I just didn't want to end the sentence with the bulky subscript.}
     % 
     \Cref{eq:bcflat} follows from e.g.\ \cite[Proposition~10.14]{atiyah2018introduction}:
     \begin{quotation}
@@ -1388,10 +1392,12 @@ Given $A \in M_N(\CC)$ we'll denote by $A\big|_{\CC^i}$ the restriction of $A$ t
     applied to $A = \CC[t]$ and $\fa = (t)$. 
     
     \jcom{I think that it is actually a bit simpler.  Again from teaching algebraic geometry, I found the following.  If $ A $ is a principal ideal domain, then $M $ is flat iff it is torsion-free.}
+
+    \acom{Here $A$ is $\CC[t]$ and $M = \cO$ right? Better, agreed. Does the direction: torsion free implies flat, or not flat implies not torsion free, hold even without the PID assumption?}
     
     The second assertion is a consequence of \Cref{lem:} \acom{Cite Joel's lemma}. 
     By \Cref{adthesis} \acom{Cite my thesis} it follows that $(L(0),L(s)) \in Z'\times Z''$. 
-    Since all maps are isomoprhisms the converse is automatic. 
+    Since all maps are isomorphisms the converse is automatic. 
 \end{proof}
 
 \begin{question}
