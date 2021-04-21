@@ -1311,43 +1311,48 @@ where $B_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} = B_1\xt[t^{-1}] t^{\mu_1 + \mu_2}
 \end{proof}
 \end{comment}
 % 
-% In this section we demonstrate how to put the main results of this paper into practice.
-% 
-Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
-% 
-In this part we prove that 
-% the ideal of 
-$Z'\ast_\AA Z''$ can be computed from a ``minimal'' pair $(\tau',\tau'')$ of semistandard Young tableaux for the Lusztig data  $(n_\bullet(Z'),n_\bullet(Z''))$.
-% 
-Given $\lambda$ dominant effective and $\mu\le\lambda$ effective, let $YT(\lambda)_\mu$ denote the set of semistandard Young tableaux of shape $\lambda$ and weight $\mu$. 
-% 
+We begin this section with some new notation. Let $YT(\lambda)_\mu$ denote the set of (possibly semistandard) Young tableaux of (arbitrary) shape $\lambda$ and (arbitrary) weight $\mu$. Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
+% For the sake of making a definition, we momentarily put some letters of our alphabet in unexpected roles, and ask you to suspend your disbelief. Given an arbitrary tableau $t$ having weight $w$ and shape $s$, we denote by $s(i)$ (resp.\ $w(i)$) the shape (resp.\ the weight) of $t(i)$, the tableau got from $t$ by discarding all boxes of weight exceeding $i$. 
 
+Given $\tau\in YT(\lambda)_\mu$ we denote by $\lambda(i)$ (resp.\ $\mu(i)$) the shape (resp.\ the weight) of $\tau(i)$, the tableau got from $\tau$ by discarding all boxes of weight exceeding $i$. 
+
+Given $A \in M_N(\CC)$ we denote by 
+% $A\big|_{\CC^i}$ 
+$A\big|_{\CC^p}$ 
+the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors. If $A\big|_{\CC^p}$ preserves $\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
+
+The variety $X(\tau)$ defined by
+% from $\tau\in YT(\lambda)_\mu$ by 
+\[
+X(\tau) = \overline{
+    \{
+        A \in  \overline{\OO}^\lambda\cap\TT_\mu\cap\n : A\big|_{\CC^{|\mu(i)|}} \in \OO^{\lambda(i)} \text{ for each } i = 1,\dots,m
+    \}
+}    
+\]
+is called a generalized orbital variety. 
+
+% 
 We need the following result from \cite{dthesis}.
 \begin{proposition}
-    % Generalized orbital varieties are indexed by semistandard Young tableaux. 
-    There are bijections 
-    % Composing with the ordinary Mirkovi\'c--Vybornov isomorphism gives bijections 
-    \[
-        YT(\lambda)_\mu \to \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n \to \irr \overline\Gr^\lambda\cap S^\mu_-\,. 
-    \]
-    Moreover, there is a \acom{partial?} inverse 
-    \[
-    \CC[N]\to \bigcup_{\lambda~\text{dominant}\atop \mu\le\lambda} YT(\lambda)_\mu \,. 
-    \]
-    % $$
-    % \begin{tikzcd}
-    %     YT(\lambda)_\mu \ar[r] \ar[d] & \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n \ar[d] \\
-    %     GT(\lambda)_\mu \ar[r] & \irr \overline\Gr^\lambda\cap S^\mu_-
-    % \end{tikzcd}
-    % $$
+    \label{prop:dth}
+    (Part of which is a corollary of \cite[Theorem~4.4.1(c)]{mirkovic2019comparison})
+    There is an isomorphism 
+    $\phi: \overline{\OO}^\lambda\cap\TT_\mu\cap\n \to \overline\Gr^\lambda\cap S^\mu_-$ 
+    and it is compatible with the bijection $YT(\lambda)_\mu \to \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ 
+    in the sense that the irreducible component $\phi(X(\tau))$ associated to the semistandard Young tableau $\tau$ is an open dense subset of the MV cycle whose Lusztig datum is equal to that of $\tau$. 
 \end{proposition}
+
+% Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ (resp.\ $\mu'(i),\mu''(i)$) the shape (resp.\ the weight) of $\tau'(i),\tau''(i)$ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all 
+% % but its first $i$ boxes
+% boxes of weight exceeding $i$. 
+% % If the tableau contains repeated entries then first means leftmost.
 % 
-\acom{Refer to Claxton--Tingley multisegments, Hong--Lee marignally large tableaux for comparison.}
 \jcom{I don't think that you should mention this partial inverse here.  I think that you should explain here how the generalized orbital varieties are indexed by the tableaux, in other words, how $ X(\tau) $ is defined.}
+\acom{Ok, I moved it.}
 
-Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\tau)$ and in $\overline{\Gr}^\lambda\cap S^\mu_-$ by $Z(\tau)$. Thus $Z(\tau) = \phi(X(\tau))$. \acom{Out of place?} 
-\rcom{What is $\phi$?}
-
+% Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\tau)$ and in $\overline{\Gr}^\lambda\cap S^\mu_-$ by $Z(\tau)$. Thus $Z(\tau) = \phi(X(\tau))$. \acom{Out of place?} 
+% \rcom{What is $\phi$?}
 % 
 % 
 % TODO: Not yet, that would be the algo stuff that we are holding off on 
@@ -1357,13 +1362,20 @@ Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\t
 % 
 % and recall the $\mu$-numeration of the standard basis of $\CC^N$. 
 % TODO: can't we do without it^^
-Given $A \in M_N(\CC)$ we'll denote by $A\big|_{\CC^i}$ the restriction of $A$ to the subspace spanned by the first $i$ standard basis vectors. Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ the shape of $\tau'(i),\tau''(i)$ resp.\ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all but its first $i$ boxes. If the tableau contains repeated entries then first means leftmost.
 
-
+% 
+% In this section we demonstrate how to put the main results of this paper into practice.
+% 
+Now let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
+% 
+In this part we prove that 
+% the ideal of 
+$Z'\ast_\AA Z''$ can be computed from a ``minimal'' pair $(\tau',\tau'')$ of semistandard Young tableaux for the Lusztig data  $(n_\bullet(Z'),n_\bullet(Z''))$. 
+\acom{Need to introduce LD.}
 \begin{proposition}
-    Given $Z',Z''$, let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ be such that\dots If $s\ne 0$, then 
+    Given $b_{Z'},b_{Z''}\in\CC[N]$, let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ be such that $t^{\lambda'}Z' = X(\tau')$ and $t^{\lambda''}Z'' = X(\tau'')$. Let $\mu = \mu' + \mu''$. If $s\ne 0$, then 
     \[
-    \overline{\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{i}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\}} 
+    \overline{\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\}} 
     \cong Z'\times Z'' \,. %\mu_1 + \cdots + \mu_i
     % = Z(\tau')\times Z(\tau'')\,. 
     \]
@@ -1371,33 +1383,35 @@ Given $A \in M_N(\CC)$ we'll denote by $A\big|_{\CC^i}$ the restriction of $A$ t
 % 
 \jcom{Do you want the ``blocky'' or ``boxy'' description here?  I mean, do you want $ i = 1, \dots, N$ or $ i =1, \dots, m$? I'm not so sure that ``boxy'' will work, since with those $s$ in the matrix, it doesn't preserves all the $ \CC^i$.}
 
+\acom{Fixed.}
 
 \begin{proof}
     Let $(A,s)$ be an element of the set on the left hand side, let $a\in\{0,s\}$ and denote by $E_a$ the generalized $a$-eigenspace of $A$. 
-    Let $i\in \{1,\dots,N\}$ and write $m(i)$ for the maximum weight of a box in $\tau'(i)$ or $\tau''(i)$. 
+    % Let $i\in \{1,\dots,N\}$ and write $m(i)$ for the maximum weight of a box in $\tau'(i)$ or $\tau''(i)$. 
     
-    The the Jordan type of $A-a\big|_{E_a\cap\CC^{m(i)}}$ is given by $\lambda'(i)$ if $a = 0$ and $\lambda''(i)$ if $a = s$. 
+    The the Jordan type of $A-a\big|_{E_a\cap\CC^{|\mu(i)|}}$ is given by $\lambda'(i)$ if $a = 0$ and $\lambda''(i)$ if $a = s$. 
     Moreover, the lattice $(L,s)$ defined by $g(A)$ is such that $t-a$ has the same Jordan type on 
     % $\cO_a^{m(i)} / L(a)\cap\cO_a^{m(i)} = \CC[t]^{m(i)}/L\cap\CC[t]^{m(i)}\otimes_{\CC[t]}\cO_a $ 
     \begin{equation}
         \label{eq:bcflat}
-        \cO_a^{m(i)} / L(a)\cap\cO_a^{m(i)} = \CC[t]^{m(i)}/L\cap\CC[t]^{m(i)}\otimes_{\CC[t]}\cO_a 
+        \cO_a^{|\mu(i)|} / L(a)\cap\cO_a^{|\mu(i)|} = \CC[t]^{|\mu(i)|}/L\cap\CC[t]^{|\mu(i)|}\otimes_{\CC[t]}\cO_a 
     \end{equation}
-    as does $(A-a\big|_{E_a\cap\CC^{m(i)}},s)$. 
+    as does $(A-a\big|_{E_a\cap\CC^{|\mu(i)|}},s)$. 
     \acom{Not sure when to use $(?,s)$ notation and when not in this proof. Here I just didn't want to end the sentence with the bulky subscript.}
     % 
-    \Cref{eq:bcflat} follows from e.g.\ \cite[Proposition~10.14]{atiyah2018introduction}:
-    \begin{quotation}
-        If $A$ is a Noetherian ring, $\fa$ an ideal, $\hat A$ the $\fa$-adic completion of $A$, then $\hat A$ is a flat $A$-algebra.
-    \end{quotation}
-    applied to $A = \CC[t]$ and $\fa = (t)$. 
+    % \Cref{eq:bcflat} follows from e.g.\ \cite[Proposition~10.14]{atiyah2018introduction}:
+    % \begin{quotation}
+    %     If $A$ is a Noetherian ring, $\fa$ an ideal, $\hat A$ the $\fa$-adic completion of $A$, then $\hat A$ is a flat $A$-algebra.
+    % \end{quotation}
+    % applied to $A = \CC[t]$ and $\fa = (t)$. 
+    \Cref{eq:bcflat} follows from the fact that a module over a PID is flat if and only if it is torsion free, and $\cO_a$ is clearly torsion free. 
     
     \jcom{I think that it is actually a bit simpler.  Again from teaching algebraic geometry, I found the following.  If $ A $ is a principal ideal domain, then $M $ is flat iff it is torsion-free.}
 
     \acom{Here $A$ is $\CC[t]$ and $M = \cO$ right? Better, agreed. Does the direction: torsion free implies flat, or not flat implies not torsion free, hold even without the PID assumption?}
     
-    The second assertion is a consequence of \Cref{lem:} \acom{Cite Joel's lemma}. 
-    By \Cref{adthesis} \acom{Cite my thesis} it follows that $(L(0),L(s)) \in Z'\times Z''$. 
+    The second assertion is a consequence of \Cref{le:linalg}.
+    By \Cref{prop:dth}, it follows that $(L(0),L(s)) \in Z'\times Z''$. 
     Since all maps are isomorphisms the converse is automatic. 
 \end{proof}
 
@@ -1471,6 +1485,19 @@ Given $A \in M_N(\CC)$ we'll denote by $A\big|_{\CC^i}$ the restriction of $A$ t
 \end{conjecture}
 % 
 
+\acom{How's here?}
+It may be helpful to know the map
+\[
+    \CC[N]\to \bigcup_{\lambda~\text{dominant}\atop \mu\le\lambda} YT(\lambda)_\mu 
+\]
+that we use to find our tableaux.
+    % $$
+    % \begin{tikzcd}
+    %     YT(\lambda)_\mu \ar[r] \ar[d] & \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n \ar[d] \\
+    %     GT(\lambda)_\mu \ar[r] & \irr \overline\Gr^\lambda\cap S^\mu_-
+    % \end{tikzcd}
+    % $$
+\acom{Refer to Claxton--Tingley multisegments, Hong--Lee marignally large tableaux for comparison.}
 \begin{lemma}
     \label{lem:mintab}
     Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
