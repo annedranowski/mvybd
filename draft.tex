@@ -1541,7 +1541,23 @@ that we use to find our tableaux.
 % Let's wait for Gerhard before we discuss our computations any further
 % \subsection{Pseudocode}
 % 
+\section{Cluster Algebras}
+One of the main motivations for this paper is computing certain fusion products that are associated to exchange relations in the cluster algebra structure of $\CC[N]$. 
 
+A basis of $\CC[N]$, called the dual semicanonical basis, was originally constructed in \cite{lusztig2000semicanonical} while a cluster algebra structure for $\CC[N]$ was shown in \cite{berenstein2005cluster3} and \cite{geiss2007initial}.
+A natural question was whether the cluster monomials were elements of the dual semicanonical basis, proved in the positive in \cite{geiss2006rigid}.
+
+Another basis for $\CC[N]$ was constructed in \cite{mirkovic2007geometric} called the MV basis. This basis is indexed by the MV cycles and the product of basis elements corresponds to the fusion product of the associated MV cycles. While this basis is different from the dual semicanonical basis, as shown in \cite{baumann2019mirkovic}, they seemed to share a lot of common elements, such as various cluster variables, which led to the following conjecture.
+
+\begin{conjecture}
+    The cluster monomials of $\CC[N]$ are elements of the MV basis.
+\end{conjecture}
+
+It has been shown in \cite{kato2011polytopal} that for certain initial seeds $(x_1, \dots, x_r)$, each $x_i$ is in the MV basis. Then to show every cluster variable is in the MV basis, it suffices to show that for a mutable variable $x_i$, its mutation $x_i^*$ is also in the MV basis. The exchange relation corresponding to $x_i$ and $x_i^*$ is of the form
+$$x_ix_i^* = x_+ + x_-$$
+where $x_+$ and $x_-$ are monomials in the $x_j,j\neq i$. Let $Z_i$, $Z_+$, and $Z_-$ be the corresponding MV cycles for $x_i$, $x_+$, and $x_-$, respectively. If we are able to find an MV cycle $Z_i^*$ such that
+$$Z_i \circ Z_i^* = Z_+ \cup Z_-,$$
+then this means $x_i^*$ is in the MV basis with associated MV cycle $Z_i^*$. In Section \ref{s:denouement}, we present examples showcasing this is indeed true for type $A_3$. 
 \section{Denouement}
 \label{s:denouement}
 \subsection{Examples}
