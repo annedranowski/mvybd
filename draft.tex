@@ -3,7 +3,7 @@
 \documentclass[draft]{article}
 \usepackage{basic}
 \usepackage{emoji}
-
+% TODO: The matrix is lower triangular and the lower-triangular matrix is
 % \setemojifont{Apple Color Emoji}
 % Working title: 
 \title{How to compute the fusion product of MV cycles in type A}
@@ -405,9 +405,10 @@ Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under t
 % TODO: cf https://tex.stackexchange.com/questions/256849/cleveref-change-behaviour-of-cref-to-use-the-abbreviated-form
 
 These isomorphisms glue together to a projection map
-$$
-\tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr \, .
-$$ 
+\begin{equation}
+\label{eq:mvitau}
+    \tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr \, .
+\end{equation}
 (This $\tau$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \CC^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
 
 
@@ -1172,7 +1173,8 @@ This follows immediately from \Cref{le:Grl1l2}.
 % 
 \begin{theorem}
 \label{th:OTGrW}
-The isomorphism from \Cref{th:OGrl} restricts to an isomorphism
+The isomorphism from \Cref{th:OGrl} \acom{should ``Theorem'' etc.\ be capitalized when it appears in the middle of a sentence?}
+restricts to an isomorphism
 $$ 
     \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \UU^{\mu', \mu''}_{0,\AA} \cong \overline{\Gr}^{\lambda', \lambda''}_{0,\AA} \cap S^{\mu', \mu''}_{0,\AA}\,.
 $$
@@ -1189,11 +1191,11 @@ $$
 \begin{proof}
 We could prove this by observing the both sides are the attracting locus of an appropriate $ \CC^\times$ action. However, we will give the following more algebraic proof.
 
-Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A),s) \in S^{\mu', \mu''}_{0,\AA} $.
+Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A),s) \in S^{\mu', \mu''}_{0,\AA} $. \acom{not $g(A)\CC[t]^m$}
 
-On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is lower-triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$. 
+On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is lower-triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$. \acom{not $g(A)\CC[t]^m$}
 
-On the other hand, if $ (g(A), s) \in S^{\mu', \mu''}_{0,\AA}$, then we can write 
+On the other hand, if $ (g(A), s) \in S^{\mu', \mu''}_{0,\AA}$, \acom{not $g(A)\CC[t]^m$} then we can write 
 $$
     g t^\mu r= n t^{\mu'} (t-s)^{\mu''}
 $$
@@ -1223,7 +1225,13 @@ Since $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}
 %\acom{What was the answer to Roger's question why is $g^{-1}hn_1 \in G_1 (\Oinf)$}
 % 
 %\rcom{So if we look at $g = g(A)t^{-\mu}$, since $A \in \TT_\mu$, the entries of $g(A)_{ij}$ are polynomials of degree $\min(\mu_i-1,\mu_j-1)$ when $i \neq j$, otherwise of degree $\mu_i$. When we multiply by $t^{-\mu}$, we scale the $i$th column by $t^{-\mu_i}$. So the diagonal entries are $1 + p$ where $p \in t^{-1}\CC[t^{-1}]$ while the off-diagonal entries in column $i$ have highest (in $t$) degree $\min(\mu_i-1, \mu_j-1) - \mu_i < 0$. Hence $g \in G_1(\cO_\infty)$.}
-
+% 
+Restricting to the zero fibre we recover \cite[a main result]{dthesis}, itself a corollary of the ordinary affine Grassmannian version of \Cref{th:OGrl}, \cite[Theorem~4.4.1(c)]{mirkovic2019comparison}. \acom{Technically the zero fibre is comprised of $\CC[t]$ lattices and we need to `specialize' to end up in the ordinary $\Gr$.}
+% 
+\begin{corollary}
+    \label{cor:mvy}
+    $\OO^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu$. 
+\end{corollary}
 \section{Falling Action} % Resolution
 \acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
 % 
@@ -1395,19 +1403,59 @@ X(\tau) = \overline{
     \}
 }    
 \]
-is called a generalized orbital variety. 
-
+is called a \textbf{generalized orbital variety}. 
 % 
-We need the following result from \cite{dthesis}.
+It inherits a crystal datum called a \textbf{Lusztig datum} from its tableau. 
+\acom{Cite Joel? Hide dependence on reduced expression?}
+The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is got from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ \acom{cite BZ} by the formula 
+$$
+n_\bullet(\tau)_{i,j} = \lambda(i+1)_j - \lambda(i)_j
+$$
+for $(i,j) = (1,1), (2,1), \dots, (m,1), (2,2),\dots,(m,2),\dots,(m,m)$. The pattern is recorded as a lower-triangular matrix (array of shapes of subtableaux) and the datum is recorded as a sequence.
+% 
+For example, if 
+\[
+    \tau = \young(1112,23) 
+\]
+then
+\begin{gather*}
+%    \text{if } \tau = \young(1112,23) \text{ then } 
+\gt(\tau) = \begin{matrix}
+       3 \\
+       4 & 1 \\ 
+       4 & 2 & 0 
+   \end{matrix} \text{ and }
+   n_\bullet(\tau) = (1,0,1)\,. 
+\end{gather*}
+% 
+% TODO
+% \begin{theorem}(CITE KAM07)
+%     Taking $\vi$-Luszig datum is a bijection $P\to\NN^{\ell}$. 
+% \end{theorem}
+% 
+We need the following two results from \cite{dthesis}.
+\begin{proposition}
+    \label{pr:govsasirrecs}
+    The decomposition
+    \begin{equation*}
+        % \label{eq:govsasirrecs}
+        \overline{\OO}^\lambda\cap\TT_\mu\cap\n = \bigsqcup_{\tau\in YT(\lambda)_\mu} X(\tau)
+    \end{equation*}
+    is\dots
+\end{proposition}
+% 
+Denote by $Z(\tau)\subset\Gr$ the image of $X(\tau)$ under the isomorphism of \Cref{cor:mvy}. 
+\acom{Still need Lusztig data of MV cycles; with it $B(\infty)$, stable vs ordinary, etc?}
+% 
 \begin{proposition}
     \label{prop:dth}
-    (Part of which is a corollary of \cite[Theorem~4.4.1(c)]{mirkovic2019comparison})
-    There is an isomorphism 
-    $\phi: \overline{\OO}^\lambda\cap\TT_\mu\cap\n \to \overline\Gr^\lambda\cap S^\mu_-$ 
-    and it is compatible with the bijection $YT(\lambda)_\mu \to \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ 
-    in the sense that the irreducible component $\phi(X(\tau))$ associated to the semistandard Young tableau $\tau$ is an open dense subset of the MV cycle whose Lusztig datum is equal to that of $\tau$. 
+    % The isomorphism 
+    % $\phi: \overline{\OO}^\lambda\cap\TT_\mu\cap\n \to \overline\Gr^\lambda\cap S^\mu_-$ 
+    % is compatible with the decomposition of \Cref{pr:govsasirrecs}
+    % the bijection $YT(\lambda)_\mu \to \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ 
+    % in the sense that 
+    $Z(\tau)$ is dense in the MV cycle whose Lusztig datum is $n_\bullet(\tau)$. 
 \end{proposition}
-
 % Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ (resp.\ $\mu'(i),\mu''(i)$) the shape (resp.\ the weight) of $\tau'(i),\tau''(i)$ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all 
 % % but its first $i$ boxes
 % boxes of weight exceeding $i$. 
@@ -1431,53 +1479,63 @@ We need the following result from \cite{dthesis}.
 % 
 % In this section we demonstrate how to put the main results of this paper into practice.
 % 
-Now let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
 % 
-In this part we prove that 
+In this part we prove that the product 
 % the ideal of 
-$Z'\ast_\AA Z''$ can be computed from a ``minimal'' pair $(\tau',\tau'')$ of semistandard Young tableaux for the Lusztig data  $(n_\bullet(Z'),n_\bullet(Z''))$. 
-\acom{Need to introduce LD.}
+% $Z'\ast_\AA Z''$ 
+$b_{Z'}b_{Z''}\in\CC[N]$ can be computed from a ``minimal'' pair $(\tau',\tau'')$ of semistandard Young tableaux for the Lusztig data  $(n_\bullet(Z'),n_\bullet(Z''))$. 
+% 
+To begin, let $\tau',\tau''$ be given and let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
+% 
+
+\acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} Given $s\in\CC$, let 
+\begin{equation*}
+    X(\tau')\ast_s X(\tau'') = \left\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\right\}\,,
+\end{equation*}
+% 
+and let $Z'\ast_s Z'' = (Z'\ast_\AA Z'')_s$. If $s\ne 0$ identify $Z'\ast_s Z''= Z'\times Z''$ via $\Gr_{0,s}\cong \Gr\times\Gr$ \acom{or make the identification using the map the map $\tau$ of \Cref{eq:mvitau}. Can similarly identify $X'\ast_s X'' = X'\times X''$ by performing the obvious change of basis and block-diagonalizing. May make sense to introduce $\ast_s$ in greater generality, earlier; or at least on MV cycles earlier, since here I should actually make the definition for $Z(\tau)$'s.. which is ok, as in not a loss of generality. Still..}
 \begin{proposition}
-    Given $b_{Z'},b_{Z''}\in\CC[N]$, let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ be such that $t^{\lambda'}Z' = X(\tau')$ and $t^{\lambda''}Z'' = X(\tau'')$. Let $\mu = \mu' + \mu''$. If $s\ne 0$, then 
-    \[
-    \overline{\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\}} 
-    \cong Z'\times Z'' \,. %\mu_1 + \cdots + \mu_i
-    % = Z(\tau')\times Z(\tau'')\,. 
-    \]
+    % Given $b_{Z'},b_{Z''}\in\CC[N]$, 
+    % Let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ 
+    % be such that $t^{\lambda'}Z' = X(\tau')$ and $t^{\lambda''}Z'' = X(\tau'')$. 
+    % and set $\mu = \mu' + \mu''$. If $s\ne 0$, then 
+    The image of $X(\tau')\ast_s X(\tau'')$ under the isomorphism of \Cref{th:OTGrW} is dense in $Z(\tau')\ast_s Z(\tau'')$. 
+    % \[
+    % \overline{\phi(X(\tau',\tau''))} 
+    % = Z'\ast_s Z'' \,. 
+    % \]
 \end{proposition}
 % 
-\jcom{Do you want the ``blocky'' or ``boxy'' description here?  I mean, do you want $ i = 1, \dots, N$ or $ i =1, \dots, m$? I'm not so sure that ``boxy'' will work, since with those $s$ in the matrix, it doesn't preserves all the $ \CC^i$.}
+% \jcom{Do you want the ``blocky'' or ``boxy'' description here?  I mean, do you want $ i = 1, \dots, N$ or $ i =1, \dots, m$? I'm not so sure that ``boxy'' will work, since with those $s$ in the matrix, it doesn't preserves all the $ \CC^i$.}
 
-\acom{Fixed.}
+% \acom{Fixed.}
 
 \begin{proof}
-    Let $A$ be an element of the set on the left hand side, let $a\in\{0,s\}$ and denote by $E_a$ the generalized $a$-eigenspace of $A$. 
-    % Let $i\in \{1,\dots,N\}$ and write $m(i)$ for the maximum weight of a box in $\tau'(i)$ or $\tau''(i)$. 
-    
-    The the Jordan type of $(A-a)\big|_{E_a\cap\CC^{|\mu(i)|}}$ is given by $\lambda'(i)$ if $a = 0$ and $\lambda''(i)$ if $a = s$. 
-    Moreover, the lattice $L$ defined by $g(A)$ is such that $t-a$ has the same Jordan type on 
-    % $\cO_a^{m(i)} / L(a)\cap\cO_a^{m(i)} = \CC[t]^{m(i)}/L\cap\CC[t]^{m(i)}\otimes_{\CC[t]}\cO_a $ 
-    \begin{equation}
-        \label{eq:bcflat}
-        \cO_a^{|\mu(i)|} / L(a)\cap\cO_a^{|\mu(i)|} = \left(\CC[t]^{|\mu(i)|}/L\cap\CC[t]^{|\mu(i)|}\right)\otimes_{\CC[t]}\cO_a 
-    \end{equation}
-    as does $(A-a)\big|_{E_a\cap\CC^{|\mu(i)|}}$. 
-    % \acom{Not sure when to use $(?,s)$ notation and when not in this proof. Here I just didn't want to end the sentence with the bulky subscript.}
-    % 
-    % \Cref{eq:bcflat} follows from e.g.\ \cite[Proposition~10.14]{atiyah2018introduction}:
-    % \begin{quotation}
-    %     If $A$ is a Noetherian ring, $\fa$ an ideal, $\hat A$ the $\fa$-adic completion of $A$, then $\hat A$ is a flat $A$-algebra.
-    % \end{quotation}
-    % applied to $A = \CC[t]$ and $\fa = (t)$. 
-    \Cref{eq:bcflat} follows from the fact that a module over a PID is flat if and only if it is torsion free, and $\cO_a$ is clearly torsion free. 
+    % The diagram 
+    % \[
+    % \begin{tikzcd}
+    %     \TT_{\mu(i)} \ar[r] \ar[d] & B \ar[d] \\ 
+    %     \TT_{\mu(i-1)} \ar[r] & ?? 
+    % \end{tikzcd}
+    % \]
+    % commutes.
+    Let $i = 1,\dots, m$, let $a = 0,s$, and denote by $E_a$ the generalized $a$-eigenspace of $A$. 
+    Then 
+    \begin{enumerate}
+        \item $(g(A)\CC[t]^m\cap\CC[t]^i,s) = g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$
+        \item \label{eq:twoingredients} $g((A-a)\big|_{E_a \cap \CC^{|\mu(i)|}},a) = \left(g(A) \CC[t]^m \otimes_{\CC[t]}\cO_a \right)\cap \cO_a^i$
+        % g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i \otimes_{\CC[t]} \cO_a $
+    \end{enumerate}
+    \Cref{eq:twoingredients} follows requries \Cref{le:linalg} and the fact that a module over a PID is flat if and only if it is torsion free. % and $\cO_a$ is clearly torsion free
     
     \jcom{I think that it is actually a bit simpler.  Again from teaching algebraic geometry, I found the following.  If $ A $ is a principal ideal domain, then $M $ is flat iff it is torsion-free.}
 
     \acom{Here $A$ is $\CC[t]$ and $M = \cO$ right? Better, agreed. Does the direction: torsion free implies flat, or not flat implies not torsion free, hold even without the PID assumption?}
     
-    The second assertion is a consequence of \Cref{le:linalg}.
-    By \Cref{prop:dth}, it follows that $(L(0),L(s)) \in Z'\times Z''$. 
-    Since all maps are isomorphisms the converse is automatic. 
+    % In particular, we see that 
+    % \[
+    % Z(\tau) = \{L \in \Gr: L\cap\CC[t]^i \in \Gr^{\lambda(i)} \text{ for } i = 1,\dots, m\}\,.     
+    % \]
 \end{proof}
 
 \begin{question}
