@@ -73,9 +73,9 @@ The coweight lattice of $ G $ is $ \ZZ^m = \Hom(\CC^\times,T)$.
 % 
 The \textbf{dominant coweights} of $ G $ 
 % is
-are the set of $ \lambda = (\lambda_1, \dots, \lambda_m) $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
+are the set of $ \lambda = (\lambda_1, \dots, \lambda_m) \in \ZZ^m $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
 % 
-A coweight $ \mu = (\mu_1, \dots, \mu_m)$ is called \textbf{effective}, if $ \mu_j \ge 0 $ for all $ j$.
+A coweight $ \mu = (\mu_1, \dots, \mu_m) \in \ZZ^m$ is called \textbf{effective}, if $ \mu_j \ge 0 $ for all $ j$.
 % We also need the notion of effective dominant coweight, 
 % \acom{can we conflate or should we be precise and say coweight?} \jcom{Corrected, let's stick to coweights.}
 %which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  
@@ -189,7 +189,7 @@ If
 $L(a) = \cO_a^m$ then $L$ is said to be \textbf{trivial at $a$}. 
 % We say that $ L $ is trivial at $ a $ if $ L(a) = \cO_a^m$. 
 % \acom{Do we want to employ the notation $\cO_a$ and $\cK_a$ here?}
-For example, since $t-s $ is invertible in $ \cO_a $ if $ a \ne s $, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$. 
+For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$, since $ t-s $ is invertible in $ \cO_a$. 
 % \acom{it is a little bit uneven to have notation for $\cO^m$ but not for $\cO_a^m$?}
 
 % \acom{Should we also mention our interest in $\cO$-lattices in $\cK^m$?}
@@ -314,17 +314,17 @@ We also have the lattice descriptions:
 % 
 \begin{definition} 
 \label{def:grplus}
-The \textbf{positive parts} of $\Gr $ (resp.\ $\Grth$),  is defined by 
+The \textbf{positive parts} of $\Gr $ and $\Grth$,  are defined by 
 \begin{gather*}
     \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO) \\
     % \text{ and }      
-    (\text{resp.\ }{\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t]))\,. 
+    {\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t])\,. 
 \end{gather*}
 \end{definition}
 % 
 In modular terms, $\Gr^+$ (resp.\ ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow \Vtriv $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp.\ over $ \PP$).
 
-In lattice terms, $ \Gr^+$ (resp.\ ${\Grth}^+$) contains those lattices $L$ which are contained in the appropriate standard lattice. 
+In lattice terms, $ \Gr^+$ (resp.\ ${\Grth}^+$) contains those lattices $L$ which are contained in $\cO^m$ (resp.\ $\CC[t]^m$).
 % \acom{previously called ``trivial''} \jcom{I changed it so that $ R^m $ is called the standard lattice.  But I would like to leave the terminology ``trivial at $ a$'' is that ok, or should we write ``standard at $a$''.} 
 % \acom{Oh, I don't know.. is trivialized at $a$? is standardized at $a$? Maybe standard at $a$ is better.. Man I never thought about this interchangeable lingo.} 
 % lattice $ L_0(\cO)$ (resp. $L_0(\CC[t])$). % , i.e. $ L \subseteq L_0$.
@@ -393,18 +393,28 @@ These different versions of the affine Grassmannian are related as follows.
     %    and similarly for $ L(s)$.
     % 
     In the $ s = 0 $ case, the isomorphism is described in the same way, except that we just need to form $ L(0)$.
+    
     \item \label{it:grs-gr} There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$. 
+    
+    Combining with the above point, we obtain an isomorphism
+    $$
+    \tau_s : \Gr_{0,s} \rightarrow \Gr \times \Gr 
+    $$
     % 
     %    \jcom{I tried to answer your question, but didn't explain it well.  When $ s = 0$, the map is the same except that $ L(0) = L(s) $ , so we only need $L(0)$.}
 \end{enumerate}
 
+\jcom{I moved the ``composition'' of 2 and 3 into 3 and named it $ \tau_s$, since we will use it later quite a bit.  I'm not that happy with the layout of this section, so feel free to reorganize it (maybe into Propositions?)}
+
 \subsection{The fusion construction}
 The following construction will be very important in this paper.  
 
-Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  Composing the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (\cref{it:polyno-taylor,it:grs-gr} of \cref{ss:relsbtwgrs} preceding), we obtain an isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr$.
+Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  
+
+%Composing the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (\cref{it:polyno-taylor,it:grs-gr} of \cref{ss:relsbtwgrs} preceding), we obtain an isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr$.
 % TODO: cf https://tex.stackexchange.com/questions/256849/cleveref-change-behaviour-of-cref-to-use-the-abbreviated-form
 
-These isomorphisms glue together to a projection map
+These isomorphisms $ \tau_s $ defined above glue together to a projection map
 \begin{equation}
 \label{eq:mvitau}
     \tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr \, .
@@ -418,20 +428,32 @@ Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $ \tau
 % \acom{We say ``we define the subscheme..'' but what is there to define? Should it say ``we consider'' maybe?}
 % Via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
 % 
-We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ inside of $ \Grbd $.  
-Next, we consider the projection $ \pi: \Grbd \rightarrow \AA $, and define 
+We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ inside of $ \Grbd $.  By construction, this is a flat family over $ \AA$.  We write $X_1 \ast_s X_2 $ scheme-theoretic fibre over a point $ s \in \AA$.  
+
+If $ s \ne 0$, then the map $ \tau_s$ identifies $ X_1 \ast_s X_2 \subset \Gr_{0,s}$ with $ X_1 \times X_2 \subset \Gr \times \Gr$.
+
+On the other hand, the fibre $ X_1 \ast_0 X_2$ is a subscheme of $ \Gr_{0,0} $, but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  We call this subscheme the \textbf{fusion} of $ X_1 $ and $ X_2$.
+
+\jcom{I rewrote this to introduce the $ X_1 \ast_s X_2 $ notation that we need for later.  In doing so, $ X_1 \circ X_2 $ became obsolete, since we now have $ X_1 \ast_0 X_2$, but if you like we could just define $X_1 \circ X_2 = X_1 \ast_0 X_2 $.}
+
+%Next, we consider the projection $ \pi: \Grbd \rightarrow \AA $, and define 
 % $ X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) \subset \Gr_{0,0} $, 
-\begin{equation*}
+%\begin{equation*}
     % \label{deservesdisplay}
-    X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) 
-\end{equation*}
-which we call the \textbf{fusion} of $ X_1 $ and $X_2$. It is contained in $\Gr_{0,0}$ but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $. 
+%    X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) 
+%\end{equation*}
+%which we call the \textbf{fusion} of $ X_1 $ and $X_2$. It is contained in $\Gr_{0,0}$ but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  
 % 
-By construction, 
+%By construction, 
 % \acom{technically, there were two given above, so *these* constructions?} 
-$X_1 \ast_{\AA} X_2 $ is a flat family over $\AA$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$. 
+%$X_1 \ast_{\AA} X_2 $ is a flat family over $\AA$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$. 
 
 \acom{Ah, sorry --- so do we introduce a even more general notion of $\ast_\AA$ for arbitrary flat families? Looking at Eisenbud's geoemtry of schemes (where flat iff tor-free actually shows up as Exercise II-33!) there does not seem to be anything quite like $\ast_\AA$ or $\circ$ defined.}
+
+\jcom{I'm not sure how a general notion would be defined.  In our case, we are using the special fact that the general fibre is a product.}
+
+\acom{I mean exactly in the case of this special fact, which is not special to the BD Gr.}
+
 % Cf. https://math.stackexchange.com/questions/1681680/flat-family-limit-of-intersection-vs-intersection-of-limits
 % 
 % 
@@ -473,13 +495,12 @@ We consider the following subschemes of the affine Grassmannians.
 \end{definition}
 % \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda'}\times\overline\Gr^{\lambda''}\times\AA^\times}$..}
 %\acom{should we also subsript this family with $0,\AA$?}
-By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda', \lambda''} $ of $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA}$ for $ s \ne 0 $ is $ \overline{\Gr}^{\lambda'} \times \overline{\Gr}^{\lambda''}$.  
+%By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda', \lambda''} $ of $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA}$ for $ s \ne 0 $ is $ \overline{\Gr}^{\lambda'} \times \overline{\Gr}^{\lambda''}$.  
 % By \cite[Proposition 3.1.14]{zhu2016introduction},
 % Zhu's theorem (\jcom{need ref} \acom{pretty sure it's }), 
 % the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda' + \lambda''}$.
-Over $s=0$ the fibre is reduced and equal to $ \overline{\Gr}^{\lambda' + \lambda''}$ by 
-% a theorem of Zhu 
-\cite[Proposition 3.1.14]{zhu2016introduction}. 
+By a theorem of Zhu 
+\cite[Proposition 3.1.14]{zhu2016introduction}, $ \overline{\Gr}^{\lambda'} \ast_0 \overline{\Gr}^{\lambda''} $ is reduced and equal to  $ \overline{\Gr}^{\lambda' + \lambda''}$.
 
 % Suppose that $ s \ne 0$.  
 Moreover, if $s\ne0$, then in the fibre $\overline{\Gr}_{0,s}^{\lambda', \lambda''}$ we have the open locus $ \Gr_{0,s}^{\lambda', \lambda''}$ coming from transporting $ \Gr^{\lambda'} \times \Gr^{\lambda''} $ via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $. \acom{reference \cref{it:grs-gr}?} This open locus is a $ G(\CC[t])$-orbit
@@ -511,10 +532,9 @@ Using $ \mu, \mu', \mu''$, we define the following subschemes.
 \label{def:klslice}
     The \textbf{Kazhdan--Lusztig slice} $\cW_\mu = G_1(\Oinf) t^\mu \subset \Grth $.  
 \end{definition}
-Again, since $\mu $ is effective, we see that $ \cW_\mu $ lies inside the positive thick Grassmannian $ \Grth^+$.
 % 
 
-In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}. The lattice description of $ \cW_\mu $ is given in Lemma \ref{le:Wmu} below. 
+In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}. The lattice description of $ \cW_\mu \cap \Grth$ is given in Lemma \ref{le:Wmu} below. 
 \acom{First lattice description that doesn't come for free?}
 % 
 % \acom{que est-ce?} \jcom{It's not very relevant for this paper.  Here is an explanation: every vector bundle on $\PP$ (or maybe any curve) has a special filtration called the HN--filtration; it is a partial flag of subbundles of type determined by $ \mu$.  We require that $ \varphi$ takes this filtration to the standard partial flag at the fibre over $ \infty$.  Maybe ``preserves'' is not the best word above.}
@@ -540,7 +560,7 @@ On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $
 % TODO: resolve
 % \acom{changed $\mu$ to $\mu' + \mu''$ since we wrote it out for $\overline{\Gr}_{0,\AA}^{\lambda', \lambda''} $}
 % 
-\jcom{Still need a reference for why this central fibre is reduced.}
+\jcom{I realized that this is not correct.  We can't just take the fusion here since we don't want to get the closure of these guys.  I will think about this further.}
 \acom{Two definitions in one. Unlike for spherical schubs}
 
 \section{Matrices}
@@ -565,11 +585,17 @@ Its closure is $ \overline{\OO}^\lambda = \bigcup_{\gamma \le \lambda} \OO^{\gam
     For $ s \in \CC, s \ne 0$, the adjoint orbit $ \OO^{\lambda', \lambda''}_{0,s}$ of matrices conjugate to $ J_{0,\lambda'} \oplus J_{s,\lambda''}$.
 \end{definition}  
 % 
-A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$ is said to have Jordan type $((0,\lambda'), (s,\lambda''))$ if its matrix representatives lie in $ \OO^{\lambda', \lambda''}_{0,s}$.
+These matrices and the linear operators they represent will be said to have Jordan type $((0,\lambda'), (s,\lambda''))$.
+
+%A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$ is said to have Jordan type $((0,\lambda'), (s,\lambda''))$ if its matrix representatives lie in $ \OO^{\lambda', \lambda''}_{0,s}$.
 \acom{secret definition; add `a matrix is likewise said to have Jordan type...if it lies in'?}
+\jcom{Is that better?}
+\acom{Yay.}
 % 
 
 The closure $ \overline{\OO}^{\lambda', \lambda''}_{0,s}$ is $\bigcup_{\gamma' \le \lambda', \gamma'' \le \lambda''} \OO^{\gamma', \gamma''}_{0,s}$.     
+\jcom{Do we need this?}
+\acom{No I guess we haven't used it yet. Maybe in Proposition 5..}
      
 We recall that these adjoint orbit closures are given by rank conditions.  
 More precisely we have
@@ -587,6 +613,8 @@ and
 \end{split}
 \end{equation}
 %  
+
+The following fact seems to be well-known but we could not find this exact statement in the literature.
 \begin{proposition} 
     \label{prop:adjoint}
     There exists a flat family $\overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow \AA$ whose fibre over $s \in \AA$ is reduced and given by $\overline{\OO}^{\lambda', \lambda''}_{0,s}$ if $s \ne 0 $ and $\overline{\OO}^\lambda $ if $ s = 0$.
@@ -600,8 +628,8 @@ Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ (calle
 
 Let $ W$ be a subspace of $ \AA^k$. Eisenbud \& Saltman define a flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions. We will now describe these fibres.
 
-Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist $ 0=k_0< k_1< \dots < k_r = k $, distinct $ s_1, \dots, s_r \in \CC$ and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
-$$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)}\,. $$ We require that $ p $ is of minimal length, given the choice of $ s_1, \dots, s_r$.  The data $s_\bullet, p, k_\bullet$ is unique up to a permutation of $ \{1, \dots, k\}$.
+Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist $ 0=k_0< k_1< \dots < k_\ell = k $, distinct $ s_1, \dots, s_\ell \in \CC$ and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
+$$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)}\,. $$ We require that $ p $ is of minimal length, given the choice of $ s_1, \dots, s_\ell$.  The data $s_\bullet, p, k_\bullet$ is unique up to a permutation of $ \{1, \dots, \ell\}$.
 % 
 %\jcom{Eisenbud--Saltman don't introduce this $ s_j$ notation, but I find it helpful.}
 % 
@@ -609,14 +637,14 @@ $$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)}\,. $$ We require that $ p $ is o
 %\jcom{That is what I was trying to say with ``introduce some data \dots''  Maybe it could be more clear.  I also clarified the uniqueness.}
 %\acom{Oh, sorry, I see it. Maybe because it was the start of a new paragraph I didn't connect `data' and `ranks' at first glance.}
 
-Next for $ j = 1, \dots r $ and $ i = 1, \dots, k_{j+1} - k_j$, we define
+Next for $ j = 1, \dots \ell $ and $ i = 1, \dots, k_{j+1} - k_j$, we define
 $$
     % r_{z,j}(i):= N - r(p(m_j)) + r(p(m_j + i)) 
     r_{z,j}(i):= N + \sum_{a = 1}^i r(p(k_j + a)) - r(p(k_j +a) - 1)  \, . 
 $$
 \jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
-\jcom{I fixed it now.  I didn't want to use ES's $a_i$.} 
-\acom{\emoji{+1}}
+%\jcom{I fixed it now.  I didn't want to use ES's $a_i$.} 
+%\acom{\emoji{+1}}
 
 % 
 By \cite[Corollary 2.2]{eisenbud1989rank}, the fibre of the flat family $ X_{r,W} $ over $ z$ is given by
@@ -650,7 +678,7 @@ Since $\lambda = \lambda' + \lambda''$, there exists a permutation $ p $ of $ \{
 
 For $ s \in \CC$, we define $ z(s) \in \CC^k$, with $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1, \dots, k$.
 
-For $ s \ne 0$, we see that the equalities in $ z(s) $ give rise to the data of $ r = 2$, $k_1$, $s_1 = 0$, $s_2 = s$, and the permutation $p $.
+For $ s \ne 0$, we see that the equalities in $ z(s) $ give rise to the data of $ \ell = 2$, $k_1$, $s_1 = 0$, $s_2 = s$, and the permutation $p $.
 We also see that
 \begin{equation} 
 \label{eq:rcols}
@@ -1173,7 +1201,8 @@ This follows immediately from \Cref{le:Grl1l2}.
 % 
 \begin{theorem}
 \label{th:OTGrW}
-The isomorphism from \Cref{th:OGrl} \acom{should ``Theorem'' etc.\ be capitalized when it appears in the middle of a sentence?}
+The isomorphism from \Cref{th:OGrl} 
+% \acom{should ``Theorem'' etc.\ be capitalized when it appears in the middle of a sentence?} Yup.
 restricts to an isomorphism
 $$ 
     \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \UU^{\mu', \mu''}_{0,\AA} \cong \overline{\Gr}^{\lambda', \lambda''}_{0,\AA} \cap S^{\mu', \mu''}_{0,\AA}\,.
@@ -1191,11 +1220,14 @@ $$
 \begin{proof}
 We could prove this by observing the both sides are the attracting locus of an appropriate $ \CC^\times$ action. However, we will give the following more algebraic proof.
 
-Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A),s) \in S^{\mu', \mu''}_{0,\AA} $. \acom{not $g(A)\CC[t]^m$}
+Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A)\CC[t]^m,s) \in S^{\mu', \mu''}_{0,\AA} $. 
+%\acom{not $g(A)\CC[t]^m$}
 
-On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is lower-triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$. \acom{not $g(A)\CC[t]^m$}
+On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is lower-triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$. 
+\acom{not $g(A)\CC[t]^m$}
+\jcom{This one isn't a point in $ \Gr$, the others I changed.}
 
-On the other hand, if $ (g(A), s) \in S^{\mu', \mu''}_{0,\AA}$, \acom{not $g(A)\CC[t]^m$} then we can write 
+On the other hand, if $ (g(A)\CC[t]^m, s) \in S^{\mu', \mu''}_{0,\AA}$, then we can write 
 $$
     g t^\mu r= n t^{\mu'} (t-s)^{\mu''}
 $$
@@ -1230,8 +1262,10 @@ Restricting to the zero fibre we recover \cite[a main result]{dthesis}, itself a
 % 
 \begin{corollary}
     \label{cor:mvy}
-    $\OO^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu$. 
+    $\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu$. 
 \end{corollary}
+
+
 \section{Falling Action} % Resolution
 \acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
 % 
@@ -1444,8 +1478,11 @@ We need the following two results from \cite{dthesis}.
     is\dots
 \end{proposition}
 % 
-Denote by $Z(\tau)\subset\Gr$ the image of $X(\tau)$ under the isomorphism of \Cref{cor:mvy}. 
+Denote by $Z(\tau)\subset\Gr$ the closure of the image of $X(\tau)$ under the isomorphism of \Cref{cor:mvy}. 
 \acom{Still need Lusztig data of MV cycles; with it $B(\infty)$, stable vs ordinary, etc?}
+\jcom{Do you want $ Z(\tau)$ to be the closure?}
+\acom{Sure}
+
 % 
 \begin{proposition}
     \label{prop:dth}
@@ -1456,6 +1493,17 @@ Denote by $Z(\tau)\subset\Gr$ the image of $X(\tau)$ under the isomorphism of \C
     % in the sense that 
     $Z(\tau)$ is dense in the MV cycle whose Lusztig datum is $n_\bullet(\tau)$. 
 \end{proposition}
+\acom{We would like to use the action of $W$ which gives isomorphisms
+$Gr^\lambda \cap Gr_\mu \cap S^\mu \cong Gr^\lambda \cap Gr_{w\mu} \cap S^{w\mu}$ to generalize to non-dominant $\mu$. But the Lusztig datum of $\tau\in YT(\lambda)_\mu$ may not appear as the Lusztig datum of any element of $YT(\lambda)_{w\mu}$..}
+% This gives us the dimension of Gr^\lambda \cap Gr_\mu \cap S^\mu.
+\begin{lemma}
+Alternate description. Works for non-dominant $\mu$. 
+$$
+Z(\tau) = \{
+L\in\Gr : L\cap\CC[t]^i\in\Gr^{\lambda(i)}\cap S^{\mu(i)}\text{ for all }i \}
+$$
+is an MV cycle. 
+\end{lemma}
 % Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ (resp.\ $\mu'(i),\mu''(i)$) the shape (resp.\ the weight) of $\tau'(i),\tau''(i)$ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all 
 % % but its first $i$ boxes
 % boxes of weight exceeding $i$. 
@@ -1488,12 +1536,18 @@ $b_{Z'}b_{Z''}\in\CC[N]$ can be computed from a ``minimal'' pair $(\tau',\tau'')
 To begin, let $\tau',\tau''$ be given and let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
 % 
 
-\acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} Given $s\in\CC$, let 
+% \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
+Given $s\in\CC$, let 
 \begin{equation*}
-    X(\tau')\ast_s X(\tau'') = \left\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\right\}\,,
+    X(\tau')\ast_s X(\tau'') = \left\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\right\}\,.
 \end{equation*}
 % 
-and let $Z'\ast_s Z'' = (Z'\ast_\AA Z'')_s$. If $s\ne 0$ identify $Z'\ast_s Z''= Z'\times Z''$ via $\Gr_{0,s}\cong \Gr\times\Gr$ \acom{or make the identification using the map the map $\tau$ of \Cref{eq:mvitau}. Can similarly identify $X'\ast_s X'' = X'\times X''$ by performing the obvious change of basis and block-diagonalizing. May make sense to introduce $\ast_s$ in greater generality, earlier; or at least on MV cycles earlier, since here I should actually make the definition for $Z(\tau)$'s.. which is ok, as in not a loss of generality. Still..}
+% and let $Z'\ast_s Z'' = (Z'\ast_\AA Z'')_s$.
+% If $s\ne 0$ identify $Z'\ast_s Z''= Z'\times Z''$ via $\Gr_{0,s}\cong \Gr\times\Gr$.
+% \acom{or make the identification using the map the map $\tau$ of \Cref{eq:mvitau}. Can similarly identify $X'\ast_s X'' = X'\times X''$ by performing the obvious change of basis and block-diagonalizing. May make sense to introduce $\ast_s$ in greater generality, earlier; or at least on MV cycles earlier, since here I should actually make the definition for $Z(\tau)$'s.. which is ok, as in not a loss of generality. Still..}
+
+% \jcom{Now that we have $ \ast_s$ defined in the fusion section, we can refer to that here.}
+
 \begin{proposition}
     % Given $b_{Z'},b_{Z''}\in\CC[N]$, 
     % Let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ 
@@ -1511,32 +1565,43 @@ and let $Z'\ast_s Z'' = (Z'\ast_\AA Z'')_s$. If $s\ne 0$ identify $Z'\ast_s Z''=
 % \acom{Fixed.}
 
 \begin{proof}
-    % The diagram 
+    % We wish to apply \Cref{prop:dth}. Nope
+    % We will also need \Cref{le:Grl1l2}. Nope 
+    % Consider the following diagram.
     % \[
     % \begin{tikzcd}
-    %     \TT_{\mu(i)} \ar[r] \ar[d] & B \ar[d] \\ 
-    %     \TT_{\mu(i-1)} \ar[r] & ?? 
+    %     X'\ast_s X'' \ar[r,dashed,"?"] \ar[d,"\bar g"] & X'\times X'' \ar[d," \phi\times \phi"] \\ 
+    %     \Gr_{0,s}\ar[r,"\tau_s"] & \Gr\times\Gr
     % \end{tikzcd}
     % \]
-    % commutes.
-    Let $i = 1,\dots, m$, let $a = 0,s$, and denote by $E_a$ the generalized $a$-eigenspace of $A$. 
-    Then 
-    \begin{enumerate}
-        \item $(g(A)\CC[t]^m\cap\CC[t]^i,s) = g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$
-        \item \label{eq:twoingredients} $g((A-a)\big|_{E_a \cap \CC^{|\mu(i)|}},a) = \left(g(A) \CC[t]^m \otimes_{\CC[t]}\cO_a \right)\cap \cO_a^i$
-        % g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i \otimes_{\CC[t]} \cO_a $
-    \end{enumerate}
-    \Cref{eq:twoingredients} follows requries \Cref{le:linalg} and the fact that a module over a PID is flat if and only if it is torsion free. % and $\cO_a$ is clearly torsion free
+    % \acom{Not sure what's a good notation for the vertical arrows. Don't want to introduce $\phi$. $\bar g(A) = g(A)\CC[t]^m$ temporarily.}
+    % We show that the image of $\tau_s\circ \bar g$ coincides with the image of $\phi\times\phi$ which is dense in $Z'\times Z''$ by \Cref{prop:dth}.
+    % % 
+    Let $A\in X(\tau')\ast_s X(\tau'')$, let $i = 1,\dots, m$.  
+    % Denote by 
+    % $E_a$ the generalized $a$-eigenspace of $A$, and by 
+    Clearly, the lattices $L=g(A)\CC[t]^m$ and $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ are related by
+    $$
+    L\cap \CC[t]^i = l. 
+    $$
+    By definition of $X'\ast_s X''$,  $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$ and lies in $\UU^{\mu'(i),\mu''(i)}_{0,s}$. So, by \Cref{th:OTGrW}, $l\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}\cap S^{\mu'(i),\mu''(i)}_{0,s}$ which fits the alternate description of $Z(\tau)$..
+    
+    \acom{..assuming $\tau_s$ identifies these intersections with products of intersections.}
+    
+    \jcom{I removed the $, s)$ from 1.  I don't understand the statement of 2.}
+    \acom{Yup, me neither. Getting there..}
     
     \jcom{I think that it is actually a bit simpler.  Again from teaching algebraic geometry, I found the following.  If $ A $ is a principal ideal domain, then $M $ is flat iff it is torsion-free.}
 
-    \acom{Here $A$ is $\CC[t]$ and $M = \cO$ right? Better, agreed. Does the direction: torsion free implies flat, or not flat implies not torsion free, hold even without the PID assumption?}
+    \acom{Here $A$ is $\CC[t]$ and $M = \cO$ right? Better, agreed. Does the direction: torsion free implies flat, or not flat implies not torsion free, hold even without the PID assumption? This belongs way back in Joel's Lemma}
     
     % In particular, we see that 
     % \[
     % Z(\tau) = \{L \in \Gr: L\cap\CC[t]^i \in \Gr^{\lambda(i)} \text{ for } i = 1,\dots, m\}\,.     
     % \]
 \end{proof}
+
+\acom{We compute zero fibres of $\ast_s$ by applying the results of \Cref{dthesis}..}
 
 \begin{question}
 %[Related question] 
