@@ -1428,10 +1428,11 @@ Given $A \in M_N(\CC)$ we denote by
 $A\big|_{\CC^p}$ 
 the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors. If $A\big|_{\CC^p}$ preserves $\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
 
-The variety $X(\tau)$ defined by
+The variety $X(\tau)$ defined by taking the top dimensional component of \acom{todo}
 % from $\tau\in YT(\lambda)_\mu$ by 
 \[
-X(\tau) = \overline{
+% X(\tau) = 
+\overline{
     \{
         A \in  \TT_\mu\cap\n : A\big|_{\CC^{|\mu(i)|}} \in \OO^{\lambda(i)} \text{ for each } i = 1,\dots,m
     \}
@@ -1470,7 +1471,7 @@ then
 We need the following two results from \cite{dthesis}.
 \begin{proposition}
     \label{pr:govsasirrecs}
-    The decomposition
+    The set of.. is the irrecs of.. 
     \begin{equation*}
         % \label{eq:govsasirrecs}
         \overline{\OO}^\lambda\cap\TT_\mu\cap\n = \bigsqcup_{\tau\in YT(\lambda)_\mu} X(\tau)
@@ -1499,8 +1500,8 @@ $Gr^\lambda \cap Gr_\mu \cap S^\mu \cong Gr^\lambda \cap Gr_{w\mu} \cap S^{w\mu}
 \begin{lemma}
 Alternate description. Works for non-dominant $\mu$. 
 $$
-Z(\tau) = \{
-L\in\Gr : L\cap\CC[t]^i\in\Gr^{\lambda(i)}\cap S^{\mu(i)}\text{ for all }i \}
+Z(\tau) = \overline{\{
+L\in S^\mu : L\cap\CC[t]^i\in\Gr^{\lambda(i)}\text{ for all }i \}}
 $$
 is an MV cycle. 
 \end{lemma}
@@ -1585,7 +1586,7 @@ Given $s\in\CC$, let
     $$
     L\cap \CC[t]^i = l. 
     $$
-    By definition of $X'\ast_s X''$,  $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$ and lies in $\UU^{\mu'(i),\mu''(i)}_{0,s}$. So, by \Cref{th:OTGrW}, $l\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}\cap S^{\mu'(i),\mu''(i)}_{0,s}$ which fits the alternate description of $Z(\tau)$..
+    By definition of $X'\ast_s X''$,  $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$ and lies in $\UU^{\mu'(i),\mu''(i)}_{0,s}$. So, by \Cref{th:OTGrW}, $l\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}$ which fits the alternate description of $Z(\tau)$.
     
     \acom{..assuming $\tau_s$ identifies these intersections with products of intersections.}
     
