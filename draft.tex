@@ -1224,50 +1224,59 @@ Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu'
 %\acom{not $g(A)\CC[t]^m$}
 
 On the one hand, if $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $, then $ g(A)$ is lower-triangular with diagonal $ t^{\mu'} (t-s)^{\mu''}$, and so $ g(A) \in N_-[t, t^{-1}, (t-s)^{-1}] t^{\mu'} (t-s)^{\mu''}$. 
-\acom{not $g(A)\CC[t]^m$}
-\jcom{This one isn't a point in $ \Gr$, the others I changed.}
+% \acom{not $g(A)\CC[t]^m$}
+% \jcom{This one isn't a point in $ \Gr$, the others I changed.}
 
 On the other hand, if $ (g(A)\CC[t]^m, s) \in S^{\mu', \mu''}_{0,\AA}$, then we can write 
 $$
     g t^\mu r= n t^{\mu'} (t-s)^{\mu''}
 $$
 for some $ r \in G(\CC[t]), n \in N_-(\CC[t, t^{-1}, (t-s)^{-1}]) $ and $ g = g(A)t^{-\mu}$.  Let $ h = (t-s)^{\mu''} t^{-\mu''}$ which lies in $ T_1(\Oinf) $. % was CC\xt[]
-Note that $ h^{-1}n h \in N(\Kinf)$, 
+Note that $ h^{-1}n h \in N_-(\Kinf)$, 
 % ((t^{-1}))
 so we can factor it as $ h^{-1} n h  = n_1 n_2 $, where $ n_1 \in N_{-,1}(\Oinf), n_2 \in N_-(\CC[t])$.  So then after doing a bit of algebra, we reach
 $$
     t^\mu r (t^{-\mu} n_2^{-1} t^\mu) t^{-\mu} = g^{-1} h n_1.
 $$
-Since $ g, h, n_1 \in G_1(\Oinf)$, the right hand side $ g^{-1} h n_1 $ lies in $ G_1(\Oinf) $.  Since $ \mu $ is dominant, $ t^{-\mu} n_2 t^\mu \in N(\CC[t])$, and so the left hand side lies in $t^\mu G(\CC[t]) t^{-\mu}$.
+Since $ g, h, n_1 \in G_1(\Oinf)$, the right hand side $ g^{-1} h n_1 $ lies in $ G_1(\Oinf) $.  Since $ \mu $ is dominant, $ t^{-\mu} n_2 t^\mu \in N_-(\CC[t])$, and so the left hand side lies in $t^\mu G(\CC[t]) t^{-\mu}$.
 
 Moreover, since $ \mu $ is dominant, we know that 
 $$
-    t^\mu G(\CC[t]) t^{-\mu} \cap G_1(\Oinf) = N_1(\Oinf)\,.
+    t^\mu G(\CC[t]) t^{-\mu} \cap G_1(\Oinf) = N_{-,1}(\Oinf)\,.
 $$
 % $$t^\mu G(\cO) t^{-\mu} \cap G_1(\CC\xt[t^{-1}]) = N_1(\CC\xt[t^{-1}]\,.$$
-Thus, we deduce that $ g^{-1} h n_1 \in N_1(\Oinf)$ 
+Thus, we deduce that $ g^{-1} h n_1 \in N_{-,1}(\Oinf)$ 
 % $ g^{-1} h n_1 \in N_1(\CC\xt[t^{-1}])$ 
-and hence $ g(A) \in t^{\mu'} (t-s)^{\mu''} N_1(\Oinf) $.  
+and hence $ g(A) \in t^{\mu'} (t-s)^{\mu''}N_{-,1}(\Oinf) $.  
 % Given that we know that 
 Since $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}$ as desired.
 \end{proof}
 % 
-\jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
+% \jcom{In this proof, I made some statements about $\mu$ dominant, which are incorrect (as Anne knows). To make them correct we should either switch to having $ \mu$ being antidominant or switch $ N$ to $ N_-$.  In this proof $ g(A)$ generally denotes a group element, rather than an affine Grassmannian element which conflicts a bit with earlier usage.}
 % 
 %\acom{What was the answer to Roger's question why is $g^{-1}hn_1 \in G_1 (\Oinf)$}
 % 
 %\rcom{So if we look at $g = g(A)t^{-\mu}$, since $A \in \TT_\mu$, the entries of $g(A)_{ij}$ are polynomials of degree $\min(\mu_i-1,\mu_j-1)$ when $i \neq j$, otherwise of degree $\mu_i$. When we multiply by $t^{-\mu}$, we scale the $i$th column by $t^{-\mu_i}$. So the diagonal entries are $1 + p$ where $p \in t^{-1}\CC[t^{-1}]$ while the off-diagonal entries in column $i$ have highest (in $t$) degree $\min(\mu_i-1, \mu_j-1) - \mu_i < 0$. Hence $g \in G_1(\cO_\infty)$.}
 % 
-Restricting to the zero fibre we recover \cite[a main result]{dthesis}, itself a corollary of the ordinary affine Grassmannian version of \Cref{th:OGrl}, \cite[Theorem~4.4.1(c)]{mirkovic2019comparison}. \acom{Technically the zero fibre is comprised of $\CC[t]$ lattices and we need to `specialize' to end up in the ordinary $\Gr$.}
+
+Restricting to the zero fibre and applying $\tau_0$ we recover \cite[a main result]{dthesis}, itself a corollary of the ordinary affine Grassmannian version of \Cref{th:OGrl}, \cite[Theorem~4.4.1(c)]{mirkovic2019comparison}. 
 % 
 \begin{corollary}
     \label{cor:mvy}
     $\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu$. 
 \end{corollary}
+The irreducible components of the closure of the intersection on the lefthand side are \textbf{MV cycles of type $\lambda$ and weight $\mu$}. By BKK the set of MV cycles of all possible types and weights can be glued together to form a \textbf{perfect basis} of $\CC[N]$. 
 
+\acom{We are ready for applications! One of the motivations for this paper is... Abstractly multiplication is $\ast_s$... To compute we now carry this across \Cref{th:OTGrW}.}
 
 \section{Falling Action} % Resolution
-\acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
+\subsection{MV cycles}
+\begin{itemize}
+    \item $\overline{A(n_\bullet)}$
+    \item $D_\gamma$ 
+    \item MV basis?
+\end{itemize}
+% \acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
 % 
 \begin{comment}
 \begin{theorem}
@@ -1418,30 +1427,13 @@ where $B_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} = B_1\xt[t^{-1}] t^{\mu_1 + \mu_2}
 \end{proof}
 \end{comment}
 % 
+\subsection{Alternate MV}
 We begin this section with some new notation. Let $YT(\lambda)_\mu$ denote the set of (possibly semistandard) Young tableaux of (arbitrary) shape $\lambda$ and (arbitrary) weight $\mu$. Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
 % For the sake of making a definition, we momentarily put some letters of our alphabet in unexpected roles, and ask you to suspend your disbelief. Given an arbitrary tableau $t$ having weight $w$ and shape $s$, we denote by $s(i)$ (resp.\ $w(i)$) the shape (resp.\ the weight) of $t(i)$, the tableau got from $t$ by discarding all boxes of weight exceeding $i$. 
 
-Given $\tau\in YT(\lambda)_\mu$ we denote by $\lambda(i)$ (resp.\ $\mu(i)$) the shape (resp.\ the weight) of $\tau(i)$, the tableau got from $\tau$ by discarding all boxes of weight exceeding $i$. 
-
-Given $A \in M_N(\CC)$ we denote by 
-% $A\big|_{\CC^i}$ 
-$A\big|_{\CC^p}$ 
-the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors. If $A\big|_{\CC^p}$ preserves $\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
-
-The variety $X(\tau)$ defined by taking the top dimensional component of \acom{todo}
-% from $\tau\in YT(\lambda)_\mu$ by 
-\[
-% X(\tau) = 
-\overline{
-    \{
-        A \in  \TT_\mu\cap\n : A\big|_{\CC^{|\mu(i)|}} \in \OO^{\lambda(i)} \text{ for each } i = 1,\dots,m
-    \}
-}    
-\]
-is called a \textbf{generalized orbital variety}. 
+Given $\tau\in YT(\lambda)_\mu$ denote by $\lambda(i)$ (resp.\ $\mu(i)$) the shape (resp.\ the weight) of $\tau(i)$, the tableau got from $\tau$ by discarding all boxes of weight exceeding $i$. 
 % 
-It inherits a crystal datum called a \textbf{Lusztig datum} from its tableau. 
-\acom{Cite Joel? Hide dependence on reduced expression?}
+
 The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is got from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ \acom{cite BZ} by the formula 
 $$
 n_\bullet(\tau)_{i,j} = \lambda(i+1)_j - \lambda(i)_j
@@ -1463,55 +1455,31 @@ then
    n_\bullet(\tau) = (1,0,1)\,. 
 \end{gather*}
 % 
-% TODO
-% \begin{theorem}(CITE KAM07)
-%     Taking $\vi$-Luszig datum is a bijection $P\to\NN^{\ell}$. 
-% \end{theorem}
+This combinatorics is relevant because by work of the third author the MV cycles are parametrized by Lusztig data. (This holds much more generally than the present scope.)
 % 
-We need the following two results from \cite{dthesis}.
-\begin{proposition}
-    \label{pr:govsasirrecs}
-    The set of.. is the irrecs of.. 
-    \begin{equation*}
-        % \label{eq:govsasirrecs}
-        \overline{\OO}^\lambda\cap\TT_\mu\cap\n = \bigsqcup_{\tau\in YT(\lambda)_\mu} X(\tau)
-    \end{equation*}
-    is\dots
-\end{proposition}
-% 
-Denote by $Z(\tau)\subset\Gr$ the closure of the image of $X(\tau)$ under the isomorphism of \Cref{cor:mvy}. 
-\acom{Still need Lusztig data of MV cycles; with it $B(\infty)$, stable vs ordinary, etc?}
-\jcom{Do you want $ Z(\tau)$ to be the closure?}
-\acom{Sure}
-
+We can associate to $\tau$ an MV cycle. \acom{which is something we haven't introduced yet.} Let 
+%  
+\begin{equation*}
+    Z(\tau) = 
+    % \overline{
+        \{
+            L\in S^\mu : L\cap\CC[t]^i\in\Gr^{\lambda(i)}\text{ for all }i 
+        \}\,. 
+    % }
+\end{equation*}
 % 
 \begin{proposition}
-    \label{prop:dth}
-    % The isomorphism 
-    % $\phi: \overline{\OO}^\lambda\cap\TT_\mu\cap\n \to \overline\Gr^\lambda\cap S^\mu_-$ 
-    % is compatible with the decomposition of \Cref{pr:govsasirrecs}
-    % the bijection $YT(\lambda)_\mu \to \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ 
-    % in the sense that 
-    $Z(\tau)$ is dense in the MV cycle whose Lusztig datum is $n_\bullet(\tau)$. 
+    \label{pr:newmvdes}
+    $\overline{Z(\tau)}$ the MV cycle whose Lusztig datum is $n_\bullet(\tau)$. 
 \end{proposition}
-\acom{We would like to use the action of $W$ which gives isomorphisms
-$Gr^\lambda \cap Gr_\mu \cap S^\mu \cong Gr^\lambda \cap Gr_{w\mu} \cap S^{w\mu}$ to generalize to non-dominant $\mu$. But the Lusztig datum of $\tau\in YT(\lambda)_\mu$ may not appear as the Lusztig datum of any element of $YT(\lambda)_{w\mu}$..}
 % This gives us the dimension of Gr^\lambda \cap Gr_\mu \cap S^\mu.
-\begin{lemma}
-Alternate description. Works for non-dominant $\mu$. 
-$$
-Z(\tau) = \overline{\{
-L\in S^\mu : L\cap\CC[t]^i\in\Gr^{\lambda(i)}\text{ for all }i \}}
-$$
-is an MV cycle. 
-\end{lemma}
 % Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ (resp.\ $\mu'(i),\mu''(i)$) the shape (resp.\ the weight) of $\tau'(i),\tau''(i)$ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all 
 % % but its first $i$ boxes
 % boxes of weight exceeding $i$. 
 % % If the tableau contains repeated entries then first means leftmost.
 % 
-\jcom{I don't think that you should mention this partial inverse here.  I think that you should explain here how the generalized orbital varieties are indexed by the tableaux, in other words, how $ X(\tau) $ is defined.}
-\acom{Ok, I moved it.}
+% \jcom{I don't think that you should mention this partial inverse here.  I think that you should explain here how the generalized orbital varieties are indexed by the tableaux, in other words, how $ X(\tau) $ is defined.}
+% \acom{Ok, I moved it.}
 
 % Denote the image of $\tau$ in $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ by $X(\tau)$ and in $\overline{\Gr}^\lambda\cap S^\mu_-$ by $Z(\tau)$. Thus $Z(\tau) = \phi(X(\tau))$. \acom{Out of place?} 
 % \rcom{What is $\phi$?}
@@ -1529,15 +1497,14 @@ is an MV cycle.
 % In this section we demonstrate how to put the main results of this paper into practice.
 % 
 % 
-In this part we prove that the product 
-% the ideal of 
-% $Z'\ast_\AA Z''$ 
-$b_{Z'}b_{Z''}\in\CC[N]$ can be computed from a ``minimal'' pair $(\tau',\tau'')$ of semistandard Young tableaux for the Lusztig data  $(n_\bullet(Z'),n_\bullet(Z''))$. 
-% 
-\rcom{I don't think we introduced $\CC[N]$ or the elements $b_Z$ yet. Should I talk about cluster algebras/exchange relations before this?}
-To begin, let $\tau',\tau''$ be given and let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
+\subsection{Fusion of MVCs}
+Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before, and take $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$. 
 % 
 
+Given $A \in M_N(\CC)$ we denote by 
+% $A\big|_{\CC^i}$ 
+$A\big|_{\CC^p}$ 
+the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors. If $A\big|_{\CC^p}$ preserves $\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
 % \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
 Given $s\in\CC$, let 
 \begin{equation*}
@@ -1586,82 +1553,54 @@ Given $s\in\CC$, let
     $$
     L\cap \CC[t]^i = l. 
     $$
-    By definition of $X'\ast_s X''$,  $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$ and lies in $\UU^{\mu'(i),\mu''(i)}_{0,s}$. So, by \Cref{th:OTGrW}, $l\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}$ which fits the alternate description of $Z(\tau)$.
-    
-    \acom{..assuming $\tau_s$ identifies these intersections with products of intersections.}
-    
-    \jcom{I removed the $, s)$ from 1.  I don't understand the statement of 2.}
-    \acom{Yup, me neither. Getting there..}
-    
-    \jcom{I think that it is actually a bit simpler.  Again from teaching algebraic geometry, I found the following.  If $ A $ is a principal ideal domain, then $M $ is flat iff it is torsion-free.}
-
-    \acom{Here $A$ is $\CC[t]$ and $M = \cO$ right? Better, agreed. Does the direction: torsion free implies flat, or not flat implies not torsion free, hold even without the PID assumption? This belongs way back in Joel's Lemma}
-    
-    % In particular, we see that 
-    % \[
-    % Z(\tau) = \{L \in \Gr: L\cap\CC[t]^i \in \Gr^{\lambda(i)} \text{ for } i = 1,\dots, m\}\,.     
-    % \]
+    By definition of $X'\ast_s X''$,  $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$ and lies in $\UU^{\mu'(i),\mu''(i)}_{0,s}$. So, by \Cref{th:OTGrW}, $l\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)} \cong \Gr^{\lambda'(i)}\times \Gr^{\lambda''(i)}$ so $(l(0),l(s))\in Z(\tau')\times Z(\tau'')$.
 \end{proof}
+Let $X(\tau')\ast_0 X(\tau'')$ be the zero fibre of $\overline{\cup_{s\in\CC-0} X'\ast_s X''}$. 
+\begin{itemize}
+    \item $X'\ast_0 X'' \cong Z'\ast_0 Z''$ 
+    \item $X'\ast_0 X''$ is a union of GOVs
+    \item hence, $Z'\ast_0 Z''$ is a union of associated MVCs
+\end{itemize}
 
-\acom{We compute zero fibres of $\ast_s$ by applying the results of \Cref{dthesis}..}
-
-\begin{question}
-%[Related question] 
-    If $\mu',\mu''$ are not dominant, the LHS is smaller so the map $?$ has no chance of being an isomorphism. In general the map $?$ has to do with producing a matrix from a linear operator. 
-    \[
-    \begin{tikzcd}
-        \overline\Gr^{\lambda',\lambda'}_{0,s}\cap S^{\mu',\mu''}_{0,s} \ar[r,equals]\ar[d] & \overline\Gr^{\lambda'} \cap S^{\mu'} \times \overline\Gr^{\lambda'} \cap S^{\mu''} \supset Z' \times Z'' \ar[d]\\
-        \overline\OO^{\lambda',\lambda''}_{0,s} \cap \UU^{\mu',\mu''}_{0,s} \ar[r,"?"] & \overline\OO^{\lambda'}\cap \TT_{\mu'}\cap \n \times \overline\OO^{\lambda''}\cap \TT_{\mu''}\cap \n
-    \end{tikzcd}    
-    \]
-\end{question}
+What is a GOV? Let $X(\tau)$ be the top-dimensional \acom{speak to this?} irreducible component of
+% from $\tau\in YT(\lambda)_\mu$ by 
+\[
+% X(\tau) = 
+% \overline{
+    \{
+        A \in  \TT_\mu\cap\n : A\big|_{\CC^{|\mu(i)|}} \in \OO^{\lambda(i)} \text{ for each } i = 1,\dots,m
+    \}\,. 
+% }    
+\]
+$\overline{X(\tau)}$ is called a \textbf{generalized orbital variety}. 
 % 
+% By \cite[?]{dthesis}.
+\begin{proposition}
+    \label{pr:govsasirrecs}
+    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{\overline{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
+\end{proposition}
+
 \begin{proposition}(\cite{baumann2019mirkovic})
     % Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
-    Let $Z',Z''$  be MV cycles of coweight $(\lambda',\mu'),(\lambda'',\mu'')$ resp.\ and assume that $\lambda',\lambda'',\mu = \mu' + \mu''$ are dominant. 
+    Let $Z',Z''$  be MV cycles of type $\lambda',\lambda''$ and weight $\mu',\mu''$ resp.\ and assume that $\lambda',\lambda'',\mu = \mu' + \mu''$ are dominant. 
     Then 
     \begin{equation}
-        \label{eq:tabmult}
-        % Z_\tau\ast Z_\sigma 
-        m_{\lambda'\lambda''} ([Z']\otimes[Z'']) 
-        = 
-        % \sum_{Z\in\cZ(\lambda)_\mu} 
-        \sum_{\tau\in S(\lambda)_\mu}
-        i\left(
-            X(\tau), X(\tau')\circ X(\tau'')
-            % \pi^{-1}(0)\cdot\overline{Z_1\times Z_2\times U}
-        \right) [Z(\tau)]\,. 
+        Z'\ast_0 Z'' = \cup Z(\tau)
+        % \label{eq:tabmult}
+        % % Z_\tau\ast Z_\sigma 
+        % m_{\lambda'\lambda''} ([Z']\otimes[Z'']) 
+        % = 
+        % % \sum_{Z\in\cZ(\lambda)_\mu} 
+        % \sum_{\tau\in S(\lambda)_\mu}
+        % i\left(
+        %     X(\tau), X(\tau')\circ X(\tau'')
+        % \right) [Z(\tau)]\,. 
     \end{equation}
-    % and the intersection multiplicities on the right are found by\dots\acom{To be completed.} 
-    
-    % In particular, the multiplicity of $Z(\tau)$
-    % in the product of the zero fiber 
-    % (divisor class) 
-    % and the 
-    % (Zariski) 
-    % closure of the family $Z_1 \times Z_2 \times U$ 
-    % is equal to the multiplicity of its generalized orbital variety $X(\tau)$ 
-    % in $ \overline{\OO}^{\lambda',\lambda''}_{0,0}\cap\UU^{\mu',\mu''}_{0,0} $. 
-    % among the set 
-    % \begin{equation}\label{eq:tabmult}
-        % \irr\lim_{s\to 0} 
-        % \overline{\OO}^{\lambda',\lambda''}_{0,0}\cap\UU^{\mu',\mu''}_{0,0} \,. 
-        % \irr \lim_{s\to 0} \overline\OO^s_{\lambda_1,\lambda_2} \cap \TT_{\mu',\mu''}^{+,s}
-    % \end{equation}
-    \acom{Some of what was written here (commented out above) was incorrect. We can reiterate for emphasis that $i(Z,Z'\circ Z'')$ is computed in terms of rank varieties.}
-
-    Since stable MV cycles can be represented by ordinary ones the multiplicities in 
-    $$
-    b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} i \left(
-        Z, Z' \circ Z''
-        % \pi^{-1}(0) \cdot \overline{Z_1 \times Z_2 \times U}
-    \right) b_Z 
-    $$
-    can also be deduced from \Cref{eq:tabmult} for appropriate choices of $\lambda',\lambda''$ and $\mu',\mu''$. These are described in \Cref{lem:mintab,prop:minwts} below.
+    with $i\left(X(\tau), X(\tau')\circ X(\tau'')\right)$ copies of $Z(\tau)$ showing up on the RHS. 
 \end{proposition}
 % 
+\acom{Closures missing. Here and elsewhere}
 
-\acom{Pierre said he hasn't thought about this since he last thought about this and remarked that KKKO would distinguish two terms, a leading and a tailing one.} 
 \begin{conjecture}
     % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu  _2$. 
     Let $\tau$ be the tableau of shape $\lambda$ and weight $\mu$ whose Lusztig datum is equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
@@ -1675,21 +1614,18 @@ Given $s\in\CC$, let
         ) = 1 \,. 
     \end{equation}
 \end{conjecture}
+\acom{Pierre said he hasn't thought about this since he last thought about this and remarked that KKKO would distinguish two terms, a leading and a tailing one.} 
 % 
+\subsection{Connection to cluster structure on $\CC[N]$}
+% 
+Goal: 
+$$
+b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} i \left(
+    Z, Z' \ast_0 Z''
+    % \pi^{-1}(0) \cdot \overline{Z_1 \times Z_2 \times U}
+\right) b_Z 
+$$
 
-\acom{How's here?}
-It may be helpful to know the map
-\[
-    \CC[N]\to \bigcup_{\lambda~\text{dominant}\atop \mu\le\lambda} YT(\lambda)_\mu 
-\]
-that we use to find our tableaux.
-    % $$
-    % \begin{tikzcd}
-    %     YT(\lambda)_\mu \ar[r] \ar[d] & \irr \overline{\OO}^\lambda\cap\TT_\mu\cap\n \ar[d] \\
-    %     GT(\lambda)_\mu \ar[r] & \irr \overline\Gr^\lambda\cap S^\mu_-
-    % \end{tikzcd}
-    % $$
-\acom{Refer to Claxton--Tingley multisegments, Hong--Lee marignally large tableaux for comparison.}
 \begin{lemma}
     \label{lem:mintab}
     Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
@@ -1726,6 +1662,7 @@ that we use to find our tableaux.
 
     \acom{To be completed. We require a notion of ``smallest'' pair of factor tableaux associated to a given tableau --- that is if we care to include our $B(\infty)\to B(\lambda)$ map. 
     As the examples show, there may be more than one way to break up a ``minimal'' tableau for $n_\bullet = n_\bullet ' + n_\bullet ''$ into two tableaux with data $n_\bullet' $ and $n_\bullet''$ resp.\ The practical notion of min is such that the generalized nonzero eigenspace has the smallest possible dimension.}
+    \acom{Reference Claxton--Tingley multisegments, Hong--Lee marignally large tableaux for comparison.}
 \end{proposition}
 
 % Let's wait for Gerhard before we discuss our computations any further
