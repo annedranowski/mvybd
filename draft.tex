@@ -1265,181 +1265,38 @@ Restricting to the zero fibre and applying $\tau_0$ we recover \cite[a main resu
     \label{cor:mvy}
     $\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu$. 
 \end{corollary}
-The irreducible components of the closure of the intersection on the lefthand side are \textbf{MV cycles of type $\lambda$ and weight $\mu$}. By BKK the set of MV cycles of all possible types and weights can be glued together to form a \textbf{perfect basis} of $\CC[N]$. 
+The irreducible components of the closure of the intersection on the righthand side are \textbf{MV cycles of type $\lambda$ and weight $\mu$}. By BKK the set of MV cycles of all possible types and weights can be glued together to form a \textbf{perfect basis} of $\CC[N]$. 
 
 \acom{We are ready for applications! One of the motivations for this paper is... Abstractly multiplication is $\ast_s$... To compute we now carry this across \Cref{th:OTGrW}.}
 
 \section{Falling Action} % Resolution
 \subsection{MV cycles}
-\begin{itemize}
-    \item $\overline{A(n_\bullet)}$
-    \item $D_\gamma$ 
-    \item MV basis?
-\end{itemize}
+\begin{definition}
+An irreducible component of $ \overline{\Gr}^\lambda \cap S^\mu $ is called an \textbf{Mirkovic-Vilonen cycle} in $ \overline{\Gr}^\lambda$ of coweight $\mu$.
+\end{definition}
+
+\jcom{We could put some stuff here about stable MV cycles and multiplication, but maybe we can have this in a later section.}
+
 % \acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
 % 
-\begin{comment}
-\begin{theorem}
-    Let $\lambda_i\ge\mu_i$ be dominant ($i=1,2$), $\mu = \mu' +\mu''$, and $\lambda =\lambda'+\lambda''$. 
-    % I have an irrational dislike of ending sentences with subscripts --- can we fix this?
-    There is an isomorphism 
-    \begin{equation}
-        \overline{\OO}_{\lambda',\lambda''}\cap\TT_{\mu',\mu''} \to \overline\Gr_\AA^{\lambda',\lambda''}\cap \cW_{\mu',\mu''}
-    \end{equation}
-    got by taking a $\mu\times\mu$ block matrix $A$ in the $s$-fibre $\overline{\OO_{\lambda',\lambda''}^s}\cap\TT_{\mu',\mu''}^s$ on the left to the representative of the $s$-fibre on the right defined by  
-    \begin{equation}
-        \begin{split}
-            g &= t^{\mu'} (t-s)^{\mu''} + a(t) \\
-            a_{ij}(t) &= - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1}
-        \end{split}
-    \end{equation}
-    where $A^k_{ji}$ is the $k$th entry from the left of the last row of the $\mu_j\times\mu_i$ block of $A$. 
-\end{theorem}
 
-Let's call this the MVyBD isomorphism.
+In \cite{mvcycle}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic-Vilonen polytopes, or equivalently Lusztig data.  For $ GL_m$, this description can be reworded in terms of Young tableaux. 
+\jcom{Maybe add something here about Lusztig data and the standard reduced word.}
 
-\begin{proof}
-    The proof is fibre by fibre, so fix $s\ne 0$. \acom{Emphasize in the intro later (because this always confuses me) that by the $s$-fibre we really mean the $(0,s)$-fibre; i.e.\ its the BD Grassmannian over the second symmetric power of $C = \AA^1$; better just replace $s$-fibre by $(0,s)$-fibre everywhere it occurs.}
-    \begin{enumerate}
-        \item The map is well defined. In particular, it defines $\CC[t]$-lattices in $\CC(t)^m$. Moreover, these lattices break down to give pairs of lattices upon inverting $t$ or $t-s$ that have the right properties. [Copy Roger's proof]
-        \item The inverse map is got by taking the matrix of multiplication by $t$.  More precisely, let $ L \in Gr^{BD} \cap \cW_\mu$.  We work with the quotient $\CC[t]^m/L$ just as in the ordinary MVy isomorphism---the only difference being $\CC\xt$ is replaced by $\CC[t]$.
-\begin{enumerate}
-    \item 
-    We claim that 
-    \begin{equation}
-        \{[e_i],[te_i],\dots,[t^{\mu_{i}-1}e_i] : 1\le i \le m\}
-    \end{equation}
-    is a $\CC$-basis of $\CC[t]^m/L$.
-    
-    To see this, we use that $ L $ 
- has a $\CC[t]$-basis of the form 
-    \begin{equation}
-        v_i = t^{\mu_i} + \sum_{j>i} p_{ij}(t) e_j 
-    \end{equation}
-    with $\deg p_{ij}(t) < \mu_i = \mu_{1,i} + \mu_{2,i}$ ($1\le i\le m$).
-    \acom{I don't know why this should be true. We might have to just define fibres of $\cW_{\mu',\mu''}$ in this way?}
-    \item $t\big|_{\CC[t]^m/L}$ will have two eigenvalues, 0 and $s$, and its generalized 0-eigenspace will have block type $\le \lambda'$ while its generalized $s$-eigenspace will have block type $\le \lambda''$. 
-    To see this, note that there is a natural isomorphism
-    $$\CC\xt^m/(L \otimes_{\CC[t]} \CC\xt) = \text{generalized $0$ eigenspace of $t$ on } \CC[t]^m/L$$
-    carrying the action of $t $ to the action of $t$.
-    
-    The left hand side is the same thing as
-    $$ \CC\xt^m / (L \otimes_{\CC[t]} \CC\xt) = (\CC[t]^m/L) \otimes_{\CC[t]} \CC\xt $$
-    
-    the defining fact that lattices satisfying Equation~\ref{eq:defGrBDlambda} equivalently satisfy 
-    \begin{equation}
-        \begin{split}
-            t\big|_{\CC\xt^m/L_1}\text{ has Jordan type} \le \lambda' \\
-            t\big|_{\CC\xt^m/L_2}\text{ has Jordan type} \le \lambda'' 
-        \end{split}
-    \end{equation}
-    where recall 
-    $L_i = L\otimes \CC\xt$ ??? 
-    % $L_i = L\otimes \CC[(t-p_i)^{-1}]$ 
-    and $p_1 = s$ while $p_2 = 0$. 
-    
-    $$\CC\xt^m/(L \otimes_{\CC[t]} \CC\xt) = \text{generalized $0$ eigenspace of $t$ on } \CC[t]^m/L$$
-    carrying the action of $t $ to the action of $t$.
-    
-    The left hand side is the same thing as
-    $$ \CC\xt^m / (L \otimes_{\CC[t]} \CC\xt) = (\CC[t]^m/L) \otimes_{\CC[t]} \CC\xt $$
-    \acom{Somehow, restricting to an eigenspace is like inverting/forgetting the action of $t$ by any other generalized eigenvalue? Basic linear algebra? Joel?}
-\end{enumerate}
-    \end{enumerate}
-\end{proof}
-
-\begin{theorem}[Theorem 1 version 2]
-    Let $\lambda_1,\lambda_2$ and $\mu$ 
-    %be dominant
-    be arbitrary, such that $\lambda = \lambda_1 + \lambda_2 \ge \mu$. Then there is an isomorphism 
-    \begin{equation}
-        \overline{\OO_{\lambda_1,\lambda_2}} \cap \TT_\mu \to \overline{\Grbd[2]^{\lambda_2,\lambda_2}}\cap\cW_\mu 
-    \end{equation}
-    defined by the same map as in Theorem 1.
-\end{theorem}
-
-\jcom{This is true as stated with the ``larger'' definition of $ \cW_\mu $.  In fact, for any $\lambda_1, \lambda_2$, it is true $ \overline{\Grbd[2]^{\lambda_2,\lambda_2}}\cap\cW_\mu $ is contained in a subset that we could call $ \cW_\mu^s$ which we could define as
-$$
-\cW_\mu^s = G_1\xt[t^{-1}]\TT_\mu \cap G[t,t^{-1}, (t-s)^{-1}] / G[t]
-$$
-where we regard $G[t,t^{-1}, (t-s)^{-1}] / G[t] \subset G\xT[t^{-1}]/G[t] $
-
-The way to think about this is as follows: inside the thick affine Grassmannian we can consider the $G$-bundles trivialized away from just 0, $s$, or equivalently those lattices which become the standard lattice after tensoring with $ \CC[[t-a]] $ for any $ a \ne 0, s$.
-}
-\begin{corollary}
-    The MVyBD isomorphism restricts to an isomorphism of subfamilies 
-    \begin{equation}
-        \overline{\OO_{\lambda_1,\lambda_2}}\cap\TT_{\mu',\mu''}^+ \to \overline{(\Grbd[2])^{\lambda_1,\lambda_2}}\cap S_{\mu_1,\mu''}\,. 
-    \end{equation}
-\end{corollary}
-
-\begin{proof}
-    Let $ A \in \overline{\OO_{\lambda_1,\lambda_2}}\cap\TT_{\mu',\mu''}^+$ and let $ g $ be the polynomial matrix formed by the Mirkovi\'c-Vybornov isomorphism.  Then the diagonal entries of $ g $ are $ t^{\mu_{1,k}} (t-s)^{\mu_{2,k}}$ and we can factor
-    $$ g = (g t^{-\mu_1}(t-s)^{-\mu_2}) t^{\mu_1}(t-s)^{\mu_2} \in N[t, t^{-1}, (t-s)^{-1}] t^{\mu_1} (t-s)^{\mu_2}$$
-    So we get containment in one direction.
-    
-    For the reverse containment, we choose $ [g] \in \overline{(\Grbd[2])^{\lambda_1,\lambda_2}}\cap S_{\mu',\mu''}$.  By the lemma below, $[g] \in \cW_\mu$ and thus it lies in the image of our map and we are done.
-\end{proof}
-
-% Define $S_{\mu',\mu''}^s = N_-\xT[t^{-1}] t^{\mu_1} (t-s)^{\mu_2}$. 
-
-\acom{is it a fibre of $S_{\mu',\mu''}$ defined above?}
-
-We could also make the following claim. 
-
-
-\begin{lemma}[KWWY14]
-    Let $\mu$ be dominant. Then 
-    \begin{equation}
-        N_{-}\xT[t^{-1}] L_\mu = N_1\xt[t^{-1}]L_\mu
-    \end{equation}
-    \acom{where I am not sure about the double brackets.}
-\end{lemma}
-
-\begin{lemma}%[Roger's lemma]
-    Let $\mu',\mu''$ be dominant and let $s\in \AA^1 - \{0\}$. Then 
-    \begin{equation}
-        S_{\mu',\mu''}^s \subset \cW_\mu 
-    \end{equation}
-    where $\mu = \mu_1 + \mu_2$.
-\end{lemma}
-
-\begin{proof}
-    % Copy Roger's proof.
-    We have
-\[
-\begin{split}
-    S_{\mu_1, \mu_2} & = N\xT[t^{-1}]t^{\mu_1}(t-s)^{\mu_2} \\
-     & \subset T_1\xt[t^{-1}] N\xT[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} \\
-     & = T_1\xt[t^{-1}] N_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} \qquad \text{\cite[Lemma 2.3]{kamnitzer2014yangians}}\\
-     & = B_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} \\
-     & = B_1\xt[t^{-1}] t^{\mu_1 + \mu_2} \\
-     & \subset G_1\xt[t^{-1}] t^{\mu_1 + \mu_2} \\
-     & = W_{\mu_1 + \mu_2}
-\end{split}
-\]
-where $B_1\xt[t^{-1}] t^{\mu_1} (t-s)^{\mu_2} = B_1\xt[t^{-1}] t^{\mu_1 + \mu_2}$ since 
-\[
-\frac{t}{t-s} = 
-1 + \frac{s}{t} + \frac{s^2}{t^2} + \cdots 
-\in B_1\xt[t^{-1}].
-\]
-\end{proof}
-\end{comment}
-% 
-\subsection{Alternate MV}
-We begin this section with some new notation. Let $YT(\lambda)_\mu$ denote the set of (possibly semistandard) Young tableaux of (arbitrary) shape $\lambda$ and (arbitrary) weight $\mu$. Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
+We begin with some new notation. Let $YT(\lambda)_\mu$ denote the set of (possibly semistandard) Young tableaux of shape $\lambda$ and weight $\mu$. 
+%Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
 % For the sake of making a definition, we momentarily put some letters of our alphabet in unexpected roles, and ask you to suspend your disbelief. Given an arbitrary tableau $t$ having weight $w$ and shape $s$, we denote by $s(i)$ (resp.\ $w(i)$) the shape (resp.\ the weight) of $t(i)$, the tableau got from $t$ by discarding all boxes of weight exceeding $i$. 
 
-Given $\tau\in YT(\lambda)_\mu$ denote by $\lambda(i)$ (resp.\ $\mu(i)$) the shape (resp.\ the weight) of $\tau(i)$, the tableau got from $\tau$ by discarding all boxes of weight exceeding $i$. 
+Given $\tau\in YT(\lambda)_\mu$ and $ i \in \{1, \dots m\} $, denote by $\lambda(i)$ (resp.\ $\mu(i)$) the shape (resp.\ the weight) of $\tau(i)$, the tableau got from $\tau$ by discarding all boxes of weight exceeding $i$. (Note that $ \mu(i)$ only depends on $ \mu$, while $ \lambda(i)$ depends on the tableau $ \tau$.)  We will regard $ \lambda(i)$ (resp. $\mu(i)$) as an effective dominant coweight (resp. effective coweight) for $GL_i$. 
 % 
 
-The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is got from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ \acom{cite BZ} by the formula 
+The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is a list of $ m(m-1)/2$ non-negative integers defined from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ \acom{cite BZ} by the formula 
 $$
 n_\bullet(\tau)_{i,j} = \lambda(i+1)_j - \lambda(i)_j
 $$
 for $(i,j) = (1,1), (2,1), \dots, (m,1), (2,2),\dots,(m,2),\dots,(m,m)$. The pattern is recorded as a lower-triangular matrix (array of shapes of subtableaux) and the datum is recorded as a sequence.
-% 
+\jcom{Something is wrong with the indexing of the Lusztig data, there should only be $ m(m-1)/2 $ entries.}
+ 
 For example, if 
 \[
     \tau = \young(1112,23) 
@@ -1455,23 +1312,55 @@ then
    n_\bullet(\tau) = (1,0,1)\,. 
 \end{gather*}
 % 
-This combinatorics is relevant because by work of the third author the MV cycles are parametrized by Lusztig data. (This holds much more generally than the present scope.)
+%This combinatorics is relevant because by work of the third author the MV cycles are parametrized by Lusztig data. (This holds much more generally than the present scope.)
 % 
 We can associate to $\tau$ an MV cycle. \acom{which is something we haven't introduced yet.} Let 
 %  
 \begin{equation*}
     Z(\tau) = 
-    % \overline{
+     \overline{
         \{
-            L\in S^\mu : L\cap\CC[t]^i\in\Gr^{\lambda(i)}\text{ for all }i 
+            L\in S^\mu : L\cap\cO^i\in\Gr^{\lambda(i)}\text{ for } i = 1, \dots m 
         \}\,. 
-    % }
+     }
 \end{equation*}
 % 
+
+The following result is closely related to Theorem 4 from \cite{dranowski2020generalized}.  It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson-Kogan \cite{andersonkogan1} (see Section 9 in \cite{mvcycle}).  We also note that a different map from Young tableaux to MV cycles was obtained by Gaussent-Littelmann-Nguyen \cite[Theorem 2]{GLN}.
 \begin{proposition}
     \label{pr:newmvdes}
-    $\overline{Z(\tau)}$ the MV cycle whose Lusztig datum is $n_\bullet(\tau)$. 
+    $Z(\tau)$ the MV cycle whose Lusztig datum with respect to $ \vi $ is $n_\bullet(\tau)$. 
 \end{proposition}
+\begin{proof}
+    The proof of this theorem follows the same strategy as in \cite{dranowski2020generalized}.
+\jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
+
+Recall that $ S^\mu = N_-(\cK) t^\mu$.  For the purposes of this proof, we also introduce the notation $S^\mu_+ := N(\cK)t^\mu$.
+
+\jcom{Actually we will need this notation later when we talk about stable MV cycles.  Maybe we should change $ S^\mu $ to $S^\mu_-$.}
+
+First, we consider
+\begin{equation*}
+Z(\tau)_1 := \{ L \in S^\mu : L \cap \cO^i \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\}  
+%Z(\tau)_2 := \{ L \in S^\mu : L \cap \cO^i \in S^{\lambda(i)} \cap \Gr^{\lambda(i)} \text{ for } i = 1, \dots m\}
+\end{equation*}
+From Corollary 9.7 of \cite{mvcycle}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))^T$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{mvcycle}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $.  We also note that $Z(\tau_1) \subset \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
+\jcom{Need to justify this last sentence.}
+
+Fix $ i \in \{1, \dots, m\}$. If $ L \in S^\mu$, then $ L \cap \cO^i \in S^{\mu(i)}$.  Thus, we get a map $$ f_i : Z(\tau)_1 \rightarrow S^{\mu(i)} \cap S_+^{\lambda(i)} $$
+From the definition of $ Z(\tau)_1 $, we see that $ f_i(Z(\tau_1) = Z(\tau(i)_1)$.  From above $ \Gr^{\lambda(i)} \cap f_i(Z(\tau(i)_1))$ is a dense constructible subset of $Z(\tau(i)_1)$.  Since $ Z(\tau)_1$ is irreducible, this implies that $ f_i^{-1}(S^{\mu(i)} \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) $ is a dense constructible subset of $ Z(\tau_1) $.  
+
+Working with all $ i $ at once, we conclude that
+$$ Z(\tau)_2 := \bigcap_{i=1}^m f_i^{-1}(S^{\mu(i)} \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) $$
+is a dense constructible subset of $ Z(\tau)_1$.  Thus $\overline{Z(\tau)_2} = \overline{Z(\tau)_1}$.
+
+On the other hand, by definition 
+$$Z(\tau)_2 \subset \{ L \in S^\mu : L \in \Gr^{\lambda(i)} \text{ for } i = 1, \dots, m\}$$
+
+\jcom{Now, we need to show density here.  But maybe that won't be possible and we will need to take the ``top''.}
+
+    %See computation 5.3.9 and Lemma 5.4.2 (ignore its proof) of \url{http://www.math.toronto.edu/adranows/athesis.pdf}. 
+\end{proof}
 % This gives us the dimension of Gr^\lambda \cap Gr_\mu \cap S^\mu.
 % Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ (resp.\ $\mu'(i),\mu''(i)$) the shape (resp.\ the weight) of $\tau'(i),\tau''(i)$ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all 
 % % but its first $i$ boxes
@@ -1676,15 +1565,19 @@ A natural question was whether the cluster monomials were elements of the dual s
 
 Another basis for $\CC[N]$ was constructed in \cite{mirkovic2007geometric} called the MV basis. This basis is indexed by the MV cycles and the product of basis elements corresponds to the fusion product of the associated MV cycles. While this basis is different from the dual semicanonical basis, as shown in \cite{baumann2019mirkovic}, they seemed to share a lot of common elements, such as various cluster variables, which led to the following conjecture.
 
-\begin{conjecture}
+\begin{conjecture}\label{conj:cluster in MV}
     The cluster monomials of $\CC[N]$ are elements of the MV basis.
 \end{conjecture}
 
-It has been shown in \cite{kato2011polytopal} that for certain initial seeds $(x_1, \dots, x_r)$, each $x_i$ is in the MV basis. Then to show every cluster variable is in the MV basis, it suffices to show that for a mutable variable $x_i$, its mutation $x_i^*$ is also in the MV basis. The exchange relation corresponding to $x_i$ and $x_i^*$ is of the form
+Conjecture \ref{conj:cluster in MV} is known for type $A_n$, $n \leq 3$, as in this case, there is a unique biperfect basis for $\CC[N]$ \cite{baumann2019mirkovic}, so the dual semicanonical basis and MV basis are the same.
+
+It has been shown in \cite{kato2011polytopal} that for initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word in the Weyl group for $G$, each $x_i$ is in the MV basis as these correspond to generalized minors \cite{berenstein2005cluster3}\cite{geiss2007initial}. If the reduced expression satisfies a special condition, then the cluster monomials in the initial seed are also in the MV basis \cite{baumann2020bases}.
+
+Suppose we have a seed $(x_1, \dots, x_r)$ where each $x_i$ is already in the MV basis. To show all the other cluster variables are in the MV basis, it suffices to show that for a mutable variable $x_i$, its mutation $x_i^*$ is also in the MV basis. The exchange relation corresponding to $x_i$ and $x_i^*$ is of the form
 $$x_ix_i^* = x_+ + x_-$$
-where $x_+$ and $x_-$ are monomials in the $x_j,j\neq i$. Let $Z_i$, $Z_+$, and $Z_-$ be the corresponding MV cycles for $x_i$, $x_+$, and $x_-$, respectively. If we are able to find an MV cycle $Z_i^*$ such that
-$$Z_i \circ Z_i^* = Z_+ \cup Z_-,$$
-then this means $x_i^*$ is in the MV basis with associated MV cycle $Z_i^*$. In Section \ref{s:denouement}, we present examples showcasing this is indeed true for type $A_3$. 
+where $x_+$ and $x_-$ are monomials in the $x_j,j\neq i$. Let $Z_i$ be the MV cycle corresponding to $x_i$, so $x_i = b_{Z_i}$. If we are able to find an MV cycle $Z_i^*$ such that
+$$b_{Z_i} b_{Z_i^*} = x_+ + x_-,$$
+then this means $x_i^* = b_{Z_i^*}$ so it is in the MV basis with associated MV cycle $Z_i^*$. In Section \ref{s:denouement}, we present examples showcasing this is indeed true for type $A_3$. 
 \section{Denouement}
 \label{s:denouement}
 \subsection{Examples}
