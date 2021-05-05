@@ -428,13 +428,13 @@ Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $ \tau
 % \acom{We say ``we define the subscheme..'' but what is there to define? Should it say ``we consider'' maybe?}
 % Via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
 % 
-We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ inside of $ \Grbd $.  By construction, this is a flat family over $ \AA$.  We write $X_1 \ast_s X_2 $ for the scheme-theoretic fibre over a point $ s \in \AA$.  
+% We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ inside of $ \Grbd $.  By construction, this is a flat family over $ \AA$.  We write $X_1 \ast_s X_2 $ for the scheme-theoretic fibre over a point $ s \in \AA$.  
 
-If $ s \ne 0$, then the map $ \tau_s$ identifies $ X_1 \ast_s X_2 \subset \Gr_{0,s}$ with $ X_1 \times X_2 \subset \Gr \times \Gr$.
+% If $ s \ne 0$, then the map $ \tau_s$ identifies $ X_1 \ast_s X_2 \subset \Gr_{0,s}$ with $ X_1 \times X_2 \subset \Gr \times \Gr$.
 
-On the other hand, the fibre $ X_1 \ast_0 X_2$ is a subscheme of $ \Gr_{0,0} $, but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  We call this subscheme the \textbf{fusion} of $ X_1 $ and $ X_2$.
+% On the other hand, the fibre $ X_1 \ast_0 X_2$ is a subscheme of $ \Gr_{0,0} $, but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  We call this subscheme the \textbf{fusion} of $ X_1 $ and $ X_2$.
 
-\jcom{I rewrote this to introduce the $ X_1 \ast_s X_2 $ notation that we need for later.  In doing so, $ X_1 \circ X_2 $ became obsolete, since we now have $ X_1 \ast_0 X_2$, but if you like we could just define $X_1 \circ X_2 = X_1 \ast_0 X_2 $.}
+% \jcom{I rewrote this to introduce the $ X_1 \ast_s X_2 $ notation that we need for later.  In doing so, $ X_1 \circ X_2 $ became obsolete, since we now have $ X_1 \ast_0 X_2$, but if you like we could just define $X_1 \circ X_2 = X_1 \ast_0 X_2 $.}
 
 %Next, we consider the projection $ \pi: \Grbd \rightarrow \AA $, and define 
 % $ X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) \subset \Gr_{0,0} $, 
@@ -448,11 +448,11 @@ On the other hand, the fibre $ X_1 \ast_0 X_2$ is a subscheme of $ \Gr_{0,0} $, 
 % \acom{technically, there were two given above, so *these* constructions?} 
 %$X_1 \ast_{\AA} X_2 $ is a flat family over $\AA$ whose fibre away from $0$ is $X_1 \times X_2$ and whose fibre over $ 0$ is $ X_1 \circ X_2$. 
 
-\acom{Ah, sorry --- so do we introduce a even more general notion of $\ast_\AA$ for arbitrary flat families? Looking at Eisenbud's geoemtry of schemes (where flat iff tor-free actually shows up as Exercise II-33!) there does not seem to be anything quite like $\ast_\AA$ or $\circ$ defined.}
+% \acom{Ah, sorry --- so do we introduce a even more general notion of $\ast_\AA$ for arbitrary flat families? Looking at Eisenbud's geoemtry of schemes (where flat iff tor-free actually shows up as Exercise II-33!) there does not seem to be anything quite like $\ast_\AA$ or $\circ$ defined.}
 
-\jcom{I'm not sure how a general notion would be defined.  In our case, we are using the special fact that the general fibre is a product.}
+% \jcom{I'm not sure how a general notion would be defined.  In our case, we are using the special fact that the general fibre is a product.}
 
-\acom{I mean exactly in the case of this special fact, which is not special to the BD Gr.}
+% \acom{I mean exactly in the case of this special fact, which is not special to the BD Gr.}
 
 % Cf. https://math.stackexchange.com/questions/1681680/flat-family-limit-of-intersection-vs-intersection-of-limits
 % 
@@ -1264,9 +1264,9 @@ Restricting to the zero fibre and applying $\tau_0$ we recover \cite[a main resu
 % 
 \begin{corollary}
     \label{cor:mvy}
-    $\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu$. 
+    $\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu$ where $\n\subset M_N(\CC)$ is the subalgebra of upper-triangular matrices. 
 \end{corollary}
-The irreducible components of the closure of the intersection on the righthand side are \textbf{MV cycles of type $\lambda$ and weight $\mu$}. By BKK the set of MV cycles of all possible types and weights can be glued together to form a \textbf{perfect basis} of $\CC[N]$. 
+The closures of the irreducible components of the righthand side are \textbf{MV cycles of type $\lambda$ and weight $\mu$}. By \cite{baumann2019mirkovic} the set of MV cycles of all possible types and weights can be stitched together to form a \textbf{perfect basis} of $\CC[N]$. 
 
 \acom{We are ready for applications! One of the motivations for this paper is... Abstractly multiplication is $\ast_s$... To compute we now carry this across \Cref{th:OTGrW}.}
 
@@ -1278,26 +1278,32 @@ An irreducible component of $ \overline{\Gr}^\lambda \cap S^\mu $ is called an \
 
 \jcom{We could put some stuff here about stable MV cycles and multiplication, but maybe we can have this in a later section.}
 
+\acom{With this definition here what do we do about the sentence after \Cref{cor:mvy} above?}
+
 % \acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
 % 
 
-In \cite{mvcycle}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic-Vilonen polytopes, or equivalently Lusztig data.  For $ GL_m$, this description can be reworded in terms of Young tableaux. 
-\jcom{Maybe add something here about Lusztig data and the standard reduced word.}
+In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic-Vilonen polytopes, or equivalently Lusztig data.  For $\GL_m$, this description can be reworded in terms of Young tableaux. 
+\jcom{Maybe add something here about Lusztig data and the standard reduced word, $\vi = (1,2,\dots,m-1,\dots,1,2,1)$.}
 
 We begin with some new notation. Let $YT(\lambda)_\mu$ denote the set of (possibly semistandard) Young tableaux of shape $\lambda$ and weight $\mu$. 
 %Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
 % For the sake of making a definition, we momentarily put some letters of our alphabet in unexpected roles, and ask you to suspend your disbelief. Given an arbitrary tableau $t$ having weight $w$ and shape $s$, we denote by $s(i)$ (resp.\ $w(i)$) the shape (resp.\ the weight) of $t(i)$, the tableau got from $t$ by discarding all boxes of weight exceeding $i$. 
 
-Given $\tau\in YT(\lambda)_\mu$ and $ i \in \{1, \dots m\} $, denote by $\lambda(i)$ (resp.\ $\mu(i)$) the shape (resp.\ the weight) of $\tau(i)$, the tableau got from $\tau$ by discarding all boxes of weight exceeding $i$. (Note that $ \mu(i)$ only depends on $ \mu$, while $ \lambda(i)$ depends on the tableau $ \tau$.)  We will regard $ \lambda(i)$ (resp. $\mu(i)$) as an effective dominant coweight (resp. effective coweight) for $GL_i$. 
+Given $\tau\in YT(\lambda)_\mu$ and $ i \in \{1, \dots m\} $, denote by $\lambda(i)$ (resp.\ $\mu(i)$) the shape (resp.\ the weight) of $\tau(i)$, the tableau got from $\tau$ by discarding all boxes of weight exceeding $i$. (Note that $ \mu(i)$ only depends on $ \mu$, while $ \lambda(i)$ depends on the tableau $ \tau$.)  We will regard $ \lambda(i)$ (resp. $\mu(i)$) as an effective dominant coweight (resp. effective coweight) for $\GL_i$. 
 % 
 
-The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is a list of $ m(m-1)/2$ non-negative integers defined from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ \acom{cite BZ} by the formula 
+The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is a list of $ m(m-1)/2$ non-negative integers defined from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ by the formula 
 $$
 n_\bullet(\tau)_{i,j} = \lambda(i+1)_j - \lambda(i)_j
 $$
-for $(i,j) = (1,1), (2,1), \dots, (m,1), (2,2),\dots,(m,2),\dots,(m,m)$. The pattern is recorded as a lower-triangular matrix (array of shapes of subtableaux) and the datum is recorded as a sequence.
+for $(i,j) = (1,1), (2,1), \dots, (m-1,1), (2,2),\dots,(m-1,2),\dots,(m-1,m-1)$. 
+The pattern is recorded as a lower-triangular matrix (array of shapes of subtableaux) and the datum is recorded as a sequence. See \cite[\S 4]{berenstein1988tensor}.
+
 \jcom{Something is wrong with the indexing of the Lusztig data, there should only be $ m(m-1)/2 $ entries.}
- 
+
+\acom{Yes $i = m$ doesn't make sense. Should be $i = 1,\dots,m-1$ and $j = 1\dots i$ or $(1,1),(2,1),..,(m-1,1),(2,2),..,(m-1,2),..,(m-1,m-1)$ which is $(m-1) + (m-1-1) + \cdots + 1$ things. Right?}
+
 For example, if 
 \[
     \tau = \young(1112,23) 
@@ -1327,26 +1333,28 @@ We can associate to $\tau$ an MV cycle. \acom{which is something we haven't intr
 \end{equation*}
 % 
 
-The following result is closely related to Theorem 4 from \cite{dranowski2020generalized}.  It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson-Kogan \cite{andersonkogan1} (see Section 9 in \cite{mvcycle}).  We also note that a different map from Young tableaux to MV cycles was obtained by Gaussent-Littelmann-Nguyen \cite[Theorem 2]{GLN}.
+The following result is closely related to Theorem 4 from \cite{dranowski2020generalized}.  It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson--Kogan \cite{anderson2006algebra} \acom{is this the right AK?} (see Section 9 in \cite{kamnitzer2010mirkovic}).  We also note that a different map from Young tableaux to MV cycles was obtained by Gaussent--Littelmann--Nguyen \cite[Theorem 2]{gaussent2013knuth}.
 \begin{proposition}
     \label{pr:newmvdes}
-    $Z(\tau)$ the MV cycle whose Lusztig datum with respect to $ \vi $ is $n_\bullet(\tau)$. 
+    $Z(\tau)$ is the MV cycle whose Lusztig datum with respect to $ \vi $ is $n_\bullet(\tau)$. 
 \end{proposition}
 \begin{proof}
     The proof of this theorem follows the same strategy as in \cite{dranowski2020generalized}.
 \jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
+\acom{I've been meaning to update the paper. It's peppered with ``typos''.}
 
 Recall that $ S^\mu = N_-(\cK) t^\mu$.  For the purposes of this proof, we also introduce the notation $S^\mu_+ := N(\cK)t^\mu$.
 
 \jcom{Actually we will need this notation later when we talk about stable MV cycles.  Maybe we should change $ S^\mu $ to $S^\mu_-$.}
+\acom{For it.}
 
 First, we consider
 \begin{equation*}
 Z(\tau)_1 := \{ L \in S^\mu : L \cap \cO^i \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\}  
 %Z(\tau)_2 := \{ L \in S^\mu : L \cap \cO^i \in S^{\lambda(i)} \cap \Gr^{\lambda(i)} \text{ for } i = 1, \dots m\}
 \end{equation*}
-From Corollary 9.7 of \cite{mvcycle}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))^T$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{mvcycle}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $.  We also note that $Z(\tau_1) \subset \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
-\jcom{Need to justify this last sentence.}
+From \cite[Corollary 9.7]{kamnitzer2010mirkovic}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))^T$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $.  We also note that $Z(\tau_1) \subset \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
+\jcom{Need to justify this last sentence.} \acom{We mean $Z(\tau_1)\cap \Gr^\lambda$ is dense in $Z(\tau_1)$?}
 
 Fix $ i \in \{1, \dots, m\}$. If $ L \in S^\mu$, then $ L \cap \cO^i \in S^{\mu(i)}$.  Thus, we get a map $$ f_i : Z(\tau)_1 \rightarrow S^{\mu(i)} \cap S_+^{\lambda(i)} $$
 From the definition of $ Z(\tau)_1 $, we see that $ f_i(Z(\tau_1) = Z(\tau(i)_1)$.  From above $ \Gr^{\lambda(i)} \cap f_i(Z(\tau(i)_1))$ is a dense constructible subset of $Z(\tau(i)_1)$.  Since $ Z(\tau)_1$ is irreducible, this implies that $ f_i^{-1}(S^{\mu(i)} \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) $ is a dense constructible subset of $ Z(\tau_1) $.  
@@ -1388,15 +1396,15 @@ $$Z(\tau)_2 \subset \{ L \in S^\mu : L \in \Gr^{\lambda(i)} \text{ for } i = 1, 
 % 
 % 
 \subsection{Fusion of MVCs}
-Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before, and take $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$. 
+Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
 % 
-
 Given $A \in M_N(\CC)$ we denote by 
 % $A\big|_{\CC^i}$ 
 $A\big|_{\CC^p}$ 
-the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors. If $A\big|_{\CC^p}$ preserves $\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
+the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors. If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
 % \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
-Given $s\in\CC$, let 
+
+Given $s\in\CC\setminus \{0\}$, and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
 \begin{equation*}
     X(\tau')\ast_s X(\tau'') = \left\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\right\}\,.
 \end{equation*}
@@ -1436,23 +1444,29 @@ Given $s\in\CC$, let
     % \acom{Not sure what's a good notation for the vertical arrows. Don't want to introduce $\phi$. $\bar g(A) = g(A)\CC[t]^m$ temporarily.}
     % We show that the image of $\tau_s\circ \bar g$ coincides with the image of $\phi\times\phi$ which is dense in $Z'\times Z''$ by \Cref{prop:dth}.
     % % 
-    Let $A\in X(\tau')\ast_s X(\tau'')$, let $i = 1,\dots, m$.  
+    Let $A\in X(\tau')\ast_s X(\tau'')$ and $i = 1,\dots, m$.  
     % Denote by 
     % $E_a$ the generalized $a$-eigenspace of $A$, and by 
-    Clearly, the lattices $L=g(A)\CC[t]^m$ and $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ are related by
+    The lattices $L=g(A)\CC[t]^m$ and $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ are related by
     $$
-    L\cap \CC[t]^i = l. 
+    L\cap \CC[t]^i = l
     $$
-    By definition of $X'\ast_s X''$,  $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$ and lies in $\UU^{\mu'(i),\mu''(i)}_{0,s}$. So, by \Cref{th:OTGrW}, $l\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)} \cong \Gr^{\lambda'(i)}\times \Gr^{\lambda''(i)}$ so $(l(0),l(s))\in Z(\tau')\times Z(\tau'')$.
+    where $\CC[t]^i\subset\CC[t]^m = \CC^m\otimes_\CC\CC[t]$ denotes the $\CC[t]$-submodule generated by the first $i$ standard basis vectors.
+    %  
+    
+By definition of $\UU^{\mu',\mu''}$ we have $A\big|_{\CC^{|\mu(i)|}}\in\UU^{\mu'(i),\mu''(i)}_{0,s}$ and by definition of $X(\tau')\ast_s X(\tau'')$, $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$. So, by \Cref{th:OTGrW}, $l\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}$ and
+% \Gr^{\lambda'(i)}\times \Gr^{\lambda''(i)}$ so 
+$(l(0),l(s))\in Z(\tau')\times Z(\tau'')$.
 \end{proof}
-Let $X(\tau')\ast_0 X(\tau'')$ be the zero fibre of $\overline{\cup_{s\in\CC-0} X'\ast_s X''}$. 
-\begin{itemize}
-    \item $X'\ast_0 X'' \cong Z'\ast_0 Z''$ 
-    \item $X'\ast_0 X''$ is a union of GOVs
-    \item hence, $Z'\ast_0 Z''$ is a union of associated MVCs
-\end{itemize}
-
-What is a GOV? Let $X(\tau)$ be the top-dimensional \acom{speak to this?} irreducible component of
+% 
+% 
+In analogy with the BD construction \acom{add loc cit} we define $X(\tau')\ast_0 X(\tau'')$ to be the zero fibre of the family $\overline{\bigcup_{s\in\CC\setminus\{0\}} X(\tau')\ast_s X(\tau'')}$ in $M_N(\CC)$. 
+% 
+\begin{corollary}
+    $X'\ast_0 X'' \cong Z'\ast_0 Z''$ 
+\end{corollary}
+% 
+Let $X(\tau)$ be the top-dimensional \acom{speak to this?} irreducible component of
 % from $\tau\in YT(\lambda)_\mu$ by 
 \[
 % X(\tau) = 
@@ -1462,20 +1476,27 @@ What is a GOV? Let $X(\tau)$ be the top-dimensional \acom{speak to this?} irredu
     \}\,. 
 % }    
 \]
-$\overline{X(\tau)}$ is called a \textbf{generalized orbital variety}. 
+Then $\overline{X(\tau)}$ is called a \textbf{generalized orbital variety}. 
 % 
-% By \cite[?]{dthesis}.
-\begin{proposition}
+
+\begin{theorem}
     \label{pr:govsasirrecs}
     The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{\overline{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
-\end{proposition}
+\end{theorem}
+\acom{$\overline{X(\tau)}$ vs $Z(\tau) = \overline{al;sdj}$}
+\begin{corollary}
+    $X'\ast_0 X''$ is a union of GOVs.
+\end{corollary}
+\begin{proof}
+    Since $X'\ast_0 X''\subset \overline{\OO}^\lambda\cap\TT_\mu\cap\n$\dots 
+\end{proof}
 
 \begin{proposition}(\cite{baumann2019mirkovic})
     % Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
     Let $Z',Z''$  be MV cycles of type $\lambda',\lambda''$ and weight $\mu',\mu''$ resp.\ and assume that $\lambda',\lambda'',\mu = \mu' + \mu''$ are dominant. 
-    Then 
-    \begin{equation}
-        Z'\ast_0 Z'' = \cup Z(\tau)
+    Then $Z'\ast_0 Z''$ is a union of MVCs
+    % \begin{equation}
+        % Z'\ast_0 Z'' = \bigcup Z(\tau)
         % \label{eq:tabmult}
         % % Z_\tau\ast Z_\sigma 
         % m_{\lambda'\lambda''} ([Z']\otimes[Z'']) 
@@ -1485,11 +1506,15 @@ $\overline{X(\tau)}$ is called a \textbf{generalized orbital variety}.
         % i\left(
         %     X(\tau), X(\tau')\circ X(\tau'')
         % \right) [Z(\tau)]\,. 
-    \end{equation}
-    with $i\left(X(\tau), X(\tau')\circ X(\tau'')\right)$ copies of $Z(\tau)$ showing up on the RHS. 
+    % \end{equation}
+    with $i\left(X(\tau), X(\tau')\circ X(\tau'')\right)$ copies of $Z(\tau)$ showing up. 
 \end{proposition}
 % 
-\acom{Closures missing. Here and elsewhere}
+\acom{Closures missing? Here and elsewhere?}
+% 
+\begin{proof}
+    Since $X'\ast_0 X'' \cong Z'\ast_0 Z''$ and GOVs go to MVCs 
+\end{proof}
 
 \begin{conjecture}
     % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu  _2$. 
