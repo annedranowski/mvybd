@@ -1,5 +1,10 @@
 # todo
 
+## 2021-05-07
+- section 2.5 to propositions?
+- S^\mu',\mu'': can't we just define it? 
+- G_1: we haven't defined it 
+
 ## 2021-04-09 18:06:30
 - How to interpret $t-\infty = t^{-1}$? As $t^{-1}:=t-\infty$ or $[a:b] - [0:1] = [b:a]$
 -
@@ -15,6 +20,10 @@ Today's meeting minutes.
 - re-add definition of map to Lemma 1 
 - $\lambda^{(i)}_2$ describes $t-s$ eigenspaces!
 - add overline to LHS of proposition 3 
+- lambda = lambda' + lambda'' 
+
+- connections to GLN 
+- proof of prop 2 
 
 ## 2021-03-22 22:16:20
 
