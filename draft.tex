@@ -140,7 +140,7 @@ $G(R)$ consists of those matrices $ g \in M_m(R) $ whose determinant is invertib
 $(t-s)^\mu\in G(\CC[t])$ if and only if $ \mu = 0 $.
 % 
 
-\acom{Maybe add that it's the same for $G(\cO)$. Also, we are using the notation $G(R)$ in one paragraph and defining it in the next. Maybe introduced $M_m$ first? }
+\acom{Maybe add that it's the same for $G(\cO)$. Also, we are using the notation $G(R)$ in one paragraph and defining it in the next. Maybe introduced $M_m$ first?}
 
 \subsection{Lattices}
 \label{ss:lat}
@@ -179,16 +179,8 @@ this set and $\GL_m(K)/\GL_m(R)$, since $ \GL_m(R) $ is the stabilizer of the st
 We will be particularly interested in $\CC[t]$-lattices in $ \CC(t)^m$. 
 % TODO: 
 % \acom{Wait, I thought $\CC(t)$ is used in the Ran space version of the BD Gr.}
-Given such a lattice $ L $ and a point $ a \in \CC$, the \textbf{specialization} of $ L $ at $ a $ is defined as
-$$
-% L(a) := L \otimes_{\CC[t]} \CC\xt[t-a] \subset \CC\xT[t-a]^m\,.
-L(a) := L \otimes_{\CC[t]} \cO_a, 
-% \text{ a lattice in } \cK_a^m.  
-$$
-a lattice in $\cK_a^m$. 
-If 
-% $ L(a) = L_0(\cO_a)$ 
-$L(a) = \cO_a^m$ then $L$ is said to be \textbf{trivial at $a$}. 
+Given such a lattice $ L $ and a point $ a \in \CC$, the \textbf{specialization} of $ L $ at $ a $ is a lattice in $\cK_a^m$ defined as $ L(a) := L \otimes_{\CC[t]} \cO_a $. 
+If $L(a) = \cO_a^m$ then $L$ is said to be \textbf{trivial at $a$}. 
 % We say that $ L $ is trivial at $ a $ if $ L(a) = \cO_a^m$. 
 % \acom{Do we want to employ the notation $\cO_a$ and $\cK_a$ here?}
 For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$, since $ t-s $ is invertible in $ \cO_a$. 
@@ -197,12 +189,11 @@ For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\
 % \acom{Should we also mention our interest in $\cO$-lattices in $\cK^m$?}
 % \jcom{I don't think that it is necessary.  I just put the part about $ \CC(t)$ to set up the notation for this specialization.}
 
-
 % \jcom{I wasn't sure of the notation to use here, but I wanted something which didn't conflict with $ L_0$.}
 
 % \acom{I think that MVy use this notation also: }
 
-%\includegraphics[width=\textwidth]{img/Capture d’écran, le 2021-02-17 à 13.03.10.png}}
+\acom{We are using fixed $m$ in the definitions here.}
 
 \subsection{Affine Grassmannians} 
 \label{ss:affgrs}
@@ -210,21 +201,28 @@ For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\
 % G(C(t))/G(C[t]) for example lives over the Ran space, finitely many eigenvalues; positive part of thick contains this guy as image 
 Set $\AA = \AA^1$ viewed as the subset $\PP\setminus \{\infty\}$ of $\PP$. Let $\Vtriv$ denote the trivial rank $ m $ vector bundle. 
 % 
-We now define various versions of ``the'' affine Grassmannian which will play an important r\^ole in this paper.
+We now define various versions of ``the'' affine Grassmannian which will play an important role in this paper. 
+% 
+Each definition is made group-theoretically and then restated in ``lattice terms'' and in ``modular terms''. 
+% 
+We also sketch how to pass between descriptions.  
+
+\acom{Can we review what exactly is meant by ``terms''? I think that we have (1) a coset space, (2) a moduli space, and (3) a torsor? ``Geometrically'', they are all the same?}
 
 \begin{definition}
 \label{def:gr}
      The \textbf{ordinary affine Grassmannian} $\Gr = G(\cK)/G(\cO)$.
 \end{definition}    
 It is described in modular terms by 
+\acom{Can we introduce the first of these restatements as ``As a moduli space it is the set of..''}
 $$
 \Gr = 
     \left\{ 
         (V, \varphi) : \text{$V$ is a rank $m$ vector bundle on $ D_0 $, $\varphi : V \xrightarrow{\sim} \Vtriv $ on $ D_0^\times $} 
     \right\} \,. 
 $$
-
 We also have a lattice description 
+\acom{And this one as ``As a $G$-space..''}
 $$ 
 \Gr = 
     \left\{ L \subset \cK^m : \text{ $L$ is a $\cO$-lattice} \right\}\,.
@@ -316,17 +314,19 @@ We also have the lattice descriptions:
 % 
 \begin{definition} 
 \label{def:grplus}
-The \textbf{positive parts} of $\Gr $ and $\Grth$,  are defined by 
+The \textbf{positive part} of $\Gr $, resp.\ $\Grth$, is defined by 
 \begin{gather*}
-    \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO) \\
+    \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO)\,,\,\, % \\
     % \text{ and }      
-    {\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t])\,. 
+    \text{resp.\ } {\Grth}^+ = \left(M_m(\CC[t]) \cap G(\Kinf)\right) / G(\CC[t])\,. 
 \end{gather*}
 \end{definition}
 % 
 In modular terms, $\Gr^+$ (resp.\ ${\Grth}^+$) is the set of those $ (V, \varphi)$ where $ \varphi : V \rightarrow \Vtriv $ extends to an inclusion of coherent sheaves over $ D_0 $ (resp.\ over $ \PP$).
 
 In lattice terms, $ \Gr^+$ (resp.\ ${\Grth}^+$) contains those lattices $L$ which are contained in $\cO^m$ (resp.\ $\CC[t]^m$).
+
+\acom{Maybe we can do without parentheses here.}
 % \acom{previously called ``trivial''} \jcom{I changed it so that $ R^m $ is called the standard lattice.  But I would like to leave the terminology ``trivial at $ a$'' is that ok, or should we write ``standard at $a$''.} 
 % \acom{Oh, I don't know.. is trivialized at $a$? is standardized at $a$? Maybe standard at $a$ is better.. Man I never thought about this interchangeable lingo.} 
 % lattice $ L_0(\cO)$ (resp. $L_0(\CC[t])$). % , i.e. $ L \subseteq L_0$.
@@ -336,9 +336,50 @@ In lattice terms, $ \Gr^+$ (resp.\ ${\Grth}^+$) contains those lattices $L$ whic
 % 
 These different versions of the affine Grassmannian are related as follows.  
 % 
-\begin{enumerate}
+\begin{proposition}
+    \label{pr:bd-th}
+    The map $\Grbd \rightarrow \Grth $ defined by $(V,\varphi,s)\mapsto (V, \varphi \big|_{D_\infty})$ is the inclusion $ G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\Kinf)/G(\CC[t])$ on fibres. In terms of lattices, it is given by $(L,s)\mapsto L$ and using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^m \rightarrow \Kinf^m$ on ambient spaces. 
+\end{proposition}
+% 
+\begin{proposition}
+    \label{pr:polyno-taylor}
+    The fibres $ \Gr_{0,s}$ of $ \Grbd \rightarrow \AA$ can be described as % are given as follows
+    \begin{equation*}
+    % \label{eq:grbdgrs}
+    \Gr_{0,s} \cong 
+        \begin{cases} 
+            \Gr \times \Gr_s & s \ne 0 \\
+            \Gr              & s = 0\,.
+        \end{cases}
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    This isomorphism is given in the modular realization by restricting the vector bundle and trivialization.    
+    
+    Suppose that $ s \ne 0 $. In the lattice realization, this is given by forming the specializations 
+    $$
+        L \mapsto (L(0), L(s))\,.
+    $$
+    Note that if $ L = g \CC[t]^m$ for $ g \in G([t,t^{-1}, (t-s)^{-1}])$, then 
+    $$
+        (L(0), L(s)) = (g \cO^m, g\cO^m_s)\,. 
+    $$
+    In the $ s = 0 $ case, the isomorphism is described in the same way, except that we just need to form $ L(0)$.
+\end{proof}
+
+\begin{proposition}
+    \label{pr:grs-gr} There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$. 
+    
+    Combining with the above point, we obtain an isomorphism
+    $$
+    \tau_s : \Gr_{0,s} \rightarrow \Gr \times \Gr 
+    $$
+\end{proposition}
+
+% \begin{enumerate}
     % TODO: I think it makes more sense to put the first point at the end; it just relates (fibres of) the BD Gr to the ordinary Gr
     % \item There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$.
+\begin{comment}
     \item \label{it:bd-th}
     %We have a map from the two point Beilinson--Drinfeld affine Grassmannian to the thick affine Grassmannian $ \Grbd \rightarrow \Grth $.
     % $$ \Grbd \rightarrow \Grth $$ 
@@ -359,6 +400,8 @@ These different versions of the affine Grassmannian are related as follows.
     % \acom{replaced}
     % 
     Finally, it is given in lattice terms on the fibre over $s$ as the identity on the lattice $(L,s)\mapsto L$ and using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^m \rightarrow \Kinf^m$ on the ambient spaces.
+\end{comment}
+\begin{comment}
     \item \label{it:polyno-taylor}
     The fibres $ \Gr_{0,s}$ of $ \Grbd \rightarrow \AA$ can be described as % are given as follows
     \begin{equation*}
@@ -395,7 +438,8 @@ These different versions of the affine Grassmannian are related as follows.
     %    and similarly for $ L(s)$.
     % 
     In the $ s = 0 $ case, the isomorphism is described in the same way, except that we just need to form $ L(0)$.
-    
+\end{comment}
+\begin{comment}
     \item \label{it:grs-gr} There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$. 
     
     Combining with the above point, we obtain an isomorphism
@@ -404,9 +448,12 @@ These different versions of the affine Grassmannian are related as follows.
     $$
     % 
     %    \jcom{I tried to answer your question, but didn't explain it well.  When $ s = 0$, the map is the same except that $ L(0) = L(s) $ , so we only need $L(0)$.}
-\end{enumerate}
+\end{comment}
+% \end{enumerate}
 
 \jcom{I moved the ``composition'' of 2 and 3 into 3 and named it $ \tau_s$, since we will use it later quite a bit.  I'm not that happy with the layout of this section, so feel free to reorganize it (maybe into Propositions?)}
+
+\acom{Begun. Not sure if it is what you had in mind.}
 
 \subsection{The fusion construction}
 The following construction will be very important in this paper.  
