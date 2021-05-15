@@ -1377,17 +1377,57 @@ The pattern $\gt(\tau)$ is recorded as a lower-triangular matrix (the array of s
 % 
 %This combinatorics is relevant because by work of the third author the MV cycles are parametrized by Lusztig data. (This holds much more generally than the present scope.)
 % 
-We can associate to $\tau$ the MV cycle $Z(\tau)=\overline{\mathring Z(\tau)}$ where
+
+We will need the following definitions.
+\begin{definition}
+Let $ L \subset \OO^m$ be a point in $ \Grth$.  We define the relative dimension of $L $ by
+$$
+\rdim(L) := \dim_\CC \OO^m/L
+$$
+
+If $ \gamma \subset \{1, \dots, m\}$, then we define
+\begin{gather*}
+    \OO^\gamma := \Sp_{\OO}(e_i : i \in \gamma) \\
+L^\gamma:= L \cap \OO^\gamma \subset \OO^\gamma \quad L_\gamma := L / L^{\gamma^c} \subset \OO^\gamma
+\end{gather*}
+where $ \gamma^c := \{1, \dots, m \} \setminus \gamma$.
+\end{definition}
+
+\begin{lemma}
+    For any $ L \in \Grth$ and any $ 
+    \gamma \subset \{1, \dots, m\} $, we have $ \rdim L_\gamma + \rdim L^{\gamma^c} = \rdim L$.
+\end{lemma}
+We let $ D_\gamma(L) := \rdim L_\gamma$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper.
+
+\jcom{There is a discrepancy regarding $ \gamma$ and $ \gamma^c$.}
+
+Recall that $ S^\mu = N_-(\cK) t^\mu$. We also introduce the notation $S^\mu_+ := N(\cK)t^\mu$.
+
+\jcom{Actually we will need this notation later when we talk about stable MV cycles.  Maybe we should change $ S^\mu $ to $S^\mu_-$.}
+\acom{For it.}
+
+\begin{lemma} \label{le:Srdim}
+    Let $ L \in \Grth$.  The following are equivalent:
+    \begin{enumerate}
+        \item $ L \in S_+^\mu$
+        \item $ \rdim L^{\{1, \dots, i\}} = \mu_1 + \dots + \mu_i$ for all $ i = 1, \dots, m $.
+        \item $ \rdim L_{\{i+1, \dots, m\}} = \mu_{i+1} + \dots + \mu_m$ for $ i  = 1, \dots, m$.
+    \end{enumerate}
+    The same statement hold for $ S_-^\mu$ with the $ L^\gamma$ changed to $ L_\gamma$ above.
+\end{lemma}
+
+We can associate to $\tau$ an MV cycle.   
 %  
 \begin{equation*}
     \mathring Z(\tau) = 
     %  \overline{
         \{
-            L\in S^\mu : L\cap\cO^i\in\Gr^{\lambda(i)}\text{ for } i = 1, \dots m 
-        \} \,. 
-    %  }
+            L\in S^\mu : L_{\{1, \dots, i\}} \in\Gr^{\lambda(i)}\text{ for } i = 1, \dots m 
+        \}\,. 
+     }
 \end{equation*}
 % 
+\jcom{Maybe use $ [m] $ for $\{1, \dots, m\}$ ?}
 
 The following result is closely related to Theorem 4 from \cite{dranowski2020generalized}.  It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson--Kogan \cite{anderson2004mirkovic} (see Section 9 in \cite{kamnitzer2010mirkovic}).  We also note that a different map from Young tableaux to MV cycles was obtained by Gaussent--Littelmann--Nguyen \cite[Theorem 2]{gaussent2013knuth}.
 \begin{proposition}
@@ -1399,20 +1439,21 @@ The following result is closely related to Theorem 4 from \cite{dranowski2020gen
 \jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
 \acom{I've been meaning to update the paper. It's peppered with ``typos''.}
 
-Recall that $ S^\mu = N_-(\cK) t^\mu$.  For the purposes of this proof, we also introduce the notation $S^\mu_+ := N(\cK)t^\mu$. \acom{Sort out notation, do we no longer need $S_-, N_-$?}
-
-\jcom{Actually we will need this notation later when we talk about stable MV cycles.  Maybe we should change $ S^\mu $ to $S^\mu_-$.}
-\acom{For it.}
-
 First, we consider
 \begin{equation*}
-Z(\tau)_1 := \{ L \in S^\mu : L \cap \cO^i \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\}  
+Z(\tau)_1 := \{ L \in S^\mu : L_{\{1, \dots, i\}} \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\}  
 %Z(\tau)_2 := \{ L \in S^\mu : L \cap \cO^i \in S^{\lambda(i)} \cap \Gr^{\lambda(i)} \text{ for } i = 1, \dots m\}
 \end{equation*}
-From \cite[Corollary 9.7]{kamnitzer2010mirkovic}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))^T$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $.  We also note that $Z(\tau_1) \cap \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
+
+Using Lemma \ref{le:Srdim}, we see that
+$$
+Z(\tau)_1 = \{ L \in S^\mu : \rdim L_{\{j, \dots, i\}} = \lambda(i)_j + \dots + \lambda(i)_i
+$$
+
+From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $.  We also note that $Z(\tau_1) \cap \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
 \jcom{Need to justify this last sentence.}
 
-Fix $ i \in \{1, \dots, m\}$. If $ L \in S^\mu$, then $ L \cap \cO^i \in S^{\mu(i)}$.  Thus, we get a map $$ f_i : Z(\tau)_1 \rightarrow S^{\mu(i)} \cap S_+^{\lambda(i)} $$
+Fix $ i \in \{1, \dots, m\}$. If $ L \in S^\mu$, then $ L_{\{1, \dots, i\}} \in S^{\mu(i)}$.  Thus, we get a map $$ f_i : Z(\tau)_1 \rightarrow S^{\mu(i)} \cap S_+^{\lambda(i)} $$
 From the definition of $ Z(\tau)_1 $, we see that $ f_i(Z(\tau_1) = Z(\tau(i)_1)$.  From above $ \Gr^{\lambda(i)} \cap f_i(Z(\tau(i)_1))$ is a dense constructible subset of $Z(\tau(i)_1)$.  Since $ Z(\tau)_1$ is irreducible, this implies that $ f_i^{-1}(S^{\mu(i)} \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) $ is a dense constructible subset of $ Z(\tau_1) $.  
 
 Working with all $ i $ at once, we conclude that
