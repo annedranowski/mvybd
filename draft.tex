@@ -18,6 +18,8 @@
 \section{Introduction}
 \label{s:intro}
 % 
+Throughout this paper (unless indicated otherwise) the base field is $\CC$. 
+
 % The Mirkovi\'c--Vybornov isomorphism
 In \cite{mirkovic2007quiver} (see also the recent sequel \cite{mirkovic2019comparison}) Mirkovi\'c and Vybornov provide a geometric version of symmetric and skew Howe $(\GL_m,\GL_N)$ dualities by relating Kazhdan--Lusztig slices in the affine Grassmannian of $\GL_m$ to slices in $N\times N$ nilpotent orbits on the one hand 
 % conjugacy classes of nilpotent matrices 
@@ -65,16 +67,17 @@ Note that evaluation at $ t = s$ provides a group homomorphism $ H(\cO_s) \right
 
 Fix $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
 % are there other possibilities?? :S 
-The coweight lattice of $ G $ is $ \ZZ^m = \Hom(\CC^\times,T)$.
+We identify $\ZZ^m$ with the coweight lattice of $G$ and say that a coweight 
+% The coweight lattice of $ G $ is $ \ZZ^m = \Hom(\CC^\times,T)$.
 % TODO: Thank you - resolved!
 % \acom{This identification assumes we are taking $\CC$ points of $G$ right? i.e.\ it's really $P(T(\CC)) = \Hom(\CC^\times,T(\CC))$ that's $\cong \ZZ^m$ and for instance $P(T(\CC[x]/(x^2))$ will give sth else?} 
 % \jcom{No, the coweight lattice is the set of homomorphisms of algebraic groups from $ \mathbb G_m$ to $ GL_m$.  It is independent of the ring/field of definition.}
 % 
-The \textbf{dominant coweights} of $ G $ 
-% is
-are the set of $ \lambda = (\lambda_1, \dots, \lambda_m) \in \ZZ^m $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
+% The \textbf{dominant coweights} of $ G $ are the set of $ \lambda = (\lambda_1, \dots, \lambda_m) \in \ZZ^m $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
 % 
-A coweight $ \mu = (\mu_1, \dots, \mu_m) \in \ZZ^m$ is called \textbf{effective}, if $ \mu_j \ge 0 $ for all $ j$.
+% A coweight $ \mu = (\mu_1, \dots, \mu_m) \in \ZZ^m$ is called \textbf{effective} if $ \mu_j \ge 0 $ for all $ j$.
+% 
+$\nu = (\nu_1,\dots,\nu_m)$ is \new{dominant} if $\nu_1\ge\cdots\ge\nu_m$ and \new{effective} if $\nu_j\ge 0$ for all $j$.
 % We also need the notion of effective dominant coweight, 
 % \acom{can we conflate or should we be precise and say coweight?} \jcom{Corrected, let's stick to coweights.}
 %which means those $ \lambda $ as above with $ \lambda_m \ge 0$.  
@@ -82,7 +85,7 @@ A coweight $ \mu = (\mu_1, \dots, \mu_m) \in \ZZ^m$ is called \textbf{effective}
 % \jcom{I added the definition of effective coweight.  I actually don't think that we need any special notation $ P, P_+, P_{dom}$ etc !  Later we can just write ``$ \lambda \in \ZZ^m$ a dominant or effective coweight'' etc}
 % TODO: it's settled then, no special notation fro coweights!
 % 
-So an effective dominant coweight $ \lambda $ is a partition of $|\lambda| = \lambda_1 + \cdots + \lambda_m\in\NN$, which we call the size of $ \lambda$.
+If $\nu\in\ZZ^m$ is both effective and dominant then it is a partition of size $|\nu| = \nu_1 + \cdots + \nu_m\in\NN$.
 %We write $P_+$ for the set of dominant coweights, and $P_{++}$ for the set of effective dominant coweights. 
 % 
 % nicematrix test
@@ -101,8 +104,8 @@ So an effective dominant coweight $ \lambda $ is a partition of $|\lambda| = \la
 % 
 % Set $\AA = \AA^1_x$ (the subscript denoting the chosen local coordinate) and fix $s\in \AA - \{0\}$. 
 % 
-
-Given a coweight $\mu \in \ZZ^m$ and a point $ s\in \CC$, we define $ (t-s)^\mu$ to be the diagonal matrix 
+% Given a coweight $\mu \in \ZZ^m$ and a point $ s\in \CC$, we define $ (t-s)^\mu$ to be the diagonal matrix 
+Given $s\in\CC$ we define $(t-s)^\nu$ to be the diagonal matrix 
 % with entries $ (t-s)^{\mu_1}, \dots, (t-s)^{\mu_m}$
 % \[
 %     \begin{pNiceMatrix}[nullify-dots,xdots/line-style=loosely dotted]
@@ -116,18 +119,17 @@ Given a coweight $\mu \in \ZZ^m$ and a point $ s\in \CC$, we define $ (t-s)^\mu$
 % \]
 \[
 \begin{bmatrix}
-    (t-s)^{\mu_1} \\
-    & (t-s)^{\mu_2} \\ 
+    (t-s)^{\nu_1} \\
+    & (t-s)^{\nu_2} \\ 
     & & \ddots \\
-    & & & (t-s)^{\mu_m}
+    & & & (t-s)^{\nu_m}
 \end{bmatrix} 
 \]
-which we will view in 
+which we can view in 
 % $\GL_m(K) $ 
-$G(K)$ for any ring $ K $ containing $\CC[t]$ in which $t-s$ is invertible (for example $ K = \Ks, \CC(t)$). % A: Think R sb K; changed it 
-\acom{Add warning that we will also sometimes write $(t-s)^\mu$ for its image in 
-% $\GL_m(K)/\GL_m(R)$ 
-$G(K)/G(R)$ and we hope it will be clear? Only we haven't introduced this space yet.}
+$G(K)$ for any ring $ K $ containing $(t-s)^{-1}$ and $\CC[t]$. For example, $(t-s)^\nu\in G(K)$ for $ K = \Ks$ or $\CC(t)$. % A: Think R sb K; changed it 
+
+\acom{We will also sometimes write $(t-s)^\mu$ for its image in $G(K)/G(R)$ and we hope it will be clear? Only we haven't introduced this space yet.}
 % Resolved
 % 2. Change notation $\mu = (\mu_1,\dots,\mu_m)$ since we also have $\mu = \mu_1 + \mu_2$. We could do $\mu = \mu' + \mu''$ or $\mu = a + b$? The notation $\mu^{(i)}$ is already taken to mean sth. Ofc all can be changed. Can also do $\mu = {}_{1}\mu + {}_{2}\mu$. \emoji{sweat-smile}}
 
@@ -137,7 +139,8 @@ $G(R)$ consists of those matrices $ g \in M_m(R) $ whose determinant is invertib
 % $ t^\lambda \in \GL_m(\CC[t]) $ 
 $(t-s)^\mu\in G(\CC[t])$ if and only if $ \mu = 0 $.
 % 
-\acom{maybe add that it's the same for $G(\cO)$.}
+
+\acom{Maybe add that it's the same for $G(\cO)$. Also, we are using the notation $G(R)$ in one paragraph and defining it in the next. Maybe introduced $M_m$ first? }
 
 \subsection{Lattices}
 \label{ss:lat}
