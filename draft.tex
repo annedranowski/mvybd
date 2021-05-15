@@ -18,7 +18,7 @@
 \section{Introduction}
 \label{s:intro}
 % 
-Throughout this paper (unless indicated otherwise) the base field is $\CC$. 
+Throughout this paper (unless indicated otherwise) the base field is $\CC$, but it does not have to be?  
 
 % The Mirkovi\'c--Vybornov isomorphism
 In \cite{mirkovic2007quiver} (see also the recent sequel \cite{mirkovic2019comparison}) Mirkovi\'c and Vybornov provide a geometric version of symmetric and skew Howe $(\GL_m,\GL_N)$ dualities by relating Kazhdan--Lusztig slices in the affine Grassmannian of $\GL_m$ to slices in $N\times N$ nilpotent orbits on the one hand 
@@ -459,25 +459,28 @@ These different versions of the affine Grassmannian are related as follows.
 The following construction will be very important in this paper.  
 
 Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  
-
+% 
 %Composing the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (\cref{it:polyno-taylor,it:grs-gr} of \cref{ss:relsbtwgrs} preceding), we obtain an isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr$.
 % TODO: cf https://tex.stackexchange.com/questions/256849/cleveref-change-behaviour-of-cref-to-use-the-abbreviated-form
-
-These isomorphisms $ \tau_s $ defined above glue together to a projection map
+% 
+The isomorphisms $ \tau_s $ defined above glue together to a projection map
 \begin{equation}
 \label{eq:mvitau}
     \tau : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr \, .
 \end{equation}
 (This $\tau$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \CC^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
 
+\acom{Question for Joel: What is the benefit of working with diagonals? Letting two points vary? What is an example of a structure that you can't see letting just one point vary as we do.}
 
-Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $ \tau^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $.
+Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $ \tau^{-1}(X_1 \times X_2)$. % \subset \Gr_{0, \CC^\times} $.
 % 
 % \jcom{I changed this a bit in order to match Mirkovi\'c--Vilonen better.}
 % \acom{We say ``we define the subscheme..'' but what is there to define? Should it say ``we consider'' maybe?}
-Via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $,  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \AA^\times $  of $\Grbd$.  
+Via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $ from \Cref{pr:grs-gr},  for each $ s \ne 0$, we obtain a subscheme $ X_1 \times X_2 \times \CC^\times $  of $\Grbd$.  
 
-We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ inside of $ \Grbd $.  By construction, this is a flat family over $ \AA$.  We write $X_1 \ast_s X_2 $ for the scheme-theoretic fibre over a point $ s \in \AA$.  
+\acom{Well you might not want but I think it would be good to tell the reader why we use the notation $\CC^\times$ for $\AA\setminus 0$ in $\AA$ or why we use the notation $\AA$ at all.. E.g.\ do we know what happens for $\GL_m(k)$ over some other base field $k$.}
+
+We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  \tau^{-1}(X_1 \times X_2) $ in $ \Grbd $.  By construction, this is a flat family over $ \AA$.  We write $X_1 \ast_s X_2 $ for the scheme-theoretic fibre over a point $ s \in \AA$.  
 
 If $ s \ne 0$, then the map $ \tau_s$ identifies $ X_1 \ast_s X_2 \subset \Gr_{0,s}$ with $ X_1 \times X_2 \subset \Gr \times \Gr$.
 
