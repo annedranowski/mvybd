@@ -680,7 +680,7 @@ The following fact seems to be well-known but we could not find this exact state
     There exists a flat family $\overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow \AA$ whose fibre over $s \in \AA$ is reduced and given by $\overline{\OO}^{\lambda', \lambda''}_{0,s}$ if $s \ne 0 $ and $\overline{\OO}^\lambda $ if $ s = 0$.
 \end{proposition}
 % 
-In order to prove this result, we will need to recall some results from Eisenbud--Saltman \cite{eisenbud1989rank}.
+In order to prove this result, we will need to recall some results from Eisenbud--Saltman \cite{eisenbud1989rank}. \acom{Too many results in one sentence.}
 % 
 
 Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ (called a rank function).  Let $k $ be maximal such that $ r(k) \ne 0 $.
@@ -820,7 +820,7 @@ A = \begin{bNiceArray}{ccc|ccc}[columns-width = auto,first-row,last-col,code-for
 % If we apply the change of basis $g$ to the ideal $I=I_1 + I_2$ and set $s = 0$ (if possible) do we recover the ideal of $\OO^{\lambda_1 + \lambda_2}$? Let $A^g = g(A_1 \oplus A_2) g^{-1}$...
 % \end{remark}
 % 
-\subsection{The Mirkovic--Vybornov slice}
+\subsection{The Mirkovi\'c--Vybornov slice}
 \label{ss:mvyslice} 
 % 
 % Fix the ``$\mu$-numeration'' \((e^1_1,\ldots,e^{\mu_1}_1,\ldots,e^1_m,\ldots,e^{\mu_m}_m)\) of the standard basis of $\CC^N$. 
@@ -843,13 +843,24 @@ An element of the \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$
 % \acom{Agree. Happy to just have the in-words description.}
 % 
 % In words, $A$ 
-is a $\mu$ Jordan form matrix plus a $\mu\times\mu$ block matrix with possibly nonzero entries occuring in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
+is of the form 
+% a $\mu$ Jordan form matrix plus 
+$J_{0,\mu} + x$ where $x$ is a $\mu\times\mu$ block matrix with possibly nonzero entries in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
 % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
-In pictures, and by example, the elements $A$ for 
-% $\mu=(3,2,2,1)$ 
-$\mu = (1,2,2,3)$ look like 
+
+By example, if 
+% $\mu=(3,2,2,1)$, 
+$\mu = (3,2)$ then $A\in\TT_\mu$ looks like 
 \[
-    TODO: REDO 
+    \left[
+        \begin{BMAT}(e){ccc;cc}{ccc;cc} 
+        0 & 1 & 0 & 0 & 0\\
+        0 & 0 & 1 & 0 & 0\\
+        A_{11}^1 & A_{11}^2 & A_{11}^3 & A_{12}^1 & A_{12}^2\\
+        0 & 0 & 0 & 0 & 1\\
+        A_{21}^1 & A_{21}^2 & 0 & A_{22}^1 & A_{22}^2
+        \end{BMAT}\right] 
+    % TODO: REDO 
     % \left[
     %     \begin{BMAT}(e){ccc;cc;c;c}{ccc;cc;c;c}
     %         & 1 & & & & & \\
@@ -860,8 +871,9 @@ $\mu = (1,2,2,3)$ look like
     %         A_{31}^1 & & & A_{32}^1 & & A_{33}^1 & A_{34}^1 \\
     %         A_{41}^1 & & & A_{42}^1 & & A_{43}^1 & A_{43}^1
     % \end{BMAT}
-    % \right]\,. 
+    % \right] % \,. 
 \]
+for some $A_{ij}^k\in\CC$. 
 % \[
 %     \left[\begin{BMAT}(e){c;cc;cc;ccc}{c;cc;cc;ccc} 
 %         0 & A_0 & A_1 & A_2 & A_3 & A_4 & A_5 & A_6\\
@@ -876,27 +888,26 @@ $\mu = (1,2,2,3)$ look like
 % \]
 % 
 
-To each $ A \in \TT_\mu$, we will associate the $m\times m$ matrix 
+To $ A \in \TT_\mu$ we will associate the $m\times m$ matrix 
 of polynomials 
 % $ g(A) = \left( g(A)_{ij} \right)$ 
-$g(A)$
-in $ M_m(\CC[t]) $ whose $(i,j)$th entry is defined as follows.
+$g(A)$ in $ M_m(\CC[t]) $ whose $(i,j)$th entry is defined as follows.
 \begin{equation}
     \label{eq:mvyofa}
     g(A)_{ij} = 
-\begin{cases} t^{\mu_i} - \sum_{k=1}^{\mu_i} A^k_{ij} t^{k-1} & i = j \\
+\begin{cases} t^{\mu_i} - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} & i = j\,, \\
     % A^k_{ji} t^{k-1} & i = j \\
         % \text{ if $ i = j$} \\
-        - \sum_{k=1}^{\mu_i} A^k_{ij} t^{k-1} & i \ne j
+        - \sum_{k=1}^{\mu_i} A^k_{ji} t^{k-1} & i \ne j\,. 
     %  \text{ if $ i \ne j$ }
 \end{cases}
 \end{equation}
-where 
-% $A^k_{ji}$ 
-$A^k_{ij}$ is the $k$th entry from the left of the last row of the $\mu_i\times\mu_j$ block of $A$. 
-For example,
+$A^k_{ji}$ denotes the $k$th entry from the left of the last row of the $\mu_j\times\mu_i$ block of $A$. 
+% 
+
+Continuing with the $\mu=(3,2)$ example, 
 \[
-    % \left[
+    % A = \left[
     %     \begin{BMAT}(e){ccc;cc}{ccc;cc} 
     %     0 & 1 & 0 & 0 & 0\\
     %     0 & 0 & 1 & 0 & 0\\
@@ -904,13 +915,14 @@ For example,
     %     0 & 0 & 0 & 0 & 1\\
     %     A_{21}^1 & A_{21}^2 & 0 & A_{22}^1 & A_{22}^2
     %     \end{BMAT}\right]    
-    %     \mapsto 
-    %     \left[\begin{array}{rr}
-    %         t^{3} - A_{11}^3 t^2 - A_{11}^2 t - A_{11}^1 & -A_{21}^2t - A_{21}^1  \\
-    %         -A_{12}^2 t - A_{12}^1 & t^{2} - A_{22}^2 t - A_{22}^1
-    %     \end{array}
-    %     \right]\,. 
-    TODO: REDO
+    % \Longrightarrow 
+        g(A) = 
+        \left[\begin{array}{rr}
+            t^{3} - A_{11}^3 t^2 - A_{11}^2 t - A_{11}^1 & -A_{21}^2t - A_{21}^1  \\
+            -A_{12}^2 t - A_{12}^1 & t^{2} - A_{22}^2 t - A_{22}^1
+        \end{array}
+        \right]\,. 
+    % TODO: REDO
 \]
 % For example, the $A$ above will define 
 % \acom{the transpose of! TODO. Had script?}
@@ -926,47 +938,36 @@ For example,
 % \jcom{I moved the definition here since it will be useful for defining the upper triangular stuff.}
 % \acom{Ok.}
 % 
-\acom{Can add sentence before making next definition? To the effect of ``In $\TT_\mu$ we will be interested in a certain family of block upper-triangular matrices.''}
+\acom{Can add sentence before making next definition? To the effect of ``In $\TT_\mu$ we will be interested in a certain family of block upper-triangular matrices.'' Should also say what is up with the hidden transpose.}
+
 \begin{definition} The ``\textbf{upper-triangular}'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
 $$
 \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}\,. 
 $$
 \end{definition}
 So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu'_{i}} (t-s)^{\mu''_{i}}$ ($i=1,\dots,m$).
+
 For example, elements of $ \UU_{0,s}^{(1,1,0),(2,1,1)}$ look like 
 % 
-% $\UU_{0,0}^{(?),(?)}$ entries look like 
-% \[
-%     \left[\begin{BMAT}(e){ccc;cc}{ccc;cc} 
-%         0 & 1 & 0 & 0 & 0\\
-%         0 & 0 & 1 & 0 & 0\\
-%         0 & 0 & 0 & A_{12}^1 & A_{12}^2\\
-%         0 & 0 & 0 & 0 & 1\\
-%         0 & 0 & 0 & 0 & 0
-%         \end{BMAT}\right]    
-%         % \mapsto 
-%         % \left[\begin{array}{rr}
-%         %     t^{3} & 0 \\
-%         %     -A_{12}^2 t - A_{12}^1 & t^{2}
-%         % \end{array}\right]
-% \]
 \[
-    % \left[
-    %     \begin{BMAT}(e){ccc;cc;c}{ccc;cc;c} 
-    %     0 & 1 & 0 & 0 & 0 & 0\\
-    %     0 & 0 & 1 & 0 & 0 & 0\\
-    %     0 & -s^2 & 2s & A_{12}^1 & A_{12}^2 & A_{13}^1 \\
-    %     0 & 0 & 0 & 0 & 1 & 0\\
-    %     0 & 0 & 0 & 0 & s & A_{23}^1\\
-    %     0 & 0 & 0 & 0 & 0 & s
-    %     \end{BMAT}
-    % \right] \,.   
-TODO: REDO
+    \left[
+        \begin{BMAT}(e){ccc;cc;c}{ccc;cc;c} 
+        0 & 1 & 0 & 0 & 0 & 0\\
+        0 & 0 & 1 & 0 & 0 & 0\\
+        0 & -s^2 & 2s & A_{12}^1 & A_{12}^2 & A_{13}^1 \\
+        0 & 0 & 0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 0 & s & A_{23}^1\\
+        0 & 0 & 0 & 0 & 0 & s
+        \end{BMAT}
+    \right] \,.   
+% TODO: REDO
 \]
 % 
 Note that the fibre $  \UU^{\mu', \mu''}_{0,0}$ is the same as the intersection of $ \TT_\mu $ with the set of strictly upper-triangular matrices. 
 
 \acom{Mention that any other decomposition $\nu' + \nu''$ of $\mu' + \mu''$ will give a slice $\UU^{\nu',\nu''}_{0,\AA}$ with the same zero fibre.}
+
+\acom{These $\UU$'s should also have attr descriptions. What are they?}
     
 % \jcom{Instead of $\TT^+$ maybe a different letter would be best? I'm moved all $\lambda, \mu$ to upper indices for consistency (except for $ \cW_\mu, \TT_\mu$) and also to let us put $ s $ or $ \AA$ in the lower index.  I haven't been very consistent about $ \AA $ vs $ \CC$.  Which do you prefer?}
 % 
