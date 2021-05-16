@@ -540,10 +540,10 @@ We consider the following subschemes of the affine Grassmannians.
     % 
 \begin{definition}
 \label{def:sphfus}
-    The \textbf{fusion of two spherical Schubert varieties} 
-    $$ 
-        \overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} \rightarrow \AA \,.
-    $$
+    The \textbf{fusion of two spherical Schubert varieties} $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} $.
+    % $$ 
+    %     \overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} \rightarrow \AA \,.
+    % $$
 \end{definition}
 % \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda'}\times\overline\Gr^{\lambda''}\times\AA^\times}$..}
 %\acom{should we also subsript this family with $0,\AA$?}
@@ -551,9 +551,7 @@ We consider the following subschemes of the affine Grassmannians.
 % By \cite[Proposition 3.1.14]{zhu2016introduction},
 % Zhu's theorem (\jcom{need ref} \acom{pretty sure it's }), 
 % the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda' + \lambda''}$.
-By a theorem of Zhu 
-\cite[Proposition 3.1.14]{zhu2016introduction}, $ \overline{\Gr}^{\lambda'} \ast_0 \overline{\Gr}^{\lambda''} $ is reduced and equal to  $ \overline{\Gr}^{\lambda' + \lambda''}$.
-
+By \cite[Proposition 3.1.14]{zhu2016introduction}, $ \overline{\Gr}^{\lambda'} \ast_0 \overline{\Gr}^{\lambda''} $ is reduced and equal to  $ \overline{\Gr}^{\lambda' + \lambda''}$.
 % Suppose that $ s \ne 0$.  
 Moreover, if $s\ne0$, then in the fibre $\overline{\Gr}_{0,s}^{\lambda', \lambda''}$ we have the open locus $ \Gr_{0,s}^{\lambda', \lambda''}$ coming from transporting $ \Gr^{\lambda'} \times \Gr^{\lambda''} $ via the isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr_s $. 
 % \acom{reference \cref{it:grs-gr}?} 
@@ -561,6 +559,8 @@ This open locus is a $ G(\CC[t])$-orbit
 % .  The lattice description of $ \Gr_{0,s}^{\lambda', \lambda''}$ 
 whose lattice description is given in \Cref{le:Grl1l2} below.
 % \acom{Why $G(\CC[t])$. Because we are on the left side!}
+
+\acom{Sorry I keep changing (abbreviating) ``By a theorem of Zhu'', but is the citation not sufficient?}
 
 Because we consider effective dominant coweights, the spherical Schubert varieties and their fusions lie in the positive part of the (thick) affine Grassmannian.
 % 
@@ -573,6 +573,8 @@ Because we consider effective dominant coweights, the spherical Schubert varieti
     
     For the $ s = 0$ fibre, a similar reasoning applies (or we can simply conclude by taking closure).
 \end{proof}
+
+\acom{Does $M_m(\CC[t])\cap G\xT[t^{-1}] = \{g\in M(\CC[t]):\det g\in\CC[t]\setminus0\}$?}
     % \acom{why ``and so''? bc orbits are connected?}
     % \jcom{I turned this into a Lemma.}
 
@@ -587,23 +589,25 @@ Using $ \mu, \mu', \mu''$, we define the following subschemes.
     The \textbf{Kazhdan--Lusztig slice} $\cW_\mu = G_1(\Oinf) t^\mu \subset \Grth $.  
 \end{definition}
 % 
-\acom{we haven't defined $G_1$}
 
 In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}. The lattice description of $ \cW_\mu \cap \Grth$ is given in Lemma \ref{le:Wmu} below. 
-\acom{First lattice description that doesn't come for free?}
+% 
+
+% \acom{First lattice description that doesn't come for free?}
 % 
 % \acom{que est-ce?} \jcom{It's not very relevant for this paper.  Here is an explanation: every vector bundle on $\PP$ (or maybe any curve) has a special filtration called the HN--filtration; it is a partial flag of subbundles of type determined by $ \mu$.  We require that $ \varphi$ takes this filtration to the standard partial flag at the fibre over $ \infty$.  Maybe ``preserves'' is not the best word above.}
 % A: Ok thanks!
 % 
 \begin{definition} 
 \label{def:inftyorbits}
-    The \textbf{semi-infinite orbit} 
-$$ S^\mu = N_-(\cK)t^\mu \subset \Gr $$ 
-and the \textbf{fusion of  semi-infinite orbits} 
-$$ 
-    S^{\mu', \mu''}_{0,\AA} = S^{\mu'} \ast_\AA S^{\mu''} \to \AA \,.
-$$  
+    The \textbf{semi-infinite orbit} $ S^\mu = N_-(\cK)t^\mu \subset \Gr $. 
+% and the \textbf{fusion of  semi-infinite orbits} 
+% $$ 
+% S^{\mu', \mu''}_{0,\AA} = S^{\mu'} \ast_\AA S^{\mu''} \to \AA \,.
+% $$  
 \end{definition}
+\acom{Commented out fusion part for now. Unsure about defining it as the family whose 0 fibre is $S^{\mu' + \mu''}$ and whose generic fibre is $S^{\mu'}\times S^{\mu''}$ up to $\tau$. Baumann--Riche consider the attracting set of $C_\mu = \sqcup_{\mu' + \mu'' = \mu } m(\tilde C_{\mu',\mu''})$ where $\tilde C_{\mu',\mu''}$ is a connected component of fixed points in $\Grbd\tilde\times\Grbd$. Maybe we can consider the attracting set of just one of these?}
+
 If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
 $$
 % S^{\mu', \mu''}_{0,s} = 
@@ -615,8 +619,9 @@ On the other hand, if $ s = 0$, then the fibre $S^{\mu', \mu''}_{0,0} $ equals $
 % TODO: resolve
 % \acom{changed $\mu$ to $\mu' + \mu''$ since we wrote it out for $\overline{\Gr}_{0,\AA}^{\lambda', \lambda''} $}
 % 
+
 \jcom{I realized that this is not correct.  We can't just take the fusion here since we don't want to get the closure of these guys.  I will think about this further.}
-\acom{Two definitions in one. Unlike for spherical schubs}
+% \acom{Two definitions in one. Unlike for spherical schubs}
 
 \section{Matrices}
 \label{s:mats}
