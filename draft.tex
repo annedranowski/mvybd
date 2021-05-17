@@ -1380,7 +1380,56 @@ An irreducible component of $\overline{\Gr}^\lambda \cap S^\mu$ is called an \te
 In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic--Vilonen polytopes, or equivalently Lusztig data, which are sequences in $\NN^{\Delta_+}$ which depend on a choice of reduced expression.  For $\GL_m$ and the standard reduced word, this description can be reworded in terms of Young tableaux. 
 % \jcom{Maybe add something here about Lusztig data and the standard reduced word, $\vi = (1,2,\dots,m-1,\dots,1,2,1)$.}
 
-We begin with some new notation. Let $YT(\lambda)_\mu$ denote the set of (possibly semistandard) Young tableaux of shape $\lambda$ and weight $\mu$. 
+
+We begin with the following definitions.
+\begin{definition}
+Let $ L \subset \OO^m$ be a point in $ \Gr_+$.  We define the relative dimension of $L $ by
+$$
+\rdim L := \dim_\CC \OO^m/L\,. 
+$$
+% 
+If $ \gamma \subset \{1, \dots, m\}$, we define two lattices $ L^\gamma, L_\gamma $ in $ \OO^\gamma := \Sp_{\OO}(e_i : i \in \gamma) $ by
+\begin{gather*}
+%    \OO^\gamma := \Sp_{\OO}(e_i : i \in \gamma) \\
+L^\gamma:= L \cap \OO^\gamma  \qquad L_\gamma := L / L^{\gamma^c} \subset \OO^m / \OO^{\gamma^c} = \OO^\gamma
+\end{gather*}
+where $ \gamma^c := \{1, \dots, m \} \setminus \gamma$.
+\end{definition}
+We will also need the analogous definitions when $ \OO$ is replaced by $ \CC[t]$ and $L \in \Grth_+$.
+
+We record the following easy observations.
+\begin{lemma} \label{le:rdimTrans} Let $ L \in \Gr_+$.
+\begin{enumerate}
+    \item For any $ 
+    \gamma \subset \{1, \dots, m\} $, we have $$ \rdim L_\gamma + \rdim L^{\gamma^c} = \rdim L \,.$$
+    \item For any $ \gamma_1 \subset \gamma_2 \subset \{1, \dots, m\}$, we have $$ (L_{\gamma_1})_{\gamma_2} = L_{\gamma_2}
+$$
+\end{enumerate}
+\end{lemma}
+
+For any $ L \in \Gr_+ $ and $\gamma \subset \{1, \dots, m\} $, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper.
+
+Recall that $ S^\mu_- = N_-(\cK) t^\mu$. We also introduce the notation $S^\mu_+ := N(\cK)t^\mu$.
+
+\jcom{Actually we will need this notation later when we talk about stable MV cycles.  Maybe we should change $ S^\mu $ to $S^\mu_-$.}
+\acom{For it.}
+
+\begin{lemma} \label{le:Srdim}
+    Let $ L \in \Gr_+$.  The following are equivalent:
+    \begin{enumerate}
+        \item $ L \in S_+^\mu$
+        \item $ \rdim L^{\{1, \dots, i\}} = \mu_1 + \dots + \mu_i$ for all $ i = 1, \dots, m $.
+        \item $ \rdim L_{\{i+1, \dots, m\}} = \mu_{i+1} + \dots + \mu_m$ for $ i  = 1, \dots, m$.
+    \end{enumerate}
+    Similarly, the following are equivalent:
+        \begin{enumerate}
+        \item $ L \in S_-^\mu$
+        \item $ \rdim L^{\{i+1, \dots, m\}} = \mu_{i+1} + \dots + \mu_m$ for all $ i = 1, \dots, m $.
+        \item $ \rdim L_{\{1, \dots, i\}} = \mu_{1} + \dots + \mu_i$ for $ i  = 1, \dots, m$.
+    \end{enumerate}
+\end{lemma}
+
+We now introduce some notation related to Young tableaux. Let $YT(\lambda)_\mu$ denote the set of (possibly semistandard) Young tableaux of shape $\lambda$ and weight $\mu$. 
 %Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
 % For the sake of making a definition, we momentarily put some letters of our alphabet in unexpected roles, and ask you to suspend your disbelief. Given an arbitrary tableau $t$ having weight $w$ and shape $s$, we denote by $s(i)$ (resp.\ $w(i)$) the shape (resp.\ the weight) of $t(i)$, the tableau got from $t$ by discarding all boxes of weight exceeding $i$. 
 
@@ -1390,7 +1439,7 @@ Given $\tau\in YT(\lambda)_\mu$ and $ i \in \{1, \dots m\} $, denote by $\lambda
 The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is a list of $ m(m-1)/2$ non-negative integers defined from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ by the formula 
 $$
 \begin{aligned}
-n_\bullet(\tau)_{i,j} &= \lambda(i+1)_j - \lambda(i)_j \\
+n_\bullet(\tau)_{i,j} &= \lambda(i+1)_j - \lambda(i)_j = \text{ \# of boxes on the $j$th row of $\tau $ filled with $ i+1$}  \\
 (i,j) &=  (1,1),(2,1),\dots,(m-1,1),%\\
 (2,2),\dots,(m-1,2),%\\
 \dots,%\\
@@ -1504,17 +1553,21 @@ The following result is closely related to Theorem 4 from \cite{dranowski2020gen
 
 First, we consider
 \begin{equation*}
-Z(\tau)_1 := \{ L \in S^\mu : L_{\{1, \dots, i\}} \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\} \,. 
+Z(\tau)_1 := \{ L \in S^\mu \cap \Gr_+ : L_{\{1, \dots, i\}} \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\} \,. 
 %Z(\tau)_2 := \{ L \in S^\mu : L \cap \cO^i \in S^{\lambda(i)} \cap \Gr^{\lambda(i)} \text{ for } i = 1, \dots m\}
 \end{equation*}
 
 Using Lemma \ref{le:Srdim}, we see that
 $$
-Z(\tau)_1 = \{ L \in S^\mu : \rdim L_{\{j, \dots, i\}} = \lambda(i)_j + \dots + \lambda(i)_i \}
+Z(\tau)_1 = \{ L \in \Gr_+ : \rdim L_{\{j, \dots, i\}} = \lambda(i)_j + \dots + \lambda(i)_i \text{ for all $ 1 \le j \le i \le m $} \}
 $$
 
-From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $.  We also note that $Z(\tau_1) \cap \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
-\jcom{Need to justify this last sentence.}
+\jcom{We could write that $ \lambda(i)_j + \dots + \lambda(i)_i$ is the number of boxes on rows $ j, \dots, i$ filled with $ 1, \dots, i $.}
+
+From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $. (In \cite{kamnitzer2010mirkovic}, we worked with $  G(\OO) \backslash G(\cK)$, which we identify with $ \Gr $ using $ [g] \mapsto [g^{-1}]$.)
+
+We also note that $Z(\tau_1) \cap \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
+\jcom{Need to justify this last sentence.  There are two possibilities.  Either we can use compute the MV polytope corresponds to $ \tau $ and show that it lies in the Weyl polytope for $ \lambda $ (is this done anywhere in the literature) or we could use the Mirkovic-Vybornov isomorphism.}
 
 Fix $ i \in \{1, \dots, m\}$. If $ L \in S^\mu$, then $ L_{\{1, \dots, i\}} \in S^{\mu(i)}$.  Thus, we get a map $$ f_i : Z(\tau)_1 \rightarrow S^{\mu(i)} \cap S_+^{\lambda(i)} $$
 From the definition of $ Z(\tau)_1 $, we see that $ f_i(Z(\tau_1) = Z(\tau(i)_1)$.  From above $ \Gr^{\lambda(i)} \cap f_i(Z(\tau(i)_1))$ is a dense constructible subset of $Z(\tau(i)_1)$.  Since $ Z(\tau)_1$ is irreducible, this implies that $ f_i^{-1}(S^{\mu(i)} \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) $ is a dense constructible subset of $ Z(\tau_1) $.  
@@ -1525,7 +1578,7 @@ is a dense constructible subset of $ Z(\tau)_1$.  Thus $\overline{Z(\tau)_2} = \
 
 On the other hand, by definition 
 $$
-Z(\tau)_2 \subset \{ L \in S^\mu : L \in \Gr^{\lambda(i)} \text{ for } i = 1, \dots, m\}\,.
+Z(\tau)_2 \subset \{ L \in S^\mu : L_{\{1, \dots, i\}} \in \Gr^{\lambda(i)} \text{ for } i = 1, \dots, m\}\,.
 $$
 \acom{Need $L_{\{1,..,i\}}$ here.}
 
@@ -1559,6 +1612,9 @@ $$
 % 
 % 
 \subsection{Fusion of MVCs via BD MVy}
+
+\jcom{Anne, can you reorganize this section to start with $ X(\tau) $ and then do the fusion afterwards?}
+
 Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
 % 
 \begin{theorem}
