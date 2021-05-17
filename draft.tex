@@ -1350,7 +1350,7 @@ Restricting to the zero fibre and applying $\tau_0$ we recover \cite[a main resu
 % 
 \begin{corollary}
     \label{cor:mvy}
-    $\overline{\OO}^\lambda \cap \TT_\mu\cap\n_+ \cong\overline\Gr^\lambda\cap S^\mu_+$ where $\n_+\subset M_N(\CC)$ is the subalgebra of upper-triangular matrices. 
+    $\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu_+$ where $\n\subset M_N(\CC)$ is the subalgebra of upper-triangular matrices. 
 \end{corollary}
 %The closures of the irreducible components of the righthand side are \textbf{MV cycles of type $\lambda$ and weight $\mu$}. By \cite{baumann2019mirkovic} the set of MV cycles of all possible types and weights can be stitched together to form a \textbf{perfect basis} of $\CC[N]$. 
 
@@ -1546,7 +1546,7 @@ $$
 
 \jcom{Now, we need to show density here.  But maybe that won't be possible and we will need to take the ``top''.}
 
-    %See computation 5.3.9 and Lemma 5.4.2 (ignore its proof) of \url{http://www.math.toronto.edu/adranows/athesis.pdf}. 
+% See computation 5.3.9 and Lemma 5.4.2 (ignore its proof) of \url{http://www.math.toronto.edu/adranows/athesis.pdf}. 
 \end{proof}
 % This gives us the dimension of Gr^\lambda \cap Gr_\mu \cap S^\mu.
 % Given $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ denote by $\lambda'(i),\lambda''(i)$ (resp.\ $\mu'(i),\mu''(i)$) the shape (resp.\ the weight) of $\tau'(i),\tau''(i)$ where $\tau^?(i)$ denotes the tableau got from $\tau^?$ by discarding all 
@@ -1577,19 +1577,39 @@ $$
 
 \jcom{Anne, can you reorganize this section to start with $ X(\tau) $ and then do the fusion afterwards?}
 
-Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
+Given $A \in M_N(\CC)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$. If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
+% TODO: address 
+% \acom{We could also use a more compact notation like $A_{(p)}$}
+% \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
+
+Under the isomorphism of \Cref{cor:mvy} the MV cycles correspond to the so-called \new{generalized orbital varieties}. 
+We can also associate a generalized orbital variety $X(\tau)$ directly to a semistandard tableau $\tau$ by taking the closure of the top-dimensional 
+% \acom{speak to this?} 
+irreducible component of
+% from $\tau\in YT(\lambda)_\mu$ by 
+\[
+\mathring X(\tau) = 
+% \overline{
+    \{
+        A \in  \TT_\mu\cap\n : A\big|_{\CC^{|\mu(i)|}} \in \OO^{\lambda(i)} \text{ for each } i = 1,\dots,m
+    \}\,. 
+% }    
+\]
+% 
+We do not know whether $\mathring X(\tau)$ is in general irreducible.
+% reduced or has embedded components. 
+
 \begin{theorem}
     \label{pr:govsasirrecs}
     The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
 \end{theorem}
 % 
+We will use this theorem to describe intersection multiplicities in the fusion of two MV cycles. 
 % 
-Given $A \in M_N(\CC)$ we denote by 
-% $A\big|_{\CC^i}$ 
-$A\big|_{\CC^p}$ 
-the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$. If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. \acom{We could also use a more compact notation like $A_{(p)}$}
-% \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
-
+Let us begin by introducing a ``fusion of generalized orbital varieties''. 
+% 
+Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as in previous sections.
+% 
 Given $s\in\CC^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
 % 
 \begin{equation*}
@@ -1605,7 +1625,7 @@ and
         \mathring X(\tau',\tau'')_{0,\CC^\times} = 
     \left\{
         (A,s)\in M_N(\CC) \times \CC^\times: 
-        A \in X(\tau') \ast_s X(\tau'') 
+        A \in \mathring X(\tau',\tau'')_{0,s} 
     \right\}\,.
 \end{equation*}
 % 
@@ -1628,93 +1648,31 @@ and
 % \acom{Fixed.}
 
 \begin{proof}
-    % We wish to apply \Cref{prop:dth}. Nope
-    % We will also need \Cref{le:Grl1l2}. Nope 
-    % Consider the following diagram.
-    % \[
-    % \begin{tikzcd}
-    %     X'\ast_s X'' \ar[r,dashed,"?"] \ar[d,"\bar g"] & X'\times X'' \ar[d," \phi\times \phi"] \\ 
-    %     \Gr_{0,s}\ar[r,"\tau_s"] & \Gr\times\Gr
-    % \end{tikzcd}
-    % \]
-    % \acom{Not sure what's a good notation for the vertical arrows. Don't want to introduce $\phi$. $\bar g(A) = g(A)\CC[t]^m$ temporarily.}
-    % We show that the image of $\tau_s\circ \bar g$ coincides with the image of $\phi\times\phi$ which is dense in $Z'\times Z''$ by \Cref{prop:dth}.
-    % % 
-    Let $A\in X(\tau')\ast_s X(\tau'')$ and $i = 1,\dots, m$.  
-    % Denote by 
-    % $E_a$ the generalized $a$-eigenspace of $A$, and by 
-    The lattices $L=g(A)\CC[t]^m$ and $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ are related by
-    $$    
-    % L\cap \CC[t]^i = l
-    l = L_{1,..,i}
-    $$
-    where $\CC[t]^i\subset\CC[t]^m = \CC^m\otimes_\CC\CC[t]$ denotes the $\CC[t]$-submodule generated by the first $i$ standard basis vectors.
-    %  
+% 
+Fix $A\in \mathring X(\tau',\tau'')_{0,s} $ and $i = 1,\dots, m$. 
+
+Let $\CC[t]^i\subset\CC[t]^m = \CC^m\otimes_\CC\CC[t]$ denote the $\CC[t]$-submodule generated by the first $i$ standard basis vectors. \acom{Probably don't need to repeat this.}
+
+The lattices $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ and $L=g(A)\CC[t]^m$ are related by the equality $ l = L_{[i]}$ where recall $L_{[i]} = L + \CC[t]^{[i+1,m]} / \CC[t]^{[i+1,m]}\subset \CC[t]^m/\CC[t]^{[i+1,m]} = \CC[t]^i$. 
     
-By definition of $\UU^{\mu',\mu''}$ we have $A\big|_{\CC^{|\mu(i)|}}\in\UU^{\mu'(i),\mu''(i)}_{0,s}$ and by definition of $X(\tau')\ast_s X(\tau'')$, $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$. So, by \Cref{th:OTGrW}, $l\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}$ and
-% \Gr^{\lambda'(i)}\times \Gr^{\lambda''(i)}$ so 
-$(l(0),l(s))\in Z(\tau')\times Z(\tau'')$.
+By definition of $\UU^{\mu',\mu''}$ we have $A\big|_{\CC^{|\mu(i)|}}\in\UU^{\mu'(i),\mu''(i)}_{0,s}$ and by definition of $X(\tau',\tau'')_{0,s}$, $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$. So, by \Cref{th:OTGrW}, $l = L_{[i]}\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}$. On the other hand, also by definition of $\UU^{\mu',\mu''}$, we have $L\in S^{\mu',\mu''}$ and consequently $l\in S^{\mu'(i),\mu''(i)}$. 
 
-So $A\in\dots$ iff $g(A)\in\dots$ 
+Therefore, as $i$ varies, we see that the pair $(L(0),L(s))\in S^{\mu'}\times S^{\mu''}$ is such that $(L_{[i]}(0),L_{[i]}(s)) \in \Gr^{\lambda'(i)}\times\Gr^{\lambda''(i)}$ and so $(L(0),L(s))\in \mathring Z(\tau')\times \mathring Z(\tau'')$.
+
+For the converse we use the fact that the map $A\mapsto g(A)$ is an isomorphism of $\overline{\OO}^{\lambda',\lambda''}_{0,\AA}\cap\UU^{\mu',\mu''}_{0,\AA}$ and $\overline{\Gr}^{\lambda',\lambda''}_{0,\AA}\cap S^{\mu',\mu''}_{0,\AA}$ which restricts to an isomorphism of generalized orbital varieties and MV cycles in the zero fibre. 
+\acom{Better way to say?}
+Given $L\in\mathring Z(\tau') \ast_{\CC^\times}\mathring Z(\tau'')$ let $A$ be such that $L = g(A)\CC[t]^i$. Is it clear that $A\in\mathring X(\tau',\tau'')_{0,s}$? 
+Do we need that there exists $(A',A'')\in M_{N'}\times M_{N''}$ such that $L(0) = g(A')\cO^m$ and $L(s) = g(A'')\cO^m$, and that we could take $A'\oplus A''=A$ up to some conjugation that puts $A'\oplus A''\in\TT_\mu$ which is possible because $\TT_\mu$ intersects $\OO^{\lambda',\lambda''}_{0,\AA}$ transversely? 
 \end{proof}
 % 
-% 
-In analogy with the Beilinson--Drinfeld construction \acom{add loc cit} we define $X(\tau')\ast_0 X(\tau'')$ to be the zero fibre of the family $\overline{\bigcup_{s\in\CC\setminus\{0\}} X(\tau')\ast_s X(\tau'')}$ in $M_N(\CC)$. 
+
+Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} we define $X(\tau',\tau'')_{0,0}$ to be the zero fibre of the Zariski closure of $X(\tau',\tau'')_{0,\CC^\times}$ in $M_N(\CC)$. 
 % 
 \begin{corollary}
-    The image of $X'\ast_0 X''$ in $\cong Z'\ast_0 Z''$ is dense and $\iota(X(\tau),X(\tau',\tau'')) = \iota(Z(\tau),Z(\tau')\circ Z(\tau''))$. 
+    The image of $\mathring X(\tau',\tau'')_{0,0}$ in $\mathring Z(\tau')\ast_0 \mathring Z(\tau'')$ is dense. In particular 
+    $$\iota(X(\tau),X(\tau',\tau'')) = \iota(Z(\tau),Z(\tau')\circ Z(\tau''))\,.$$
 \end{corollary}
 % 
-Let $X(\tau)$ be the top-dimensional \acom{speak to this?} irreducible component of
-% from $\tau\in YT(\lambda)_\mu$ by 
-\[
-% X(\tau) = 
-% \overline{
-    \{
-        A \in  \TT_\mu\cap\n : A\big|_{\CC^{|\mu(i)|}} \in \OO^{\lambda(i)} \text{ for each } i = 1,\dots,m
-    \}\,. 
-% }    
-\]
-Then $\overline{X(\tau)}$ is called a \textbf{generalized orbital variety}. 
-% 
-
-\begin{theorem}
-    \label{pr:govsasirrecs}
-    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{\overline{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
-\end{theorem}
-\acom{$\overline{X(\tau)}$ vs $Z(\tau) = \overline{al;sdj}$}
-\begin{corollary}
-    $X'\ast_0 X''$ is a union of GOVs.
-\end{corollary}
-\begin{proof}
-    Since $X'\ast_0 X''\subset \overline{\OO}^\lambda\cap\TT_\mu\cap\n$\dots 
-\end{proof}
-
-\begin{proposition}(\cite{baumann2019mirkovic})
-    % Given two MV cycles $Z_\tau$ and $Z_\sigma$ of type\dots 
-    Let $Z',Z''$  be MV cycles of type $\lambda',\lambda''$ and weight $\mu',\mu''$ resp.\ and assume that $\lambda',\lambda'',\mu = \mu' + \mu''$ are dominant. 
-    Then $Z'\ast_0 Z''$ is a union of MVCs
-    % \begin{equation}
-        % Z'\ast_0 Z'' = \bigcup Z(\tau)
-        % \label{eq:tabmult}
-        % % Z_\tau\ast Z_\sigma 
-        % m_{\lambda'\lambda''} ([Z']\otimes[Z'']) 
-        % = 
-        % % \sum_{Z\in\cZ(\lambda)_\mu} 
-        % \sum_{\tau\in S(\lambda)_\mu}
-        % i\left(
-        %     X(\tau), X(\tau')\circ X(\tau'')
-        % \right) [Z(\tau)]\,. 
-    % \end{equation}
-    with $i\left(X(\tau), X(\tau')\circ X(\tau'')\right)$ copies of $Z(\tau)$ showing up. 
-\end{proposition}
-% 
-\acom{Closures missing? Here and elsewhere?}
-% 
-\begin{proof}
-    Since $X'\ast_0 X'' \cong Z'\ast_0 Z''$ and GOVs go to MVCs 
-\end{proof}
-
 \begin{conjecture}
     % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu  _2$. 
     Let $\tau$ be the tableau of shape $\lambda$ and weight $\mu$ whose Lusztig datum is equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
