@@ -1489,46 +1489,6 @@ The pattern $\gt(\tau)$ is recorded as a lower-triangular matrix (the array of s
 %This combinatorics is relevant because by work of the third author the MV cycles are parametrized by Lusztig data. (This holds much more generally than the present scope.)
 % 
 
-We will need the following definitions.
-\begin{definition}
-Let $ L \subset \CC[t]^m$ be a point in $ \Grth$.  We define the relative dimension of $L $ by
-$$
-\rdim(L) := \dim_\CC \CC[t]^m/L\,. 
-$$
-% 
-If $ \gamma \subset \{1, \dots, m\}$, we define
-\begin{gather*}
-    \OO^\gamma := \Sp_{\OO}(e_i : i \in \gamma) \\
-L^\gamma:= L \cap \OO^\gamma \subset \OO^\gamma \quad L_\gamma := L / L^{\gamma^c} \subset \OO^\gamma
-\end{gather*}
-where $ \gamma^c := \{1, \dots, m \} \setminus \gamma$.
-\end{definition}
-
-\acom{I started changing $\OO$ to $\CC[t]$ but we should rather change it to $R$ as we'll want this notation for $R = \CC[t]$ as well as $\cO$? Also, don't we want $L_\gamma = R^m/L^{\gamma^c}$}
-
-\begin{lemma}
-    For any $ L \in \Grth$ and any $ 
-    \gamma \subset \{1, \dots, m\} $, we have $ \rdim L_\gamma + \rdim L^{\gamma^c} = \rdim L$.
-\end{lemma}
-We let $ D_\gamma(L) := \rdim L_\gamma$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper.
-
-\jcom{There is a discrepancy regarding $ \gamma$ and $ \gamma^c$.}
-
-Recall that $ S^\mu_- = N_-(\cK) t^\mu$. We also introduce the notation $S^\mu_+ := N(\cK)t^\mu$.
-
-\jcom{Actually we will need this notation later when we talk about stable MV cycles.  Maybe we should change $ S^\mu $ to $S^\mu_-$.}
-\acom{For it.}
-
-\begin{lemma} \label{le:Srdim}
-    Let $ L \in \Grth$.  The following are equivalent:
-    \begin{enumerate}
-        \item $ L \in S_+^\mu$
-        \item $ \rdim L^{\{1, \dots, i\}} = \mu_1 + \dots + \mu_i$ for all $ i = 1, \dots, m $.
-        \item $ \rdim L_{\{i+1, \dots, m\}} = \mu_{i+1} + \dots + \mu_m$ for $ i  = 1, \dots, m$.
-    \end{enumerate}
-    The same statement hold for $ S_-^\mu$ with the $ L^\gamma$ changed to $ L_\gamma$ above.
-\end{lemma}
-
 We can associate to $\tau$ an MV cycle as follows. Let    
 %  
 \begin{equation*}
@@ -1580,7 +1540,6 @@ On the other hand, by definition
 $$
 Z(\tau)_2 \subset \{ L \in S^\mu : L_{\{1, \dots, i\}} \in \Gr^{\lambda(i)} \text{ for } i = 1, \dots, m\}\,.
 $$
-\acom{Need $L_{\{1,..,i\}}$ here.}
 
 \jcom{Now, we need to show density here.  But maybe that won't be possible and we will need to take the ``top''.}
 
@@ -1617,30 +1576,22 @@ $$
 
 Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as before.
 % 
-\begin{theorem}
-    \label{pr:govsasirrecs}
-    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
-\end{theorem}
-% 
 Given $A \in M_N(\CC)$ we denote by 
 % $A\big|_{\CC^i}$ 
 $A\big|_{\CC^p}$ 
 the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$. If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. \acom{We could also use a more compact notation like $A_{(p)}$}
 % \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
 
-Given $s\in\CC^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
+Given $s\in\CC\setminus \{0\}$, and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
 % 
 \begin{equation*}
-    \mathring X(\tau',\tau'')_{0,s} 
-    % X(\tau')\ast_s \mathring X(\tau'') 
-    = \left\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\right\}
+    X(\tau')\ast_s X(\tau'') = \left\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\right\}\,.
 \end{equation*}
 % 
 and
 % 
 \begin{equation*}
-    % X(\tau')\ast_{\CC^\times} X(\tau'') = 
-    \mathring X(\tau',\tau'')_{0,\CC^\times} = 
+    X(\tau')\ast_{\CC^\times} X(\tau'') = 
     \left\{
         (A,s)\in M_N(\CC) \times \CC^\times: 
         A \in X(\tau') \ast_s X(\tau'') 
@@ -1658,7 +1609,7 @@ and
     % Let $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ 
     % be such that $t^{\lambda'}Z' = X(\tau')$ and $t^{\lambda''}Z'' = X(\tau'')$. 
     % and set $\mu = \mu' + \mu''$. If $s\ne 0$, then 
-    The image of $\mathring X(\tau',\tau'')_{0,\CC^\times}$ under the isomorphism of \Cref{th:OTGrW} is dense in $\mathring Z(\tau')\ast_{\CC^\times} \mathring Z(\tau'')$. 
+    The image of $X(\tau')\ast_s X(\tau'')$ under the isomorphism of \Cref{th:OTGrW} is dense in $Z(\tau')\ast_s Z(\tau'')$. 
     % \[
     % \overline{\phi(X(\tau',\tau''))} 
     % = Z'\ast_s Z'' \,. 
@@ -1687,8 +1638,7 @@ and
     % $E_a$ the generalized $a$-eigenspace of $A$, and by 
     The lattices $L=g(A)\CC[t]^m$ and $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ are related by
     $$
-    % L\cap \CC[t]^i = l
-    l\cong L_{1,..,i}
+    L\cap \CC[t]^i = l
     $$
     where $\CC[t]^i\subset\CC[t]^m = \CC^m\otimes_\CC\CC[t]$ denotes the $\CC[t]$-submodule generated by the first $i$ standard basis vectors.
     %  
@@ -1704,7 +1654,7 @@ So $A\in\dots$ iff $g(A)\in\dots$
 In analogy with the Beilinson--Drinfeld construction \acom{add loc cit} we define $X(\tau')\ast_0 X(\tau'')$ to be the zero fibre of the family $\overline{\bigcup_{s\in\CC\setminus\{0\}} X(\tau')\ast_s X(\tau'')}$ in $M_N(\CC)$. 
 % 
 \begin{corollary}
-    The image of $X'\ast_0 X''$ in $\cong Z'\ast_0 Z''$ is dense and $\iota(X(\tau),X(\tau',\tau'')) = \iota(Z(\tau),Z(\tau')\circ Z(\tau''))$. 
+    $X'\ast_0 X'' \cong Z'\ast_0 Z''$ 
 \end{corollary}
 % 
 Let $X(\tau)$ be the top-dimensional \acom{speak to this?} irreducible component of
@@ -1720,6 +1670,11 @@ Let $X(\tau)$ be the top-dimensional \acom{speak to this?} irreducible component
 Then $\overline{X(\tau)}$ is called a \textbf{generalized orbital variety}. 
 % 
 
+\begin{theorem}
+    \label{pr:govsasirrecs}
+    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{\overline{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
+\end{theorem}
+\acom{$\overline{X(\tau)}$ vs $Z(\tau) = \overline{al;sdj}$}
 \begin{corollary}
     $X'\ast_0 X''$ is a union of GOVs.
 \end{corollary}
