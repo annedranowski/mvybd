@@ -1394,6 +1394,7 @@ If $ \gamma \subset \{1, \dots, m\}$, we define two lattices $ L^\gamma, L_\gamm
 L^\gamma:= L \cap \OO^\gamma  \qquad L_\gamma := L / L^{\gamma^c} \subset \OO^m / \OO^{\gamma^c} = \OO^\gamma
 \end{gather*}
 where $ \gamma^c := \{1, \dots, m \} \setminus \gamma$.
+\acom{I suggest replacing $\mathbb O$ by $R$, and $L/L^{\gamma^c}$ by $(L + R^{\gamma^c})/R^{\gamma^c}$ because that's what we're doing. In a lower triangular $g(A)$ columns ${i+1..m}$ cannot be used to eliminate entries in rows ${i+1..m}$ in the first $i$ columns over $\CC[t]$ or $\CC\xt$.}
 \end{definition}
 We will also need the analogous definitions when $ \OO$ is replaced by $ \CC[t]$ and $L \in \Grth_+$.
 
@@ -1500,6 +1501,7 @@ We can associate to $\tau$ an MV cycle as follows. Let
 and $Z(\tau) = \overline{\mathring Z(\tau)}$. 
 % 
 \jcom{Maybe use $ [m] $ for $\{1, \dots, m\}$ ?}
+\acom{And $\{1,\dots,i\}$ etc.}
 
 The following result is closely related to Theorem 4 from \cite{dranowski2020generalized}.  It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson--Kogan \cite{anderson2004mirkovic} (see Section 9 in \cite{kamnitzer2010mirkovic}).  We also note that a different map from Young tableaux to MV cycles was obtained by Gaussent--Littelmann--Nguyen \cite[Theorem 2]{gaussent2013knuth}.
 \begin{proposition}
@@ -1511,7 +1513,7 @@ The following result is closely related to Theorem 4 from \cite{dranowski2020gen
 \jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
 \acom{I've been meaning to update the paper. It's peppered with ``typos''.}
 
-First, we consider
+First, we consider \acom{add \texttt{mathring}'s to these $Z$'s?}
 \begin{equation*}
 Z(\tau)_1 := \{ L \in S^\mu \cap \Gr_+ : L_{\{1, \dots, i\}} \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\} \,. 
 %Z(\tau)_2 := \{ L \in S^\mu : L \cap \cO^i \in S^{\lambda(i)} \cap \Gr^{\lambda(i)} \text{ for } i = 1, \dots m\}
@@ -1523,8 +1525,9 @@ Z(\tau)_1 = \{ L \in \Gr_+ : \rdim L_{\{j, \dots, i\}} = \lambda(i)_j + \dots + 
 $$
 
 \jcom{We could write that $ \lambda(i)_j + \dots + \lambda(i)_i$ is the number of boxes on rows $ j, \dots, i$ filled with $ 1, \dots, i $.}
+\acom{\emoji{thumbsup}} 
 
-From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $. (In \cite{kamnitzer2010mirkovic}, we worked with $  G(\OO) \backslash G(\cK)$, which we identify with $ \Gr $ using $ [g] \mapsto [g^{-1}]$.)
+From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $. (In \cite{kamnitzer2010mirkovic}, we worked with $  G(\cO) \backslash G(\cK)$, which we identify with $ \Gr $ using $ [g] \mapsto [g^{-1}]$.)
 
 We also note that $Z(\tau_1) \cap \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
 \jcom{Need to justify this last sentence.  There are two possibilities.  Either we can use compute the MV polytope corresponds to $ \tau $ and show that it lies in the Weyl polytope for $ \lambda $ (is this done anywhere in the literature) or we could use the Mirkovic-Vybornov isomorphism.}
