@@ -1,12 +1,12 @@
 %!TEX program = lualatex
-
-\documentclass[draft]{article}
+% 
+\documentclass{article} % [draft] TODO: use this at the end to check for overfills 
 \usepackage{basic}
 \usepackage{emoji}
 % TODO: The matrix is lower triangular and the lower-triangular matrix is
 % \setemojifont{Apple Color Emoji}
 % Working title: 
-\title{How to compute the fusion product of MV cycles in type A}
+\title{How to compute the fusion product of MV cycles in type $A$}
 \author{Roger Bai, Anne Dranowski, Joel Kamnitzer} 
 % \date{October 2020}
 \date{\today}
@@ -1285,6 +1285,8 @@ $$
 $$
 This follows immediately from \Cref{le:Grl1l2}.
 \end{proof}
+%
+\acom{We need to assume that $\mu' +\mu''$ is dominant in the theorem below. The assumption for \Cref{th:TmuWmu} is also missing.} 
 % 
 \begin{theorem}
 \label{th:OTGrW}
@@ -1346,7 +1348,9 @@ Since $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}
 %\rcom{So if we look at $g = g(A)t^{-\mu}$, since $A \in \TT_\mu$, the entries of $g(A)_{ij}$ are polynomials of degree $\min(\mu_i-1,\mu_j-1)$ when $i \neq j$, otherwise of degree $\mu_i$. When we multiply by $t^{-\mu}$, we scale the $i$th column by $t^{-\mu_i}$. So the diagonal entries are $1 + p$ where $p \in t^{-1}\CC[t^{-1}]$ while the off-diagonal entries in column $i$ have highest (in $t$) degree $\min(\mu_i-1, \mu_j-1) - \mu_i < 0$. Hence $g \in G_1(\cO_\infty)$.}
 % 
 
-Restricting to the zero fibre and applying $\tau_0$ we recover \cite[a main result]{dthesis}, itself a corollary of the ordinary affine Grassmannian version of \Cref{th:OGrl}, \cite[Theorem~4.4.1(c)]{mirkovic2019comparison}. 
+Restricting to the zero fibre and applying $\tau_0$ we recover \cite[Corollary~5.2.2]{dthesis}, itself a corollary of \cite[Theorem~4.4.1(c)]{mirkovic2019comparison}, the ordinary affine Grassmannian version of \Cref{th:OGrl}. 
+% 
+% \acom{The ordinary Gr should be called static. Really onomotopoeic. In opposition with moving. }
 % 
 \begin{corollary}
     \label{cor:mvy}
@@ -1381,59 +1385,62 @@ In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial descripti
 % \jcom{Maybe add something here about Lusztig data and the standard reduced word, $\vi = (1,2,\dots,m-1,\dots,1,2,1)$.}
 
 
+Denote by $[a,b]$ the interval $\{a,a+1,\dots,b-1,b\}\subset\NN$. If $a = 1$ just write $[b]$, and if $a = b$ just write $\{a\}$. 
+% If a = b? Just write $\{b\}$ 
 We begin with the following definitions.
 \begin{definition}
-Let $ L \subset \OO^m$ be a point in $ \Gr_+$.  We define the relative dimension of $L $ by
+Let $ L \subset \cO^m$ be a point in $ \Gr_+$.  We define the relative dimension of $L $ by
 $$
-\rdim L := \dim_\CC \OO^m/L\,. 
+\rdim L := \dim_\CC \cO^m/L\,. 
 $$
 % 
-If $ \gamma \subset \{1, \dots, m\}$, we define two lattices $ L^\gamma, L_\gamma $ in $ \OO^\gamma := \Sp_{\OO}(e_i : i \in \gamma) $ by
+If $ \gamma \subset [m]$, we define two lattices $ L^\gamma, L_\gamma $ in $ \cO^\gamma := \Sp_{\cO}(e_i : i \in \gamma) $ by
 \begin{gather*}
 %    \OO^\gamma := \Sp_{\OO}(e_i : i \in \gamma) \\
-L^\gamma:= L \cap \OO^\gamma  \qquad L_\gamma := L / L^{\gamma^c} \subset \OO^m / \OO^{\gamma^c} = \OO^\gamma
+L^\gamma:= L \cap \cO^\gamma  \qquad L_\gamma := L / L^{\gamma^c} \subset \cO^m / \cO^{\gamma^c} = \cO^\gamma
 \end{gather*}
-where $ \gamma^c := \{1, \dots, m \} \setminus \gamma$.
-\acom{I suggest replacing $\mathbb O$ by $R$, and $L/L^{\gamma^c}$ by $(L + R^{\gamma^c})/R^{\gamma^c}$ because that's what we're doing. In a lower triangular $g(A)$ columns ${i+1..m}$ cannot be used to eliminate entries in rows ${i+1..m}$ in the first $i$ columns over $\CC[t]$ or $\CC\xt$.}
-\jcom{If you think that it sounds better with $ \OO $ replaced by $ R$, then I won't object to the change. Note that the first sentence won't quite make sense ``let $ L \subset \OO^m$ be a point in $ \Gr_+$'', we would have to write ``let $ L \subset R^m$ be a lattice''.}
-\jcom{$ L /L^{\gamma^c} $ is the image of $ L $ in $ \OO^m / \OO^{\gamma^c}$ since the kernel of the map $ L \rightarrow \OO^m / \OO^{\gamma^c}$ is precisely $L^{\gamma^c} $, so I don't think that there is any problem here.  Again, if you think that it is better, I won't object to your suggested change.} 
-\jcom{Your question made me wonder about the following: how do we know that $ L_\gamma$ is a lattice?  (or $ L^\gamma$ for that matter)}
+where $ \gamma^c := [m] \setminus \gamma$.
+% 
+% \acom{I suggest replacing $\mathbb O$ by $R$, and $L/L^{\gamma^c}$ by $(L + R^{\gamma^c})/R^{\gamma^c}$ because that's what we're doing. In a lower triangular $g(A)$ columns ${i+1..m}$ cannot be used to eliminate entries in rows ${i+1..m}$ in the first $i$ columns over $\CC[t]$ or $\CC\xt$.}
+% \jcom{If you think that it sounds better with $ \OO $ replaced by $ R$, then I won't object to the change. Note that the first sentence won't quite make sense ``let $ L \subset \OO^m$ be a point in $ \Gr_+$'', we would have to write ``let $ L \subset R^m$ be a lattice''.}
+% \jcom{$ L /L^{\gamma^c} $ is the image of $ L $ in $ \OO^m / \OO^{\gamma^c}$ since the kernel of the map $ L \rightarrow \OO^m / \OO^{\gamma^c}$ is precisely $L^{\gamma^c} $, so I don't think that there is any problem here.  Again, if you think that it is better, I won't object to your suggested change.} 
+% \jcom{Your question made me wonder about the following: how do we know that $ L_\gamma$ is a lattice?  (or $ L^\gamma$ for that matter)}
 \end{definition}
-We will also need the analogous definitions when $ \OO$ is replaced by $ \CC[t]$ and $L \in \Grth_+$.
+We will also need the analogous definitions when $ \cO$ is replaced by $ \CC[t]$ and $L \in \Grth_+$.
 
 We record the following easy observations.
 \begin{lemma} \label{le:rdimTrans} Let $ L \in \Gr_+$.
 \begin{enumerate}
     \item For any $ 
-    \gamma \subset \{1, \dots, m\} $, we have $$ \rdim L_\gamma + \rdim L^{\gamma^c} = \rdim L \,.$$
-    \item For any $ \gamma_1 \subset \gamma_2 \subset \{1, \dots, m\}$, we have $$ (L_{\gamma_1})_{\gamma_2} = L_{\gamma_2}
+    \gamma \subset [m] $, we have $$ \rdim L_\gamma + \rdim L^{\gamma^c} = \rdim L \,.$$
+    \item For any $ \gamma_1 \subset \gamma_2 \subset [m]$, we have $$ (L_{\gamma_1})_{\gamma_2} = L_{\gamma_2}
 $$
 \end{enumerate}
 \end{lemma}
 
-For any $ L \in \Gr_+ $ and $\gamma \subset \{1, \dots, m\} $, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper.
+For any $ L \in \Gr_+ $ and $\gamma \subset [m]$, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper. \acom{We should introduce $D_\gamma$ briefly.}
 
 Recall that $ S^\mu_- = N_-(\cK) t^\mu$. We also introduce the notation $S^\mu_+ := N(\cK)t^\mu$.
-
-\jcom{Actually we will need this notation later when we talk about stable MV cycles.  Maybe we should change $ S^\mu $ to $S^\mu_-$.}
-\acom{For it.}
+% 
+% \jcom{Actually we will need this notation later when we talk about stable MV cycles.  Maybe we should change $ S^\mu $ to $S^\mu_-$.}
+% \acom{For it.}
 
 \begin{lemma} \label{le:Srdim}
     Let $ L \in \Gr_+$.  The following are equivalent:
     \begin{enumerate}
         \item $ L \in S_+^\mu$
-        \item $ \rdim L^{\{1, \dots, i\}} = \mu_1 + \dots + \mu_i$ for all $ i = 1, \dots, m $.
-        \item $ \rdim L_{\{i+1, \dots, m\}} = \mu_{i+1} + \dots + \mu_m$ for $ i  = 1, \dots, m$.
+        \item $ \rdim L^{[i]} = \mu_1 + \dots + \mu_i$ for all $ i = 1, \dots, m $.
+        \item $ \rdim L_{[i+1,m]} = \mu_{i+1} + \dots + \mu_m$ for $ i  = 1, \dots, m$.
     \end{enumerate}
     Similarly, the following are equivalent:
         \begin{enumerate}
         \item $ L \in S_-^\mu$
-        \item $ \rdim L^{\{i+1, \dots, m\}} = \mu_{i+1} + \dots + \mu_m$ for all $ i = 1, \dots, m $.
-        \item $ \rdim L_{\{1, \dots, i\}} = \mu_{1} + \dots + \mu_i$ for $ i  = 1, \dots, m$.
+        \item $ \rdim L^{[i+1,m]} = \mu_{i+1} + \dots + \mu_m$ for all $ i = 1, \dots, m $.
+        \item $ \rdim L_{[i]} = \mu_{1} + \dots + \mu_i$ for $ i  = 1, \dots, m$.
     \end{enumerate}
 \end{lemma}
 
-We now introduce some notation related to Young tableaux. Let $YT(\lambda)_\mu$ denote the set of (possibly semistandard) Young tableaux of shape $\lambda$ and weight $\mu$. 
+We now introduce some notation related to Young tableaux. Denote by $YT(\lambda)_\mu$ the set of (possibly semistandard) Young tableaux of shape $\lambda$ and weight $\mu$. 
 %Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
 % For the sake of making a definition, we momentarily put some letters of our alphabet in unexpected roles, and ask you to suspend your disbelief. Given an arbitrary tableau $t$ having weight $w$ and shape $s$, we denote by $s(i)$ (resp.\ $w(i)$) the shape (resp.\ the weight) of $t(i)$, the tableau got from $t$ by discarding all boxes of weight exceeding $i$. 
 
@@ -1460,7 +1467,7 @@ $$
 % for 
 % $(i,j) = (1,1),(2,1),\dots,(m-1,1),(2,2),\dots,(m-1,2),\dots,(m-1,m-1)$. 
 % 
-The pattern $\gt(\tau)$ is recorded as a lower-triangular matrix (the array of shapes of subtableaux $\tau(i)$) and the datum $n_\bullet(\tau)$ is recorded as a sequence. See \cite[\S 4]{berenstein1988tensor}. Below is an example.
+The pattern $\gt(\tau)$ is recorded as a lower-triangular matrix (the array of shapes of subtableaux $\tau(i)$) and the datum $n_\bullet(\tau)$ is recorded as a sequence. See \cite[\S 4]{berenstein1988tensor}. Below is an example with $\lambda = (4,2)$ and $\mu = (3,2,1)$.
 
 % \jcom{Something is wrong with the indexing of the Lusztig data, there should only be $ m(m-1)/2 $ entries.}
 
@@ -1493,58 +1500,66 @@ The pattern $\gt(\tau)$ is recorded as a lower-triangular matrix (the array of s
 %This combinatorics is relevant because by work of the third author the MV cycles are parametrized by Lusztig data. (This holds much more generally than the present scope.)
 % 
 
-We can associate to $\tau$ an MV cycle as follows. Let    
+We can associate to $\tau$ the MV cycle $Z(\tau)$ by taking the closure of the top-dimensional irreducible component of  
 %  
 \begin{equation*}
     \mathring Z(\tau) = 
         \{
-            L\in S^\mu : L_{\{1, \dots, i\}} \in\Gr^{\lambda(i)}\text{ for } i = 1, \dots m 
-        \}
+            L\in S^\mu : L_{[i]} \in\Gr^{\lambda(i)}\text{ for } i = 1, \dots m 
+        \}\,. 
 \end{equation*}
-and $Z(\tau) = \overline{\mathring Z(\tau)}$. 
+% and $Z(\tau) = \overline{\mathring Z(\tau)}$. 
 % 
-\jcom{Maybe use $ [m] $ for $\{1, \dots, m\}$ ?}
-\acom{And $\{1,\dots,i\}$ etc.}
+% \jcom{Maybe use $ [m] $ for $\{1, \dots, m\}$ ?}
+% \acom{And $\{1,\dots,i\}$ etc.}
 
-The following result is closely related to Theorem 4 from \cite{dranowski2020generalized}.  It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson--Kogan \cite{anderson2004mirkovic} (see Section 9 in \cite{kamnitzer2010mirkovic}).  We also note that a different map from Young tableaux to MV cycles was obtained by Gaussent--Littelmann--Nguyen \cite[Theorem 2]{gaussent2013knuth}.
+The following result is closely related to Theorem 4 from \cite{dranowski2020generalized}.  It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson--Kogan \cite{anderson2004mirkovic} (see Section 9 in \cite{kamnitzer2010mirkovic}).  We also note that a different map from Young tableaux to MV cycles was obtained by Gaussent--Littelmann--Nguyen \cite[Theorem 2]{gaussent2013knuth}. \acom{Many alsos}
 \begin{proposition}
     \label{pr:newmvdes}
-    $Z(\tau)$ is the MV cycle whose Lusztig datum with respect to $ \vi $ is $n_\bullet(\tau)$. 
+    $Z(\tau)$ is the MV cycle whose Lusztig datum (with respect to the standard reduced word) is $n_\bullet(\tau)$. 
 \end{proposition}
 \begin{proof}
     The proof of this theorem follows the same strategy as in \cite{dranowski2020generalized}.
-\jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
-\acom{I've been meaning to update the paper. It's peppered with ``typos''.}
+% \jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
+% \acom{I've been meaning to update the paper. It's peppered with ``typos''.}
 
-First, we consider \acom{add \texttt{mathring}'s to these $Z$'s?} \jcom{Sure.}
+First, we consider 
+% \acom{add \texttt{mathring}'s to these $Z$'s?} \jcom{Sure.}
 \begin{equation*}
-Z(\tau)_1 := \{ L \in S^\mu \cap \Gr_+ : L_{\{1, \dots, i\}} \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\} \,. 
+\mathring Z(\tau)_1 := \{ L \in S^\mu \cap \Gr_+ : L_{[i]} \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\} \,. 
 %Z(\tau)_2 := \{ L \in S^\mu : L \cap \cO^i \in S^{\lambda(i)} \cap \Gr^{\lambda(i)} \text{ for } i = 1, \dots m\}
 \end{equation*}
 
 Using Lemma \ref{le:Srdim}, we see that
 $$
-Z(\tau)_1 = \{ L \in \Gr_+ : \rdim L_{\{j, \dots, i\}} = \lambda(i)_j + \dots + \lambda(i)_i \text{ for all $ 1 \le j \le i \le m $} \}
+\mathring Z(\tau)_1 = \{ L \in \Gr_+ : \rdim L_{[j,i]} = \lambda(i)_j + \dots + \lambda(i)_i \text{ for all $ 1 \le j \le i \le m $} \}
 $$
+where note that $ \lambda(i)_j + \dots + \lambda(i)_i$ is the number of boxes on rows $ j, \dots, i$ of weight $ 1, \dots, i $.
+% \jcom{We could write that $ \lambda(i)_j + \dots + \lambda(i)_i$ is the number of boxes on rows $ j, \dots, i$ filled with $ 1, \dots, i $.}
+% \acom{\emoji{thumbsup}} 
 
-\jcom{We could write that $ \lambda(i)_j + \dots + \lambda(i)_i$ is the number of boxes on rows $ j, \dots, i$ filled with $ 1, \dots, i $.}
-\acom{\emoji{thumbsup}} 
+From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ \mathring Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}. In particular it is irreducible. Thus, its closure is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $. (In \cite{kamnitzer2010mirkovic}, the third author worked with $  G(\cO) \backslash G(\cK)$, which we identify with $ \Gr $ using $ [g] \mapsto [g^{-1}]$.) \acom{Maybe we should avoid using square brackets as we haven't used them yet?}
 
-From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}.  Thus, $ \overline{Z(\tau_1)}$ is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $. (In \cite{kamnitzer2010mirkovic}, we worked with $  G(\cO) \backslash G(\cK)$, which we identify with $ \Gr $ using $ [g] \mapsto [g^{-1}]$.)
-
-We also note that $Z(\tau_1) \cap \Gr^\lambda$ is dense in $ Z(\tau_1)$.  
+We also note that $\mathring Z(\tau)_1\cap \Gr^\lambda$ is dense in $ \mathring Z(\tau)_1$.  
 \jcom{Need to justify this last sentence.  There are two possibilities.  Either we can use compute the MV polytope corresponds to $ \tau $ and show that it lies in the Weyl polytope for $ \lambda $ (is this done anywhere in the literature) or we could use the Mirkovic-Vybornov isomorphism.}
 
-Fix $ i \in \{1, \dots, m\}$. If $ L \in S^\mu$, then $ L_{\{1, \dots, i\}} \in S^{\mu(i)}$.  Thus, we get a map $$ f_i : Z(\tau)_1 \rightarrow S^{\mu(i)} \cap S_+^{\lambda(i)} $$
-From the definition of $ Z(\tau)_1 $, we see that $ f_i(Z(\tau_1) = Z(\tau(i)_1)$.  From above $ \Gr^{\lambda(i)} \cap f_i(Z(\tau(i)_1))$ is a dense constructible subset of $Z(\tau(i)_1)$.  Since $ Z(\tau)_1$ is irreducible, this implies that $ f_i^{-1}(S^{\mu(i)} \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) $ is a dense constructible subset of $ Z(\tau_1) $.  
+Fix $ i \in \{1, \dots, m\}$. If $ L \in S^\mu_-$, then $ L_{[i]} \in S^{\mu(i)}_-$ so we get a map 
+$$ 
+f_i : \mathring Z(\tau)_1 \rightarrow S^{\mu(i)}_- \cap S_+^{\lambda(i)} \,. 
+$$
+From the definition of $ \mathring Z(\tau)_1 $, we see that $ f_i(\mathring Z(\tau)_1 )= \mathring Z(\tau(i))_1$.  
+From above/again $ \Gr^{\lambda(i)} \cap f_i(\mathring Z(\tau(i))_1)$ is a dense constructible subset of $\mathring Z(\tau(i))_1$.  
+Since $ \mathring Z(\tau)_1$ is irreducible, this implies that $ f_i^{-1}(S^{\mu(i)}_- \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) $ \acom{$\cap \mathring Z(\tau)_1$?} is a dense constructible subset of $ \mathring Z(\tau)_1 $.  
 
 Working with all $ i $ at once, we conclude that
-$$ Z(\tau)_2 := \bigcap_{i=1}^m f_i^{-1}(S^{\mu(i)} \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) $$
-is a dense constructible subset of $ Z(\tau)_1$.  Thus $\overline{Z(\tau)_2} = \overline{Z(\tau)_1}$.
+$$ 
+\mathring Z(\tau)_2 := \bigcap_{i=1}^m f_i^{-1}(S^{\mu(i)}_- \cap S_+^{\lambda(i)} \cap \Gr^{\lambda(i)}) 
+$$
+is a dense constructible subset of $\mathring Z(\tau)_1$. \acom{Again are we maybe missing capping with $Z$ in the above $:=$?} Thus $\overline{\mathring Z(\tau)_2} = \overline{\mathring Z(\tau)_1}$.
 
 On the other hand, by definition 
 $$
-Z(\tau)_2 \subset \{ L \in S^\mu : L_{\{1, \dots, i\}} \in \Gr^{\lambda(i)} \text{ for } i = 1, \dots, m\}\,.
+\mathring Z(\tau)_2 \subset \mathring Z(\tau). % \{ L \in S^\mu : L_{[i]} \in \Gr^{\lambda(i)} \text{ for } i = 1, \dots, m\}\,.
 $$
 
 \jcom{Now, we need to show density here.  But maybe that won't be possible and we will need to take the ``top''.}
@@ -1578,14 +1593,14 @@ $$
 % 
 \subsection{Fusion of MVCs via BD MVy}
 
-\jcom{Anne, can you reorganize this section to start with $ X(\tau) $ and then do the fusion afterwards?}
+% \jcom{Anne, can you reorganize this section to start with $ X(\tau) $ and then do the fusion afterwards?}
 
 Given $A \in M_N(\CC)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$. If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
 % TODO: address 
 % \acom{We could also use a more compact notation like $A_{(p)}$}
 % \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
 
-Under the isomorphism of \Cref{cor:mvy} the MV cycle $Z(\tau)$ corresponds to the \new{generalized orbital varieties} $X(\tau)$ which is obtained by taking the closure of the top-dimensional 
+Let $\tau\in YT(\lambda)_\mu$ with $\mu$ dominant. Under the isomorphism of \Cref{cor:mvy} the MV cycle $Z(\tau)$ corresponds to the \new{generalized orbital varieties} $X(\tau)$ which is obtained by taking the closure of the top-dimensional 
 % \acom{speak to this?} 
 irreducible component of
 % from $\tau\in YT(\lambda)_\mu$ by 
@@ -1598,16 +1613,14 @@ irreducible component of
 % }    
 \]
 % 
-We do not know whether $\mathring X(\tau)$ is in general irreducible.
+We do not know whether $\mathring X(\tau)$ is in general irreducible. 
 % reduced or has embedded components. 
-\jcom{I guess we need to assume that $ \mu $ is dominant here.}
+% \jcom{I guess we need to assume that $ \mu $ is dominant here.}
+\begin{lemma}
+    Under the Mirkovi\'c--Vybornov isomorphism $\mathring X(\tau)$ is mapped isomorphically onto $\mathring Z(\tau)$. 
+\end{lemma}
 
-\begin{theorem}
-    \label{pr:govsasirrecs}
-    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
-\end{theorem}
-
-\jcom{Please add a reference to your paper here and also a lemma which states that under the Mirkovic-Vybornov isomorphism $ \mathring X(\tau) $ is mapped isomorphically onto $ \mathring Z(\tau) $.}
+% \jcom{Please add a reference to your paper here and also a lemma which states that under the Mirkovic-Vybornov isomorphism $ \mathring X(\tau) $ is mapped isomorphically onto $ \mathring Z(\tau) $.}
 % 
 We will use this theorem to describe the fusion of two MV cycles. 
 % 
@@ -1623,7 +1636,7 @@ Given $s\in\CC^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and
     = \left\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\right\}
 \end{equation*}
 % 
-\jcom{Maybe instead write ``$A \big|_{\CC^{|\mu(i)|}}$ has Jordan type $ (\lambda'(i), 0), (\lambda''(i), s)$}
+\jcom{Maybe instead write ``$A \big|_{\CC^{|\mu(i)|}}$ has Jordan type $ (\lambda'(i), 0), (\lambda''(i), s)$} \acom{Okay. So no need for the first paragraph of this section?}
 % 
 \begin{equation*}
         % X(\tau')\ast_{\CC^\times} X(\tau'') = 
@@ -1641,7 +1654,7 @@ Given $s\in\CC^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and
 % \jcom{Now that we have $ \ast_s$ defined in the fusion section, we can refer to that here.}
 
 \begin{proposition}
-    The image of $\mathring X(\tau',\tau'')_{0,\CC^\times}$ under the isomorphism of \Cref{th:OTGrW} is dense in $\mathring Z(\tau')\ast_{\CC^\times} \mathring Z(\tau'')$. 
+    The image of $\mathring X(\tau',\tau'')_{0,\CC^\times}$ under the isomorphism of \Cref{th:OTGrW} is $\mathring Z(\tau')\ast_{\CC^\times} \mathring Z(\tau'')$. 
     % \[
     % \overline{\phi(X(\tau',\tau''))} 
     % = Z'\ast_s Z'' \,. 
@@ -1667,22 +1680,26 @@ By definition of $\UU^{\mu',\mu''}$ we have $A\big|_{\CC^{|\mu(i)|}}\in\UU^{\mu'
 Therefore, as $i$ varies, we see that the pair $(L(0),L(s))\in S^{\mu'}\times S^{\mu''}$ is such that 
 $$(L_{[i]}(0),L_{[i]}(s))  = (L(0)_{[i]},L(s)_{[i]}) \in \Gr^{\lambda'(i)}\times\Gr^{\lambda''(i)}$$ 
 and so $(L(0),L(s))\in \mathring Z(\tau')\times \mathring Z(\tau'')$.
-
-
-
-For the converse we use the fact that the map $A\mapsto g(A)$ is an isomorphism of $\overline{\OO}^{\lambda',\lambda''}_{0,\AA}\cap\UU^{\mu',\mu''}_{0,\AA}$ and $\overline{\Gr}^{\lambda',\lambda''}_{0,\AA}\cap S^{\mu',\mu''}_{0,\AA}$ which restricts to an isomorphism of generalized orbital varieties and MV cycles in fibres. 
-\acom{Better way to say?} \jcom{I think that you can just rewrite this first half as if and only if and drop the second half. }
-Given $L\in\mathring Z(\tau') \ast_{\CC^\times}\mathring Z(\tau'')$ let $A$ be such that $L = g(A)\CC[t]^i$. \acom{But, is it clear that $A\in\mathring X(\tau',\tau'')_{0,s}$?} 
-Do we need that there exists $(A',A'')\in M_{N'}\times M_{N''}$ such that $L(0) = g(A')\cO^m$ and $L(s) = g(A'')\cO^m$, and that we could take $A'\oplus A''=A$ up to some conjugation that puts $A'\oplus A''\in\TT_\mu$ which is possible because $\TT_\mu$ intersects $\OO^{\lambda',\lambda''}_{0,\AA}$ transversely? 
+% 
+% For the converse we use the fact that the map $A\mapsto g(A)$ is an isomorphism of $\overline{\OO}^{\lambda',\lambda''}_{0,\AA}\cap\UU^{\mu',\mu''}_{0,\AA}$ and $\overline{\Gr}^{\lambda',\lambda''}_{0,\AA}\cap S^{\mu',\mu''}_{0,\AA}$ which restricts to an isomorphism of generalized orbital varieties and MV cycles in fibres. 
+% \acom{Better way to say?} \jcom{I think that you can just rewrite this first half as if and only if and drop the second half. }
+% Given $L\in\mathring Z(\tau') \ast_{\CC^\times}\mathring Z(\tau'')$ let $A$ be such that $L = g(A)\CC[t]^i$. \acom{But, is it clear that $A\in\mathring X(\tau',\tau'')_{0,s}$?} 
+% Do we need that there exists $(A',A'')\in M_{N'}\times M_{N''}$ such that $L(0) = g(A')\cO^m$ and $L(s) = g(A'')\cO^m$, and that we could take $A'\oplus A''=A$ up to some conjugation that puts $A'\oplus A''\in\TT_\mu$ which is possible because $\TT_\mu$ intersects $\OO^{\lambda',\lambda''}_{0,\AA}$ transversely? 
 \end{proof}
 % 
 
-Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} we define $X(\tau',\tau'')_{0,0}$ to be the zero fibre of the Zariski closure of $X(\tau',\tau'')_{0,\CC^\times}$ in $M_N(\CC)$. 
+Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} we define $X(\tau',\tau'')_{0,0}$ to be the zero fibre of the Zariski closure of $\mathring X(\tau',\tau'')_{0,\CC^\times}$ in $M_N(\CC)\times\CC$. 
 % 
 \begin{corollary}
-    The image of $\mathring X(\tau',\tau'')_{0,0}$ in $\mathring Z(\tau')\ast_0 \mathring Z(\tau'')$ is dense. In particular 
-    $$\iota(X(\tau),X(\tau',\tau'')) = \iota(Z(\tau),Z(\tau')\circ Z(\tau''))\,.$$
+    % The image of $\mathring X(\tau',\tau'')_{0,0}$ in $\mathring Z(\tau')\ast_0 \mathring Z(\tau'')$ is dense. In particular 
+    $\iota(X(\tau),X(\tau',\tau'')) = \iota(Z(\tau),Z(\tau')\circ Z(\tau''))\,.$
 \end{corollary}
+% 
+To prove this we require the following main result of \cite{dthesis}.
+\begin{theorem}
+    \label{pr:govsasirrecs}
+    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
+\end{theorem}
 % 
 \begin{conjecture}
     % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu  _2$. 
@@ -1690,19 +1707,20 @@ Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} we 
     % Note that $\tau$ has shape $\lambda$, weight $\mu$, and  Lusztig datum equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
     Then 
     \begin{equation}
-        i(Z(\tau), Z(\tau') \circ Z(\tau'')) = 1 \,. 
+        \iota(Z(\tau), Z(\tau') \circ Z(\tau'')) = 1 \,. 
     \end{equation}
 \end{conjecture}
-\jcom{Rather than adding the Lusztig data, how can you produce $\tau$ directly from $\tau', \tau''$?  I guess you can just add the GT patterns, so for tableaux you just take the union of the rows, is that right?}
-
-
-\acom{Pierre said he hasn't thought about this since he last thought about this and remarked that KKKO would distinguish two terms, a leading and a tailing one.} 
+% 
+% RESOLVED COMMENTS
+% \jcom{Rather than adding the Lusztig data, how can you produce $\tau$ directly from $\tau', \tau''$?  I guess you can just add the GT patterns, so for tableaux you just take the union of the rows, is that right?}
+% 
+% \acom{Pierre said he hasn't thought about this since he last thought about this and remarked that KKKO would distinguish two terms, a leading and a tailing one.} 
 % 
 \subsection{Connection to cluster structure on $\CC[N]$}
 % 
 Goal: 
 $$
-b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} i \left(
+b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} \iota\left(
     Z, Z' \ast_0 Z''
     % \pi^{-1}(0) \cdot \overline{Z_1 \times Z_2 \times U}
 \right) b_Z 
