@@ -1395,6 +1395,9 @@ L^\gamma:= L \cap \OO^\gamma  \qquad L_\gamma := L / L^{\gamma^c} \subset \OO^m 
 \end{gather*}
 where $ \gamma^c := \{1, \dots, m \} \setminus \gamma$.
 \acom{I suggest replacing $\mathbb O$ by $R$, and $L/L^{\gamma^c}$ by $(L + R^{\gamma^c})/R^{\gamma^c}$ because that's what we're doing. In a lower triangular $g(A)$ columns ${i+1..m}$ cannot be used to eliminate entries in rows ${i+1..m}$ in the first $i$ columns over $\CC[t]$ or $\CC\xt$.}
+\jcom{If you think that it sounds better with $ \OO $ replaced by $ R$, then I won't object to the change. Note that the first sentence won't quite make sense ``let $ L \subset \OO^m$ be a point in $ \Gr_+$'', we would have to write ``let $ L \subset R^m$ be a lattice''.}
+\jcom{$ L /L^{\gamma^c} $ is the image of $ L $ in $ \OO^m / \OO^{\gamma^c}$ since the kernel of the map $ L \rightarrow \OO^m / \OO^{\gamma^c}$ is precisely $L^{\gamma^c} $, so I don't think that there is any problem here.  Again, if you think that it is better, I won't object to your suggested change.} 
+\jcom{Your question made me wonder about the following: how do we know that $ L_\gamma$ is a lattice?  (or $ L^\gamma$ for that matter)}
 \end{definition}
 We will also need the analogous definitions when $ \OO$ is replaced by $ \CC[t]$ and $L \in \Grth_+$.
 
@@ -1408,7 +1411,7 @@ $$
 \end{enumerate}
 \end{lemma}
 
-For any $ L \in \Gr_+ $ and $\gamma \subset \{1, \dots, m\} $, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper.
+For any $ L \in \Gr_+ $ and $\gamma \subset \{1, \dots, m\} $, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper.
 
 Recall that $ S^\mu_- = N_-(\cK) t^\mu$. We also introduce the notation $S^\mu_+ := N(\cK)t^\mu$.
 
@@ -1513,7 +1516,7 @@ The following result is closely related to Theorem 4 from \cite{dranowski2020gen
 \jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
 \acom{I've been meaning to update the paper. It's peppered with ``typos''.}
 
-First, we consider \acom{add \texttt{mathring}'s to these $Z$'s?}
+First, we consider \acom{add \texttt{mathring}'s to these $Z$'s?} \jcom{Sure.}
 \begin{equation*}
 Z(\tau)_1 := \{ L \in S^\mu \cap \Gr_+ : L_{\{1, \dots, i\}} \in S_+^{\lambda(i)} \text{ for } i = 1, \dots m\} \,. 
 %Z(\tau)_2 := \{ L \in S^\mu : L \cap \cO^i \in S^{\lambda(i)} \cap \Gr^{\lambda(i)} \text{ for } i = 1, \dots m\}
@@ -1582,8 +1585,7 @@ Given $A \in M_N(\CC)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to t
 % \acom{We could also use a more compact notation like $A_{(p)}$}
 % \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
 
-Under the isomorphism of \Cref{cor:mvy} the MV cycles correspond to the so-called \new{generalized orbital varieties}. 
-We can also associate a generalized orbital variety $X(\tau)$ directly to a semistandard tableau $\tau$ by taking the closure of the top-dimensional 
+Under the isomorphism of \Cref{cor:mvy} the MV cycle $Z(\tau)$ corresponds to the \new{generalized orbital varieties} $X(\tau)$ which is obtained by taking the closure of the top-dimensional 
 % \acom{speak to this?} 
 irreducible component of
 % from $\tau\in YT(\lambda)_\mu$ by 
@@ -1598,15 +1600,18 @@ irreducible component of
 % 
 We do not know whether $\mathring X(\tau)$ is in general irreducible.
 % reduced or has embedded components. 
+\jcom{I guess we need to assume that $ \mu $ is dominant here.}
 
 \begin{theorem}
     \label{pr:govsasirrecs}
     The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
 \end{theorem}
+
+\jcom{Please add a reference to your paper here and also a lemma which states that under the Mirkovic-Vybornov isomorphism $ \mathring X(\tau) $ is mapped isomorphically onto $ \mathring Z(\tau) $.}
 % 
-We will use this theorem to describe intersection multiplicities in the fusion of two MV cycles. 
+We will use this theorem to describe the fusion of two MV cycles. 
 % 
-Let us begin by introducing a ``fusion of generalized orbital varieties''. 
+Let us begin by introducing a ``fusion of generalized orbital varieties'' to match. 
 % 
 Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as in previous sections.
 % 
@@ -1618,7 +1623,7 @@ Given $s\in\CC^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and
     = \left\{A\in\UU_{0,s}^{\mu',\mu''} : A \big|_{\CC^{|\mu(i)|}} \in \OO_{0,s}^{\lambda'(i),\lambda''(i)} \text{ all } i=1,\dots,N\right\}
 \end{equation*}
 % 
-and
+\jcom{Maybe instead write ``$A \big|_{\CC^{|\mu(i)|}}$ has Jordan type $ (\lambda'(i), 0), (\lambda''(i), s)$}
 % 
 \begin{equation*}
         % X(\tau')\ast_{\CC^\times} X(\tau'') = 
@@ -1647,21 +1652,27 @@ and
 
 % \acom{Fixed.}
 
+\jcom{We never quite defined $\mathring Z(\tau')\ast_{\CC^\times} \mathring Z(\tau'')$ so maybe we should write this down somewhere.  Once we do this, I'm pretty sure that we will not get ``dense'' but an equality.}
+
 \begin{proof}
 % 
 Fix $A\in \mathring X(\tau',\tau'')_{0,s} $ and $i = 1,\dots, m$. 
 
 Let $\CC[t]^i\subset\CC[t]^m = \CC^m\otimes_\CC\CC[t]$ denote the $\CC[t]$-submodule generated by the first $i$ standard basis vectors. \acom{Probably don't need to repeat this.}
 
-The lattices $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ and $L=g(A)\CC[t]^m$ are related by the equality $ l = L_{[i]}$ where recall $L_{[i]} = L + \CC[t]^{[i+1,m]} / \CC[t]^{[i+1,m]}\subset \CC[t]^m/\CC[t]^{[i+1,m]} = \CC[t]^i$. 
+The lattices $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ and $L=g(A)\CC[t]^m$ are related by the equality $ l = L_{[i]}$ where recall $L_{[i]} = (L + \CC[t]^{[i+1,m]}) / \CC[t]^{[i+1,m]}\subset \CC[t]^m/\CC[t]^{[i+1,m]} = \CC[t]^i$. 
     
 By definition of $\UU^{\mu',\mu''}$ we have $A\big|_{\CC^{|\mu(i)|}}\in\UU^{\mu'(i),\mu''(i)}_{0,s}$ and by definition of $X(\tau',\tau'')_{0,s}$, $A\big|_{\CC^{|\mu(i)|}}$ has Jordan type $((\lambda'(i),0),(\lambda''(i),s))$. So, by \Cref{th:OTGrW}, $l = L_{[i]}\in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}$. On the other hand, also by definition of $\UU^{\mu',\mu''}$, we have $L\in S^{\mu',\mu''}$ and consequently $l\in S^{\mu'(i),\mu''(i)}$. 
 
-Therefore, as $i$ varies, we see that the pair $(L(0),L(s))\in S^{\mu'}\times S^{\mu''}$ is such that $(L_{[i]}(0),L_{[i]}(s)) \in \Gr^{\lambda'(i)}\times\Gr^{\lambda''(i)}$ and so $(L(0),L(s))\in \mathring Z(\tau')\times \mathring Z(\tau'')$.
+Therefore, as $i$ varies, we see that the pair $(L(0),L(s))\in S^{\mu'}\times S^{\mu''}$ is such that 
+$$(L_{[i]}(0),L_{[i]}(s))  = (L(0)_{[i]},L(s)_{[i]}) \in \Gr^{\lambda'(i)}\times\Gr^{\lambda''(i)}$$ 
+and so $(L(0),L(s))\in \mathring Z(\tau')\times \mathring Z(\tau'')$.
 
-For the converse we use the fact that the map $A\mapsto g(A)$ is an isomorphism of $\overline{\OO}^{\lambda',\lambda''}_{0,\AA}\cap\UU^{\mu',\mu''}_{0,\AA}$ and $\overline{\Gr}^{\lambda',\lambda''}_{0,\AA}\cap S^{\mu',\mu''}_{0,\AA}$ which restricts to an isomorphism of generalized orbital varieties and MV cycles in the zero fibre. 
-\acom{Better way to say?}
-Given $L\in\mathring Z(\tau') \ast_{\CC^\times}\mathring Z(\tau'')$ let $A$ be such that $L = g(A)\CC[t]^i$. Is it clear that $A\in\mathring X(\tau',\tau'')_{0,s}$? 
+
+
+For the converse we use the fact that the map $A\mapsto g(A)$ is an isomorphism of $\overline{\OO}^{\lambda',\lambda''}_{0,\AA}\cap\UU^{\mu',\mu''}_{0,\AA}$ and $\overline{\Gr}^{\lambda',\lambda''}_{0,\AA}\cap S^{\mu',\mu''}_{0,\AA}$ which restricts to an isomorphism of generalized orbital varieties and MV cycles in fibres. 
+\acom{Better way to say?} \jcom{I think that you can just rewrite this first half as if and only if and drop the second half. }
+Given $L\in\mathring Z(\tau') \ast_{\CC^\times}\mathring Z(\tau'')$ let $A$ be such that $L = g(A)\CC[t]^i$. \acom{But, is it clear that $A\in\mathring X(\tau',\tau'')_{0,s}$?} 
 Do we need that there exists $(A',A'')\in M_{N'}\times M_{N''}$ such that $L(0) = g(A')\cO^m$ and $L(s) = g(A'')\cO^m$, and that we could take $A'\oplus A''=A$ up to some conjugation that puts $A'\oplus A''\in\TT_\mu$ which is possible because $\TT_\mu$ intersects $\OO^{\lambda',\lambda''}_{0,\AA}$ transversely? 
 \end{proof}
 % 
@@ -1675,15 +1686,11 @@ Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} we 
 % 
 \begin{conjecture}
     % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu  _2$. 
-    Let $\tau$ be the tableau of shape $\lambda$ and weight $\mu$ whose Lusztig datum is equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
-    % Then $i(\tau, \pi^{-1}(0) \cdot \overline{\tau_1 \times \tau_2 \times U})$ is equal to 1. 
+    Let $\tau$ be the tableau got by taking the union of the rows of $\tau'$ and $\tau''$ and ordering the entries in each row smallest to largest. 
+    % Note that $\tau$ has shape $\lambda$, weight $\mu$, and  Lusztig datum equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
     Then 
     \begin{equation}
-        i(\tau, 
-        % \pi^{-1}(0) \cdot \overline{\tau_1 \times \tau_2 \times U}
-        % Z_1 \circ Z_2 
-        \tau' \circ \tau''
-        ) = 1 \,. 
+        i(Z(\tau), Z(\tau') \circ Z(\tau'')) = 1 \,. 
     \end{equation}
 \end{conjecture}
 \jcom{Rather than adding the Lusztig data, how can you produce $\tau$ directly from $\tau', \tau''$?  I guess you can just add the GT patterns, so for tableaux you just take the union of the rows, is that right?}
