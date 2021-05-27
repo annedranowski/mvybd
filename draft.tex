@@ -1872,15 +1872,23 @@ Since $\mathring X(\tau',\tau'')_{0,0}\subset\overline{\OO}^\lambda\cap\TT_\mu\c
 % 
 \subsection{Connection to cluster structure on $\CC[N]$}
 % 
-Goal: 
+There is a map from $\irr \overline{\Gr^\lambda\cap S^\mu_-} \to \CC[N]$ that factors through \acom{??} $\overline{S^0_+\cap S^\nu_-}$ for $\nu = \lambda - \mu$. The irreducible components of $ \overline{S^0_+\cap S^\nu_-}$ are called \new{stable MV cycles} and there is a bijection given by multiplication by $t^\lambda$ from $\{Z\in \irr \overline{S^0_+\cap S^\nu_-} : t^\lambda Z \subset\overline\Gr^\lambda\}$ to $\irr \overline{\Gr^\lambda\cap S^\mu_-} $. Moreover, the induced map on $\cup L(\lambda)\to\CC[N]$ is not injective, while that on the collection of all stable MV cycles ($\oplus L(0)_\nu\to\CC[N]$) is. 
+
+In \cite{baumann2019mirkovic}, Baumann, Knutson and the third author show that the stable MV cycles define a perfect basis of $\CC[N]$ whose structure constants are given by intersection multiplicities. 
+% 
+
+\begin{theorem}
+    (\cite[Theorem~7.11]{baumann2019mirkovic})
 $$
 b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} \iota\left(
     Z, Z' \ast_0 Z''
     % \pi^{-1}(0) \cdot \overline{Z_1 \times Z_2 \times U}
 \right) b_Z 
 $$
+\end{theorem}
 
 \jcom{We should recall the stable MV cycles and the theorem from mvbasis regarding multiplication in $ \CC[N]$.}
+\acom{Begun}
 
 \begin{lemma}
     \label{lem:mintab}
