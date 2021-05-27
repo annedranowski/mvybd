@@ -87,9 +87,9 @@ Note that evaluation at $ t = s$ provides a group homomorphism $ H(\cO_s) \right
 Throughout the paper, we fix $ m \in \NN$.  We let $G = \GL_m$ and let $T\subset G$ be the maximal torus of diagonal matrices. 
 % are there other possibilities?? :S 
 We identify $\ZZ^m$ with the coweight lattice of $G$ and say that a coweight 
-% The coweight lattice of $ G $ is $ \ZZ^m = \Hom(\CC^\times,T)$.
+% The coweight lattice of $ G $ is $ \ZZ^m = \Hom(\AA^\times,T)$.
 % TODO: Thank you - resolved!
-% \acom{This identification assumes we are taking $\CC$ points of $G$ right? i.e.\ it's really $P(T(\CC)) = \Hom(\CC^\times,T(\CC))$ that's $\cong \ZZ^m$ and for instance $P(T(\CC[x]/(x^2))$ will give sth else?} 
+% \acom{This identification assumes we are taking $\CC$ points of $G$ right? i.e.\ it's really $P(T(\CC)) = \Hom(\AA^\times,T(\CC))$ that's $\cong \ZZ^m$ and for instance $P(T(\CC[x]/(x^2))$ will give sth else?} 
 % \jcom{No, the coweight lattice is the set of homomorphisms of algebraic groups from $ \mathbb G_m$ to $ GL_m$.  It is independent of the ring/field of definition.}
 % 
 % The \textbf{dominant coweights} of $ G $ are the set of $ \lambda = (\lambda_1, \dots, \lambda_m) \in \ZZ^m $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
@@ -499,12 +499,13 @@ The following result is the factorization property of the Beilinson--Drinfeld Gr
 
 \subsection{The fusion construction}
 \jcom{We should probably be consistent with $ \AA$ vs $\CC$.  I'm happy with either.}
-\acom{Do you mean that if we go with $\AA$ we should change $\CC^\times$ as well? Also, would you agree that the distinction is the topology? So $\AA$ is better if we were using ``generic'' to describe $s\ne 0$, which we are not.}
-\jcom{Yes, either we should write $ \AA, \AA^\times $ or $ \CC, \CC^\times$.  There is no distinction.  Always in this paper, we work with the Zariski topology whether we write $ \AA $ or $ \CC$.}
+\acom{Do you mean that if we go with $\AA$ we should change $\AA^\times$ as well? Also, would you agree that the distinction is the topology? So $\AA$ is better if we were using ``generic'' to describe $s\ne 0$, which we are not.}
+\jcom{Yes, either we should write $ \AA, \AA^\times $ or $ \CC, \AA^\times$.  There is no distinction.  Always in this paper, we work with the Zariski topology whether we write $ \AA $ or $ \CC$.}
+\acom{Ok, let's be fancy and write $\AA$. (So if someone writes $s\to 0$ you don't think of it as $s$ approaches $0$ in the metric topology, but really as the limit of ideals $(s)\supset (s^2)\supset \cdots$ which, I hope, is the zero ideal?)}
 
 The following construction will be very important in this paper.  
 
-Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  
+Let $ \Gr_{0, \AA^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  
 % 
 %Composing the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (\cref{it:polyno-taylor,it:grs-gr} of \cref{ss:relsbtwgrs} preceding), we obtain an isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr$.
 % TODO: cf https://tex.stackexchange.com/questions/256849/cleveref-change-behaviour-of-cref-to-use-the-abbreviated-form
@@ -512,13 +513,13 @@ Let $ \Gr_{0, \CC^\times} $ denote the preimage of $\AA \setminus \{0\}$ under t
 The isomorphisms $ \theta_s $ defined above glue together to a projection map
 \begin{equation}
 \label{eq:mvitau}
-    \theta : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr \, .
+    \theta : \Gr_{0, \AA^\times} \rightarrow \Gr \times \Gr \, .
 \end{equation}
-(This $\theta$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \CC^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
+(This $\theta$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \AA^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
 %  TODO: outstanding
 % \acom{Question for Joel: What is the benefit of working with diagonals? Letting two points vary? What is an example of a structure that you can't see letting just one point vary as we do.}
 
-Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $$ X_1 \ast_{\Cx} X_2 := \theta^{-1}(X_1 \times X_2) \subset \Gr_{0, \CC^\times} $$
+Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $$ X_1 \ast_{\Cx} X_2 := \theta^{-1}(X_1 \times X_2) \subset \Gr_{0, \AA^\times} $$
 % 
 % \jcom{I changed this a bit in order to match Mirkovi\'c--Vilonen better.}
 % \acom{We say ``we define the subscheme..'' but what is there to define? Should it say ``we consider'' maybe?}
@@ -526,7 +527,7 @@ For $ s \in \Cx$, we write $ X_1 \ast_s X_2  $ for the fibres of $ X_1 \ast_{\Cx
 
 
 % TODO: outstanding 
-% \acom{Well you might not want but I think it would be good to tell the reader why we use the notation $\CC^\times$ for $\AA\setminus 0$ in $\AA$ or why we use the notation $\AA$ at all.. E.g.\ do we know what happens for $\GL_m(k)$ over some other base field $k$.}
+% \acom{Well you might not want but I think it would be good to tell the reader why we use the notation $\AA^\times$ for $\AA\setminus 0$ in $\AA$ or why we use the notation $\AA$ at all.. E.g.\ do we know what happens for $\GL_m(k)$ over some other base field $k$.}
 
 We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  X_1 \ast_{\Cx} X_2 $ in $ \Grbd $. By construction, this is a flat family over $ \AA$.
 
@@ -1346,7 +1347,7 @@ $$
 $$
 \end{theorem}
 % 
-%\jcom{I was thinking about the proof of this result.  It is enough to prove that for $ A \in \OO^{\lambda', \lambda''}_s \cap \TT_\mu $, $g(A) \in S^{\mu', \mu''}_s $ if and only if $ A \in T^+$.  It is easy to show that if $ A \in \UU$, then $ g(A) \in S^{\mu', \mu''}_s $.  But the converse is not so obvious.  (I think Anne's paper/thesis might be incomplete on this point.)  I thought of two approaches: first to write down the lattice interpretation of $S^{\mu', \mu''}$ (similar to what is in my thesis in the Anderson-Kogan comparison section) or think about both $S^{\mu', \mu''}$ and $\UU$ as attracting sets for a $\CC^\times$ action.  Which do you prefer?}
+%\jcom{I was thinking about the proof of this result.  It is enough to prove that for $ A \in \OO^{\lambda', \lambda''}_s \cap \TT_\mu $, $g(A) \in S^{\mu', \mu''}_s $ if and only if $ A \in T^+$.  It is easy to show that if $ A \in \UU$, then $ g(A) \in S^{\mu', \mu''}_s $.  But the converse is not so obvious.  (I think Anne's paper/thesis might be incomplete on this point.)  I thought of two approaches: first to write down the lattice interpretation of $S^{\mu', \mu''}$ (similar to what is in my thesis in the Anderson-Kogan comparison section) or think about both $S^{\mu', \mu''}$ and $\UU$ as attracting sets for a $\AA^\times$ action.  Which do you prefer?}
 % 
 %\acom{Assuming Theorem 2 we think this follows by application of Roger's lemma. Also, I think my thesis is complete on this point.}
 % 
@@ -1355,7 +1356,7 @@ $$
 %\acom{But I am also curious about the attracting set approach.}
 % 
 \begin{proof}
-We could prove this by observing the both sides are the attracting locus of an appropriate $ \CC^\times$ action. However, we will give the following more algebraic proof.
+We could prove this by observing the both sides are the attracting locus of an appropriate $ \AA^\times$ action. However, we will give the following more algebraic proof.
 
 Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A)\CC[t]^m,s) \in S^{\mu', \mu''}_{0,\AA} $. 
 %\acom{not $g(A)\CC[t]^m$}
@@ -1732,7 +1733,7 @@ Let us begin by introducing a ``fusion of generalized orbital varieties'' to mat
 % 
 Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as in previous sections.
 % 
-Given $s\in\CC^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
+Given $s\in\AA^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
 % 
 \begin{equation*}
     \mathring X(\tau',\tau'')_{0,s} 
@@ -1747,10 +1748,10 @@ Given $s\in\CC^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and
 % 
 and
 \begin{equation*}
-        % X(\tau')\ast_{\CC^\times} X(\tau'') = 
-        \mathring X(\tau',\tau'')_{0,\CC^\times} = 
+        % X(\tau')\ast_{\AA^\times} X(\tau'') = 
+        \mathring X(\tau',\tau'')_{0,\AA^\times} = 
     \left\{
-        (A,s)\in M_N(\CC) \times \CC^\times: 
+        (A,s)\in M_N(\CC) \times \AA^\times: 
         A \in \mathring X(\tau',\tau'')_{0,s} 
     \right\}\,.
 \end{equation*}
@@ -1766,9 +1767,9 @@ Note that elements $A\in\mathring X(\tau',\tau'')$ do not in general correspond 
 % \acom{or make the identification using the map the map $\tau$ of \Cref{eq:mvitau}. Can similarly identify $X'\ast_s X'' = X'\times X''$ by performing the obvious change of basis and block-diagonalizing. May make sense to introduce $\ast_s$ in greater generality, earlier; or at least on MV cycles earlier, since here I should actually make the definition for $Z(\tau)$'s.. which is ok, as in not a loss of generality. Still..}
 % 
 % \jcom{Now that we have $ \ast_s$ defined in the fusion section, we can refer to that here.}
-%Recall the map $\theta : \Gr_{0, \CC^\times} \rightarrow \Gr \times \Gr$ from \Cref{ss:affgrs}. 
+%Recall the map $\theta : \Gr_{0, \AA^\times} \rightarrow \Gr \times \Gr$ from \Cref{ss:affgrs}. 
 \begin{proposition}
-    The image of $\mathring X(\tau',\tau'')_{0,\CC^\times}$ under the isomorphism of \Cref{th:OTGrW} is $\mathring Z(\tau')\ast_\Cx \mathring Z(\tau''))$. 
+    The image of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ under the isomorphism of \Cref{th:OTGrW} is $\mathring Z(\tau')\ast_\Cx \mathring Z(\tau''))$. 
     % \[
     % \overline{\phi(X(\tau',\tau''))} 
     % = Z'\ast_s Z'' \,. 
@@ -1779,7 +1780,7 @@ Note that elements $A\in\mathring X(\tau',\tau'')$ do not in general correspond 
 
 % \acom{Fixed.}
 
-%\jcom{We never quite defined $\mathring Z(\tau')\ast_{\CC^\times} \mathring Z(\tau'')$ so maybe we should write this down somewhere.  Once we do this, I'm pretty sure that we will not get ``dense'' but an equality.}
+%\jcom{We never quite defined $\mathring Z(\tau')\ast_{\AA^\times} \mathring Z(\tau'')$ so maybe we should write this down somewhere.  Once we do this, I'm pretty sure that we will not get ``dense'' but an equality.}
 
 %\acom{Should we just use $\tau^{-1}(\mathring Z(\tau') \times \mathring Z(\tau''))$ instead?} 
 
@@ -1810,12 +1811,12 @@ $L\in\mathring Z(\tau')\ast_\Cx \mathring Z(\tau'')$.
 % 
 % For the converse we use the fact that the map $A\mapsto g(A)$ is an isomorphism of $\overline{\OO}^{\lambda',\lambda''}_{0,\AA}\cap\UU^{\mu',\mu''}_{0,\AA}$ and $\overline{\Gr}^{\lambda',\lambda''}_{0,\AA}\cap S^{\mu',\mu''}_{0,\AA}$ which restricts to an isomorphism of generalized orbital varieties and MV cycles in fibres. 
 % \acom{Better way to say?} \jcom{I think that you can just rewrite this first half as if and only if and drop the second half. }
-% Given $L\in\mathring Z(\tau') \ast_{\CC^\times}\mathring Z(\tau'')$ let $A$ be such that $L = g(A)\CC[t]^i$. \acom{But, is it clear that $A\in\mathring X(\tau',\tau'')_{0,s}$?} 
+% Given $L\in\mathring Z(\tau') \ast_{\AA^\times}\mathring Z(\tau'')$ let $A$ be such that $L = g(A)\CC[t]^i$. \acom{But, is it clear that $A\in\mathring X(\tau',\tau'')_{0,s}$?} 
 % Do we need that there exists $(A',A'')\in M_{N'}\times M_{N''}$ such that $L(0) = g(A')\cO^m$ and $L(s) = g(A'')\cO^m$, and that we could take $A'\oplus A''=A$ up to some conjugation that puts $A'\oplus A''\in\TT_\mu$ which is possible because $\TT_\mu$ intersects $\OO^{\lambda',\lambda''}_{0,\AA}$ transversely? 
 \end{proof}
 % 
 
-Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} \jcom{I think just add a reference our fusion section} we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure of $\mathring X(\tau',\tau'')_{0,\CC^\times}$ in $M_N(\CC)\times\CC$. 
+Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} \jcom{I think just add a reference our fusion section} we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ in $M_N(\CC)\times\CC$. 
 % 
 \begin{corollary}
 \label{cor:iota}
