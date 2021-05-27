@@ -498,6 +498,7 @@ The following result is the factorization property of the Beilinson--Drinfeld Gr
 \jcom{I reorganized a bit.  This last point is not really much of a result, so removed the ``proposition'' label.}
 
 \subsection{The fusion construction}
+\label{ss:fuscon}
 \jcom{We should probably be consistent with $ \AA$ vs $\CC$.  I'm happy with either.}
 \acom{Do you mean that if we go with $\AA$ we should change $\AA^\times$ as well? Also, would you agree that the distinction is the topology? So $\AA$ is better if we were using ``generic'' to describe $s\ne 0$, which we are not.}
 \jcom{Yes, either we should write $ \AA, \AA^\times $ or $ \CC, \AA^\times$.  There is no distinction.  Always in this paper, we work with the Zariski topology whether we write $ \AA $ or $ \CC$.}
@@ -683,11 +684,11 @@ See section 5.2 of \cite{baumann2020bases} for further details.
 % 
 We now consider some subvarieties of the space of $ N\times N$ matrices, again using the $ \lambda, \lambda', \lambda'', \mu, \mu', \mu''$ defined in the previous section.  Recall that $\lambda, \mu $ are partitions of $ N$.
 
-For $ s \in \CC$ we write $ J_{s,\lambda}$ for the Jordan form matrix with eigenvalue $ s$ and Jordan blocks of sizes $ \lambda_1, \dots, \lambda_m$.
+Given $ s \in \AA$ we write $ J_{s,\lambda}$ for the Jordan form matrix with eigenvalue $ s$ and Jordan blocks of sizes $ \lambda_1, \dots, \lambda_m$.
     
 \begin{definition}
 \label{def:Olam}
-The nilpotent orbit $ \OO^\lambda \subset M_N(\CC)$ of matrices conjugate to $ J_{0,\lambda}$.
+The nilpotent (adjoint) orbit $ \OO^\lambda \subset M_N(\CC)$ of matrices conjugate to $ J_{0,\lambda}$. These matrices and the linear operators they represent will be said to have Jordan type $\lambda$.
 \end{definition}  
 % 
 % Temporarily commenting out, don't use
@@ -695,10 +696,10 @@ The nilpotent orbit $ \OO^\lambda \subset M_N(\CC)$ of matrices conjugate to $ J
 % 
 \begin{definition}
 \label{def:Olamlam}
-    For $ s \in \CC, s \ne 0$, the adjoint orbit $ \OO^{\lambda', \lambda''}_{0,s}$ of matrices conjugate to $ J_{0,\lambda'} \oplus J_{s,\lambda''}$.
+    For $ s \in \CC, s \ne 0$, the (adjoint) orbit $ \OO^{\lambda', \lambda''}_{0,s}$ of matrices conjugate to $ J_{0,\lambda'} \oplus J_{s,\lambda''}$.
+    These matrices and the linear operators they represent will be said to have Jordan type $((0,\lambda'), (s,\lambda''))$.
 \end{definition}  
 % 
-These matrices and the linear operators they represent will be said to have Jordan type $((0,\lambda'), (s,\lambda''))$.
 
 %A linear operator $ T : V \rightarrow V $ on an $N$-dimensional vector space $V$ is said to have Jordan type $((0,\lambda'), (s,\lambda''))$ if its matrix representatives lie in $ \OO^{\lambda', \lambda''}_{0,s}$.
 % \acom{secret definition; add `a matrix is likewise said to have Jordan type...if it lies in'?}
@@ -709,8 +710,8 @@ These matrices and the linear operators they represent will be said to have Jord
 % The closure $ \overline{\OO}^{\lambda', \lambda''}_{0,s}$ is $\bigcup_{\gamma' \le \lambda', \gamma'' \le \lambda''} \OO^{\gamma', \gamma''}_{0,s}$.     
 % \jcom{Do we need this?}
      
-We recall that these adjoint orbit closures are given by rank conditions.  
-More precisely we have
+We recall that these orbits have closures which are given by rank conditions.  
+More precisely, we have
 $$
     \overline{\OO}^\lambda = \{ A \in M_N(\CC) : \rk A^i \le N - \#\text{~boxes in first $i$ columns of }\lambda \}
 $$
@@ -735,13 +736,16 @@ The following fact seems to be well-known but we could not find this exact state
 In order to prove this proposition, we will need to recall some results from Eisenbud--Saltman \cite{eisenbud1989rank}. 
 % 
 
-Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ (called a rank function).  Let $k $ be maximal such that $ r(k) \ne 0 $.
+Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ called a \new{rank function}.  Let $k $ be maximal such that $ r(k) \ne 0 $.
 % \jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.} \acom{And make it $N$? Was $k = m$ replaced because $m$ is already used?} \jcom{Yes and yes} \acom{I like the idea of making it $N$}
+% 
+Let $ W$ be a subspace of $ \AA^k$. Eisenbud and Saltman define and study the flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions. We will now describe these fibres.
 
-Let $ W$ be a subspace of $ \AA^k$. Eisenbud \& Saltman define a flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions. We will now describe these fibres.
-
-Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist $ 0=k_0< k_1< \dots < k_\ell = k $, distinct $ s_1, \dots, s_\ell \in \CC$ and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
-$$ s_j = z_{p(k_{j-1}+1)} = \cdots = z_{p(k_j)}\,. $$ We require that $ p $ is of minimal length, given the choice of $ s_1, \dots, s_\ell$.  The data $s_\bullet, p, k_\bullet$ is unique up to a permutation of $ \{1, \dots, \ell\}$.
+Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist a sequence of integers $k_\bullet = (k_0,\dots,k_\ell)$ such that $ 0=k_0< k_1< \dots < k_\ell = k $, a sequence of points $s_\bullet = (s_1, \dots, s_\ell )\in\AA^\ell$ such that $s_i\ne s_j$ for any $i\ne j$, and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
+$$ s_j = z_{p(k_{j-1}+1)} = z_{p(k_{j-1} + 2)} =  \cdots = z_{p(k_j)}$$ 
+for each $j = 1,\dots,\ell$. 
+Given the choice of $ s_\bullet$ we require that $ p $ is of minimal length. 
+Given $z$, the data $k_\bullet, s_\bullet, p$ is unique up to a permutation of $ \{1, \dots, \ell\}$.
 % 
 %\jcom{Eisenbud--Saltman don't introduce this $ s_j$ notation, but I find it helpful.}
 % 
@@ -755,6 +759,7 @@ $$
     r_{z,j}(i):= N + \sum_{a = 1}^i r(p(k_j + a)) - r(p(k_j +a) - 1)  \, . 
 $$
 \jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
+\acom{I don't think that there is any need to swap back. But maybe we could use $c$ (for column) isntead of $i$, since we use $i$ in the same context quite a bit to denote a letter in the alphabet $\{1,\dots,m\}$.} 
 %\jcom{I fixed it now.  I didn't want to use ES's $a_i$.} 
 %\acom{\emoji{+1}}
 
@@ -788,9 +793,18 @@ It is easy to see that this is a rank function, with $ k = \lambda_1$, the numbe
 
 Since $\lambda = \lambda' + \lambda''$, there exists a permutation $ p $ of $ \{1, \dots, k\}$ (the columns of $ \lambda$) such that $ p(1), \dots, p(k_1) $ are the columns of $ \lambda'$ and $ p(k_1+1), \dots, p(k)$ are the columns of $ \lambda''$. Here $ k_1 = \lambda'_1$ the number of columns of $ \lambda'$.
 
-For $ s \in \CC$, we define $ z(s) \in \CC^k$, with $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1, \dots, k$.
+For $ s \in \AA$, we define $ z(s) \in \AA^k$ by 
+\[
+\begin{cases}
+    z(s)_{p(j)} = 0 &  j = 1, \dots, k_1 \\
+    z(s)_{p(j)} = s & j = k_1 + 1, \dots, k\,.
+\end{cases}    
+\]
+% $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1, \dots, k$.
 
-For $ s \ne 0$, we see that the equalities in $ z(s) $ give rise to the data of $ \ell = 2$, $k_1$, $s_1 = 0$, $s_2 = s$, and the permutation $p $.
+For $ s \ne 0$, we see that the equalities in $ z(s) $ give rise to the data of 
+\(\ell =2\), \(k_\bullet = (0,\lambda_1')\), \(s_\bullet = (0,s)\) and the permutation $p$.
+% $ \ell = 2$, $k_1$, $s_1 = 0$, $s_2 = s$, and the permutation $p $.
 We also see that
 \begin{equation} 
 \label{eq:rcols}
@@ -799,7 +813,7 @@ We also see that
             r_{z(s), 2}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda'' \,. 
     \end{split}
 \end{equation}
-On the other hand, for $z(0)$, we get that $ r = 1$ and that 
+On the other hand, for $z(0)$, we get that $ \ell = 1$ and that \acom{This was $r = 1$ but I think it should be $\ell = 1$.}
 \begin{equation} 
 \label{eq:rcol2}
     r_{z(0),1}(i) = 
@@ -879,7 +893,7 @@ A = \begin{bNiceArray}{ccc|ccc}[columns-width = auto,first-row,last-col,code-for
 % \acom{I don't suppose we need this basis now that we're just describing $\TT_\mu$ in words.}
 % 
 % \begin{definition}
-The \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$ is defined to be the affine space of matrices of the form
+Recall that $\mu=(\mu_1,\dots,\mu_m)$ is a partition of $N$. The \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$ is the affine space of $N\times N$ matrices of the form
 % defined as the set of $A\in M_N(\CC)$ such that 
 % \[
 %     \begin{aligned}
@@ -896,7 +910,7 @@ The \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$ is defined to be the affine sp
 % 
 % In words, $A$ 
 % a $\mu$ Jordan form matrix plus 
-$J_{0,\mu} + x$ where $x$ is a $\mu\times\mu$ block matrix with possibly nonzero entries in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
+$J_{0,\mu} + x$ where $x$ is a $\mu\times\mu$ block matrix with possibly nonzero entries $A_{ij}^1,\dots,A_{ij}^{\min(\mu_i,\mu_j)}$ in the first $\min(\mu_i,\mu_j)$ columns of the last row of each $\mu_i\times\mu_j$ block. 
 % $\dim \TT_\mu = N^2 - \dim \OO_\mu$. 
 
 By example, if 
@@ -924,7 +938,7 @@ $\mu = (3,2)$ then $A\in\TT_\mu$ looks like
     % \end{BMAT}
     % \right] % \,. 
 \]
-for some $A_{ij}^k\in\CC$. 
+for some $A_{ij}^k\in\AA$. 
 % \[
 %     \left[\begin{BMAT}(e){c;cc;cc;ccc}{c;cc;cc;ccc} 
 %         0 & A_0 & A_1 & A_2 & A_3 & A_4 & A_5 & A_6\\
@@ -939,10 +953,9 @@ for some $A_{ij}^k\in\CC$.
 % \]
 % 
 
-To $ A \in \TT_\mu$ we will associate the $m\times m$ matrix 
-of polynomials 
+To $ A \in \TT_\mu$ we will associate the $m\times m$ matrix of polynomials 
 % $ g(A) = \left( g(A)_{ij} \right)$ 
-$g(A)$ in $ M_m(\CC[t]) $ whose $(i,j)$th entry is defined as follows.
+$g(A)$ in $ M_m(\AA[t]) $ whose $(i,j)$th entry is defined as follows.
 \begin{equation}
     \label{eq:mvyofa}
     g(A)_{ij} = 
@@ -953,7 +966,7 @@ $g(A)$ in $ M_m(\CC[t]) $ whose $(i,j)$th entry is defined as follows.
     %  \text{ if $ i \ne j$ }
 \end{cases}
 \end{equation}
-$A^k_{ji}$ denotes the $k$th entry from the left of the last row of the $\mu_j\times\mu_i$ block of $A$. 
+% $A^k_{ji}$ denotes the $k$th entry from the left of the last row of the $\mu_j\times\mu_i$ block of $A$. 
 % 
 
 Continuing with the $\mu=(3,2)$ example, 
@@ -990,7 +1003,7 @@ Continuing with the $\mu=(3,2)$ example,
 % \acom{Ok.}
 % 
 
-In other words, the $ i,j$ block of $ A $ is used to produce a polynomial which is inserted in the $ j,i$ entry of $ g(A)$. 
+In other words, the $ \mu_i\times\mu_j$ block of $ A $ is used to produce a polynomial which is inserted in the $(j,i)$ entry of $ g(A)$. 
 
 In $\TT_\mu$ we will be interested in a certain family of block upper-triangular matrices.
 \begin{definition} The ``\textbf{upper-triangular}'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
@@ -1472,16 +1485,16 @@ We record the following easy observations.
 $$
 \end{enumerate}
 \end{lemma}
-\acom{Doesn't the identification $G(K)/G(O) \to G(O)\ G(K)$ coming from $g\mapsto g^{-1}$ give us a minus sign somewhere, since we are sending $S^\mu_w$ to $S^{-\mu}_w$, so $D_{\omega_i}(L) = -\rdim L_{[1,i]}$. Ignoring the minus sign for now, for $j\le i\le m$, and $L_{[1,i]}$ in $S^{\mu(i)}_- \cap S^{\lambda(i)}_+$ we’d like $D_{\omega_j}(L_{[1,i]}) = \rdim (L_{[1,i]})_{[1,j]} = \lambda(i)_j + \cdots + \lambda(i)_i$ whereas the claim $(L_{[1,i]})_{[1,j]} = L_{[1,j]}$ hides that this lattice also depends on $i$? I'm sure I'm missing something here so I will look at it again later. $n_{(a,b)} (L_{[1,i]}) = -D_{[a+1,b]} - D_{[a , b-1]} + D_{[a + 1, b-1]} + D_{[a,b]} = - \rdim L_{[a+1,b]} - \rdim L_{[a,b-1]} + \rdim L_{[a+1,b-1]} + \rdim L_{[a,b]}$}
-\jcom{I warned you when we talked on Tuesday that there might be some problems, but I think that we shouldn't dig any deeper here.} 
-\acom{Well, it's not that deep.. it's just that $(L_{\gamma_1})_{\gamma_2}$ involves taking $\gamma_2^c\subset \gamma_1$ and landing in $\cO^{\gamma_1\cap\gamma_2}$ whereas $L_{\gamma_2}$ involves taking $\gamma_2^c\subset[m]$ and landing in $\cO^{\gamma_2}$ ...so I think the change makes it true.}
-\jcom{But I assumed that $ \gamma_1 \subset \gamma_2$, so I don' think that taking intersection is necessary.}
-\acom{Even so? What was written before was $(L_{\gamma_1})_{\gamma_2} = L_{\gamma_2} $ and if $\gamma_1\subset\gamma_2$ then the intersection is $\gamma_1$. Anyway I don't think we ever use Lem. 6(2), so we can do without it?}
-\jcom{Oh, I guess there was a typo.  I fixed it now.  It is used in the proof of Prop 4, I will add a reference.}
+% \acom{Doesn't the identification $G(K)/G(O) \to G(O)\ G(K)$ coming from $g\mapsto g^{-1}$ give us a minus sign somewhere, since we are sending $S^\mu_w$ to $S^{-\mu}_w$, so $D_{\omega_i}(L) = -\rdim L_{[1,i]}$. Ignoring the minus sign for now, for $j\le i\le m$, and $L_{[1,i]}$ in $S^{\mu(i)}_- \cap S^{\lambda(i)}_+$ we’d like $D_{\omega_j}(L_{[1,i]}) = \rdim (L_{[1,i]})_{[1,j]} = \lambda(i)_j + \cdots + \lambda(i)_i$ whereas the claim $(L_{[1,i]})_{[1,j]} = L_{[1,j]}$ hides that this lattice also depends on $i$? I'm sure I'm missing something here so I will look at it again later. $n_{(a,b)} (L_{[1,i]}) = -D_{[a+1,b]} - D_{[a , b-1]} + D_{[a + 1, b-1]} + D_{[a,b]} = - \rdim L_{[a+1,b]} - \rdim L_{[a,b-1]} + \rdim L_{[a+1,b-1]} + \rdim L_{[a,b]}$}
+% \jcom{I warned you when we talked on Tuesday that there might be some problems, but I think that we shouldn't dig any deeper here.} 
+% \acom{Well, it's not that deep.. it's just that $(L_{\gamma_1})_{\gamma_2}$ involves taking $\gamma_2^c\subset \gamma_1$ and landing in $\cO^{\gamma_1\cap\gamma_2}$ whereas $L_{\gamma_2}$ involves taking $\gamma_2^c\subset[m]$ and landing in $\cO^{\gamma_2}$ ...so I think the change makes it true.}
+% \jcom{But I assumed that $ \gamma_1 \subset \gamma_2$, so I don' think that taking intersection is necessary.}
+% \acom{Even so? What was written before was $(L_{\gamma_1})_{\gamma_2} = L_{\gamma_2} $ and if $\gamma_1\subset\gamma_2$ then the intersection is $\gamma_1$. Anyway I don't think we ever use Lem. 6(2), so we can do without it?}
+% \jcom{Oh, I guess there was a typo.  I fixed it now.  It is used in the proof of Prop 4, I will add a reference.}
 
 For any $ L \in \Gr_+ $ and $\gamma \subset [m]$, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper. \acom{We should introduce $D_\gamma$ briefly.}
 
-For this section only, we will write $ S^\mu_- = N_-(\cK) t^\mu$ (previously we left out the subscript). We also introduce the notation $S^\mu_+ := N(\cK)t^\mu$.
+In this section only, we will write $ S^\mu_- = N_-(\cK) t^\mu$ (previously we left out the subscript). We also introduce the notation $S^\mu_+ := N(\cK)t^\mu$. \acom{HB, ``..we will write.., because we will need the opposite cell..''}
 % \acom{Maybe we shouldn't decorate $S^\mu$ with a subscript $-$ after all since we certainly won't want to add to $S^{\mu',\mu''}_{0,\AA}$ in underscores.}
 % \jcom{I agree.  Is the above solution ok?}
 % \acom{Sure.}
@@ -1515,9 +1528,9 @@ Thus \ref{Srdim1} implies \ref{Srdim2}.  The converse follows from the fact that
 
 The equivalence of \ref{Srdim2} and \ref{Srdim3} follows from Lemma \ref{le:rdimTrans}.
 \end{proof}
-\jcom{I added a proof.  We can get delete and just put a reference to mvcycle if you prefer.}
+% \jcom{I added a proof.  We can get delete and just put a reference to mvcycle if you prefer.}
 
-\acom{No no this is good! Thanks for other additions}
+% \acom{No no this is good! Thanks for other additions}
 
 We now introduce some notation related to Young tableaux. Denote by $YT(\lambda)_\mu$ the set of (possibly semistandard) Young tableaux of shape $\lambda$ and weight $\mu$. 
 %Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
@@ -1620,7 +1633,7 @@ We believe that $ \mathring Z(\tau)$ is irreducible so that in fact $ Z(\tau) = 
     The proof of this theorem follows the same strategy as in \cite{dranowski2020generalized}.
 % \jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
 % \acom{I've been meaning to update the paper. It's peppered with ``typos''.}
-
+% 
 First, we consider 
 % \acom{add \texttt{mathring}'s to these $Z$'s?} \jcom{Sure.}
 \begin{equation*}
@@ -1665,7 +1678,9 @@ $$
 $$
 Since $ \dim \mathring Z(\tau)_2 = \rho(\lambda - \mu)$, we see that $ \mathring Z(\tau) $ must have at least one component of the maximal dimension.  To see that it cannot have any other components of maximal dimension, we note that
 $$ \bigsqcup_{\tau \in YT(\lambda)_\mu} \mathring Z(\tau) \subset \Gr^\lambda \cap S_-^\mu$$
-and the number of irreducible components of the right hand side \acom{of max dim?} \jcom{it is pure dimensional, as mentioned at the beginning of section 6.1} equals $|YT^\lambda_\mu|$, thus on the left hand side, each $ \mathring Z(\tau)$ can only have one irreducible component of dimension $ \rho(\lambda - \mu)$.
+and the number of irreducible components of the right hand side 
+% \acom{of max dim?} \jcom{it is pure dimensional, as mentioned at the beginning of section 6.1} 
+equals $|YT^\lambda_\mu|$, thus on the left hand side, each $ \mathring Z(\tau)$ can only have one irreducible component of dimension $ \rho(\lambda - \mu)$.
 
 %\jcom{Now, we need to show density here.  But maybe that won't be possible and we will need to take the ``top''.}
 
@@ -1700,7 +1715,7 @@ and the number of irreducible components of the right hand side \acom{of max dim
 
 % \jcom{Anne, can you reorganize this section to start with $ X(\tau) $ and then do the fusion afterwards?}
 
-Given $A \in M_N(\CC)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$. If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
+Given $A \in M_N(\AA)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$. If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. \acom{Change $\CC$'s to $\AA$'s?}
 % TODO: address 
 % \acom{We could also use a more compact notation like $A_{(p)}$}
 % \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
@@ -1758,8 +1773,8 @@ and
 % 
 Note that elements $A\in\mathring X(\tau',\tau'')$ do not in general correspond to pairs $(A',A'')\in\mathring X(\tau')\times X(\tau'')$ because if $\mu'$ (resp.\ $\mu''$) is not dominant then $X(\tau')$ (resp.\ $X(\tau'')$) is not well-defined. 
 % The space we have defined may therefore not be a true fusion in the sense that it may not come from two obvious spaces. \acom{Joel?} 
-\jcom{Even if $ \mu', \mu'$ are dominant, it is not obvious how $ A $ corresponds to a pair $(A', A'')$.  And since I don't think that ``true fusion'' is a well-defined thing, I think that we can delete the last sentence.}
-\acom{Ok. By choosing bases of generalized eigenspaces?}
+% \jcom{Even if $ \mu', \mu'$ are dominant, it is not obvious how $ A $ corresponds to a pair $(A', A'')$.  And since I don't think that ``true fusion'' is a well-defined thing, I think that we can delete the last sentence.}
+% \acom{Ok. By choosing bases of generalized eigenspaces?}
 
 % 
 % and let $Z'\ast_s Z'' = (Z'\ast_\AA Z'')_s$.
@@ -1786,8 +1801,9 @@ Note that elements $A\in\mathring X(\tau',\tau'')$ do not in general correspond 
 
 %\jcom{Yes, maybe that is a good idea. We should recall $ \tau $, and I suppose since we have two $ \tau$s, we had better change notation.  Maybe we can use a different letter for the $\tau$ used to define fusion and keep $ \tau $ for tableau.}
 
-%\acom{Changed it to $\theta$ \emoji{worried}}
-\jcom{I went ahead and defined $ \ast_\Cx$ in the fusion section so now we can use it.}
+% \acom{Changed it to $\theta$ \emoji{worried}}
+% \jcom{I went ahead and defined $ \ast_\Cx$ in the fusion section so now we can use it.}
+% \acom{TYVM}
 
 \begin{proof}
 % 
@@ -1816,7 +1832,9 @@ $L\in\mathring Z(\tau')\ast_\Cx \mathring Z(\tau'')$.
 \end{proof}
 % 
 
-Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} \jcom{I think just add a reference our fusion section} we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ in $M_N(\CC)\times\CC$. 
+Now, in analogy with the Beilinson--Drinfeld construction \Cref{ss:fuscon}
+% \acom{add loc cit} \jcom{I think just add a reference our fusion section} \acom{Yeah that's what I meant, taking loc cit literally}
+we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ in $M_N(\CC)\times\CC$. 
 % 
 \begin{corollary}
 \label{cor:iota}
@@ -1825,18 +1843,16 @@ Now, in analogy with the Beilinson--Drinfeld construction \acom{add loc cit} \jc
 \end{corollary}
 \acom{Do we need to introduce $X(\tau',\tau'')_{0,0}$ to state the theorem or can we state it on $\mathring X$'s and $\mathring Z$'s again?}
 \jcom{I changed the statement. I will edit the proof later. }
-
 %
 
-
-To prove this we require the following main result of \cite{dthesis}.
+To prove this we require the following resutl from \cite{dthesis}.
 \begin{theorem}
     \label{pr:govsasirrecs}
     The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
 \end{theorem}
 % 
 \begin{proof}[Proof of~\Cref{cor:iota}]
-Since $\mathring X(\tau',\tau'')_{0,0}\subset\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ (and dimensions are equal: $\dim X(\tau',\tau'')_{0,0} = \dim \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ \acom{why?}) irreducible components of $\mathring X(\tau',\tau'')_{0,0}$ are generalized orbital varieties. The isomorphisms of Prop.\ 5 and Lem.\ 8 then give the desired equality (from left to right). 
+Since $\mathring X(\tau',\tau'')_{0,0}\subset\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ and $\dim X(\tau',\tau'')_{0,0} = \dim \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ \acom{why?} irreducible components of $\mathring X(\tau',\tau'')_{0,0}$ are generalized orbital varieties. The isomorphisms of Prop.\ 5 and Lem.\ 8 then give the desired equality (from left to right). 
 \end{proof}
 % 
 \begin{conjecture}
