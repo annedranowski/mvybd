@@ -1307,7 +1307,7 @@ Since $ g(A) \in M_m(\CC[t]) \cap G_1(\Oinf)t^\mu$, we will regard $ g(A)$ as gi
 
 The following result is called the Mirkovic--Vybornov isomorphism \cite{mirkovic2007quiver}.  In the following form, it can be found in \cite[Theorem 3.2]{cautis2018categorical}, except that we have tweaked both maps with a matrix transpose $ \tr$.
 
-\jcom{I'm not sure which of the Mirkovic--Vybornov papers to cite.} \acom{can say 07, rewritten in 19}
+\jcom{I'm not sure which of the Mirkovic--Vybornov papers to cite.} \acom{can say 07, rewritten in 19?}
 % 
 \begin{theorem} 
 \label{th:TmuWmu}
@@ -1444,6 +1444,7 @@ An irreducible component of $\overline{\Gr}^\lambda \cap S^\mu$ is called an \te
 \end{definition}
 
 \jcom{In this section, I think that $ \mu$ is not necessarily dominant.  So I think that we should we recall our previous notation, but say that $ \mu $ might not be dominant here.}
+\acom{Ok.}
 
 By \cite{mirkovic2007geometric}, all these irreducible components have dimension $ \rho(\lambda - \mu)$, where $ \rho = (m, m-1, \dots, 1)$.
 
@@ -1502,8 +1503,10 @@ $$
 % \acom{Even so? What was written before was $(L_{\gamma_1})_{\gamma_2} = L_{\gamma_2} $ and if $\gamma_1\subset\gamma_2$ then the intersection is $\gamma_1$. Anyway I don't think we ever use Lem. 6(2), so we can do without it?}
 % \jcom{Oh, I guess there was a typo.  I fixed it now.  It is used in the proof of Prop 4, I will add a reference.}
 
-For any $ L \in \Gr_+ $ and $\gamma \subset [m]$, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper. \acom{We should introduce $D_\gamma$ briefly.}
-\jcom{I think that this is sufficient, since it doesn't really play any role in our paper.}
+For any $ L \in \Gr_+ $ and $\gamma \subset [m]$, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper. 
+% \acom{We should introduce $D_\gamma$ briefly.}
+% \jcom{I think that this is sufficient, since it doesn't really play any role in our paper.}
+% \acom{Ok; I was thinking just another half-sentence, like these are some valuation functions and/or they are used to characterise combinatorially the MV cycles.}
 
 In this section only, we will write $ S^\mu_- = N_-(\cK) t^\mu$ (with a subscript), because we will also need the opposite semi-infinite cell $S^\mu_+ := N(\cK)t^\mu$. %\acom{HB, ``..we will write.., because we will need the opposite cell..''}
 % \acom{Maybe we shouldn't decorate $S^\mu$ with a subscript $-$ after all since we certainly won't want to add to $S^{\mu',\mu''}_{0,\AA}$ in underscores.}
@@ -1551,6 +1554,7 @@ Given $\tau\in YT(\lambda)_\mu$ and $ i \in \{1, \dots m\} $, denote by $\lambda
 % 
 
 The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is a list of $ m(m-1)/2$ non-negative integers defined from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ by the formula 
+\acom{For Joel: weight or filling? See below.}
 $$
 \begin{aligned}
 % n_\bullet(\tau)_{i,j} &= \lambda(i+1)_j - \lambda(i)_j = \text{ \# of boxes on the $j$th row of $\tau $ filled with $ i+1$}  \\
@@ -1576,11 +1580,11 @@ n_\bullet(\tau)_{(a,b)} &= \lambda(b)_a - \lambda(b-1)_a = \text{ \# of boxes on
 % (m-1,1) & (m-1,2) & \dots & (m-1,m-1) 
 % \end{smallmatrix}
 $$
-Note that $ \lambda - \mu = \displaystyle{\sum_{1 \le a < b \le m}n(\tau)_{(a,b)} \beta_{a,b}} $ where $ \beta_{a,b} $ denotes the positive root of $ G$ with a $ 1 $ in the $a $ slot and a $-1$ in the $ b $ slot.
+Note that $ \lambda - \mu = \displaystyle{\sum_{1 \le a < b \le m}n_\bullet(\tau)_{(a,b)} \beta_{a,b}} $ where $ \beta_{a,b} $ denotes the positive root of $ G$ with a $ 1 $ in the $a $ slot and a $-1$ in the $ b $ slot.
 % for 
 % $(i,j) = (1,1),(2,1),\dots,(m-1,1),(2,2),\dots,(m-1,2),\dots,(m-1,m-1)$. 
 % 
-The pattern $\gt(\tau)$ is recorded as a lower-triangular matrix (the array of shapes of subtableaux $\tau(i)$) and the datum $n_\bullet(\tau)$ is recorded as a sequence. \acom{See \cite[\S 4]{berenstein1988tensor} for the source?} Below is an example with $\lambda = (4,2)$ and $\mu = (3,2,1)$.
+The pattern $\gt(\tau)$ is recorded as a lower-triangular matrix (the array of shapes of subtableaux $\tau(i)$) and the datum $n_\bullet(\tau)$ is recorded as a sequence. Below is an example with $\lambda = (4,2)$ and $\mu = (3,2,1)$. \acom{GT patterns were introduced in \cite{berenstein1988tensor} to study branching? In particular \S 4 of that paper introduces the map from tableaux to patterns. Note that the map is not 1-to-1.} 
 
 % \jcom{Something is wrong with the indexing of the Lusztig data, there should only be $ m(m-1)/2 $ entries.}
 
@@ -1726,7 +1730,8 @@ equals $|YT^\lambda_\mu|$, thus on the left hand side, each $ \mathring Z(\tau)$
 
 % \jcom{Anne, can you reorganize this section to start with $ X(\tau) $ and then do the fusion afterwards?}
 
-Given $A \in M_N(\CC)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$.  If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. \acom{Change $\CC$'s to $\AA$'s?}
+Given $A \in M_N(\CC)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$.  If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. 
+% \acom{Change $\CC$'s to $\AA$'s?} No.
 % TODO: address 
 % \acom{We could also use a more compact notation like $A_{(p)}$}
 % \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
@@ -1743,6 +1748,7 @@ We define
 \jcom{Maybe for consistency, we should write $ \n \cap \TT_\mu$ (opposite order).}
 
 \begin{lemma}
+    \label{lem:XtZt}
     Under the Mirkovi\'c--Vybornov isomorphism $\mathring X(\tau)$ is mapped isomorphically onto $\mathring Z(\tau)$. 
 \end{lemma}
 \jcom{We should add a proof here.  It will be very similar to Prop 5 below.}
@@ -1803,6 +1809,7 @@ Note that elements $A\in\mathring X(\tau',\tau'')$ do not in general correspond 
 % \jcom{Now that we have $ \ast_s$ defined in the fusion section, we can refer to that here.}
 %Recall the map $\theta : \Gr_{0, \AA^\times} \rightarrow \Gr \times \Gr$ from \Cref{ss:affgrs}. 
 \begin{proposition}
+    \label{pr:XttZtt}
     The image of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ under the isomorphism of \Cref{th:OTGrW} is $\mathring Z(\tau')\ast_\Cx \mathring Z(\tau''))$. 
     % \[
     % \overline{\phi(X(\tau',\tau''))} 
@@ -1851,7 +1858,7 @@ $L\in\mathring Z(\tau')\ast_\Cx \mathring Z(\tau'')$.
 \end{proof}
 % 
 
-Now, in analogy with the Beilinson--Drinfeld construction \Cref{ss:fuscon}
+Now, in analogy with the Beilinson--Drinfeld fusion construction of \Cref{ss:fuscon}
 % \acom{add loc cit} \jcom{I think just add a reference our fusion section} \acom{Yeah that's what I meant, taking loc cit literally}
 we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ in $M_N(\CC)\times\CC$. 
 % 
@@ -1869,7 +1876,9 @@ we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure 
 %[Proof of~\Cref{cor:iota}]
 %Since $\mathring X(\tau',\tau'')_{0,0}\subset\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ and $\dim X(\tau',\tau'')_{0,0} = \dim \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ \acom{why?} irreducible components of $\mathring X(\tau',\tau'')_{0,0}$ are generalized orbital varieties. 
 We can compute intersection multiplicities by passing to dense constructible subsets.  By
-the isomorphisms of Prop.\ 5 and Lem.\ 8, $X(\tau) $ is dense constructible subset of $ Z(\tau) $ and $ X(\tau', \tau'')_{0,0} $ is a dense constructible subset of $ Z(\tau') \ast_0 Z(\tau'') $.  
+the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a dense constructible subset of $ Z(\tau) $ and $ X(\tau', \tau'')_{0,0} $ is a dense constructible subset of $ Z(\tau') \ast_0 Z(\tau'') $.
+%  
+\acom{Hm, I guess you are right, it is easier than what I had, we just need that the arguments on either side match up, and not that the arguments on one side are related. Do we really not need that $X(\tau)$ is contained in $X(\tau',\tau'')_{0,0}$ as an irreducible component at any point?}  
 \end{proof}
 % 
 \begin{conjecture}
@@ -1878,7 +1887,7 @@ the isomorphisms of Prop.\ 5 and Lem.\ 8, $X(\tau) $ is dense constructible subs
     % Note that $\tau$ has shape $\lambda$, weight $\mu$, and  Lusztig datum equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
     Then 
     \begin{equation}
-        \iota(Z(\tau), Z(\tau') \circ Z(\tau'')) = 1 \,. 
+        \iota(Z(\tau), Z(\tau') \arfu Z(\tau'')) = 1 \,. 
     \end{equation}
 \end{conjecture}
 % 
@@ -1889,7 +1898,18 @@ the isomorphisms of Prop.\ 5 and Lem.\ 8, $X(\tau) $ is dense constructible subs
 % 
 \subsection{Connection to cluster structure on $\CC[N]$}
 % 
-There is a map from $\irr \overline{\Gr^\lambda\cap S^\mu_-} \to \CC[N]$ that factors through \acom{??} $\overline{S^0_+\cap S^\nu_-}$ for $\nu = \lambda - \mu$. The irreducible components of $ \overline{S^0_+\cap S^\nu_-}$ are called \new{stable MV cycles} and there is a bijection given by multiplication by $t^\lambda$ from $\{Z\in \irr \overline{S^0_+\cap S^\nu_-} : t^\lambda Z \subset\overline\Gr^\lambda\}$ to $\irr \overline{\Gr^\lambda\cap S^\mu_-} $. Moreover, the induced map on $\cup L(\lambda)\to\CC[N]$ is not injective, while that on the collection of all stable MV cycles ($\oplus L(0)_\nu\to\CC[N]$) is. 
+The coordinate ring of the unipotent subgroup of upper-triangular matrices with 1s on the diagonal has a $\CC$-basis coming from MV cycles. It also has a $\CC$-basis of cluster monomials which is conjectured to be contained in the former. \acom{is this right? Can two bases of an infinite dimensional vector space be related by proper containment?} In his thesis, the first author uses the fusion construction to check that certain MV cycles are cluster. 
+
+We begin by recalling how the MV cycles yield a basis of $\CC[N]$. First note that with respect to the adjoint action of $T$ on $N$, the ring of functions on $N$ is graded by the set $-Q_+$ of nonpositive integer linear combinations positive roots. 
+% In particular, for any $\nu \in Q_+$ and $\mu$ dominant effective, $\nu + \mu$ is effective dominant?
+% 
+Now, there is a map 
+$$
+    \Psi_\lambda: \irr \overline{\Gr^\lambda\cap S^\mu_-} \to \CC[N]_{\mu - \lambda}
+$$ 
+that factors through $\overline{S^0_+\cap S^\nu_-}$ for $\nu = \lambda - \mu$ in the sense that for any $\lambda',\mu'$ such that $\lambda' - \mu' = \lambda - \mu$, the irreducible components of $\Gr^\lambda\cap S^\mu$ are in bijection with those of $\Gr^{\lambda'}\cap S^{\mu'}_-$ according to their Lusztig data, and if $Z,Z'$ are two such matching components, then $\Psi_\lambda(Z) = \Psi_{\lambda'}(Z')$. 
+% 
+In other words, the irreducible components of $ \overline{S^0_+\cap S^\nu_-}$ are called \new{stable MV cycles} and there is a bijection given by multiplication by $t^\lambda$ from $\{Z\in \irr \overline{S^0_+\cap S^\nu_-} : t^\lambda Z \subset\overline\Gr^\lambda\}$ to $\irr \overline{\Gr^\lambda\cap S^\mu_-} $. Moreover, the induced map on $\cup L(\lambda)\to\CC[N]$ is not injective, while that on the collection of all stable MV cycles ($\oplus L(0)_\nu\to\CC[N]$) is. 
 
 In \cite{baumann2019mirkovic}, Baumann, Knutson and the third author show that the stable MV cycles define a perfect basis of $\CC[N]$ whose structure constants are given by intersection multiplicities. 
 % 
