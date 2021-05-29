@@ -502,7 +502,9 @@ The following result is the factorization property of the Beilinson--Drinfeld Gr
 \jcom{We should probably be consistent with $ \AA$ vs $\CC$.  I'm happy with either.}
 \acom{Do you mean that if we go with $\AA$ we should change $\AA^\times$ as well? Also, would you agree that the distinction is the topology? So $\AA$ is better if we were using ``generic'' to describe $s\ne 0$, which we are not.}
 \jcom{Yes, either we should write $ \AA, \AA^\times $ or $ \CC, \AA^\times$.  There is no distinction.  Always in this paper, we work with the Zariski topology whether we write $ \AA $ or $ \CC$.}
-\acom{Ok, let's be fancy and write $\AA$. (So if someone writes $s\to 0$ you don't think of it as $s$ approaches $0$ in the metric topology, but really as the limit of ideals $(s)\supset (s^2)\supset \cdots$ which, I hope, is the zero ideal?)}
+\acom{Ok, let's be fancy and write $\AA$. (So if someone writes $s\to 0$ you don't think of it as $s$ approaches $0$ in the metric topology, but really as the limit of ideals $(s)\supset (s^2)\supset \cdots$ which, I hope, is the zero ideal?) Tentatively remapped our command for $\mathbb C$ to give $\AA$. It looks really funny to use it as notation for a field/conflate field and scheme---is there really no distinction? Surely $\AA = \spec \AA[t]$ is not great practice?}
+\jcom{I think that it would be more typical to use $ \CC $ for the field and use $ \AA$ for the affine line.  I changed $ \CC $ back to $\CC$.}
+
 
 The following construction will be very important in this paper.  
 
@@ -516,7 +518,7 @@ The isomorphisms $ \theta_s $ defined above glue together to a projection map
 \label{eq:mvitau}
     \theta : \Gr_{0, \AA^\times} \rightarrow \Gr \times \Gr \, .
 \end{equation}
-(This $\theta$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \AA^\times$ instead of the complement of the diagonal in $ \CC^2 $.)
+(This $\theta$ matches the map $ \tau $ of \cite{mirkovic2007geometric}, except that we are working over $ \{0 \} \times \AA^\times$ instead of the complement of the diagonal in $ \AA^2 $.)
 %  TODO: outstanding
 % \acom{Question for Joel: What is the benefit of working with diagonals? Letting two points vary? What is an example of a structure that you can't see letting just one point vary as we do.}
 
@@ -760,6 +762,7 @@ $$
 $$
 \jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
 \acom{I don't think that there is any need to swap back. But maybe we could use $c$ (for column) isntead of $i$, since we use $i$ in the same context quite a bit to denote a letter in the alphabet $\{1,\dots,m\}$.} 
+\jcom{Sure, that is a good idea.}
 %\jcom{I fixed it now.  I didn't want to use ES's $a_i$.} 
 %\acom{\emoji{+1}}
 
@@ -813,7 +816,7 @@ We also see that
             r_{z(s), 2}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda'' \,. 
     \end{split}
 \end{equation}
-On the other hand, for $z(0)$, we get that $ \ell = 1$ and that \acom{This was $r = 1$ but I think it should be $\ell = 1$.}
+On the other hand, for $z(0)$, we get that $ \ell = 1$ and that \acom{This was $r = 1$ but I think it should be $\ell = 1$.} \jcom{Yes, you are correct.}
 \begin{equation} 
 \label{eq:rcol2}
     r_{z(0),1}(i) = 
@@ -1423,7 +1426,7 @@ The map $ A \mapsto g(A)\OO^m$ gives an isomorphism    $\overline{\OO}^\lambda \
 
 %\acom{We are ready for applications! One of the motivations for this paper is... Abstractly multiplication is $\ast_s$... To compute we now carry this across \Cref{th:OTGrW}.}
 
-\section{Falling Action} % Resolution
+\section{\sout{Falling Action}} % Resolution
 \subsection{MV cycles}
 % 
 % We need to decide on the order in section 7. How about:
@@ -1435,6 +1438,9 @@ The map $ A \mapsto g(A)\OO^m$ gives an isomorphism    $\overline{\OO}^\lambda \
 \begin{definition}
 An irreducible component of $\overline{\Gr}^\lambda \cap S^\mu$ is called an \textbf{Mirkovic--Vilonen cycle} in $\overline{\Gr}^\lambda$ of coweight $\mu$.
 \end{definition}
+
+\jcom{In this section, I think that $ \mu$ is not necessarily dominant.  So I think that we should we recall our previous notation, but say that $ \mu $ might not be dominant here.}
+
 By \cite{mirkovic2007geometric}, all these irreducible components have dimension $ \rho(\lambda - \mu)$, where $ \rho = (m, m-1, \dots, 1)$.
 
 % \jcom{We could put some stuff here about stable MV cycles and multiplication, but maybe we can have this in a later section.}
@@ -1493,8 +1499,9 @@ $$
 % \jcom{Oh, I guess there was a typo.  I fixed it now.  It is used in the proof of Prop 4, I will add a reference.}
 
 For any $ L \in \Gr_+ $ and $\gamma \subset [m]$, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper. \acom{We should introduce $D_\gamma$ briefly.}
+\jcom{I think that this is sufficient, since it doesn't really play any role in our paper.}
 
-In this section only, we will write $ S^\mu_- = N_-(\cK) t^\mu$ (previously we left out the subscript). We also introduce the notation $S^\mu_+ := N(\cK)t^\mu$. \acom{HB, ``..we will write.., because we will need the opposite cell..''}
+In this section only, we will write $ S^\mu_- = N_-(\cK) t^\mu$ (with a subscript), because we will also need the opposite semi-infinite cell $S^\mu_+ := N(\cK)t^\mu$. %\acom{HB, ``..we will write.., because we will need the opposite cell..''}
 % \acom{Maybe we shouldn't decorate $S^\mu$ with a subscript $-$ after all since we certainly won't want to add to $S^{\mu',\mu''}_{0,\AA}$ in underscores.}
 % \jcom{I agree.  Is the above solution ok?}
 % \acom{Sure.}
@@ -1715,38 +1722,46 @@ equals $|YT^\lambda_\mu|$, thus on the left hand side, each $ \mathring Z(\tau)$
 
 % \jcom{Anne, can you reorganize this section to start with $ X(\tau) $ and then do the fusion afterwards?}
 
-Given $A \in M_N(\AA)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$. If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. \acom{Change $\CC$'s to $\AA$'s?}
+Given $A \in M_N(\CC)$ we denote by $A\big|_{\CC^p}$ the restriction of $A$ to the subspace spanned by the first $p$ standard basis vectors of $\CC^N$.  If $A\big|_{\CC^p}(\CC^p)\subset\CC^p$ then we identify it with the $p\times p$ upper-left submatrix of $A$. \acom{Change $\CC$'s to $\AA$'s?}
 % TODO: address 
 % \acom{We could also use a more compact notation like $A_{(p)}$}
 % \acom{We may want to introduce $\ast_s$ in general. For now we make a definition.} 
 
-Let $\tau\in YT(\lambda)_\mu$ with $\mu$ dominant. Under the isomorphism of \Cref{cor:mvy} the MV cycle $Z(\tau)$ corresponds to the \new{generalized orbital varieties} $X(\tau)$ which is obtained by taking the closure of the top-dimensional 
-% \acom{speak to this?} 
-irreducible component of
-% from $\tau\in YT(\lambda)_\mu$ by 
+Let $\tau\in YT(\lambda)_\mu$ with $\mu$ dominant. 
+We define
 \[
 \mathring X(\tau) = 
 % \overline{
     \{
         A \in  \TT_\mu\cap\n : A\big|_{\CC^{|\mu(i)|}} \in \OO^{\lambda(i)} \text{ for each } i = 1,\dots,m
-    \}\,. 
-% }    
+    \}\,.
 \]
-% 
-%We do not know whether $\mathring X(\tau)$ is in general irreducible. 
-% reduced or has embedded components. 
-% \jcom{I guess we need to assume that $ \mu $ is dominant here.}
+\jcom{Maybe for consistency, we should write $ \n \cap \TT_\mu$ (opposite order).}
+
 \begin{lemma}
     Under the Mirkovi\'c--Vybornov isomorphism $\mathring X(\tau)$ is mapped isomorphically onto $\mathring Z(\tau)$. 
 \end{lemma}
+\jcom{We should add a proof here.  It will be very similar to Prop 5 below.}
+
+By \cite{dthesis}, $ \mathring X(\tau) $ has a unique irreducible component of dimension $ \rho(\lambda - \mu)$.  We write $ X(\tau)$ for the closure of this component.  It is an irreducible component of $ \overline{\OO}^\lambda \cap \TT_\mu$ and will be called a \textbf{generalized orbital variety}.
+
+\jcom{We should give a more specific citation to \cite{drthesis} here and below.  Also, throughout this paper, we should either cite your paper or your thesis, but not both (unless there is a very good reason to do so).  I reorganized this section a bit.  Feel free to add a bit more exposition.}
+
+
+In fact, these are all the generalized orbital varieties by  \cite{dthesis}. 
+\begin{theorem}
+    \label{pr:govsasirrecs}
+    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
+\end{theorem}
+% 
 
 % \jcom{Please add a reference to your paper here and also a lemma which states that under the Mirkovic-Vybornov isomorphism $ \mathring X(\tau) $ is mapped isomorphically onto $ \mathring Z(\tau) $.}
 % 
-We will use this theorem to describe the fusion of two MV cycles. 
-% 
-Let us begin by introducing a ``fusion of generalized orbital varieties'' to match. 
+Our goal is to describe the fusion of two MV cycles using fusion of generalized orbital varieties, which we will now define. 
 % 
 Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as in previous sections.
+\jcom{I think that this is can move earlier, with the caveat that I mentioned earlier about $ \mu $ being non-dominant in 6.1 and dominant here.}
+
 % 
 Given $s\in\AA^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
 % 
@@ -1841,18 +1856,16 @@ we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure 
     % The image of $\mathring X(\tau',\tau'')_{0,0}$ in $\mathring Z(\tau')\ast_0 \mathring Z(\tau'')$ is dense. In particular 
     $\iota(X(\tau), X(\tau',\tau'')_{0,0}) = \iota( Z(\tau), Z(\tau')\ast_0 \mathring Z(\tau''))\,.$
 \end{corollary}
-\acom{Do we need to introduce $X(\tau',\tau'')_{0,0}$ to state the theorem or can we state it on $\mathring X$'s and $\mathring Z$'s again?}
-\jcom{I changed the statement. I will edit the proof later. }
+%\acom{Do we need to introduce $X(\tau',\tau'')_{0,0}$ to state the theorem or can we state it on $\mathring X$'s and $\mathring Z$'s again?}
+%\jcom{I changed the statement. I will edit the proof later. }
 %
 
-To prove this we require the following resutl from \cite{dthesis}.
-\begin{theorem}
-    \label{pr:govsasirrecs}
-    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
-\end{theorem}
-% 
-\begin{proof}[Proof of~\Cref{cor:iota}]
-Since $\mathring X(\tau',\tau'')_{0,0}\subset\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ and $\dim X(\tau',\tau'')_{0,0} = \dim \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ \acom{why?} irreducible components of $\mathring X(\tau',\tau'')_{0,0}$ are generalized orbital varieties. The isomorphisms of Prop.\ 5 and Lem.\ 8 then give the desired equality (from left to right). 
+
+\begin{proof}
+%[Proof of~\Cref{cor:iota}]
+%Since $\mathring X(\tau',\tau'')_{0,0}\subset\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ and $\dim X(\tau',\tau'')_{0,0} = \dim \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ \acom{why?} irreducible components of $\mathring X(\tau',\tau'')_{0,0}$ are generalized orbital varieties. 
+We can compute intersection multiplicities by passing to dense constructible subsets.  By
+the isomorphisms of Prop.\ 5 and Lem.\ 8, $X(\tau) $ is dense constructible subset of $ Z(\tau) $ and $ X(\tau', \tau'')_{0,0} $ is a dense constructible subset of $ Z(\tau') \ast_0 Z(\tau'') $.  
 \end{proof}
 % 
 \begin{conjecture}
@@ -2134,6 +2147,8 @@ and the MV cycles corresponding to each are isomorphic to $\PP^2 \times \PP^2$.
 
 Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 cluster variables. We list the corresponding tableaux, coordinate ring of the MV cycle, and Lusztig-datum below:
 
+\jcom{This is a nice table.  But these are the coordinate rings of $ X(\tau)$, not of $ Z(\tau) $.}
+
 \[
 \begin{array}{ccc} 
 \tau & \text{Coordinate ring of }Z(\tau) & \text{Lusztig-datum} \\ \hline
@@ -2181,6 +2196,9 @@ Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 clust
 We show that the cluster relations in $\CC[N]$ are also true for the fusion product of the corresponding MV cycles.
 
 For each of the 15 exchange relations, we state the associated matrix $X$, the relations acquired from each submatrix $X_i$, the ideal generated by said relations, and the corresponding tableaux from the ideal.
+
+
+\jcom{I think that you should clarify what you mean by ``our ideal'' below.  I think that it is the ideal of $ X(\tau', \tau'')_{0,0}$, is that correct?}
 
 \begin{example}
 Consider the product $Z_1 * Z_2$, so the tableaux are
