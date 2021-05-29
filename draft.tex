@@ -499,11 +499,11 @@ The following result is the factorization property of the Beilinson--Drinfeld Gr
 
 \subsection{The fusion construction}
 \label{ss:fuscon}
-\jcom{We should probably be consistent with $ \AA$ vs $\CC$.  I'm happy with either.}
-\acom{Do you mean that if we go with $\AA$ we should change $\AA^\times$ as well? Also, would you agree that the distinction is the topology? So $\AA$ is better if we were using ``generic'' to describe $s\ne 0$, which we are not.}
-\jcom{Yes, either we should write $ \AA, \AA^\times $ or $ \CC, \AA^\times$.  There is no distinction.  Always in this paper, we work with the Zariski topology whether we write $ \AA $ or $ \CC$.}
-\acom{Ok, let's be fancy and write $\AA$. (So if someone writes $s\to 0$ you don't think of it as $s$ approaches $0$ in the metric topology, but really as the limit of ideals $(s)\supset (s^2)\supset \cdots$ which, I hope, is the zero ideal?) Tentatively remapped our command for $\mathbb C$ to give $\AA$. It looks really funny to use it as notation for a field/conflate field and scheme---is there really no distinction? Surely $\AA = \spec \AA[t]$ is not great practice?}
-\jcom{I think that it would be more typical to use $ \CC $ for the field and use $ \AA$ for the affine line.  I changed $ \CC $ back to $\CC$.}
+% \jcom{We should probably be consistent with $ \AA$ vs $\CC$.  I'm happy with either.}
+% \acom{Do you mean that if we go with $\AA$ we should change $\AA^\times$ as well? Also, would you agree that the distinction is the topology? So $\AA$ is better if we were using ``generic'' to describe $s\ne 0$, which we are not.}
+% \jcom{Yes, either we should write $ \AA, \AA^\times $ or $ \CC, \AA^\times$.  There is no distinction.  Always in this paper, we work with the Zariski topology whether we write $ \AA $ or $ \CC$.}
+% \acom{Ok, let's be fancy and write $\AA$. (So if someone writes $s\to 0$ you don't think of it as $s$ approaches $0$ in the metric topology, but really as the limit of ideals $(s)\supset (s^2)\supset \cdots$ which, I hope, is the zero ideal?) Tentatively remapped our command for $\mathbb C$ to give $\AA$. It looks really funny to use it as notation for a field/conflate field and scheme---is there really no distinction? Surely $\AA = \spec \AA[t]$ is not great practice?}
+% \jcom{I think that it would be more typical to use $ \CC $ for the field and use $ \AA$ for the affine line.  I changed $ \CC $ back to $\CC$.}
 
 
 The following construction will be very important in this paper.  
@@ -715,7 +715,7 @@ The nilpotent (adjoint) orbit $ \OO^\lambda \subset M_N(\CC)$ of matrices conjug
 We recall that these orbits have closures which are given by rank conditions.  
 More precisely, we have
 $$
-    \overline{\OO}^\lambda = \{ A \in M_N(\CC) : \rk A^i \le N - \#\text{~boxes in first $i$ columns of }\lambda \}
+    \overline{\OO}^\lambda = \{ A \in M_N(\CC) : \rk A^c \le N - \#\text{~boxes in first $c$ columns of }\lambda \}
 $$
 and
 \begin{equation} 
@@ -723,8 +723,8 @@ and
 \begin{split}
     % 
     \overline{\OO}^{\lambda', \lambda''}_{0,s} = \{ A \in M_N(\CC) : \rk A^i &\le N - 
-    \#\text{~boxes in first $i$ columns of }\lambda' \\
-    \rk (A-s)^i &\le N - \#\text{~boxes in first $i$ columns of }\lambda'' \}\,. 
+    \#\text{~boxes in first $c$ columns of }\lambda' \\
+    \rk (A-s)^c &\le N - \#\text{~boxes in first $c$ columns of }\lambda'' \}\,. 
 \end{split}
 \end{equation}
 %  
@@ -738,16 +738,18 @@ The following fact seems to be well-known but we could not find this exact state
 In order to prove this proposition, we will need to recall some results from Eisenbud--Saltman \cite{eisenbud1989rank}. 
 % 
 
-Let $ r $ be a decreasing, concave, non-negative function with $r(0) = N$ called a \new{rank function}.  Let $k $ be maximal such that $ r(k) \ne 0 $.
+Let $ r $ be a decreasing, concave, non-negative function of $\NN$ with $r(0) = N$ called a \new{rank function}.  Let $k $ be maximal such that $ r(k) \ne 0 $.
 % \jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.} \acom{And make it $N$? Was $k = m$ replaced because $m$ is already used?} \jcom{Yes and yes} \acom{I like the idea of making it $N$}
 % 
-Let $ W$ be a subspace of $ \AA^k$. Eisenbud and Saltman define and study the flat family $ X_{r,W} \rightarrow W$, whose fibres are reduced and defined by rank conditions. We will now describe these fibres.
+Let $ W$ be a subspace of $ \AA^k$. Eisenbud and Saltman define and study the flat family $ X_{r,W} \rightarrow W$ whose fibres are reduced and defined by rank conditions. We will now describe these fibres. \acom{departing slightly from ES's lingo/notations..}
 
-Let $ z \in \AA^k$. Some of the coordinates of $z$ may be equal; we introduce some data to keep track of these equalities. There exist a sequence of integers $k_\bullet = (k_0,\dots,k_\ell)$ such that $ 0=k_0< k_1< \dots < k_\ell = k $, a sequence of points $s_\bullet = (s_1, \dots, s_\ell )\in\AA^\ell$ such that $s_i\ne s_j$ for any $i\ne j$, and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
-$$ s_j = z_{p(k_{j-1}+1)} = z_{p(k_{j-1} + 2)} =  \cdots = z_{p(k_j)}$$ 
-for each $j = 1,\dots,\ell$. 
+Let $ z \in \AA^k$ be a point. Some of the coordinates of $z$ may be equal so we introduce the following data to keep track of these equalities. There exist a sequence of integers $k_\bullet = (k_0,\dots,k_\ell)$ such that $ 0=k_0< k_1< \dots < k_\ell = k $, a sequence of points $s_\bullet = (s_1, \dots, s_\ell )\in\AA^\ell$ such that $s_a\ne s_b$ for any $a\ne b$, and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
+$$ 
+    s_a = z_{p(k_{a-1}+1)} = z_{p(k_{a-1} + 2)} =  \cdots = z_{p(k_a)}
+$$ 
+for each $a = 1,\dots,\ell$. 
 Given the choice of $ s_\bullet$ we require that $ p $ is of minimal length. 
-Given $z$, the data $k_\bullet, s_\bullet, p$ is unique up to a permutation of $ \{1, \dots, \ell\}$.
+Then, given $z$, the data $k_\bullet, s_\bullet, p$ is unique up to a permutation of $ \{1, \dots, \ell\}$.
 % 
 %\jcom{Eisenbud--Saltman don't introduce this $ s_j$ notation, but I find it helpful.}
 % 
@@ -755,14 +757,15 @@ Given $z$, the data $k_\bullet, s_\bullet, p$ is unique up to a permutation of $
 %\jcom{That is what I was trying to say with ``introduce some data \dots''  Maybe it could be more clear.  I also clarified the uniqueness.}
 %\acom{Oh, sorry, I see it. Maybe because it was the start of a new paragraph I didn't connect `data' and `ranks' at first glance.}
 
-Next for $ j = 1, \dots \ell $ and $ i = 1, \dots, k_{j+1} - k_j$, we define
+Next for $ a = 1, \dots \ell $ and $ c = 1, \dots, k_{j+1} - k_j$, we define
 $$
     % r_{z,j}(i):= N - r(p(m_j)) + r(p(m_j + i)) 
-    r_{z,j}(i):= N + \sum_{a = 1}^i r(p(k_j + a)) - r(p(k_j +a) - 1)  \, . 
+    r_{z,a}(c):= N + \sum_{d = 1}^c r(p(k_a + d)) - r(p(k_a + d) - 1)  \, . 
 $$
 \jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
 \acom{I don't think that there is any need to swap back. But maybe we could use $c$ (for column) isntead of $i$, since we use $i$ in the same context quite a bit to denote a letter in the alphabet $\{1,\dots,m\}$.} 
 \jcom{Sure, that is a good idea.}
+\acom{Ok, switched some letters. Think $d$ is good as `delta'.}
 %\jcom{I fixed it now.  I didn't want to use ES's $a_i$.} 
 %\acom{\emoji{+1}}
 
@@ -770,7 +773,7 @@ $$
 By \cite[Corollary 2.2]{eisenbud1989rank}, the fibre of the flat family $ X_{r,W} $ over $ z$ is given by
 \begin{equation} 
     \label{eq:ESfibre}
-    X_{r,z} = \{ A \in M_N(\CC) :\rk (A-s_j)^i\le r_{z,j}(i) \text{ for all } i , j \text{ as above}\}.
+    X_{r,z} = \{ A \in M_N(\CC) :\rk (A-s_a)^c\le r_{z,a}(c) \text{ for all } c , a \text{ as above}\}.
 \end{equation}
 % 
 We will now apply these ideas to prove our \Cref{prop:adjoint}.
@@ -785,7 +788,7 @@ We will now apply these ideas to prove our \Cref{prop:adjoint}.
 % 
 Define 
 $$
-    r(i) = N - \#\text{~boxes in first $i$ columns of }\lambda\,.
+    r(c) = N - \#\text{~boxes in first $c$ columns of }\lambda\,.
 $$
 It is easy to see that this is a rank function, with $ k = \lambda_1$, the number of columns of $ \lambda$.
 %\begin{lemma}
@@ -799,8 +802,8 @@ Since $\lambda = \lambda' + \lambda''$, there exists a permutation $ p $ of $ \{
 For $ s \in \AA$, we define $ z(s) \in \AA^k$ by 
 \[
 \begin{cases}
-    z(s)_{p(j)} = 0 &  j = 1, \dots, k_1 \\
-    z(s)_{p(j)} = s & j = k_1 + 1, \dots, k\,.
+    z(s)_{p(c)} = 0 &  c = 1, \dots, k_1 \\
+    z(s)_{p(c)} = s &  c = k_1 + 1, \dots, k\,.
 \end{cases}    
 \]
 % $ z(s)_{p(j)} = 0 $ for $ j = 1, \dots, k_1 $ and $ z(s)_{p(j)} = s $ for $ j = k_1 + 1, \dots, k$.
@@ -812,15 +815,16 @@ We also see that
 \begin{equation} 
 \label{eq:rcols}
     \begin{split}
-            r_{z(s), 1}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda' \\
-            r_{z(s), 2}(i) &=  N - \#\text{~boxes in first $i$ columns of }\lambda'' \,. 
+            r_{z(s), 1}(c) &=  N - \#\text{~boxes in first $c$ columns of }\lambda' \\
+            r_{z(s), 2}(c) &=  N - \#\text{~boxes in first $c$ columns of }\lambda'' \,. 
     \end{split}
 \end{equation}
-On the other hand, for $z(0)$, we get that $ \ell = 1$ and that \acom{This was $r = 1$ but I think it should be $\ell = 1$.} \jcom{Yes, you are correct.}
+On the other hand, for $z(0)$, we get that $ \ell = 1$ and that 
+% \acom{This was $r = 1$ but I think it should be $\ell = 1$.} \jcom{Yes, you are correct.}
 \begin{equation} 
 \label{eq:rcol2}
-    r_{z(0),1}(i) = 
-    r(i) = N - \#\text{~boxes in first $i$ columns of }\lambda\,. 
+    r_{z(0),1}(c) = 
+    r(c) = N - \#\text{~boxes in first $c$ columns of }\lambda\,. 
 \end{equation}
 %\jcom{Someone should check that I chose the notation correctly to make this work out.}
 % 
