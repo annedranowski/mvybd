@@ -3,6 +3,7 @@
 \documentclass{article} % [draft] TODO: use this at the end to check for overfills 
 \usepackage{basic}
 \usepackage{emoji}
+\usepackage{float}
 % TODO: The matrix is lower triangular and the lower-triangular matrix is
 % \setemojifont{Apple Color Emoji}
 % Working title: 
@@ -92,9 +93,9 @@ We identify $\ZZ^m$ with the coweight lattice of $G$ and say that a coweight
 % \acom{This identification assumes we are taking $\CC$ points of $G$ right? i.e.\ it's really $P(T(\CC)) = \Hom(\AA^\times,T(\CC))$ that's $\cong \ZZ^m$ and for instance $P(T(\CC[x]/(x^2))$ will give sth else?} 
 % \jcom{No, the coweight lattice is the set of homomorphisms of algebraic groups from $ \mathbb G_m$ to $ GL_m$.  It is independent of the ring/field of definition.}
 % 
-% The \textbf{dominant coweights} of $ G $ are the set of $ \lambda = (\lambda_1, \dots, \lambda_m) \in \ZZ^m $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
+% The \new{dominant coweights} of $ G $ are the set of $ \lambda = (\lambda_1, \dots, \lambda_m) \in \ZZ^m $ such that $ \lambda_1 \ge \cdots \ge \lambda_m$. 
 % 
-% A coweight $ \mu = (\mu_1, \dots, \mu_m) \in \ZZ^m$ is called \textbf{effective} if $ \mu_j \ge 0 $ for all $ j$.
+% A coweight $ \mu = (\mu_1, \dots, \mu_m) \in \ZZ^m$ is called \new{effective} if $ \mu_j \ge 0 $ for all $ j$.
 % 
 $\nu = (\nu_1,\dots,\nu_m)$ is \new{dominant} if $\nu_1\ge\cdots\ge\nu_m$ and \new{effective} if $\nu_j\ge 0$ for all $j$.
 % We also need the notion of effective dominant coweight, 
@@ -170,7 +171,7 @@ We will use the lattice model for the affine Grassmannian, so it is useful to re
 % \acom{When is $K$ not a field?}). Let $ m \in \mathbb N$ \acom{we have already fixed $m$?} and; e.g. K = C[t,t^{-1}] is not a field!!! 
 Consider $ K^m $ as a $K$-module. 
 % \acom{left or right, doesn't matter? I think we are in a situation where they are the same, i.e.\ our rings are commutative.} 
-By restriction $ K^m$ can be viewed as an $R$-module.  An \textbf{$R$-lattice} in $K^m$ 
+By restriction $ K^m$ can be viewed as an $R$-module.  An \new{$R$-lattice} in $K^m$ 
 % \acom{what is $M$? should be $K^m$?}; bc Joel was thinking about arbitrary free modules 
 is an $R$-submodule $ L \subset K^m$ 
 % such that $ L $ 
@@ -201,8 +202,8 @@ this set and $\GL_m(K)/\GL_m(R)$, since $ \GL_m(R) $ is the stabilizer of the st
 We will be particularly interested in $\CC[t]$-lattices in $ \CC(t)^m$. 
 % TODO: 
 % \acom{Wait, I thought $\CC(t)$ is used in the Ran space version of the BD Gr.}
-Given such a lattice $ L $ and a point $ a \in \CC$, the \textbf{specialization} of $ L $ at $ a $ is the lattice in $\cK_a^m$ defined as $ L(a) := L \otimes_{\CC[t]} \cO_a $. 
-If $L(a) = \cO_a^m$ then $L$ is said to be \textbf{trivial at $a$}. 
+Given such a lattice $ L $ and a point $ a \in \CC$, the \new{specialization} of $ L $ at $ a $ is the lattice in $\cK_a^m$ defined as $ L(a) := L \otimes_{\CC[t]} \cO_a $. 
+If $L(a) = \cO_a^m$ then $L$ is said to be \new{trivial at $a$}. 
 % We say that $ L $ is trivial at $ a $ if $ L(a) = \cO_a^m$. 
 % \acom{Do we want to employ the notation $\cO_a$ and $\cK_a$ here?}
 For example, the lattice $(t-s)^{-1}\CC[t] \subset \CC(t)$ is trivial at any $a\ne s$, since $ t-s $ is invertible in $ \cO_a$. 
@@ -242,7 +243,7 @@ In these definitions, $ \Vtriv$ denote the trivial rank $ m $ vector bundle.
 
 \begin{definition}
 \label{def:gr}
-     The \textbf{ordinary affine Grassmannian} $\Gr = G(\cK)/G(\cO)$.
+     The \new{ordinary affine Grassmannian} $\Gr = G(\cK)/G(\cO)$.
 \end{definition}    
 It is the moduli space of vector bundles with trivializations,
 %\acom{Can we introduce the first of these restatements as ``As a moduli space it is the set of..''}
@@ -265,7 +266,7 @@ On the other hand, to get a lattice from the group-theoretic description $ G(\cK
 \begin{definition}
 \label{def:grs}
  For any $ s \in \CC $, 
-    the \textbf{ordinary affine Grassmannian} $\Gr_s = G(\cK_s)/G(\cO_s)$ \textbf{at} $ s $. 
+    the \new{ordinary affine Grassmannian} $\Gr_s = G(\cK_s)/G(\cO_s)$ \new{at} $ s $. 
 \end{definition}    
 As above, we have modular and lattice descriptions:
 \begin{gather*}
@@ -289,7 +290,7 @@ As above, we have modular and lattice descriptions:
 % 
 \begin{definition}
 \label{def:grth}
-The \textbf{thick affine Grassmannian} $\Grth = G(\Kinf)/G(\CC[t])$.
+The \new{thick affine Grassmannian} $\Grth = G(\Kinf)/G(\CC[t])$.
 \end{definition}
 Again, we have the following modular and lattice descriptions:
 \begin{gather*}
@@ -307,7 +308,7 @@ Again, we have the following modular and lattice descriptions:
 % 
 \begin{definition} 
 \label{def:bdgr}
-The two point \textbf{Beilinson--Drinfeld Grassmannian} $$\pi : \Grbd\to \AA$$ with one point fixed at 0, and the second point $s\in\AA$ varying.
+The two point \new{Beilinson--Drinfeld Grassmannian} $$\pi : \Grbd\to \AA$$ with one point fixed at 0, and the second point $s\in\AA$ varying.
 \end{definition}
 % 
 It is described in modular terms by 
@@ -345,7 +346,7 @@ We also have the lattice descriptions:
 % 
 \begin{definition} 
 \label{def:grplus}
-The \textbf{positive part} of $\Gr $, resp.\ $\Grth$, is defined by 
+The \new{positive part} of $\Gr $, resp.\ $\Grth$, is defined by 
 \begin{gather*}
     \Gr^+ = \left(M_m(\cO) \cap G(\cK)\right) / G(\cO)\,,\,\, % \\
     % \text{ and }      
@@ -534,7 +535,7 @@ For $ s \in \Cx$, we write $ X_1 \ast_s X_2  $ for the fibres of $ X_1 \ast_{\Cx
 
 We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  X_1 \ast_{\Cx} X_2 $ in $ \Grbd $. By construction, this is a flat family over $ \AA$.
 
-The fibre $ X_1 \ast_0 X_2$ of $ X_1 \ast_{\AA} X_2 $ over $0$ is a subscheme of $ \Gr_{0,0} $, but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  We call this subscheme the \textbf{fusion} of $ X_1 $ and $ X_2$.
+The fibre $ X_1 \ast_0 X_2$ of $ X_1 \ast_{\AA} X_2 $ over $0$ is a subscheme of $ \Gr_{0,0} $, but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  We call this subscheme the \new{fusion} of $ X_1 $ and $ X_2$.
 
 % \jcom{I rewrote this to introduce the $ X_1 \ast_s X_2 $ notation that we need for later.  In doing so, $ X_1 \circ X_2 $ became obsolete, since we now have $ X_1 \ast_0 X_2$, but if you like we could just define $X_1 \circ X_2 = X_1 \ast_0 X_2 $.}
 % 
@@ -544,7 +545,7 @@ The fibre $ X_1 \ast_0 X_2$ of $ X_1 \ast_{\AA} X_2 $ over $0$ is a subscheme of
     % \label{deservesdisplay}
 %    X_1 \circ X_2 = (X_1 \ast_\AA X_2) \cap \pi^{-1}(0) 
 % \end{equation*}
-% which we call the \textbf{fusion} of $ X_1 $ and $X_2$. It is contained in $\Gr_{0,0}$ but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  
+% which we call the \new{fusion} of $ X_1 $ and $X_2$. It is contained in $\Gr_{0,0}$ but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  
 % 
 % By construction, 
 % \acom{technically, there were two given above, so *these* constructions?} 
@@ -582,15 +583,15 @@ We consider the following subschemes of the affine Grassmannians.
 % 
 \begin{definition}
 \label{def:sphschub}
-    The \textbf{spherical Schubert cell} $\Gr^\lambda = G(\cO) t^\lambda$ and its closure 
+    The \new{spherical Schubert cell} $\Gr^\lambda = G(\cO) t^\lambda$ and its closure 
     $ \overline\Gr^\lambda = \bigcup_{\gamma \le \lambda} \Gr^{\gamma} $ 
-    a \textbf{spherical Schubert variety}.  
+    a \new{spherical Schubert variety}.  
 \end{definition}
     % \acom{do we prefer $\overline{\Gr}^\lambda$ to $\overline{\Gr^\lambda}$? I am for the former! Though it is less accurate??} \jcom{I'm not sure which is better.  I was ``testing'' it out.}
     % 
 \begin{definition}
 \label{def:sphfus}
-    The \textbf{BD family of two spherical Schubert varieties} $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} $.
+    The \new{BD family of two spherical Schubert varieties} $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} $.
     % $$ 
     %     \overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} \rightarrow \AA \,.
     % $$
@@ -641,7 +642,7 @@ Using $ \mu, \mu', \mu''$, we define the following subschemes.
 
 \begin{definition}
 \label{def:klslice}
-    The \textbf{Kazhdan--Lusztig slice} $\cW_\mu = G_1(\Oinf) t^\mu \subset \Grth $.  
+    The \new{Kazhdan--Lusztig slice} $\cW_\mu = G_1(\Oinf) t^\mu \subset \Grth $.  
 \end{definition}
 % 
 
@@ -655,7 +656,7 @@ In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ su
 % 
 \begin{definition} 
 \label{def:inftyorbits}
-    The \textbf{semi-infinite orbit} $ S^\mu = N_-(\cK)t^\mu \subset \Gr $ and the \textbf{family of two semi-infinite orbits} 
+    The \new{semi-infinite orbit} $ S^\mu = N_-(\cK)t^\mu \subset \Gr $ and the \new{family of two semi-infinite orbits} 
  $S^{\mu', \mu''}_{0,\AA} \subset \Grbd$
  which we define to have fibres $ S^{\mu'} \ast_s S^{\mu''}_s $ for $ s \ne 0$ and fibre $ S^{\mu}$ over $ s = 0 $.
 \end{definition}
@@ -900,7 +901,7 @@ A = \begin{bNiceArray}{ccc|ccc}[columns-width = auto,first-row,last-col,code-for
 % \acom{I don't suppose we need this basis now that we're just describing $\TT_\mu$ in words.}
 % 
 % \begin{definition}
-Recall that $\mu=(\mu_1,\dots,\mu_m)$ is a partition of $N$. The \textbf{Mirkovi\'c--Vybornov slice} $\TT_\mu$ is the affine space of $N\times N$ matrices of the form
+Recall that $\mu=(\mu_1,\dots,\mu_m)$ is a partition of $N$. The \new{Mirkovi\'c--Vybornov slice} $\TT_\mu$ is the affine space of $N\times N$ matrices of the form
 % defined as the set of $A\in M_N(\CC)$ such that 
 % \[
 %     \begin{aligned}
@@ -1013,7 +1014,7 @@ Continuing with the $\mu=(3,2)$ example,
 In other words, the $ \mu_i\times\mu_j$ block of $ A $ is used to produce a polynomial which is inserted in the $(j,i)$ entry of $ g(A)$. 
 
 In $\TT_\mu$ we will be interested in a certain family of block upper-triangular matrices.
-\begin{definition} The ``\textbf{upper-triangular}'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
+\begin{definition} The ``\new{upper-triangular}'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
 $$
 \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}\,. 
 $$
@@ -1426,12 +1427,13 @@ Restricting to the zero fibre and applying $\theta_0$ we recover \cite[Corollary
     \label{cor:mvy}
 The map $ A \mapsto g(A)\OO^m$ gives an isomorphism    $\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu_-$.
 \end{corollary}
-%The closures of the irreducible components of the righthand side are \textbf{MV cycles of type $\lambda$ and weight $\mu$}. By \cite{baumann2019mirkovic} the set of MV cycles of all possible types and weights can be stitched together to form a \textbf{perfect basis} of $\CC[N]$. 
+%The closures of the irreducible components of the righthand side are \new{MV cycles of type $\lambda$ and weight $\mu$}. By \cite{baumann2019mirkovic} the set of MV cycles of all possible types and weights can be stitched together to form a \new{perfect basis} of $\CC[N]$. 
 
 %\acom{We are ready for applications! One of the motivations for this paper is... Abstractly multiplication is $\ast_s$... To compute we now carry this across \Cref{th:OTGrW}.}
 
 \section{\sout{Falling Action}} % Resolution
 \subsection{MV cycles}
+Let $\lambda\ge\mu$ be dominant effective and effective coweights of $\GL_m$ respectively. 
 % 
 % We need to decide on the order in section 7. How about:
 % 
@@ -1440,13 +1442,13 @@ The map $ A \mapsto g(A)\OO^m$ gives an isomorphism    $\overline{\OO}^\lambda \
 % 3. Stable MV cycles and multiplication  in C[N]
 % 
 \begin{definition}
-An irreducible component of $\overline{\Gr}^\lambda \cap S^\mu$ is called an \textbf{Mirkovic--Vilonen cycle} in $\overline{\Gr}^\lambda$ of coweight $\mu$.
+An irreducible component of $\overline{\Gr}^\lambda \cap S^\mu$ is called an \new{Mirkovic--Vilonen cycle} in $\overline{\Gr}^\lambda$ of coweight $\mu$.
 \end{definition}
 
-\jcom{In this section, I think that $ \mu$ is not necessarily dominant.  So I think that we should we recall our previous notation, but say that $ \mu $ might not be dominant here.}
-\acom{Ok.}
+% \jcom{In this section, I think that $ \mu$ is not necessarily dominant.  So I think that we should we recall our previous notation, but say that $ \mu $ might not be dominant here.}
+% \acom{Ok.}
 
-By \cite{mirkovic2007geometric}, all these irreducible components have dimension $ \rho(\lambda - \mu)$, where $ \rho = (m, m-1, \dots, 1)$.
+By \cite[Theorem~3.2(b)]{mirkovic2007geometric}, each MV cycle has in $\overline\Gr^\lambda$ of coweight $\mu$ has dimension $ \rho(\lambda - \mu)$ where $\rho$ is the half sum of positive roots. Normalizing $ \rho = (m, m-1, \dots, 1)$ and identifying $P \cong P^\vee$ the pairing $P\times P^\vee\to\ZZ $ is given by the ordinary dot product. 
 
 % \jcom{We could put some stuff here about stable MV cycles and multiplication, but maybe we can have this in a later section.}
 
@@ -1461,11 +1463,7 @@ In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial descripti
 
 
 Denote by $[a,b]$ the interval $\{a,a+1,\dots,b-1,b\}\subset\NN$. 
-% If $a = 1$ just write $[b]$, and if $a = b$ just write $\{a\}$. 
-% If a = b? Just write $\{b\}$
-% \jcom{Maybe we should write $[1,b] $ instead of $ [b]$.  It looks a little confusing below to have $ [i+1, m]$ and $[i]$.}
-% 10-4
-
+% 
 We begin with the following definitions.
 \begin{definition}
 Let $ L \subset \cO^m$ be a point in $ \Gr_+$.  We define the relative dimension of $L $ by
@@ -1485,10 +1483,10 @@ where $ \gamma^c := [1,m] \setminus \gamma$.
 % \jcom{$ L /L^{\gamma^c} $ is the image of $ L $ in $ \OO^m / \OO^{\gamma^c}$ since the kernel of the map $ L \rightarrow \OO^m / \OO^{\gamma^c}$ is precisely $L^{\gamma^c} $, so I don't think that there is any problem here.  Again, if you think that it is better, I won't object to your suggested change.} 
 % \jcom{Your question made me wonder about the following: how do we know that $ L_\gamma$ is a lattice?  (or $ L^\gamma$ for that matter)}
 \end{definition}
-We will also need the analogous definitions when $ \cO$ is replaced by $ \CC[t]$ and $L \in \Grth_+$.
-
+We will also need the analogous definitions when $ \cO$ is replaced by $ \CC[t]$ and $L \in \Grth_+$. 
+% 
 We record the following easy observations.
-\begin{lemma} \label{le:rdimTrans} Let $ L \in \Gr_+$.
+\begin{lemma} \label{le:rdimTrans} Let $ L \in \Gr_+$ \acom{(or $\Grth_+$)}.
 \begin{enumerate}
     \item For any $ 
     \gamma \subset [m] $, we have $$ \rdim L_\gamma + \rdim L^{\gamma^c} = \rdim L \,.$$
@@ -1503,12 +1501,12 @@ $$
 % \acom{Even so? What was written before was $(L_{\gamma_1})_{\gamma_2} = L_{\gamma_2} $ and if $\gamma_1\subset\gamma_2$ then the intersection is $\gamma_1$. Anyway I don't think we ever use Lem. 6(2), so we can do without it?}
 % \jcom{Oh, I guess there was a typo.  I fixed it now.  It is used in the proof of Prop 4, I will add a reference.}
 
-For any $ L \in \Gr_+ $ and $\gamma \subset [m]$, we let $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper. 
+For any $ L \in \Gr_+ $ \acom{(or $\Grth_+$)} and $\gamma \subset [m]$, we define $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. (By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper.) 
 % \acom{We should introduce $D_\gamma$ briefly.}
 % \jcom{I think that this is sufficient, since it doesn't really play any role in our paper.}
 % \acom{Ok; I was thinking just another half-sentence, like these are some valuation functions and/or they are used to characterise combinatorially the MV cycles.}
 
-In this section only, we will write $ S^\mu_- = N_-(\cK) t^\mu$ (with a subscript), because we will also need the opposite semi-infinite cell $S^\mu_+ := N(\cK)t^\mu$. %\acom{HB, ``..we will write.., because we will need the opposite cell..''}
+In this section only, \acom{possibly also the next} we will write $ S^\mu_- = N_-(\cK) t^\mu$ (with a subscript), because we will also need the opposite semi-infinite cell $S^\mu_+ := N(\cK)t^\mu$. %\acom{HB, ``..we will write.., because we will need the opposite cell..''}
 % \acom{Maybe we shouldn't decorate $S^\mu$ with a subscript $-$ after all since we certainly won't want to add to $S^{\mu',\mu''}_{0,\AA}$ in underscores.}
 % \jcom{I agree.  Is the above solution ok?}
 % \acom{Sure.}
@@ -1553,8 +1551,8 @@ We now introduce some notation related to Young tableaux. Denote by $YT(\lambda)
 Given $\tau\in YT(\lambda)_\mu$ and $ i \in \{1, \dots m\} $, denote by $\lambda(i)$ (resp.\ $\mu(i)$) the shape (resp.\ the weight) of $\tau(i)$, the tableau got from $\tau$ by discarding all boxes of weight exceeding $i$. (Note that $ \mu(i)$ only depends on $ \mu$, while $ \lambda(i)$ depends on the tableau $ \tau$.)  We will regard $ \lambda(i)$ (resp.\ $\mu(i)$) as an effective dominant coweight (resp.\ effective coweight) for $\GL_i$. 
 % 
 
-The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is a list of $ m(m-1)/2$ non-negative integers defined from its \textbf{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ by the formula 
-\acom{For Joel: weight or filling? See below.}
+The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is a list of $ m(m-1)/2$ non-negative integers defined from its \new{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ by the formula 
+\acom{For Joel: weight or filling? See line below.}
 $$
 \begin{aligned}
 % n_\bullet(\tau)_{i,j} &= \lambda(i+1)_j - \lambda(i)_j = \text{ \# of boxes on the $j$th row of $\tau $ filled with $ i+1$}  \\
@@ -1664,10 +1662,28 @@ where note that $ \lambda(b)_a + \dots + \lambda(b)_b$ is the number of boxes on
 % \jcom{We could write that $ \lambda(i)_j + \dots + \lambda(i)_i$ is the number of boxes on rows $ j, \dots, i$ filled with $ 1, \dots, i $.}
 % \acom{\emoji{thumbsup}} 
 
-From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ \mathring Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in section 4.3 of \cite{kamnitzer2010mirkovic}. In particular it is irreducible. Thus, its closure is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $. (In \cite{kamnitzer2010mirkovic}, the third author worked with $  G(\cO) \backslash G(\cK)$, which we identify with $ \Gr $ using the map $ G(\cO) g \mapsto g^{-1} G(\cO)$.) 
+From  the proof of \cite[Proposition 9.6]{kamnitzer2010mirkovic}, we see that $ \mathring Z(\tau)_1$ is equal to $ t^\mu A(n_\bullet(\tau))$, where $ A(n_\bullet)$ is defined in Sect.\ 4.3 of \cite{kamnitzer2010mirkovic}. In particular, it is irreducible. Thus, its closure is the MV cycle whose Lusztig datum is $ n_\bullet(\tau) $. (The reader is warned that in \cite{kamnitzer2010mirkovic} the third author worked with $  G(\cO) \backslash G(\cK)$, which we identify with $ \Gr $ using the map $ G(\cO) g \mapsto g^{-1} G(\cO)$.) 
 % \acom{Maybe we should avoid using square brackets as we haven't used them yet?}
-
-Now, by the results of \cite{kamnitzerfibreshives} (see especially the proof of Theorem 1.4), we note that $\mathring Z(\tau)_1\cap \Gr^\lambda$ is dense in $ \mathring Z(\tau)_1$. 
+% 
+Now, by results of \cite{kamnitzer2008hives}, (see especially the proof of Theorem 1.4,) we note that $\mathring Z(\tau)_1\cap \Gr^\lambda$ is dense in $ \mathring Z(\tau)_1$. 
+% Explanation: 
+% MV polytopes giving tensor product multiplicity of V(\nu) in
+% V(\lambda) \otimes V(\mu)
+% with
+% Hives with bdy \lambda, \mu, \nu.
+% 
+% If we take \mu and \nu to be sufficiently large compared to \lambda,
+% then this becomes a bijection
+% MV polytopes for the weight multiplicity V(\lambda)_{\nu - \mu}
+% with
+% Young tableaux YT(\lambda)_{\nu - \mu}
+% 
+% Even better, in that paper, I worked geometrically, and I gave a
+% bijection from components of the fibre of the convolution morphism to
+% hives.  Again, taking \mu, \nu large compared to \lambda, this fibre
+% of the convolution morphism becomes Gr^\lambda \cap S^{\nu - \mu}.  So
+% that paper actually does give a bijection from components of
+% Gr^\lambda \cap S^{\nu - \mu} to tableaux.
 
 Fix $ i \in \{1, \dots, m\}$. If $ L \in S^\mu_-$, then $ L_{[1,i]} \in S^{\mu(i)}_-$ so we get a map 
 $$ 
@@ -1745,21 +1761,28 @@ We define
         A \in  \TT_\mu\cap\n : A\big|_{\CC^{|\mu(i)|}} \in \OO^{\lambda(i)} \text{ for each } i = 1,\dots,m
     \}\,.
 \]
-\jcom{Maybe for consistency, we should write $ \n \cap \TT_\mu$ (opposite order).}
 
 \begin{lemma}
     \label{lem:XtZt}
     Under the Mirkovi\'c--Vybornov isomorphism $\mathring X(\tau)$ is mapped isomorphically onto $\mathring Z(\tau)$. 
 \end{lemma}
-\jcom{We should add a proof here.  It will be very similar to Prop 5 below.}
+\jcom{We should add a proof here.  It will be very similar to Prop 5 below.} \acom{Ca marche?}
+\jcom{Oui.  J'ai fait des petites revisions.}
+\begin{proof}
+Fix $A\in\mathring X(\tau)$ and $i\in\{1,\dots,m\}$. Let $\cO^i\subset\cO^m$ denote the submodule generated by the first $i$ standard basis vectors. Let $l = g(A\big|_{\CC^{\lvert\mu(i)\rvert}}) \cO^i$ and $L = g(A) \cO^m$. By definition of the map $A \mapsto g(A)$, since $ A $ is upper-triangular we have that $l = L_{[1,i]}$. 
+Moreover, since elements of $\TT_\mu\cap\n$ are upper triangular $A\big|_{\CC^{\lvert\mu(i)\rvert}}\in\TT_{\mu(i)}\cap\n_i$ where $\n_i$ denotes the subalgebra of upper-triangular matrices in $M_{\lvert\mu(i)\rvert}(\CC)$. 
+By definition of $\mathring X(\tau)$ this principal submatrix has Jordan type $\lambda(i)$. It follows that $l = L_{[1,i]} \in \Gr^{\lambda(i)} \cap S^{\mu(i)}$ for each $i=1,\dots,m$ so that $L\in\mathring Z(\tau)$. 
 
-By \cite{dthesis}, $ \mathring X(\tau) $ has a unique irreducible component of dimension $ \rho(\lambda - \mu)$.  We write $ X(\tau)$ for the closure of this component.  It is an irreducible component of $ \overline{\OO}^\lambda \cap \TT_\mu$ and will be called a \textbf{generalized orbital variety}.
+Conversely, let $ L \in \mathring Z(\tau) $.  By \Cref{cor:mvy}, $ L = g(A)$ for some $ A \in \TT_\mu \cap \n $.  Running the above argument in reverse, we see that $ A \in \mathring X(\tau)$. 
+\end{proof}
 
-\jcom{We should give a more specific citation to \cite{drthesis} here and below.  Also, throughout this paper, we should either cite your paper or your thesis, but not both (unless there is a very good reason to do so).  I reorganized this section a bit.  Feel free to add a bit more exposition.}
+By \cite[Prop.\ 4.5.4]{dthesis}, $ \mathring X(\tau) $ has a unique irreducible component of dimension $ \rho(\lambda - \mu)$.  We write $ X(\tau)$ for the closure of this component.  It is an irreducible component of $ \overline{\OO}^\lambda \cap \TT_\mu \cap \n$ and will be called a \new{generalized orbital variety}.
 
+\jcom{We should give a more specific citation to \cite{dthesis} here and below.  Also, throughout this paper, we should either cite your paper or your thesis, but not both (unless there is a very good reason to do so).  I reorganized this section a bit.  Feel free to add a bit more exposition.}
+\acom{Just posted to arXiv. Will re-ref shortly. Also made citation more specific.}
 
-In fact, these are all the generalized orbital varieties by  \cite{dthesis}. 
-\begin{theorem}
+In fact, these are all the generalized orbital varieties:
+\begin{theorem}(\cite[Theorem~4.8.2]{dthesis})
     \label{pr:govsasirrecs}
     The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
 \end{theorem}
@@ -1767,10 +1790,11 @@ In fact, these are all the generalized orbital varieties by  \cite{dthesis}.
 
 % \jcom{Please add a reference to your paper here and also a lemma which states that under the Mirkovic-Vybornov isomorphism $ \mathring X(\tau) $ is mapped isomorphically onto $ \mathring Z(\tau) $.}
 % 
-Our goal is to describe the fusion of two MV cycles using fusion of generalized orbital varieties, which we will now define. 
+Our goal is to describe the fusion of two MV cycles using ``fusion'' of generalized orbital varieties, which we will now define. 
+% \acom{So we \textit{are} calling this a fusion?} \jcom{I think that you used this word already here.  I just reorganized your sentence.} \acom{I agree, but I thought that you were opposed, Joel.}
 % 
-Let $m,\lambda',\lambda'',\lambda,\mu',\mu'',\mu,N$ be as in previous sections.
-\jcom{I think that this is can move earlier, with the caveat that I mentioned earlier about $ \mu $ being non-dominant in 6.1 and dominant here.}
+Let $\lambda',\lambda''$ be dominant effective and $\mu',\mu''$ effective such that $\lambda = \lambda' + \lambda''$ and $\mu = \mu' + \mu''$ as in previous sections.
+\jcom{I think that this is can move earlier, with the caveat that I mentioned earlier about $ \mu $ being non-dominant in 6.1 and dominant here.} \acom{Yes.} \acom{But we only start to need the primes now.}
 
 % 
 Given $s\in\AA^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
@@ -1833,14 +1857,14 @@ Note that elements $A\in\mathring X(\tau',\tau'')$ do not in general correspond 
 
 \begin{proof}
 % 
-Fix $A\in \mathring X(\tau',\tau'')_{0,s} $ and $i = 1,\dots, m$. 
+Fix $A\in \mathring X(\tau',\tau'')_{0,s} $ and $i \in \{1,\dots, m\}$. 
 % 
 Let $\CC[t]^i\subset\CC[t]^m = \CC^m\otimes_\CC\CC[t]$ denote the $\CC[t]$-submodule generated by the first $i$ standard basis vectors.
 % \acom{Probably don't need to repeat this.}
 
-The lattices $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ and $L=g(A)\CC[t]^m$ are related by the equality $ l = L_{[1,i]}$ where recall $L_{[1,i]} = (L + \CC[t]^{[i+1,m]}) / \CC[t]^{[i+1,m]}\subset \CC[t]^m/\CC[t]^{[i+1,m]} = \CC[t]^i$. 
+The lattices $l=g(A\big|_{\CC^{|\mu(i)|}})\CC[t]^i$ and $L=g(A)\CC[t]^m$ are related by the equation $ l = L_{[1,i]}$ where recall $L_{[1,i]} = (L + \CC[t]^{[i+1,m]}) / \CC[t]^{[i+1,m]}\subset \CC[t]^m/\CC[t]^{[i+1,m]} = \CC[t]^i$. 
     
-By definition of $\UU^{\mu',\mu''}_{0,\AA}$ we have $A\big|_{\CC^{|\mu(i)|}}\in\UU^{\mu'(i),\mu''(i)}_{0,s}$ and by definition of $X(\tau',\tau'')_{0,s}$, the Jordan type of $A\big|_{\CC^{|\mu(i)|}}$ is $((\lambda'(i),0),(\lambda''(i),s))$. So, $l \in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}$ by \Cref{th:OTGrW}. 
+By definition of $\UU^{\mu',\mu''}_{0,\AA}$ we have $A\big|_{\CC^{|\mu(i)|}}\in\UU^{\mu'(i),\mu''(i)}_{0,s}$ and by definition of $\mathring X(\tau',\tau'')_{0,s}$, the Jordan type of $A\big|_{\CC^{|\mu(i)|}}$ is $((\lambda'(i),0),(\lambda''(i),s))$. So, $l \in\Gr_{0,s}^{\lambda'(i),\lambda''(i)}$ by \Cref{th:OTGrW}. 
 On the other hand, 
 % also by definition of $\UU^{\mu',\mu''}_{0,\AA}$, we have 
 since $L\in S^{\mu',\mu''}_{0,s}$, $l\in S^{\mu'(i),\mu''(i)}_{0,s}$. 
@@ -1878,7 +1902,7 @@ we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure 
 We can compute intersection multiplicities by passing to dense constructible subsets.  By
 the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a dense constructible subset of $ Z(\tau) $ and $ X(\tau', \tau'')_{0,0} $ is a dense constructible subset of $ Z(\tau') \ast_0 Z(\tau'') $.
 %  
-\acom{Hm, I guess you are right, it is easier than what I had, we just need that the arguments on either side match up, and not that the arguments on one side are related. Do we really not need that $X(\tau)$ is contained in $X(\tau',\tau'')_{0,0}$ as an irreducible component at any point?}  
+\acom{Hm, I guess you are right, it is easier than what I had, we just need that the arguments on either side match up, and not that the arguments on one side are related. Though do we really not use that $X(\tau)$ may be contained in $X(\tau',\tau'')_{0,0}$ as an irreducible component?}  
 \end{proof}
 % 
 \begin{conjecture}
@@ -1897,25 +1921,34 @@ the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a dense 
 % \acom{Pierre said he hasn't thought about this since he last thought about this and remarked that KKKO would distinguish two terms, a leading and a tailing one.} 
 % 
 \subsection{Connection to cluster structure on $\CC[N]$}
-% 
-The coordinate ring of the unipotent subgroup of upper-triangular matrices with 1s on the diagonal has a $\CC$-basis coming from MV cycles. It also has a $\CC$-basis of cluster monomials which is conjectured to be contained in the former. \acom{is this right? Can two bases of an infinite dimensional vector space be related by proper containment?} \rcom{I believe the cluster monomials don't always form a basis.} In his thesis, the first author uses the fusion construction to check that certain MV cycles are cluster. 
+\jcom{Maybe we need a word about Langlands duality here.  Since we are working with $ GL_m$, it is not really necessary, but it would be nice to point this out.  Also a general comment: maybe it would be best to first talk about multiplication in $\CC[N]$ incl. Theorem 7.11 from mvbasis, and then talk about cluster algebras.  Right now, it is a bit confusing, since we go back and forth.  Also some of the motivation stuff about the semicanonical basis, etc, will be moved to the intro.}
+\acom{To quote from BFZ for a concise definition: Cluster algebras are a class of commutative rings defined axiomatically in terms of a distinguished family of generators called cluster variables.}
+The coordinate ring of the unipotent subgroup of upper-triangular matrices with 1s on the diagonal is a cluster algebra as shown in \cite[\S 4.3]{geiss2007initial} using \cite[Theorem~2.10]{berenstein2005cluster3}. 
 
-We begin by recalling how the MV cycles yield a basis of $\CC[N]$. First note that with respect to the adjoint action of $T$ on $N$, the ring of functions on $N$ is graded by the set $-Q_+$ of nonpositive integer linear combinations positive roots. 
-% In particular, for any $\nu \in Q_+$ and $\mu$ dominant effective, $\nu + \mu$ is effective dominant?
+One of the main motivations for this paper is computing fusion products that are associated to exchange relations in $\CC[N]$ with its cluster algebra structure. 
+
+In \cite{lusztig2000semicanonical}, Lusztig gives a geometric construction of a $\CC$-basis of $\cU\n$ the universal enveloping algebra of the Lie algebra of $N$, called the semicanonical basis. This becomes the dual semicanonical basis of the graded dual of $\cU\n$ which is isomorphic (as a Hopf algebra) to $\CC[N]$. 
+Geiss, Leclerc \& Schroer prove that certain cluster monomials are contained in Lusztig's (dual) semicanonical basis \cite[Theorem~2.8(3)]{geiss2006rigid}.
+
+In \cite{baumann2019mirkovic} the third author along with Baumann and Knutson show that the MV cycles yield another geometric basis of $\CC[N]$, called the MV basis.
+% 
+First note that with respect to the adjoint action of $T$ on $N$, $\CC[N]$ is graded by the set $-Q_+$ of nonpositive integer linear combinations of positive roots. 
 % 
 Now, there is a map 
 $$
     \Psi_\lambda: \irr \overline{\Gr^\lambda\cap S^\mu_-} \to \CC[N]_{\mu - \lambda}
 $$ 
 that factors through $\overline{S^0_+\cap S^\nu_-}$ for $\nu = \lambda - \mu$ in the sense that for any $\lambda',\mu'$ such that $\lambda' - \mu' = \lambda - \mu$, the irreducible components of $\Gr^\lambda\cap S^\mu$ are in bijection with those of $\Gr^{\lambda'}\cap S^{\mu'}_-$ according to their Lusztig data, and if $Z,Z'$ are two such matching components, then $\Psi_\lambda(Z) = \Psi_{\lambda'}(Z')$. 
-% 
-In other words, the irreducible components of $ \overline{S^0_+\cap S^\nu_-}$ are called \new{stable MV cycles} and there is a bijection given by multiplication by $t^\lambda$ from $\{Z\in \irr \overline{S^0_+\cap S^\nu_-} : t^\lambda Z \subset\overline\Gr^\lambda\}$ to $\irr \overline{\Gr^\lambda\cap S^\mu_-} $. Moreover, the induced map on $\cup L(\lambda)\to\CC[N]$ is not injective, while that on the collection of all stable MV cycles ($\oplus L(0)_\nu\to\CC[N]$) is. 
 
-In \cite{baumann2019mirkovic}, Baumann, Knutson and the third author show that the stable MV cycles define a perfect basis of $\CC[N]$ whose structure constants are given by intersection multiplicities. 
+\jcom{This paragraph is a bit confusing.  Maybe it would be best to first define $ V(\lambda) \rightarrow \CC[N]$ and then $ H_{top}(\overline{Gr}^\lambda \cap S^\mu) \rightarrow \CC[N]$, rather than doing them in one step.  Then we can draw a commutative square with $ S^0_+ \cap S_-^\nu$ as well. }
+% 
+In other words, there is a bijection given by multiplication by $t^\lambda$ from $\{Z\in \irr \overline{S^0_+\cap S^\nu_-} : t^\lambda Z \subset\overline\Gr^\lambda\}$ to $\irr \overline{\Gr^\lambda\cap S^\mu_-} $. (Note that the induced map on $\cup L(\lambda)\to\CC[N]$ is not injective.)
+% 
+The irreducible components of $ \cup_{\nu\in Q_+}\overline{S^0_+\cap S^{-\nu}_-}$ are called \new{stable MV cycles} and the \new{MV basis} of $\CC[N]$ is $\cup_{\nu\in Q_+}\{b_Z = \Psi_0(Z) \in \CC[N]_{-\nu}: Z \in \irr \overline{S^0_+\cap S^{-\nu}_-} \}$. Moreover, the structure constants of the MV basis are given by intersection multiplicities with multiplication in $\CC[N]$ corresponding to fusion in $\Gr$.  
 % 
 
 \begin{theorem}
-    (\cite[Theorem~7.11]{baumann2019mirkovic})
+    (\cite[Theorem~7.11]{baumann2019mirkovic}) \acom{We haven't said how to fuse stable MV cycles..}
 $$
 b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} \iota\left(
     Z, Z' \ast_0 Z''
@@ -1923,10 +1956,46 @@ b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} \iota\left(
 \right) b_Z 
 $$
 \end{theorem}
+\jcom{In principle, the notation $ Z' \ast_0 Z''$ has been defined, since we defined the fusion of any two subschemes of $ \Gr$.  We should just note that the fusion of the stable MV cycles matches the fusion of MV cycles after translation by $ t^\lambda$.  I don't think that $ \iota$ has been defined anywhere, has it?}
 
-\jcom{We should recall the stable MV cycles and the theorem from mvbasis regarding multiplication in $ \CC[N]$.}
-\acom{Begun}
 
+In the appendix to \cite{baumann2019mirkovic} the second and third author along with Morton-Ferguson check that the MV basis differs from the dual semicanonical basis (at the Kashiwara--Saito counterexample). 
+Yet, the two bases have enough in common (c.f.\ BKT,...?), that we have the following conjecture.
+
+\begin{conjecture}
+    The dual semicanonical basis and the MV basis overlap on the cluster monomials. In particular, the cluster monomials are contained in the MV basis. 
+\end{conjecture}
+
+\acom{Which cluster monomials? The ones considered by GLS corresp to certain modules? iiuc they are interchangeable, but it is helpful to anchor one. Roger? Joel? Feel free to reword.} 
+\rcom{I don't understand the question. There is only one set of cluster monomials in $\CC[N]$.}
+
+We note that both of these bases are \new{biperfect} bases of $\CC[N]$ and in type $A_n$ with $n\le 3$ there is a unique biperfect basis of $\CC[N]$. 
+
+For initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word (length $r = \#\Delta_+$) in the Weyl group for $G$, each $x_i$ is a generalized minor, and hence \acom{by BKK?}\rcom{I reworded it.} is in the MV basis \cite{kato2011polytopal}. 
+% as these correspond to generalized minors \cite{berenstein2005cluster3}\cite{geiss2007initial}. \acom{what's the subscript $r$? also what're the last 2 citations for? Neither BFZ nor GLS link generalized minors and MV cycles}
+If the reduced expression satisfies a special condition, then cluster monomials in the initial seed are also in the MV basis \cite{baumann2020bases}.
+
+Conversely, suppose we have a seed $(x_1,\dots,x_r)$ such that each $x_i$ is in the MV basis, i.e.\ for each $i$ there exists a stable MV cycle $Z_i$ such that $x_i = b_{Z_i}\in\CC[N]$. To show that all cluster variables \acom{for this seed?}\rcom{No, all of them.} are also in the MV basis it suffices to show that if $x_i$ is mutable then its mutation $x_i^*$ is also in the MV basis. This observation is based on the exchange relation:
+\[
+    x_i x_i^* = x_+ + x_- 
+\]
+where $x_+,x_-$ are monomials in $ (x_1, \dots, x_r)\setminus x_i$ determined by the cluster structure on $\CC[N]$. \acom{the structure of interest? or are all cluster structures on this ring the same?} \rcom{The structure is derived from an initial seed coming from a reduced word {\bf i}. Each of these are equivalent to each other.}
+So if we can find a stable MV cycle $Z_i^*$ such that $b_{Z_i}b_{Z_i^*} = x_+ + x_-$ for each $i$ then we will have checked the conjecture. \acom{And we do not need to assume the special condition of BGL?}\rcom{They deal with cluster monomials in certain clusters while this deals with all cluster variables, so neither one completely implies the other.}
+% \acom{Roger says that $x_i x_i^* = \sum{b_{ij} > 0} x_j + \sum{b_{ij} < 0} x_j$ Do we have a recursion? Explicit candidates for $x_\pm$ starting with $Z_1$}
+
+The following examples give evidence that the mutation $x_i^*$ is in the MV basis. \acom{Roger, reword?}\rcom{Something like this?}
+ 
+% \jcom{We should recall the stable MV cycles and the theorem from mvbasis regarding multiplication in $ \CC[N]$.}
+% \acom{Begun}
+
+Before we begin we will need some lemmas, notions and notations. 
+\begin{itemize}
+    \item we have only seen how to fuse ordinary MV cycles; to mutliply MV basis vectors which are indexed by stable MV cycles we'll therefore need a way to represent stable by ordinary; hence:
+    \item a notion/choice of fission 
+    \item the fission lemmas 
+    \item with lemmas in hand, a proposition: given $Z',Z''$ stable with LD... there exist $\tau',\tau''$ (min) such that $b_{Z'} b_{Z''} = b(\tau')  b(\tau'')$
+    \item a shorthand: in examples, instead of writing $Z(\tau)$ for the MV cycle corresponding to the tableau $\tau$ we will only the tableau $\tau$! 
+\end{itemize}
 \begin{lemma}
     \label{lem:mintab}
     Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
@@ -1969,33 +2038,34 @@ $$
 % Let's wait for Gerhard before we discuss our computations any further
 % \subsection{Pseudocode}
 % 
-\section{Cluster Algebras}
-One of the main motivations for this paper is computing certain fusion products that are associated to exchange relations in the cluster algebra structure of $\CC[N]$. 
+% \section{Cluster Algebras}
+% One of the main motivations for this paper is computing certain fusion products that are associated to exchange relations in the cluster algebra structure of $\CC[N]$. 
+% 
+% A basis of $\CC[N]$, called the dual semicanonical basis, was originally constructed in \cite{lusztig2000semicanonical} while a cluster algebra structure for $\CC[N]$ was shown in \cite{berenstein2005cluster3} and \cite{geiss2007initial}.
+% A natural question was whether the cluster monomials were elements of the dual semicanonical basis, proved in the positive in \cite{geiss2006rigid}.
 
-A basis of $\CC[N]$, called the dual semicanonical basis, was originally constructed in \cite{lusztig2000semicanonical} while a cluster algebra structure for $\CC[N]$ was shown in \cite{berenstein2005cluster3} and \cite{geiss2007initial}.
-A natural question was whether the cluster monomials were elements of the dual semicanonical basis, proved in the positive in \cite{geiss2006rigid}.
+% Another basis for $\CC[N]$ was constructed in \cite{mirkovic2007geometric} called the MV basis. This basis is indexed by the MV cycles and the product of basis elements corresponds to the fusion product of the associated MV cycles. While this basis is different from the dual semicanonical basis, as shown in \cite{baumann2019mirkovic}, they seemed to share a lot of common elements, such as various cluster variables, which led to the following conjecture.
 
-Another basis for $\CC[N]$ was constructed in \cite{mirkovic2007geometric} called the MV basis. This basis is indexed by the MV cycles and the product of basis elements corresponds to the fusion product of the associated MV cycles. While this basis is different from the dual semicanonical basis, as shown in \cite{baumann2019mirkovic}, they seemed to share a lot of common elements, such as various cluster variables, which led to the following conjecture.
+% \begin{conjecture}\label{conj:cluster in MV}
+%     The cluster monomials of $\CC[N]$ are elements of the MV basis.
+% \end{conjecture}
 
-\begin{conjecture}\label{conj:cluster in MV}
-    The cluster monomials of $\CC[N]$ are elements of the MV basis.
-\end{conjecture}
+% Conjecture \ref{conj:cluster in MV} is known for type $A_n$, $n \leq 3$, as in this case, there is a unique biperfect basis for $\CC[N]$ \cite{baumann2019mirkovic}, so the dual semicanonical basis and MV basis are the same.
 
-Conjecture \ref{conj:cluster in MV} is known for type $A_n$, $n \leq 3$, as in this case, there is a unique biperfect basis for $\CC[N]$ \cite{baumann2019mirkovic}, so the dual semicanonical basis and MV basis are the same.
+% It has been shown in \cite{kato2011polytopal} that for initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word in the Weyl group for $G$, each $x_i$ is in the MV basis as these correspond to generalized minors \cite{berenstein2005cluster3}\cite{geiss2007initial}. If the reduced expression satisfies a special condition, then the cluster monomials in the initial seed are also in the MV basis \cite{baumann2020bases}.
 
-It has been shown in \cite{kato2011polytopal} that for initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word in the Weyl group for $G$, each $x_i$ is in the MV basis as these correspond to generalized minors \cite{berenstein2005cluster3}\cite{geiss2007initial}. If the reduced expression satisfies a special condition, then the cluster monomials in the initial seed are also in the MV basis \cite{baumann2020bases}.
+% Suppose we have a seed $(x_1, \dots, x_r)$ where each $x_i$ is already in the MV basis. To show all the other cluster variables are in the MV basis, it suffices to show that for a mutable variable $x_i$, its mutation $x_i^*$ is also in the MV basis. The exchange relation corresponding to $x_i$ and $x_i^*$ is of the form
+% $$x_ix_i^* = x_+ + x_-$$
+% where $x_+$ and $x_-$ are monomials in the $x_j,j\neq i$. Let $Z_i$ be the MV cycle corresponding to $x_i$, so $x_i = b_{Z_i}$. If we are able to find an MV cycle $Z_i^*$ such that
+% $$b_{Z_i} b_{Z_i^*} = x_+ + x_-,$$
+% then this means $x_i^* = b_{Z_i^*}$ so it is in the MV basis with associated MV cycle $Z_i^*$. In Section \ref{s:denouement}, we present examples showcasing this is indeed true for type $A_3$. 
 
-Suppose we have a seed $(x_1, \dots, x_r)$ where each $x_i$ is already in the MV basis. To show all the other cluster variables are in the MV basis, it suffices to show that for a mutable variable $x_i$, its mutation $x_i^*$ is also in the MV basis. The exchange relation corresponding to $x_i$ and $x_i^*$ is of the form
-$$x_ix_i^* = x_+ + x_-$$
-where $x_+$ and $x_-$ are monomials in the $x_j,j\neq i$. Let $Z_i$ be the MV cycle corresponding to $x_i$, so $x_i = b_{Z_i}$. If we are able to find an MV cycle $Z_i^*$ such that
-$$b_{Z_i} b_{Z_i^*} = x_+ + x_-,$$
-then this means $x_i^* = b_{Z_i^*}$ so it is in the MV basis with associated MV cycle $Z_i^*$. In Section \ref{s:denouement}, we present examples showcasing this is indeed true for type $A_3$. 
 \section{Denouement}
 \label{s:denouement}
 \subsection{Examples}
 
 % \acom{Plus fusion product of fake MV cycles for a fourth!}
-
+\acom{TODO: review/rewrite now that we have \S 6.2}
 We view MV cycles as semi-standard young tableaux. Suppose we have two tableaux $\tau'$ and $\tau''$, with respective weights $\lambda'$, $\mu'$ and $\lambda''$, $\mu''$, and we wished to take their fusion product. We consider a generic matrix $X \in \UU^{\mu',\mu''}_{0,s}$ and see what relations on the variables in $X$ occur when also asking for it to be in $\OO^{\lambda',\lambda''}_{0,s}$. \acom{Relations dictated by $\tau$. Can mostly refer the reader to the previous section for this background, now.}
 
 Consider the subtableaux $\tau'(i)$ of $\tau'$ and $\tau''(i)$ of $\tau''$ where we take the boxes of $\tau'$ and $\tau''$ containing the numbers $1,\dots,i$. Let $\lambda'(i)$ and $\lambda''(i)$ be the corresponding sizes and $\mu'(i)$ and $\mu'(i)$ be the corresponding weights of the subtableaux. For each $i$, we obtain a corresponding submatrix $X_i \in \UU^{\mu'(i), \mu''(i)}_{0,s}$ of $X$. These subtableaux impose rank conditions, equivalently vanishing minors, on each $X_i$ when asking them to be in $\OO^{\lambda'(i), \lambda''(i)}_{0,s}$, which allows us to deduce relations on the variables in $X$. The relations must also include the new variables in the latest block and cannot have $s$ as a factor.
@@ -2075,6 +2145,7 @@ There are no relations from looking at the submatrix $X_1$. From the submatrix $
 From $X$, we further obtain the relations $$A_{12}^2A_{23}^1 + sA_{13}^1 = 0, A_{12}^1A_{23}^1 + s^2A_{13}^1 = 0.$$
 Then the quotient ring we find is
 $$\frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s]}{\langle A_{12}^1+sA_{12}^2, A_{12}^2A_{23}^1+sA_{13}^1, A_{12}^1A_{23}^1+s^2A_{13}^1, s\rangle} \cong \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,b_3,s]}{\langle A_{12}^1, A_{12}^2\rangle \cap \langle A_{12}^1, A_{23}^1 \rangle}.$$
+\acom{TODO: put ideals of $\arfu$ and their tableaux into tables; also divide into 2 sections, $\GL_3$ and $\GL_4$; replace $Z_M$ by $Z(\tau)$ and $Z(\tau)$ by $\tau$; and let's use $A$ for matrices instead of $X$ to be consistent with `rising action'?}
 We see that the 0-fibre is reducible with two components. The tableau corresponding to each ideal is
 $$\begin{array}{cccc} \vspace{1mm}
     \young(1113,22) & \text{for } \langle A_{12}^1, A_{12}^2 \rangle & \text{Lusztig: }(101) & \dim = (1,0,-1)\\ 
@@ -2134,7 +2205,7 @@ The MV cycle for each ideal is isomorphic to $\PP^2 \times \PP^2$.
 
 \begin{example}
     
-    \acom{Here the fission is the smallest if we set out to minimize the dimension of the zero eigenspace. For Joel: this $\lambda(n_\bullet)$ again matches that of \cite{mirkovic2007quiver}.}
+    \acom{Here the fission is the smallest if we set out to minimize the dimension of the zero eigenspace. For Joel: this $\lambda(n_\bullet)$ again matches that of \cite{claxton2015young}}
 
 Let $G = \GL_3$. Consider the tableaux
 $$\tau' = \young(22) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau'' = \young(11,33).$$
@@ -2169,13 +2240,16 @@ $$
 and the MV cycles corresponding to each are isomorphic to $\PP^2 \times \PP^2$.
 \end{example}
 
-Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 cluster variables. We list the corresponding tableaux, coordinate ring of the MV cycle, and Lusztig-datum below:
+Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 cluster variables. We list the corresponding tableaux, coordinate ring of the generalized orbital variety $X(\tau)$, and Lusztig-datum below:
 
-\jcom{This is a nice table.  But these are the coordinate rings of $ X(\tau)$, not of $ Z(\tau) $.}
-
-\[
-\begin{array}{ccc} 
-\tau & \text{Coordinate ring of }Z(\tau) & \text{Lusztig-datum} \\ \hline
+% \jcom{This is a nice table.  But these are the coordinate rings of $ X(\tau)$, not of $ Z(\tau) $.}
+% \renewcommand{\arraystretch}{1.5}
+\begin{table}[ht!]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \tau & \text{Coordinate ring of }X(\tau) & \text{Lusztig-datum} \\
+    \midrule 
 \young(2) & \CC[A_{12}^1] & (1,0,0,0,0,0) \rule{0pt}{3ex}\\
 \young(1,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1,A_{13}^1 \rangle} & (0,0,0,1,0,0) \TS\BS\\
 \young(1,2,4) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1 \rangle} & (0,0,0,0,0,1) \TS\BS\\
@@ -2188,8 +2262,26 @@ Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 clust
 \young(2,3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{23}^1,A_{24}^1,A_{34}^1 \rangle} & (0,0,1,0,0,0) \TS\BS\\
 \young(3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1 \rangle} & (0,1,0,0,1,0) \TS\BS\\
 \young(4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1 \rangle} & (1,0,0,1,0,1) \TS\BS\\
-\end{array}
-\]
+  \end{tabular}
+\end{table}
+
+% \[
+% \begin{array}{ccc} 
+% \tau & \text{Coordinate ring of }X(\tau) & \text{Lusztig-datum} \\ \hline
+% \young(2) & \CC[A_{12}^1] & (1,0,0,0,0,0) \rule{0pt}{3ex}\\
+% \young(1,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1,A_{13}^1 \rangle} & (0,0,0,1,0,0) \TS\BS\\
+% \young(1,2,4) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1 \rangle} & (0,0,0,0,0,1) \TS\BS\\
+% \young(3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1 \rangle} & (1,0,0,1,0,0) \TS\BS\\
+% \young(2,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{23}^1 \rangle} & (0,1,0,0,0,0) \TS\BS\\
+% \young(1,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1 \rangle} & (0,0,0,1,0,1) \TS\BS\\
+% \young(1,3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1 \rangle} & (0,0,0,0,1,0) \TS\BS\\
+% \young(2,4) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1 \rangle} & (0,1,0,0,0,1) \TS\BS\\
+% \young(13,2,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1 \rangle} & (1,0,0,0,1,0) \TS\BS\\
+% \young(2,3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{23}^1,A_{24}^1,A_{34}^1 \rangle} & (0,0,1,0,0,0) \TS\BS\\
+% \young(3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1 \rangle} & (0,1,0,0,1,0) \TS\BS\\
+% \young(4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1 \rangle} & (1,0,0,1,0,1) \TS\BS\\
+% \end{array}
+% \]
 
 % \begin{table}[]
 % \centering
@@ -2225,10 +2317,12 @@ For each of the 15 exchange relations, we state the associated matrix $X$, the r
 \jcom{I think that you should clarify what you mean by ``our ideal'' below.  I think that it is the ideal of $ X(\tau', \tau'')_{0,0}$, is that correct?}
 
 \begin{example}
-Consider the product $Z_1 * Z_2$, so the tableaux are
-\[
-\young(2) \text{ and } \young(1,3).
-\]
+% Consider the product $Z_1 * Z_2$, so the tableaux are
+Consider the product % $Z({{\scriptsize\young(2)}})*Z({\scriptsize\young(1,3)})$
+% \[
+% \young(2) \text{ and } \young(1,3).
+% \]
+$\young(2) * \young(1,3)$.
 Our matrix is
 \[
 X = \left[\begin{BMAT}(e){c;c;c}{c;c;c}
@@ -2239,22 +2333,42 @@ X = \left[\begin{BMAT}(e){c;c;c}{c;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_3 & A_{12}^1A_{23}^1+sA_{13}^1
-\end{array}.
-\]
-Hence our ideal is
-$$\langle A_{12}^1A_{23}^1+sA_{13}^1,s \rangle = 
-\langle A_{12}^1,s \rangle \cap \langle A_{23}^1,s \rangle.$$
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,s \rangle &\leadsto \young(13,2) &\equiv \young(3) &\leadsto {Z_{1 \leftarrow 2}} \\ 
-    \langle A_{23}^1,s \rangle &\leadsto \young(12,3) &\equiv \young(2,3) &\leadsto{Z_{1 \rightarrow 2}}
-\end{array}
-\]
-so $Z_1 * Z_2 = Z_{1 \leftarrow 2} + Z_{1 \rightarrow 2}$.
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_3 & A_{12}^1A_{23}^1+sA_{13}^1
+% \end{array}.
+% \]
+\noindent Hence, our ideals are
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Ideal} & \text{Tableau} \\
+    \midrule 
+    \langle A_{12}^1,s \rangle & \young(13,2) \equiv \young(3) \\
+    \langle A_{23}^1,s \rangle & \young(12,3) \equiv \young(2,3)
+    \end{tabular}
+\end{table}
+% $$\langle A_{12}^1A_{23}^1+sA_{13}^1,s \rangle = 
+% \langle A_{12}^1,s \rangle \cap \langle A_{23}^1,s \rangle.$$
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,s \rangle &\leadsto \young(13,2) &\equiv \young(3) &\leadsto {Z_{1 \leftarrow 2}} \\ 
+%     \langle A_{23}^1,s \rangle &\leadsto \young(12,3) &\equiv \young(2,3) &\leadsto{Z_{1 \rightarrow 2}}
+% \end{array}
+% \]
+% so $Z_1 * Z_2 = Z_{1 \leftarrow 2} + Z_{1 \rightarrow 2}$.
+\noindent so $\young(2) * \young(1,3) = \young(3) + \young(2,3)$.
 \end{example}
 
 \begin{example}
@@ -2274,15 +2388,28 @@ X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1 \\
     X_3 & A_{13}^1 \\
     X_4 & A_{14}^1, A_{23}^1A_{34}^1 + sA_{24}^1
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1 \\
+%     X_3 & A_{13}^1 \\
+%     X_4 & A_{14}^1, A_{23}^1A_{34}^1 + sA_{24}^1
+% \end{array}.
+% \]
+% 
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{14}^1,s \rangle \cap \langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle.
 \]
@@ -2311,14 +2438,25 @@ X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_3 & A_{12}^1A_{23}^1 + sA_{13}^1 \\
     X_4 & A_{34}^1, A_{12}^1A_{24}^1 + sA_{14}^1, A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_3 & A_{12}^1A_{23}^1 + sA_{13}^1 \\
+%     X_4 & A_{34}^1, A_{12}^1A_{24}^1 + sA_{14}^1, A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1
+% \end{array}.
+% \]
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{23}^1,A_{24}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1,s \rangle.
 \]
@@ -2353,15 +2491,27 @@ X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1 + sA_{12}^2 \\
     X_3 & A_{13}^1, A_{23}^1 \\
     X_4 & A_{12}^2A_{24}^1 + sA_{14}^1, A_{12}^1A_{24}^1 - s^2A_{14}^1 
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1 + sA_{12}^2 \\
+%     X_3 & A_{13}^1, A_{23}^1 \\
+%     X_4 & A_{12}^2A_{24}^1 + sA_{14}^1, A_{12}^1A_{24}^1 - s^2A_{14}^1 
+% \end{array}.
+% \]
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s \rangle \cap \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle.
 \]
@@ -2396,15 +2546,27 @@ X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1 \\
     X_3 & A_{23}^1 \\
     X_4 & A_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1 
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1 \\
+%     X_3 & A_{23}^1 \\
+%     X_4 & A_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1 
+% \end{array}.
+% \]
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle.
 \]
@@ -2433,14 +2595,25 @@ X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1 \\
     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1 \\
+%     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
+% \end{array}.
+% \]
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{13}^1,A_{23}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1,s \rangle.
 \]
@@ -2474,14 +2647,25 @@ X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1 \\
     X_4 & A_{13}^1A_{34}^1 + sA_{14}^1
-\end{array}.
-\]
-Hence our ideal is 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1 \\
+%     X_4 & A_{13}^1A_{34}^1 + sA_{14}^1
+% \end{array}.
+% \]
+\noindent Hence, our ideal is 
 \[
 \langle A_{12}^1,A_{13}^1A_{34}^1+sA_{14}^1,s \rangle
 = \langle A_{12}^1,A_{13}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,s \rangle.
@@ -2517,16 +2701,30 @@ X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
 \end{BMAT}
 \right].
 \]
+% 
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1 \\
     X_3 & A_{23}^1, A_{12}^2A_{23}^2 + A_{13}^1 + sA_{13}^2 \\
     X_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1 \\
+%     X_3 & A_{23}^1, A_{12}^2A_{23}^2 + A_{13}^1 + sA_{13}^2 \\
+%     X_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
+% \end{array}.
+% \]
+% 
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,A_{12}^2A_{23}^2+A_{13}^1,s \rangle.
 \]
@@ -2563,15 +2761,27 @@ X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
 \right]
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1, A_{12}^2 \\
     X_3 & A_{13}^1 \\
     X_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1, A_{12}^2 \\
+%     X_3 & A_{13}^1 \\
+%     X_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
+% \end{array}.
+% \]
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle.
 \]
@@ -2600,14 +2810,25 @@ X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_3 & A_{12}^1A_{23}^1 - sA_{13}^1 \\
     X_4 & A_{23}^1A_{34}^1 + sA_{24}^1, A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_3 & A_{12}^1A_{23}^1 - sA_{13}^1 \\
+%     X_4 & A_{23}^1A_{34}^1 + sA_{24}^1, A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1
+% \end{array}.
+% \]
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{34}^1,s \rangle \cap \langle A_{23}^1,A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1,s \rangle.
 \]
@@ -2643,15 +2864,27 @@ X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
 \right]
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1 \\
     X_3 & A_{23}^1 +sA_{23}^2 \\
     X_4 & A_{34}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
-\end{array}.
-\]
-Hence our ideal decomposes into 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1 \\
+%     X_3 & A_{23}^1 +sA_{23}^2 \\
+%     X_4 & A_{34}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
+% \end{array}.
+% \]
+\noindent Hence, our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle.
 \]
@@ -2684,13 +2917,23 @@ X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
-    X_4 & A_{23}^1A_{34}^1 - sA_{24}^1
-\end{array}.
-\]
-Hence our ideal is 
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
+     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1
+% \end{array}.
+% \]
+\noindent Hence, our ideal is 
 \[
 \langle A_{23}^1A_{34}^1 - sA_{24}^1,s \rangle
 = \langle A_{23}^1,s \rangle \cap \langle A_{34}^1,s \rangle.
@@ -2729,18 +2972,31 @@ X = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
 \right]
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
+% 
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
     X_2 & A_{12}^1,A_{12}^2 \\
     X_3 & A_{13}^1, A_{23}^1 \\
-    X_4 & \begin{array}{c}
-         A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1,  \\
-         A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
-         A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2
-    \end{array}
-\end{array}.
-\]
+    X_4 & A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
+        & A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2 
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1,A_{12}^2 \\
+%     X_3 & A_{13}^1, A_{23}^1 \\
+%     X_4 & \begin{array}{c}
+%          A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1,  \\
+%          A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
+%          A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2
+%     \end{array}
+% \end{array}.
+% \]
 Hence our ideal decomposes into 
 \[
 \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{13}^2,A_{23}^1,A_{14}^1,A_{34}^1,s \rangle \cap \begin{array}{c}
@@ -2784,19 +3040,33 @@ X = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
 \right].
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
-    X_2 & A_{12}^1 \\
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
+   X_2 & A_{12}^1 \\
     X_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
-    X_4 & \begin{array}{c}
+    X_4 & 
          A_{23}^2A_{34}^1 - sA_{24}^1, A_{12}^2A_{24}^1 + A_{13}^2A_{34}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
-         A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2,  \\
-         A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
-         A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1 
-    \end{array} 
-\end{array}.
-\]
+        & A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2, A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
+        & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1 \\
+%     X_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
+%     X_4 & \begin{array}{c}
+%          A_{23}^2A_{34}^1 - sA_{24}^1, A_{12}^2A_{24}^1 + A_{13}^2A_{34}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+%          A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2,  \\
+%          A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
+%          A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1 
+%     \end{array} 
+% \end{array}.
+% \]
 Hence our ideal decomposes into 
 \[\begin{array}{c}
      \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
@@ -2848,20 +3118,35 @@ X = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
 \right]
 \]
 The relations from the submatrices are:
-\[
-\begin{array}{c|c}
-    \text{Submatrix} & \text{Relations} \\ \hline
-    X_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
+   X_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
     X_3 & A_{13}^1,A_{23}^1 \\
-    X_4 & \begin{array}{c}
-         A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
-         A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
-         A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
-         A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
-         A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
-    \end{array} 
-\end{array}.
-\]
+    X_4 & A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+        & A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
+        & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
+        & A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
+        & A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
+    \end{tabular}
+\end{table}
+% \[
+% \begin{array}{c|c}
+%     \text{Submatrix} & \text{Relations} \\ \hline
+%     X_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
+%     X_3 & A_{13}^1,A_{23}^1 \\
+%     X_4 & \begin{array}{c}
+%          A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+%          A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
+%          A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
+%          A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
+%          A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
+%     \end{array} 
+% \end{array}.
+% \]
 Hence our ideal decomposes into \acom{formatting funny; can just list irrecs?}
 \[
 \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1, A_{34}^1,s \rangle
