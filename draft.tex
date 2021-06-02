@@ -1922,42 +1922,75 @@ the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a dense 
 % 
 \subsection{Connection to cluster structure on $\CC[N]$}
 \jcom{Maybe we need a word about Langlands duality here.  Since we are working with $ GL_m$, it is not really necessary, but it would be nice to point this out.  Also a general comment: maybe it would be best to first talk about multiplication in $\CC[N]$ incl. Theorem 7.11 from mvbasis, and then talk about cluster algebras.  Right now, it is a bit confusing, since we go back and forth.  Also some of the motivation stuff about the semicanonical basis, etc, will be moved to the intro.}
-\acom{To quote from BFZ for a concise definition: Cluster algebras are a class of commutative rings defined axiomatically in terms of a distinguished family of generators called cluster variables.}
-The coordinate ring of the unipotent subgroup of upper-triangular matrices with 1s on the diagonal is a cluster algebra as shown in \cite[\S 4.3]{geiss2007initial} using \cite[Theorem~2.10]{berenstein2005cluster3}. 
 
-One of the main motivations for this paper is computing fusion products that are associated to exchange relations in $\CC[N]$ with its cluster algebra structure. 
-
-In \cite{lusztig2000semicanonical}, Lusztig gives a geometric construction of a $\CC$-basis of $\cU\n$ the universal enveloping algebra of the Lie algebra of $N$, called the semicanonical basis. This becomes the dual semicanonical basis of the graded dual of $\cU\n$ which is isomorphic (as a Hopf algebra) to $\CC[N]$. 
-Geiss, Leclerc \& Schroer prove that certain cluster monomials are contained in Lusztig's (dual) semicanonical basis \cite[Theorem~2.8(3)]{geiss2006rigid}.
-
-In \cite{baumann2019mirkovic} the third author along with Baumann and Knutson show that the MV cycles yield another geometric basis of $\CC[N]$, called the MV basis.
+Let $N\subset\GL_m$ be the unipotent subgroup of upper-triangular matrices with 1s on the diagonal. In \cite{baumann2019mirkovic} the third author along with Baumann and Knutson show that the MV cycles yield a basis of the coordinate ring $\CC[N]$ called the MV basis. 
 % 
-First note that with respect to the adjoint action of $T$ on $N$, $\CC[N]$ is graded by the set $-Q_+$ of nonpositive integer linear combinations of positive roots. 
+% First note that with respect to the adjoint action of $T$ on $N$, $\CC[N]$ is graded by the set $-Q_+$ of nonpositive integer linear combinations of positive roots. 
 % 
-Now, there is a map 
-$$
-    \Psi_\lambda: \irr \overline{\Gr^\lambda\cap S^\mu_-} \to \CC[N]_{\mu - \lambda}
-$$ 
-that factors through $\overline{S^0_+\cap S^\nu_-}$ for $\nu = \lambda - \mu$ in the sense that for any $\lambda',\mu'$ such that $\lambda' - \mu' = \lambda - \mu$, the irreducible components of $\Gr^\lambda\cap S^\mu$ are in bijection with those of $\Gr^{\lambda'}\cap S^{\mu'}_-$ according to their Lusztig data, and if $Z,Z'$ are two such matching components, then $\Psi_\lambda(Z) = \Psi_{\lambda'}(Z')$. 
 
+Given $\lambda\ge\mu\in\ZZ^m$ with $\lambda$ dominant, denote by $V(\lambda)$ the irreducible representation of $\GL_m$ of highest weight $\lambda$ and by $V(\lambda)_\mu$ its $\mu$-weight space. 
+There is an injective map $ \Psi_\lambda: V(\lambda) \to \CC[N]$ realizing $V(\lambda)$ as a subspace of $\CC[N]$. 
+
+The geometric Satake correspondence says that 
+% $V(\lambda) = IH(\overline\Gr^\lambda)$ and  
+$V(\lambda)_\mu = H_{\rho(\lambda-\mu)}(\overline{\Gr^\lambda\cap S^\mu_-})$ where $H_d$ denotes $d$-dimensional Borel--Moore homology. 
+In particular, the MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$ give a basis of $V(\lambda)$. We denote this set of MV cycles $\cZ(\lambda)$. 
+% 
+
+Let $Q_+$ denote the set of nonnegative integer combinations of positive roots. \acom{$Q_+$ should be defined earlier?}
+The \new{stable} MV cycles of coweight $\nu\in Q_+$ are defined to be irreducible components of $\overline{S^0_+ \cap S^\nu_-}$. By a theorem of Anderson, MV cycles in $\overline{\Gr^\lambda\cap S^{\nu + \lambda}_-}$ are in bijection with stable MV cycles of coweight $\nu$ that are contained in $\overline\Gr^\lambda$. We denote the set of all stable MV cycles $\cZ(\infty)$. 
+
+\begin{theorem}
+    (BKK~Proposition 6.1)
+    For each $Z\in\cZ(\infty)$ there is a unique element $b_Z\in\CC[N]$ such that for any $\lambda$ dominant, if $t^\lambda Z\in\cZ(\lambda)$ then $\Psi_\lambda([t^\lambda Z]) = b_Z$ and the collection of all such elements is called the \new{MV basis}. 
+\end{theorem}
+
+% Given $\epsilon\in\ZZ^m$ denote by $t^\epsilon:V(\lambda) \to V(\lambda + \epsilon)$ the map resulting from multiplication by the coweight $t^\epsilon$ in $\Gr$. By BKK, $\Psi_{\lambda + \epsilon} \circ t^\epsilon - \Psi_\lambda = 0$. 
+
+% Together these facts imply the following commutative square.
+% \[
+% \begin{tikzcd}
+% L(\lambda) \ar[r] & \CC[N] \\
+% \Gr^\lambda \cap S^\mu_- \ar[r,"t^{-\lambda}"] \ar[u] & S^0 \cap S^{\mu - \lambda}_-\ar[u]
+% \end{tikzcd}
+% \]
 \jcom{This paragraph is a bit confusing.  Maybe it would be best to first define $ V(\lambda) \rightarrow \CC[N]$ and then $ H_{top}(\overline{Gr}^\lambda \cap S^\mu) \rightarrow \CC[N]$, rather than doing them in one step.  Then we can draw a commutative square with $ S^0_+ \cap S_-^\nu$ as well. }
+\acom{Not sure which square to draw or if it is necessary. I guess you want something like what's pictured below, where what we're about to describe are the blue arrows. Specifically the rightmost downward pointing blue. Which, by commutativity, will determine the middle downward pointing blue.}
+\[
+\begin{tikzcd}
+\CC[N] & \ar[l] \cZ(\infty) \ar[r,"n_\bullet"] \ar[d,bend left,blue] & \NN^{\Delta_+} \ar[l,blue,bend left] \ar[d,bend left,blue]\\ 
+L(\lambda) \ar[u,"\Psi_\lambda"] & \ar[l] \cZ(\lambda) \ar[r] \ar[u,"t^{-\lambda}"] & YT(\lambda) \ar[u,"n_\bullet"] \ar[l,blue,bend left]
+\end{tikzcd}
+\]
 % 
-In other words, there is a bijection given by multiplication by $t^\lambda$ from $\{Z\in \irr \overline{S^0_+\cap S^\nu_-} : t^\lambda Z \subset\overline\Gr^\lambda\}$ to $\irr \overline{\Gr^\lambda\cap S^\mu_-} $. (Note that the induced map on $\cup L(\lambda)\to\CC[N]$ is not injective.)
+\acom{Recalling intersection multiplicity:} 
+We have the zero fibre in $\Grbd$ as effective divisor $D$, and the fusion of subscheme $V = X\ast_\AA Y\subset\Grbd$ as a finite-dimensional irreducible variety not contained in the support of $D$, and finally an irreducible component $Z$ of $D\cdot V = X\ast_0 Y$, codimension 1 in $V$. Denote by $\iota(Z,D\cdot V)$ the intersection multiplicity of $Z$. 
 % 
-The irreducible components of $ \cup_{\nu\in Q_+}\overline{S^0_+\cap S^{-\nu}_-}$ are called \new{stable MV cycles} and the \new{MV basis} of $\CC[N]$ is $\cup_{\nu\in Q_+}\{b_Z = \Psi_0(Z) \in \CC[N]_{-\nu}: Z \in \irr \overline{S^0_+\cap S^{-\nu}_-} \}$. Moreover, the structure constants of the MV basis are given by intersection multiplicities with multiplication in $\CC[N]$ corresponding to fusion in $\Gr$.  
+The structure constants of $\CC[N]$ with respect to the MV basis are given by intersection multiplicities. 
 % 
 
 \begin{theorem}
-    (\cite[Theorem~7.11]{baumann2019mirkovic}) \acom{We haven't said how to fuse stable MV cycles..}
+    (\cite[Theorem~7.11]{baumann2019mirkovic}) Given $Z',Z''\in\cZ(\infty)$ 
+    % of coweight $\nu',\nu''$ respectively 
 $$
-b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)_{-\nu_1 - \nu_2}} \iota\left(
-    Z, Z' \ast_0 Z''
-    % \pi^{-1}(0) \cdot \overline{Z_1 \times Z_2 \times U}
-\right) b_Z 
+b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)} \iota\left(Z, Z' \ast_0 Z''\right) b_Z 
 $$
+where note the summation is finite since... \acom{Don't want to introduce the notation $\cZ(\infty)_\nu$ if we can avoid it.}
+Moreover, there exists $\lambda',\lambda''$ dominant effective and $(\tau',\tau'')\in YT(\lambda')\times YT(\lambda'')$  
+\[
+b_{Z'} b_{Z''} = \sum_{Z\in\cZ(\lambda' + \lambda'')} \iota (Z, Z(\tau')\ast_0 Z(\tau''))
+\]
 \end{theorem}
 \jcom{In principle, the notation $ Z' \ast_0 Z''$ has been defined, since we defined the fusion of any two subschemes of $ \Gr$.  We should just note that the fusion of the stable MV cycles matches the fusion of MV cycles after translation by $ t^\lambda$.  I don't think that $ \iota$ has been defined anywhere, has it?}
 
+\acom{To quote from BFZ for a concise definition: Cluster algebras are a class of commutative rings defined axiomatically in terms of a distinguished family of generators called cluster variables. Say also what is a seed, what is a mutation, what is a cluster, what is a cluster monomial, and finally for the stubbornly ignorant clarify that 'the cluster monomials' refers to cluster monomials for all possible clusters!}
+
+$\CC[N]$ is a cluster algebra as shown in \cite[\S 4.3]{geiss2007initial} using \cite[Theorem~2.10]{berenstein2005cluster3}, and one of the main motivations for this paper is using fusion to check that certain cluster monomials are contained in the MV basis.
+% that are associated to exchange relations in $\CC[N]$ with its cluster algebra structure. 
+
+\acom{Background on cluster:}
+In \cite{lusztig2000semicanonical}, Lusztig gives a geometric construction of a $\CC$-basis of $\cU\n$ the universal enveloping algebra of the Lie algebra of $N$, called the semicanonical basis. This becomes the dual semicanonical basis of the graded dual of $\cU\n$ which is isomorphic (as a Hopf algebra) to $\CC[N]$. 
+Geiss, Leclerc \& Schroer prove that certain cluster monomials are contained in Lusztig's (dual) semicanonical basis \cite[Theorem~2.8(3)]{geiss2006rigid}.
 
 In the appendix to \cite{baumann2019mirkovic} the second and third author along with Morton-Ferguson check that the MV basis differs from the dual semicanonical basis (at the Kashiwara--Saito counterexample). 
 Yet, the two bases have enough in common (c.f.\ BKT,...?), that we have the following conjecture.
@@ -1966,24 +1999,26 @@ Yet, the two bases have enough in common (c.f.\ BKT,...?), that we have the foll
     The dual semicanonical basis and the MV basis overlap on the cluster monomials. In particular, the cluster monomials are contained in the MV basis. 
 \end{conjecture}
 
-\acom{Which cluster monomials? The ones considered by GLS corresp to certain modules? iiuc they are interchangeable, but it is helpful to anchor one. Roger? Joel? Feel free to reword.} 
-\rcom{I don't understand the question. There is only one set of cluster monomials in $\CC[N]$.}
-
 We note that both of these bases are \new{biperfect} bases of $\CC[N]$ and in type $A_n$ with $n\le 3$ there is a unique biperfect basis of $\CC[N]$. 
 
-For initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word (length $r = \#\Delta_+$) in the Weyl group for $G$, each $x_i$ is a generalized minor, and hence \acom{by BKK?}\rcom{I reworded it.} is in the MV basis \cite{kato2011polytopal}. 
+For initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word (length $r = \#\Delta_+$) in the Weyl group for $G$, each $x_i$ is a generalized minor  \cite{kato2011polytopal}, and hence 
+% \acom{by BKK?}\rcom{I reworded it.} 
+is in the MV basis. 
 % as these correspond to generalized minors \cite{berenstein2005cluster3}\cite{geiss2007initial}. \acom{what's the subscript $r$? also what're the last 2 citations for? Neither BFZ nor GLS link generalized minors and MV cycles}
 If the reduced expression satisfies a special condition, then cluster monomials in the initial seed are also in the MV basis \cite{baumann2020bases}.
 
-Conversely, suppose we have a seed $(x_1,\dots,x_r)$ such that each $x_i$ is in the MV basis, i.e.\ for each $i$ there exists a stable MV cycle $Z_i$ such that $x_i = b_{Z_i}\in\CC[N]$. To show that all cluster variables \acom{for this seed?}\rcom{No, all of them.} are also in the MV basis it suffices to show that if $x_i$ is mutable then its mutation $x_i^*$ is also in the MV basis. This observation is based on the exchange relation:
+Conversely, suppose we have a seed $(x_1,\dots,x_r)$ such that each $x_i$ is in the MV basis, i.e.\ for each $i$ there exists a stable MV cycle $Z_i$ such that $x_i = b_{Z_i}\in\CC[N]$. To show that all cluster variables 
+% \acom{for this seed?}\rcom{No, all of them.} 
+are also in the MV basis it suffices to show that if $x_i$ is mutable then its mutation $x_i^*$ is also in the MV basis. This observation is based on the exchange relation:
 \[
     x_i x_i^* = x_+ + x_- 
 \]
-where $x_+,x_-$ are monomials in $ (x_1, \dots, x_r)\setminus x_i$ determined by the cluster structure on $\CC[N]$. \acom{the structure of interest? or are all cluster structures on this ring the same?} \rcom{The structure is derived from an initial seed coming from a reduced word {\bf i}. Each of these are equivalent to each other.}
-So if we can find a stable MV cycle $Z_i^*$ such that $b_{Z_i}b_{Z_i^*} = x_+ + x_-$ for each $i$ then we will have checked the conjecture. \acom{And we do not need to assume the special condition of BGL?}\rcom{They deal with cluster monomials in certain clusters while this deals with all cluster variables, so neither one completely implies the other.}
-% \acom{Roger says that $x_i x_i^* = \sum{b_{ij} > 0} x_j + \sum{b_{ij} < 0} x_j$ Do we have a recursion? Explicit candidates for $x_\pm$ starting with $Z_1$}
+where $x_+,x_-$ are monomials in $ (x_1, \dots, x_r)\setminus x_i$ determined by the cluster structure on $\CC[N]$. 
+% \acom{the structure of interest? or are all cluster structures on this ring the same?} \rcom{The structure is derived from an initial seed coming from a reduced word {\bf i}. Each of these are equivalent to each other.}
+So if we can find a stable MV cycle $Z_i^*$ such that $b_{Z_i}b_{Z_i^*} = x_+ + x_-$ for each $i$ then we will have checked the conjecture. 
+% \acom{And we do not need to assume the special condition of BGL?}\rcom{They deal with cluster monomials in certain clusters while this deals with all cluster variables, so neither one completely implies the other.}
 
-The following examples give evidence that the mutation $x_i^*$ is in the MV basis. \acom{Roger, reword?}\rcom{Something like this?}
+The following examples give evidence that the mutation $x_i^*$ is in the MV basis. \acom{Roger, reword?}\rcom{Something like this?} \acom{Sure!}
  
 % \jcom{We should recall the stable MV cycles and the theorem from mvbasis regarding multiplication in $ \CC[N]$.}
 % \acom{Begun}
@@ -2318,21 +2353,29 @@ For each of the 15 exchange relations, we state the associated matrix $X$, the r
 
 \begin{example}
 % Consider the product $Z_1 * Z_2$, so the tableaux are
-Consider the product % $Z({{\scriptsize\young(2)}})*Z({\scriptsize\young(1,3)})$
+% Consider the product % $Z({{\scriptsize\young(2)}})*Z({\scriptsize\young(1,3)})$
 % \[
 % \young(2) \text{ and } \young(1,3).
 % \]
-$\young(2) * \young(1,3)$.
-Our matrix is
+% $\young(2) * \young(1,3)$.
+$\young(2) *_0 \young(1,3) = \young(3) + \young(2,3)$: 
+% 
+The requirement that 
 \[
-X = \left[\begin{BMAT}(e){c;c;c}{c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c}{c;c;c}
     s & A_{12}^1 & A_{13}^1 \\
      & 0 & A_{23}^1 \\
      & & s
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(2) *_\AA \young(1,3) 
+% \Rightarrow 
+% \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%     X_3 & A_{12}^1A_{23}^1+sA_{13}^1
+% \end{tabular}
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices. 
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
@@ -2348,15 +2391,16 @@ The relations from the submatrices are:
 %     X_3 & A_{12}^1A_{23}^1+sA_{13}^1
 % \end{array}.
 % \]
-\noindent Hence, our ideals are
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
-    \text{Ideal} & \text{Tableau} \\
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
     \midrule 
-    \langle A_{12}^1,s \rangle & \young(13,2) \equiv \young(3) \\
-    \langle A_{23}^1,s \rangle & \young(12,3) \equiv \young(2,3)
+    (A_{12}^1,s) & \young(13,2) \BS \\ % \equiv \young(3) \\
+    ( A_{23}^1,s) & \young(12,3) \TS % \equiv \young(2,3)
     \end{tabular}
 \end{table}
 % $$\langle A_{12}^1A_{23}^1+sA_{13}^1,s \rangle = 
@@ -2368,26 +2412,27 @@ The relations from the submatrices are:
 % \end{array}
 % \]
 % so $Z_1 * Z_2 = Z_{1 \leftarrow 2} + Z_{1 \rightarrow 2}$.
-\noindent so $\young(2) * \young(1,3) = \young(3) + \young(2,3)$.
+% \noindent so $\young(2) * \young(1,3) = \young(3) + \young(2,3)$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_2 * Z_3$, so the tableaux are 
+% Consider the product $Z_2 * Z_3$, so the tableaux are 
+% \[
+% \young(1,3) \text{ and } \young(1,2,4).
+% \]
+% Our matrix is 
+$\young(1,3) *_0 \young(1,2,4) = \young(1,4) + \young(1,3,4):$ The requirement that
 \[
-\young(1,3) \text{ and } \young(1,2,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
+A = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
     0 & 1 & & & \\
      & s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & & s & A_{23}^1 & A_{24}^1 \\
      & & & 0 & A_{34}^1 \\
      & & & & s
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(1,3) *_\AA \young(1,2,4)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2400,6 +2445,18 @@ The relations from the submatrices are:
     X_4 & A_{14}^1, A_{23}^1A_{34}^1 + sA_{24}^1
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{13}^1,A_{23}^1,A_{14}^1,s) & \young(11,24,3) \BS \\
+    (A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1,s) & \young(11,23,4) \TS 
+    \end{tabular}
+\end{table}
 % \[
 % \begin{array}{c|c}
 %     \text{Submatrix} & \text{Relations} \\ \hline
@@ -2409,35 +2466,31 @@ The relations from the submatrices are:
 % \end{array}.
 % \]
 % 
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{14}^1,s \rangle \cap \langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{14}^1,s \rangle &\leadsto \young(11,24,3) &\equiv \young(1,4) &\leadsto Z_{2 \leftarrow 3} \\ 
-    \langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle &\leadsto \young(11,23,4) &\equiv \young(1,3,4) &\leadsto Z_{2 \rightarrow 3}
-\end{array}
-\]
-so $Z_2 * Z_3 = Z_{2 \leftarrow 3} + Z_{2 \rightarrow 3}$.
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{14}^1,s \rangle \cap \langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle.
+% \]
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{14}^1,s \rangle &\leadsto \young(11,24,3) &\equiv \young(1,4) &\leadsto Z_{2 \leftarrow 3} \\ 
+%     \langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle &\leadsto \young(11,23,4) &\equiv \young(1,3,4) &\leadsto Z_{2 \rightarrow 3}
+% \end{array}
+% \]
+% so $Z_2 * Z_3 = Z_{2 \leftarrow 3} + Z_{2 \rightarrow 3}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_1 * Z_{2 \rightarrow 3}$, so the tableaux are 
+$\young(2) *_0 \young(1,3,4) = \young(2,3,4) + \young(13,2,4):$ The requirement that
 \[
-\young(2) \text{ and } \young(1,3,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
      & & & s
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(2) *_\AA \young(1,3,4)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2449,38 +2502,68 @@ The relations from the submatrices are:
     X_4 & A_{34}^1, A_{12}^1A_{24}^1 + sA_{14}^1, A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{23}^1,A_{24}^1,A_{34}^1,s) & \young(12,3,4) \BS \\
+    (A_{12}^1,A_{34}^1,A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1,s) & \young(13,2,4) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_1 * Z_{2 \rightarrow 3}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(2) \text{ and } \young(1,3,4).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+%     s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
+%      & 0 & A_{23}^1 & A_{24}^1 \\
+%      & & s & A_{34}^1 \\
+%      & & & s
+% \end{BMAT}
+% \right].
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_3 & A_{12}^1A_{23}^1 + sA_{13}^1 \\
 %     X_4 & A_{34}^1, A_{12}^1A_{24}^1 + sA_{14}^1, A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1
-% \end{array}.
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_3 & A_{12}^1A_{23}^1 + sA_{13}^1 \\
+% %     X_4 & A_{34}^1, A_{12}^1A_{24}^1 + sA_{14}^1, A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1
+% % \end{array}.
+% % \]
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{23}^1,A_{24}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1,s \rangle.
 % \]
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{23}^1,A_{24}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{23}^1,A_{24}^1,A_{34}^1,s \rangle &\leadsto \young(12,3,4) &\equiv \young(2,3,4) &\leadsto Z_{P_1} \\ 
-    \langle A_{12}^1,A_{34}^1,A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1,s \rangle &\leadsto \young(13,2,4) & &\leadsto Z_{out}
-\end{array}
-\]
-so $Z_1 * Z_{2 \rightarrow 3} = Z_{P_1} + Z_{out}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{23}^1,A_{24}^1,A_{34}^1,s \rangle &\leadsto \young(12,3,4) &\equiv \young(2,3,4) &\leadsto Z_{P_1} \\ 
+%     \langle A_{12}^1,A_{34}^1,A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1,s \rangle &\leadsto \young(13,2,4) & &\leadsto Z_{out}
+% \end{array}
+% \]
+% so $Z_1 * Z_{2 \rightarrow 3} = Z_{P_1} + Z_{out}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_1 * Z_{2 \leftarrow 3}$, so the tableaux are 
+$\young(2) *_0 \young(11,24,3) = \young(4) + \young(2,4):$ The requirement that
 \[
-\young(2) \text{ and } \young(1,4).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(2) \text{ and } \young(11,24,3).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
+A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
     0 & 1 & & & & \\
     -s^2 & 2s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
      & & 0 & 1 & & \\
@@ -2488,9 +2571,9 @@ X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
      & & & & s & A_{34}^1 \\
      & & & & & s
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(2) *_\AA \young(11,24,3)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2503,6 +2586,51 @@ The relations from the submatrices are:
     X_4 & A_{12}^2A_{24}^1 + sA_{14}^1, A_{12}^1A_{24}^1 - s^2A_{14}^1 
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s) & \young(114,22,3) \BS \\
+    (A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s) & \young(112,24,3) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_1 * Z_{2 \leftarrow 3}$, so the tableaux are 
+% \[
+% \young(2) \text{ and } \young(1,4).
+% \]
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(2) \text{ and } \young(11,24,3).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
+%     0 & 1 & & & & \\
+%     -s^2 & 2s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
+%      & & 0 & 1 & & \\
+%      & & & s & A_{23}^1 & A_{24}^1 \\
+%      & & & & s & A_{34}^1 \\
+%      & & & & & s
+% \end{BMAT}
+% \right].
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%     X_2 & A_{12}^1 + sA_{12}^2 \\
+%     X_3 & A_{13}^1, A_{23}^1 \\
+%     X_4 & A_{12}^2A_{24}^1 + sA_{14}^1, A_{12}^1A_{24}^1 - s^2A_{14}^1 
+%     \end{tabular}
+% \end{table}
 % \[
 % \begin{array}{c|c}
 %     \text{Submatrix} & \text{Relations} \\ \hline
@@ -2511,31 +2639,23 @@ The relations from the submatrices are:
 %     X_4 & A_{12}^2A_{24}^1 + sA_{14}^1, A_{12}^1A_{24}^1 - s^2A_{14}^1 
 % \end{array}.
 % \]
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s \rangle \cap \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s \rangle &\leadsto \young(114,22,3) &\equiv \young(4) &\leadsto Z_{P_3} \\ 
-    \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle &\leadsto \young(112,24,3) &\equiv \young(2,4) &\leadsto Z_{in}
-\end{array}
-\]
-so $Z_1 * Z_{2 \leftarrow 3} = Z_{P_3} + Z_{in}$.
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s \rangle \cap \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle.
+% \]
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s \rangle &\leadsto \young(114,22,3) &\equiv \young(4) &\leadsto Z_{P_3} \\ 
+%     \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle &\leadsto \young(112,24,3) &\equiv \young(2,4) &\leadsto Z_{in}
+% \end{array}
+% \]
+% so $Z_1 * Z_{2 \leftarrow 3} = Z_{P_3} + Z_{in}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_3 * Z_{1 \rightarrow 2}$, so the tableaux are 
+$\young(1,2,4) *_0 \young(12,3) = \young(1,4) + \young(1,3,4):$ The requirement that
 \[
-\young(1,2,4) \text{ and } \young(2,3).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(1,2,4) \text{ and } \young(12,3).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
+A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
     0 & 1 & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
      & & 0 & 1 & & \\
@@ -2543,9 +2663,9 @@ X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
      & & & & s & A_{34}^1 \\
      & & & & & 0
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(1,2,4) *_\AA \young(12,3)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2558,43 +2678,84 @@ The relations from the submatrices are:
     X_4 & A_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1 
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s) & \young(112,24,3) \BS \\
+    (A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s) & \young(112,23,4) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_3 * Z_{1 \rightarrow 2}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(1,2,4) \text{ and } \young(2,3).
+% \]
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(1,2,4) \text{ and } \young(12,3).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
+%     0 & 1 & & & & \\
+%      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
+%      & & 0 & 1 & & \\
+%      & & & s & A_{23}^1 & A_{24}^1 \\
+%      & & & & s & A_{34}^1 \\
+%      & & & & & 0
+% \end{BMAT}
+% \right].
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_2 & A_{12}^1 \\
 %     X_3 & A_{23}^1 \\
 %     X_4 & A_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1 
-% \end{array}.
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1 \\
+% %     X_3 & A_{23}^1 \\
+% %     X_4 & A_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1 
+% % \end{array}.
+% % \]
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle.
 % \]
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle &\leadsto \young(112,24,3) &\equiv \young(1,4) &\leadsto Z_{in} \\ 
-    \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle &\leadsto \young(112,23,4) &\equiv \young(1,3,4) &\leadsto Z_{P_1}
-\end{array}
-\]
-so $Z_3 * Z_{1 \rightarrow 2} = Z_{in} + Z_{P_1}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s \rangle &\leadsto \young(112,24,3) &\equiv \young(1,4) &\leadsto Z_{in} \\ 
+%     \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle &\leadsto \young(112,23,4) &\equiv \young(1,3,4) &\leadsto Z_{P_1}
+% \end{array}
+% \]
+% so $Z_3 * Z_{1 \rightarrow 2} = Z_{in} + Z_{P_1}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_3 * Z_{1 \leftarrow 2}$, so the tableaux are 
+$\young(1,2,4) *_0 \young(3) = \young(4) + \young(13,2,4):$ The requirement that
 \[
-\young(1,2,4) \text{ and } \young(3).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
      & & & 0
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(1,2,4) *_\AA \young(3)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2606,47 +2767,77 @@ The relations from the submatrices are:
     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{13}^1,A_{23}^1,s) & \young(14,2,3) \BS \\
+    (A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1,s) & \young(13,2,4) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_3 * Z_{1 \leftarrow 2}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(1,2,4) \text{ and } \young(3).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+%     0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
+%      & 0 & A_{23}^1 & A_{24}^1 \\
+%      & & s & A_{34}^1 \\
+%      & & & 0
+% \end{BMAT}
+% \right].
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_2 & A_{12}^1 \\
 %     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
-% \end{array}.
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1 \\
+% %     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
+% % \end{array}.
+% % \]
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{13}^1,A_{23}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1,s \rangle.
 % \]
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{13}^1,A_{23}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{13}^1,A_{23}^1,s \rangle &\leadsto \young(14,2,3) &\equiv \young(4) &\leadsto Z_{P_3} \\ 
-    \langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1,s \rangle &\leadsto \young(13,2,4) & &\leadsto Z_{out}
-\end{array}
-\]
-so $Z_3 * Z_{1 \leftarrow 2} = Z_{P_3} + Z_{out}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{13}^1,A_{23}^1,s \rangle &\leadsto \young(14,2,3) &\equiv \young(4) &\leadsto Z_{P_3} \\ 
+%     \langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1,s \rangle &\leadsto \young(13,2,4) & &\leadsto Z_{out}
+% \end{array}
+% \]
+% so $Z_3 * Z_{1 \leftarrow 2} = Z_{P_3} + Z_{out}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_{1 \leftarrow 2} * Z_{2 \leftarrow 3}$, so the tableaux are 
+$\young(13,2) *_0 \young(1,4) = \young(14,3) + \young(3,4):$ The requirement that
 \[
-\young(3) \text{ and } \young(1,4).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(13,2) \text{ and } \young(1,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
+A = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
     0 & 1 & & & \\
      & s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & & 0 & A_{23}^1 & A_{24}^1 \\
      & & & 0 & A_{34}^1 \\
      & & & & s
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(13,2) *_\AA \young(1,4)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2658,39 +2849,74 @@ The relations from the submatrices are:
     X_4 & A_{13}^1A_{34}^1 + sA_{14}^1
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{13}^1,s) & \young(114,23) \BS \\
+    (A_{12}^1,A_{34}^1,s) & \young(113,24) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_{1 \leftarrow 2} * Z_{2 \leftarrow 3}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(3) \text{ and } \young(1,4).
+% \]
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(13,2) \text{ and } \young(1,4).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
+%     0 & 1 & & & \\
+%      & s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
+%      & & 0 & A_{23}^1 & A_{24}^1 \\
+%      & & & 0 & A_{34}^1 \\
+%      & & & & s
+% \end{BMAT}
+% \right].
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_2 & A_{12}^1 \\
 %     X_4 & A_{13}^1A_{34}^1 + sA_{14}^1
-% \end{array}.
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1 \\
+% %     X_4 & A_{13}^1A_{34}^1 + sA_{14}^1
+% % \end{array}.
+% % \]
+% \noindent Hence, our ideal is 
+% \[
+% \langle A_{12}^1,A_{13}^1A_{34}^1+sA_{14}^1,s \rangle
+% = \langle A_{12}^1,A_{13}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,s \rangle.
 % \]
-\noindent Hence, our ideal is 
-\[
-\langle A_{12}^1,A_{13}^1A_{34}^1+sA_{14}^1,s \rangle
-= \langle A_{12}^1,A_{13}^1,s \rangle \cap \langle A_{12}^1,A_{34}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{13}^1,s \rangle &\leadsto \young(114,23) &\equiv \young(14,3) &\leadsto Z_2 Z_{P_3} \\ 
-    \langle A_{12}^1,A_{34}^1,s \rangle &\leadsto \young(113,24) &\equiv \young(3,4) &\leadsto Z_{P_2}
-\end{array}
-\]
-so $Z_{1 \leftarrow 2} * Z_{2 \leftarrow 3} = Z_2 Z_{P_3} + Z_{P_2}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{13}^1,s \rangle &\leadsto \young(114,23) &\equiv \young(14,3) &\leadsto Z_2 Z_{P_3} \\ 
+%     \langle A_{12}^1,A_{34}^1,s \rangle &\leadsto \young(113,24) &\equiv \young(3,4) &\leadsto Z_{P_2}
+% \end{array}
+% \]
+% so $Z_{1 \leftarrow 2} * Z_{2 \leftarrow 3} = Z_2 Z_{P_3} + Z_{P_2}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_{1 \rightarrow 2} * Z_{2 \rightarrow 3}$, so the tableaux are 
+$\young(12,23) *_0 \young(1,3,4) = \young(3,4) + \young(12,33,4):$ The requirement that
 \[
-\young(2,3) \text{ and } \young(1,3,4).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(12,23) \text{ and } \young(1,3,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
     0 & 1 & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & 0 & 1 & & & \\
@@ -2699,10 +2925,9 @@ X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
      & & & & & s & A_{34}^1 \\
      & & & & & & s
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(12,23) *_\AA \young(1,3,4)
 \]
-% 
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2715,40 +2940,79 @@ The relations from the submatrices are:
     X_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s) & \young(113,224,3) \BS \\
+    (A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,A_{12}^2A_{23}^2+A_{13}^1,s) & \young(112,233,4) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_{1 \rightarrow 2} * Z_{2 \rightarrow 3}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(2,3) \text{ and } \young(1,3,4).
+% \]
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(12,23) \text{ and } \young(1,3,4).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+%     0 & 1 & & & & & \\
+%      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
+%      & & 0 & 1 & & & \\
+%      & & & 0 & A_{23}^1 & A_{23}^2 & A_{24}^1 \\
+%      & & & & 0 & 1 & \\
+%      & & & & & s & A_{34}^1 \\
+%      & & & & & & s
+% \end{BMAT}
+% \right].
+% \]
+% % 
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_2 & A_{12}^1 \\
 %     X_3 & A_{23}^1, A_{12}^2A_{23}^2 + A_{13}^1 + sA_{13}^2 \\
 %     X_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
-% \end{array}.
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1 \\
+% %     X_3 & A_{23}^1, A_{12}^2A_{23}^2 + A_{13}^1 + sA_{13}^2 \\
+% %     X_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
+% % \end{array}.
+% % \]
+% % 
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,A_{12}^2A_{23}^2+A_{13}^1,s \rangle.
 % \]
-% 
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,A_{12}^2A_{23}^2+A_{13}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle &\leadsto \young(113,224,3) &\equiv \young(3,4) &\leadsto Z_{P_2} \\ 
-    \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,A_{12}^2A_{23}^2+A_{13}^1,s \rangle &\leadsto \young(112,233,4) &\equiv \young(12,33,4) &\leadsto Z_2 Z_{P_1}
-\end{array}
-\]
-so $Z_{1 \rightarrow 2} * Z_{2 \rightarrow 3} = Z_{P_2} + Z_2 Z_{P_1}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle &\leadsto \young(113,224,3) &\equiv \young(3,4) &\leadsto Z_{P_2} \\ 
+%     \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,A_{12}^2A_{23}^2+A_{13}^1,s \rangle &\leadsto \young(112,233,4) &\equiv \young(12,33,4) &\leadsto Z_2 Z_{P_1}
+% \end{array}
+% \]
+% so $Z_{1 \rightarrow 2} * Z_{2 \rightarrow 3} = Z_{P_2} + Z_2 Z_{P_1}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_2 * Z_{out}$, so the tableaux are 
+$\young(11,23) *_0 \young(13,2,4) = \young(3,4) + \young(1,3,4):$ The requirement that
 \[
-\young(1,3) \text{ and } \young(13,2,4).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(11,23) \text{ and } \young(13,2,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
+A = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
     0 & 1 & & & & & & \\
      & 0 & 1 & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
@@ -2758,9 +3022,9 @@ X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
      & & & & & & s & A_{34}^1 \\
      & & & & & & & s
 \end{BMAT}
-\right]
+\right] \text{ is contained in } \young(11,23) *_\AA \young(13,2,4)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2773,43 +3037,86 @@ The relations from the submatrices are:
     X_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s) & \young(1113,224,3) \BS \\
+    (A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{34}^1,s) & \young(1113,223,4) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_2 * Z_{out}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(1,3) \text{ and } \young(13,2,4).
+% \]
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(11,23) \text{ and } \young(13,2,4).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
+%     0 & 1 & & & & & & \\
+%      & 0 & 1 & & & & & \\
+%      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
+%      & & & 0 & 1 & & & \\
+%      & & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 \\
+%      & & & & & 0 & 1 & \\
+%      & & & & & & s & A_{34}^1 \\
+%      & & & & & & & s
+% \end{BMAT}
+% \right]
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_2 & A_{12}^1, A_{12}^2 \\
 %     X_3 & A_{13}^1 \\
 %     X_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
-% \end{array}.
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1, A_{12}^2 \\
+% %     X_3 & A_{13}^1 \\
+% %     X_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
+% % \end{array}.
+% % \]
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle.
 % \]
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle &\leadsto \young(1113,224,3) &\equiv \young(3,4) &\leadsto Z_{P_2} \\ 
-    \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle &\leadsto \young(1113,223,4) &\equiv \young(1,3,4) &\leadsto Z_{1 \leftarrow 2} Z_{2 \rightarrow 3}
-\end{array}
-\]
-so $Z_2 * Z_{out} = Z_{P_2} + Z_{1 \leftarrow 2} Z_{2 \rightarrow 3}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle &\leadsto \young(1113,224,3) &\equiv \young(3,4) &\leadsto Z_{P_2} \\ 
+%     \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{34}^1,s \rangle &\leadsto \young(1113,223,4) &\equiv \young(1,3,4) &\leadsto Z_{1 \leftarrow 2} Z_{2 \rightarrow 3}
+% \end{array}
+% \]
+% so $Z_2 * Z_{out} = Z_{P_2} + Z_{1 \leftarrow 2} Z_{2 \rightarrow 3}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_2 * Z_{in}$, so the tableaux are 
+$\young(1,3) *_0 \young(2,4) = \young(3,4) + \young(12,34):$ The requirement that
 \[
-\young(1,3) \text{ and } \young(2,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & s & A_{23}^1 & A_{24}^1 \\
      & & 0 & A_{34}^1 \\
      & & & s
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(1,3) *_\AA \young(2,4)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2821,38 +3128,68 @@ The relations from the submatrices are:
     X_4 & A_{23}^1A_{34}^1 + sA_{24}^1, A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{34}^1,s) & \young(13,24) \BS \\
+    (A_{23}^1,A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1,s) & \young(12,34) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_2 * Z_{in}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(1,3) \text{ and } \young(2,4).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+%     0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
+%      & s & A_{23}^1 & A_{24}^1 \\
+%      & & 0 & A_{34}^1 \\
+%      & & & s
+% \end{BMAT}
+% \right].
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_3 & A_{12}^1A_{23}^1 - sA_{13}^1 \\
 %     X_4 & A_{23}^1A_{34}^1 + sA_{24}^1, A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1
-% \end{array}.
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_3 & A_{12}^1A_{23}^1 - sA_{13}^1 \\
+% %     X_4 & A_{23}^1A_{34}^1 + sA_{24}^1, A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1
+% % \end{array}.
+% % \]
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{34}^1,s \rangle \cap \langle A_{23}^1,A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1,s \rangle.
 % \]
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{34}^1,s \rangle \cap \langle A_{23}^1,A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{34}^1,s \rangle &\leadsto \young(13,24) &\equiv \young(3,4) &\leadsto Z_{P_2} \\ 
-    \langle A_{23}^1,A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1,s \rangle &\leadsto \young(12,34) & &\leadsto Z_{1 \rightarrow 2} Z_{2 \leftarrow 3}
-\end{array}
-\]
-so $Z_2 * Z_{in} = Z_{P_2} + Z_{1 \rightarrow 2} Z_{2 \leftarrow 3}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{34}^1,s \rangle &\leadsto \young(13,24) &\equiv \young(3,4) &\leadsto Z_{P_2} \\ 
+%     \langle A_{23}^1,A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1,s \rangle &\leadsto \young(12,34) & &\leadsto Z_{1 \rightarrow 2} Z_{2 \leftarrow 3}
+% \end{array}
+% \]
+% so $Z_2 * Z_{in} = Z_{P_2} + Z_{1 \rightarrow 2} Z_{2 \leftarrow 3}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_{out} * Z_{1 \rightarrow 2}$, so the tableaux are 
+$\young(13,2,4) *_0 \young(12,3) = \young(23,4) + \young(23,3,4):$ The requirement that
 \[
-\young(13,2,4) \text{ and } \young(2,3).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(13,2,4) \text{ and } \young(12,3).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
     0 & 1 & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & 0 & 1 & & & \\
@@ -2861,9 +3198,9 @@ X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
      & & & & & s & A_{34}^1 \\
      & & & & & & 0
 \end{BMAT}
-\right]
+\right] \text{ is contained in } \young(13,2,4) *_\AA \young(12,3)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2876,47 +3213,85 @@ The relations from the submatrices are:
     X_4 & A_{34}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1,s) & \young(1123,24,3) \BS \\
+    (A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s) & \young(1123,23,4) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_{out} * Z_{1 \rightarrow 2}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(13,2,4) \text{ and } \young(2,3).
+% \]
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(13,2,4) \text{ and } \young(12,3).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+%     0 & 1 & & & & & \\
+%      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
+%      & & 0 & 1 & & & \\
+%      & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 \\
+%      & & & & 0 & 1 & \\
+%      & & & & & s & A_{34}^1 \\
+%      & & & & & & 0
+% \end{BMAT}
+% \right]
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_2 & A_{12}^1 \\
 %     X_3 & A_{23}^1 +sA_{23}^2 \\
 %     X_4 & A_{34}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
-% \end{array}.
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1 \\
+% %     X_3 & A_{23}^1 +sA_{23}^2 \\
+% %     X_4 & A_{34}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
+% % \end{array}.
+% % \]
+% \noindent Hence, our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle.
 % \]
-\noindent Hence, our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle \cap \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle &\leadsto \young(1112,24,3) &\equiv \young(23,4) &\leadsto Z_1 Z_{P_2} \\ 
-    \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle &\leadsto \young(1123,23,4) &\equiv \young(23,3,4) &\leadsto Z_{1 \leftarrow 2} Z_{P_1}
-\end{array}
-\]
-so $Z_{out} * Z_{1 \rightarrow 2} = Z_1 Z_{P_2} + Z_{1 \leftarrow 2} Z_{P_1}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1,s \rangle &\leadsto \young(1112,24,3) &\equiv \young(23,4) &\leadsto Z_1 Z_{P_2} \\ 
+%     \langle A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s \rangle &\leadsto \young(1123,23,4) &\equiv \young(23,3,4) &\leadsto Z_{1 \leftarrow 2} Z_{P_1}
+% \end{array}
+% \]
+% so $Z_{out} * Z_{1 \rightarrow 2} = Z_1 Z_{P_2} + Z_{1 \leftarrow 2} Z_{P_1}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_{in} * Z_{1 \leftarrow 2}$, so the tableaux are
+$\young(2,4) *_0 \young(1,3) = \young(24,3) + \young(23,4):$ The requirement that
 \[
-\young(2,4) \text{ and } \young(3).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(2,4) \text{ and } \young(13).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
      s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
      & & & 0
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(2,4) *_\AA \young(1,3)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2927,38 +3302,71 @@ The relations from the submatrices are:
      X_4 & A_{23}^1A_{34}^1 - sA_{24}^1
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{23}^1,s) & \young(124,3) \BS \\
+    (A_{34}^1,s) & \young(123,4) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_{in} * Z_{1 \leftarrow 2}$, so the tableaux are
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
-%     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1
-% \end{array}.
+% \young(2,4) \text{ and } \young(3).
 % \]
-\noindent Hence, our ideal is 
-\[
-\langle A_{23}^1A_{34}^1 - sA_{24}^1,s \rangle
-= \langle A_{23}^1,s \rangle \cap \langle A_{34}^1,s \rangle.
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{23}^1,s \rangle &\leadsto \young(124,3) &\equiv \young(24,3) &\leadsto Z_{1 \rightarrow 2} Z_{P_3} \\ 
-    \langle A_{34}^1,s \rangle &\leadsto \young(123,4) &\equiv \young(23,4) &\leadsto Z_1 Z_{P_2}
-\end{array}
-\]
-so $Z_{in} * Z_{1 \leftarrow 2} = Z_{1 \rightarrow 2} Z_{P_3} + Z_1 Z_{P_2}$.
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(2,4) \text{ and } \young(13).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+%      s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
+%      & 0 & A_{23}^1 & A_{24}^1 \\
+%      & & s & A_{34}^1 \\
+%      & & & 0
+% \end{BMAT}
+% \right].
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%      X_4 & A_{23}^1A_{34}^1 - sA_{24}^1
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1
+% % \end{array}.
+% % \]
+% \noindent Hence, our ideal is 
+% \[
+% \langle A_{23}^1A_{34}^1 - sA_{24}^1,s \rangle
+% = \langle A_{23}^1,s \rangle \cap \langle A_{34}^1,s \rangle.
+% \]
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{23}^1,s \rangle &\leadsto \young(124,3) &\equiv \young(24,3) &\leadsto Z_{1 \rightarrow 2} Z_{P_3} \\ 
+%     \langle A_{34}^1,s \rangle &\leadsto \young(123,4) &\equiv \young(23,4) &\leadsto Z_1 Z_{P_2}
+% \end{array}
+% \]
+% so $Z_{in} * Z_{1 \leftarrow 2} = Z_{1 \rightarrow 2} Z_{P_3} + Z_1 Z_{P_2}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_{out} * Z_{2 \leftarrow 3}$, so the tableaux are 
+$\young(11,24,3) *_0 \young(13,2,4) = \young(14,3,4) + \young(13,24,4):$ The requirement that
 \[
-\young(1,4) \text{ and } \young(13,2,4).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(11,24,3) \text{ and } \young(13,2,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
+A = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
     0 & 1 & & & & & & & \\
      & 0 & 1 & & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
@@ -2969,9 +3377,9 @@ X = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
      & & & & & & & 0 & 1 \\
      & & & & & & & & s
 \end{BMAT}
-\right]
+\right] \text{ is contained in } \young(11,24,3) *_\AA \young(13,2,4)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
 % 
 \begin{table}[H]
   \centering
@@ -2985,49 +3393,93 @@ The relations from the submatrices are:
         & A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2 
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1,A_{12}^2,A_{13}^1,A_{13}^2,A_{23}^1,A_{14}^1,A_{34}^1,s) & \young(1114,223,34) \BS \\
+    \begin{array}{c}
+     (A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,A_{23}^2A_{34}^2 + A_{24}^1,  \\
+     A_{13}^2A_{34}^2+A_{14}^1,A_{13}^2A_{24}^1-A_{23}^2A_{14}^1,s) 
+\end{array}& \young(1113,224,34) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_{out} * Z_{2 \leftarrow 3}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
+% \young(1,4) \text{ and } \young(13,2,4).
+% \]
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(11,24,3) \text{ and } \young(13,2,4).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
+%     0 & 1 & & & & & & & \\
+%      & 0 & 1 & & & & & & \\
+%      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
+%      & & & 0 & 1 & & & & \\
+%      & & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 & A_{24}^2 \\
+%      & & & & & 0 & 1 & & \\
+%      & & & & & & s & A_{34}^1 & A_{34}^2 \\
+%      & & & & & & & 0 & 1 \\
+%      & & & & & & & & s
+% \end{BMAT}
+% \right]
+% \]
+% The relations from the submatrices are:
+% % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
 %     X_2 & A_{12}^1,A_{12}^2 \\
 %     X_3 & A_{13}^1, A_{23}^1 \\
-%     X_4 & \begin{array}{c}
-%          A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1,  \\
-%          A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
-%          A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2
-%     \end{array}
-% \end{array}.
+%     X_4 & A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
+%         & A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2 
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1,A_{12}^2 \\
+% %     X_3 & A_{13}^1, A_{23}^1 \\
+% %     X_4 & \begin{array}{c}
+% %          A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1,  \\
+% %          A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
+% %          A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2
+% %     \end{array}
+% % \end{array}.
+% % \]
+% Hence our ideal decomposes into 
+% \[
+% \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{13}^2,A_{23}^1,A_{14}^1,A_{34}^1,s \rangle \cap \begin{array}{c}
+%      \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,A_{23}^2A_{34}^2 + A_{24}^1,  \\
+%      A_{13}^2A_{34}^2+A_{14}^1,A_{13}^2A_{24}^1-A_{23}^2A_{14}^1,s \rangle. 
+% \end{array}
 % \]
-Hence our ideal decomposes into 
-\[
-\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{13}^2,A_{23}^1,A_{14}^1,A_{34}^1,s \rangle \cap \begin{array}{c}
-     \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,A_{23}^2A_{34}^2 + A_{24}^1,  \\
-     A_{13}^2A_{34}^2+A_{14}^1,A_{13}^2A_{24}^1-A_{23}^2A_{14}^1,s \rangle. 
-\end{array}
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{13}^2,A_{23}^1,A_{14}^1,A_{34}^1,s \rangle &\leadsto \young(1114,223,34) &\equiv \young(14,3,4) &\leadsto Z_{2 \rightarrow 3} Z_{P_3} \\ 
-    \begin{array}{c}
-     \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,A_{23}^2A_{34}^2 + A_{24}^1,  \\
-     A_{13}^2A_{34}^2+A_{14}^1,A_{13}^2A_{24}^1-A_{23}^2A_{14}^1,s \rangle. 
-\end{array}&\leadsto \young(1113,224,34) &\equiv \young(13,24,4) &\leadsto Z_3 Z_{P_2}
-\end{array}
-\]
-so $Z_{out} * Z_{2 \leftarrow 3} = Z_{2 \rightarrow 3} Z_{P_3} + Z_3 Z_{P_2}$.
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{13}^2,A_{23}^1,A_{14}^1,A_{34}^1,s \rangle &\leadsto \young(1114,223,34) &\equiv \young(14,3,4) &\leadsto Z_{2 \rightarrow 3} Z_{P_3} \\ 
+%     \begin{array}{c}
+%      \langle A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,A_{23}^2A_{34}^2 + A_{24}^1,  \\
+%      A_{13}^2A_{34}^2+A_{14}^1,A_{13}^2A_{24}^1-A_{23}^2A_{14}^1,s \rangle. 
+% \end{array}&\leadsto \young(1113,224,34) &\equiv \young(13,24,4) &\leadsto Z_3 Z_{P_2}
+% \end{array}
+% \]
+% so $Z_{out} * Z_{2 \leftarrow 3} = Z_{2 \rightarrow 3} Z_{P_3} + Z_3 Z_{P_2}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_{in} * Z_{2 \rightarrow 3}$, so the tableaux are 
+$\young(12,24,3) *_0 \young(1,3,4) = \young(13,24,4) + \young(12,34,4):$ The requirement that
 \[
-\young(2,4) \text{ and } \young(1,3,4).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(12,24,3) \text{ and } \young(1,3,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
+A = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
     0 & 1 & & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
      & & 0 & 1 & & & & \\
@@ -3037,9 +3489,10 @@ X = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
      & & & & & & 0 & 1 \\
      & & & & & & & s
 \end{BMAT}
-\right].
+\right] \text{ is contained in } \young(12,24,3) *_\AA \young(1,3,4)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
+% 
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
@@ -3054,56 +3507,103 @@ The relations from the submatrices are:
         & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1
     \end{tabular}
 \end{table}
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    \begin{array}{c}
+     (A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
+     A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1,s)  
+\end{array} & \young(113,224,34) \BS \\
+    \begin{array}{c}
+      (A_{12}^1, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1,  \\
+      A_{34}^1, A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1,s) 
+ \end{array} & \young(112,234,34) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_{in} * Z_{2 \rightarrow 3}$, so the tableaux are 
 % \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
-%     X_2 & A_{12}^1 \\
-%     X_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
-%     X_4 & \begin{array}{c}
-%          A_{23}^2A_{34}^1 - sA_{24}^1, A_{12}^2A_{24}^1 + A_{13}^2A_{34}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
-%          A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2,  \\
-%          A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
-%          A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1 
-%     \end{array} 
-% \end{array}.
+% \young(2,4) \text{ and } \young(1,3,4).
 % \]
-Hence our ideal decomposes into 
-\[\begin{array}{c}
-     \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
-     A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1,s \rangle  
-\end{array}
- \cap \begin{array}{c}
-      \langle A_{12}^1, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1,  \\
-      A_{34}^1, A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1,s \rangle. 
- \end{array} 
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \begin{array}{c}
-     \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
-     A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1,s \rangle  
-\end{array} &\leadsto \young(113,224,34) &\equiv \young(13,24,4) &\leadsto Z_3 Z_{P_2} \\ 
-    \begin{array}{c}
-      \langle A_{12}^1, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1,  \\
-      A_{34}^1, A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1,s \rangle. 
- \end{array} &\leadsto \young(112,234,34) &\equiv \young(12,34,4) &\leadsto Z_{2 \leftarrow 3} Z_{P_1}
-\end{array}
-\]
-so $Z_{in} * Z_{2 \rightarrow 3} = Z_3 Z_{P_2} + Z_{2 \leftarrow 3} Z_{P_1}$.
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(12,24,3) \text{ and } \young(1,3,4).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
+%     0 & 1 & & & & & & \\
+%      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
+%      & & 0 & 1 & & & & \\
+%      & & & 0 & A_{23}^1 & A_{23}^2 & A_{24}^1 & A_{24}^2 \\
+%      & & & & 0 & 1 & & \\
+%      & & & & & s & A_{34}^1 & A_{34}^2 \\
+%      & & & & & & 0 & 1 \\
+%      & & & & & & & s
+% \end{BMAT}
+% \right].
+% \]
+% The relations from the submatrices are:
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%   X_2 & A_{12}^1 \\
+%     X_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
+%     X_4 & 
+%          A_{23}^2A_{34}^1 - sA_{24}^1, A_{12}^2A_{24}^1 + A_{13}^2A_{34}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+%         & A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2, A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
+%         & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1 \\
+% %     X_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
+% %     X_4 & \begin{array}{c}
+% %          A_{23}^2A_{34}^1 - sA_{24}^1, A_{12}^2A_{24}^1 + A_{13}^2A_{34}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+% %          A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2,  \\
+% %          A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
+% %          A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1 
+% %     \end{array} 
+% % \end{array}.
+% % \]
+% Hence our ideal decomposes into 
+% \[\begin{array}{c}
+%      \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
+%      A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1,s \rangle  
+% \end{array}
+%  \cap \begin{array}{c}
+%       \langle A_{12}^1, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1,  \\
+%       A_{34}^1, A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1,s \rangle. 
+%  \end{array} 
+% \]
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \begin{array}{c}
+%      \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
+%      A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1,s \rangle  
+% \end{array} &\leadsto \young(113,224,34) &\equiv \young(13,24,4) &\leadsto Z_3 Z_{P_2} \\ 
+%     \begin{array}{c}
+%       \langle A_{12}^1, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1,  \\
+%       A_{34}^1, A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1,s \rangle. 
+%  \end{array} &\leadsto \young(112,234,34) &\equiv \young(12,34,4) &\leadsto Z_{2 \leftarrow 3} Z_{P_1}
+% \end{array}
+% \]
+% so $Z_{in} * Z_{2 \rightarrow 3} = Z_3 Z_{P_2} + Z_{2 \leftarrow 3} Z_{P_1}$.
 \end{example}
 
 \begin{example}
-Consider the product $Z_{in} * Z_{out}$, so the tableaux are 
+$\young(112,24,3) *_0 \young(13,2,4) = \young(24,3,4) + \young(123,24,4):$ The requirement that
 \[
-\young(2,4) \text{ and } \young(13,2,4).
-\]
-As the sum of the weights is not dominant, we will instead be using the tableaux
-\[
-\young(112,24,3) \text{ and } \young(13,2,4).
-\]
-Our matrix is 
-\[
-X = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
+A = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
     0 & 1 & & & & & & & & \\
      & 0 & 1 & & & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{12}^3 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
@@ -3115,9 +3615,10 @@ X = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
      & & & & & & & & 0 & 1 \\
      & & & & & & & & & s
 \end{BMAT}
-\right]
+\right] \text{ is contained in } \young(112,24,3) *_\AA \young(13,2,4)
 \]
-The relations from the submatrices are:
+results in the following relations on submatrices:
+% 
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
@@ -3133,38 +3634,93 @@ The relations from the submatrices are:
         & A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
     \end{tabular}
 \end{table}
-% \[
-% \begin{array}{c|c}
-%     \text{Submatrix} & \text{Relations} \\ \hline
-%     X_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
-%     X_3 & A_{13}^1,A_{23}^1 \\
-%     X_4 & \begin{array}{c}
-%          A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
-%          A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
-%          A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
-%          A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
-%          A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
-%     \end{array} 
-% \end{array}.
-% \]
-Hence our ideal decomposes into \acom{formatting funny; can just list irrecs?}
-\[
-\langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1, A_{34}^1,s \rangle
-\cap \begin{array}{c}
-     \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
-     A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1, s \rangle. 
-\end{array} 
-\]
-The tableau for each ideal is
-\[\begin{array}{cccc}\vspace{1mm}
-    \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1, A_{34}^1,s \rangle &\leadsto \young(11124,223,34) &\equiv \young(24,3,4) &\leadsto Z_{P_1} Z_{P_3} \\ 
+\noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    % \text{Ideal} & \text{Tableau} \\
+    X(\tau) & \tau \\ 
+    \midrule 
+    (A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1, A_{34}^1,s) & \young(11124,223,34) \BS \\
     \begin{array}{c}
-     \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
-     A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1, s \rangle. 
-\end{array} &\leadsto \young(11123,224,34) &\equiv \young(123,24,4) &\leadsto Z_1 Z_3 Z_{P_2}
-\end{array}
-\]
-so $Z_{in} * Z_{out} = Z_{P_1} Z_{P_3} + Z_1 Z_3 Z_{P_2}$.
+     (A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
+     A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1, s). 
+\end{array} & \young(11123,224,34) \TS
+    \end{tabular}
+\end{table}
+% Consider the product $Z_{in} * Z_{out}$, so the tableaux are 
+% \[
+% \young(2,4) \text{ and } \young(13,2,4).
+% \]
+% As the sum of the weights is not dominant, we will instead be using the tableaux
+% \[
+% \young(112,24,3) \text{ and } \young(13,2,4).
+% \]
+% Our matrix is 
+% \[
+% X = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
+%     0 & 1 & & & & & & & & \\
+%      & 0 & 1 & & & & & & & \\
+%      & & s & A_{12}^1 & A_{12}^2 & A_{12}^3 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
+%      & & & 0 & 1 & & & & & \\
+%      & & & & 0 & 1 & & & & \\
+%      & & & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 & A_{24}^2 \\
+%      & & & & & & 0 & 1 & & \\
+%      & & & & & & & s & A_{34}^1 & A_{34}^2 \\
+%      & & & & & & & & 0 & 1 \\
+%      & & & & & & & & & s
+% \end{BMAT}
+% \right]
+% \]
+% The relations from the submatrices are:
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%   X_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
+%     X_3 & A_{13}^1,A_{23}^1 \\
+%     X_4 & A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+%         & A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
+%         & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
+%         & A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
+%         & A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
+%     \end{tabular}
+% \end{table}
+% % \[
+% % \begin{array}{c|c}
+% %     \text{Submatrix} & \text{Relations} \\ \hline
+% %     X_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
+% %     X_3 & A_{13}^1,A_{23}^1 \\
+% %     X_4 & \begin{array}{c}
+% %          A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+% %          A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
+% %          A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
+% %          A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
+% %          A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
+% %     \end{array} 
+% % \end{array}.
+% % \]
+% Hence our ideal decomposes into \acom{formatting funny; can just list irrecs?}
+% \[
+% \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1, A_{34}^1,s \rangle
+% \cap \begin{array}{c}
+%      \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
+%      A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1, s \rangle. 
+% \end{array} 
+% \]
+% The tableau for each ideal is
+% \[\begin{array}{cccc}\vspace{1mm}
+%     \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1, A_{34}^1,s \rangle &\leadsto \young(11124,223,34) &\equiv \young(24,3,4) &\leadsto Z_{P_1} Z_{P_3} \\ 
+%     \begin{array}{c}
+%      \langle A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
+%      A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1, s \rangle. 
+% \end{array} &\leadsto \young(11123,224,34) &\equiv \young(123,24,4) &\leadsto Z_1 Z_3 Z_{P_2}
+% \end{array}
+% \]
+% so $Z_{in} * Z_{out} = Z_{P_1} Z_{P_3} + Z_1 Z_3 Z_{P_2}$.
 \end{example}
 
 \bibliographystyle{alpha}
