@@ -1489,7 +1489,8 @@ We record the following easy observations.
 \begin{lemma} \label{le:rdimTrans} Let $ L \in \Gr_+$ \acom{(or $\Grth_+$)}.
 \begin{enumerate}
     \item For any $ 
-    \gamma \subset [m] $, we have $$ \rdim L_\gamma + \rdim L^{\gamma^c} = \rdim L \,.$$
+    \gamma \subset [m] $, we have 
+    $$ \rdim L_\gamma + \rdim L^{\gamma^c} = \rdim L \,.$$
     \item For any $ \gamma_1 \subset \gamma_2 \subset [m]$, we have $$ (L_{\gamma_2})_{\gamma_1} = L_{\gamma_1}
 $$
 \end{enumerate}
@@ -1870,7 +1871,9 @@ On the other hand,
 since $L\in S^{\mu',\mu''}_{0,s}$, $l\in S^{\mu'(i),\mu''(i)}_{0,s}$. 
 
 Therefore, as $i$ varies, we see that the pair $(L(0),L(s))\in S^{\mu'}\times S^{\mu''}$ is such that 
-$$(L_{[1,i]}(0),L_{[1,i]}(s))  = (L(0)_{[1,i]},L(s)_{[1,i]}) \in \Gr^{\lambda'(i)}\times\Gr^{\lambda''(i)}$$ 
+$$
+(L_{[1,i]}(0),L_{[1,i]}(s))  = (L(0)_{[1,i]},L(s)_{[1,i]}) \in \Gr^{\lambda'(i)}\times\Gr^{\lambda''(i)}
+$$ 
 and so $(L(0),L(s))\in \mathring Z(\tau')\times \mathring Z(\tau'')$. The argument can be reversed for
 $L\in\mathring Z(\tau')\ast_\Cx \mathring Z(\tau'')$.
 % \theta^{-1}(\mathring Z(\tau')\times Z(\tau''))$.
@@ -1889,7 +1892,7 @@ we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure 
 \begin{corollary}
 \label{cor:iota}
     % The image of $\mathring X(\tau',\tau'')_{0,0}$ in $\mathring Z(\tau')\ast_0 \mathring Z(\tau'')$ is dense. In particular 
-    $\iota(X(\tau), X(\tau',\tau'')_{0,0}) = \iota( Z(\tau), Z(\tau')\ast_0 \mathring Z(\tau''))\,.$
+    $\iota(X(\tau), X(\tau',\tau'')_{0,0}) = \iota( Z(\tau), Z(\tau')\ast_0 Z(\tau''))\,.$
 \end{corollary}
 %\acom{Do we need to introduce $X(\tau',\tau'')_{0,0}$ to state the theorem or can we state it on $\mathring X$'s and $\mathring Z$'s again?}
 %\jcom{I changed the statement. I will edit the proof later. }
@@ -1899,8 +1902,8 @@ we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure 
 \begin{proof}
 %[Proof of~\Cref{cor:iota}]
 %Since $\mathring X(\tau',\tau'')_{0,0}\subset\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ and $\dim X(\tau',\tau'')_{0,0} = \dim \overline{\OO}^\lambda\cap\TT_\mu\cap\n$ \acom{why?} irreducible components of $\mathring X(\tau',\tau'')_{0,0}$ are generalized orbital varieties. 
-We can compute intersection multiplicities by passing to dense constructible subsets.  By
-the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a dense constructible subset of $ Z(\tau) $ and $ X(\tau', \tau'')_{0,0} $ is a dense constructible subset of $ Z(\tau') \ast_0 Z(\tau'') $.
+We can compute intersection multiplicities by passing to dense constructible subsets.  
+By the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a dense constructible subset of $ Z(\tau) $ and $ X(\tau', \tau'')_{0,0} $ is a dense constructible subset of $ Z(\tau') \ast_0 Z(\tau'') $.
 %  
 \acom{Hm, I guess you are right, it is easier than what I had, we just need that the arguments on either side match up, and not that the arguments on one side are related. Though do we really not use that $X(\tau)$ may be contained in $X(\tau',\tau'')_{0,0}$ as an irreducible component?}  
 \end{proof}
@@ -1911,7 +1914,7 @@ the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a dense 
     % Note that $\tau$ has shape $\lambda$, weight $\mu$, and  Lusztig datum equal to the sum of the Lusztig data of $\tau'$ and $\tau''$. 
     Then 
     \begin{equation}
-        \iota(Z(\tau), Z(\tau') \arfu Z(\tau'')) = 1 \,. 
+        \iota(Z(\tau), Z(\tau') \geofu Z(\tau'')) = 1 \,. 
     \end{equation}
 \end{conjecture}
 % 
@@ -1933,8 +1936,9 @@ There is an injective map $ \Psi_\lambda: V(\lambda) \to \CC[N]$ realizing $V(\l
 
 The geometric Satake correspondence says that 
 % $V(\lambda) = IH(\overline\Gr^\lambda)$ and  
-$V(\lambda)_\mu = H_{\rho(\lambda-\mu)}(\overline{\Gr^\lambda\cap S^\mu_-})$ where $H_d$ denotes $d$-dimensional Borel--Moore homology. 
-In particular, the MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$ give a basis of $V(\lambda)$. We denote this set of MV cycles $\cZ(\lambda)$. 
+$V(\lambda)_\mu = H_{2\rho(\lambda-\mu)}(\overline{\Gr^\lambda\cap S^\mu_-})$ where $H_d$ denotes $d$-dimensional Borel--Moore homology. 
+In particular, the MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$ give a basis of $V(\lambda)$. We denote this set of MV cycles $\cZ(\lambda)$, $\{[Z] : ..  \}$.
+\acom{$\cZ(\lambda)$ can go earlier}
 % 
 
 Let $Q_+$ denote the set of nonnegative integer combinations of positive roots. \acom{$Q_+$ should be defined earlier?}
@@ -1956,12 +1960,15 @@ The \new{stable} MV cycles of coweight $\nu\in Q_+$ are defined to be irreducibl
 % \]
 \jcom{This paragraph is a bit confusing.  Maybe it would be best to first define $ V(\lambda) \rightarrow \CC[N]$ and then $ H_{top}(\overline{Gr}^\lambda \cap S^\mu) \rightarrow \CC[N]$, rather than doing them in one step.  Then we can draw a commutative square with $ S^0_+ \cap S_-^\nu$ as well. }
 \acom{Not sure which square to draw or if it is necessary. I guess you want something like what's pictured below, where what we're about to describe are the blue arrows. Specifically the rightmost downward pointing blue. Which, by commutativity, will determine the middle downward pointing blue.}
+\jcom{Yes, I like this diagram.  Maybe the two rightward arrow should point leftward, since we did already define $ \tau \mapsto Z(\tau)$.}
+
 \[
 \begin{tikzcd}
 \CC[N] & \ar[l] \cZ(\infty) \ar[r,"n_\bullet"] \ar[d,bend left,blue] & \NN^{\Delta_+} \ar[l,blue,bend left] \ar[d,bend left,blue]\\ 
 L(\lambda) \ar[u,"\Psi_\lambda"] & \ar[l] \cZ(\lambda) \ar[r] \ar[u,"t^{-\lambda}"] & YT(\lambda) \ar[u,"n_\bullet"] \ar[l,blue,bend left]
 \end{tikzcd}
 \]
+Explain that fibres contain tableaux related by padding. $Z(\tau)$ is defined even when $\mu$ is not dominant. We choose a section for which $\mu$ is dominant (Lemma 9) because $X(\tau)$ doesn't make sense when it isn't, but when we come back to $Z(\infty)$ we can renormalize so $\mu$ is not dominant.
 % 
 \acom{Recalling intersection multiplicity:} 
 We have the zero fibre in $\Grbd$ as effective divisor $D$, and the fusion of subscheme $V = X\ast_\AA Y\subset\Grbd$ as a finite-dimensional irreducible variety not contained in the support of $D$, and finally an irreducible component $Z$ of $D\cdot V = X\ast_0 Y$, codimension 1 in $V$. Denote by $\iota(Z,D\cdot V)$ the intersection multiplicity of $Z$. 
@@ -2033,7 +2040,7 @@ Before we begin we will need some lemmas, notions and notations.
 \end{itemize}
 \begin{lemma}
     \label{lem:mintab}
-    Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
+    Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ dominant effective smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
     \[
         \begin{gathered}
         % 
@@ -2180,7 +2187,9 @@ There are no relations from looking at the submatrix $X_1$. From the submatrix $
 From $X$, we further obtain the relations $$A_{12}^2A_{23}^1 + sA_{13}^1 = 0, A_{12}^1A_{23}^1 + s^2A_{13}^1 = 0.$$
 Then the quotient ring we find is
 $$\frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s]}{\langle A_{12}^1+sA_{12}^2, A_{12}^2A_{23}^1+sA_{13}^1, A_{12}^1A_{23}^1+s^2A_{13}^1, s\rangle} \cong \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,b_3,s]}{\langle A_{12}^1, A_{12}^2\rangle \cap \langle A_{12}^1, A_{23}^1 \rangle}.$$
-\acom{TODO: put ideals of $\arfu$ and their tableaux into tables; also divide into 2 sections, $\GL_3$ and $\GL_4$; replace $Z_M$ by $Z(\tau)$ and $Z(\tau)$ by $\tau$; and let's use $A$ for matrices instead of $X$ to be consistent with `rising action'?}
+% 
+\acom{TODO: put ideals of arithmetic fusion and their tableaux into tables; also divide into 2 sections, $\GL_3$ and $\GL_4$; replace $Z_M$ by $Z(\tau)$ and $Z(\tau)$ by $\tau$; and let's use $A$ for matrices instead of $X$ to be consistent with rising action?}
+% 
 We see that the 0-fibre is reducible with two components. The tableau corresponding to each ideal is
 $$\begin{array}{cccc} \vspace{1mm}
     \young(1113,22) & \text{for } \langle A_{12}^1, A_{12}^2 \rangle & \text{Lusztig: }(101) & \dim = (1,0,-1)\\ 
@@ -2275,31 +2284,31 @@ $$
 and the MV cycles corresponding to each are isomorphic to $\PP^2 \times \PP^2$.
 \end{example}
 
-Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 cluster variables. We list the corresponding tableaux, coordinate ring of the generalized orbital variety $X(\tau)$, and Lusztig-datum below:
+Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 cluster variables. We will take the initial cluster $(x_1,\dots,x_6)$, with $x_4,x_5,x_6$ being frozen, coming from the reduced word ${\bf i} = (1,2,3,1,2,1)$. We list the corresponding tableaux, coordinate ring of the generalized orbital variety $X(\tau)$, Lusztig-datum, and cluster variable as a Laurent polynomial in the $x_i$ below:
 
+\acom{Add dominant version column}
 % \jcom{This is a nice table.  But these are the coordinate rings of $ X(\tau)$, not of $ Z(\tau) $.}
 % \renewcommand{\arraystretch}{1.5}
 \begin{table}[ht!]
   \centering
-  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}>{$}l<{$}}
+  \newcolumntype{Q}{>{$}l<{$}>{$}c<{$}>{$}l<{$}>{$}l<{$}>{$}c<{$}}
   \begin{tabular}{Q} 
-    \tau & \text{Coordinate ring of }X(\tau) & \text{Lusztig-datum} \\
+    \tau' & \tau = \text{Dominant }\tau' & \text{Coordinate ring of }X(\tau) & \text{Lusztig-datum} & \text{Cluster variable} \\
     \midrule 
-\young(2) & \CC[A_{12}^1] & (1,0,0,0,0,0) \rule{0pt}{3ex}\\
-\young(1,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1,A_{13}^1 \rangle} & (0,0,0,1,0,0) \TS\BS\\
-\young(1,2,4) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1 \rangle} & (0,0,0,0,0,1) \TS\BS\\
-\young(3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1 \rangle} & (1,0,0,1,0,0) \TS\BS\\
-\young(2,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{23}^1 \rangle} & (0,1,0,0,0,0) \TS\BS\\
-\young(1,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1 \rangle} & (0,0,0,1,0,1) \TS\BS\\
-\young(1,3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1 \rangle} & (0,0,0,0,1,0) \TS\BS\\
-\young(2,4) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1 \rangle} & (0,1,0,0,0,1) \TS\BS\\
-\young(13,2,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1 \rangle} & (1,0,0,0,1,0) \TS\BS\\
-\young(2,3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{23}^1,A_{24}^1,A_{34}^1 \rangle} & (0,0,1,0,0,0) \TS\BS\\
-\young(3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1 \rangle} & (0,1,0,0,1,0) \TS\BS\\
-\young(4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1 \rangle} & (1,0,0,1,0,1) \TS\BS\\
+\young(2) & \young(12) & \CC[A_{12}^1] & (1,0,0,0,0,0) & x_1 \rule{0pt}{3ex}\\
+\young(1,3) & \young(11,23) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1,A_{13}^1 \rangle} & (0,0,0,1,0,0) & \frac{x_2 + x_3}{x_1} \TS\BS\\
+\young(1,2,4) & \young(11,22,34) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1 \rangle} & (0,0,0,0,0,1) & \frac{x_2x_4 + x_3x_6 + x_1x_5}{x_2x_3} \TS\BS\\
+\young(3) & \young(13,2) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1 \rangle} & (1,0,0,1,0,0) & x_2 \TS\BS\\
+\young(2,3) & \young(12,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{23}^1 \rangle} & (0,1,0,0,0,0) & x_3 \TS\BS\\
+\young(1,4) & \young(11,24,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1 \rangle} & (0,0,0,1,0,1) & \frac{x_1x_5 + x_6(x_2+x_3)}{x_1x_2} \TS\BS\\
+\young(1,3,4) & \young(11,23,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1 \rangle} & (0,0,0,0,1,0) & \frac{x_1x_5 + x_4(x_2+x_3)}{x_1x_3}\TS\BS\\
+\young(2,4) & \young(112,24,3) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1 \rangle} & (0,1,0,0,0,1) & \frac{x_3x_6+x_1x_5}{x_2} \TS\BS\\
+\young(13,2,4) & \young(13,2,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1 \rangle} & (1,0,0,0,1,0) & \frac{x_2x_4 + x_1x_5}{x_3} \TS\BS\\
+\young(2,3,4) & \young(12,3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{23}^1,A_{24}^1,A_{34}^1 \rangle} & (0,0,1,0,0,0) & x_4 \TS\BS\\
+\young(3,4) & \young(13,24) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1 \rangle} & (0,1,0,0,1,0) & x_5 \TS\BS\\
+\young(4) & \young(14,2,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1 \rangle} & (1,0,0,1,0,1) & x_6 \TS\BS\\
   \end{tabular}
 \end{table}
-
 % \[
 % \begin{array}{ccc} 
 % \tau & \text{Coordinate ring of }X(\tau) & \text{Lusztig-datum} \\ \hline
@@ -2348,6 +2357,7 @@ We show that the cluster relations in $\CC[N]$ are also true for the fusion prod
 
 For each of the 15 exchange relations, we state the associated matrix $X$, the relations acquired from each submatrix $X_i$, the ideal generated by said relations, and the corresponding tableaux from the ideal.
 
+Instead of writing the exchange relations in terms of $b_{Z(\tau)}$ or the fusion product in terms of $Z(\tau)$, we will use $\tau$ for both situations.
 
 \jcom{I think that you should clarify what you mean by ``our ideal'' below.  I think that it is the ideal of $ X(\tau', \tau'')_{0,0}$, is that correct?}
 
@@ -2358,16 +2368,16 @@ For each of the 15 exchange relations, we state the associated matrix $X$, the r
 % \young(2) \text{ and } \young(1,3).
 % \]
 % $\young(2) * \young(1,3)$.
-$\young(2) *_0 \young(1,3) = \young(3) + \young(2,3)$: 
+$\young(2) \cdot \young(1,3) = \young(3) + \young(2,3)$: 
 % 
 The requirement that 
 \[
-A = \left[\begin{BMAT}(e){c;c;c}{c;c;c}
+X = \left[\begin{BMAT}(e){c;c;c}{c;c;c}
     s & A_{12}^1 & A_{13}^1 \\
      & 0 & A_{23}^1 \\
      & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(2) *_\AA \young(1,3) 
+\right] \text{ is contained in } \young(2) *_{\AA \setminus \{0\}} \young(1,3) 
 % \Rightarrow 
 % \begin{tabular}{Q} 
 %     \text{Submatrix} & \text{Relations} \\
@@ -2397,7 +2407,7 @@ results in the following relations on submatrices.
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,s) & \young(13,2) \BS \\ % \equiv \young(3) \\
     ( A_{23}^1,s) & \young(12,3) \TS % \equiv \young(2,3)
@@ -2421,16 +2431,16 @@ results in the following relations on submatrices.
 % \young(1,3) \text{ and } \young(1,2,4).
 % \]
 % Our matrix is 
-$\young(1,3) *_0 \young(1,2,4) = \young(1,4) + \young(1,3,4):$ The requirement that
+$\young(1,3) \cdot \young(1,2,4) = \young(1,4) + \young(1,3,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
+X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
     0 & 1 & & & \\
      & s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & & s & A_{23}^1 & A_{24}^1 \\
      & & & 0 & A_{34}^1 \\
      & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(1,3) *_\AA \young(1,2,4)
+\right] \text{ is contained in } \young(1,3) *_{\AA \setminus \{0\}} \young(1,2,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -2451,7 +2461,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{13}^1,A_{23}^1,A_{14}^1,s) & \young(11,24,3) \BS \\
     (A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1,s) & \young(11,23,4) \TS 
@@ -2480,15 +2490,15 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(2) *_0 \young(1,3,4) = \young(2,3,4) + \young(13,2,4):$ The requirement that
+$\young(2) \cdot \young(1,3,4) = \young(2,3,4) + \young(13,2,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
      & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(2) *_\AA \young(1,3,4)
+\right] \text{ is contained in } \young(2) *_{\AA \setminus \{0\}} \young(1,3,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -2508,7 +2518,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{23}^1,A_{24}^1,A_{34}^1,s) & \young(12,3,4) \BS \\
     (A_{12}^1,A_{34}^1,A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1,s) & \young(13,2,4) \TS
@@ -2561,9 +2571,9 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(2) *_0 \young(11,24,3) = \young(4) + \young(2,4):$ The requirement that
+$\young(2) \cdot \young(11,24,3) = \young(4) + \young(2,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
+X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
     0 & 1 & & & & \\
     -s^2 & 2s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
      & & 0 & 1 & & \\
@@ -2571,7 +2581,7 @@ A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
      & & & & s & A_{34}^1 \\
      & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(2) *_\AA \young(11,24,3)
+\right] \text{ is contained in } \young(2) *_{\AA \setminus \{0\}} \young(11,24,3)
 \]
 results in the following relations on submatrices:
 % 
@@ -2592,7 +2602,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,s) & \young(114,22,3) \BS \\
     (A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s) & \young(112,24,3) \TS
@@ -2653,9 +2663,9 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(1,2,4) *_0 \young(12,3) = \young(1,4) + \young(1,3,4):$ The requirement that
+$\young(1,2,4) \cdot \young(12,3) = \young(1,4) + \young(1,3,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
+X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
     0 & 1 & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
      & & 0 & 1 & & \\
@@ -2663,7 +2673,7 @@ A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
      & & & & s & A_{34}^1 \\
      & & & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(1,2,4) *_\AA \young(12,3)
+\right] \text{ is contained in } \young(1,2,4) *_{\AA \setminus \{0\}} \young(12,3)
 \]
 results in the following relations on submatrices:
 % 
@@ -2684,7 +2694,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1,s) & \young(112,24,3) \BS \\
     (A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s) & \young(112,23,4) \TS
@@ -2745,15 +2755,15 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(1,2,4) *_0 \young(3) = \young(4) + \young(13,2,4):$ The requirement that
+$\young(1,2,4) \cdot \young(3) = \young(4) + \young(13,2,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
      & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(1,2,4) *_\AA \young(3)
+\right] \text{ is contained in } \young(1,2,4) *_{\AA \setminus \{0\}} \young(3)
 \]
 results in the following relations on submatrices:
 % 
@@ -2773,7 +2783,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{13}^1,A_{23}^1,s) & \young(14,2,3) \BS \\
     (A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1,s) & \young(13,2,4) \TS
@@ -2826,16 +2836,16 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(13,2) *_0 \young(1,4) = \young(14,3) + \young(3,4):$ The requirement that
+$\young(13,2) \cdot \young(1,4) = \young(14,3) + \young(3,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
+X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
     0 & 1 & & & \\
      & s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & & 0 & A_{23}^1 & A_{24}^1 \\
      & & & 0 & A_{34}^1 \\
      & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(13,2) *_\AA \young(1,4)
+\right] \text{ is contained in } \young(13,2) *_{\AA \setminus \{0\}} \young(1,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -2855,7 +2865,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{13}^1,s) & \young(114,23) \BS \\
     (A_{12}^1,A_{34}^1,s) & \young(113,24) \TS
@@ -2914,9 +2924,9 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(12,23) *_0 \young(1,3,4) = \young(3,4) + \young(12,33,4):$ The requirement that
+$\young(12,23) \cdot \young(1,3,4) = \young(3,4) + \young(12,33,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
     0 & 1 & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & 0 & 1 & & & \\
@@ -2925,7 +2935,7 @@ A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
      & & & & & s & A_{34}^1 \\
      & & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(12,23) *_\AA \young(1,3,4)
+\right] \text{ is contained in } \young(12,23) *_{\AA \setminus \{0\}} \young(1,3,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -2946,7 +2956,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s) & \young(113,224,3) \BS \\
     (A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,A_{12}^2A_{23}^2+A_{13}^1,s) & \young(112,233,4) \TS
@@ -3010,9 +3020,9 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(11,23) *_0 \young(13,2,4) = \young(3,4) + \young(1,3,4):$ The requirement that
+$\young(11,23) \cdot \young(13,2,4) = \young(3,4) + \young(1,3,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
+X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
     0 & 1 & & & & & & \\
      & 0 & 1 & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
@@ -3022,7 +3032,7 @@ A = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
      & & & & & & s & A_{34}^1 \\
      & & & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(11,23) *_\AA \young(13,2,4)
+\right] \text{ is contained in } \young(11,23) *_{\AA \setminus \{0\}} \young(13,2,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -3043,7 +3053,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{12}^2,A_{13}^1,A_{23}^1,A_{34}^1,s) & \young(1113,224,3) \BS \\
     (A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{34}^1,s) & \young(1113,223,4) \TS
@@ -3106,15 +3116,15 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(1,3) *_0 \young(2,4) = \young(3,4) + \young(12,34):$ The requirement that
+$\young(1,3) \cdot \young(2,4) = \young(3,4) + \young(12,34):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & s & A_{23}^1 & A_{24}^1 \\
      & & 0 & A_{34}^1 \\
      & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(1,3) *_\AA \young(2,4)
+\right] \text{ is contained in } \young(1,3) *_{\AA \setminus \{0\}} \young(2,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -3134,7 +3144,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{34}^1,s) & \young(13,24) \BS \\
     (A_{23}^1,A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1,s) & \young(12,34) \TS
@@ -3187,9 +3197,9 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(13,2,4) *_0 \young(12,3) = \young(23,4) + \young(23,3,4):$ The requirement that
+$\young(13,2,4) \cdot \young(12,3) = \young(23,4) + \young(23,3,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
     0 & 1 & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & 0 & 1 & & & \\
@@ -3198,7 +3208,7 @@ A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
      & & & & & s & A_{34}^1 \\
      & & & & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(13,2,4) *_\AA \young(12,3)
+\right] \text{ is contained in } \young(13,2,4) *_{\AA \setminus \{0\}} \young(12,3)
 \]
 results in the following relations on submatrices:
 % 
@@ -3219,7 +3229,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1,s) & \young(1123,24,3) \BS \\
     (A_{12}^1,A_{23}^1,A_{24}^1,A_{34}^1,s) & \young(1123,23,4) \TS
@@ -3281,15 +3291,15 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(2,4) *_0 \young(1,3) = \young(24,3) + \young(23,4):$ The requirement that
+$\young(2,4) \cdot \young(1,3) = \young(24,3) + \young(23,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
      s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
      & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(2,4) *_\AA \young(1,3)
+\right] \text{ is contained in } \young(2,4) *_{\AA \setminus \{0\}} \young(1,3)
 \]
 results in the following relations on submatrices:
 % 
@@ -3308,7 +3318,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{23}^1,s) & \young(124,3) \BS \\
     (A_{34}^1,s) & \young(123,4) \TS
@@ -3364,9 +3374,9 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(11,24,3) *_0 \young(13,2,4) = \young(14,3,4) + \young(13,24,4):$ The requirement that
+$\young(11,24,3) \cdot \young(13,2,4) = \young(14,3,4) + \young(13,24,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
+X = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
     0 & 1 & & & & & & & \\
      & 0 & 1 & & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
@@ -3377,7 +3387,7 @@ A = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
      & & & & & & & 0 & 1 \\
      & & & & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(11,24,3) *_\AA \young(13,2,4)
+\right] \text{ is contained in } \young(11,24,3) *_{\AA \setminus \{0\}} \young(13,2,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -3399,7 +3409,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1,A_{12}^2,A_{13}^1,A_{13}^2,A_{23}^1,A_{14}^1,A_{34}^1,s) & \young(1114,223,34) \BS \\
     \begin{array}{c}
@@ -3477,9 +3487,9 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(12,24,3) *_0 \young(1,3,4) = \young(13,24,4) + \young(12,34,4):$ The requirement that
+$\young(12,24,3) \cdot \young(1,3,4) = \young(13,24,4) + \young(12,34,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
+X = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
     0 & 1 & & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
      & & 0 & 1 & & & & \\
@@ -3489,7 +3499,7 @@ A = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
      & & & & & & 0 & 1 \\
      & & & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(12,24,3) *_\AA \young(1,3,4)
+\right] \text{ is contained in } \young(12,24,3) *_{\AA \setminus \{0\}} \young(1,3,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -3513,7 +3523,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     \begin{array}{c}
      (A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{34}^1, A_{23}^2A_{34}^2 + A_{24}^1,  \\
@@ -3601,9 +3611,9 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-$\young(112,24,3) *_0 \young(13,2,4) = \young(24,3,4) + \young(123,24,4):$ The requirement that
+$\young(112,24,3) \cdot \young(13,2,4) = \young(24,3,4) + \young(123,24,4):$ The requirement that
 \[
-A = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
+X = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
     0 & 1 & & & & & & & & \\
      & 0 & 1 & & & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{12}^3 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
@@ -3615,7 +3625,7 @@ A = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
      & & & & & & & & 0 & 1 \\
      & & & & & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(112,24,3) *_\AA \young(13,2,4)
+\right] \text{ is contained in } \young(112,24,3) *_{\AA \setminus \{0\}} \young(13,2,4)
 \]
 results in the following relations on submatrices:
 % 
@@ -3640,7 +3650,7 @@ results in the following relations on submatrices:
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     % \text{Ideal} & \text{Tableau} \\
-    X(\tau) & \tau \\ 
+    \text{Ideal of } X(\tau) & \tau \\ 
     \midrule 
     (A_{12}^1, A_{12}^2, A_{13}^1, A_{23}^1, A_{23}^2, A_{24}^1, A_{34}^1,s) & \young(11124,223,34) \BS \\
     \begin{array}{c}
