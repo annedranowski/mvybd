@@ -2380,7 +2380,15 @@ and the MV cycles corresponding to each are isomorphic to $\PP^2 \times \PP^2$.
 
 \subsection{Type $A_3$}
 
-Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 cluster variables. We will take the initial cluster $(x_1,\dots,x_6)$, with $x_4,x_5,x_6$ being frozen, coming from the reduced word ${\bf i} = (1,2,3,1,2,1)$. We list the corresponding tableaux, coordinate ring of the generalized orbital variety $X(\tau)$, Lusztig-datum, and cluster variable as a Laurent polynomial in the $x_i$ below:
+Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 cluster variables. We will take the initial cluster $(x_1,\dots,x_6)$, with $x_4,x_5,x_6$ being frozen, coming from the reduced word ${\bf i} = (1,2,3,1,2,1)$. 
+If we view $\CC[N] \cong \CC[x_{ij} : i < j]$, then
+\[
+\begin{array}{ccc}
+    x_1 = x_{12} & x_2 = x_{13} & x_3 = x_{12}x_{23}-x_{13} \\
+    x_4 = x_{12}x_{23}x_{34} - x_{12}x_{24} - x_{13}x_{34} + x_{14} & x_5 = x_{13}x_{24}-x_{14}x_{23} & x_6 = x_{14} 
+\end{array}
+\]
+We list the corresponding tableaux, coordinate ring of the generalized orbital variety $X(\tau)$, Lusztig-datum, and cluster variable as a Laurent polynomial in the $x_i$ below:
 
 % \acom{Add dominant version column}
 % \jcom{This is a nice table.  But these are the coordinate rings of $ X(\tau)$, not of $ Z(\tau) $.}
@@ -2392,17 +2400,17 @@ Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 clust
     \tau' & \tau = \text{Dominant }\tau' & \text{Coordinate ring of }X(\tau) & \text{Lusztig-datum} & \text{Cluster variable} \\
     \midrule 
 \young(2) & \young(12) & \CC[A_{12}^1] & (1,0,0,0,0,0) & x_1 \rule{0pt}{3ex}\\
-\young(1,3) & \young(11,23) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1,A_{13}^1 \rangle} & (0,0,0,1,0,0) & \frac{x_2 + x_3}{x_1} \TS\BS\\
-\young(1,2,4) & \young(11,22,34) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1 \rangle} & (0,0,0,0,0,1) & \frac{x_2x_4 + x_3x_6 + x_1x_5}{x_2x_3} \TS\BS\\
-\young(3) & \young(13,2) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{12}^1 \rangle} & (1,0,0,1,0,0) & x_2 \TS\BS\\
-\young(2,3) & \young(12,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{\langle A_{23}^1 \rangle} & (0,1,0,0,0,0) & x_3 \TS\BS\\
-\young(1,4) & \young(11,24,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1 \rangle} & (0,0,0,1,0,1) & \frac{x_1x_5 + x_6(x_2+x_3)}{x_1x_2} \TS\BS\\
-\young(1,3,4) & \young(11,23,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1 \rangle} & (0,0,0,0,1,0) & \frac{x_1x_5 + x_4(x_2+x_3)}{x_1x_3}\TS\BS\\
-\young(2,4) & \young(112,24,3) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1 \rangle} & (0,1,0,0,0,1) & \frac{x_3x_6+x_1x_5}{x_2} \TS\BS\\
-\young(13,2,4) & \young(13,2,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1 \rangle} & (1,0,0,0,1,0) & \frac{x_2x_4 + x_1x_5}{x_3} \TS\BS\\
-\young(2,3,4) & \young(12,3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{23}^1,A_{24}^1,A_{34}^1 \rangle} & (0,0,1,0,0,0) & x_4 \TS\BS\\
-\young(3,4) & \young(13,24) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{34}^1 \rangle} & (0,1,0,0,1,0) & x_5 \TS\BS\\
-\young(4) & \young(14,2,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1 \rangle} & (1,0,0,1,0,1) & x_6 \TS\BS\\
+\young(1,3) & \young(11,23) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{( A_{12}^1,A_{13}^1 )} & (0,0,0,1,0,0) & \frac{x_2 + x_3}{x_1} \TS\BS\\
+\young(1,2,4) & \young(11,22,34) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{( A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1 )} & (0,0,0,0,0,1) & \frac{x_2x_4 + x_3x_6 + x_1x_5}{x_2x_3} \TS\BS\\
+\young(3) & \young(13,2) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{( A_{12}^1 )} & (1,0,0,1,0,0) & x_2 \TS\BS\\
+\young(2,3) & \young(12,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{23}^1]}{( A_{23}^1 )} & (0,1,0,0,0,0) & x_3 \TS\BS\\
+\young(1,4) & \young(11,24,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{( A_{12}^1,A_{13}^1,A_{23}^1,A_{34}^1 )} & (0,0,0,1,0,1) & \frac{x_1x_5 + x_6(x_2+x_3)}{x_1x_2} \TS\BS\\
+\young(1,3,4) & \young(11,23,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{( A_{12}^1,A_{13}^1,A_{14}^1,A_{34}^1 )} & (0,0,0,0,1,0) & \frac{x_1x_5 + x_4(x_2+x_3)}{x_1x_3}\TS\BS\\
+\young(2,4) & \young(112,24,3) & \frac{\CC[A_{12}^1,A_{12}^2,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{( A_{12}^1,A_{13}^1,A_{23}^1,A_{24}^1 )} & (0,1,0,0,0,1) & \frac{x_3x_6+x_1x_5}{x_2} \TS\BS\\
+\young(13,2,4) & \young(13,2,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{( A_{12}^1,A_{34}^1,A_{13}^1A_{24}^1-A_{23}^1A_{14}^1 )} & (1,0,0,0,1,0) & \frac{x_2x_4 + x_1x_5}{x_3} \TS\BS\\
+\young(2,3,4) & \young(12,3,4) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{( A_{23}^1,A_{24}^1,A_{34}^1 )} & (0,0,1,0,0,0) & x_4 \TS\BS\\
+\young(3,4) & \young(13,24) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{( A_{12}^1,A_{34}^1 )} & (0,1,0,0,1,0) & x_5 \TS\BS\\
+\young(4) & \young(14,2,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{( A_{12}^1,A_{13}^1,A_{23}^1 )} & (1,0,0,1,0,1) & x_6 \TS\BS\\
   \end{tabular}
 \end{table}
 \acom{Say what $x_i$ are: $\begin{bmatrix}
@@ -2475,7 +2483,7 @@ $\young(2) \cdot \young(1,3) = \young(3) + \young(2,3)$:
 % 
 The requirement that 
 \[
-X = \left[\begin{BMAT}(e){c;c;c}{c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c}{c;c;c}
     s & A_{12}^1 & A_{13}^1 \\
      & 0 & A_{23}^1 \\
      & & s
@@ -2495,7 +2503,7 @@ results in the following relations on submatrices.
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_3 & A_{12}^1A_{23}^1+sA_{13}^1
+    A_3 & A_{12}^1A_{23}^1+sA_{13}^1
     \end{tabular}
 \end{table}
 % \[
@@ -2536,7 +2544,7 @@ results in the following relations on submatrices.
 % Our matrix is 
 $\young(1,3) \cdot \young(1,2,4) = \young(1,4) + \young(1,3,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
+A = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
     0 & 1 & & & \\
      & s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & & s & A_{23}^1 & A_{24}^1 \\
@@ -2553,9 +2561,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1 \\
-    X_3 & A_{13}^1 \\
-    X_4 & A_{14}^1, A_{23}^1A_{34}^1 + sA_{24}^1
+    A_2 & A_{12}^1 \\
+    A_3 & A_{13}^1 \\
+    A_4 & A_{14}^1, A_{23}^1A_{34}^1 + sA_{24}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -2595,7 +2603,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(2) \cdot \young(1,3,4) = \young(2,3,4) + \young(13,2,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
@@ -2611,8 +2619,8 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_3 & A_{12}^1A_{23}^1 + sA_{13}^1 \\
-    X_4 & A_{34}^1, A_{12}^1A_{24}^1 + sA_{14}^1, A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1
+    A_3 & A_{12}^1A_{23}^1 + sA_{13}^1 \\
+    A_4 & A_{34}^1, A_{12}^1A_{24}^1 + sA_{14}^1, A_{23}^1A_{14}^1 - A_{13}^1A_{24}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -2676,7 +2684,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(2) \cdot \young(11,24,3) = \young(4) + \young(2,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
+A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
     0 & 1 & & & & \\
     -s^2 & 2s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
      & & 0 & 1 & & \\
@@ -2694,9 +2702,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1 + sA_{12}^2 \\
-    X_3 & A_{13}^1, A_{23}^1 \\
-    X_4 & A_{12}^2A_{24}^1 + sA_{14}^1, A_{12}^1A_{24}^1 - s^2A_{14}^1 
+    A_2 & A_{12}^1 + sA_{12}^2 \\
+    A_3 & A_{13}^1, A_{23}^1 \\
+    A_4 & A_{12}^2A_{24}^1 + sA_{14}^1, A_{12}^1A_{24}^1 - s^2A_{14}^1 
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -2768,7 +2776,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(1,2,4) \cdot \young(12,3) = \young(1,4) + \young(1,3,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
+A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
     0 & 1 & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
      & & 0 & 1 & & \\
@@ -2786,9 +2794,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1 \\
-    X_3 & A_{23}^1 \\
-    X_4 & A_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1 
+    A_2 & A_{12}^1 \\
+    A_3 & A_{23}^1 \\
+    A_4 & A_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1 
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -2860,7 +2868,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(1,2,4) \cdot \young(3) = \young(4) + \young(13,2,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
@@ -2876,8 +2884,8 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1 \\
-    X_4 & A_{23}^1A_{34}^1 - sA_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
+    A_2 & A_{12}^1 \\
+    A_4 & A_{23}^1A_{34}^1 - sA_{24}^1, A_{13}^1A_{34}^1 - sA_{14}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -2941,7 +2949,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(13,2) \cdot \young(1,4) = \young(14,3) + \young(3,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
+A = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
     0 & 1 & & & \\
      & s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & & 0 & A_{23}^1 & A_{24}^1 \\
@@ -2958,8 +2966,8 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1 \\
-    X_4 & A_{13}^1A_{34}^1 + sA_{14}^1
+    A_2 & A_{12}^1 \\
+    A_4 & A_{13}^1A_{34}^1 + sA_{14}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3029,7 +3037,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(12,23) \cdot \young(1,3,4) = \young(3,4) + \young(12,33,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
     0 & 1 & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & 0 & 1 & & & \\
@@ -3048,9 +3056,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1 \\
-    X_3 & A_{23}^1, A_{12}^2A_{23}^2 + A_{13}^1 + sA_{13}^2 \\
-    X_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
+    A_2 & A_{12}^1 \\
+    A_3 & A_{23}^1, A_{12}^2A_{23}^2 + A_{13}^1 + sA_{13}^2 \\
+    A_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3125,7 +3133,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(11,23) \cdot \young(13,2,4) = \young(3,4) + \young(1,3,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
+A = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
     0 & 1 & & & & & & \\
      & 0 & 1 & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
@@ -3145,9 +3153,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1, A_{12}^2 \\
-    X_3 & A_{13}^1 \\
-    X_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
+    A_2 & A_{12}^1, A_{12}^2 \\
+    A_3 & A_{13}^1 \\
+    A_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3221,7 +3229,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(1,3) \cdot \young(2,4) = \young(3,4) + \young(12,34):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
     0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & s & A_{23}^1 & A_{24}^1 \\
      & & 0 & A_{34}^1 \\
@@ -3237,8 +3245,8 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_3 & A_{12}^1A_{23}^1 - sA_{13}^1 \\
-    X_4 & A_{23}^1A_{34}^1 + sA_{24}^1, A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1
+    A_3 & A_{12}^1A_{23}^1 - sA_{13}^1 \\
+    A_4 & A_{23}^1A_{34}^1 + sA_{24}^1, A_{12}^1A_{24}^1 + A_{13}^1A_{34}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3302,7 +3310,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(13,2,4) \cdot \young(12,3) = \young(23,4) + \young(23,3,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
+A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
     0 & 1 & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & 0 & 1 & & & \\
@@ -3321,9 +3329,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1 \\
-    X_3 & A_{23}^1 +sA_{23}^2 \\
-    X_4 & A_{34}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
+    A_2 & A_{12}^1 \\
+    A_3 & A_{23}^1 +sA_{23}^2 \\
+    A_4 & A_{34}^1, A_{13}^1A_{24}^1 - A_{23}^1A_{14}^1 
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3396,7 +3404,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(2,4) \cdot \young(1,3) = \young(24,3) + \young(23,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
+A = \left[\begin{BMAT}(e){c;c;c;c}{c;c;c;c}
      s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & 0 & A_{23}^1 & A_{24}^1 \\
      & & s & A_{34}^1 \\
@@ -3412,7 +3420,7 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-     X_4 & A_{23}^1A_{34}^1 - sA_{24}^1
+     A_4 & A_{23}^1A_{34}^1 - sA_{24}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3479,7 +3487,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(11,24,3) \cdot \young(13,2,4) = \young(14,3,4) + \young(13,24,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
+A = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
     0 & 1 & & & & & & & \\
      & 0 & 1 & & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
@@ -3500,9 +3508,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-    X_2 & A_{12}^1,A_{12}^2 \\
-    X_3 & A_{13}^1, A_{23}^1 \\
-    X_4 & A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
+    A_2 & A_{12}^1,A_{12}^2 \\
+    A_3 & A_{13}^1, A_{23}^1 \\
+    A_4 & A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
         & A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2 
     \end{tabular}
 \end{table}
@@ -3592,7 +3600,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(12,24,3) \cdot \young(1,3,4) = \young(13,24,4) + \young(12,34,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
+A = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
     0 & 1 & & & & & & \\
      & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
      & & 0 & 1 & & & & \\
@@ -3612,9 +3620,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-   X_2 & A_{12}^1 \\
-    X_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
-    X_4 & 
+   A_2 & A_{12}^1 \\
+    A_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
+    A_4 & 
          A_{23}^2A_{34}^1 - sA_{24}^1, A_{12}^2A_{24}^1 + A_{13}^2A_{34}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
         & A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2, A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
         & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1
@@ -3716,7 +3724,7 @@ results in the following relations on submatrices:
 \begin{example}
 $\young(112,24,3) \cdot \young(13,2,4) = \young(24,3,4) + \young(123,24,4):$ The requirement that
 \[
-X = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
+A = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
     0 & 1 & & & & & & & & \\
      & 0 & 1 & & & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{12}^3 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
@@ -3738,9 +3746,9 @@ results in the following relations on submatrices:
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-   X_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
-    X_3 & A_{13}^1,A_{23}^1 \\
-    X_4 & A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+   A_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
+    A_3 & A_{13}^1,A_{23}^1 \\
+    A_4 & A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
         & A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
         & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
         & A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
