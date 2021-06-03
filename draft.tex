@@ -1502,7 +1502,10 @@ $$\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu_
 
 \section{\sout{Falling Action}} % Resolution
 \subsection{MV cycles}
-Continuing with the notation of the previous sections we add the assumption that $\lambda\ge\mu$ and forget the assumption that $\mu$ is dominant. 
+Let $Q_+$ denote the $\ZZ_{\ge 0}$-span of the positive coroots. 
+Recall the \new{dominance order} on $\ZZ^m$ defined by declaring that $\mu\le\lambda$ if $\lambda - \mu\in Q_+$ for any $\lambda,\mu$. 
+
+Continuing now with the notation of the previous sections we add the assumption that $\mu\le\lambda$ and forget the assumption that $\mu$ is dominant. 
 % 
 % We need to decide on the order in section 7. How about:
 % 
@@ -1511,13 +1514,15 @@ Continuing with the notation of the previous sections we add the assumption that
 % 3. Stable MV cycles and multiplication  in C[N]
 % 
 \begin{definition}
-An irreducible component of $\overline{\Gr}^\lambda \cap S^\mu$ is called an \new{Mirkovic--Vilonen cycle} in $\overline{\Gr}^\lambda$ of coweight $\mu$.
+An irreducible component of $\overline{\Gr}^\lambda \cap S^\mu$ is called an \new{Mirkovic--Vilonen cycle} in $\overline{\Gr}^\lambda$ of coweight $\mu$. 
 \end{definition}
+
 
 % \jcom{In this section, I think that $ \mu$ is not necessarily dominant.  So I think that we should we recall our previous notation, but say that $ \mu $ might not be dominant here.}
 % \acom{Ok.}
 
-By \cite[Theorem~3.2(b)]{mirkovic2007geometric}, each MV cycle has in $\overline\Gr^\lambda$ of coweight $\mu$ has dimension $ \rho(\lambda - \mu)$ where $\rho$ is the half sum of positive roots. Normalizing $ \rho = (m, m-1, \dots, 1)$ and identifying $P \cong P^\vee$ the pairing $P\times P^\vee\to\ZZ $ is given by the ordinary dot product. 
+By \cite[Theorem~3.2(b)]{mirkovic2007geometric}, each MV cycle in $\overline\Gr^\lambda$ of coweight $\mu$ has dimension $ \rho(\lambda - \mu)$ where $\rho$ is the half sum of positive roots. Normalizing $ \rho = (m, m-1, \dots, 1)$ and identifying $P \cong P^\vee$ the pairing $P\times P^\vee\to\ZZ $ is given by the ordinary dot product. 
+We denote by $\cZ(\lambda)$ the collection of all MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$. 
 
 % \jcom{We could put some stuff here about stable MV cycles and multiplication, but maybe we can have this in a later section.}
 
@@ -1527,7 +1532,7 @@ By \cite[Theorem~3.2(b)]{mirkovic2007geometric}, each MV cycle has in $\overline
 % \acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
 % 
 
-In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic--Vilonen polytopes, or equivalently Lusztig data, which are sequences in $\NN^{\Delta_+}$ which depend on a choice of reduced expression.  For $\GL_m$ and the standard reduced word, this description can be reworded in terms of Young tableaux. 
+In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic--Vilonen polytopes, or equivalently Lusztig data, which are sequences in $\NN^{\Delta_+}$ that depend on a choice of reduced expression. For $\GL_m$ and the standard reduced word, this description can be reworded in terms of Young tableaux. 
 % \jcom{Maybe add something here about Lusztig data and the standard reduced word, $\vi = (1,2,\dots,m-1,\dots,1,2,1)$.}
 
 
@@ -1614,7 +1619,7 @@ The equivalence of \ref{Srdim2} and \ref{Srdim3} follows from Lemma \ref{le:rdim
 
 % \acom{No no this is good! Thanks for other additions}
 
-We now introduce some notation related to Young tableaux. Denote by $YT(\lambda)_\mu$ the set of (possibly semistandard) Young tableaux of shape $\lambda$ and weight $\mu$. 
+We now introduce some notation related to Young tableaux. Denote by $YT(\lambda)$ the set of (possibly semi-standard) Young tableaux of shape $\lambda$ and by $YT(\lambda)_\mu$ the subset of $YT(\lambda)$ of tableaux having weight $\mu$. 
 %Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
 % For the sake of making a definition, we momentarily put some letters of our alphabet in unexpected roles, and ask you to suspend your disbelief. Given an arbitrary tableau $t$ having weight $w$ and shape $s$, we denote by $s(i)$ (resp.\ $w(i)$) the shape (resp.\ the weight) of $t(i)$, the tableau got from $t$ by discarding all boxes of weight exceeding $i$. 
 
@@ -1998,35 +2003,68 @@ By the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a den
 % 
 % \acom{Pierre said he hasn't thought about this since he last thought about this and remarked that KKKO would distinguish two terms, a leading and a tailing one.} 
 % 
-\subsection{Connection to cluster structure on $\CC[N]$}
-\jcom{Maybe we need a word about Langlands duality here.  Since we are working with $ GL_m$, it is not really necessary, but it would be nice to point this out.  
-Also a general comment: maybe it would be best to first talk about multiplication in $\CC[N]$ incl. Theorem 7.11 from mvbasis, and then talk about cluster algebras.  Right now, it is a bit confusing, since we go back and forth.  Also some of the motivation stuff about the semicanonical basis, etc, will be moved to the intro.}
+\subsection{Representations in $\CC[N]$}
+\label{ss:CN}
+% 
+% \jcom{
+% Maybe we need a word about Langlands duality here.  Since we are working with $ GL_m$, it is not really necessary, but it would be nice to point this out.  
+% Also a general comment: maybe it would be best to first talk about multiplication in $\CC[N]$ incl. Theorem 7.11 from mvbasis, and then talk about cluster algebras.  Right now, it is a bit confusing, since we go back and forth.  Also some of the motivation stuff about the semicanonical basis, etc, will be moved to the intro.
+% }
+In this section we will need to recall that representations of the Langlands dual group $G^\vee$ of an arbitrary complex reductive group $G$ can be constructed from the affine Grassmannian of $G$, and studied in $\CC[N^\vee]$ the ring of functions on the maximal unipotent subgroup $N^\vee$ of $G^\vee$. 
+% 
 
-Let $N\subset\GL_m$ be the unipotent subgroup of upper-triangular matrices with 1s on the diagonal. In \cite{baumann2019mirkovic} the third author along with Baumann and Knutson show that the MV cycles yield a basis of the coordinate ring $\CC[N]$ called the MV basis. 
+We use the convenient fact that $\GL_m^\vee = \GL_m$ and ignore the distinction, referring to points $t^\lambda$ as coweights for $\lambda\in\ZZ^m$ weights. 
+% 
+
+\acom{So far we have been saying ``coweight'' $\lambda$, etc. We could say coweight for $t^\lambda$ and weight for $\lambda$ starting now? Also, maybe add a warning that some of the theorems we rely on hold more generally? Like the MV basis theorem..}
+
+Let $N\subset\GL_m$ be the unipotent subgroup of upper-triangular matrices with 1s on the diagonal. In \cite{baumann2019mirkovic} the third author along with Baumann and Knutson show that the MV cycles yield a basis of the coordinate ring $\CC[N]$ called the MV basis. Note that with respect to the action of the maximal torus $T$ of $\GL_m$ by conjugation on $N$, $\CC[N]$ acquires a homogeneous grading by $Q_+$. 
 % 
 % First note that with respect to the adjoint action of $T$ on $N$, $\CC[N]$ is graded by the set $-Q_+$ of nonpositive integer linear combinations of positive roots. 
 % 
 
-Given $\lambda\ge\mu\in\ZZ^m$ with $\lambda$ dominant, denote by $V(\lambda)$ the irreducible representation of $\GL_m$ of highest weight $\lambda$ and by $V(\lambda)_\mu$ its $\mu$-weight space. 
-There is an injective map $ \Psi_\lambda: V(\lambda) \to \CC[N]$ realizing $V(\lambda)$ as a subspace of $\CC[N]$. 
+Given weights $\mu\le\lambda$ with $\lambda$ dominant, denote by $V(\lambda)$ the irreducible representation of $\GL_m$ of highest weight $\lambda$ and by $V(\lambda)_\mu$ its $\mu$-weight space. 
+There is an injective map $ \Psi_\lambda: V(\lambda) \to \CC[N]$ realizing $V(\lambda)$ as a subspace of $\CC[N]$ and sending $v\in V(\lambda)_\mu$ to $\CC[N]_{\mu - \lambda}$. 
 
 The geometric Satake correspondence says that 
 % $V(\lambda) = IH(\overline\Gr^\lambda)$ and  
-$V(\lambda)_\mu = H_{2\rho(\lambda-\mu)}(\overline{\Gr^\lambda\cap S^\mu_-})$ where $H_d$ denotes $d$-dimensional Borel--Moore homology. 
-In particular, the MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$ give a basis of $V(\lambda)$. We denote this set of MV cycles $\cZ(\lambda)$, $\{[Z] : ..  \}$.
-\acom{$\cZ(\lambda)$ can go earlier}
+$V(\lambda)_\mu = H_{2\rho(\lambda-\mu)}(\overline{\Gr^\lambda\cap S^\mu_-})$ where $H_d$ denotes $d$-dimensional Borel--Moore homology. In particular, the set $\{[Z] : Z\in\cZ(\lambda)\}$ gives a basis of $V(\lambda)$ with $[Z]$ denoting the class of $Z$ in the appropriate homology group. 
+
+\acom{Warning! Earlier we defined the MV cycles as irreducible components of $\overline{\Gr^\lambda}\cap S^\mu$}
+% In particular, the MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$ give a basis of $V(\lambda)$. 
 % 
 
-Let $Q_+$ denote the set of nonnegative integer combinations of positive roots. \acom{$Q_+$ should be defined earlier?}
-The \new{stable} MV cycles of coweight $\nu\in Q_+$ are defined to be irreducible components of $\overline{S^0_+ \cap S^\nu_-}$. By a theorem of Anderson, MV cycles in $\overline{\Gr^\lambda\cap S^{\nu + \lambda}_-}$ are in bijection with stable MV cycles of coweight $\nu$ that are contained in $\overline\Gr^\lambda$. We denote the set of all stable MV cycles $\cZ(\infty)$. 
+The \new{stable} MV cycles of coweight $\nu\in Q_+$ are defined to be irreducible components of $\overline{S^0_+ \cap S^\nu_-}$. By a theorem of Anderson, MV cycles in $\overline{\Gr^\lambda\cap S^{\nu + \lambda}_-}$ are in bijection with stable MV cycles of coweight $\nu$ that are contained in $\overline\Gr^\lambda$ \cite[Proposition~3]{anderson2003polytope}. We denote the set of all stable MV cycles $\cZ(\infty)$. 
+% Recall that MV cycles can be described combinatorially by Lusztig data. 
+By a theorem of the third author, a stable MV cycle is uniquely determined by its Lusztig datum and the sets $\cZ(\infty)$ and $\NN^{\Delta_+}$ are in bijection. 
+% Recall that Lusztig data, like elements of $\CC[N]$, are weighted by $Q_+$. 
+With a little bit more work one can string together the maps $\Psi_\lambda$ and the geometric Satake isomoprhisms to show that the stable MV cycles yield a basis of $\CC[N]$.  
 
 \begin{theorem}
-    (BKK~Proposition 6.1)
-    For each $Z\in\cZ(\infty)$ there is a unique element $b_Z\in\CC[N]$ such that for any $\lambda$ dominant, if $t^\lambda Z\in\cZ(\lambda)$ then $\Psi_\lambda([t^\lambda Z]) = b_Z$ and the collection of all such elements is called the \new{MV basis}. 
+    (A special case of \cite[Proposition~6.1]{baumann2019mirkovic})
+    For each $Z\in\cZ(\infty)$ there is a unique element $b_Z\in\CC[N]$ such that for any dominant weight $\lambda$, if $t^\lambda Z\in\cZ(\lambda)$ then $\Psi_\lambda([t^\lambda Z]) = b_Z$ and the collection of all such elements is called the \new{MV basis}. 
 \end{theorem}
-
+% 
+Furthermore, the structure constants of multiplication in $\CC[N]$ with respect to the MV basis are given by intersection multiplicities. 
+% 
+\begin{theorem}
+    (A special case of \cite[Theorem~7.11]{baumann2019mirkovic}) Given $Z',Z''\in\cZ(\infty)$, 
+    % of coweight $\nu',\nu''$ respectively 
+$$
+b_{Z'}\arfu b_{Z''} = \sum_{Z\in\cZ(\infty)} \iota\left(Z, Z' \geofu Z''\right) b_Z 
+$$
+in $\CC[N]$. \acom{The summation is finite since 7.1?... Don't want to introduce the notation $\cZ(\infty)_\nu$ if we can avoid it.}
+Moreover, there exist $\lambda',\lambda''$ dominant effective and a pair of tableaux $(\tau',\tau'')\in YT(\lambda')\times YT(\lambda'')$ such that 
+\begin{equation}
+    \label{eq:multingovs}
+    % b_{Z'} \arfu b_{Z''} = \sum_{Z\in\cZ(\lambda)} \iota (Z, Z(\tau')\geofu Z(\tau''))b_{t^{-\lambda}Z}
+    b_{Z'} \arfu b_{Z''} = \sum_{\tau\in YT(\lambda)} \iota (X(\tau), X(\tau',\tau'')_{0,0})b_{t^{-\lambda}Z(\tau)}
+\end{equation}
+% 
+for $\lambda = \lambda' + \lambda''$. 
+\end{theorem}
 % Given $\epsilon\in\ZZ^m$ denote by $t^\epsilon:V(\lambda) \to V(\lambda + \epsilon)$ the map resulting from multiplication by the coweight $t^\epsilon$ in $\Gr$. By BKK, $\Psi_{\lambda + \epsilon} \circ t^\epsilon - \Psi_\lambda = 0$. 
-
+% 
 % Together these facts imply the following commutative square.
 % \[
 % \begin{tikzcd}
@@ -2034,68 +2072,31 @@ The \new{stable} MV cycles of coweight $\nu\in Q_+$ are defined to be irreducibl
 % \Gr^\lambda \cap S^\mu_- \ar[r,"t^{-\lambda}"] \ar[u] & S^0 \cap S^{\mu - \lambda}_-\ar[u]
 % \end{tikzcd}
 % \]
-\jcom{This paragraph is a bit confusing.  Maybe it would be best to first define $ V(\lambda) \rightarrow \CC[N]$ and then $ H_{top}(\overline{Gr}^\lambda \cap S^\mu) \rightarrow \CC[N]$, rather than doing them in one step.  Then we can draw a commutative square with $ S^0_+ \cap S_-^\nu$ as well. }
-\acom{Not sure which square to draw or if it is necessary. I guess you want something like what's pictured below, where what we're about to describe are the blue arrows. Specifically the rightmost downward pointing blue. Which, by commutativity, will determine the middle downward pointing blue.}
-\jcom{Yes, I like this diagram.  Maybe the two rightward arrow should point leftward, since we did already define $ \tau \mapsto Z(\tau)$.}
+% \jcom{This paragraph is a bit confusing.  Maybe it would be best to first define $ V(\lambda) \rightarrow \CC[N]$ and then $ H_{top}(\overline{Gr}^\lambda \cap S^\mu) \rightarrow \CC[N]$, rather than doing them in one step.  Then we can draw a commutative square with $ S^0_+ \cap S_-^\nu$ as well. }
+% \acom{Not sure which square to draw or if it is necessary. I guess you want something like what's pictured below, where what we're about to describe are the blue arrows. Specifically the rightmost downward pointing blue. Which, by commutativity, will determine the middle downward pointing blue.}
+% \jcom{Yes, I like this diagram.  Maybe the two rightward arrow should point leftward, since we did already define $ \tau \mapsto Z(\tau)$.}
+% 
+In \Cref{s:examples} we will identify elements $b_Z$ with certain \textit{minimal} tableaux (instead of Lusztig data) and view $\CC[N]$ as an algebra in these tableaux, abbreviating \Cref{eq:multingovs} as equation in these tableaux. 
 
+Before we describe how to choose representative generalized orbital varieties in order to expand a product of MV basis elements $b_{Z'}\arfu b_{Z''}$ in $\CC[N]$ we summarize our approach in the following commutative diagram. 
 \[
+% \begin{tikzcd}
+% \CC[N] & \ar[l] \cZ(\infty) \ar[r,"n_\bullet"] \ar[d,bend left,blue] & \NN^{\Delta_+} \ar[l,blue,bend left] \ar[d,bend left,blue]\\ 
+% L(\lambda) \ar[u,"\Psi_\lambda"] & \ar[l] \cZ(\lambda) \ar[r] \ar[u,"t^{-\lambda}"] & YT(\lambda) \ar[u,"n_\bullet"] \ar[l,blue,bend left]
+% \end{tikzcd}
 \begin{tikzcd}
-\CC[N] & \ar[l] \cZ(\infty) \ar[r,"n_\bullet"] \ar[d,bend left,blue] & \NN^{\Delta_+} \ar[l,blue,bend left] \ar[d,bend left,blue]\\ 
-L(\lambda) \ar[u,"\Psi_\lambda"] & \ar[l] \cZ(\lambda) \ar[r] \ar[u,"t^{-\lambda}"] & YT(\lambda) \ar[u,"n_\bullet"] \ar[l,blue,bend left]
+    YT(\lambda) \ar[r] \ar[d,"n_\bullet"] & \cZ(\lambda) \ar[r] \ar[d, "t^{-\lambda}"] & L(\lambda) \ar[d, "\Psi_\lambda"] \\ %  description
+    \NN^{\Delta_+} \ar[r] \ar[u,dashed,bend left,"\sigma_\lambda"] & \cZ(\infty) \ar[r] & \CC[N]
 \end{tikzcd}
 \]
-Explain that fibres contain tableaux related by padding. $Z(\tau)$ is defined even when $\mu$ is not dominant. We choose a section for which $\mu$ is dominant (Lemma 9) because $X(\tau)$ doesn't make sense when it isn't, but when we come back to $Z(\infty)$ we can renormalize so $\mu$ is not dominant.
+The fibres of $n_\bullet$ \acom{in $\cup YT(\lambda)$} contain tableaux related by padding. 
+While $Z(\tau)$ is defined even when $\mu$ is not dominant, $X(\tau)$ is not, and so we need to choose a section $\sigma_\lambda$ of $n_\bullet$ with image in the set of tableaux having dominant weight. 
 % 
-The structure constants of $\CC[N]$ with respect to the MV basis are given by intersection multiplicities. 
-% 
 
-\begin{theorem}
-    (\cite[Theorem~7.11]{baumann2019mirkovic}) Given $Z',Z''\in\cZ(\infty)$ 
-    % of coweight $\nu',\nu''$ respectively 
-$$
-b_{Z'}b_{Z''} = \sum_{Z\in\cZ(\infty)} \iota\left(Z, Z' \ast_0 Z''\right) b_Z 
-$$
-where note the summation is finite since... \acom{Don't want to introduce the notation $\cZ(\infty)_\nu$ if we can avoid it.}
-Moreover, there exists $\lambda',\lambda''$ dominant effective and $(\tau',\tau'')\in YT(\lambda')\times YT(\lambda'')$  
-\[
-b_{Z'} b_{Z''} = \sum_{Z\in\cZ(\lambda' + \lambda'')} \iota (Z, Z(\tau')\ast_0 Z(\tau''))
-\]
-\end{theorem}
-\jcom{In principle, the notation $ Z' \ast_0 Z''$ has been defined, since we defined the fusion of any two subschemes of $ \Gr$.  We should just note that the fusion of the stable MV cycles matches the fusion of MV cycles after translation by $ t^\lambda$.  I don't think that $ \iota$ has been defined anywhere, has it?}
+\acom{Should I adjust the diagram so that its from unions over $\lambda$}
 
-\section{Cluster questions}
-\label{s:clusterqus}
-% 
-For initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word (length $r = \#\Delta_+$) in the Weyl group for $G$, each $x_i$ is a generalized minor  \cite{kato2011polytopal}, and hence 
-% \acom{by BKK?}\rcom{I reworded it.} 
-is in the MV basis. 
-% as these correspond to generalized minors \cite{berenstein2005cluster3}\cite{geiss2007initial}. \acom{what's the subscript $r$? also what're the last 2 citations for? Neither BFZ nor GLS link generalized minors and MV cycles}
-If the reduced expression satisfies a special condition, then cluster monomials in the initial seed are also in the MV basis \cite{baumann2020bases}.
+% \jcom{In principle, the notation $ Z' \ast_0 Z''$ has been defined, since we defined the fusion of any two subschemes of $ \Gr$.  We should just note that the fusion of the stable MV cycles matches the fusion of MV cycles after translation by $ t^\lambda$.  I don't think that $ \iota$ has been defined anywhere, has it?}
 
-Conversely, suppose we have a seed $(x_1,\dots,x_r)$ such that each $x_i$ is in the MV basis, i.e.\ for each $i$ there exists a stable MV cycle $Z_i$ such that $x_i = b_{Z_i}\in\CC[N]$. To show that all cluster variables 
-% \acom{for this seed?}\rcom{No, all of them.} 
-are also in the MV basis it suffices to show that if $x_i$ is mutable then its mutation $x_i^*$ is also in the MV basis. This observation is based on the exchange relation:
-\[
-    x_i x_i^* = x_+ + x_- 
-\]
-where $x_+,x_-$ are monomials in $ (x_1, \dots, x_r)\setminus x_i$ determined by the cluster structure on $\CC[N]$. 
-% \acom{the structure of interest? or are all cluster structures on this ring the same?} \rcom{The structure is derived from an initial seed coming from a reduced word {\bf i}. Each of these are equivalent to each other.}
-So if we can find a stable MV cycle $Z_i^*$ such that $b_{Z_i}b_{Z_i^*} = x_+ + x_-$ for each $i$ then we will have checked the conjecture. 
-% \acom{And we do not need to assume the special condition of BGL?}\rcom{They deal with cluster monomials in certain clusters while this deals with all cluster variables, so neither one completely implies the other.}
-
-The following examples give evidence that the mutation $x_i^*$ is in the MV basis. \acom{Roger, reword?}\rcom{Something like this?} \acom{Sure!}
- 
-% \jcom{We should recall the stable MV cycles and the theorem from mvbasis regarding multiplication in $ \CC[N]$.}
-% \acom{Begun}
-
-Before we begin we will need some lemmas, notions and notations. 
-\begin{itemize}
-    \item we have only seen how to fuse ordinary MV cycles; to mutliply MV basis vectors which are indexed by stable MV cycles we'll therefore need a way to represent stable by ordinary; hence:
-    \item a notion/choice of fission 
-    \item the fission lemmas 
-    \item with lemmas in hand, a proposition: given $Z',Z''$ stable with LD... there exist $\tau',\tau''$ (min) such that $b_{Z'} b_{Z''} = b(\tau')  b(\tau'')$
-    \item a shorthand: in examples, instead of writing $Z(\tau)$ for the MV cycle corresponding to the tableau $\tau$ we will only the tableau $\tau$! 
-\end{itemize}
 \begin{lemma}
     \label{lem:mintab}
     Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ dominant effective smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
@@ -2134,6 +2135,40 @@ Before we begin we will need some lemmas, notions and notations.
     As the examples show, there may be more than one way to break up a ``minimal'' tableau for $n_\bullet = n_\bullet ' + n_\bullet ''$ into two tableaux with data $n_\bullet' $ and $n_\bullet''$ resp.\ The practical notion of min is such that the generalized nonzero eigenspace has the smallest possible dimension.}
     \acom{Reference Claxton--Tingley multisegments, Hong--Lee marignally large tableaux for comparison.}
 \end{proposition}
+
+\section{Cluster questions}
+\label{s:clusterqus}
+% 
+For initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word (length $r = \#\Delta_+$) in the Weyl group for $G$, each $x_i$ is a generalized minor  \cite{kato2011polytopal}, and hence 
+% \acom{by BKK?}\rcom{I reworded it.} 
+is in the MV basis. 
+% as these correspond to generalized minors \cite{berenstein2005cluster3}\cite{geiss2007initial}. \acom{what's the subscript $r$? also what're the last 2 citations for? Neither BFZ nor GLS link generalized minors and MV cycles}
+If the reduced expression satisfies a special condition, then cluster monomials in the initial seed are also in the MV basis \cite{baumann2020bases}.
+
+Conversely, suppose we have a seed $(x_1,\dots,x_r)$ such that each $x_i$ is in the MV basis, i.e.\ for each $i$ there exists a stable MV cycle $Z_i$ such that $x_i = b_{Z_i}\in\CC[N]$. To show that all cluster variables 
+% \acom{for this seed?}\rcom{No, all of them.} 
+are also in the MV basis it suffices to show that if $x_i$ is mutable then its mutation $x_i^*$ is also in the MV basis. This observation is based on the exchange relation:
+\[
+    x_i x_i^* = x_+ + x_- 
+\]
+where $x_+,x_-$ are monomials in $ (x_1, \dots, x_r)\setminus x_i$ determined by the cluster structure on $\CC[N]$. 
+% \acom{the structure of interest? or are all cluster structures on this ring the same?} \rcom{The structure is derived from an initial seed coming from a reduced word {\bf i}. Each of these are equivalent to each other.}
+So if we can find a stable MV cycle $Z_i^*$ such that $b_{Z_i}b_{Z_i^*} = x_+ + x_-$ for each $i$ then we will have checked the conjecture. 
+% \acom{And we do not need to assume the special condition of BGL?}\rcom{They deal with cluster monomials in certain clusters while this deals with all cluster variables, so neither one completely implies the other.}
+
+The following examples give evidence that the mutation $x_i^*$ is in the MV basis. \acom{Roger, reword?}\rcom{Something like this?} \acom{Sure!}
+ 
+% \jcom{We should recall the stable MV cycles and the theorem from mvbasis regarding multiplication in $ \CC[N]$.}
+% \acom{Begun}
+
+Before we begin we will need some lemmas, notions and notations. 
+\begin{itemize}
+    \item we have only seen how to fuse ordinary MV cycles; to mutliply MV basis vectors which are indexed by stable MV cycles we'll therefore need a way to represent stable by ordinary; hence:
+    \item a notion/choice of fission 
+    \item the fission lemmas 
+    \item with lemmas in hand, a proposition: given $Z',Z''$ stable with LD... there exist $\tau',\tau''$ (min) such that $b_{Z'} b_{Z''} = b(\tau')  b(\tau'')$
+    \item a shorthand: in examples, instead of writing $Z(\tau)$ for the MV cycle corresponding to the tableau $\tau$ we will only the tableau $\tau$! 
+\end{itemize}
 
 % Let's wait for Gerhard before we discuss our computations any further
 % \subsection{Pseudocode}
