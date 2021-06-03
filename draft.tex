@@ -25,6 +25,7 @@
     \item Which MVy paper to cite? 
     \item Super repetitive about lambdas and mus 
     \item Formatting could be bit better, e.g.\ some stuff goes outside the margin
+    \item Fix section titles and other organizational seasoning  
     \item Fix numbering so that theorems, defs etc share a counter and are restarted by section 
     \item tableau of weight/filling? box of weight/filling? I prefer weight but don't mind filling 
     \item Recalling intersection multiplicity, checking that the definitions allow passing to open sets
@@ -33,26 +34,36 @@
 \section{Introduction}
 \label{s:intro}
 % 
-Throughout this paper (unless indicated otherwise) the base field is $\CC$, but it does not have to be?  
+%Throughout this paper (unless indicated otherwise) the base field is $\CC$, but it does not have to be?  
+
+The geometric Satake equivalence of Mirkovic-Vilonen \cite{mirkovic2007geometric} provided an equivalence of categories between the category of spherical perverse sheaves in the affine Grassmannian of a reductive group $ G $ and the category of representations of its Langlands dual group $G^\vee$.  This foundational result provides a powerful tool to study representation theory using geometry.  In particular, under this equivalence, the Mirkovic-Vilonen cycles in the affine Grassmannian of $ G $ index bases for irreducible representations of $ G^\vee $.  In this paper we work with $ G =GL_m$ and identify $ G^\vee = GL_m$ as well.
 
 % The Mirkovi\'c--Vybornov isomorphism
 In \cite{mirkovic2007quiver} (see also the recent sequel \cite{mirkovic2019comparison}) Mirkovi\'c and Vybornov provide a geometric version of symmetric and skew Howe $(\GL_m,\GL_N)$ dualities by relating Kazhdan--Lusztig slices in the affine Grassmannian of $\GL_m$ to slices in $N\times N$ nilpotent orbits on the one hand 
 % conjugacy classes of nilpotent matrices 
-and to Nakajima quiver varieties on the other hand. 
-This paper generalizes the first of these relations (an isomorphism) to families of slices in the Beilinson--Drinfeld Grassmannian. 
-Essential to \cite{mirkovic2007geometric}, this space is used to define a fusion (aka convolution) product on sheaves (representations) but can also be used to define a fusion product on certain cycles (bases). 
-% 
-This product structure makes the vector space spanned by the Mirkovi\'c--Vilonen cycles into a commutative algebra isomorphic to the ring of functions on the unipotent subgroup (conjectured in \cite{anderson2003polytope} and proved in \cite{baumann2019mirkovic}). % conjectured by JEA and proved by BKK
-% 
-To quote from \cite{mirkovic2007geometric}:
-\begin{quotation}
-    However, we make crucial use of an idea of Drinfeld, going back to around 1990. He discovered an elegant way of obtaining the commutativity constraint by interpreting the convolution product of sheaves as a ``fusion'' product.
-\end{quotation}
-%
-The purpose of this paper is to give a conceptually elementary way to compute this product in type $A$. We do not know how fruitful this work might be in the larger landscape of geometric representation theory as it is plagued by two major limitations: it does not readily generalize outside of type $A$, and it is computationally expensive. 
-% 
+and to Nakajima quiver varieties on the other hand.   This extends to an isomorphism between families of slices in the Beilinson--Drinfeld and families of matrices with two eigenvalues.  Via this equivalence, the Mirkovic-Vilonen cycles are identified with certain varieties of matrices, called generalized orbital varieties (see \cite{dthesis}).
+%This paper generalizes the first of these relations (an isomorphism) to families of slices in the Beilinson--Drinfeld Grassmannian. \jcom{I changed this because MVy did consider the BD Grassmannian as well.}
 
-One should care about the fusion product on bases \emoji{imp} \emoji{grin} \emoji{worried} \emoji{monocle-face} \emoji{skull} if one is interested in positivity!
+
+Essential to \cite{mirkovic2007geometric}, the Beilinson-Drinfeld Grassmannian is used to define a fusion product on the category of spherical perverse sheaves on the affine Grassmannian.  In \cite{anderson2003polytope}, Anderson used the BD Grassmannian to define a fusion of Mirkovic-Vilonen cycles.  He conjectured that this fusion product matches the muliplication in the coordinate ring of the unipotent subgroup $ N \subset GL_m$.  This conjecture was proven in \cite{baumann2019mirkovic}, where it was also established that these MV cycles give a basis for $ \CC[N]$. 
+% 
+%To quote from \cite{mirkovic2007geometric}:
+%\begin{quotation}
+%    However, we make crucial use of an idea of Drinfeld, going back to around 1990. He discovered an elegant way of obtaining the commutativity constraint by interpreting the convolution product of sheaves as a ``fusion'' product.
+%\end{quotation}
+%
+
+Unfortunately, performing computing the fusion product of MV cycles using the BD Grassmannian is quite difficult, both computationally and conceptually.  A few such computations were done by Anderson-Kogan in \cite{anderson2006algebra} in a somewhat ad-hoc fashion.  
+
+The purpose of this paper is to give a conceptually elementary way to compute this product by transferring it to a fusion product of generalized orbital varieties.  Our main result is the following.
+
+\begin{theorem}
+    Let $ Z, Z' $ be MV cycles.  The structure constants for the multiplication of $ b_Z b_{Z'}$ in $\CC[N]$ are equal to the intersection multiplicities in the fusion of the generalized orbital varieties corresponding to $ Z, Z'$.
+\end{theorem}
+% 
+\jcom{I wanted to state a precise theorem, but it is not so easy without introducing a lot of notation.}
+
+%One should care about the fusion product on bases \emoji{imp} \emoji{grin} \emoji{worried} \emoji{monocle-face} \emoji{skull} if one is interested in positivity!
 
 {\color{blue}
 \acom{To quote from BFZ for a concise definition: Cluster algebras are a class of commutative rings defined axiomatically in terms of a distinguished family of generators called cluster variables. Say also what is a seed, what is a mutation, what is a cluster, what is a cluster monomial, and finally for the stubbornly ignorant clarify that 'the cluster monomials' refers to cluster monomials for all possible clusters!}
@@ -689,6 +700,7 @@ In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ su
 % 
 
 \acom{Comment why the above doesn't make sense for $\mu$ not dominant?}
+\jcom{It does make sense when $ \mu $ is not dominant.  The reason for restricting to dominant $ \mu $ is so that $ S^\mu \subset \cW^\mu$.  I agree that we should mention this, but I'm not sure where.}
 
 % \acom{First lattice description that doesn't come for free?}
 % 
@@ -700,6 +712,7 @@ In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ su
     The \new{semi-infinite orbit} $ S^\mu = N_-(\cK)t^\mu \subset \Gr $
 \end{definition}
 \acom{and its closure?}
+\jcom{I don't think that we use the closure in this paper, do we?}
 \begin{definition} 
 \label{def:inftyorbitfam}
     The \new{family of two semi-infinite orbits} 
@@ -1384,11 +1397,11 @@ This is not a very serious abuse of notation, since the map $ \Grbd \rightarrow 
 % of s.  So the map is non-injective over the locus where s is not
 % actually an eigenvalue (in lattice terms where L(s) is the standard
 % lattice).
-In a similar way, we will write $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \TT_\mu$ using the non-injective \acom{emphasis is on the almost injectivity/glass half full no?} map $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow M_N(\CC)$. 
+In a similar way, we will write $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \TT_\mu$ using the ``almost injective'' \acom{emphasis is on the almost injectivity/glass half full no?} \jcom{ok, I changed it} map $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow M_N(\CC)$. 
 % (for example the fibre of this map over $ 0 $ is $ \CC $). 
 % \acom{Grammar of `write using the map' is iffy. Also, is the fibre over 0 just a copy of the zero matrix in every $s$-fibre?}
 
-The following refinement of the \mvy isomorphism is a special case of \cite[Theorem 5.3]{mirkovic2007quiver}. \acom{Wait isn't 5.3 a special case of this?}
+The following refinement of the \mvy isomorphism is a special case of \cite[Theorem 5.3]{mirkovic2007quiver}. \acom{Wait isn't 5.3 a special case of this?}  \jcom{No, they deal with the more general setting of more points.}
 \begin{theorem} 
 \label{th:OGrl}
 There is an isomorphism
@@ -1542,7 +1555,7 @@ where $ \gamma^c := [1,m] \setminus \gamma$.
 We will also need the analogous definitions when $ \cO$ is replaced by $ \CC[t]$ and $L \in \Grth_+$. 
 % 
 We record the following easy observations.
-\begin{lemma} \label{le:rdimTrans} Let $ L \in \Gr_+$ \acom{(or $\Grth_+$)}.
+\begin{lemma} \label{le:rdimTrans} Let $ L \in \Gr_+$ or $\Grth_+$.
 \begin{enumerate}
     \item For any $ 
     \gamma \subset [m] $, we have 
@@ -1558,7 +1571,7 @@ $$
 % \acom{Even so? What was written before was $(L_{\gamma_1})_{\gamma_2} = L_{\gamma_2} $ and if $\gamma_1\subset\gamma_2$ then the intersection is $\gamma_1$. Anyway I don't think we ever use Lem. 6(2), so we can do without it?}
 % \jcom{Oh, I guess there was a typo.  I fixed it now.  It is used in the proof of Prop 4, I will add a reference.}
 
-For any $ L \in \Gr_+ $ \acom{(or $\Grth_+$)} and $\gamma \subset [m]$, we define $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. (By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper.) 
+For any $ L \in \Gr_+ $ and $\gamma \subset [m]$, we define $ D_\gamma(L) := \rdim L^\gamma = \rdim L - \rdim L_{\gamma^c}$. (By \cite[Proposition 9.3]{kamnitzer2010mirkovic}, this coincides with the general definition of $ D_\gamma$ given in that paper; in \textit{loc. cit.} these functions are used to compute the hyperplanes of the associated MV polytopes.) 
 % \acom{We should introduce $D_\gamma$ briefly.}
 % \jcom{I think that this is sufficient, since it doesn't really play any role in our paper.}
 % \acom{Ok; I was thinking just another half-sentence, like these are some valuation functions and/or they are used to characterise combinatorially the MV cycles.}
@@ -2147,9 +2160,8 @@ Before we begin we will need some lemmas, notions and notations.
 % $$b_{Z_i} b_{Z_i^*} = x_+ + x_-,$$
 % then this means $x_i^* = b_{Z_i^*}$ so it is in the MV basis with associated MV cycle $Z_i^*$. In Section \ref{s:denouement}, we present examples showcasing this is indeed true for type $A_3$. 
 
-\section{Denouement}
-\label{s:denouement}
-\subsection{Examples}
+\section{Examples}
+\label{s:examples}
 
 % \acom{Plus fusion product of fake MV cycles for a fourth!}
 \acom{TODO: review/rewrite now that we have \S 6.2}
