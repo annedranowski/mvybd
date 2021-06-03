@@ -15,6 +15,20 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
+
+\section{Todolist}
+\begin{itemize}
+    \item Remove the TOC 
+    \item Edit the intro 
+    \item We are using the word [geometric] fusion just for the central fibre, we also have arithmetic fusion (aka multiplication in $\CC[N]$), and BD family: $X\geofu Y, b(X) \arfu b(Y), X \bdfamc Y\supset X\bdfamo Y$
+    \item Which MVy paper to cite? 
+    \item Super repetitive about lambdas and mus 
+    \item Formatting could be bit better, e.g.\ some stuff goes outside the margin
+    \item Fix numbering so that theorems, defs etc share a counter and are restarted by section 
+    \item tableau of weight/filling? box of weight/filling? I prefer weight but don't mind filling 
+    \item Recalling intersection multiplicity, checking that the definitions allow passing to open sets
+\end{itemize}
 
 \section{Introduction}
 \label{s:intro}
@@ -39,6 +53,25 @@ The purpose of this paper is to give a conceptually elementary way to compute th
 % 
 
 One should care about the fusion product on bases \emoji{imp} \emoji{grin} \emoji{worried} \emoji{monocle-face} \emoji{skull} if one is interested in positivity!
+
+{\color{blue}
+\acom{To quote from BFZ for a concise definition: Cluster algebras are a class of commutative rings defined axiomatically in terms of a distinguished family of generators called cluster variables. Say also what is a seed, what is a mutation, what is a cluster, what is a cluster monomial, and finally for the stubbornly ignorant clarify that 'the cluster monomials' refers to cluster monomials for all possible clusters!}
+
+$\CC[N]$ is a cluster algebra as shown in \cite[\S 4.3]{geiss2007initial} using \cite[Theorem~2.10]{berenstein2005cluster3}, and one of the main motivations for this paper is using fusion to check that certain cluster monomials are contained in the MV basis.
+% that are associated to exchange relations in $\CC[N]$ with its cluster algebra structure. 
+
+\acom{Background on cluster:}
+In \cite{lusztig2000semicanonical}, Lusztig gives a geometric construction of a $\CC$-basis of $\cU\n$ the universal enveloping algebra of the Lie algebra of $N$, called the semicanonical basis. This becomes the dual semicanonical basis of the graded dual of $\cU\n$ which is isomorphic (as a Hopf algebra) to $\CC[N]$. 
+Geiss, Leclerc \& Schroer prove that certain cluster monomials are contained in Lusztig's (dual) semicanonical basis \cite[Theorem~2.8(3)]{geiss2006rigid}.
+
+In the appendix to \cite{baumann2019mirkovic} the second and third author along with Morton-Ferguson check that the MV basis differs from the dual semicanonical basis (at the Kashiwara--Saito counterexample). 
+Yet, the two bases have enough in common (c.f.\ BKT,...?), that we have the following conjecture.
+
+\begin{conjecture}
+    The dual semicanonical basis and the MV basis overlap on the cluster monomials. In particular, the cluster monomials are contained in the MV basis. 
+\end{conjecture}
+
+We note that both of these bases are \new{biperfect} bases of $\CC[N]$ and in type $A_n$ with $n\le 3$ there is a unique biperfect basis of $\CC[N]$. }
 
 Anderson and Kogan conjectured in \cite{anderson2006algebra} \acom{or earlier?} that those MV polynomials which are cluster monomials for a Fomin--Zelevinsky cluster algebra structure on $\CC[N]$ are naturally expressible as determinants\dots
 % and they conjectured a formula for many of them.
@@ -67,11 +100,11 @@ Set $\cO = \cO_0 = \CC\xt$ and $\cK = \cK_0 = \CC\xT$.
 % TODO: I rearranged this sentence, because starting it with 'for any other' presupposes we have introduced s 
 %  For any other 
 We will also consider $\cO_s = \CC\xt[t-s]$ and its fraction field $\cK_s=\CC\xT[t-s]$, for any 
-$ s \in \CC\setminus\{0\} $, as well as $ \Oinf = \CC\xt[t^{-1}] $ and $\Kinf = \CC\xT[t^{-1}]$. For any $ s \in \PP = \PP^1$, 
+$ s \in \CC\setminus\{0\} $, as well as $ \Oinf = \CC\xt[t^{-1}] $ and $\Kinf = \CC\xT[t^{-1}]$. For any point $ s \in \PP = \PP^1$, 
 % TODO: Identifying $s\in\CC$ and the line $s\in\PP$ containing it right?
 $ \cO_s$ is the completion of the local ring $ \mathcal O_{\PP, s} $ and thus the formal spectrum of $ \cO_s$ is the formal neighbourhood $ D_s$ of $ s $ (also called the formal disc centered at $ s$).  Similarly the formal spectrum of the field $\cK_s$ is the deleted formal neighbourhood (or punctured disc), denoted $ D_s^\times$.
 
-Note that for $ s \in \CC $, we have an obvious isomorphisms  $\cO_s \cong \cO$ and $\cK_s\cong\cK$ taking $ t-s $ to $ t$. 
+Note that for $ s \in \CC $, we have an obvious isomorphisms  $\cO_s \cong \cO$ and $\cK_s\cong\cK$ taking $ t-s $ to $ t$. % ok technically the point s is in P and the coordinate s is valued in C 
 % 
 \subsection{Groups}
 \label{ss:groups}
@@ -375,7 +408,7 @@ These different versions of the affine Grassmannian are related as follows.
         \item in modular terms as $$(V,\varphi,s)\mapsto (V, \varphi \big|_{D_\infty}) \, ;$$
         \item in the fibres over $ s \in \AA$ as the inclusion $$
         G(\CC[t, t^{-1}, (t-s)^{-1}])/ G(\CC[t]) \rightarrow G(\Kinf)/G(\CC[t])\,;$$
-        \item in terms of lattices, it is given by $(L,s)\mapsto L$, using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^m \rightarrow \Kinf^m$ on ambient spaces. 
+        \item in terms of lattices as $$(L,s)\mapsto L\,,$$ using the inclusion $\CC[t, t^{-1}, (t-s)^{-1}]^m \rightarrow \Kinf^m$ on ambient spaces. 
     \end{enumerate}
 \end{proposition}
 % 
@@ -495,8 +528,8 @@ The following result is the factorization property of the Beilinson--Drinfeld Gr
 % \jcom{I moved the ``composition'' of 2 and 3 into 3 and named it $ \tau_s$, since we will use it later quite a bit.  I'm not that happy with the layout of this section, so feel free to reorganize it (maybe into Propositions?)}
 
 % \acom{Begun. Not sure if it is what you had in mind.}
-
-\jcom{I reorganized a bit.  This last point is not really much of a result, so removed the ``proposition'' label.}
+% \jcom{I reorganized a bit.  This last point is not really much of a result, so removed the ``proposition'' label.}
+% \acom{Ok}
 
 \subsection{The fusion construction}
 \label{ss:fuscon}
@@ -509,7 +542,7 @@ The following result is the factorization property of the Beilinson--Drinfeld Gr
 
 The following construction will be very important in this paper.  
 
-Let $ \Gr_{0, \AA^\times} $ denote the preimage of $\AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  
+Let $ \Gr_{0, \AA^\times} $ denote the preimage of $\Ax = \AA \setminus \{0\}$ under the map $\Gr_{0,\AA} \rightarrow \AA $.  
 % 
 %Composing the isomorphisms relating $\Grbd$ to $\Gr_s$ and $\Gr_s$ to $\Gr$, (\cref{it:polyno-taylor,it:grs-gr} of \cref{ss:relsbtwgrs} preceding), we obtain an isomorphism $ \Gr_{0,s} \cong \Gr \times \Gr$.
 % TODO: cf https://tex.stackexchange.com/questions/256849/cleveref-change-behaviour-of-cref-to-use-the-abbreviated-form
@@ -523,19 +556,22 @@ The isomorphisms $ \theta_s $ defined above glue together to a projection map
 %  TODO: outstanding
 % \acom{Question for Joel: What is the benefit of working with diagonals? Letting two points vary? What is an example of a structure that you can't see letting just one point vary as we do.}
 
-Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme $$ X_1 \ast_{\Cx} X_2 := \theta^{-1}(X_1 \times X_2) \subset \Gr_{0, \AA^\times} $$
+Let $ X_1, X_2 \subset \Gr$ be two subschemes, and consider the subscheme 
+$$ 
+    X_1 \bdfamo X_2 := \theta^{-1}(X_1 \times X_2) \subset \Gr_{0, \AA^\times} 
+$$
+called the \new{open family} of $X_1$ and $X_2$. 
 % 
 % \jcom{I changed this a bit in order to match Mirkovi\'c--Vilonen better.}
 % \acom{We say ``we define the subscheme..'' but what is there to define? Should it say ``we consider'' maybe?}
-For $ s \in \Cx$, we write $ X_1 \ast_s X_2  $ for the fibres of $ X_1 \ast_{\Cx} X_2 $ over $ s$. By construction, the map $ \theta_s$ identifies $ X_1 \ast_s X_2 \subset \Gr_{0,s}$ with $ X_1 \times X_2 \subset \Gr \times \Gr$
-
+Given a point $ s \in \Ax$, we write $ X_1 \bdfamf X_2  $ for the fibre of $ X_1 \bdfamo X_2 $ over $s$. The map $ \theta_s$ identifies $ X_1 \bdfamf X_2 \subset \Gr_{0,s}$ with $ X_1 \times X_2 \subset \Gr \times \Gr$.
 
 % TODO: outstanding 
 % \acom{Well you might not want but I think it would be good to tell the reader why we use the notation $\AA^\times$ for $\AA\setminus 0$ in $\AA$ or why we use the notation $\AA$ at all.. E.g.\ do we know what happens for $\GL_m(k)$ over some other base field $k$.}
 
 We define $ X_1 \ast_{\AA} X_2 $ to be the scheme-theoretic closure of $  X_1 \ast_{\Cx} X_2 $ in $ \Grbd $. By construction, this is a flat family over $ \AA$.
 
-The fibre $ X_1 \ast_0 X_2$ of $ X_1 \ast_{\AA} X_2 $ over $0$ is a subscheme of $ \Gr_{0,0} $, but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  We call this subscheme the \new{fusion} of $ X_1 $ and $ X_2$.
+The fibre $ X_1 \geofu X_2$ of $ X_1 \ast_{\AA} X_2 $ over $0$ is a subscheme of $ \Gr_{0,0} $, but regarded as a subscheme of $ \Gr $ using {the isomorphism} $\Gr_{0,0} \cong \Gr $.  We call this subscheme the (geometric) \new{fusion} of $ X_1 $ and $ X_2$.
 
 % \jcom{I rewrote this to introduce the $ X_1 \ast_s X_2 $ notation that we need for later.  In doing so, $ X_1 \circ X_2 $ became obsolete, since we now have $ X_1 \ast_0 X_2$, but if you like we could just define $X_1 \circ X_2 = X_1 \ast_0 X_2 $.}
 % 
@@ -576,10 +612,16 @@ The fibre $ X_1 \ast_0 X_2$ of $ X_1 \ast_{\AA} X_2 $ over $0$ is a subscheme of
 % 
 \subsection{Some subvarieties of affine Grassmannians}
 \label{ss:subgrs}
-Now fix effective dominant coweights $\lambda', \lambda'' $ of sizes $N',N''$  and their sum $ \lambda = \lambda' + \lambda'' $ of size $ N = N'+N''$. 
+\acom{Recall the positive root cone, as well as the dominance order on coweights.}
+
+Going forward, we fix a pair of arbitrary effective dominant coweights $\lambda', \lambda'' $ of sizes $N',N''$ and a pair of (not necessarily dominant) effective coweights $\mu',\mu''$ also of sizes $N',N''$ such that $\mu = \mu' + \mu''$ is dominant. 
+Let $ \lambda = \lambda' + \lambda'' $ and $ N = N'+N''$.
+% 
 % Coweights define elements in the various affine Grassmannians which we consider. Warning: We will write only coset representatives for elements of the various Grassmannians; we hope that it is evident which right cosets they represent. 
 % the right cosets which they represent are clear from the context.
-We consider the following subschemes of the affine Grassmannians.
+
+% We consider the following subschemes of the affine Grassmannians.
+Using $\lambda,\lambda',\lambda''$ and $\mu,\mu',\mu''$ we define the subschemes of $\Gr$, $\Grth$, and $\Grbd$ which will be considered, give some properties, and say how they are related.  
 % 
 \begin{definition}
 \label{def:sphschub}
@@ -591,32 +633,29 @@ We consider the following subschemes of the affine Grassmannians.
     % 
 \begin{definition}
 \label{def:sphfus}
-    The \new{BD family of two spherical Schubert varieties} $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} $.
+    The \new{family of two spherical Schubert varieties} $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \bdfamc \overline{\Gr}^{\lambda''} $.
     % $$ 
     %     \overline{\Gr}^{\lambda', \lambda''}_{0, \AA} = \overline{\Gr}^{\lambda'} \ast_\AA \overline{\Gr}^{\lambda''} \rightarrow \AA \,.
     % $$
 \end{definition}
-\jcom{It used to say ``fusion'' of two spherical Schubert varieties, but we are using the word fusion just for the central fibre, so we need a different name.} 
-\acom{Family is good. We should put BD on p. 4.}
+% \jcom{It used to say ``fusion'' of two spherical Schubert varieties, but we are using the word fusion just for the central fibre, so we need a different name.} 
+% \acom{Family is good. We should put BD on p. 4.}
 % \acom{I guess that it is good to have the notation here, in place of $\overline{\overline\Gr^{\lambda'}\times\overline\Gr^{\lambda''}\times\AA^\times}$..}
 %\acom{should we also subsript this family with $0,\AA$?}
 %By construction the fibre $ \overline{\Gr}_{0,s}^{\lambda', \lambda''} $ of $\overline{\Gr}^{\lambda', \lambda''}_{0, \AA}$ for $ s \ne 0 $ is $ \overline{\Gr}^{\lambda'} \times \overline{\Gr}^{\lambda''}$.  
 % By \cite[Proposition 3.1.14]{zhu2016introduction},
 % Zhu's theorem (\jcom{need ref} \acom{pretty sure it's }), 
 % the fibre over $ 0 $ is $ \overline{\Gr}^{\lambda' + \lambda''}$.
-By a Theorem of Zhu \cite[Proposition 3.1.14]{zhu2016introduction}, $ \overline{\Gr}^{\lambda'} \ast_0 \overline{\Gr}^{\lambda''} $ is reduced and equal to  $ \overline{\Gr}^{\lambda' + \lambda''}$.
+By a Theorem of Zhu, $ \overline{\Gr}^{\lambda'} \geofu \overline{\Gr}^{\lambda''} $ is reduced and equal to $ \overline{\Gr}^{\lambda' + \lambda''}$ \cite[Proposition 3.1.14]{zhu2016introduction}.
 % Suppose that $ s \ne 0$.  
-If $s\ne0$, then in the fibre $\overline{\Gr}_{0,s}^{\lambda', \lambda''}$ we have the open locus $ \Gr_{0,s}^{\lambda', \lambda''} =  \Gr^{\lambda'} \ast_s \Gr^{\lambda''} $
-% \acom{reference \cref{it:grs-gr}?} 
-This open locus is a $ G(\CC[t])$-orbit
+If $s\ne0$, then in the fibre $\overline{\Gr}_{0,s}^{\lambda', \lambda''}$ we have the open locus $ \Gr_{0,s}^{\lambda', \lambda''} =  \Gr^{\lambda'} \bdfamf \Gr^{\lambda''} $ a $ G(\CC[t])$-orbit
 % .  The lattice description of $ \Gr_{0,s}^{\lambda', \lambda''}$ 
 whose lattice description is given in \Cref{le:Grl1l2} below.
 % \acom{Why $G(\CC[t])$. Because we are on the left side!}
-
 % \acom{Sorry I keep changing (abbreviating) ``By a theorem of Zhu'', but is the citation not sufficient?}
 % \jcom{I like to say a person's name when I cite their work!}
 % \acom{Ok}
-
+% 
 Because we consider effective dominant coweights, the spherical Schubert varieties and their fusions lie in the positive part of the (thick) affine Grassmannian.
 % 
 \begin{lemma}
@@ -636,9 +675,9 @@ Because we consider effective dominant coweights, the spherical Schubert varieti
 
 %As above, since $ \lambda', \lambda'' $ are effective, the map $ \acom{What is ``as above''? Also, we have only described the open loci in fibres over $s\ne0$.}
 
-Now fix two effective (possibly non-dominant) coweights $ \mu', \mu''$ of sizes $N',N''$ such that $ \mu = \mu' + \mu'' $ is dominant. 
+% Now fix two effective (possibly non-dominant) coweights $ \mu', \mu''$ of sizes $N',N''$ such that $ \mu = \mu' + \mu'' $ is dominant. 
 % (We do not require $ \mu', \mu'' $ to be dominant.) 
-Using $ \mu, \mu', \mu''$, we define the following subschemes.
+% Using $ \mu, \mu', \mu''$, we define the following subschemes.
 
 \begin{definition}
 \label{def:klslice}
@@ -649,27 +688,36 @@ Using $ \mu, \mu', \mu''$, we define the following subschemes.
 In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}. The lattice description of $ \cW_\mu \cap \Grth_+$ is given in Lemma \ref{le:Wmu} below. 
 % 
 
+\acom{Comment why the above doesn't make sense for $\mu$ not dominant?}
+
 % \acom{First lattice description that doesn't come for free?}
 % 
 % \acom{que est-ce?} \jcom{It's not very relevant for this paper.  Here is an explanation: every vector bundle on $\PP$ (or maybe any curve) has a special filtration called the HN--filtration; it is a partial flag of subbundles of type determined by $ \mu$.  We require that $ \varphi$ takes this filtration to the standard partial flag at the fibre over $ \infty$.  Maybe ``preserves'' is not the best word above.}
 % A: Ok thanks!
 % 
 \begin{definition} 
-\label{def:inftyorbits}
-    The \new{semi-infinite orbit} $ S^\mu = N_-(\cK)t^\mu \subset \Gr $ and the \new{family of two semi-infinite orbits} 
+\label{def:inftyorbit}
+    The \new{semi-infinite orbit} $ S^\mu = N_-(\cK)t^\mu \subset \Gr $
+\end{definition}
+\acom{and its closure?}
+\begin{definition} 
+\label{def:inftyorbitfam}
+    The \new{family of two semi-infinite orbits} 
  $S^{\mu', \mu''}_{0,\AA} \subset \Grbd$
- which we define to have fibres $ S^{\mu'} \ast_s S^{\mu''}_s $ for $ s \ne 0$ and fibre $ S^{\mu}$ over $ s = 0 $.
+ which we define to have fibres $ S^{\mu', \mu''}_{0,s} \cong S^{\mu'}\times S^{\mu''} $ for $ s \ne 0$ and fibre $ S^{\mu}$ over $ s = 0 $.
 \end{definition}
 Note that since $ S^{\mu}$ is not closed, it is not true that $S^{\mu', \mu''}_{0,\AA} = S^{\mu'} \ast_\AA S^{\mu''}$.
 % 
 %\acom{Commented out fusion part for now. Unsure about defining it as the family whose 0 fibre is $S^{\mu' + \mu''}$ and whose generic fibre is $S^{\mu'}\times S^{\mu''}$ up to $\tau$. Baumann--Riche consider the attracting set of $C_\mu = \sqcup_{\mu' + \mu'' = \mu } m(\tilde C_{\mu',\mu''})$ where $\tilde C_{\mu',\mu''}$ is a connected component of fixed points in $\Grbd\tilde\times\Grbd$. Maybe we can consider the attracting set of just one of these?}
 % 
 If $ s \ne 0 $, then the fibre $S^{\mu', \mu''}_{0,s} $ is given by
+
+\acom{Don't we want this to be the definition?}
 $$
 % S^{\mu', \mu''}_{0,s} = 
     N_-(\CC[t, t^{-1}, (t-s)^{-1}])t^{\mu'} (t-s)^{\mu''} G(\CC[t])\subset G(\CC[t,t^{-1}, (t-s)^{-1}]) / G(\CC[t]) \,. % \G(\CC[t])
 $$
-See section 5.2 of \cite{baumann2020bases} for further details.
+See \cite[Section~5.2]{baumann2020bases} for further details.
 
 % TODO: resolve
 % \jcom{Maybe we should introduce the $ L_{\mu', \mu''} $ notation, but I'm not sure it is necessary.}
@@ -685,9 +733,10 @@ See section 5.2 of \cite{baumann2020bases} for further details.
 \subsection{Adjoint orbits and their deformations}
 \label{ss:familiesofadjointorbits}
 % 
-We now consider some subvarieties of the space of $ N\times N$ matrices, again using the $ \lambda, \lambda', \lambda'', \mu, \mu', \mu''$ defined in the previous section.  Recall that $\lambda, \mu $ are partitions of $ N$.
+We now consider some subvarieties of the space of $ N\times N$ matrices, again using the coweights $ \lambda, \lambda', \lambda'', \mu, \mu', \mu''$ fixed in the previous section. 
+Recall that $\lambda, \mu $ are partitions of $ N$.
 
-Given $ s \in \AA$ we write $ J_{s,\lambda}$ for the Jordan form matrix with eigenvalue $ s$ and Jordan blocks of sizes $ \lambda_1, \dots, \lambda_m$.
+Given a point $ s \in \AA$ we write $ J_{s,\lambda}$ for the Jordan form matrix with eigenvalue $ s$ and Jordan blocks of sizes $ \lambda_1, \dots, \lambda_m$.
     
 \begin{definition}
 \label{def:Olam}
@@ -742,7 +791,8 @@ In order to prove this proposition, we will need to recall some results from Eis
 Let $ r $ be a decreasing, concave, non-negative function of $\NN$ with $r(0) = N$ called a \new{rank function}.  Let $k $ be maximal such that $ r(k) \ne 0 $.
 % \jcom{I don't know if it is really necessary to introduce this $ k$.  Later it will be the number of columns of $ \lambda$, but we could just regard $ \lambda$ to have some columns of size 0.} \acom{And make it $N$? Was $k = m$ replaced because $m$ is already used?} \jcom{Yes and yes} \acom{I like the idea of making it $N$}
 % 
-Let $ W$ be a subspace of $ \AA^k$. Eisenbud and Saltman define and study the flat family $ X_{r,W} \rightarrow W$ whose fibres are reduced and defined by rank conditions. We will now describe these fibres. \acom{departing slightly from ES's lingo/notations..}
+Let $ W$ be a subspace of $ \AA^k$. Eisenbud and Saltman define and study the flat family $ X_{r,W} \rightarrow W$ whose fibres are reduced and defined by rank conditions. We will now describe these fibres. 
+% departing slightly from the notation of \cite{eisenbud1989rank}.
 
 Let $ z \in \AA^k$ be a point. Some of the coordinates of $z$ may be equal so we introduce the following data to keep track of these equalities. There exist a sequence of integers $k_\bullet = (k_0,\dots,k_\ell)$ such that $ 0=k_0< k_1< \dots < k_\ell = k $, a sequence of points $s_\bullet = (s_1, \dots, s_\ell )\in\AA^\ell$ such that $s_a\ne s_b$ for any $a\ne b$, and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
 $$ 
@@ -763,10 +813,10 @@ $$
     % r_{z,j}(i):= N - r(p(m_j)) + r(p(m_j + i)) 
     r_{z,a}(c):= N + \sum_{d = 1}^c r(p(k_a + d)) - r(p(k_a + d) - 1)  \, . 
 $$
-\jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
-\acom{I don't think that there is any need to swap back. But maybe we could use $c$ (for column) isntead of $i$, since we use $i$ in the same context quite a bit to denote a letter in the alphabet $\{1,\dots,m\}$.} 
-\jcom{Sure, that is a good idea.}
-\acom{Ok, switched some letters. Think $d$ is good as `delta'.}
+% \jcom{This is the same as what ES denote $r(i,j)$ except the roles of $ i, j$ swapped.  We could swap them back.}
+% \acom{I don't think that there is any need to swap back. But maybe we could use $c$ (for column) isntead of $i$, since we use $i$ in the same context quite a bit to denote a letter in the alphabet $\{1,\dots,m\}$.} 
+% \jcom{Sure, that is a good idea.}
+% \acom{Ok, switched some letters. Think $d$ is good as `delta'.}
 %\jcom{I fixed it now.  I didn't want to use ES's $a_i$.} 
 %\acom{\emoji{+1}}
 
@@ -946,7 +996,7 @@ $\mu = (3,2)$ then $A\in\TT_\mu$ looks like
     % \end{BMAT}
     % \right] % \,. 
 \]
-for some $A_{ij}^k\in\AA$. 
+for some $A_{ij}^k\in\CC$. 
 % \[
 %     \left[\begin{BMAT}(e){c;cc;cc;ccc}{c;cc;cc;ccc} 
 %         0 & A_0 & A_1 & A_2 & A_3 & A_4 & A_5 & A_6\\
@@ -963,7 +1013,7 @@ for some $A_{ij}^k\in\AA$.
 
 To $ A \in \TT_\mu$ we will associate the $m\times m$ matrix of polynomials 
 % $ g(A) = \left( g(A)_{ij} \right)$ 
-$g(A)$ in $ M_m(\AA[t]) $ whose $(i,j)$th entry is defined as follows.
+$g(A)$ in $ M_m(\CC[t]) $ whose $(i,j)$th entry is defined as follows.
 \begin{equation}
     \label{eq:mvyofa}
     g(A)_{ij} = 
@@ -1011,15 +1061,15 @@ Continuing with the $\mu=(3,2)$ example,
 % \acom{Ok.}
 % 
 
-In other words, the $ \mu_i\times\mu_j$ block of $ A $ is used to produce a polynomial which is inserted in the $(j,i)$ entry of $ g(A)$. 
+In other words, the $ \mu_i\times\mu_j$ block of $ A $ is used to produce a polynomial which is inserted in the $(j,i)$ entry of the $m\times m$ matrix $ g(A)$. 
 
 In $\TT_\mu$ we will be interested in a certain family of block upper-triangular matrices.
-\begin{definition} The ``\new{upper-triangular}'' \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $, defined by
+\begin{definition} The \new{upper-triangular} \mvy slice $\UU^{\mu', \mu''}_{0,\AA}\rightarrow \AA $ is defined by
 $$
 \UU^{\mu', \mu''}_{0,\AA} := \{ (A,s) \in \TT_\mu \times \AA : g(A)_{ii} = t^{\mu'_{i}} (t-s)^{\mu''_{i}}, g(A)_{ij} = 0 \text{ for $ j < i $ }\}\,. 
 $$
 \end{definition}
-So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $t^{\mu'_{i}} (t-s)^{\mu''_{i}}$ ($i=1,\dots,m$).
+So a matrix in $\UU^{\mu', \mu''}_{0,\AA}$ is weakly block upper-triangular and its diagonal blocks are given by the companion matrices for the polynomials $\{t^{\mu'_{i}} (t-s)^{\mu''_{i}} : i=1,\dots,m\}$.
 
 For example, elements of $ \UU_{0,s}^{(1,1,0),(2,1,1)}$ look like 
 % 
@@ -1221,7 +1271,7 @@ $ (t-s)^{\lambda''} \in G(\cO)$. In this way, we see that \cref{it:schub-lat} im
 
 \begin{lemma} 
 \label{le:linalg} % aka solution 
-Let $ V $ be a $ \CC[t]$-module which is finite-dimensional as a $ \CC$ vector space.  For any  $ a \in \CC$, the map
+Let $ V $ be a $ \CC[t]$-module which is finite-dimensional as a complex vector space.  For any  $ a \in \AA$, the map
 $$ 
     V  \rightarrow V \otimes_{\CC[t]} \cO_a
 $$
@@ -1229,7 +1279,7 @@ restricts to an isomorphism between the generalized $ a $-eigenspace of $ t $ an
 \end{lemma}
 % 
 \begin{proof}
-    For any $ b \in \CC$, let $ E_b $ denote the generalized $b$-eigenspace of $t$.  Then $ V = \oplus_{b \in \CC} E_b$.  Since $ t - b$ is invertible in $ \cO_a$ and $ t -b $ acts nilpotently on $ E_b$, we see that $ E_b \otimes_{\CC[t]} \cO_a = 0 $.
+    For any $ b \in \AA$, let $ E_b $ denote the generalized $b$-eigenspace of $t$.  Then $ V = \oplus_{b \in \CC} E_b$.  Since $ t - b$ is invertible in $ \cO_a$ and $ t -b $ acts nilpotently on $ E_b$, we see that $ E_b \otimes_{\CC[t]} \cO_a = 0 $.
     
     So it suffices to show that $ E_a \rightarrow E_a \otimes_{\CC[t]} \cO_a$ is an isomorphism.  By the classification of modules over $ \CC[t]$, it suffices to check this when  $ E_a = \CC[t]/(t-a)^k$, where it is clearly true.
 \end{proof}
@@ -1252,7 +1302,9 @@ Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i 
 \begin{proof}
     Let $ L \in \cW_\mu$.  Then $ L = \Sp_{\CC[t]}(v_1, \dots, v_m) $ for some $ v_i $ with $ v_i = t^{\mu_i} e_i + \sum_{j=1} q_{ij}t^{\mu_i} e_j $ and $ q_{ij} \in t^{-1} \Oinf$.  Since $ L \in \Grth^+ $, we see that $ v_i \in \CC[t]^m$ which means that $ p_{ij} := q_{ij}t^{\mu_i} $ lies in $ \CC[t]$.  By construction, the polynomial $ p_{ij}$ has degree less than $ \mu_i$.
     
-    Fix $ i$ and suppose that for some $ j$, $ \mu_j < \mu_i$.  In this case, we can alter our basis to $ v'_i = v_i - r v_j$ for some polynomial $r \in \CC[t]$.  This gives us new polynomials $ p'_{ij} = p_{ij} - r (t^{\mu_j} + p_{jj}) $.  In this way, we can ensure that $ p_{ij} $ has degree less than $ \min(\mu_i, \mu_j)$.  
+    Fix $ i$ and suppose that for some $ j$, $ \mu_j < \mu_i$.  In this case, we can alter our basis to $ v'_i = v_i - r v_j$ for some polynomial $r \in \CC[t]$.  
+    \acom{More like a quotient than a remainder, better $q$ than $r$?}
+    This gives us new polynomials $ p'_{ij} = p_{ij} - r (t^{\mu_j} + p_{jj}) $.  In this way, we can ensure that $ p_{ij} $ has degree less than $ \min(\mu_i, \mu_j)$.  
     Thus \cref{it:slice} implies \cref{it:basis}.
     
     Suppose that $ L = \Sp_{\CC[t]}(v_1, \dots, v_m)$ as in \cref{it:basis}.  Then
@@ -1260,8 +1312,9 @@ Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i 
     Hence \cref{it:basis} implies \cref{it:t-act}.  
 
     Finally, given \cref{it:t-act}, then we can see $ v_i := t^{\mu_i} e_i - \sum_{j=1}^m p_{ij} e_j \in L $ for some $ p_{ij} \in \CC[t]$ of degree less than $ \min(\mu_i,\mu_j) $.  It is easy to see that $ L = \Sp_\cO(v_1, \dots, v_m) $ and so $ L \in \cW_\mu$.  
-    
-    To show that $ \beta_\mu$ forms a basis for $ \CC[t]^m/L$, it suffices to show that for each $ i$, $ t^{\mu_i} e_i  \in \Sp_\CC(  t^k e_i : 0 \le k < \mu_i, 1 \le i \le m) + L$. 
+    % 
+    To show that $ \beta_\mu$ forms a basis for $ \CC[t]^m/L$, it suffices to show that for each $ i$, 
+    $$ t^{\mu_i} e_i  \in \Sp_\CC(  t^k e_i : 0 \le k < \mu_i, 1 \le i \le m) + L\,.$$
     % 
     % \rcom{Preimage of $\beta_\mu$}  
     % 
@@ -1284,18 +1337,19 @@ Moreover, for such $L $, $ \beta_\mu := \{ [t^k e_i] : 0 \le k < \mu_i, 1 \le i 
     Let $ L $ 
     % lie in this image.  
     be a lattice in the image of $S^{\mu',\mu''}_{0,\AA}$. Then $ L = g t^{\mu'} (t-s)^{\mu''}\CC[t]^m$ for some $ g \in N_-(\CC[t, t^{-1}, (t-s)^{-1}]) $.  Let $ h =(t-s)^{\mu''} t^{-\mu''}  $.  Note that $ h \in T_1(\Oinf)$. 
-    Moreover,
-    $$ L = h (h^{-1} g h) t^{\mu}\CC[t]^m\,. $$
-    Note that 
+    Moreover, $L = h (h^{-1} g h) t^{\mu}\CC[t]^m$. 
+    % $$ L = h (h^{-1} g h) t^{\mu}\CC[t]^m\,. $$
+    Since 
     % $ h^{-1} g h \in N(\CC\xT[t^{-1}])$ 
-    $h^{-1} g h \in N_-(\cK_\infty)$ and so we can factor $ h^{-1} g h$ as $n_1 n_2$ for some $ n_1 \in {(N_-)}_1(\Oinf), n_2 \in {N_-}(\CC[t]) $. 
+    $h^{-1} g h \in N_-(\cK_\infty)$ we can factor $ h^{-1} g h$ as $n_1 n_2$ for some $ n_1 \in {(N_-)}_1(\Oinf), n_2 \in {N_-}(\CC[t]) $. 
     
-    Since $ \mu $ is dominant, we see that $ t^{-\mu} n_2 t^\mu \in N_-(\CC[t]) $. % \CC\xt[t^{-1}]s
+    As $ \mu $ is dominant, we see that $ t^{-\mu} n_2 t^\mu \in N_-(\CC[t]) $, and so 
+     % \CC\xt[t^{-1}]s
     % 
     % \rcom{I think we want $\mu$ antidominant here or should the $N$'s be $N_-$'s?} % 
     % \acom{Si.}
     % 
-    Thus, $ L = h n_1 t^\mu \CC[t]^m$.  Since $ hn_1 \in G_1(\Oinf)$, the result follows. % \CC\xt[t^{-1}]
+    $ L = h n_1 t^\mu \CC[t]^m$.  Since $ hn_1 \in G_1(\Oinf)$, the result follows. % \CC\xt[t^{-1}]
 \end{proof}
 % 
 \section{Climax}
@@ -1306,9 +1360,9 @@ Given $ A \in \TT_\mu$, recall the definition of $ g(A)$ given in \Cref{eq:mvyof
 % section ??.  
 Since $ g(A) \in M_m(\CC[t]) \cap G_1(\Oinf)t^\mu$, we will regard $ g(A)$ as giving an element of $ \Grth^+ \cap \cW_\mu$.  (Alternatively, we can see that $ g(A) \CC[t]^m$ satisfies the condition of \cref{it:basis} from \Cref{le:Wmu}.)
 
-The following result is called the Mirkovic--Vybornov isomorphism \cite{mirkovic2007quiver}.  In the following form, it can be found in \cite[Theorem 3.2]{cautis2018categorical}, except that we have tweaked both maps with a matrix transpose $ \tr$.
+The following result is called the Mirkovic--Vybornov isomorphism \cite{mirkovic2007quiver}.  In the following form, it can be found in \cite[Theorem 3.2]{cautis2018categorical}, except that we have tweaked both maps with a matrix transpose $[?]^\tr$.
 
-\jcom{I'm not sure which of the Mirkovic--Vybornov papers to cite.} \acom{can say 07, rewritten in 19?}
+% \jcom{I'm not sure which of the Mirkovic--Vybornov papers to cite.} \acom{can say 07, rewritten in 19?}
 % 
 \begin{theorem} 
 \label{th:TmuWmu}
@@ -1330,11 +1384,11 @@ This is not a very serious abuse of notation, since the map $ \Grbd \rightarrow 
 % of s.  So the map is non-injective over the locus where s is not
 % actually an eigenvalue (in lattice terms where L(s) is the standard
 % lattice).
-In a similar way, we will write $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \TT_\mu$ using the non-injective map $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow M_N(\CC)$. 
+In a similar way, we will write $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \cap \TT_\mu$ using the non-injective \acom{emphasis is on the almost injectivity/glass half full no?} map $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow M_N(\CC)$. 
 % (for example the fibre of this map over $ 0 $ is $ \CC $). 
 % \acom{Grammar of `write using the map' is iffy. Also, is the fibre over 0 just a copy of the zero matrix in every $s$-fibre?}
 
-The following refinement of Mirkovic-Vybornov isomorphism is a special case of \cite[Theorem 5.3]{mirkovic2007quiver}.
+The following refinement of the \mvy isomorphism is a special case of \cite[Theorem 5.3]{mirkovic2007quiver}. \acom{Wait isn't 5.3 a special case of this?}
 \begin{theorem} 
 \label{th:OGrl}
 There is an isomorphism
@@ -1377,7 +1431,7 @@ $$
 %\acom{But I am also curious about the attracting set approach.}
 % 
 \begin{proof}
-We could prove this by observing the both sides are the attracting locus of an appropriate $ \AA^\times$ action. However, we will give the following more algebraic proof.
+We could prove this by observing the both sides are the attracting locus of an appropriate $ \Cx$ action. However, we will give the following more algebraic proof.
 
 Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A)\CC[t]^m,s) \in S^{\mu', \mu''}_{0,\AA} $. 
 %\acom{not $g(A)\CC[t]^m$}
@@ -1418,22 +1472,24 @@ Since $ A \in \TT_\mu $, this implies that $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA}
 %\rcom{So if we look at $g = g(A)t^{-\mu}$, since $A \in \TT_\mu$, the entries of $g(A)_{ij}$ are polynomials of degree $\min(\mu_i-1,\mu_j-1)$ when $i \neq j$, otherwise of degree $\mu_i$. When we multiply by $t^{-\mu}$, we scale the $i$th column by $t^{-\mu_i}$. So the diagonal entries are $1 + p$ where $p \in t^{-1}\CC[t^{-1}]$ while the off-diagonal entries in column $i$ have highest (in $t$) degree $\min(\mu_i-1, \mu_j-1) - \mu_i < 0$. Hence $g \in G_1(\cO_\infty)$.}
 % 
 
-Restricting to the zero fibre and applying $\theta_0$ we recover \cite[Corollary~5.2.2]{dthesis}. 
+Restricting to the zero fibre and applying $\theta_0$ together with \Cref{prop:adjoint} we recover a result of the second author. 
 %itself a corollary of \cite[Theorem~4.4.1(c)]{mirkovic2019comparison}, the ordinary affine Grassmannian version of \Cref{th:OGrl}. 
 % 
 % \acom{The ordinary Gr should be called static. Really onomotopoeic. In opposition with moving. }
 % 
 \begin{corollary}
-    \label{cor:mvy}
-The map $ A \mapsto g(A)\OO^m$ gives an isomorphism    $\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu_-$.
+    \label{cor:mvy} (\cite[Corollary~5.2.2]{dthesis})
+The map $ A \mapsto g(A)\cO^m$ gives an isomorphism 
+$$\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu_-\,.$$
 \end{corollary}
+% 
 %The closures of the irreducible components of the righthand side are \new{MV cycles of type $\lambda$ and weight $\mu$}. By \cite{baumann2019mirkovic} the set of MV cycles of all possible types and weights can be stitched together to form a \new{perfect basis} of $\CC[N]$. 
 
 %\acom{We are ready for applications! One of the motivations for this paper is... Abstractly multiplication is $\ast_s$... To compute we now carry this across \Cref{th:OTGrW}.}
 
 \section{\sout{Falling Action}} % Resolution
 \subsection{MV cycles}
-Let $\lambda\ge\mu$ be dominant effective and effective coweights of $\GL_m$ respectively. 
+Continuing with the notation of the previous sections we add the assumption that $\lambda\ge\mu$ and forget the assumption that $\mu$ is dominant. 
 % 
 % We need to decide on the order in section 7. How about:
 % 
@@ -1553,7 +1609,7 @@ Given $\tau\in YT(\lambda)_\mu$ and $ i \in \{1, \dots m\} $, denote by $\lambda
 % 
 
 The Lusztig datum $n_\bullet(\tau)$ of the tableau $\tau$ is a list of $ m(m-1)/2$ non-negative integers defined from its \new{Gelfand--Tsetlin pattern} $\gt(\tau) = (\lambda(i)_j)_{1\le j\le i\le m}$ by the formula 
-\acom{For Joel: weight or filling? See line below.}
+% \acom{For Joel: weight or filling? See line below.}
 $$
 \begin{aligned}
 % n_\bullet(\tau)_{i,j} &= \lambda(i+1)_j - \lambda(i)_j = \text{ \# of boxes on the $j$th row of $\tau $ filled with $ i+1$}  \\
@@ -1632,7 +1688,8 @@ We can associate to $\tau$ the locus
 % \jcom{Maybe use $ [m] $ for $\{1, \dots, m\}$ ?}
 % \acom{And $\{1,\dots,i\}$ etc.}
 
-The following result is closely related to Theorem 4 from \cite{dranowski2020generalized}.  It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson--Kogan \cite{anderson2004mirkovic} (see Section 9 in \cite{kamnitzer2010mirkovic}).  A different map from Young tableaux to MV cycles was obtained by Gaussent--Littelmann--Nguyen \cite[Theorem 2]{gaussent2013knuth}; we are not certain of the relation with our construction. 
+The following result is closely related to  Theorem 5.4.3. from \cite{dthesis}. It is also closely related to the description of MV cycles in terms of Kostant data obtained by Anderson--Kogan \cite{anderson2004mirkovic} (see Section 9 in \cite{kamnitzer2010mirkovic}).  
+We remeark that a different map from Young tableaux to MV cycles was obtained by Gaussent--Littelmann--Nguyen \cite[Theorem 2]{gaussent2013knuth}; we are not certain of the relation with our construction. 
 
 \begin{proposition}
     \label{pr:newmvdes}
@@ -1644,7 +1701,7 @@ We believe that $ \mathring Z(\tau)$ is irreducible so that in fact $ Z(\tau) = 
 \end{remark}
 
 \begin{proof}
-    The proof of this theorem follows the same strategy as in \cite{dranowski2020generalized}.
+    The proof of this theorem follows the same strategy as in \cite{dthesis}.
 % \jcom{Maybe you would prefer to cite your thesis, Anne, but I think that it is better to cite the paper, since people can access it easier.}    
 % \acom{I've been meaning to update the paper. It's peppered with ``typos''.}
 % 
@@ -1713,9 +1770,9 @@ $$ \bigsqcup_{\tau \in YT(\lambda)_\mu} \mathring Z(\tau) \subset \Gr^\lambda \c
 and the number of irreducible components of the right hand side 
 % \acom{of max dim?} \jcom{it is pure dimensional, as mentioned at the beginning of section 6.1} 
 equals $|YT^\lambda_\mu|$, thus on the left hand side, each $ \mathring Z(\tau)$ can only have one irreducible component of dimension $ \rho(\lambda - \mu)$.
-
+% 
 %\jcom{Now, we need to show density here.  But maybe that won't be possible and we will need to take the ``top''.}
-
+% 
 % See computation 5.3.9 and Lemma 5.4.2 (ignore its proof) of \url{http://www.math.toronto.edu/adranows/athesis.pdf}. 
 \end{proof}
 % This gives us the dimension of Gr^\lambda \cap Gr_\mu \cap S^\mu.
@@ -1767,8 +1824,8 @@ We define
     \label{lem:XtZt}
     Under the Mirkovi\'c--Vybornov isomorphism $\mathring X(\tau)$ is mapped isomorphically onto $\mathring Z(\tau)$. 
 \end{lemma}
-\jcom{We should add a proof here.  It will be very similar to Prop 5 below.} \acom{Ca marche?}
-\jcom{Oui.  J'ai fait des petites revisions.}
+% \jcom{We should add a proof here.  It will be very similar to Prop 5 below.} \acom{Ca marche?}
+% \jcom{Oui.  J'ai fait des petites revisions.}
 \begin{proof}
 Fix $A\in\mathring X(\tau)$ and $i\in\{1,\dots,m\}$. Let $\cO^i\subset\cO^m$ denote the submodule generated by the first $i$ standard basis vectors. Let $l = g(A\big|_{\CC^{\lvert\mu(i)\rvert}}) \cO^i$ and $L = g(A) \cO^m$. By definition of the map $A \mapsto g(A)$, since $ A $ is upper-triangular we have that $l = L_{[1,i]}$. 
 Moreover, since elements of $\TT_\mu\cap\n$ are upper triangular $A\big|_{\CC^{\lvert\mu(i)\rvert}}\in\TT_{\mu(i)}\cap\n_i$ where $\n_i$ denotes the subalgebra of upper-triangular matrices in $M_{\lvert\mu(i)\rvert}(\CC)$. 
@@ -1778,14 +1835,14 @@ Conversely, let $ L \in \mathring Z(\tau) $.  By \Cref{cor:mvy}, $ L = g(A)$ for
 \end{proof}
 
 By \cite[Prop.\ 4.5.4]{dthesis}, $ \mathring X(\tau) $ has a unique irreducible component of dimension $ \rho(\lambda - \mu)$.  We write $ X(\tau)$ for the closure of this component.  It is an irreducible component of $ \overline{\OO}^\lambda \cap \TT_\mu \cap \n$ and will be called a \new{generalized orbital variety}.
-
-\jcom{We should give a more specific citation to \cite{dthesis} here and below.  Also, throughout this paper, we should either cite your paper or your thesis, but not both (unless there is a very good reason to do so).  I reorganized this section a bit.  Feel free to add a bit more exposition.}
-\acom{Just posted to arXiv. Will re-ref shortly. Also made citation more specific.}
-
+% 
+% \jcom{We should give a more specific citation to \cite{dthesis} here and below.  Also, throughout this paper, we should either cite your paper or your thesis, but not both (unless there is a very good reason to do so).  I reorganized this section a bit.  Feel free to add a bit more exposition.}
+% \acom{Just posted to arXiv. Will re-ref shortly. Also made citation more specific.}
+% 
 In fact, these are all the generalized orbital varieties:
 \begin{theorem}(\cite[Theorem~4.8.2]{dthesis})
     \label{pr:govsasirrecs}
-    The irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$ are $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$. 
+    $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$ is a complete set of irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$. 
 \end{theorem}
 % 
 
@@ -1794,11 +1851,11 @@ In fact, these are all the generalized orbital varieties:
 Our goal is to describe the fusion of two MV cycles using ``fusion'' of generalized orbital varieties, which we will now define. 
 % \acom{So we \textit{are} calling this a fusion?} \jcom{I think that you used this word already here.  I just reorganized your sentence.} \acom{I agree, but I thought that you were opposed, Joel.}
 % 
-Let $\lambda',\lambda''$ be dominant effective and $\mu',\mu''$ effective such that $\lambda = \lambda' + \lambda''$ and $\mu = \mu' + \mu''$ as in previous sections.
-\jcom{I think that this is can move earlier, with the caveat that I mentioned earlier about $ \mu $ being non-dominant in 6.1 and dominant here.} \acom{Yes.} \acom{But we only start to need the primes now.}
+Let $\lambda,\lambda',\lambda''$ and $\mu \mu',\mu''$ be as in previous sections, once again assuming that $\mu$ is dominant.
+% \jcom{I think that this is can move earlier, with the caveat that I mentioned earlier about $ \mu $ being non-dominant in 6.1 and dominant here.} \acom{Yes.} \acom{But we only start to need the primes now.}
 
 % 
-Given $s\in\AA^\times$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
+Given $s\in\Ax$ and a pair of tableaux $\tau'\in YT(\lambda')_{\mu'}$ and $\tau''\in YT(\lambda'')_{\mu''}$ we define
 % 
 \begin{equation*}
     \mathring X(\tau',\tau'')_{0,s} 
@@ -1835,7 +1892,7 @@ Note that elements $A\in\mathring X(\tau',\tau'')$ do not in general correspond 
 %Recall the map $\theta : \Gr_{0, \AA^\times} \rightarrow \Gr \times \Gr$ from \Cref{ss:affgrs}. 
 \begin{proposition}
     \label{pr:XttZtt}
-    The image of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ under the isomorphism of \Cref{th:OTGrW} is $\mathring Z(\tau')\ast_\Cx \mathring Z(\tau''))$. 
+    The image of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ under the isomorphism of \Cref{th:OTGrW} is $\mathring Z(\tau')\ast_\Cx \mathring Z(\tau'')$. 
     % \[
     % \overline{\phi(X(\tau',\tau''))} 
     % = Z'\ast_s Z'' \,. 
@@ -1885,10 +1942,14 @@ $L\in\mathring Z(\tau')\ast_\Cx \mathring Z(\tau'')$.
 \end{proof}
 % 
 
-Now, in analogy with the Beilinson--Drinfeld fusion construction of \Cref{ss:fuscon}
+Now, in analogy with the geometric fusion of \Cref{ss:fuscon}
 % \acom{add loc cit} \jcom{I think just add a reference our fusion section} \acom{Yeah that's what I meant, taking loc cit literally}
-we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ in $M_N(\CC)\times\CC$. 
+we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure of $\mathring X(\tau',\tau'')_{0,\AA^\times}$ in $M_N(\CC)\times\CC$. By \Cref{prop:adjoint} it is contained in $\overline\OO^\lambda\cap\TT_\mu\cap\n$, so by Theorem 4 its irreducible components are generalized orbital varieties. 
 % 
+
+\acom{Recalling intersection multiplicity:} 
+
+We have the zero fibre in $\Grbd$ as effective divisor $D$, and the fusion of subscheme $V = X\ast_\AA Y\subset\Grbd$ as a finite-dimensional irreducible variety not contained in the support of $D$, and finally an irreducible component $Z$ of $D\cdot V = X\ast_0 Y$, codimension 1 in $V$. Denote by $\iota(Z,D\cdot V)$ the intersection multiplicity of $Z$. 
 \begin{corollary}
 \label{cor:iota}
     % The image of $\mathring X(\tau',\tau'')_{0,0}$ in $\mathring Z(\tau')\ast_0 \mathring Z(\tau'')$ is dense. In particular 
@@ -1905,9 +1966,10 @@ we define $X(\tau', \tau'')_{0,0} $ to be the zero fibre of the Zariski closure 
 We can compute intersection multiplicities by passing to dense constructible subsets.  
 By the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a dense constructible subset of $ Z(\tau) $ and $ X(\tau', \tau'')_{0,0} $ is a dense constructible subset of $ Z(\tau') \ast_0 Z(\tau'') $.
 %  
-\acom{Hm, I guess you are right, it is easier than what I had, we just need that the arguments on either side match up, and not that the arguments on one side are related. Though do we really not use that $X(\tau)$ may be contained in $X(\tau',\tau'')_{0,0}$ as an irreducible component?}  
+% \acom{Hm, I guess you are right, it is easier than what I had, we just need that the arguments on either side match up, and not that the arguments on one side are related. Though do we really not use that $X(\tau)$ may be contained in $X(\tau',\tau'')_{0,0}$ as an irreducible component?}  
 \end{proof}
 % 
+\acom{A tuppence about this conjecture?}
 \begin{conjecture}
     % Let $Z_i \subset \overline{S^{\nu_i}\cap S^0_-}$ be an MV cycle of weight $\nu_i$ ($i = 1,2$) and put $\nu = \nu_1 + \nu  _2$. 
     Let $\tau$ be the tableau got by taking the union of the rows of $\tau'$ and $\tau''$ and ordering the entries in each row smallest to largest. 
@@ -1924,7 +1986,8 @@ By the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a den
 % \acom{Pierre said he hasn't thought about this since he last thought about this and remarked that KKKO would distinguish two terms, a leading and a tailing one.} 
 % 
 \subsection{Connection to cluster structure on $\CC[N]$}
-\jcom{Maybe we need a word about Langlands duality here.  Since we are working with $ GL_m$, it is not really necessary, but it would be nice to point this out.  Also a general comment: maybe it would be best to first talk about multiplication in $\CC[N]$ incl. Theorem 7.11 from mvbasis, and then talk about cluster algebras.  Right now, it is a bit confusing, since we go back and forth.  Also some of the motivation stuff about the semicanonical basis, etc, will be moved to the intro.}
+\jcom{Maybe we need a word about Langlands duality here.  Since we are working with $ GL_m$, it is not really necessary, but it would be nice to point this out.  
+Also a general comment: maybe it would be best to first talk about multiplication in $\CC[N]$ incl. Theorem 7.11 from mvbasis, and then talk about cluster algebras.  Right now, it is a bit confusing, since we go back and forth.  Also some of the motivation stuff about the semicanonical basis, etc, will be moved to the intro.}
 
 Let $N\subset\GL_m$ be the unipotent subgroup of upper-triangular matrices with 1s on the diagonal. In \cite{baumann2019mirkovic} the third author along with Baumann and Knutson show that the MV cycles yield a basis of the coordinate ring $\CC[N]$ called the MV basis. 
 % 
@@ -1970,9 +2033,6 @@ L(\lambda) \ar[u,"\Psi_\lambda"] & \ar[l] \cZ(\lambda) \ar[r] \ar[u,"t^{-\lambda
 \]
 Explain that fibres contain tableaux related by padding. $Z(\tau)$ is defined even when $\mu$ is not dominant. We choose a section for which $\mu$ is dominant (Lemma 9) because $X(\tau)$ doesn't make sense when it isn't, but when we come back to $Z(\infty)$ we can renormalize so $\mu$ is not dominant.
 % 
-\acom{Recalling intersection multiplicity:} 
-We have the zero fibre in $\Grbd$ as effective divisor $D$, and the fusion of subscheme $V = X\ast_\AA Y\subset\Grbd$ as a finite-dimensional irreducible variety not contained in the support of $D$, and finally an irreducible component $Z$ of $D\cdot V = X\ast_0 Y$, codimension 1 in $V$. Denote by $\iota(Z,D\cdot V)$ the intersection multiplicity of $Z$. 
-% 
 The structure constants of $\CC[N]$ with respect to the MV basis are given by intersection multiplicities. 
 % 
 
@@ -1990,24 +2050,9 @@ b_{Z'} b_{Z''} = \sum_{Z\in\cZ(\lambda' + \lambda'')} \iota (Z, Z(\tau')\ast_0 Z
 \end{theorem}
 \jcom{In principle, the notation $ Z' \ast_0 Z''$ has been defined, since we defined the fusion of any two subschemes of $ \Gr$.  We should just note that the fusion of the stable MV cycles matches the fusion of MV cycles after translation by $ t^\lambda$.  I don't think that $ \iota$ has been defined anywhere, has it?}
 
-\acom{To quote from BFZ for a concise definition: Cluster algebras are a class of commutative rings defined axiomatically in terms of a distinguished family of generators called cluster variables. Say also what is a seed, what is a mutation, what is a cluster, what is a cluster monomial, and finally for the stubbornly ignorant clarify that 'the cluster monomials' refers to cluster monomials for all possible clusters!}
-
-$\CC[N]$ is a cluster algebra as shown in \cite[\S 4.3]{geiss2007initial} using \cite[Theorem~2.10]{berenstein2005cluster3}, and one of the main motivations for this paper is using fusion to check that certain cluster monomials are contained in the MV basis.
-% that are associated to exchange relations in $\CC[N]$ with its cluster algebra structure. 
-
-\acom{Background on cluster:}
-In \cite{lusztig2000semicanonical}, Lusztig gives a geometric construction of a $\CC$-basis of $\cU\n$ the universal enveloping algebra of the Lie algebra of $N$, called the semicanonical basis. This becomes the dual semicanonical basis of the graded dual of $\cU\n$ which is isomorphic (as a Hopf algebra) to $\CC[N]$. 
-Geiss, Leclerc \& Schroer prove that certain cluster monomials are contained in Lusztig's (dual) semicanonical basis \cite[Theorem~2.8(3)]{geiss2006rigid}.
-
-In the appendix to \cite{baumann2019mirkovic} the second and third author along with Morton-Ferguson check that the MV basis differs from the dual semicanonical basis (at the Kashiwara--Saito counterexample). 
-Yet, the two bases have enough in common (c.f.\ BKT,...?), that we have the following conjecture.
-
-\begin{conjecture}
-    The dual semicanonical basis and the MV basis overlap on the cluster monomials. In particular, the cluster monomials are contained in the MV basis. 
-\end{conjecture}
-
-We note that both of these bases are \new{biperfect} bases of $\CC[N]$ and in type $A_n$ with $n\le 3$ there is a unique biperfect basis of $\CC[N]$. 
-
+\section{Cluster questions}
+\label{s:clusterqus}
+% 
 For initial seeds $(x_1, \dots, x_r)$ obtained from a reduced expression of the longest word (length $r = \#\Delta_+$) in the Weyl group for $G$, each $x_i$ is a generalized minor  \cite{kato2011polytopal}, and hence 
 % \acom{by BKK?}\rcom{I reworded it.} 
 is in the MV basis. 
@@ -2160,6 +2205,8 @@ To find the MV cycles, equivalently tableaux, in the $0$-fibre of the fusion, we
 % Dimension: $(2,0,-2)$
 % \end{example}
 
+\subsection{Type $A_2$}
+
 \begin{example}
 Let $G = \GL_3$ and consider the tableaux
 $$\tau' = \young(12) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau'' = \young(11,23).$$
@@ -2284,12 +2331,14 @@ $$
 and the MV cycles corresponding to each are isomorphic to $\PP^2 \times \PP^2$.
 \end{example}
 
+\subsection{Type $A_3$}
+
 Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 cluster variables. We will take the initial cluster $(x_1,\dots,x_6)$, with $x_4,x_5,x_6$ being frozen, coming from the reduced word ${\bf i} = (1,2,3,1,2,1)$. We list the corresponding tableaux, coordinate ring of the generalized orbital variety $X(\tau)$, Lusztig-datum, and cluster variable as a Laurent polynomial in the $x_i$ below:
 
-\acom{Add dominant version column}
+% \acom{Add dominant version column}
 % \jcom{This is a nice table.  But these are the coordinate rings of $ X(\tau)$, not of $ Z(\tau) $.}
 % \renewcommand{\arraystretch}{1.5}
-\begin{table}[ht!]
+\begin{table}[ht!]%[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}c<{$}>{$}l<{$}>{$}l<{$}>{$}c<{$}}
   \begin{tabular}{Q} 
@@ -2309,6 +2358,13 @@ Let $G = \GL_4$. There is a cluster structure on $\CC[N]$ consisting of 12 clust
 \young(4) & \young(14,2,3) & \frac{\CC[A_{12}^1,A_{13}^1,A_{14}^1,A_{23}^1,A_{24}^1,A_{34}^1]}{\langle A_{12}^1,A_{13}^1,A_{23}^1 \rangle} & (1,0,0,1,0,1) & x_6 \TS\BS\\
   \end{tabular}
 \end{table}
+\acom{Say what $x_i$ are: $\begin{bmatrix}
+    1 & x_1 & x_2 & x_3 \\
+    & 1 \\
+    & & 1 \\
+    & & & 1 
+\end{bmatrix}$}
+
 % \[
 % \begin{array}{ccc} 
 % \tau & \text{Coordinate ring of }X(\tau) & \text{Lusztig-datum} \\ \hline

@@ -251,9 +251,12 @@
 \newcommand\varep{\varepsilon}
 \newcommand{\rdim}{\operatorname{rdim}}
 \newcommand{\Cx}{{\CC^\times}}
+\newcommand{\Ax}{{\AA^\times}}
 \newcommand\arfu{\cdot} % in C[N]
 \newcommand\geofu{\ast_{0}}
-\newcommand\bdfam{\ast_{\AA^\times}}
+\newcommand\bdfamo{\ast_{\AA^\times}}
+\newcommand\bdfamc{\ast_{\AA}}
+\newcommand\bdfamf{\ast_{s}}
 
 \newcommand\TS{\rule{0pt}{6ex}}       % Top strut
 \newcommand\BS{\rule[-1.2ex]{0pt}{0pt}} % Bottom structure 
@@ -280,31 +283,31 @@
 % My thm environments
 % % % % % %
 % 
-\newtheorem{maintheorem}{Theorem}%[chapter] 
+\newtheorem{maintheorem}{Theorem}
 \renewcommand{\themaintheorem}{\Alph{maintheorem}} 
 % 
 \theoremstyle{plain}
-\newtheorem{theorem}{Theorem}
-\newtheorem*{theorem*}{Theorem}
+\newtheorem{theorem}{Theorem}[section]
+% \newtheorem*{theorem*}{Theorem}
 \newtheorem{conjecture}{Conjecture}
-\newtheorem{proposition}{Proposition}
-\newtheorem*{proposition*}{Proposition}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollary}{Corollary}
-\newtheorem*{corollary*}{Corollary}
-\newtheorem{property}{Property}
+\newtheorem{proposition}{Proposition}[section]
+% \newtheorem*{proposition*}{Proposition}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+% \newtheorem*{corollary*}{Corollary}
+% \newtheorem{property}{Property}
 % 
 \theoremstyle{remark}
 \newtheorem{remark}{Remark}
 \newtheorem{example}{Example}
 % \newtheorem{examples}{Examples}
-\newtheorem{definition}{Definition}
-\newtheorem*{definition*}{Definition}
-\newtheorem{fact}{Fact}
-\newtheorem{goal}{Goal}
-\newtheorem*{goal*}{Goal}
-\newtheorem{claim}{Claim}
-\newtheorem{question}{Question}
+\newtheorem{definition}{Definition}[section]
+% \newtheorem*{definition*}{Definition}
+% \newtheorem{fact}{Fact}
+% \newtheorem{goal}{Goal}
+% \newtheorem*{goal*}{Goal}
+% \newtheorem{claim}{Claim}
+% \newtheorem{question}{Question}
 % 
 % \numberwithin{equation}{subsection}
 % \renewcommand{\theequation}{\alph{equation}}
