@@ -2024,17 +2024,17 @@ Let $N\subset\GL_m$ be the unipotent subgroup of upper-triangular matrices with 
 % 
 
 Given weights $\mu\le\lambda$ with $\lambda$ dominant, denote by $V(\lambda)$ the irreducible representation of $\GL_m$ of highest weight $\lambda$ and by $V(\lambda)_\mu$ its $\mu$-weight space. 
-There is an injective map $ \Psi_\lambda: V(\lambda) \to \CC[N]$ realizing $V(\lambda)$ as a subspace of $\CC[N]$ and sending $v\in V(\lambda)_\mu$ to $\CC[N]_{\mu - \lambda}$. 
+There is an injective map $ \Psi_\lambda: V(\lambda) \to \CC[N]$ realizing $V(\lambda)$ as a subspace of $\CC[N]$ and sending $ V(\lambda)_\mu$ to $\CC[N]_{\mu - \lambda}$. 
 
 The geometric Satake correspondence says that 
 % $V(\lambda) = IH(\overline\Gr^\lambda)$ and  
 $V(\lambda)_\mu = H_{2\rho(\lambda-\mu)}(\overline{\Gr^\lambda\cap S^\mu_-})$ where $H_d$ denotes $d$-dimensional Borel--Moore homology. In particular, the set $\{[Z] : Z\in\cZ(\lambda)\}$ gives a basis of $V(\lambda)$ with $[Z]$ denoting the class of $Z$ in the appropriate homology group. 
 
-\acom{Warning! Earlier we defined the MV cycles as irreducible components of $\overline{\Gr^\lambda}\cap S^\mu$}
+\acom{Warning! Earlier we defined the MV cycles as irreducible components of $\overline{\Gr^\lambda}\cap S^\mu$} \jcom{Good point.  We should be consistent.  I will think about the best way to fixe this and correct it.}
 % In particular, the MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$ give a basis of $V(\lambda)$. 
 % 
 
-The \new{stable} MV cycles of coweight $\nu\in Q_+$ are defined to be irreducible components of $\overline{S^0_+ \cap S^\nu_-}$. By a theorem of Anderson, MV cycles in $\overline{\Gr^\lambda\cap S^{\nu + \lambda}_-}$ are in bijection with stable MV cycles of coweight $\nu$ that are contained in $\overline\Gr^\lambda$ \cite[Proposition~3]{anderson2003polytope}. We denote the set of all stable MV cycles $\cZ(\infty)$. 
+The \new{stable} MV cycles of coweight $\nu\in Q_+$ are defined to be irreducible components of $\overline{S^0_+ \cap S^\nu_-}$.  Multiplication by $ t^\lambda $ defines an isomorphism $\overline{S^0_+ \cap S^\nu_-} \cong \overline{S^\lambda_+ \cap S^{\lambda+\nu}_-} $.  By a theorem of Anderson, MV cycles in $\overline{\Gr^\lambda\cap S^{\nu + \lambda}_-}$ consist of those irreducible components of $ \overline{S^\lambda_+ \cap S^{\lambda+\nu}_-} $ that are contained in $\overline\Gr^\lambda$ \cite[Proposition~3]{anderson2003polytope}. We denote the set of all stable MV cycles $\cZ(\infty)$. 
 % Recall that MV cycles can be described combinatorially by Lusztig data. 
 By a theorem of the third author, a stable MV cycle is uniquely determined by its Lusztig datum and the sets $\cZ(\infty)$ and $\NN^{\Delta_+}$ are in bijection. 
 % Recall that Lusztig data, like elements of $\CC[N]$, are weighted by $Q_+$. 
@@ -2042,8 +2042,10 @@ With a little bit more work one can string together the maps $\Psi_\lambda$ and 
 
 \begin{theorem}
     (A special case of \cite[Proposition~6.1]{baumann2019mirkovic})
-    For each $Z\in\cZ(\infty)$ there is a unique element $b_Z\in\CC[N]$ such that for any dominant weight $\lambda$, if $t^\lambda Z\in\cZ(\lambda)$ then $\Psi_\lambda([t^\lambda Z]) = b_Z$ and the collection of all such elements is called the \new{MV basis}. 
+    For each $Z\in\cZ(\infty)$ there is a unique element $b_Z\in\CC[N]$ such that for any dominant weight $\lambda$, if $t^\lambda Z\in\cZ(\lambda)$ then $\Psi_\lambda([t^\lambda Z]) = b_Z$.
 \end{theorem}
+The set $ \{b_Z : Z \in \cZ(\infty) \}$ is called the \new{MV basis} of $ \CC[N]$.
+\jcom{I took the definition out of the theorem statement.}
 % 
 Furthermore, the structure constants of multiplication in $\CC[N]$ with respect to the MV basis are given by intersection multiplicities. 
 % 
@@ -2053,7 +2055,7 @@ Furthermore, the structure constants of multiplication in $\CC[N]$ with respect 
 $$
 b_{Z'}\arfu b_{Z''} = \sum_{Z\in\cZ(\infty)} \iota\left(Z, Z' \geofu Z''\right) b_Z 
 $$
-in $\CC[N]$. \acom{The summation is finite since 7.1?... Don't want to introduce the notation $\cZ(\infty)_\nu$ if we can avoid it.}
+in $\CC[N]$. \acom{The summation is finite since 7.1?... Don't want to introduce the notation $\cZ(\infty)_\nu$ if we can avoid it.} \jcom{The sum is finite for weight reasons.}
 Moreover, there exist $\lambda',\lambda''$ dominant effective and a pair of tableaux $(\tau',\tau'')\in YT(\lambda')\times YT(\lambda'')$ such that 
 \begin{equation}
     \label{eq:multingovs}
@@ -2063,6 +2065,7 @@ Moreover, there exist $\lambda',\lambda''$ dominant effective and a pair of tabl
 % 
 for $\lambda = \lambda' + \lambda''$. 
 \end{theorem}
+\jcom{I would take the second part ``Moreover'' out of the statement of the theorem and state it as a corollary, maybe after Prop 7.3.}
 % Given $\epsilon\in\ZZ^m$ denote by $t^\epsilon:V(\lambda) \to V(\lambda + \epsilon)$ the map resulting from multiplication by the coweight $t^\epsilon$ in $\Gr$. By BKK, $\Psi_{\lambda + \epsilon} \circ t^\epsilon - \Psi_\lambda = 0$. 
 % 
 % Together these facts imply the following commutative square.
@@ -2094,6 +2097,7 @@ While $Z(\tau)$ is defined even when $\mu$ is not dominant, $X(\tau)$ is not, an
 % 
 
 \acom{Should I adjust the diagram so that its from unions over $\lambda$}
+\jcom{I think so.  Also somewhere we should indicate that the map $YT(\lambda) \rightarrow Z(\lambda) $ takes $ \tau $ to $ Z(\tau)$.  In principal we could increase the size of this diagram and include somehow the map taking ``dominant tableaux'' to generalized orbital varieties, but I don't see how to do this without making it unwieldly.}
 
 % \jcom{In principle, the notation $ Z' \ast_0 Z''$ has been defined, since we defined the fusion of any two subschemes of $ \Gr$.  We should just note that the fusion of the stable MV cycles matches the fusion of MV cycles after translation by $ t^\lambda$.  I don't think that $ \iota$ has been defined anywhere, has it?}
 
@@ -2129,7 +2133,7 @@ While $Z(\tau)$ is defined even when $\mu$ is not dominant, $X(\tau)$ is not, an
 
 \begin{proposition}
     \label{prop:minwts}
-    Given two Lusztig data $n_\bullet',n_\bullet''$ there is a smallest choice of effective coweights $\mu',\mu''$ and effective dominant coweights $\lambda',\lambda''$ such that $\mu = \mu' + \mu''$ is effective dominant and $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ are semistandard Young tableaux with the prescribed Lusztig data. They are got by choosing the minimum $\lambda,\mu$ for $n_\bullet = n_\bullet ' + n_\bullet ''$ afforded by \Cref{lem:mintab}, and then breaking off $n_{r,c}'$ boxes of weight $r$ from each row $c<r$ of $\tau$ to form a $\tau'_0$ an intermediate tableau. If $\tau'_0$ is of an acceptable shape then we keep it. If it is not, then we correct it by padding it using some boxes of weight $r$ in row $r$ of what remains of $\tau$.
+    Given two Lusztig data $n_\bullet',n_\bullet''$ there is a smallest choice of effective coweights $\mu',\mu''$ and effective dominant coweights $\lambda',\lambda''$ such that $\mu = \mu' + \mu''$ is effective dominant and $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ have the prescribed Lusztig data. They are got by choosing the minimum $\lambda,\mu$ for $n_\bullet = n_\bullet ' + n_\bullet ''$ afforded by \Cref{lem:mintab}, and then breaking off $n_{r,c}'$ boxes of weight $r$ from each row $c<r$ of $\tau$ to form a $\tau'_0$ an intermediate tableau. If $\tau'_0$ is of an acceptable shape then we keep it. If it is not, then we correct it by padding it using some boxes of weight $r$ in row $r$ of what remains of $\tau$.
 
     \acom{To be completed. We require a notion of ``smallest'' pair of factor tableaux associated to a given tableau --- that is if we care to include our $B(\infty)\to B(\lambda)$ map. 
     As the examples show, there may be more than one way to break up a ``minimal'' tableau for $n_\bullet = n_\bullet ' + n_\bullet ''$ into two tableaux with data $n_\bullet' $ and $n_\bullet''$ resp.\ The practical notion of min is such that the generalized nonzero eigenspace has the smallest possible dimension.}
