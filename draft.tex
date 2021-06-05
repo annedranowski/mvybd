@@ -2074,7 +2074,8 @@ We use the convenient fact that $\GL_m^\vee = \GL_m$ and ignore the distinction 
 %referring to points $t^\lambda$ as coweights for $\lambda\in\ZZ^m$ weights. 
 % 
 
-\acom{So far we have been saying ``coweight'' $\lambda$, etc. We could say coweight for $t^\lambda$ and weight for $\lambda$ starting now? Also, maybe add a warning that some of the theorems we rely on hold more generally? Like the MV basis theorem..} \jcom{I don't think that is necessary.}
+\acom{So far we have been saying ``coweight'' $\lambda$, etc. We could say coweight for $t^\lambda$ and weight for $\lambda$ starting now?}
+% \acom{Also, maybe add a warning that some of the theorems we rely on hold more generally? Like the MV basis theorem..} \jcom{I don't think that is necessary.}
 
 Let $N\subset\GL_m$ be the unipotent subgroup of upper-triangular matrices with 1s on the diagonal. In \cite{baumann2019mirkovic} the third author along with Baumann and Knutson show that the MV cycles yield a basis of the coordinate ring $\CC[N]$ called the MV basis. Note that with respect to the action of the maximal torus $T$ of $\GL_m$ by conjugation on $N$, $\CC[N]$ acquires a homogeneous grading by $Q_+$. 
 % 
@@ -2088,7 +2089,8 @@ The geometric Satake correspondence says that
 % $V(\lambda) = IH(\overline\Gr^\lambda)$ and  
 $V(\lambda)_\mu = H_{2\rho(\lambda-\mu)}(\overline{\Gr^\lambda\cap S^\mu_-})$ where $H_d$ denotes $d$-dimensional Borel--Moore homology. In particular, the set $\{[Z] : Z\in\cZ(\lambda)\}$ gives a basis of $V(\lambda)$ with $[Z]$ denoting the class of $Z$ in the appropriate homology group. 
 
-\acom{Warning! Earlier we defined the MV cycles as irreducible components of $\overline{\Gr^\lambda}\cap S^\mu$} \jcom{Good point.  We should be consistent.  I will think about the best way to fixe this and correct it.}
+% \acom{Warning! Earlier we defined the MV cycles as irreducible components of $\overline{\Gr^\lambda}\cap S^\mu$} \jcom{Good point.  We should be consistent.  I will think about the best way to fixe this and correct it.}
+% 
 % In particular, the MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$ give a basis of $V(\lambda)$. 
 % 
 
@@ -2120,16 +2122,20 @@ in $\CC[N]$.
 % \acom{The summation is finite since 7.1?... Don't want to introduce the notation $\cZ(\infty)_\nu$ if we can avoid it.} \jcom{The sum is finite for weight reasons.} 
 % 
 \end{theorem}
-\jcom{I would take the second part ``Moreover'' out of the statement of the theorem and state it as a corollary, maybe after Prop 7.3.}
+% \jcom{I would take the second part ``Moreover'' out of the statement of the theorem and state it as a corollary, maybe after Prop 7.3.}
+% \acom{Done}
 % 
 % \jcom{This paragraph is a bit confusing.  Maybe it would be best to first define $ V(\lambda) \rightarrow \CC[N]$ and then $ H_{top}(\overline{Gr}^\lambda \cap S^\mu) \rightarrow \CC[N]$, rather than doing them in one step.  Then we can draw a commutative square with $ S^0_+ \cap S_-^\nu$ as well. }
 % \acom{Not sure which square to draw or if it is necessary. I guess you want something like what's pictured below, where what we're about to describe are the blue arrows. Specifically the rightmost downward pointing blue. Which, by commutativity, will determine the middle downward pointing blue.}
 % \jcom{Yes, I like this diagram.  Maybe the two rightward arrow should point leftward, since we did already define $ \tau \mapsto Z(\tau)$.}
 % 
 
-In \Cref{s:examples} we will identify elements $b_Z$ with certain \textit{minimal} tableaux (instead of Lusztig data) and view $\CC[N]$ as an algebra in these tableaux, abbreviating \Cref{eq:multingovs} as equation in these tableaux. 
-
-Before we describe how to choose representative generalized orbital varieties in order to expand a product of MV basis elements $b_{Z'}\arfu b_{Z''}$ in $\CC[N]$ we summarize our approach in the following commutative diagram. 
+In \Cref{s:examples} we will identify elements $b_Z$ with certain \textit{minimal} tableaux (instead of Lusztig data) and view $\CC[N]$ as an algebra in these tableaux, rewriting (abbreviating) \Cref{eq:multingovs} as as equation in semistandard Young tableaux. 
+We can do this because of 
+% Before we describe how to choose representative generalized orbital varieties in order to expand a product of MV basis elements 
+% $b_{Z'}\arfu b_{Z''}$
+% in $\CC[N]$ we summarize our approach in 
+the following commutative diagram. 
 \[
 \begin{tikzcd}
    \bigcup YT(\lambda)_+\ar[r,"\tau\mapsto X(\tau)"] & \bigcup \mathcal X(\lambda) & \\
@@ -2137,44 +2143,72 @@ Before we describe how to choose representative generalized orbital varieties in
     \NN^{\Delta_+} \ar[r] \ar[u,dashed,bend left,"\sigma_\lambda"] & \cZ(\infty) \ar[r] & \CC[N]
 \end{tikzcd}
 \]
-The fibres of $n_\bullet$ \acom{in $\cup YT(\lambda)$} contain tableaux related by padding. 
-While $Z(\tau)$ is defined even when $\mu$ is not dominant, $X(\tau)$ is not, and so we need to choose a section $\sigma_\lambda$ of $n_\bullet$ with image in the set of tableaux having dominant weight. 
-% 
-
 \acom{Should I adjust the diagram so that its from unions over $\lambda$}
 \jcom{I think so.  Also somewhere we should indicate that the map $YT(\lambda) \rightarrow Z(\lambda) $ takes $ \tau $ to $ Z(\tau)$.  In principal we could increase the size of this diagram and include somehow the map taking ``dominant tableaux'' to generalized orbital varieties, but I don't see how to do this without making it unwieldly.}
 
-% \jcom{In principle, the notation $ Z' \ast_0 Z''$ has been defined, since we defined the fusion of any two subschemes of $ \Gr$.  We should just note that the fusion of the stable MV cycles matches the fusion of MV cycles after translation by $ t^\lambda$.  I don't think that $ \iota$ has been defined anywhere, has it?}
+Two tableaux have equal Lusztig data if they differ by any number of boxes of weight $r$ in row $r$ for any $r$. We call this relation \new{padding}. In other words, the fibres of $n_\bullet$ contain tableaux related by padding. For example $\young(2,4)$ and $\young(112,24,3)$ have equal Lusztig data. 
+
+While $Z(\tau)$ is defined even when $\mu$ is not dominant, $X(\tau)$ is not. To compute intersection multiplicities using generalized orbital varieties we therefore need to choose a section $\sigma_\lambda$ of $n_\bullet$ with image in the set of tableaux having dominant weight. 
+% 
 
 \begin{lemma}
-    \label{lem:mintab}
-    Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ dominant effective smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
-    \[
-        \begin{gathered}
-        % 
-        \text{minimize }\mu^0\text{ such that} \\
-        % \text{the sum of the rows of }n_\bullet + \mu^0\text{ is non-increasing},
-        % \text{the sum of the columns of }n_\bullet + \mu^0\text{ is non-increasing}
-        \text{both }\lambda,\mu\text{ are non-increasing}
-        \end{gathered} 
-    \]
-    is got recursively from % setting $\mu^0_m = 0$, 
-    \[
-        \begin{gathered}
-            \mu^0_{m} = 0 \\ 
-            \mu^0_{m-1} = \max\{0 , \sum n_{m,c} - \sum n_{m-1,c}\} \\ 
-            \mu^0_i = \max\{0, \mu^0_{i+1} + \sum n_{i+1,c} - \sum n_{i,c} , \mu_{i+1}^0 + \sum n_{r,i+1} - \sum n_{r,i}\}
-        \end{gathered}
-    \]
-    for $i = 1,\dots,m-2$. 
-    In words, given a Luszig datum $n_\bullet$, if we wish to produce a minimal SSYT for it, 
+\label{lem:almostmintab}
+Let $n_\bullet = (n_{(a,b)})$ be a Lusztig datum of coweight $\nu$ viewed as a strictly lower-triangular $m\times m$ matrix with 
+% $(w,r)$
+$(a,b)$th entry equal to the number of boxes of weight $a$ in row $b$ for $1\le b < a \le m$. 
+Let $\mu^0$ be a diagonal matrix with $a$th diagonal entry denoted $\mu^0_a$. The solution to the minimization problem 
+\[
+\text{minimize }\mu^0\text{ such that } \lambda = (\sum_b n_{(a,b)} + \mu^0_b)_a \text{ and } \mu = (\sum_a n_{(a,b)} + \mu^0_a)_b
+% sum rows and sum columns
+\text{ are dominant effective}
+\]
+is 
+\[
+\begin{gathered}
+    \mu^0_{m} = 0 \\ 
+    \mu^0_{m-1} = \max\{0 , \sum n_{m,c} - \sum n_{m-1,c}\} \\ 
+    \mu^0_i = \max\{0, \mu^0_{i+1} + \sum n_{i+1,c} - \sum n_{i,c} , \mu_{i+1}^0 + \sum n_{r,i+1} - \sum n_{r,i}\}
+\end{gathered}
+\]
+for $i = 1,\dots,m-2$. 
+\end{lemma}
+
+In words, if we wish to produce a dominant weight tableau with Lusztig datum $n_\bullet$ of smallest possible shape and weight 
     \begin{itemize}
         \item we can always take the number of $m$'s in row $m$ to be zero; 
         \item we can take the number of $m-1$'s in row $m-1$ to be zero, unless $n_\bullet$ tells us that there are more $m$'s the first $m-1$ rows than there are $m-1$'s in the first $m-2$ rows, and in that case we take $\mu^0_{m-1}$ so that it exactly offsets the difference; 
         \item we can take the number of $m-2$'s in row $m-2$ to be zero, unless $n_\bullet$ tells us there are more $m-1$'s in the first $m-1$ rows (building off the last step) than there are $m-2$'s in the first $m-3$ rows, or, that there are more boxes in row $m-1$ than there are in row $m-2$, and then we take $\mu^0_{m-2}$ to offset the minimum of the two differences; 
         \item induct up to $\mu^0_1$. 
     \end{itemize}
-\end{lemma}
+    
+[Proposition]
+
+To write down an expansion in $\CC[N]$ we choose a section $\bar\sigma_\lambda$ valued in smallest (not necessarily dominant) representative tableaux.
+
+% \jcom{In principle, the notation $ Z' \ast_0 Z''$ has been defined, since we defined the fusion of any two subschemes of $ \Gr$.  We should just note that the fusion of the stable MV cycles matches the fusion of MV cycles after translation by $ t^\lambda$.  I don't think that $ \iota$ has been defined anywhere, has it?}
+
+% \begin{lemma}
+%     \label{lem:mintab}
+%     Let $n_\bullet$ be a Lusztig datum of coweight $\nu$. There exist $\lambda,\mu$ dominant effective smallest such that $n_\bullet$ is the Lusztig datum of a tableau $\tau\in YT(\lambda)_\mu$. They are determined by the following minimization problem. Regard $n_\bullet$ as a strictly lower triangular matrix with $(r,c)$th entry $n_{r,c}$ is equal to the number of boxes of weight $r$ in row $c$ of $\tau$. Note that since $r > c$ this data does not account for the number of boxes of weight $r$ in row $r$. Let $\mu^0$ be the diagonal matrix whose $(r,r)$th entry $\mu^0_r$ is equal to the number of boxes of weight $r$ in row $r$ of $\tau$. Note that the sum of the rows of $n_\bullet + \mu^0$ is the shape $\lambda$ of $\tau$, and the sum of the columns of $n_\bullet + \mu^0$ is the weight $\mu$ of $\tau$. The solution to the minimization problem 
+%     \[
+%         \begin{gathered}
+%         % 
+%         \text{minimize }\mu^0\text{ such that} \\
+%         % \text{the sum of the rows of }n_\bullet + \mu^0\text{ is non-increasing},
+%         % \text{the sum of the columns of }n_\bullet + \mu^0\text{ is non-increasing}
+%         \text{both }\lambda,\mu\text{ are non-increasing}
+%         \end{gathered} 
+%     \]
+%     is got recursively from % setting $\mu^0_m = 0$, 
+%     \[
+%         \begin{gathered}
+%             \mu^0_{m} = 0 \\ 
+%             \mu^0_{m-1} = \max\{0 , \sum n_{m,c} - \sum n_{m-1,c}\} \\ 
+%             \mu^0_i = \max\{0, \mu^0_{i+1} + \sum n_{i+1,c} - \sum n_{i,c} , \mu_{i+1}^0 + \sum n_{r,i+1} - \sum n_{r,i}\}
+%         \end{gathered}
+%     \]
+%     for $i = 1,\dots,m-2$. 
+% \end{lemma}
 
 \begin{proposition}
     \label{prop:minwts}
@@ -2829,19 +2863,19 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-\acom{Let's redo this as $\young(2,3)\arfu\young(11,2,4)$.}
+% \acom{Let's redo this as $\young(2,3)\arfu\young(11,2,4)$.}
 
-$\young(1,2,4) \cdot \young(12,3) = \young(1,4) + \young(1,3,4):$ The requirement that
+$\young(11,2,4) \cdot \young(2,3) = \young(1,4) + \young(1,3,4):$ The requirement that
 \[
 A = \left[\begin{BMAT}(e){cc;cc;c;c}{cc;cc;c;c}
     0 & 1 & & & & \\
-     & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
+     & 0 & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{14}^1 \\
      & & 0 & 1 & & \\
      & & & s & A_{23}^1 & A_{24}^1 \\
      & & & & s & A_{34}^1 \\
      & & & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(1,2,4) *_{\AA \setminus \{0\}} \young(12,3)
+\right] \text{ is contained in } \young(11,2,4) *_{\AA \setminus \{0\}} \young(2,3)
 \]
 results in the following relations on submatrices:
 % 
@@ -3004,18 +3038,18 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-\acom{Let's redo this as $\young(3)\arfu\young(11,24)$}
+% \acom{Let's redo this as $\young(3)\arfu\young(11,24)$}
 
-$\young(13,2) \cdot \young(1,4) = \young(14,3) + \young(3,4):$ The requirement that
+$\young(11,24) \cdot \young(3) = \young(14,3) + \young(3,4):$ The requirement that
 \[
 A = \left[\begin{BMAT}(e){cc;c;c;c}{cc;c;c;c}
     0 & 1 & & & \\
-     & s & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
+     & 0 & A_{12}^1 & A_{13}^1 & A_{14}^1 \\
      & & 0 & A_{23}^1 & A_{24}^1 \\
-     & & & 0 & A_{34}^1 \\
-     & & & & s
+     & & & s & A_{34}^1 \\
+     & & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(13,2) *_{\AA \setminus \{0\}} \young(1,4)
+\right] \text{ is contained in } \young(11,24) *_{\AA \setminus \{0\}} \young(3)
 \]
 results in the following relations on submatrices:
 % 
@@ -3026,7 +3060,7 @@ results in the following relations on submatrices:
     \text{Submatrix} & \text{Relations} \\
     \midrule 
     A_2 & A_{12}^1 \\
-    A_4 & A_{13}^1A_{34}^1 + sA_{14}^1
+    A_4 & A_{13}^1A_{34}^1 - sA_{14}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3094,23 +3128,34 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-\acom{Let's redo this as $\young(2,3)\arfu\young(11,23,4)$.}
+% \acom{Let's redo this as $\young(2,3)\arfu\young(11,23,4)$.}
 
-$\young(12,23) \cdot \young(1,3,4) = \young(3,4) + \young(12,33,4):$ The requirement that
+$\young(11,23,4) \cdot \young(2,3) = \young(3,4) + \young(12,33,4):$ The requirement that
 \[
 A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
     0 & 1 & & & & & \\
-     & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
+     & 0 & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & 0 & 1 & & & \\
-     & & & 0 & A_{23}^1 & A_{23}^2 & A_{24}^1 \\
+     & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 \\
      & & & & 0 & 1 & \\
      & & & & & s & A_{34}^1 \\
-     & & & & & & s
+     & & & & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(12,23) *_{\AA \setminus \{0\}} \young(1,3,4)
+\right] \text{ is contained in } \young(11,23,4) *_{\AA \setminus \{0\}} \young(2,3)
 \]
 results in the following relations on submatrices:
 % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%     A_2 & A_{12}^1 \\
+%     A_3 & A_{23}^1, A_{12}^2A_{23}^2 + A_{13}^1 + sA_{13}^2 \\
+%     A_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
+%     \end{tabular}
+% \end{table}
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
@@ -3118,8 +3163,8 @@ results in the following relations on submatrices:
     \text{Submatrix} & \text{Relations} \\
     \midrule 
     A_2 & A_{12}^1 \\
-    A_3 & A_{23}^1, A_{12}^2A_{23}^2 + A_{13}^1 + sA_{13}^2 \\
-    A_4 & A_{34}^1, A_{12}^2A_{24}^1 + sA_{14}^1, sA_{23}^2A_{14}^1 - sA_{13}^2A_{24}^1 - A_{13}^1A_{24}^1
+    A_3 & A_{12}^2A_{23}^1 - sA_{13}^1, A_{23}^1 + sA_{23}^2, A_{12}^2A_{23}^2+A_{13}^1 \\
+    A_4 & A_{34}^1, A_{12}^2A_{24}^1 - sA_{14}^1, A_{14}^1A_{23}^1 - A_{13}^1A_{24}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3192,24 +3237,35 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-\acom{Let's redo this as $\young(1,3)\arfu\young(113,22,4)$.}
+% \acom{Let's redo this as $\young(1,3)\arfu\young(113,22,4)$.}
 
-$\young(11,23) \cdot \young(13,2,4) = \young(3,4) + \young(1,3,4):$ The requirement that
+$\young(113,22,4) \cdot \young(1,3) = \young(3,4) + \young(1,3,4):$ The requirement that
 \[
 A = \left[\begin{BMAT}(e){ccc;cc;cc;c}{ccc;cc;cc;c}
     0 & 1 & & & & & & \\
      & 0 & 1 & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & & 0 & 1 & & & \\
-     & & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 \\
+     & & & & 0 & A_{23}^1 & A_{23}^2 & A_{24}^1 \\
      & & & & & 0 & 1 & \\
      & & & & & & s & A_{34}^1 \\
-     & & & & & & & s
+     & & & & & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(11,23) *_{\AA \setminus \{0\}} \young(13,2,4)
+\right] \text{ is contained in } \young(113,22,4) *_{\AA \setminus \{0\}} \young(1,3)
 \]
 results in the following relations on submatrices:
 % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%     A_2 & A_{12}^1, A_{12}^2 \\
+%     A_3 & A_{13}^1 \\
+%     A_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
+%     \end{tabular}
+% \end{table}
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
@@ -3217,8 +3273,8 @@ results in the following relations on submatrices:
     \text{Submatrix} & \text{Relations} \\
     \midrule 
     A_2 & A_{12}^1, A_{12}^2 \\
-    A_3 & A_{13}^1 \\
-    A_4 & A_{34}^1, A_{23}^1A_{14}^1 + s(A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1) 
+    A_3 & A_{13}^1 + sA_{13}^2 \\
+    A_4 & A_{34}^1, A_{14}^1 A_{23}^1 - A_{13}^1 A_{24}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3371,20 +3427,20 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-\acom{Let's redo this as $\young(2,3)\arfu\young(113,2,4)$.}
+% \acom{Let's redo this as $\young(2,3)\arfu\young(113,2,4)$.}
 
-$\young(13,2,4) \cdot \young(12,3) = \young(23,4) + \young(23,3,4):$ The requirement that
+$\young(113,2,4) \cdot \young(2,3) = \young(23,4) + \young(23,3,4):$ The requirement that
 \[
 A = \left[\begin{BMAT}(e){cc;cc;cc;c}{cc;cc;cc;c}
     0 & 1 & & & & & \\
-     & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
+     & 0 & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 \\
      & & 0 & 1 & & & \\
      & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 \\
      & & & & 0 & 1 & \\
      & & & & & s & A_{34}^1 \\
      & & & & & & 0
 \end{BMAT}
-\right] \text{ is contained in } \young(13,2,4) *_{\AA \setminus \{0\}} \young(12,3)
+\right] \text{ is contained in } \young(113,2,4) *_{\AA \setminus \{0\}} \young(2,3)
 \]
 results in the following relations on submatrices:
 % 
@@ -3550,25 +3606,37 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-\acom{Let's redo this as $\young(1,4)\arfu\young(113,22,34)$.}
+% \acom{Let's redo this as $\young(1,4)\arfu\young(113,22,34)$.}
 
-$\young(11,24,3) \cdot \young(13,2,4) = \young(14,3,4) + \young(13,24,4):$ The requirement that
+$\young(113,22,34) \cdot \young(1,4) = \young(14,3,4) + \young(13,24,4):$ The requirement that
 \[
 A = \left[\begin{BMAT}(e){ccc;cc;cc;cc}{ccc;cc;cc;cc}
     0 & 1 & & & & & & & \\
      & 0 & 1 & & & & & & \\
      & & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
      & & & 0 & 1 & & & & \\
-     & & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 & A_{24}^2 \\
+     & & & & 0 & A_{23}^1 & A_{23}^2 & A_{24}^1 & A_{24}^2 \\
      & & & & & 0 & 1 & & \\
-     & & & & & & s & A_{34}^1 & A_{34}^2 \\
+     & & & & & & 0 & A_{34}^1 & A_{34}^2 \\
      & & & & & & & 0 & 1 \\
      & & & & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(11,24,3) *_{\AA \setminus \{0\}} \young(13,2,4)
+\right] \text{ is contained in } \young(113,22,34) *_{\AA \setminus \{0\}} \young(1,4)
 \]
 results in the following relations on submatrices:
 % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%     A_2 & A_{12}^1,A_{12}^2 \\
+%     A_3 & A_{13}^1, A_{23}^1 \\
+%     A_4 & A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
+%         & A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2 
+%     \end{tabular}
+% \end{table}
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
@@ -3577,8 +3645,7 @@ results in the following relations on submatrices:
     \midrule 
     A_2 & A_{12}^1,A_{12}^2 \\
     A_3 & A_{13}^1, A_{23}^1 \\
-    A_4 & A_{13}^2A_{34}^1 - sA_{14}^1, A_{34}^1 + sA_{34}^2, A_{13}^2A_{34}^2 + A_{14}^1, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\ 
-        & A_{14}^2A_{23}^2A_{34}^1 - A_{14}^1A_{23}^2A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^1A_{24}^2 
+    A_4 & A_{34}^1, A_{13}^2 A_{34}^2 + A_{14}^1 + sA_{14}^2, A_{14}^1 A_{23}^2 - A_{13}^2 A_{24}^1
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3665,24 +3732,38 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-\acom{Let's redo this as $\young(2,4)\arfu\young(11,23,34)$.}
+% \acom{Let's redo this as $\young(2,4)\arfu\young(11,23,34)$.}
 
-$\young(12,24,3) \cdot \young(1,3,4) = \young(13,24,4) + \young(12,34,4):$ The requirement that
+$\young(11,23,34) \cdot \young(2,4) = \young(13,24,4) + \young(12,34,4):$ The requirement that
 \[
 A = \left[\begin{BMAT}(e){cc;cc;cc;cc}{cc;cc;cc;cc}
     0 & 1 & & & & & & \\
-     & s & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
+     & 0 & A_{12}^1 & A_{12}^2 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
      & & 0 & 1 & & & & \\
-     & & & 0 & A_{23}^1 & A_{23}^2 & A_{24}^1 & A_{24}^2 \\
+     & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 & A_{24}^2 \\
      & & & & 0 & 1 & & \\
-     & & & & & s & A_{34}^1 & A_{34}^2 \\
+     & & & & & 0 & A_{34}^1 & A_{34}^2 \\
      & & & & & & 0 & 1 \\
      & & & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(12,24,3) *_{\AA \setminus \{0\}} \young(1,3,4)
+\right] \text{ is contained in } \young(11,23,34) *_{\AA \setminus \{0\}} \young(2,4)
 \]
 results in the following relations on submatrices:
 % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%   A_2 & A_{12}^1 \\
+%     A_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
+%     A_4 & 
+%          A_{23}^2A_{34}^1 - sA_{24}^1, A_{12}^2A_{24}^1 + A_{13}^2A_{34}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+%         & A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2, A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
+%         & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1
+%     \end{tabular}
+% \end{table}
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
@@ -3691,10 +3772,8 @@ results in the following relations on submatrices:
     \midrule 
    A_2 & A_{12}^1 \\
     A_3 & A_{13}^1, A_{23}^1, A_{12}^2A_{23}^2 + sA_{13}^2 \\
-    A_4 & 
-         A_{23}^2A_{34}^1 - sA_{24}^1, A_{12}^2A_{24}^1 + A_{13}^2A_{34}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
-        & A_{12}^2A_{24}^2 + A_{13}^2A_{34}^2 + A_{14}^1 + sA_{14}^2, A_{23}^2A_{14}^1 - A_{13}^2A_{24}^1 + s(A_{23}^2A_{14}^2 - A_{13}^2A_{24}^2), \\
-        & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1
+    A_4 & A_{34}^1, A_{23}^2 A_{34}^2 + A_{24}^1 + sA_{24}^2, A_{12}^2 A_{24}^2 + A_{13}^2 A_{34}^2 + A_{14}^1, A_{12}^2 A_{24}^1 - sA_{14}^1, \\
+    & A_{14}^1 A_{23}^2 - A_{13}^2 A_{24}^1, A_{13}^2 A_{24}^1 A_{34}^2 + A_{14}^1 A_{24}^1 + sA_{14}^1 A_{24}^2
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
@@ -3791,39 +3870,50 @@ results in the following relations on submatrices:
 \end{example}
 
 \begin{example}
-\acom{Let's redo this as $\young(2,4)\arfu\young(1113,22,34)$.}
+% \acom{Let's redo this as $\young(2,4)\arfu\young(1113,22,34)$.}
 
-$\young(112,24,3) \cdot \young(13,2,4) = \young(24,3,4) + \young(123,24,4):$ The requirement that
+$\young(1113,22,34) \cdot \young(2,4) = \young(24,3,4) + \young(123,24,4):$ The requirement that
 \[
 A = \left[\begin{BMAT}(e){ccc;ccc;cc;cc}{ccc;ccc;cc;cc}
     0 & 1 & & & & & & & & \\
      & 0 & 1 & & & & & & & \\
-     & & s & A_{12}^1 & A_{12}^2 & A_{12}^3 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
+     & & 0 & A_{12}^1 & A_{12}^2 & A_{12}^3 & A_{13}^1 & A_{13}^2 & A_{14}^1 & A_{14}^2 \\
      & & & 0 & 1 & & & & & \\
      & & & & 0 & 1 & & & & \\
      & & & & & s & A_{23}^1 & A_{23}^2 & A_{24}^1 & A_{24}^2 \\
      & & & & & & 0 & 1 & & \\
-     & & & & & & & s & A_{34}^1 & A_{34}^2 \\
+     & & & & & & & 0 & A_{34}^1 & A_{34}^2 \\
      & & & & & & & & 0 & 1 \\
      & & & & & & & & & s
 \end{BMAT}
-\right] \text{ is contained in } \young(112,24,3) *_{\AA \setminus \{0\}} \young(13,2,4)
+\right] \text{ is contained in } \young(1113,22,34) *_{\AA \setminus \{0\}} \young(2,4)
 \]
 results in the following relations on submatrices:
 % 
+% \begin{table}[H]
+%   \centering
+%   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+%   \begin{tabular}{Q} 
+%     \text{Submatrix} & \text{Relations} \\
+%     \midrule 
+%   A_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
+%     A_3 & A_{13}^1,A_{23}^1 \\
+%     A_4 & A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
+%         & A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
+%         & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
+%         & A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
+%         & A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
+%     \end{tabular}
+% \end{table}
 \begin{table}[H]
   \centering
   \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
   \begin{tabular}{Q} 
     \text{Submatrix} & \text{Relations} \\
     \midrule 
-   A_2 & A_{12}^1, A_{12}^2+sA_{12}^3 \\
+   A_2 & A_{12}^1, A_{12}^2 \\
     A_3 & A_{13}^1,A_{23}^1 \\
-    A_4 & A_{23}^2A_{34}^1 - sA_{24}^1, A_{34}^1 + sA_{34}^2, A_{23}^2A_{34}^2 + A_{24}^1, \\
-        & A_{12}^3A_{34}^1 - A_{12}^2A_{34}^2, A_{13}^2A_{24}^1 - A_{23}^2A_{14}^1 + s(A_{13}^2A_{24}^2 - A_{23}^2A_{14}^2), \\
-        & A_{13}^2A_{24}^2A_{34}^1 - A_{13}^2A_{24}^1A_{34}^2 - A_{14}^1A_{24}^1 - sA_{14}^2A_{24}^1, \\
-        & A_{12}^3A_{23}^2A_{14}^1 - A_{12}^2A_{23}^2A_{14}^2 - A_{12}^3A_{13}^2A_{24}^1 + A_{12}^2A_{13}^2A_{24}^2,  \\
-        & A_{12}^3A_{13}^2A_{24}^1A_{34}^2 - A_{12}^2A_{13}^2A_{24}^2A_{34}^2 + A_{12}^3A_{14}^1A_{24}^1 - A_{12}^2A_{14}^2A_{24}^1
+    A_4 & A_{34}^1, A_{23}^2 A_{34}^2 + A_{24}^1 + sA_{24}^2, A_{14}^1 A_{23}^2 - A_{13}^2 A_{24}^1, A_{13}^2 A_{24}^1 A_{34}^2 + A_{14}^1 A_{24}^1 + sA_{14}^1 A_{24}^2
     \end{tabular}
 \end{table}
 \noindent At $s = 0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
