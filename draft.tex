@@ -69,26 +69,26 @@ The purpose of this paper is to give a conceptually elementary way to compute th
     Let $ Z, Z' $ be MV cycles.  The structure constants for the multiplication $ b_Z b_{Z'}$ in $\CC[N]$ are equal to the intersection multiplicities in the fusion of the generalized orbital varieties corresponding to $ Z, Z'$.
 \end{theorem}
 % 
-\jcom{I wanted to state a precise theorem, but it is not so easy without introducing a lot of notation.}
-\acom{Are you ok with the 'maintheorem' environemnt?}
 
 Since these generalized orbital varieties are subschemes of affine spaces of matrices defined by certain rank conditions, the fusion of generalized orbital varieties can be computed by elementary commutative algebra.
 
 %One should care about the fusion product on bases \emoji{imp} \emoji{grin} \emoji{worried} \emoji{monocle-face} \emoji{skull} if one is interested in positivity!
 \subsection{Cluster algebras and MV cycles}
 One motivation for computing products of MV basis elements is to relate the cluster algebra structure on $\CC[N]$ to the MV basis. Cluster algebras were introduced by Fomin and Zelevinsky in \cite{fomin2002cluster1} and it was shown in \cite{geiss2007initial}, using the construction of \cite{berenstein2005cluster3}, that $\CC[N]$ has a natural cluster algebra structure. 
-\acom{As a reader I am confused - did both of them show it independently? Can I go to either source to find out how this works? I suggest ``in \cite[\S 4.3]{geiss2007initial} using \cite[Theorem~2.10]{berenstein2005cluster3}''} \rcom{I agree with the suggestion.}
+%\acom{As a reader I am confused - did both of them show it independently? Can I go to either source to find out how this works? I suggest ``in \cite[\S 4.3]{geiss2007initial} using \cite[Theorem~2.10]{berenstein2005cluster3}''} \rcom{I agree with the suggestion.}
 
-This structure starts with an initial seed $\Sigma = ((x_1,\dots,x_r),B)$, where $x_i \in \CC[N]$, $B$ is a certain matrix, and $ r = m(m-1)/2$ ($=\#\Delta_+$). We obtain new variables through a process called mutation where for a mutable variable $x_i$, its mutation is the unique element $x_i^* \in \CC[N]$ such that $$x_ix_i^* = x_+ + x_-.$$
+This structure starts with an initial seed $\Sigma = ((x_1,\dots,x_r),B)$, where $x_i \in \CC[N]$, $B$ is a certain matrix, and $ r = m(m-1)/2$.
+% ($=\#\Delta_+$)
+We obtain new variables through a process called mutation where for a mutable variable $x_i$, its mutation is the unique element $x_i^* \in \CC[N]$ such that $$x_ix_i^* = x_+ + x_-.$$
 This equation is called an exchange relation and the terms $x_+$ and $x_-$ are certain monomials in the $x_j$, $j\neq i$,  determined by $B$. 
 %We then obtain a new seed $$\mu_i(\Sigma) = ((x_1,\cdots, x_{i-1}, x_i^*, x_{i+1},\cdots,x_r), \mu_i(B))$$ and can acquire possibly new variables through further mutations. 
 
 The variables $x_1,\cdots,x_r$ as well as all possible variables that are obtained through successive mutations are known as cluster variables. The cluster monomials are products of cluster variables that are supported on a single seed.
 
-\acom{It would be nice to add a line to set up this paragraph. Else the canonical bases come out of nowhere? Like ``There is another nice structure on $\CC[N]$, that of a \new{perfect basis} introduced by/studied by...; and heaps of work (or just the following two sources) suggests that the two structures are inextricably linked.'' Because it's a paper and not a talk.}
-\rcom{Something along these lines?}
+%\acom{It would be nice to add a line to set up this paragraph. Else the canonical bases come out of nowhere? Like ``There is another nice structure on $\CC[N]$, that of a \new{perfect basis} introduced by/studied by...; and heaps of work (or just the following two sources) suggests that the two structures are inextricably linked.'' Because it's a paper and not a talk.}
+%\rcom{Something along these lines?}
 There are two well-known bases of $\CC[N]$ whose relationship with the cluster structure has been studied heavily: the dual canonical basis \cite{lusztig1990canonicalbases} and the dual semicanonical basis \cite{lusztig2000semicanonical}.
-Kang, Kashiwara, Kim \& Oh showed that all cluster monomials are contained in the dual canonical basis \cite{kang2018monoidal} while Gei\ss, Leclerc, \& Schr\"oer proved that they are all contained in the dual semicanonical basis \cite[Theorem~2.8(3)]{geiss2006rigid}.
+Kang, Kashiwara, Kim \& Oh showed that all cluster monomials are contained in the dual canonical basis \cite{kang2018monoidal}, while Gei\ss, Leclerc, \& Schr\"oer proved that they are all contained in the dual semicanonical basis \cite[Theorem~2.8(3)]{geiss2006rigid}.
 % 
 %It has been shown that the cluster monomials are in certain interesting bases such as the dual canonical basis \cite{lusztig1990canonicalbases}\cite{kang2018monoidal} and the dual semicanonical basis \cite{lusztig2000semicanonical}\cite{geiss2006rigid}. As these elements are defined in a combinatorial way, it allows efficient computation of several elements of these bases.
 % 
@@ -97,12 +97,7 @@ Kang, Kashiwara, Kim \& Oh showed that all cluster monomials are contained in th
 %Geiss, Leclerc \& Schroer prove that certain cluster monomials are contained in Lusztig's (dual) semicanonical basis \cite[Theorem~2.8(3)]{geiss2006rigid}.}
 % 
 
-Although the MV basis differs from these bases (at least at the Kashiwara--Saito counterexample \cite[Appendix]{baumann2019mirkovic}), they are all examples of biperfect bases \cite{baumann2019mirkovic}.
-% and the above mentioned bases are in general different from each other \cite{baumann2019mirkovic}, 
-\acom{can we say something other than ``it is believed'', like ``Evidence/calculations/etc.\ suggests''}
-%along with evidence suggests that they all contain the cluster monomials, leading to the following conjecture.
-This then leads to the following conjecture.
-
+The MV basis, the dual canonical basis, and the dual semicanonical basis are all examples of biperfect bases \cite{baumann2019mirkovic}.  In \cite[Appendix]{baumann2019mirkovic}, we showed that the the MV basis differs from the dual semicanonical basis.  Since the basis vector at which these bases differ is not a cluster monomial, this gives evidence for the following conjecture of Anderson and Kogan \cite[Conjecture 5.1]{anderson2006algebra}.
 \begin{conjecture}\label{conj:cluster in MV}
     %The dual semicanonical basis and the MV basis overlap on the cluster monomials. 
     The cluster monomials are contained in the MV basis. 
@@ -1473,7 +1468,7 @@ map $ \overline{\OO}^{\lambda', \lambda''}_{0,\AA} \rightarrow M_N(\CC)$.
 % \acom{Grammar of `write using the map' is iffy. Also, is the fibre over 0 just a copy of the zero matrix in every $s$-fibre?}
 
 The following refinement of the \mvy isomorphism is a special case of \cite[Theorem 5.3]{mirkovic2007quiver}. 
-\acom{Wait isn't 5.3 a special case of this?}  \jcom{No, they deal with the more general setting of more points.} \acom{Ok, but I don't think that they establish this exact fact..they have Lemma~4.4.2 and Corollary 4.5 which uses the convolution grassmannian.}
+% \acom{Wait isn't 5.3 a special case of this?}  \jcom{No, they deal with the more general setting of more points.} \acom{Ok, but I don't think that they establish this exact fact..they have Lemma~4.4.2 and Corollary 4.5 which uses the convolution grassmannian. Still not sure about this..}
 \begin{theorem} 
 \label{th:OGrl}
 There is an isomorphism
@@ -1608,7 +1603,7 @@ We denote by $\cZ(\lambda)$ the collection of all MV cycles in $\overline{\Gr}^\
 % \acom{Recall (from optional \Cref{s:exposition}) the question motivating this work --- Roger's thesis, cluster monomials and the MV basis. Clarify that whereas we have so far only seen spaces related to ``ordinary MV cycles'' it is the ``stable MV cycles'' that are used to define the MV basis of $\CC[N]$ that the motivating question is concerned with. This discrepancy is the reason we might want to discuss maps $B(\infty)\to B(\lambda)$.}
 % 
 
-In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic--Vilonen polytopes, or equivalently Lusztig data, which are sequences in $\NN^{\Delta_+}$ that depend on a choice of reduced expression. For $\GL_m$ and the standard reduced word, this description can be reworded in terms of Young tableaux. 
+In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic--Vilonen polytopes, or equivalently Lusztig data, which are sequences in $\NN^{r}$ that depend on a choice of reduced expression. For $\GL_m$ and the standard reduced word, this description can be reworded in terms of Young tableaux. 
 % \jcom{Maybe add something here about Lusztig data and the standard reduced word, $\vi = (1,2,\dots,m-1,\dots,1,2,1)$.}
 
 
@@ -1695,7 +1690,7 @@ The equivalence of \ref{Srdim2} and \ref{Srdim3} follows from Lemma \ref{le:rdim
 
 % \acom{No no this is good! Thanks for other additions}
 
-We now introduce some notation related to Young tableaux. Denote by $YT(\lambda)$ the set of (possibly semi-standard) Young tableaux of shape $\lambda$ and by $YT(\lambda)_\mu$ the subset of $YT(\lambda)$ of tableaux having weight $\mu$. 
+We now introduce some notation related to Young tableaux. Denote by $YT(\lambda)$ the set of (possibly semi-standard) Young tableaux of shape $\lambda$ and by $YT(\lambda)_\mu$ the subset of $YT(\lambda)$ of tableaux having weight $\mu$. Let $YT = \bigcup_\lambda YT(\lambda)$ and denote by $YT_+\subset YT$ those tableaux having dominant weight. 
 %Here, the weight of a tableau is a sequence $(\mu_1,\mu_2,\dots)$ recording the number of boxes of weight $i = 1,2,\dots$ that the tableau contains, and the weight of a box is just the number that the box contains.
 % For the sake of making a definition, we momentarily put some letters of our alphabet in unexpected roles, and ask you to suspend your disbelief. Given an arbitrary tableau $t$ having weight $w$ and shape $s$, we denote by $s(i)$ (resp.\ $w(i)$) the shape (resp.\ the weight) of $t(i)$, the tableau got from $t$ by discarding all boxes of weight exceeding $i$. 
 
@@ -1929,7 +1924,9 @@ By definition of $\mathring X(\tau)$ this principal submatrix has Jordan type $\
 Conversely, let $ L \in \mathring Z(\tau) $.  By \Cref{cor:mvy}, $ L = g(A)\cO^m$ for some $ A \in \TT_\mu \cap \n $.  Running the above argument in reverse, we see that $ A \in \mathring X(\tau)$. 
 \end{proof}
 
-By \cite[Prop.\ 4.5.4]{dthesis}, $ \mathring X(\tau) $ has a unique irreducible component of dimension $ \rho(\lambda - \mu)$.  We write $ X(\tau)$ for the closure of this component.  It is an irreducible component of $ \overline{\OO}^\lambda \cap \TT_\mu \cap \n$ and will be called a \new{generalized orbital variety}.
+By \cite[Prop.\ 4.5.4]{dthesis}, $ \mathring X(\tau) $ has a unique irreducible component of dimension $ \rho(\lambda - \mu)$.  We write $ X(\tau)$ for the closure of this component.  It is an irreducible component of $ \overline{\OO}^\lambda \cap \TT_\mu \cap \n$ and will be called a \new{generalized orbital variety of type $\lambda$}. 
+% 
+The collection of all possible generalized orbital varieties of type $\lambda$ will be denoted $\cX(\lambda)$. 
 % 
 % \jcom{We should give a more specific citation to \cite{dthesis} here and below.  Also, throughout this paper, we should either cite your paper or your thesis, but not both (unless there is a very good reason to do so).  I reorganized this section a bit.  Feel free to add a bit more exposition.}
 % \acom{Just posted to arXiv. Will re-ref shortly. Also made citation more specific.}
@@ -1937,7 +1934,9 @@ By \cite[Prop.\ 4.5.4]{dthesis}, $ \mathring X(\tau) $ has a unique irreducible 
 % In fact, these are all the generalized orbital varieties:
 \begin{theorem}(\cite[Theorem~4.8.2]{dthesis})
     \label{pr:govsasirrecs}
-    $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$ is a complete set of irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$. 
+    % $\{{X(\tau)} : \tau\in YT(\lambda)_\mu\}$ 
+    $\{X\in\cX(\lambda):X\subset\TT_\mu\}$
+    is a complete set of irreducible components of $\overline{\OO}^\lambda\cap\TT_\mu\cap\n$. 
 \end{theorem}
 % 
 
@@ -2099,7 +2098,7 @@ By the isomorphisms of \Cref{lem:XtZt} and \Cref{pr:XttZtt}, $X(\tau) $ is a den
 % 
 % \acom{Pierre said he hasn't thought about this since he last thought about this and remarked that KKKO would distinguish two terms, a leading and a tailing one.} 
 % 
-\subsection{Representations in $\CC[N]$}
+\subsection{Multiplying MV basis elements in $\CC[N]$}
 \label{ss:CN}
 % 
 % \jcom{
@@ -2136,7 +2135,7 @@ $V(\lambda)_\mu = H_{2\rho(\lambda-\mu)}(\overline{\Gr^\lambda\cap S^\mu_-})$ wh
 
 The \new{stable} MV cycles of coweight $\nu\in Q_+$ are defined to be irreducible components of $\overline{S^0_+ \cap S^\nu_-}$.  Multiplication by $ t^\lambda $ defines an isomorphism $\overline{S^0_+ \cap S^\nu_-} \cong \overline{S^\lambda_+ \cap S^{\lambda+\nu}_-} $.  By a theorem of Anderson, MV cycles in $\overline{\Gr^\lambda\cap S^{\nu + \lambda}_-}$ consist of those irreducible components of $ \overline{S^\lambda_+ \cap S^{\lambda+\nu}_-} $ that are contained in $\overline\Gr^\lambda$ \cite[Proposition~3]{anderson2003polytope}. We denote the set of all stable MV cycles $\cZ(\infty)$. 
 % Recall that MV cycles can be described combinatorially by Lusztig data. 
-By a theorem of the third author, given a choice a reduced word for $ w_0 $, there is a bijection $ \cZ(\infty) \rightarrow \NN^{\Delta_+} $ called the Lusztig datum.  For our purposes we will always use the standard reduced word.
+By a theorem of the third author, given a choice a reduced word for $ w_0 $, there is a bijection $ \cZ(\infty) \rightarrow \NN^{r} $ called the Lusztig datum.  For our purposes we will always use the standard reduced word.
 
 %a stable MV cycle is uniquely determined by its Lusztig datum and the sets $\cZ(\infty)$ and $\NN^{\Delta_+}$ are in bijection. 
 % Recall that Lusztig data, like elements of $\CC[N]$, are weighted by $Q_+$. 
@@ -2155,9 +2154,10 @@ Furthermore, the structure constants of multiplication in $\CC[N]$ with respect 
 \begin{theorem}
     (A special case of \cite[Theorem~7.11]{baumann2019mirkovic}) Given $Z',Z''\in\cZ(\infty)$, 
     % of coweight $\nu',\nu''$ respectively 
-$$
+\begin{equation}
+    \label{eq:btimesb}
 b_{Z'}\arfu b_{Z''} = \sum_{Z\in\cZ(\infty)} i\left(Z, Z' \geofu Z''\right) b_Z 
-$$
+\end{equation}
 in $\CC[N]$. 
 % \acom{The summation is finite since 7.1?... Don't want to introduce the notation $\cZ(\infty)_\nu$ if we can avoid it.} \jcom{The sum is finite for weight reasons.} 
 % 
@@ -2170,101 +2170,134 @@ in $\CC[N]$.
 % \jcom{Yes, I like this diagram.  Maybe the two rightward arrow should point leftward, since we did already define $ \tau \mapsto Z(\tau)$.}
 % 
 
-In \Cref{s:examples} we will identify elements $b_Z$ with certain \textit{minimal} tableaux (instead of Lusztig data) and view $\CC[N]$ as an algebra in these tableaux, rewriting (abbreviating) \Cref{eq:multingovs} as an equation in semistandard Young tableaux. 
-We can do this because of 
+% In \Cref{s:examples} we will abbreviate MV basis elements to associated tableaux and view $\CC[N]$ as an algebra in these, rewriting \Cref{eq:btimesb} as an equation in tableaux.
+% \jcom{I don't think that we really need this sentence here.}
+% 
+% We can do this by choosing a section of $n_\bullet$, because 
+The following diagram commutes.
 % Before we describe how to choose representative generalized orbital varieties in order to expand a product of MV basis elements 
 % $b_{Z'}\arfu b_{Z''}$
 % in $\CC[N]$ we summarize our approach in 
-the following commutative diagram. 
+% \bigcup YT(\lambda)_+
+% \bigcup YT(\lambda)
 \[
 \begin{tikzcd}
-   \bigcup YT(\lambda)_+\ar[r,"\tau\mapsto X(\tau)"]\ar[d,hook] & \bigcup \mathcal X(\lambda) \ar[d,hook,"\text{\Cref{lem:XtZt}}"] & \\
-   \bigcup YT(\lambda) \ar[r,"\tau\mapsto Z(\tau)"] \ar[d,"n_\bullet"] & \bigcup\cZ(\lambda) \ar[r] \ar[d, "t^{-\lambda}"] & \bigoplus L(\lambda) \ar[d, "\Psi_\lambda"] \\ %  description
-    \NN^{\Delta_+} \ar[r] \ar[u,dashed,bend left,"\sigma"] \ar[uu,dashed,bend left = 60, "\sigma_+"] & \cZ(\infty) \ar[r] & \CC[N]
+%   YT_+ \ar[r,"\tau\mapsto X(\tau)"]\ar[d,hook] & \bigcup \mathcal X(\lambda) \ar[d,hook,"\text{\Cref{lem:XtZt}}"] & \\
+% \ar[u,dashed,bend left,"(\phantom{-})_+"]
+   YT  \ar[r,"\tau\mapsto Z(\tau)"] \ar[d,"n_\bullet"] & \bigcup\cZ(\lambda) \ar[r] \ar[d, "t^{-\lambda}"] & \bigoplus V(\lambda) \ar[d, "\Psi_\lambda"] \\ 
+    \NN^{r} \ar[r] \ar[u,dashed,bend left,"\sigma"] & \cZ(\infty) \ar[r] & \CC[N] % \ar[uu,dashed,bend left = 60, "\sigma_+"] 
 \end{tikzcd}
 \]
+\jcom{Did we define $ YT_+ $ and $ \mathcal X(\lambda)$?}
+\acom{Yup}
+
+% Let us describe how we make this choice.
 % \acom{Should I adjust the diagram so that its from unions over $\lambda$}
 % \jcom{I think so.  Also somewhere we should indicate that the map $YT(\lambda) \rightarrow Z(\lambda) $ takes $ \tau $ to $ Z(\tau)$.  In principal we could increase the size of this diagram and include somehow the map taking ``dominant tableaux'' to generalized orbital varieties, but I don't see how to do this without making it unwieldy.}
 
 
 The 
 % set
-sequence $\mu^0 = (\mu^0_r)$ keeping track of the number 
-of boxes of weight $r$ in row $r$ of a given tableau is called its \new{padding}. 
-Two tableaux have equal Lusztig data if they differ by padding. 
-% In other words, the fibres of $n_\bullet$ contain tableaux related by padding. 
-For example $\young(2,4)$ and $\young(112,24,3)$ have equal Lusztig data, because if we ignore the padding of the latter tableau, $(2,1,3)$,... to be continued.
+sequence $\mu^0 = (\mu^0_1,\dots,\mu^0_{m-1})$ keeping track of the number 
+of boxes of weight $i$ in row $i$ of a given tableau is called its \new{padding weight} and the set of boxes contributing to the padding weight is called its \new{padding}. 
+Two tableaux have equal Lusztig data if and only if they are related by padding, which is to say that we can change the padding of one to recreate the other. Moreover, a tableau is completely determined by its Lusztig datum and padding.
 
-While $Z(\tau)$ is defined even when $\mu$ is not dominant, $X(\tau)$ is not. To compute intersection multiplicities using generalized orbital varieties we therefore need to choose a section $\sigma_\lambda$ of $n_\bullet$ with image in the set of tableaux having dominant weight. 
-% 
+For example 
+$$\bar \tau = \young(2,4) \quad \text{ and} \quad \tau = \young(112,24,3)$$ 
+% whose padding weight is $(2,1,1)$ 
+% whose padding weight is $(0,0,0)$ and $
+have equal Lusztig data, since we can increase the padding of $\bar\tau$
+% , which has padding weight $(0,0,0)$, 
+by the padding weight of $\tau$ to get $\tau$, or decrease the padding of $\tau$ by its padding weight 
+% $(2,1,1)$ 
+to get $\bar\tau$.
 
 \begin{lemma}
 \label{lem:almostmintab}
-Given a Lusztig datum $n_\bullet = (n_{(a,b)})$ 
+Let $n_\bullet = (n_{(a,b)})$ be a Lusztig datum and let $\mu^0 = (\mu^0_i)$ be a padding weight. If $\lambda = (\sum_b n_{(a,b)} + \mu^0_b)_a $ 
+% and $\mu = (\sum_a n_{(a,b)} + \mu^0_a)_b$ 
+then 
 % be the Lusztig datum (of a tableau)
 % viewed as a strictly lower-triangular $m\times m$ matrix with 
 % $(a,b)$th entry equal to the number of boxes of weight $a$ in row $b$ for $1\le b < a \le m$. 
-the smallest padding $\mu^0$ a padding be a diagonal matrix with $a$th diagonal entry denoted $\mu^0_a$. The smallest $\mu^0$
-\begin{itemize}
-    \item 
-\end{itemize}
-The solution to the minimization problem 
-\[
-\text{minimize }\mu^0\text{ such that } \lambda = (\sum_b n_{(a,b)} + \mu^0_b)_a \text{ and } \mu = (\sum_a n_{(a,b)} + \mu^0_a)_b
-% sum rows and sum columns
-\text{ are dominant effective}
-\]
-is 
-\[
-\begin{gathered}
-    \mu^0_{m} = 0 \\ 
-    \mu^0_{m-1} = \max\{0 , \sum_b n_{(m,b} - \sum_b n_{(m-1,b)}\} \\ 
-    \mu^0_i = \max\{0, \mu^0_{i+1} + \sum_b n_{(i+1,b)} - \sum_b n_{(i,b)} , \mu_{i+1}^0 + \sum_a n_{(a,i+1)} - \sum_a n_{(a,i)}\}
-\end{gathered}
-\]
-for $i = 1,\dots,m-2$. 
+% \begin{itemize}
+    % \item 
+    the smallest $\mu^0$ such that $\lambda$ is dominant effective (and $\mu$ is effective) is:
+    $$\begin{gathered}
+        \mu^0_{m}, \mu^0_{m-1} = 0 \\
+        \mu^0_i = \max\{0, \mu_{i+1}^0 + \sum_a n_{(a,i+1)} - \sum_a n_{(a,i)}\} \quad i = 1,\dots,m-2
+    \end{gathered}$$
+and $\mu^0$ defines a section $\sigma:\NN^{r} \to YT$.
+%     \item the smallest $\mu^0$ such that $\lambda$ and $\mu$ are dominant effective is: 
+%     $$\begin{gathered}
+%     \mu^0_{m} = 0 \\ 
+%     \mu^0_{m-1} = \max\{0 , \sum_b n_{(m,b)} - \sum_b n_{(m-1,b)}\} \\ 
+%     \mu^0_i = \max\{0, \mu^0_{i+1} + \sum_b n_{(i+1,b)} - \sum_b n_{(i,b)} , \mu_{i+1}^0 + \sum_a n_{(a,i+1)} - \sum_a n_{(a,i)}\} \quad i = 1,\dots, m-2
+%     \end{gathered}$$
+% and $\mu^0$ defines a section $\sigma_+:\NN^{r} \to YT_+$.
+% \end{itemize}
+% The solution to the minimization problem 
+% \[
+% \text{minimize }\mu^0\text{ such that } \lambda = (\sum_b n_{(a,b)} + \mu^0_b)_a \text{ and } \mu = (\sum_a n_{(a,b)} + \mu^0_a)_b
+% \text{ are dominant effective}
+% \]
+% is 
+% \[
+% \begin{gathered}
+%     \mu^0_{m} = 0 \\ 
+%     \mu^0_{m-1} = \max\{0 , \sum_b n_{(m,b} - \sum_b n_{(m-1,b)}\} \\ 
+%     \mu^0_i = \max\{0, \mu^0_{i+1} + \sum_b n_{(i+1,b)} - \sum_b n_{(i,b)} , \mu_{i+1}^0 + \sum_a n_{(a,i+1)} - \sum_a n_{(a,i)}\}
+% \end{gathered}
+% \]
 \end{lemma}
-
-In words, if we wish to produce a dominant weight tableau with Lusztig datum $n_\bullet$ of smallest possible shape and weight 
+\begin{proof}[Proof sketch.]
+% We explain the formula in the $\mu$ dominant case, and leave the $\mu$ non-dominant case to the reader. 
+To produce a tableau with Lusztig datum $n_\bullet$ of smallest possible shape and weight:
     \begin{itemize}
-        \item we can always take the number of $m$'s in row $m$ to be zero; 
-        \item we can take the number of $m-1$'s in row $m-1$ to be zero, unless $n_\bullet$ tells us that there are more $m$'s in the first $m-1$ rows than there are $m-1$'s in the first $m-2$ rows, and in that case we take $\mu^0_{m-1}$ so that it exactly offsets the difference; 
-        \item we can take the number of $m-2$'s in row $m-2$ to be zero, unless $n_\bullet$ tells us there are more $m-1$'s in the first $m-2$ rows than there are $m-2$'s in the first $m-3$ rows (exactly as in the last step), or that there are more boxes in row $m-1$ than there are in row $m-2$, and then we take $\mu^0_{m-2}$ to offset the maximum of the two differences; 
-        \item induct up to $\mu^0_1$. 
+        \item we can always take the number of $m$'s in row $m$, and the number of $m-1$'s in row $m-1$ to be zero; 
+        % \item we can take the number of $m-1$'s in row $m-1$ to be zero, unless $n_\bullet$ tells us that there are more $m$'s in the first $m-1$ rows than there are $m-1$'s in the first $m-2$ rows, and in that case we take $\mu^0_{m-1}$ so that it exactly offsets the difference; 
+        \item we can take the number of $m-2$'s in row $m-2$ to be zero, unless $n_\bullet$ tells us 
+        % there are more $m-1$'s in the first $m-2$ rows than there are $m-2$'s in the first $m-3$ rows (exactly as in the last step), or 
+        that there are more boxes in row $m-1$ than there are in row $m-2$, and then we take $\mu^0_{m-2}$ to offset the difference; 
+        % the maximum of the two differences; 
+        % \item induct up to $\mu^0_1$. 
     \end{itemize}
-    
-For example, if $n_\bullet = (1,0,0,1,0,1)$ then 
-\[
-n_\bullet + \mu^0 = 
-\begin{bmatrix}
-    \mu^0_1\\
-    1 & \mu^0_2 \\
-    0 & 1 & \mu^0_3 \\
-    0 & 0 & 1 & \mu^0_4 
-\end{bmatrix} \quad \lambda = (\mu_1^0 + 1, \mu_2^0 + 1, \mu_3^0 + 1, \mu_4^0) \quad \mu = (\mu_1^0, 1 + \mu_2^0, 1 + \mu_3^0, 1 + \mu_4^0) 
-\]
-and the solution to the minimization problem is 
-\begin{gather*}
-    \mu^0_4 = 0 \\
-    \mu^0_3 = \max\{0,\sum_c n_{(4,c)} - \sum_c n_{(3,c)} \} = \max\{0,1- 1\} = 0 \\
-    \mu^0_2 = \max \{0, \mu_3^0 + \sum_c n_{(3,c)} - \sum_c n_{(2,c)}, \mu_3^0 + \sum_r n_{(r,3)} - \sum_r n_{(r,2)}\} = \max\{0,1-1,1-1\} = 0 \\
-    \mu^0_1 = \max \{0, \mu_2^0 + \sum_c n_{(2,c)}, \mu_2^0 + \sum_r n_{(r,2)} - \sum_r n_{(r,1)}\} = \max \{0,1,1-1\} = 1 
-\end{gather*}
-In terms of GT-patterns and tableaux, the information of $n_\bullet$ together with $\mu^0$ define
-\[
-\gt = \begin{matrix}
-\mu_1^0 \\
-1 + \mu_1^0 & \mu_2^0 \\
-1 + \mu_1^0 & 1 + \mu_2^0 & \mu_3^0 \\
-1 + \mu_1^0 & 1 + \mu_2^0 & 1 + \mu_3^0 & \mu_4^0 
-\end{matrix} = \begin{matrix}
-1 \\
-2 & 0\\
-2 & 1 & 0 \\
-2 & 1 & 1 & 0 
-\end{matrix} \qquad
-\tau = \young(12,3,4)
-\]
+    and continue up to $\mu^0_1$. 
+\end{proof}
+% 
+% For example, if $n_\bullet = (1,0,0,1,0,1)$ then 
+% \[
+% n_\bullet + \mu^0 = 
+% \begin{bmatrix}
+%     \mu^0_1\\
+%     1 & \mu^0_2 \\
+%     0 & 1 & \mu^0_3 \\
+%     0 & 0 & 1 & \mu^0_4 
+% \end{bmatrix} \quad \lambda = (\mu_1^0 + 1, \mu_2^0 + 1, \mu_3^0 + 1, \mu_4^0) \quad \mu = (\mu_1^0, 1 + \mu_2^0, 1 + \mu_3^0, 1 + \mu_4^0) 
+% \]
+% and the solution to the minimization problem is 
+% \begin{gather*}
+%     \mu^0_4 = 0 \\
+%     \mu^0_3 = \max\{0,\sum_c n_{(4,c)} - \sum_c n_{(3,c)} \} = \max\{0,1- 1\} = 0 \\
+%     \mu^0_2 = \max \{0, \mu_3^0 + \sum_c n_{(3,c)} - \sum_c n_{(2,c)}, \mu_3^0 + \sum_r n_{(r,3)} - \sum_r n_{(r,2)}\} = \max\{0,1-1,1-1\} = 0 \\
+%     \mu^0_1 = \max \{0, \mu_2^0 + \sum_c n_{(2,c)}, \mu_2^0 + \sum_r n_{(r,2)} - \sum_r n_{(r,1)}\} = \max \{0,1,1-1\} = 1 
+% \end{gather*}
+% In terms of GT-patterns and tableaux, the information of $n_\bullet$ together with $\mu^0$ define
+% Thus
+% \[
+% \gt = \begin{matrix}
+% \mu_1^0 \\
+% 1 + \mu_1^0 & \mu_2^0 \\
+% 1 + \mu_1^0 & 1 + \mu_2^0 & \mu_3^0 \\
+% 1 + \mu_1^0 & 1 + \mu_2^0 & 1 + \mu_3^0 & \mu_4^0 
+% \end{matrix} = \begin{matrix}
+% 1 \\
+% 2 & 0\\
+% 2 & 1 & 0 \\
+% 2 & 1 & 1 & 0 
+% \end{matrix} \qquad
+% \sigma_+(n_\bullet) = \young(12,3,4)
+% \]
 % m-1 = 3: are there more 4s in the first 3 rows than there are 3s in the first 2 rows? 
 % m-2 = i = 2: are there more 3s in the first 2 rows than there are 2s in the first row? or are there more boxes in row 3 than there are in row 2? 
       
@@ -2287,7 +2320,8 @@ In terms of GT-patterns and tableaux, the information of $n_\bullet$ together wi
 % Finally we have two pairs of tableaux. We take the pair that has smallest total size, and smallest smallest member. 
 % \end{proof}
 
-For example, if $n' = (1,0,0,0,0,0)$ and $n'' = (0,0,0,1,0,1)$ then 
+% \acom{Omitting this example..}
+% For example, if $n' = (1,0,0,0,0,0)$ and $n'' = (0,0,0,1,0,1)$ then 
 % as we already saw the smallest dominant $\tau$ with datum $n' + n''$ is $\young(12,3,4)$ 
 % and it gives rise to the following two pairs of arrays of boxes:
 % $$
@@ -2295,8 +2329,7 @@ For example, if $n' = (1,0,0,0,0,0)$ and $n'' = (0,0,0,1,0,1)$ then
 % $$
 % In this case we need only pad the second pair (by adding a 1 in the $\varnothing$ slot above the 3) to get two pairs of tableaux. The smallest pair is the first. 
 % Note however that the second (padded) pair of tableaux is actually equivalent to the first, as we can safely delete the 1 in $\young(12)$ without affecting Lusztig data, or weight.
-
-Compare this with $n' = (0,0,0,0,0,1)$ and $n'' = (1,0,0,1,0,0)$. 
+% 
 % The total Lusztig datum is the same and so the tableau supplied by \Cref{lem:almostmintab} is the same. The two pairs of arrays of boxes are different:
 % \[
 % \young(\varnothing,\varnothing,4), \young(12,3) \qquad \young(2,3),\young(1,\varnothing,4)
@@ -2342,18 +2375,47 @@ Compare this with $n' = (0,0,0,0,0,1)$ and $n'' = (1,0,0,1,0,0)$.
 % As the examples show, there may be more than one way to break up a ``minimal'' tableau for $n_\bullet = n_\bullet ' + n_\bullet ''$ into two tableaux with data $n_\bullet' $ and $n_\bullet''$ resp.\ The practical notion of min is such that the generalized nonzero eigenspace has the smallest possible dimension.}
 % \end{proposition}
 
+% So given two stable MV cycles $Z',Z''$ of type $\lambda',\lambda''$ the \acom{above lemma} gives us two tableaux $\tau',\tau''$ of weight $\mu',\mu''$ such that $Z'= t^{-\lambda'}Z(\tau'), Z'' = t^{-\lambda''} Z(\tau'')$. 
+% So we are almost ready to compute intersection multiplicities in $Z'\geofu Z''$
+% $Z'\geofu Z''\cong Z(\tau')\geofu Z(\tau'')$ \jcom{I don't understand this equation} \acom{is it not true?}
+% using generalized orbital varieties (\Cref{cor:intmul}). Recall however that $X(\tau',\tau'')_{0,0}$ only makes sense for $\tau',\tau''$ having total weight $\mu = \mu' + \mu''$ dominant. If this is not the case, we take the bigger of the two tableaux and apply the padding map $(\phantom{-})_+:YT\to YT_+$ increasing its padding weight by $\mu^0 = (\max(0,\mu_2-\mu_1),\max(0,\mu_3 - \mu_2),\dots,\max(0,\mu_m-\mu_{m-1}))$. 
+%
+% For ease of computation we will choose our sections as small as possible.
+
 \begin{corollary}
-Given two stable MV cycles $Z',Z''$ with Lusztig data $n_\bullet',n_\bullet''$ resp.\ there exist $\lambda',\lambda''$ dominant effective and a pair of tableaux $(\tau',\tau'')\in YT(\lambda')\times YT(\lambda'')$ such that 
+Given two stable MV cycles $Z',Z''$ with Lusztig data $n_\bullet',n_\bullet''$ resp.\ there exists a pair of tableaux $(\tau',\tau'')\in YT(\lambda')_{\mu'}\times YT(\lambda'')_{\mu''}$ for some $\lambda',\lambda''$ dominant effective and some $\mu',\mu''$ effective, such that $\mu = \mu' + \mu''$ is dominant and if $\lambda = \lambda' + \lambda''$ then 
 \begin{equation}
     \label{eq:multingovs}
     % b_{Z'} \arfu b_{Z''} = \sum_{Z\in\cZ(\lambda)} \iota (Z, Z(\tau')\geofu Z(\tau''))b_{t^{-\lambda}Z}
     b_{Z'} \arfu b_{Z''} = \sum_{\tau\in YT(\lambda)} i (X(\tau), X(\tau',\tau'')_{0,0})b_{t^{-\lambda}Z(\tau)}
 \end{equation}
 % 
-where $\lambda = \lambda' + \lambda''$. 
+% where $\lambda = \lambda' + \lambda''$. 
 \end{corollary}
+\begin{proof}
+Choose $\tau' = \sigma(n_\bullet')$, $\tau'' = \sigma(n_\bullet'')$ and suppose $\tau'\in YT(\lambda')_{\mu'}$, $\tau'' \in YT(\lambda'')_{\mu''}$. 
+Note that $Z'= t^{-\lambda'}Z(\tau'), Z'' = t^{-\lambda''} Z(\tau'')$ so the intersection multiplicity of a stable MV cycle $Z$ in $Z'\geofu Z''$ can be computed as the intersection multiplicity of an MV cycle $Z(\tau)$ in $Z(\tau')\geofu Z(\tau'')$.
 
-To write down an expansion in $\CC[N]$ we choose a section $\bar\sigma_\lambda$ valued in smallest (not necessarily dominant) representative tableaux.
+In case $\mu$ is not dominant, increase its padding weight of the larger of the two tableaux by $(\max(0,\mu_2-\mu_1),\max(0,\mu_3 - \mu_2),\dots,\max(0,\mu_m-\mu_{m-1}))$. 
+% Note that this does not change the Lusztig datum, still rerpesents the same stable MV cycle!
+
+Now \Cref{cor:intmul} ensures that the intersection multiplicity of $Z(\tau)$ in $Z(\tau')\geofu Z(\tau'')$ can in turn be computed as the intersection multiplicity of the generalized orbital variety $X(\tau)$ in $X(\tau',\tau'')_{0,0}$.
+\end{proof}
+
+\jcom{From what you wrote it sounds like you are padding to make the weight of $ \tau' $ dominant.  This doesn't seem right to me.  Just because the weight of $\tau'$ is dominant, it doesn't mean that the weight of their sum will be. }
+% 
+% \acom{I think it's fine. I am making $\tau'$ bigger but using $\mu$ not $\mu'$. Oh I see..}
+\acom{Ok, now I think it is better. However I don't end up really needing $()_+$ or $\sigma_+$ because we don't really need ``the total tableau'' only the total weight of two tableaux.}
+\jcom{Yes, it is better now, but maybe you could write ``intersection multiplicity of $ Z(\tau)$ in $Z(\tau') \ast_0 Z(\tau'')$'' etc.}
+
+% 
+% For example, if $n_\bullet' = (0,0,0,0,0,1)$ and $n_\bullet'' = (1,0,0,1,0,0)$, then 
+% $$
+% \sigma(n_\bullet') = \young(1,2,4) \qquad 
+% \sigma(n_\bullet'') = \young(2,3)
+% $$
+
+% To write down an expansion in $\CC[N]$ we choose a section $\bar\sigma_\lambda$ valued in smallest (not necessarily dominant) representative tableaux.
 
 % \begin{comment}
 % \section{Cluster questions}
@@ -2418,22 +2480,27 @@ To write down an expansion in $\CC[N]$ we choose a section $\bar\sigma_\lambda$ 
 
 \section{Examples}
 \label{s:examples}
-\acom{Rewrite in view of fusion section. Relations dictated by $\tau$. Can mostly refer the reader to the previous section for this background, now.}
+% \acom{Rewrite in view of fusion section. Relations dictated by $\tau$. Can mostly refer the reader to the previous section for this background, now.}
 % \acom{Plus fusion product of fake MV cycles for a fourth!}
 
-As stated in the previous section, we will label MV cycles as semi-standard young tableaux. Suppose we have two tableaux $\tau'$ and $\tau''$, with respective weights $\lambda'$, $\mu'$ and $\lambda''$, $\mu''$, and we wished to take their fusion product. We consider a generic matrix $A \in \UU^{\mu',\mu''}_{0,s}$ as well as its submatrices $A_i := A\big|_{\CC^{|\mu(i)|}} \in \UU^{\mu'(i), \mu''(i)}_{0,s}$ for each $i=1, \dots, m$.
+We will abbreviate MV basis elements to their $\sigma$ tableaux and view $\CC[N]$ as an algebra in these, rewriting \Cref{eq:btimesb} as an equation in tableaux. 
+Suppose we have two tableaux $\tau'$ and $\tau''$, with respective weights $\lambda'$, $\mu'$ and $\lambda''$, $\mu''$, and we wish to take their fusion product. We consider a generic matrix $A \in \UU^{\mu',\mu''}_{0,s}$ as well as its submatrices $A_i := A\big|_{\CC^{|\mu(i)|}} \in \UU^{\mu'(i), \mu''(i)}_{0,s}$ for each $i=1, \dots, m$.
 
 % and see what relations on the variables in $A$ occur when also asking for it to be in $\OO^{\lambda',\lambda''}_{0,s}$. 
 
 % Consider the subtableaux $\tau'(i)$ of $\tau'$ and $\tau''(i)$ of $\tau''$ where we take the boxes of $\tau'$ and $\tau''$ containing the numbers $1,\dots,i$. Let $\lambda'(i)$ and $\lambda''(i)$ be the corresponding sizes and $\mu'(i)$ and $\mu'(i)$ be the corresponding weights of the subtableaux. For each $i$, we obtain a corresponding submatrix $A_i \in \UU^{\mu'(i), \mu''(i)}_{0,s}$ of $A$. 
 
-The requirement that each $A_i \in \OO^{\lambda'(i), \lambda''(i)}_{0,s}$ imposes rank conditions, equivalently vanishing and non-vanishing minors, which translates to relations in the coordinate ring $\CC[s, s^{-1}, A_{ij}^k : 1 \leq i,j \leq m, k \geq 1]$. \rcom{Would $\CC[A_{ij}^k, s, s^{-1}]$ be enough?} 
-Let $I$ be the ideal generated by these relations. Then $$J = (I \cap \CC[A_{ij}^k,s]) + (s)$$ gives us the ideal for the fusion. Taking the primary decomposition of $J$ gives us the ideal for each generalized orbital variety, which we then translate to a tableau, and finally to an MV cycle.
+The requirement that each $A_i \in \OO^{\lambda'(i), \lambda''(i)}_{0,s}$ imposes rank conditions, equivalently vanishing and non-vanishing minors, which translates to relations in the coordinate ring $\CC[A_{ij}^k, s^\pm]$
+% $\CC[s, s^{-1}, A_{ij}^k : 1 \leq i,j \leq m, k \geq 1]$. 
+% \rcom{Would $\CC[A_{ij}^k, s, s^{-1}]$ be enough?} \jcom{Yes, I think so, you could also use $ s^\pm$ instead of $ s, s^{-1} $}
+Let $I$ be the ideal generated by these relations. Then $$J = (I \cap \CC[A_{ij}^k,s]) + (s)$$ gives us the ideal for the fusion $ X(\tau', \tau'')_{0,0}$. Taking the primary decomposition of $J$ gives us ideals $J_1,\dots,J_n$, each corresponding to a generalized orbital variety occurring in the fusion. We then translate each of the $J_i$ to a tableau and finally to an MV cycle. Each $J_i$ also tells us the multiplicity of each MV cycle in the fusion product, where we have multiplicity 1 if and only if $J_i = \sqrt {J_i}$.
+
+\jcom{This is much better now.  The only problem is that the phrase ``the ideal'' occurs many times in this paragraph and sometimes refers to different ideals, so I think you could make this a bit more precise.  Especially ``gives us the ideal for each generalized orbital variety'' is quite confusing, maybe change to ``for those g.o.v. occurring in the fusion''.  I made one edit.}
 
 % To find the MV cycles, equivalently tableaux, in the $0$-fibre of the fusion, we consider the ring generated by all the variables of $A$ and quotient out the ideal generated by the relations from the vanishing minors as well as the minimal polynomial of $A$. We then add $s$ into the ideal. Each piece in the primary decomposition of this ideal will correspond to a tableaux, and subsequently an MV cycle.
 
 
-\jcom{More precisely, we have $ I \subset \CC[a_i, s, s^{-1}] $ then form $ I \cap \CC[a_i, s]$ and then quotient by $ s$.  This corresponds to taking the closure $ X(\tau',\tau'')_{0,\AA}$ and then taking the fibre.}
+%\jcom{More precisely, we have $ I \subset \CC[a_i, s, s^{-1}] $ then form $ I \cap \CC[a_i, s]$ and then quotient by $ s$.  This corresponds to taking the closure $ X(\tau',\tau'')_{0,\AA}$ and then taking the fibre.}
 
 % \begin{example}
 % Let $G = \GL_3$ and consider the tableaux
@@ -2573,13 +2640,17 @@ The MV cycle for each ideal is isomorphic to $\PP^2 \times \PP^2$.
 \end{comment}
 
 \begin{example}
-$\young(22)\arfu\young(11,33)$:
-    
+$\young(22)\arfu\young(11,33)= \young(33) + \young(22,33) + 2\cdot \young(23,3)$:
+% 
 % \acom{Here the fission is the smallest if we set out to minimize the dimension of the zero eigenspace. For Joel: this $\lambda(n_\bullet)$ again matches that of \cite{claxton2015young}}
+% 
+% Let $G = \GL_3$. 
+% 
+% Consider the tableaux
+% $$\tau' = \young(22) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau'' = \young(11,33).$$
+% Then the weights are $\lambda' = (2,0,0)$, $\lambda'' = (2,2,0)$, $\mu' = (0,2,0)$, and $\mu'' = (2,0,2)$. Our matrix $X$ is now
 
-Let $G = \GL_3$. Consider the tableaux
-$$\tau' = \young(22) \hspace{.5cm} \text{ and } \hspace{.5cm} \tau'' = \young(11,33).$$
-Then the weights are $\lambda' = (2,0,0)$, $\lambda'' = (2,2,0)$, $\mu' = (0,2,0)$, and $\mu'' = (2,0,2)$. Our matrix $X$ is now
+The requirement that 
 \[
 A = \left[\begin{BMAT}(e){cc;cc;cc}{cc;cc;cc}
     0 & 1 & & & & \\
@@ -2589,28 +2660,57 @@ A = \left[\begin{BMAT}(e){cc;cc;cc}{cc;cc;cc}
      & & & & 0 & 1 \\
      & & & & -s^2 & 2s
 \end{BMAT}
-\right].
+\right]\text{ is contained in } \young(22)\bdfamo \young(11,33)
 \]
-Using a computer, the ideals we get are
-$$
-\begin{array}{cl}
-    I_1 = & ( A_{12}^1, A_{12}^2,s ) \\
-    I_2 = & ( A_{23}^1, A_{23}^2,s ) \\
-    I_3 = & ( (A_{23}^1)^2, A_{12}^2A_{23}^1 + A_{12}^1A_{23}^2, A_{12}^1A_{23}^1, (A_{12}^1)^2,s ). 
-\end{array}
-$$
-The tableaux corresponding to each ideal is
-$$
-\begin{array}{cc}\vspace{1mm}
-    \young(1133,22) & \text{for } I_1 \\ \vspace{1mm}
-    \young(1122,33) & \text{for } I_2 \\ \vspace{1mm}
-    \young(1123,23) & \text{for } I_3
-\end{array}
-$$
-Note that the ideal $I_3$ has multiplicity 2 so our equation in $\CC[N]$ becomes
-\[
-\young(22) \cdot \young(11,33) = \young(33) + \young(22,33) + 2\cdot \young(23,3).
-\]
+results in the following relations on submatrices.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Submatrix} & \text{Relations} \\
+    \midrule 
+    A_2 & \text{None}  \BS \\ 
+    A_3 & 2 A_{12}^2 A_{23}^2 s + 3 A_{13}^2 s^2 + A_{12}^2 A_{23}^1 + A_{12}^1 A_{23}^2 + 2 A_{13}^1 s, \\
+     & A_{13}^2 s^3 - A_{12}^2 A_{23}^1 s - A_{12}^1 A_{23}^2 s - 2 A_{12}^1 A_{23}^1, \\ 
+     & A_{12}^2 A_{13}^2 A_{23}^1 s^2 + A_{12}^1 A_{13}^2 A_{23}^2 s^2 - (A_{12}^2 A_{23}^1)^2 + 2 A_{12}^1 A_{12}^2 A_{23}^1 A_{23}^2 - (A_{12}^1 A_{23}^2)^2 \\
+     & + 6 A_{12}^1 A_{13}^2 A_{23}^1 s + 4 A_{12}^1 A_{13}^1 A_{23}^1, \\
+     & A_{12}^1 A_{13}^2 (A_{23}^2)^2 s^2 - (A_{12}^2 A_{23}^1)^2 A_{23}^2 + 2 A_{12}^1 A_{12}^2 A_{23}^1 (A_{23}^2)^2 - (A_{12}^1)^2 (A_{23}^2)^3 \\ 
+     & - 2 A_{12}^2 A_{13}^2 (A_{23}^1)^2 s + 4 A_{12}^1 A_{13}^2 A_{23}^1 A_{23}^2 s - A_{13}^1 A_{13}^2 A_{23}^1 s^2 - 3 A_{12}^1 A_{13}^2 (A_{23}^1)^2 \\
+     & + 4 A_{12}^1 A_{13}^1 A_{23}^1 A_{23}^2, \\
+     & (A_{12}^2)^3 (A_{23}^1)^2 A_{23}^2 - 2 A_{12}^1 A_{23}^1 (A_{12}^2 A_{23}^2)^2 + A_{12}^2 (A_{12}^1)^2 (A_{23}^2)^3 + 2 A_{13}^2 (A_{12}^2 A_{23}^1)^2 s \\
+     & + 2 A_{13}^2 (A_{12}^1 A_{23}^2)^2 s + 3 A_{12}^1 (A_{13}^2)^2 A_{23}^1 s^2 + A_{13}^1 (A_{12}^2 A_{23}^1)^2 + 4 A_{12}^1 A_{12}^2 A_{13}^2 (A_{23}^1)^2  \\
+     & - 6 A_{12}^1 A_{12}^2 A_{13}^1 A_{23}^1 A_{23}^2 + 4 (A_{12}^1)^2 A_{13}^2 A_{23}^1 A_{23}^2  - 4 A_{12}^1 A_{13}^1 A_{13}^2 A_{23}^1 s - 4 A_{12}^1 (A_{13}^1)^2 A_{23}^1 \\
+     & + A_{13}^1 (A_{12}^1 A_{23}^2)^2
+    \end{tabular}
+\end{table}
+At $s=0$ the ideal generated by the above relations decomposes as a union of the following GOVs.
+\begin{table}[H]
+  \centering
+  \newcolumntype{Q}{>{$}l<{$}>{$}l<{$}}
+  \begin{tabular}{Q} 
+    \text{Ideal of }X(\tau) & \tau \\
+    \midrule 
+    ( A_{12}^1, A_{12}^2,s ) & \young(1133,22)  \BS \\ 
+    ( A_{23}^1, A_{23}^2,s ) & \young(1122,33) \BS\TS \\
+    ( (A_{23}^1)^2, A_{12}^2A_{23}^1 + A_{12}^1A_{23}^2, A_{12}^1A_{23}^1, (A_{12}^1)^2,s ) & \young(1123,23) \TS
+    \end{tabular}
+\end{table}
+% $$
+% \begin{array}{cl}
+    % I_1 = & ( A_{12}^1, A_{12}^2,s ) \\
+    % I_2 = & ( A_{23}^1, A_{23}^2,s ) \\
+    % I_3 = & ( (A_{23}^1)^2, A_{12}^2A_{23}^1 + A_{12}^1A_{23}^2, A_{12}^1A_{23}^1, (A_{12}^1)^2,s ). 
+% \end{array}
+% $$
+% The tableaux corresponding to each ideal is
+% $$
+% \begin{array}{cc}\vspace{1mm}
+%     \young(1133,22) & \text{for } I_1 \\ \vspace{1mm}
+%     \young(1122,33) & \text{for } I_2 \\ \vspace{1mm}
+%     \young(1123,23) & \text{for } I_3
+% \end{array}
+% $$
+The latter component occurs with multiplicity 2.
 \end{example}
 
 \subsection{Type $A_3$}\label{ss:GL4 examples}
@@ -2699,9 +2799,9 @@ We show that the cluster relations in $\CC[N]$ are also true for the fusion prod
 For each of the 15 exchange relations, we state the associated matrix $A$, the relations acquired from each submatrix $A_i$, the ideal generated by said relations, and the corresponding tableaux from the ideal.
 Instead of writing the exchange relations in terms of $b_{Z(\tau)}$ or the fusion product in terms of $Z(\tau)$, we will use $\tau$ for both situations.
 
-\jcom{I think that you should clarify what you mean by ``our ideal'' below.  I think that it is the ideal of $ X(\tau', \tau'')_{0,0}$, is that correct?}
+% \jcom{I think that you should clarify what you mean by ``our ideal'' below.  I think that it is the ideal of $ X(\tau', \tau'')_{0,0}$, is that correct?}
 
-\acom{The example below is an $A_2$ example, the same as the first $A_2$ example above.}
+% \acom{The example below is an $A_2$ example, the same as the first $A_2$ example above.}
 \begin{example}
 % Consider the product $Z_1 * Z_2$, so the tableaux are
 % Consider the product % $Z({{\scriptsize\young(2)}})*Z({\scriptsize\young(1,3)})$
