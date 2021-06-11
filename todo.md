@@ -1,5 +1,29 @@
 # todo
 
+## 2021-06-11
+
+\acom{I think that the following lemma should actually come before the above lemma.} \jcom{We can switch it if you like.  My friend Sabin really likes writing Lemmas below where they are used (take a look at my papers with him), so I got in the habit of doing so sometime.}
+\acom{Oic. First in last out? I like it! Too. But I am pretty sure there are other places where we use the more traditional FIFO. }
+
+\acom{Since we introduce this here we do not need to recall it again Section 7.3}
+\jcom{Actually, I rewrote this part to emphasize tableau, so I think that we should keep that part in section 6.3, since it is more about stable MV cycles.  Did we define $ r $ anywhere?}
+\acom{Ok. Yes, we defined $r$ in the intro. We should probably recall it.}
+\jcom{Added.}
+
+\jcom{I added this introductory sentence, feel free to modify.}
+
+\acom{I am not sure we need to list the Lusztig data.. also what do we think about calling the tableaux defined by the section $\sigma$ stable tableaux?} \jcom{Sure, even just stable tableaux is fine.  I do think that we should put the Lusztig datum in the table.  If we want them to take less space, we could just write $ 100000$, etc.} \acom{Ok! You're right. $n_\bullet$ is essential. I think the spacing is ok, but the order of the columns is funny. The process is $n_\bullet\to\tau\to X(\tau)\to Z$ and well I am not sure at what stage the cluster variable comes in, probably before $n_\bullet$.} \jcom{Let's move the Lusztig datum to the beginning (and get rid of the -) and leave the cluster variable at the end.}
+
+% For each of the 15 exchange relations, we record the matrix $A$, the relations acquired from each submatrix $A_i$, the ideal these generate, and the tableaux indexing its $s=0$ decomposition.
+% We will denote each MV cycle as well as the cluster variables (in the MV basis) in terms of tableaux. 
+\jcom{There is an overlap between this sentence and what was written at the beginning of the section.}
+\acom{Got rid of some of it. Feel free to modify}
+
+% \acom{Added a radical, bc without it it was not quite the ideal of $X(\tau)$?}  \jcom{Maybe the sentence before the table should be altered and then we should take out the radical, but is fine this way too.}
+
+% \acom{Sorry to beat a dead horse and for the use of this morbid idiom but \textit{are you sure} you do not want to add a disclaimer that we abuse notation and use $s$ to denote both points $s\in X$ and coordinates $s\in k[X]$ here?}
+% \jcom{Do you mean because $ s $ is sometimes a variable and sometimes a complex number?  I think that this is pretty standard, but we could write sometime if you like.  I think that $ s $ denotes a complex number throughout the paper, except in the examples section where it becomes a variable.  Is that correct?} \acom{Exactly. We don't have to write anything. I just want to not be confused about it. I think the source of my confusion is that we can't do this (identify points and variables) for anything other than the affine line without choosing a coordinate system. Like $\CC\xt[t-\infty] = \CC\xt[t^{-1}]$ for $\infty\in\PP$ doesn't make sense. Right?}\jcom{Yes}
+
 ## 2021-05-07
 - section 2.5 to propositions?
 - S^\mu',\mu'': can't we just define it? 
