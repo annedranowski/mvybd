@@ -10,15 +10,9 @@
 \begin{document}
 
 \maketitle
-% \tableofcontents
+% \tableofcontents 
 \begin{abstract}
-    Motivated by a conjecture of Anderson describing the structure of the ring of functions on a unipotent subgroup as an algebra spanned by the Mirkovi\'c--Vilonen cycles for the Langlands dual group with respect to the fusion product, we give a conceptually elementary approach to computing this product in type $A$. 
-    
-    We do so with the help of the Mirkovi\'c--Vybornov isomorphism (one of several established in \cite{mirkovic2007quiver}), which relates slices in the affine Grassmannian of $\GL_m$ and slices in nilpotent orbits of $N\times N$ matrices.
-   
-    Extending this isomoprhism to one relating families of slices in the two point Beilinson--Drinfeld Grassmannian and families of slices in orbits of matrices having two eigenvalues, we are able to transfer the fusion product of cycles to a fusion of matrices.
-    
-    As an application, we confirm that the cluster variables in $\CC[N]$ are contained in its Mirkovi\'c--Vilonen basis when $m=4$. 
+    The fusion of two Mirkovi\'c--Vilonen cycles is a degeneration of their product, defined using the Beilinson--Drinfeld Grassmannian.  In this paper, we put in place a conceptually elementary approach to computing this product in type $A$.  We do so by transferring the problem to a fusion of generalized orbital varieties using the Mirkovi\'c--Vybornov isomorphism.  As an application, we explicitly compute all cluster exchange relations in the coordinate ring of the upper-triangular subgroup of $ \GL_4$, confirming that all the cluster variables are contained in the Mirkovi\'c--Vilonen basis.
 \end{abstract}
 
 \section{Introduction}
@@ -42,7 +36,7 @@ Computing the fusion product of MV cycles using the BD Grassmannian is quite dif
 The purpose of this paper is to give a conceptually elementary way to compute this product by transferring it to a fusion product of generalized orbital varieties.  To do so, we use that the Mirkovi\'c--Vybornov isomorphism extends to an isomorphism between families of slices in the BD Grassmannian and families of slices of matrices with two eigenvalues. Our main result is the following (see \Cref{cor:goodreps} for a more precise statement).
 
 \begin{theorem}
-    Let $ Z', Z'' $ be MV cycles.  The structure constants for the multiplication $ b_{Z'} b_{Z''}$ in $\CC[N]$ are equal to the intersection multiplicities of generalized orbital varieties in the fusion of the generalized orbital varieties corresponding to $ Z', Z''$.
+    Let $ Z', Z'' $ be MV cycles.  The structure constants for the of the corresponding MV basis vectors in $\CC[N]$ are equal to the intersection multiplicities of generalized orbital varieties in the fusion of the generalized orbital varieties corresponding to $ Z', Z''$.
 \end{theorem}
 
 Since these generalized orbital varieties are subschemes of affine spaces of matrices defined by certain rank conditions, the fusion of generalized orbital varieties can be computed by elementary commutative algebra.
@@ -89,7 +83,7 @@ Our hope is that each exchange relation can be realized using the fusion of MV c
 Set $\cO = \cO_0 = \CC\xt$ and $\cK = \cK_0 = \CC\xT$.
 We will also consider $\cO_s = \CC\xt[t-s]$ and its fraction field $\cK_s=\CC\xT[t-s]$, for any $ s \in \CC\setminus\{0\} $, as well as $ \Oinf = \CC\xt[t^{-1}] $ and $\Kinf = \CC\xT[t^{-1}]$. For any point $ s \in \PP = \PP^1$, $ \cO_s$ is the completion of the local ring $ \mathcal O_{\PP, s} $ and thus the formal spectrum of $ \cO_s$ is the formal neighbourhood $ D_s$ of $ s $ (also called the formal disc centered at $ s$).  Similarly, the formal spectrum of the field $\cK_s$ is the deleted formal neighbourhood (or punctured disc), denoted $ D_s^\times$.
 
-Note that for $ s \in \AA $, we have an obvious isomorphism  $\cO_s \cong \cO$ and $\cK_s\cong\cK$ taking $ t-s $ to $ t$. 
+Note that for $ s \in \AA = \AA^1$, we have an obvious isomorphism  $\cO_s \cong \cO$ and $\cK_s\cong\cK$ taking $ t-s $ to $ t$. 
 % 
 
 \subsection{Groups}
@@ -99,7 +93,7 @@ Let $H $ be an algebraic group over $ \CC $.  We will be interested in $ H(R)$ w
 % 
 Note that evaluation at $ t = s$ provides a group homomorphism $ H(\cO_s) \rightarrow H$.  We denote the kernel of this map by $ H_1(\cO_s)$, often called the  first congruence subgroup.  We will be particularly interested in this construction in the case $ s = \infty$, which gives us the group $ H_1(\Oinf)$.
 
-Throughout the paper, we fix $ m \in \NN$.  We let $G = \GL_m$ and we let $T\subset G$ be the maximal torus of diagonal matrices. 
+Throughout the paper, we fix $ m \in \NN$.  We let $G = \GL_m$ and we let $T\subset G$ be the maximal torus of diagonal matrices. Let $ N, N_- \subset G$ denote the subgroups of upper and lower triangular matrices with 1s on the diagonal. 
 We identify $\ZZ^m$ with the coweight lattice of $G$ and say that a coweight $\nu = (\nu_1,\dots,\nu_m)$ is \new{dominant} if $\nu_1\ge\cdots\ge\nu_m$ and \new{effective} if $\nu_j\ge 0$ for all $j$.
 % 
 If $\nu$ is both effective and dominant, then it is a partition of size $|\nu| = \nu_1 + \cdots + \nu_m\in\NN$.  Let $ Q_+ \subset \ZZ^m$ denote the positive root cone, explicitly we have
@@ -287,12 +281,14 @@ The following result is the factorization property of the BD Grassmannian (see \
     In the $ s = 0 $ case, the isomorphism is described in the same way, except that we just need to form $ L(0)$.
 \end{proposition}
 
-There is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$. 
+For $ s \ne 0$, there is an isomorphism $ \Gr_s \cong \Gr $ coming from the isomorphism $ \Ks \cong \cK$. 
 % 
 Combining with \Cref{pr:polyno-taylor}, we obtain an isomorphism
 $$
     \theta_s : \Gr_{0,s} \rightarrow \Gr \times \Gr 
 $$
+
+Similarly, we write $ \theta_0$ for the isomorphism $ \Gr_{0,0} \xrightarrow{\sim} \Gr $.
 % 
 
 \subsection{The fusion construction}
@@ -362,7 +358,7 @@ Because we consider effective dominant $\lambda',\lambda''$, the spherical Schub
 \end{definition}
 % 
 
-In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the trivial vector bundle on $ \PP$ and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}. The lattice description of $ \cW_\mu \cap \Grth_+$ is given in Lemma \ref{le:Wmu} below. 
+In modular terms, $\cW_\mu$ corresponds to the locus of those $ (V, \varphi)$ such that $ V $ is isomorphic to the vector bundle $ \cO_{\PP}(\mu_1) \oplus \cdots \oplus \cO_{\PP}(\mu_m)$, and such that $ \varphi$ preserves the {Harder--Narasimhan filtration of $V$ at $ \infty$}. The lattice description of $ \cW_\mu \cap \Grth_+$ is given in Lemma \ref{le:Wmu} below. 
 % 
 \begin{definition} 
 \label{def:inftyorbit}
@@ -381,7 +377,7 @@ $$
 $$
 See \cite[Section~5.2]{baumann2020bases} for further details where this fibre is also described as the attracting locus for a $\Cx$ action.
 
-In \cite[Prop~2.6]{kamnitzer2014yangians}, we observed that $ S^\mu \subset \cW_\mu$ (this uses that $\mu$ dominant, which is the reason why we make this assumption).  More generally, we have the following result.
+In \cite[Prop~2.6]{kamnitzer2014yangians}, we observed that $ S^\mu \subset \cW_\mu$ (this uses that $\mu$ is dominant, which is the reason why we make this assumption).  More generally, we have the following result.
 
 \begin{lemma}
 \label{le:inftyfusiskl} 
@@ -449,20 +445,20 @@ The following fact seems to be well-known but we could not find this exact state
 In order to prove this proposition, we will need to recall some results from Eisenbud--Saltman \cite{eisenbud1989rank}. 
 % 
 
-Let $ r $ be a decreasing, concave, non-negative function of $\NN$ with $r(0) = N$, called a \new{rank function}.  Let $k $ be maximal such that $ r(k) \ne 0 $.
+Let $ r $ be a decreasing, non-negative function of $\NN$ with $r(0) = N$, called a \new{rank function}.  Let $k $ be maximal such that $ r(k) \ne 0 $.
 % 
 Let $ W$ be a subspace of $ \AA^k$. Eisenbud and Saltman define and study the flat family $ X_{r,W} \rightarrow W$ whose fibres are reduced and defined by rank conditions. We will now describe these fibres. 
 
-Let $ z \in \AA^k$ be a point. Some of the coordinates of $z$ may be equal, so we introduce the following data to keep track of these equalities. Let $ \ell$ denote the number of distinct coordinates of $ z $. There exist a sequence of integers $k = (k_0,\dots,k_\ell)$ such that $ 0=k_0< k_1< \dots < k_\ell = k $, a point $ s \in\AA^\ell$, such that $s_a\ne s_b$ for any $a\ne b$, and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
+Let $ z \in \AA^k$ be a point. Some of the coordinates of $z$ may be equal, so we introduce the following data to keep track of these equalities. Let $ \ell$ denote the number of distinct coordinates of $ z $. There exist a sequence of integers $\underline{k} = (k_0,\dots,k_\ell)$ such that $ 0=k_0< k_1< \dots < k_\ell = k $, a point $ \underline s \in\AA^\ell$, such that $s_a\ne s_b$ for any $a\ne b$, and a permutation  $ p $ of $ \{1, \dots, k\}$ such that 
 $$ 
     s_a = z_{p(k_{a-1}+1)} = z_{p(k_{a-1} + 2)} =  \cdots = z_{p(k_a)}
 $$ 
 for each $a = 1,\dots,\ell$. 
-Given the choice of $ s$ we require that $ p $ is of minimal length. 
-Given $z$, the data $k, s, p$ is unique up to a permutation of $ \{1, \dots, \ell\}$.
+Given the choice of $ \underline s$ we require that $ p $ is of minimal length. 
+Given $z$, the data $\underline{k}, \underline s, p$ is unique up to a permutation of $ \{1, \dots, \ell\}$.
 % 
 
-Next for $ a = 1, \dots, \ell $ and $ c = 1, \dots, k_{j+1} - k_j$, we define
+Next for $ a = 1, \dots, \ell $ and $ c = 1, \dots, k_{a+1} - k_a$, we define
 $$
     r_{z,a}(c):= N + \sum_{d = 1}^c r(p(k_a + d)) - r(p(k_a + d) - 1)  \, . 
 $$
@@ -492,7 +488,7 @@ For $ s \in \AA$, we define $ z(s) \in \AA^k$ by
 \end{cases}    
 \]
 
-For $ s \ne 0$, we see that the equalities in $ z(s) $ give rise to the data of \(\ell = 2\), \(k = (0,\lambda_1')\), \(s_1 = 0, s_2 = s\) and the permutation $p$.
+For $ s \ne 0$, we see that the equalities in $ z(s) $ give rise to the data of \(\ell = 2\), \(\underline k = (0,\lambda_1')\), \(\underline s = ( 0, s)\) and the permutation $p$.
 We also see that
 \begin{equation} 
 \label{eq:rcols}
@@ -700,7 +696,7 @@ $$
 \end{theorem}
 % 
 \begin{proof}
-We could prove this by observing the both sides are the attracting locus of an appropriate $ \Cx$ action. However, we will give the following more algebraic proof.
+We could prove this by observing that both sides are the attracting locus of an appropriate $ \Cx$ action. However, we will give the following more algebraic proof.
 
 Let $ A \in \TT_\mu$ and $ s \in \CC $. We must show that  $ (A,s) \in \UU^{\mu', \mu''}_{0,\AA} $ if and only if $ (g(A)\CC[t]^m,s) \in S^{\mu', \mu''}_{0,\AA} $. 
 
@@ -742,12 +738,12 @@ $$\overline{\OO}^\lambda \cap \TT_\mu\cap\n \cong\overline\Gr^\lambda\cap S^\mu_
 Continuing now with the notation of the previous sections, we add the assumption that $\mu\le\lambda$ and forget the assumption that $\mu$ is dominant. 
 % 
 \begin{definition}
-    An irreducible component of $\overline{\Gr^\lambda \cap S^\mu}$ is called an \new{Mirkovic--Vilonen cycle} in $\overline{\Gr}^\lambda$ of coweight $\mu$. 
+    An irreducible component of $\overline{\Gr^\lambda \cap S^\mu}$ is called an \new{Mirkovi\'c--Vilonen cycle} in $\overline{\Gr}^\lambda$ of coweight $\mu$. 
 \end{definition}
 
 By \cite[Theorem~3.2(b)]{mirkovic2007geometric}, each MV cycle in $\overline\Gr^\lambda$ of coweight $\mu$ has dimension $ \rho(\lambda - \mu)$ where $ \rho = (m, m-1, \dots, 1)$ and we use the ordinary dot product on $\ZZ^m$. We denote by $\cZ(\lambda)$ the collection of all MV cycles in $\overline{\Gr}^\lambda$ of coweight $\mu\le\lambda$. 
 
-In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovic--Vilonen polytopes, or, equivalently, Lusztig data, which are sequences in $\NN^{r}$ that depend on a choice of reduced expression for the longest element of the Weyl group of $G$.  We will now explain how to use these results to index MV cycles for $ \GL_m$ using Young tableaux. (For any $ G$, we use $ r $ for the number of positive roots; in the case of $ \GL_m$, $ r = m(m-1)/2$.)
+In \cite{kamnitzer2010mirkovic}, the third author gave a combinatorial description of MV cycles for any reductive group, using Mirkovi\'c--Vilonen polytopes, or, equivalently, Lusztig data, which are sequences in $\NN^{r}$ that depend on a choice of reduced expression for the longest element of the Weyl group of $G$.  We will now explain how to use these results to index MV cycles for $ \GL_m$ using Young tableaux. (For any $ G$, we use $ r $ for the number of positive roots; in the case of $ \GL_m$, $ r = m(m-1)/2$.)
 
 Denote by $[a,b]$ the interval $\{a,a+1,\dots,b-1,b\}\subset\NN$. We begin with the following definitions.
 % 
